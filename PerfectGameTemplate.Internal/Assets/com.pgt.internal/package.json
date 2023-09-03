@@ -1,0 +1,8 @@
+{
+    "name": "com.pgt.internal",
+    "version": "0.0.0",
+    "displayName": "Perfect Game Template Internal",
+    "dependencies": {
+        "com.unity.addressables": "0.0.0"
+    }
+}

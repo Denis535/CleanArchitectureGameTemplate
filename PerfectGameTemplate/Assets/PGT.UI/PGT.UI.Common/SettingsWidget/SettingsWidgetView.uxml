@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+  <Style src="project://database/Assets/PGT.UI/Assets.PGT.UI/Styles/UIStyleSheet.uss"></Style>
+  <PGT.UI.Common.SettingsWidgetView class="middle-widget-view">
+    <ui:Card>
+      <ui:Header>
+        <ui:Label text="Settings" name="title"></ui:Label>
+      </ui:Header>
+      <ui:Content>
+        <ui:ColumnGroup class="dark2 large grow-1">
+          <ui:Button class="width-75 align-self-center" text="Player Profile" name="player-profile"></ui:Button>
+          <ui:Button class="width-75 align-self-center" text="Video Settings" name="video-settings"></ui:Button>
+          <ui:Button class="width-75 align-self-center" text="Audio Settings" name="audio-settings"></ui:Button>
+        </ui:ColumnGroup>
+      </ui:Content>
+      <ui:Footer>
+        <ui:Button text="Back" name="back"></ui:Button>
+      </ui:Footer>
+    </ui:Card>
+  </PGT.UI.Common.SettingsWidgetView>
+</ui:UXML>

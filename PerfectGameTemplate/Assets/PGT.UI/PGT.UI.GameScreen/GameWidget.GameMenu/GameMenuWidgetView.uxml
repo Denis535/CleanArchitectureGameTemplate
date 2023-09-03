@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+  <Style src="project://database/Assets/PGT.UI/Assets.PGT.UI/Styles/UIStyleSheet.uss"></Style>
+  <PGT.UI.GameScreen.GameMenuWidgetView class="left-widget-view">
+    <ui:Card>
+      <ui:Header>
+        <ui:Label text="Game Menu" name="title"></ui:Label>
+      </ui:Header>
+      <ui:Content>
+        <ui:Button text="Resume" name="resume"></ui:Button>
+        <ui:Button text="Settings" name="settings"></ui:Button>
+        <ui:Button text="Exit" name="exit"></ui:Button>
+      </ui:Content>
+    </ui:Card>
+  </PGT.UI.GameScreen.GameMenuWidgetView>
+</ui:UXML>

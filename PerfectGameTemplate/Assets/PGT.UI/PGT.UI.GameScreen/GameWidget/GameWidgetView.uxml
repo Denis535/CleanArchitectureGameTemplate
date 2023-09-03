@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+  <Style src="project://database/Assets/PGT.UI/Assets.PGT.UI/Styles/UIStyleSheet.uss"></Style>
+  <PGT.UI.GameScreen.GameWidgetView class="widget-view" focusable="true"></PGT.UI.GameScreen.GameWidgetView>
+</ui:UXML>
