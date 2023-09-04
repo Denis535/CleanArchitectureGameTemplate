@@ -10,7 +10,7 @@ namespace PGT.UI.GameScreen {
 
     public class GameTheme : UIAudioTheme {
 
-        private GameScreen GameDisplayScreen { get; set; } = default!;
+        private GameScreen GameScreen { get; set; } = default!;
         private IList<AudioClip> Themes { get; set; } = default!;
 
         // Awake
@@ -19,9 +19,9 @@ namespace PGT.UI.GameScreen {
             AudioSource.mute = false;
             AudioSource.volume = 1;
             AudioSource.pitch = 1;
-            GameDisplayScreen = gameObject.RequireComponent<GameScreen>();
-            GameDisplayScreen.OnBeforeDescendantWidgetAttach<GameMenuWidget>( i => Pause() );
-            GameDisplayScreen.OnAfterDescendantWidgetDetach<GameMenuWidget>( i => UnPause() );
+            GameScreen = gameObject.RequireComponent<GameScreen>();
+            GameScreen.OnBeforeDescendantWidgetAttach<GameMenuWidget>( i => Pause() );
+            GameScreen.OnAfterDescendantWidgetDetach<GameMenuWidget>( i => UnPause() );
             Themes = Shuffle( Addressables2.LoadAssetsAsync<AudioClip>( R.PGT.UI.GameScreen.Music.Theme_1, R.PGT.UI.GameScreen.Music.Theme_2, R.PGT.UI.GameScreen.Music.Theme_3 ).GetResult()! );
         }
         public new void OnDestroy() {

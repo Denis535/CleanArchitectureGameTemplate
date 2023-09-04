@@ -11,7 +11,7 @@ namespace PGT.UI.MainScreen {
 
     public class MainTheme : UIAudioTheme {
 
-        private MainScreen MainMenuScreen { get; set; } = default!;
+        private MainScreen MainScreen { get; set; } = default!;
         private AudioClip Theme { get; set; } = default!;
 
         // Awake
@@ -20,8 +20,8 @@ namespace PGT.UI.MainScreen {
             AudioSource.mute = false;
             AudioSource.volume = 1;
             AudioSource.pitch = 1;
-            MainMenuScreen = gameObject.RequireComponent<MainScreen>();
-            MainMenuScreen.OnBeforeDescendantWidgetAttach<LoadingWidget>( i => Fade( AudioSource, destroyCancellationToken ) );
+            MainScreen = gameObject.RequireComponent<MainScreen>();
+            MainScreen.OnBeforeDescendantWidgetAttach<LoadingWidget>( i => Fade( AudioSource, destroyCancellationToken ) );
             Theme = Addressables2.LoadAssetAsync<AudioClip>( R.PGT.UI.MainScreen.Music.Theme ).GetResult()!;
         }
         public new void OnDestroy() {

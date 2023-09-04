@@ -140,16 +140,16 @@ namespace UnityEngine.Framework.UI {
 
         // OnDescendantAttach
         public virtual void OnBeforeDescendantAttach(UIWidget widget) {
-            Owner!.OnBeforeDescendantAttach( this );
+            Owner!.OnBeforeDescendantAttach( widget );
         }
         public virtual void OnAfterDescendantAttach(UIWidget widget) {
-            Owner!.OnAfterDescendantAttach( this );
+            Owner!.OnAfterDescendantAttach( widget );
         }
         public virtual void OnBeforeDescendantDetach(UIWidget widget) {
-            Owner!.OnBeforeDescendantDetach( this );
+            Owner!.OnBeforeDescendantDetach( widget );
         }
         public virtual void OnAfterDescendantDetach(UIWidget widget) {
-            Owner!.OnAfterDescendantDetach( this );
+            Owner!.OnAfterDescendantDetach( widget );
         }
 
     }
