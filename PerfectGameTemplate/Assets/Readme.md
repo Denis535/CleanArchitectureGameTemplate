@@ -1,11 +1,5 @@
 # Overview
-The PerfectGameTemplate is designed to be the foundation for any other project. It's very well designed and it allows you to quickly and efficiently start developing any project.
-
-# Setup
-1. You must link project with "com.pgt.internal" package. Unpack PerfectGameTemplate.Internal project next to the main PerfectGameTemplate project. Open Package Manager, press "Install package from disk" and choose "com.pgt.internal" package.
-2. You must link project with unity gaming services.
-3. Install Stylus npm package.
-4. Install Pug npm package.
+The PerfectGameTemplate is designed to be the foundation for any project. It's well designed and it allows you to quickly and efficiently start developing you any project.
 
 # Reference
 It consists of two projects: PerfectGameTemplate and PerfectGameTemplate.Internal.
@@ -20,7 +14,7 @@ The module contains scenes (Launcher, Program, MainScene, GameScene), main class
 The module contains screens (MainScreen, GameScreen, DebugScreen), widgets, views, styles and other assets.
 
 ### App
-The module contains application manager, game manager, globals (environment arguments, storage values and other global variables and constants).
+The module contains application manager, game manager, global variables and constants.
 
 ### Game
 The module contains domain logic.
@@ -64,8 +58,77 @@ The framework that helps you to develop your project (following the principles o
 - Addressables
 
 ### UnityEditor
- - ProjectWindow - project window with folders and assets painted in special colors
- - SourceGenerator - source generator to generate assets addresses and labels
- - ProjectConfigurator - project configurator to configure scripts execution order
- - ProjectAnalyzer - project analyzer to analyzer coding conventions
- - ProjectBuilder - project builder
+- ProjectWindow - project window with folders and assets painted in special colors
+- SourceGenerator - source generator to generate assets addresses and labels
+- ProjectConfigurator - project configurator to configure scripts execution order
+- ProjectAnalyzer - project analyzer to analyzer coding conventions
+- ProjectBuilder - project builder
+
+# Setup
+1. Install Node.js on your PC.
+2. Install Stylus npm package on your PC.
+3. Install Pug npm package on your PC.
+
+## PerfectGameTemplate
+1. You must link project with "com.pgt.internal" package. Open Package Manager, press "Install package from disk" and choose "com.pgt.internal" package.
+2. You must link project with unity gaming services.
+3. Create Packages/manifest.json with content:
+{
+  "dependencies": {
+    "com.unity.modules.animation": "1.0.0",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.imageconversion": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0",
+    "com.unity.modules.particlesystem": "1.0.0",
+    "com.unity.modules.physics": "1.0.0",
+    "com.unity.modules.terrain": "1.0.0",
+    "com.unity.modules.terrainphysics": "1.0.0",
+    "com.unity.modules.umbra": "1.0.0",
+    "com.unity.modules.unityanalytics": "1.0.0",
+    "com.unity.services.lobby": "1.1.0",
+    "com.unity.services.matchmaker": "1.0.0",
+    "com.unity.services.qos": "1.2.1",
+    "com.unity.nuget.mono-cecil": "1.11.4",
+    "com.unity.addressables": "1.21.17",
+    "com.unity.render-pipelines.universal": "15.0.6",
+    "com.unity.postprocessing": "3.3.0",
+    "com.unity.ui": "2.0.0",
+    "com.unity.2d.sprite": "1.0.0",
+    "com.unity.textmeshpro": "3.0.6",
+    "com.unity.inputsystem": "1.7.0",
+    "com.unity.test-framework": "1.3.9",
+    "com.unity.ide.visualstudio": "2.0.20",
+    "com.pgt.internal": "file:../../PerfectGameTemplate.Internal/Assets/com.pgt.internal"
+  }
+}
+
+## PerfectGameTemplate.Internal
+1. Unpack PerfectGameTemplate.Internal project near to the main PerfectGameTemplate project.
+2. Create Packages/manifest.json with content:
+{
+  "dependencies": {
+    "com.unity.modules.animation": "1.0.0",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.imageconversion": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0",
+    "com.unity.modules.particlesystem": "1.0.0",
+    "com.unity.modules.physics": "1.0.0",
+    "com.unity.modules.terrain": "1.0.0",
+    "com.unity.modules.terrainphysics": "1.0.0",
+    "com.unity.modules.umbra": "1.0.0",
+    "com.unity.modules.unityanalytics": "1.0.0",
+    "com.unity.services.lobby": "1.1.0",
+    "com.unity.services.matchmaker": "1.0.0",
+    "com.unity.services.qos": "1.2.1",
+    "com.unity.nuget.mono-cecil": "1.11.4",
+    "com.unity.addressables": "1.21.17",
+    "com.unity.render-pipelines.universal": "15.0.6",
+    "com.unity.postprocessing": "3.3.0",
+    "com.unity.ui": "2.0.0",
+    "com.unity.2d.sprite": "1.0.0",
+    "com.unity.textmeshpro": "3.0.6",
+    "com.unity.inputsystem": "1.7.0",
+    "com.unity.test-framework": "1.3.9",
+    "com.unity.ide.visualstudio": "2.0.20"
+  }
+}

@@ -18,20 +18,12 @@ namespace PGT.Tools {
 
     public static class Toolbar {
 
-        private static Action? Launcher { get; set; }
-
         // OnLoad
         [InitializeOnLoadMethod]
         internal static void OnLoad() {
             if (!EditorApplication.isPlaying) {
                 EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>( "Assets/PGT/Assets.PGT/Program.unity" );
                 //EditorSceneManager.playModeStartScene = null;
-                EditorApplication.playModeStateChanged += i => {
-                    if (i == PlayModeStateChange.EnteredPlayMode) {
-                        Launcher?.Invoke();
-                        Launcher = null;
-                    }
-                };
             }
         }
 
@@ -40,22 +32,22 @@ namespace PGT.Tools {
         internal static void OnEnterPlaymode() {
             var scene = SceneManager.GetActiveScene();
             if (scene.name == "Launcher") {
-                Launcher = async () => {
+                Program.Starter = async () => {
                     await Singleton.GetInstance<UIRouter>().LoadMainSceneAsync();
                 };
             }
             if (scene.name == "Program") {
-                Launcher = async () => {
+                Program.Starter = async () => {
                     await Singleton.GetInstance<UIRouter>().LoadMainSceneAsync();
                 };
             }
             if (scene.name == "MainScene") {
-                Launcher = async () => {
+                Program.Starter = async () => {
                     await Singleton.GetInstance<UIRouter>().LoadMainSceneAsync();
                 };
             }
             if (scene.name == "GameScene") {
-                Launcher = async () => {
+                Program.Starter = async () => {
                     var gameDesc = new GameDesc( "Game", GameMode._1x1, GameWorld.TestWorld1, false );
                     var playerDesc = new PlayerDesc( "Anonymous", PlayerRole.Master );
                     await Singleton.GetInstance<UIRouter>().LoadGameSceneAsync( gameDesc, playerDesc );

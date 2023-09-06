@@ -51,7 +51,7 @@ namespace UnityEngine {
                         public const string @inlineStyle = "PGT.UI.MainScreen/MainWidget/MainWidgetView.uxml[inlineStyle]";
                     }
                     public static class @Music {
-                        public const string @Theme = "PGT.UI.MainScreen/Music/Theme @Akira Yamaoka — Never Forgive Me, Never Forget Me.mp3";
+                        public const string @Theme = "PGT.UI.MainScreen/Music/Theme @Akira Yamaoka — Never Forgive Me, Never Forget Me.flac";
                     }
                 }
                 public static class @GameScreen {
