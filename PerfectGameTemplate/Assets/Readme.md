@@ -70,8 +70,8 @@ The framework that helps you to develop your project (following the principles o
 3. Install Pug npm package on your PC.
 
 ## PerfectGameTemplate
-1. You must link project with "com.pgt.internal" package. Open Package Manager, press "Install package from disk" and choose "com.pgt.internal" package.
-2. You must link project with unity gaming services.
+1. Link project with "com.pgt.internal" package. Open Package Manager, press "Install package from disk" and choose "com.pgt.internal" package.
+2. Link project with unity gaming services.
 3. Create Packages/manifest.json with content:
 {
   "dependencies": {
