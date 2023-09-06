@@ -55,9 +55,11 @@ namespace PGT {
 #if UNITY_EDITOR
             if (Starter != null) {
                 await Starter();
+                destroyCancellationToken.ThrowIfCancellationRequested();
             }
 #else
             await Router.LoadMainSceneAsync();
+            destroyCancellationToken.ThrowIfCancellationRequested();
 #endif
 
             // UnityServices
