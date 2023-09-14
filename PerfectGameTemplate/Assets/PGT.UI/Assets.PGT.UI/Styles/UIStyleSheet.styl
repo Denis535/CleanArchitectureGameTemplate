@@ -1,0 +1,104 @@
+// @import url("unity-theme://default")
+@import "UIStyleSheet_Internal"
+@import url("UIStyleSheet_Unity.uss")
+@import url("UIStyleSheet_Unity2.uss")
+@import url("UIStyleSheet_Library.uss")
+
+// view
+.view
+    layout-position()
+    layout-size()
+    layout-box()
+
+// screen-view
+.screen-view
+.views-container
+.modal-views-container
+    layout-position(absolute)
+    layout-size(100%, 100%)
+    layout-box(0px, 0px, 0px)
+
+// widget-view
+.widget-view
+    layout-position(absolute)
+    layout-size(100%, 100%)
+    layout-box(0px, 0px, 0px)
+.left-widget-view
+    layout-position(absolute, left: 5%, bottom: 10%)
+    layout-size(30%, auto)
+    layout-box(0px, 0px, 0px)
+.small-widget-view
+    layout-position(absolute, left: 50%, top: 50%)
+    layout-size(60%, 50%)
+    layout-box(0px, 0px, 0px)
+    translate -50% -50%
+.middle-widget-view
+    layout-position(absolute, left: 50%, top: 50%)
+    layout-size(80%, 70%)
+    layout-box(0px, 0px, 0px)
+    translate -50% -50%
+.large-widget-view
+    layout-position(absolute, left: 50%, top: 50%)
+    layout-size(90%, 80%)
+    layout-box(0px, 0px, 0px)
+    translate -50% -50%
+.modal-widget-view
+    layout-position(absolute, left: 50%, top: 49%)
+    layout-size(60%, 50%)
+    layout-box(0px, 0px, 0px)
+    translate -50% -50%
+
+// sub-view
+.sub-view
+    layout-position()
+    layout-size()
+    layout-box()
+
+// // card
+// .unity-card
+// .unity-header
+// .unity-content
+// .unity-footer
+
+// // dialog-card
+// .unity-dialog-card
+//     .unity-header
+//     .unity-content
+//     .unity-footer
+// // unity-info-dialog-card
+// .unity-info-dialog-card
+//     .unity-header
+//     .unity-content
+//     .unity-footer
+// // unity-warning-dialog-card
+// .unity-warning-dialog-card
+//     .unity-header
+//     .unity-content
+//     .unity-footer
+// // unity-error-dialog-card
+// .unity-error-dialog-card
+//     .unity-header
+//     .unity-content
+//     .unity-footer
+
+// title
+.title
+    view-foreground(font: fnt(null, 120%, bold))
+    view-background()
+    view-border()
+
+// MainWidgetView
+MainWidgetView
+    .background
+        view-foreground()
+        view-background(null, img('project://database/Assets/Mantrap.UI/Assets.Mantrap.UI.MainScreen/Images/Background.png', null, stretch-to-fill))
+        view-border()
+        layout-position(absolute)
+        layout-size(100%, 100%)
+        layout-box(0px, 0px, 0px)
+        transition-property scale, -unity-background-image-tint-color
+        transition-duration 3s
+        transition-timing-function ease
+
+// GameWidgetView
+// GameWidgetView

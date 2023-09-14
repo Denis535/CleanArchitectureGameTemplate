@@ -1,0 +1,16 @@
+doctype xml
+ui:UXML(xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False")
+	Style(src="project://database/Assets/PGT.UI/Assets.PGT.UI/Styles/UIStyleSheet.uss")
+	PGT::UI::Common::AudioSettingsWidgetView.middle-widget-view
+		ui:Card
+			ui:Header
+				ui:Label(text="Audio Settings" name="title")
+			ui:Content
+				ui:ColumnGroup.dark2.large.grow-1
+					ui:Slider(label="Master Volume" name="master-volume" high-value="1").label-width-25
+					ui:Slider(label="Music Volume" name="music-volume" high-value="1").label-width-25
+					ui:Slider(label="Sfx Volume" name="sfx-volume" high-value="1").label-width-25
+					ui:Slider(label="Game Volume" name="game-volume" high-value="1").label-width-25
+			ui:Footer
+				ui:Button(text="Ok" name="okey")
+				ui:Button(text="Back" name="back")

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+  <Style src="project://database/Assets/PGT.UI/Assets.PGT.UI/Styles/UIStyleSheet.uss"></Style>
+  <PGT.UI.MainScreen.CreateGameWidgetView class="large-widget-view">
+    <ui:Card>
+      <ui:Header>
+        <ui:Label text="Create Game" name="title"></ui:Label>
+      </ui:Header>
+      <ui:Content>
+        <ui:RowScope class="grow-0 basis-40">
+          <PGT.UI.MainScreen.CreateGameWidgetView.GameView class="grow-1 basis-0">
+            <ui:ColumnGroup class="light5 medium grow-1">
+              <ui:Label class="title" text="Game" name="title"></ui:Label>
+              <ui:RowScope>
+                <ui:TextField class="label-width-150px grow-1" label="Name" name="game-name" max-length="100"></ui:TextField>
+              </ui:RowScope>
+              <ui:RowScope>
+                <ui:DropdownField2 class="label-width-150px grow-1" label="Mode" name="game-mode"></ui:DropdownField2>
+                <ui:DropdownField2 class="label-width-150px grow-1" label="World" name="game-world"></ui:DropdownField2>
+                <ui:Toggle class="label-width-150px grow-0" label="Private" name="is-game-private"></ui:Toggle>
+              </ui:RowScope>
+            </ui:ColumnGroup>
+          </PGT.UI.MainScreen.CreateGameWidgetView.GameView>
+          <PGT.UI.MainScreen.CreateGameWidgetView.PlayerView class="grow-1 basis-0">
+            <ui:ColumnGroup class="light5 medium grow-1">
+              <ui:Label class="title" text="Player" name="title"></ui:Label>
+              <ui:RowScope>
+                <ui:TextField class="label-width-150px grow-1" label="Name" name="player-name" max-length="100" readonly="True"></ui:TextField>
+              </ui:RowScope>
+              <ui:RowScope>
+                <ui:DropdownField2 class="label-width-150px grow-1" label="Role" name="player-role"></ui:DropdownField2>
+              </ui:RowScope>
+            </ui:ColumnGroup>
+          </PGT.UI.MainScreen.CreateGameWidgetView.PlayerView>
+        </ui:RowScope>
+        <ui:ColumnGroup class="dark5 medium grow-1">
+          <ui:Label class="title" text="Lobby" name="title"></ui:Label>
+        </ui:ColumnGroup>
+      </ui:Content>
+      <ui:Footer>
+        <ui:Button text="Ok" name="okey"></ui:Button>
+        <ui:Button text="Back" name="back"></ui:Button>
+      </ui:Footer>
+    </ui:Card>
+  </PGT.UI.MainScreen.CreateGameWidgetView>
+</ui:UXML>

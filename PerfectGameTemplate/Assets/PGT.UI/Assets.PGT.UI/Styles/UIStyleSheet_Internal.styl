@@ -1,0 +1,209 @@
+// skin
+skin(skin, font = null, text = null, image = null, alpha = 1)
+    skin                        = get-view-skin(skin)
+    color                       = skin.color
+    background-color            = skin.background-color
+    background-color            = alpha(background-color, alpha(background-color) * alpha) if background-color != null
+    background-image-url        = (image or {}).url
+    background-image-color      = (image or {}).color or skin.background-image-color
+    background-image-scale-mode = (image or {}).scale-mode
+    background-image            = img(background-image-url, background-image-color, background-image-scale-mode)
+    border-color                = skin.border-color
+    border-color                = alpha(border-color, alpha(border-color) * ((alpha+3)/4)) if border-color != null
+    border-radius               = skin.border-radius
+    view-foreground color, font, text
+    view-background background-color, background-image
+    view-border     border-color, border-radius
+skin2(skin, position = null, width = null, height = null, margin = null, border = null, padding = null)
+    skin     = get-layout-skin(skin)
+    position = position or skin.position
+    width    = width    or skin.width
+    height   = height   or skin.height
+    margin   = margin   or skin.margin
+    border   = border   or skin.border
+    padding  = padding  or skin.padding
+    layout-position position, null, null, null, null
+    layout-size     width, height
+    layout-box      margin, border, padding
+effect(effect)
+    skin(effect)
+
+// view
+view-foreground(color = null, font = null, text = null)
+    add-property 'color',                                  color
+    add-property 'font'                                    font.url     if font != null
+    add-property 'font-definition'                         font.url     if font != null
+    add-property 'font-size',                              font.size    if font != null
+    add-property 'font-style',                             font.style   if font != null
+    add-property 'text-align',                             text.align   if text != null
+    add-property 'text-outline',                           text.outline if text != null
+    add-property 'text-shadow'                             text.shadow  if text != null
+view-background(background-color = null, background-image = null)
+    add-property 'background-color',                       background-color
+    add-property 'background-image',                       background-image.url        if background-image != null
+    add-property 'background-image-tint-color'             background-image.color      if background-image != null
+    add-property 'background-scale-mode'                   background-image.scale-mode if background-image != null
+view-border(border-color = null, border-radius = null)
+    add-property 'border-left-color',                      border-color[0]                   
+    add-property 'border-right-color',                     border-color[1] or border-color[0]
+    add-property 'border-top-color',                       border-color[2] or border-color[0]
+    add-property 'border-bottom-color',                    border-color[3] or border-color[0]
+    add-property 'border-top-left-radius',                 border-radius[0]                    
+    add-property 'border-top-right-radius',                border-radius[1] or border-radius[0]
+    add-property 'border-bottom-left-radius',              border-radius[2] or border-radius[0]
+    add-property 'border-bottom-right-radius',             border-radius[3] or border-radius[0]
+fnt(url = null, size = null, style = null)
+    return {
+        url:   url,
+        size:  size,
+        style: style
+    }
+txt(align = null, outline = null, shadow = null)
+    return {
+        align:   align,
+        outline: outline,
+        shadow:  shadow
+    }
+img(url = null, color = null, scale-mode = null)
+    return {
+        url:        url,
+        color:      color,
+        scale-mode: scale-mode
+    }
+
+// layout
+layout-position(position = null, left = null, right = null, top = null, bottom = null)
+    add-property 'position',                               position[0]
+    add-property 'left',                                   left   or position[1]
+    add-property 'right',                                  right  or position[2]
+    add-property 'top',                                    top    or position[3]
+    add-property 'bottom',                                 bottom or position[4]
+layout-size(width = null, height = null)
+    add-property 'width',                                  width[0]
+    add-property 'min-width',                              width[1]
+    add-property 'max-width',                              width[2]
+    add-property 'height',                                 height[0]
+    add-property 'min-height',                             height[1]
+    add-property 'max-height',                             height[2]
+layout-box(margin = null, border = null, padding = null)
+    add-property 'margin-left',                            margin[0]
+    add-property 'margin-right',                           margin[1] or margin[0]
+    add-property 'margin-top',                             margin[2] or margin[0]
+    add-property 'margin-bottom',                          margin[3] or margin[0]
+    add-property 'border-left-width',                      border[0]
+    add-property 'border-right-width',                     border[1] or border[0]
+    add-property 'border-top-width',                       border[2] or border[0]
+    add-property 'border-bottom-width',                    border[3] or border[0]
+    add-property 'padding-left',                           padding[0]
+    add-property 'padding-right',                          padding[1] or padding[0]
+    add-property 'padding-top',                            padding[2] or padding[0]
+    add-property 'padding-bottom',                         padding[3] or padding[0]
+
+// flex
+flex(flex-grow = null, flex-shrink = null, flex-basis = null, align-self = null)
+    add-property 'flex-grow',                              flex-grow
+    add-property 'flex-shrink',                            flex-shrink
+    add-property 'flex-basis',                             flex-basis
+    add-property 'align-self',                             align-self
+flex2(flex-direction = null, justify-content = null, align-items = null)
+    add-property 'flex-direction',                         flex-direction
+    add-property 'flex-wrap',                              null
+    add-property 'justify-content',                        justify-content
+    add-property 'align-items',                            align-items
+    add-property 'align-content',                          null
+
+// helpers
+create-view-skin(color, background-color, background-image-color, border-color, border-radius)
+    return {
+        color:                  get-theme-color(                 color                 ),
+        background-color:       get-theme-background-color(      background-color      ),
+        background-image-color: get-theme-background-image-color(background-image-color),
+        border-color:           get-theme-border-color(          border-color          ),
+        border-radius:          get-theme-border-radius(         border-radius         )
+    }
+create-layout-skin(position, width, height, margin, border, padding)
+    return {
+        position: position,
+        width:    width,
+        height:   height,
+        margin:   margin,
+        border:   border,
+        padding:  padding
+    }
+get-theme-color(key)
+    if key != null
+        key = get-string(key)
+        return theme['color'][key] or error('Theme has no color: ' + key)
+    null
+get-theme-background-color(key)
+    if key != null
+        key = get-string(key)
+        return theme['background-color'][key] or theme['color'][key] or error('Theme has no background-color: ' + key)
+    null
+get-theme-background-image-color(key)
+    if key != null
+        key = get-string(key)
+        return theme['background-image-color'][key] or theme['color'][key] or error('Theme has no background-image-color: ' + key)
+    null
+get-theme-border-color(key)
+    if key != null
+        key = get-string(key)
+        return theme['border-color'][key] or theme['color'][key] or error('Theme has no border-color: ' + key)
+    null
+get-theme-border-radius(key)
+    if key != null
+        key = get-string(key)
+        return theme['border-radius'][key] or error('Theme has no border-radius: ' + key)
+    null
+
+// helpers
+get-view-skin(skin)
+    if skin != null
+        skin = get-string(skin)
+        skin = view-skins[skin] or error('View skins has no skin: ' + skin)
+        return skin
+    return {}
+get-layout-skin(skin)
+    if skin != null
+        skin = get-string(skin)
+        skin = layout-skins[skin] or error('Layout skins has no skin: ' + skin)
+        return skin
+    return {}
+
+// helpers
+add-property(property, value)
+    property = get-unity-property(property) if property == 'overflow-clip-box'
+    property = get-unity-property(property) if property == 'font'
+    property = get-unity-property(property) if property == 'font-definition'
+    property = get-unity-property(property) if property == 'font-style'
+    property = get-unity-property(property) if property == 'text-align'
+    property = get-unity-property(property) if property == 'text-outline'
+    property = get-unity-property(property) if property == 'text-outline-width'
+    property = get-unity-property(property) if property == 'text-outline-color'
+    property = get-unity-property(property) if property == 'text-overflow-position'
+    property = get-unity-property(property) if property == 'paragraph-spacing'
+    property = get-unity-property(property) if property == 'background-image-tint-color'
+    property = get-unity-property(property) if property == 'background-scale-mode'
+    property = get-unity-property(property) if property == 'slice-scale'
+    property = get-unity-property(property) if property == 'slice-left'
+    property = get-unity-property(property) if property == 'slice-right'
+    property = get-unity-property(property) if property == 'slice-top'
+    property = get-unity-property(property) if property == 'slice-bottom'
+    value = get-url-value(value) if property == '-unity-font'
+    value = get-url-value(value) if property == '-unity-font-definition'
+    value = get-url-value(value) if property == 'background-image'
+    if value != null
+        {property} value
+get-unity-property(property)
+    if property != null
+        property = get-string(property)
+        return s("-unity-%s", property)
+    null
+get-url-value(url)
+    if url != null
+        url = get-string(url)
+        if match('^(project://)', url)
+            return s("url('%s')", url)
+        else
+            return s("resource('%s')", url)
+    null

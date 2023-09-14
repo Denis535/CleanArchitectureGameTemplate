@@ -1,0 +1,345 @@
+@import "UIStyleSheet_Internal"
+
+theme = {
+    color: {
+        none:                          hsla(  0deg,   0%,   0%, 0.00),
+        light:                         hsla(  0deg,   0%,  90%, 1.00),
+        dark:                          hsla(  0deg,   0%,  10%, 1.00),
+    },
+    background-color: {
+        none:                          hsla(  0deg,   0%,   0%, 0.00),
+        // card
+        card:                          hsla(240deg,   5%,  25%, 0.75),
+        card-header:                   hsla( 60deg,   5%,  80%, 0.75),
+        card-header-info:              hsla(200deg,  80%,  60%, 0.75),
+        card-header-warning:           hsla( 40deg,  80%,  60%, 0.75),
+        card-header-error:             hsla( 10deg,  80%,  60%, 0.75),
+        card-content:                  hsla(  0deg,   0%,   0%, 0.00),
+        card-footer:                   hsla(240deg,  10%,  10%, 0.75),
+        // group
+        light-group:                   hsla( 30deg,   5%,  80%, 0.20),
+        dark-group:                    hsla(200deg,   5%,  20%, 0.80),
+        // box 
+        light-box:                     hsla( 30deg,  15%,  80%, 0.20),
+        dark-box:                      hsla(200deg,  15%,  20%, 0.80),
+    },
+    background-image-color: {
+        none:                          hsla(  0deg,   0%,   0%, 0.00),
+        light:                         hsla( 30deg,  30%,  90%, 1.00),
+        dark:                          hsla(200deg,  30%,  10%, 1.00),
+    },
+    border-color: {
+        none:                          hsla(  0deg,   0%,   0%, 0.00),
+        // card
+        card:                          hsla( 35deg, 100%,  30%, 1.00),
+        card-header:                   hsla( 35deg, 100%,  30%, 1.00),
+        card-content:                  hsla(  0deg,   0%,   0%, 0.00),
+        card-footer:                   hsla( 35deg, 100%,  30%, 1.00),
+        // group
+        light-group:                   hsla( 35deg, 100%,  30%, 1.00),
+        dark-group:                    hsla( 35deg, 100%,  30%, 1.00),
+        // box
+        light-box:                     hsla( 45deg, 100%,  30%, 1.00),
+        dark-box:                      hsla( 45deg, 100%,  30%, 1.00),
+    },
+    border-radius: {
+        none:                          0px,
+        // card
+        card:                          6px,
+        card-header:                   6px 6px 0px 0px,
+        card-content:                  6px,
+        card-footer:                   0px 0px 6px 6px,
+        // group
+        group:                         6px,
+        // box
+        box:                           4px,
+    }
+}
+view-skins = {
+    // card
+    card:                              create-view-skin(dark,           card,                null,        card,            card        ),
+    card-header:                       create-view-skin(dark,           card-header,         null,        card-header,     card-header ),
+    card-header-info:                  create-view-skin(dark,           card-header-info,    null,        card-header,     card-header ),
+    card-header-warning:               create-view-skin(dark,           card-header-warning, null,        card-header,     card-header ),
+    card-header-error:                 create-view-skin(dark,           card-header-error,   null,        card-header,     card-header ),
+    card-content:                      create-view-skin(dark,           card-content,        null,        card-content,    card-content),
+    card-footer:                       create-view-skin(dark,           card-footer,         null,        card-footer,     card-footer ),
+    // scope
+    scope:                             create-view-skin(null,           none,                null,        none,            none        ),
+    // group
+    group:                             create-view-skin(null,           none,                null,        none,            group       ),
+    light-group:                       create-view-skin(dark,           light-group,         null,        light-group,     group       ),
+    dark-group:                        create-view-skin(light,          dark-group,          null,        dark-group,      group       ),
+    // box
+    box:                               create-view-skin(null,           none,                null,        none,            box         ),
+    light-box:                         create-view-skin(dark,           light-box,           null,        light-box,       box         ),
+    dark-box:                          create-view-skin(light,          dark-box,            null,        dark-box,        box         ),
+}
+layout-skins = {
+    // card
+    card:                              create-layout-skin(null, auto, auto, (0px            ), (1px            ), (0px                )),
+    card-header:                       create-layout-skin(null, auto, auto, (0px            ), (0px 0px 0px 1px), (12px 12px 10px 10px)),
+    card-content:                      create-layout-skin(null, auto, auto, (0px            ), (0px            ), (24px 24px 20px 20px)),
+    card-footer:                       create-layout-skin(null, auto, auto, (0px            ), (0px 0px 1px 0px), (24px 24px 20px 20px)),
+    // scope
+    scope:                             create-layout-skin(null, auto, auto, (0px            ), (0px            ), ( 0px  0px  0px  0px)),
+    small-scope:                       create-layout-skin(null, auto, auto, (0px            ), (0px            ), ( 6px  6px  5px  5px)),
+    medium-scope:                      create-layout-skin(null, auto, auto, (0px            ), (0px            ), (12px 12px 10px 10px)),
+    large-scope:                       create-layout-skin(null, auto, auto, (0px            ), (0px            ), (24px 24px 20px 20px)),
+    // group
+    group:                             create-layout-skin(null, auto, auto, (4px            ), (1px            ), ( 0px  0px  0px  0px)),
+    small-group:                       create-layout-skin(null, auto, auto, (4px            ), (1px            ), ( 6px  6px  5px  5px)),
+    medium-group:                      create-layout-skin(null, auto, auto, (4px            ), (1px            ), (12px 12px 10px 10px)),
+    large-group:                       create-layout-skin(null, auto, auto, (4px            ), (1px            ), (24px 24px 20px 20px)),
+    // box
+    box:                               create-layout-skin(null, auto, auto, (4px            ), (1px            ), ( 0px  0px  0px  0px)),
+    small-box:                         create-layout-skin(null, auto, auto, (4px            ), (1px            ), ( 6px  6px  5px  5px)),
+    medium-box:                        create-layout-skin(null, auto, auto, (4px            ), (1px            ), (12px 12px 10px 10px)),
+    large-box:                         create-layout-skin(null, auto, auto, (4px            ), (1px            ), (24px 24px 20px 20px)),
+}
+
+// card
+card()
+    skin(card)
+    skin2(card)
+    flex(1, 1, auto, auto)
+    flex2(column, flex-start, stretch)
+card-header()
+    skin(card-header, fnt(null, 130%, bold))
+    skin2(card-header)
+    flex(0, 0, auto, auto)
+    flex2(row, center, center)
+card-content()
+    skin(card-content, fnt(null, 100%, normal))
+    skin2(card-content)
+    flex(1, 1, auto, auto)
+    flex2(column, flex-start, stretch)
+card-footer()
+    skin(card-footer, fnt(null, 130%, bold))
+    skin2(card-footer)
+    flex(0, 0, auto, auto)
+    flex2(row, space-around, center)
+
+// dialog-card
+dialog-card()
+    skin(null)
+    skin2(null)
+dialog-card-header()
+    skin(null)
+    skin2(null)
+dialog-card-header-info()
+    skin(card-header-info)
+    skin2(null)
+dialog-card-header-warning()
+    skin(card-header-warning)
+    skin2(null)
+dialog-card-header-error()
+    skin(card-header-error)
+    skin2(null)
+dialog-card-content()
+    skin(null, fnt(null, 120%, bold))
+    skin2(null)
+    flex(null, null, null, null)
+    flex2(null, center, center)
+dialog-card-footer()
+    skin(null)
+    skin2(null)
+
+// scope
+scope()
+    skin(scope)
+    skin2(scope)
+    &.small
+        skin2(small-scope)
+    &.medium
+        skin2(medium-scope)
+    &.large
+        skin2(large-scope)
+column-scope()
+    flex(0, 1, auto, auto)
+    flex2(column, flex-start, stretch)
+row-scope()
+    flex(0, 1, auto, auto)
+    flex2(row, flex-start, stretch)
+
+// group
+group()
+    skin(group)
+    skin2(group)
+    &.light
+        skin(light-group, alpha: 0.00)
+    &.light1
+        skin(light-group, alpha: 0.10)
+    &.light2
+        skin(light-group, alpha: 0.20)
+    &.light3
+        skin(light-group, alpha: 0.30)
+    &.light4
+        skin(light-group, alpha: 0.40)
+    &.light5
+        skin(light-group, alpha: 0.50)
+    &.light6
+        skin(light-group, alpha: 0.60)
+    &.light7
+        skin(light-group, alpha: 0.70)
+    &.light8
+        skin(light-group, alpha: 0.80)
+    &.light9
+        skin(light-group, alpha: 0.90)
+    &.light10
+        skin(light-group, alpha: 1.00)
+    &.dark
+        skin(dark-group, alpha: 0.00)
+    &.dark1
+        skin(dark-group, alpha: 0.10)
+    &.dark2
+        skin(dark-group, alpha: 0.20)
+    &.dark3
+        skin(dark-group, alpha: 0.30)
+    &.dark4
+        skin(dark-group, alpha: 0.40)
+    &.dark5
+        skin(dark-group, alpha: 0.50)
+    &.dark6
+        skin(dark-group, alpha: 0.60)
+    &.dark7
+        skin(dark-group, alpha: 0.70)
+    &.dark8
+        skin(dark-group, alpha: 0.80)
+    &.dark9
+        skin(dark-group, alpha: 0.90)
+    &.dark10
+        skin(dark-group, alpha: 1.00)
+    &.small
+        skin2(small-group)
+    &.medium
+        skin2(medium-group)
+    &.large
+        skin2(large-group)
+column-group()
+    flex(0, 1, auto, auto)
+    flex2(column, flex-start, stretch)
+row-group()
+    flex(0, 1, auto, auto)
+    flex2(row, flex-start, stretch)
+
+// box
+box()
+    skin(box)
+    skin2(box)
+    &.light
+        skin(light-box, alpha: 0.00)
+    &.light1
+        skin(light-box, alpha: 0.10)
+    &.light2
+        skin(light-box, alpha: 0.20)
+    &.light3
+        skin(light-box, alpha: 0.30)
+    &.light4
+        skin(light-box, alpha: 0.40)
+    &.light5
+        skin(light-box, alpha: 0.50)
+    &.light6
+        skin(light-box, alpha: 0.60)
+    &.light7
+        skin(light-box, alpha: 0.70)
+    &.light8
+        skin(light-box, alpha: 0.80)
+    &.light9
+        skin(light-box, alpha: 0.90)
+    &.light10
+        skin(light-box, alpha: 1.00)
+    &.dark
+        skin(dark-box, alpha: 0.00)
+    &.dark1
+        skin(dark-box, alpha: 0.10)
+    &.dark2
+        skin(dark-box, alpha: 0.20)
+    &.dark3
+        skin(dark-box, alpha: 0.30)
+    &.dark4
+        skin(dark-box, alpha: 0.40)
+    &.dark5
+        skin(dark-box, alpha: 0.50)
+    &.dark6
+        skin(dark-box, alpha: 0.60)
+    &.dark7
+        skin(dark-box, alpha: 0.70)
+    &.dark8
+        skin(dark-box, alpha: 0.80)
+    &.dark9
+        skin(dark-box, alpha: 0.90)
+    &.dark10
+        skin(dark-box, alpha: 1.00)
+    &.small
+        skin2(small-box)
+    &.medium
+        skin2(medium-box)
+    &.large
+        skin2(large-box)
+
+// card
+.unity-card
+    card()
+.unity-header
+    card-header()
+.unity-content
+    card-content()
+.unity-footer
+    card-footer()
+    *
+        layout-size(25%, null)
+
+// dialog-card
+.unity-dialog-card
+    dialog-card()
+    .unity-header
+        dialog-card-header()
+    .unity-content
+        dialog-card-content()
+    .unity-footer
+        dialog-card-footer()
+// unity-info-dialog-card
+.unity-info-dialog-card
+    .unity-header
+        dialog-card-header-info()
+    .unity-content
+        dialog-card-content()
+    .unity-footer
+        dialog-card-footer()
+// unity-warning-dialog-card
+.unity-warning-dialog-card
+    .unity-header
+        dialog-card-header-warning()
+    .unity-content
+        dialog-card-content()
+    .unity-footer
+        dialog-card-footer()
+// unity-error-dialog-card
+.unity-error-dialog-card
+    .unity-header
+        dialog-card-header-error()
+    .unity-content
+        dialog-card-content()
+    .unity-footer
+        dialog-card-footer()
+
+// scope
+.unity-scope
+    scope()
+.unity-column-scope
+    column-scope()
+.unity-row-scope
+    row-scope()
+
+// group
+.unity-group
+    group()
+.unity-column-group
+    column-group()
+.unity-row-group
+    row-group()
+
+// box
+.unity-box
+    box()

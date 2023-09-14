@@ -1,0 +1,15 @@
+doctype xml
+ui:UXML(xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False")
+	Style(src="project://database/Assets/PGT.UI/Assets.PGT.UI/Styles/UIStyleSheet.uss")
+	PGT::UI::Common::VideoSettingsWidgetView.middle-widget-view
+		ui:Card
+			ui:Header
+				ui:Label(text="Video Settings" name="title")
+			ui:Content
+				ui:ColumnGroup.dark2.large.grow-1
+					ui:Toggle(label="Full Screen" name="is-full-screen").label-width-25
+					ui:DropdownField2(label="Screen Resolution" name="screen-resolution").label-width-25
+					ui:Toggle(label="V-Sync" name="is-v-sync").label-width-25
+			ui:Footer
+				ui:Button(text="Ok" name="okey")
+				ui:Button(text="Back" name="back")
