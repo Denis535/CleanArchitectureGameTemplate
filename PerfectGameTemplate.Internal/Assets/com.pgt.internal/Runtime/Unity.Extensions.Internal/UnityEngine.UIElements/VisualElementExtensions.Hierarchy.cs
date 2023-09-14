@@ -144,13 +144,15 @@ namespace UnityEngine.UIElements {
         // RequireElement
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static T RequireElement<T>(this VisualElement element, string? name, params string[] classes) where T : VisualElement {
-            var value = element.Query<T>( name, classes ).First();
-            return value ?? throw Exceptions.Internal.Exception( $"Element {name} ({typeof( T )}) was not found" );
+            var result = element.Query<T>( name, classes ).First();
+            Assert.Operation.Message( $"Element {typeof( T )} ({name}) was not found" ).Valid( result != null );
+            return result;
         }
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static T[] RequireElements<T>(this VisualElement element, string? name, params string[] classes) where T : VisualElement {
-            var values = element.Query<T>( name, classes ).ToList().ToArray();
-            return values.NullIfEmpty() ?? throw Exceptions.Internal.Exception( $"Elements {name} ({typeof( T )}) was not found" );
+            var result = element.Query<T>( name, classes ).ToList().ToArray().NullIfEmpty();
+            Assert.Operation.Message( $"Elements {typeof( T )} ({name}) was not found" ).Valid( result != null );
+            return result;
         }
 
     }

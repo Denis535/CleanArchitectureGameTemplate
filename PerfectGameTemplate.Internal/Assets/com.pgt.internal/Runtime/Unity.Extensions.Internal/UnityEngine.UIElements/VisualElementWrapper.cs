@@ -3,12 +3,11 @@ namespace UnityEngine.UIElements {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
     public abstract class VisualElementWrapper<T> where T : VisualElement {
 
-        protected readonly T target;
+        internal readonly T target;
 
         public bool IsEnabled {
             get => target.enabledSelf;
@@ -28,6 +27,34 @@ namespace UnityEngine.UIElements {
         }
 
     }
+    public static class VisualElementWrapperExtensions {
+
+        // Wrap
+        public static ElementWrapper Wrap(this VisualElement target) {
+            return new ElementWrapper( target );
+        }
+        public static TextElementWrapper Wrap(this TextElement target) {
+            return new TextElementWrapper( target );
+        }
+        public static FieldWrapper<T> Wrap<T>(this BaseField<T?> target) where T : notnull {
+            return new FieldWrapper<T>( target );
+        }
+        public static SliderFieldWrapper<T> Wrap<T>(this BaseSlider<T?> target) where T : notnull, IComparable<T?> {
+            return new SliderFieldWrapper<T>( target );
+        }
+        public static PopupFieldWrapper<T> Wrap<T>(this PopupField<T?> target) where T : notnull {
+            return new PopupFieldWrapper<T>( target );
+        }
+        public static PopupFieldWrapper2<T> Wrap<T>(this PopupField<object?> target) where T : notnull {
+            return new PopupFieldWrapper2<T>( target );
+        }
+
+        // As
+        public static PopupFieldWrapper2<T> As<T>(this PopupFieldWrapper<object> wrapper) where T : notnull {
+            return new PopupFieldWrapper2<T>( wrapper.target );
+        }
+
+    }
     // Element
     public class ElementWrapper : VisualElementWrapper<VisualElement> {
 
@@ -38,152 +65,112 @@ namespace UnityEngine.UIElements {
             return "{0}".Format( GetType().Name );
         }
 
-        [return: NotNullIfNotNull( nameof( target ) )]
-        public static implicit operator ElementWrapper?(VisualElement? target) {
-            if (target != null) return new ElementWrapper( target );
-            return null;
-        }
-
     }
-    // Text
-    public class TextWrapper : VisualElementWrapper<TextElement> {
+    // TextElement
+    public class TextElementWrapper : VisualElementWrapper<TextElement> {
 
         public string? Text {
             get => target.text;
             set => target.text = value;
         }
 
-        public TextWrapper(TextElement target) : base( target ) {
+        public TextElementWrapper(TextElement target) : base( target ) {
         }
 
         public override string ToString() {
             return "{0}: { Text={1} }".Format( GetType().Name, target.text?.ToString() ?? "Null" );
         }
 
-        [return: NotNullIfNotNull( nameof( target ) )]
-        public static implicit operator TextWrapper?(TextElement? target) {
-            if (target != null) return new TextWrapper( target );
-            return null;
-        }
-
     }
-    // Value
-    public class ValueWrapper<T> : VisualElementWrapper<BaseField<T>> {
+    // Field
+    public class FieldWrapper<T> : VisualElementWrapper<BaseField<T?>> where T : notnull {
 
-        public T Value {
+        public T? Value {
             get => target.value;
             set => target.value = value;
         }
 
-        public ValueWrapper(BaseField<T> target) : base( target ) {
+        public FieldWrapper(BaseField<T?> target) : base( target ) {
         }
 
         public override string ToString() {
             return "{0}: { Value={1} }".Format( GetType().Name, target.value?.ToString() ?? "Null" );
         }
 
-        [return: NotNullIfNotNull( nameof( target ) )]
-        public static implicit operator ValueWrapper<T>?(BaseField<T>? target) {
-            if (target != null) return new ValueWrapper<T>( target );
-            return null;
-        }
-
     }
-    // Value/MinMax
-    public class ValueMinMaxWrapper<T> : VisualElementWrapper<BaseSlider<T>> where T : IComparable<T> {
+    // SliderField
+    public class SliderFieldWrapper<T> : VisualElementWrapper<BaseSlider<T?>> where T : notnull, IComparable<T?> {
 
-        public T Value {
+        public T? Value {
             get => target.value;
             set => target.value = value;
         }
-        public T Min {
+        public T? Min {
             get => target.lowValue;
             set => target.lowValue = value;
         }
-        public T Max {
+        public T? Max {
             get => target.highValue;
             set => target.highValue = value;
         }
-        public (T Value, T Min, T Max) ValueMinMax {
+        public (T? Value, T? Min, T? Max) ValueMinMax {
             get => (target.value, target.lowValue, target.highValue);
             set => (target.value, target.lowValue, target.highValue) = (value.Value, value.Min, value.Max);
         }
 
-        public ValueMinMaxWrapper(BaseSlider<T> target) : base( target ) {
+        public SliderFieldWrapper(BaseSlider<T?> target) : base( target ) {
         }
 
         public override string ToString() {
             return "{0}: { Value={1} }".Format( GetType().Name, target.value?.ToString() ?? "Null" );
         }
 
-        [return: NotNullIfNotNull( nameof( target ) )]
-        public static implicit operator ValueMinMaxWrapper<T>?(BaseSlider<T>? target) {
-            if (target != null) return new ValueMinMaxWrapper<T>( target );
-            return null;
-        }
-
     }
-    // Value/Choices
-    public class ValueChoicesWrapper<T> : VisualElementWrapper<PopupField<T>> {
+    // PopupField
+    public class PopupFieldWrapper<T> : VisualElementWrapper<PopupField<T?>> where T : notnull {
 
-        public T Value {
+        public T? Value {
             get => target.value;
             set => target.value = value;
         }
-        public T[] Choices {
+        public T?[] Choices {
             get => target.choices.ToArray();
             set => target.choices = value.ToList();
         }
-        public (T Value, T[] Choices) ValueChoices {
+        public (T? Value, T?[] Choices) ValueChoices {
             get => (target.value, target.choices.ToArray());
             set => (target.value, target.choices) = (value.Value, value.Choices.ToList());
         }
 
-        public ValueChoicesWrapper(PopupField<T> target) : base( target ) {
-        }
-
-        public ValueChoicesWrapper2<TAs, T> As<TAs>() {
-            return new ValueChoicesWrapper2<TAs, T>( target );
+        public PopupFieldWrapper(PopupField<T?> target) : base( target ) {
         }
 
         public override string ToString() {
             return "{0}: { Value={1} }".Format( GetType().Name, target.value?.ToString() ?? "Null" );
         }
 
-        [return: NotNullIfNotNull( nameof( target ) )]
-        public static implicit operator ValueChoicesWrapper<T>?(PopupField<T>? target) {
-            if (target != null) return new ValueChoicesWrapper<T>( target );
-            return null;
-        }
-
     }
-    // Value/Choices
-    public class ValueChoicesWrapper2<T, TSource> : VisualElementWrapper<PopupField<TSource>> {
+    // PopupField
+    public class PopupFieldWrapper2<T> : VisualElementWrapper<PopupField<object?>> where T : notnull {
 
-        public T Value {
-            get => (T) (object?) target.value!;
-            set => target.value = (TSource) (object?) value!;
+        public T? Value {
+            get => (T?) target.value;
+            set => target.value = value;
         }
-        public T[] Choices {
+        public T?[] Choices {
             get => target.choices.Cast<T>().ToArray();
-            set => target.choices = value.Cast<TSource>().ToList();
+            set => target.choices = value.Cast<object?>().ToList();
         }
-        public (T Value, T[] Choices) ValueChoices {
+        public (T? Value, T?[] Choices) ValueChoices {
             get => (Value, Choices);
             set => (Value, Choices) = (value.Value, value.Choices);
         }
 
-        internal ValueChoicesWrapper2(PopupField<TSource> target) : base( target ) {
+        internal PopupFieldWrapper2(PopupField<object?> target) : base( target ) {
         }
 
         public override string ToString() {
             return "{0}: { Value={1} }".Format( GetType().Name, target.value?.ToString() ?? "Null" );
-        }
-
-        [return: NotNullIfNotNull( nameof( target ) )]
-        public static implicit operator ValueChoicesWrapper2<T, TSource>?(PopupField<TSource> target) {
-            if (target != null) return new ValueChoicesWrapper2<T, TSource>( target );
-            return null;
         }
 
     }

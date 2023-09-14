@@ -14,18 +14,18 @@ namespace UnityEditor.Tools_ {
     using UnityEngine.Framework.Game;
     using UnityEngine.Framework.UI;
 
-    public abstract class ProjectAnalyzerBase {
+    public abstract class ProjectAnalyzer {
 
         // Analyze
         public virtual void Analyze() {
             foreach (var assembly in Compilation.CompilationPipeline.GetAssemblies().Where( IsSupported )) {
                 Analyze( assembly );
-                foreach (var type in Assembly.LoadFrom( assembly.outputPath ).DefinedTypes) {
-                    Analyze( type );
-                }
             }
         }
         public virtual void Analyze(Compilation.Assembly assembly) {
+            foreach (var type in Assembly.LoadFrom( assembly.outputPath ).DefinedTypes) {
+                Analyze( type );
+            }
         }
         public virtual void Analyze(Type type) {
         }
@@ -40,7 +40,7 @@ namespace UnityEditor.Tools_ {
         }
 
     }
-    public class ProjectAnalyzer : ProjectAnalyzerBase {
+    public class ProjectAnalyzer2 : ProjectAnalyzer {
 
         // Analyze
         public override void Analyze() {
@@ -66,30 +66,30 @@ namespace UnityEditor.Tools_ {
             }
         }
         public virtual void Analyze_UI(Type type, string @namespace) {
-            // Audio
-            if (type.CanAnalyze( typeof( UIAudioTheme ) )) {
+            // Audible
+            if (type.CanAnalyze( typeof( UIAudioThemeBase ) )) {
                 type.Namespace( "UnityEngine.Framework.UI", $"{@namespace}.UI" );
                 type.Name( "*Theme" );
             }
             // Logical
-            if (type.CanAnalyze( typeof( UIScreen ) )) {
+            if (type.CanAnalyze( typeof( UIScreenBase ) )) {
                 type.Namespace( "UnityEngine.Framework.UI", $"{@namespace}.UI" );
                 type.Name( "*Screen" );
             }
-            if (type.CanAnalyze( typeof( UIWidget ) )) {
+            if (type.CanAnalyze( typeof( UIWidgetBase ) )) {
                 type.Namespace( "UnityEngine.Framework.UI", $"{@namespace}.UI" );
                 type.Name( "*Widget" );
             }
             // Visual
-            if (type.CanAnalyze( typeof( UIView ) )) {
+            if (type.CanAnalyze( typeof( UIViewBase ) )) {
                 type.Namespace( "UnityEngine.Framework.UI", $"{@namespace}.UI" );
                 type.Name( "*View" );
             }
-            if (type.CanAnalyze( typeof( UIScreenView ) )) {
+            if (type.CanAnalyze( typeof( UIScreenViewBase ) )) {
                 type.Namespace( "UnityEngine.Framework.UI", $"{@namespace}.UI" );
                 type.Name( "*ScreenView" );
             }
-            if (type.CanAnalyze( typeof( UIWidgetView ) )) {
+            if (type.CanAnalyze( typeof( UIWidgetViewBase ) )) {
                 type.Namespace( "UnityEngine.Framework.UI", $"{@namespace}.UI" );
                 type.Name( "*WidgetView" );
             }
@@ -103,10 +103,6 @@ namespace UnityEditor.Tools_ {
                 type.Name( "*Event" );
             }
             // Misc
-            if (type.CanAnalyze( typeof( UIInfrastructure ) )) {
-                type.Namespace( "UnityEngine.Framework.UI", $"{@namespace}.UI" );
-                type.Name( "UIInfrastructure" );
-            }
             if (type.CanAnalyze( typeof( UIRouterBase ) )) {
                 type.Namespace( "UnityEngine.Framework.UI", $"{@namespace}.UI" );
                 type.Name( "UIRouter" );
@@ -114,14 +110,9 @@ namespace UnityEditor.Tools_ {
         }
         public virtual void Analyze_App(Type type, string @namespace) {
             // App
-            if (type.CanAnalyze( typeof( AppManagerBase ) )) {
+            if (type.CanAnalyze( typeof( ApplicationBase ) )) {
                 type.Namespace( "UnityEngine.Framework.App", $"{@namespace}.App" );
-                type.Name( "AppManager" );
-            }
-            // Game
-            if (type.CanAnalyze( typeof( GameManagerBase ) )) {
-                type.Namespace( "UnityEngine.Framework.App", $"{@namespace}.App" );
-                type.Name( "GameManager" );
+                type.Name( "Application" );
             }
             // Globals
             if (type.CanAnalyze( typeof( GlobalsBase ) )) {

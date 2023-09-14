@@ -11,8 +11,8 @@ namespace UnityEngine {
         public const int UI = 10_400;
         public const int App = 10_300;
         public const int Game = 10_200;
-        public const int Game_World = 10_100;
-        public const int Game_Entity = 10_000;
+        public const int World = 10_100;
+        public const int Entity = 10_000;
 
     }
 }

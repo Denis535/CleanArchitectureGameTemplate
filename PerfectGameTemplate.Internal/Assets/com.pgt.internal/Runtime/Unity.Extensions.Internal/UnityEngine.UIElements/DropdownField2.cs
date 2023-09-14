@@ -39,22 +39,24 @@ namespace UnityEngine.UIElements {
 
         public static Func<object?, string>? Formatter { get; set; }
 
-
         // Constructor
         public DropdownField2() {
             if (Formatter != null) {
-                formatSelectedValueCallback = formatListItemCallback = Formatter;
+                formatSelectedValueCallback = Formatter;
+                formatListItemCallback = Formatter;
             }
         }
         public DropdownField2(string? label) {
             if (Formatter != null) {
-                formatSelectedValueCallback = formatListItemCallback = Formatter;
+                formatSelectedValueCallback = Formatter;
+                formatListItemCallback = Formatter;
             }
             this.label = label;
         }
         public DropdownField2(string? label, int index, object?[] choices) {
             if (Formatter != null) {
-                formatSelectedValueCallback = formatListItemCallback = Formatter;
+                formatSelectedValueCallback = Formatter;
+                formatListItemCallback = Formatter;
             }
             this.label = label;
             this.index = index;
@@ -62,7 +64,8 @@ namespace UnityEngine.UIElements {
         }
         public DropdownField2(string? label, object? value, object?[] choices) {
             if (Formatter != null) {
-                formatSelectedValueCallback = formatListItemCallback = Formatter;
+                formatSelectedValueCallback = Formatter;
+                formatListItemCallback = Formatter;
             }
             this.label = label;
             this.value = value;

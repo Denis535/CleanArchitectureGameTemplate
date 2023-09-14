@@ -5,13 +5,9 @@ namespace UnityEngine.Framework.UI {
     using System.Collections.Generic;
     using UnityEngine;
 
-    public abstract class UIRouterBase : MonoBehaviour {
+    public interface IUIObservable {
 
-        // Awake
-        public void Awake() {
-        }
-        public void OnDestroy() {
-        }
+        Action<UIMessage>? OnMessageEvent { get; set; }
 
     }
 }

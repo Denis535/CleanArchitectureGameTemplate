@@ -36,6 +36,17 @@ namespace UnityEngine.UIElements {
             }
         }
 
+        // IsSubmit
+        public static bool IsSubmit(this Button button) {
+            return button.name is "submit" or "confirmation" or "confirm" or "okey" or "ok" or "yes";
+        }
+        public static bool IsCancel(this Button button) {
+            return button.name is "cancellation" or "cancel" or "back" or "no";
+        }
+        public static bool IsQuit(this Button button) {
+            return button.name is "quit";
+        }
+
         // SetUp
         public static T SetUp<T>(this T element, string? name, params string[] classes) where T : VisualElement {
             element.name = name;
@@ -125,10 +136,6 @@ namespace UnityEngine.UIElements {
         public static void OnClick(this VisualElement element, EventCallback<ClickEvent> callback) {
             element.RegisterCallback( callback );
         }
-        public static void OnClickOrSubmit(this VisualElement element, EventCallback<EventBase> callback) {
-            element.RegisterCallback( (EventCallback<ClickEvent>) callback );
-            element.RegisterCallback( (EventCallback<NavigationSubmitEvent>) callback );
-        }
 
         // OnChange
         public static void OnChange<T>(this VisualElement element, EventCallback<ChangeEvent<T>> callback) {
@@ -148,11 +155,11 @@ namespace UnityEngine.UIElements {
 
         // Focus
         public static bool IsFocused(this VisualElement element) {
-            Assert.Internal.Message( $"Element {element} must be attached" ).Valid( element.panel != null );
+            Assert.Object.Message( $"Element {element} must be attached" ).Valid( element.panel != null );
             return element == element.focusController.focusedElement;
         }
         public static void SetFocus(this VisualElement element) {
-            Assert.Internal.Message( $"Element {element} must be attached" ).Valid( element.panel != null );
+            Assert.Object.Message( $"Element {element} must be attached" ).Valid( element.panel != null );
             if (element.focusable) {
                 element.Focus();
             } else {
@@ -164,14 +171,14 @@ namespace UnityEngine.UIElements {
             }
         }
         public static void LoadFocus(this VisualElement element) {
-            Assert.Internal.Message( $"Element {element} must be attached" ).Valid( element.panel != null );
+            Assert.Object.Message( $"Element {element} must be attached" ).Valid( element.panel != null );
             var focusable = (VisualElement?) element.userData;
             if (focusable != null) {
                 focusable.Focus();
             }
         }
         public static void SaveFocus(this VisualElement element) {
-            Assert.Internal.Message( $"Element {element} must be attached" ).Valid( element.panel != null );
+            Assert.Object.Message( $"Element {element} must be attached" ).Valid( element.panel != null );
             var focusable = (VisualElement?) element.focusController.focusedElement;
             if (focusable != null && (element == focusable || element.Contains( focusable ))) {
                 element.userData = focusable;

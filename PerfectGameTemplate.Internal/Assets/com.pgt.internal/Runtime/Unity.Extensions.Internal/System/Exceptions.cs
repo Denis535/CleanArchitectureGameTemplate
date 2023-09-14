@@ -5,40 +5,34 @@ namespace System {
     using System.Collections.Generic;
 
     public static class Exceptions {
-        // Argument
-        public static class Argument {
-            public static ArgumentException Invalid(FormattableString message) => Create<ArgumentException>( message );
-            public static ArgumentOutOfRangeException OutOfRange(FormattableString message) => Create<ArgumentOutOfRangeException>( message );
-            public static ArgumentNullException Null(FormattableString message) => Create<ArgumentNullException>( message );
-        }
-        // Operation
-        public static class Operation {
-            public static InvalidOperationException Invalid(FormattableString message) => Create<InvalidOperationException>( message );
-        }
-        // Object
-        public static class Object {
-            public static ObjectInvalidException Invalid(FormattableString message) => Create<ObjectInvalidException>( message );
-            public static ObjectDisposedException Disposed(FormattableString message) => Create<ObjectDisposedException>( message );
-        }
-        // Internal
+        //public static class Argument {
+        //    public static ArgumentException Invalid(FormattableString message) => Exception<ArgumentException>( message.GetDisplayString() );
+        //    public static ArgumentOutOfRangeException OutOfRange(FormattableString message) => Exception<ArgumentOutOfRangeException>( message.GetDisplayString() );
+        //    public static ArgumentNullException Null(FormattableString message) => Exception<ArgumentNullException>( message.GetDisplayString() );
+        //}
+        //public static class Operation {
+        //    public static InvalidOperationException Invalid(FormattableString message) => Exception<InvalidOperationException>( message.GetDisplayString() );
+        //}
+        //public static class Object {
+        //    public static ObjectInvalidException Invalid(FormattableString message) => Exception<ObjectInvalidException>( message.GetDisplayString() );
+        //    public static ObjectDisposedException Disposed(FormattableString message) => Exception<ObjectDisposedException>( message.GetDisplayString() );
+        //}
         public static class Internal {
-            public static Exception Exception(FormattableString message) => Create<Exception>( message );
-            public static NullReferenceException NullReference(FormattableString message) => Create<NullReferenceException>( message );
-            public static NotSupportedException NotSupported(FormattableString message) => Create<NotSupportedException>( message );
-            public static NotImplementedException NotImplemented(FormattableString message) => Create<NotImplementedException>( message );
+            public static Exception Exception(FormattableString message) => Exception<Exception>( message.GetDisplayString() );
+            public static NullReferenceException NullReference(FormattableString message) => Exception<NullReferenceException>( message.GetDisplayString() );
+            public static NotSupportedException NotSupported(FormattableString message) => Exception<NotSupportedException>( message.GetDisplayString() );
+            public static NotImplementedException NotImplemented(FormattableString message) => Exception<NotImplementedException>( message.GetDisplayString() );
         }
 
-        // Helpers/Create
-        private static T Create<T>(FormattableString message) where T : Exception {
-            return Create<T>( Format( message.Format, message.GetArguments() ) );
-        }
-        private static T Create<T>(string message) where T : Exception {
+        // Helpers
+        internal static T Exception<T>(string message) where T : Exception {
             var type = typeof( T );
             var constructor = type.GetConstructor( new Type[] { typeof( string ), typeof( Exception ) } );
-            return (T) constructor.Invoke( new object?[] { message, (Exception?) null } );
+            return (T) constructor.Invoke( new object?[] { message, null } );
         }
-        // Helpers/Format
-        private static string Format(string format, object?[] args) {
+        internal static string GetDisplayString(this FormattableString message) {
+            var format = message.Format;
+            var args = message.GetArguments();
             for (var i = 0; i < args.Length; i++) {
                 format = format.Replace( $" {{{i}}} ", $" '{{{i}}}' " );
             }

@@ -16,10 +16,6 @@ namespace UnityEditor.Tools_ {
         public Regex Regex { get; }
 
         // Constructor
-        public ProjectWindow() {
-            EditorApplication.projectWindowItemOnGUI = OnProjectItemGUI;
-            Regex = CreateRegex( PlayerSettings.productName );
-        }
         public ProjectWindow(params string[] modules) {
             EditorApplication.projectWindowItemOnGUI = OnProjectItemGUI;
             Regex = CreateRegex( modules );
@@ -33,7 +29,7 @@ namespace UnityEditor.Tools_ {
 
         // DrawItem
         public virtual void DrawItem(Rect rect, string path) {
-            if (Match( path, out var module, out var content )) {
+            if (IsMatch( Regex, path, out var module, out var content )) {
                 if (content == null) {
                     DrawModule( rect, path, module );
                 } else {
@@ -72,25 +68,11 @@ namespace UnityEditor.Tools_ {
             DrawRect( rect, color );
         }
 
-        // Match
-        public virtual bool Match(string path, [NotNullWhen( true )] out string? module, out string? content) {
-            var match = Regex.Match( path );
-            if (match.Success) {
-                module = match.Groups[ "module" ].Value;
-                content = match.Groups[ "content" ].Value.NullIfEmpty();
-                return true;
-            } else {
-                module = null;
-                content = null;
-                return false;
-            }
-        }
-
         // Helpers
-        protected static Regex CreateRegex(params string[] modules) {
+        private static Regex CreateRegex(params string[] modules) {
             // ^     - begin of line
             // $     - end of line
-            // ?     - zerp / one
+            // ?     - zero / one
             // *     - zero / more
             // +     - one  / more
             // (.*)  - match zero / more of any
@@ -102,6 +84,18 @@ namespace UnityEditor.Tools_ {
             builder.Append( @"(?<module> (" ).AppendJoin( "|", modules.Select( Regex.Escape ) ).Append( @") (/|$))" ).AppendLine();
             builder.Append( @"(?<content> (.*))" );
             return new Regex( builder.ToString(), RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace );
+        }
+        private static bool IsMatch(Regex regex, string path, [NotNullWhen( true )] out string? module, out string? content) {
+            var match = regex.Match( path );
+            if (match.Success) {
+                module = match.Groups[ "module" ].Value;
+                content = match.Groups[ "content" ].Value.NullIfEmpty();
+                return true;
+            } else {
+                module = null;
+                content = null;
+                return false;
+            }
         }
         // Helpers
         protected static Color RGBA(float r, float g, float b, float a) {

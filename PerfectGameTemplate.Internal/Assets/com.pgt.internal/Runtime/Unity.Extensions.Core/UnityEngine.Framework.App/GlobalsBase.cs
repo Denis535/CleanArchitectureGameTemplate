@@ -10,7 +10,6 @@ namespace UnityEngine.Framework.App {
 
         // Constructor
         public GlobalsBase() {
-            Singleton.Register( this );
         }
 
         // Utils

@@ -8,107 +8,66 @@ namespace System {
 
     public static class Assert {
         public static class Argument {
-            public static Assertation.Message<Assertation.Argument> Message(FormattableString text) => new( text );
+            public static Assertions.Message<Assertions.Argument> Message(FormattableString text) => new( text.GetDisplayString() );
         }
         public static class Operation {
-            public static Assertation.Message<Assertation.Operation> Message(FormattableString text) => new( text );
+            public static Assertions.Message<Assertions.Operation> Message(FormattableString text) => new( text.GetDisplayString() );
         }
         public static class Object {
-            public static Assertation.Message<Assertation.Object> Message(FormattableString text) => new( text );
+            public static Assertions.Message<Assertions.Object> Message(FormattableString text) => new( text.GetDisplayString() );
         }
         public static class Internal {
-            public static Assertation.Message<Assertation.Internal> Message(FormattableString text) => new( text );
+            public static Assertions.Message<Assertions.Internal> Message(FormattableString text) => new( text.GetDisplayString() );
         }
     }
-    public static class Assertation {
-        public abstract class Message {
-            private FormattableString Text { get; }
-
-            public Message(FormattableString text) {
-                Text = text;
+    // Assertions
+    public static class Assertions {
+        public class Message<T> {
+            internal string Value { get; }
+            public Message(string value) {
+                Value = value;
             }
             public override string ToString() {
-                return Format( Text );
-            }
-
-            // Helpers/Format
-            private static string Format(FormattableString @string) {
-                return Format( @string.Format, @string.GetArguments() );
-            }
-            private static string Format(string format, object?[] args) {
-                for (var i = 0; i < args.Length; i++) {
-                    format = format.Replace( $" {{{i}}} ", $" '{{{i}}}' " );
-                }
-                return string.Format( format, args );
+                return Value;
             }
         }
-        public class Message<T> : Message {
-            public Message(FormattableString text) : base( text ) {
-            }
+        public abstract class Argument {
         }
-        public class Argument {
+        public abstract class Operation {
         }
-        public class Operation {
+        public abstract class Object {
         }
-        public class Object {
+        public abstract class Internal {
         }
-        public class Internal {
-        }
-    }
-    public static class Assertations {
 
         // Argument
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static void Valid(this Assertation.Message<Assertation.Argument> message, [DoesNotReturnIf( false )] bool isValid) {
-            Throw<ArgumentException>( message, isValid );
-        }
-        // Argument/InRange
-        [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static void InRange(this Assertation.Message<Assertation.Argument> message, [DoesNotReturnIf( false )] bool isInRange) {
-            Throw<ArgumentOutOfRangeException>( message, isInRange );
-        }
-        // Argument/NotNull
-        [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static void NotNull(this Assertation.Message<Assertation.Argument> message, [DoesNotReturnIf( false )] bool isNotNull) {
-            Throw<ArgumentNullException>( message, isNotNull );
+        public static void Valid(this Message<Argument> message, [DoesNotReturnIf( false )] bool isValid) {
+            if (!isValid) throw Exceptions.Exception<ArgumentException>( message.Value );
         }
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static void NotNull(this Assertation.Message<Assertation.Argument> message, object? argument) {
-            Throw<ArgumentNullException>( message, argument != null );
-        }
-        // Operation
-        [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static void Valid(this Assertation.Message<Assertation.Operation> message, [DoesNotReturnIf( false )] bool isValid) {
-            Throw<InvalidOperationException>( message, isValid );
-        }
-        // Object
-        [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static void Valid(this Assertation.Message<Assertation.Object> message, [DoesNotReturnIf( false )] bool isValid) {
-            Throw<ObjectInvalidException>( message, isValid );
+        public static void InRange(this Message<Argument> message, [DoesNotReturnIf( false )] bool isValid) {
+            if (!isValid) throw Exceptions.Exception<ArgumentOutOfRangeException>( message.Value );
         }
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static void Alive(this Assertation.Message<Assertation.Object> message, [DoesNotReturnIf( false )] bool isAlive) {
-            Throw<ObjectDisposedException>( message, isAlive );
-        }
-        // Internal
-        [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static void Valid(this Assertation.Message<Assertation.Internal> message, [DoesNotReturnIf( false )] bool isValid) {
-            Throw<Exception>( message, isValid );
+        public static void NotNull(this Message<Argument> message, [DoesNotReturnIf( false )] bool isValid) {
+            if (!isValid) throw Exceptions.Exception<ArgumentNullException>( message.Value );
         }
 
-        // Helpers/Throw
+        // Operation
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        private static void Throw<T>(Assertation.Message message, [DoesNotReturnIf( false )] bool isValid) where T : Exception {
-            if (!isValid) throw Create<T>( message );
+        public static void Valid(this Message<Operation> message, [DoesNotReturnIf( false )] bool isValid) {
+            if (!isValid) throw Exceptions.Exception<InvalidOperationException>( message.Value );
         }
-        // Helpers/Create
-        private static T Create<T>(Assertation.Message message) where T : Exception {
-            return Create<T>( message.ToString() );
+
+        // Object
+        [MethodImpl( MethodImplOptions.AggressiveInlining )]
+        public static void Valid(this Message<Object> message, [DoesNotReturnIf( false )] bool isValid) {
+            if (!isValid) throw Exceptions.Exception<ObjectInvalidException>( message.Value );
         }
-        private static T Create<T>(string message) where T : Exception {
-            var type = typeof( T );
-            var constructor = type.GetConstructor( new Type[] { typeof( string ), typeof( Exception ) } );
-            return (T) constructor.Invoke( new object?[] { message, (Exception?) null } );
+        [MethodImpl( MethodImplOptions.AggressiveInlining )]
+        public static void Alive(this Message<Object> message, [DoesNotReturnIf( false )] bool isValid) {
+            if (!isValid) throw Exceptions.Exception<ObjectDisposedException>( message.Value );
         }
 
     }

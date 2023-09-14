@@ -8,7 +8,7 @@ namespace UnityEngine {
 
     public static class GameObjectExtensions {
 
-        // Require
+        // Require/Component
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static T RequireComponent<T>(this GameObject gameObject) {
             return gameObject.GetComponent<T>() ?? throw Exceptions.Internal.Exception( $"Component {typeof( T )} was not found" );
@@ -22,7 +22,7 @@ namespace UnityEngine {
             return gameObject.GetComponentInParent<T>( includeInactive ) ?? throw Exceptions.Internal.Exception( $"Component {typeof( T )} (in parent) was not found" );
         }
 
-        // Require
+        // Require/Components
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static T[] RequireComponents<T>(this GameObject gameObject) {
             return gameObject.GetComponents<T>().NullIfEmpty() ?? throw Exceptions.Internal.Exception( $"Components {typeof( T )} was not found" );

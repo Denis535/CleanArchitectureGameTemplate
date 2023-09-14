@@ -10,21 +10,17 @@ namespace System {
         // LeftRightOf
         public static (string Left, string Right) LeftRightOf(this string value, char separator) {
             var i = value.IndexOf( separator );
-            if (i != -1) {
-                var left = value.Substring( 0, i );
-                var right = value.Substring( i + 1 );
-                return (left, right);
-            }
-            throw Exceptions.Argument.Invalid( $"Value {value} is invalid" );
+            Assert.Argument.Message( $"Argument 'value' ({value}) is invalid" ).Valid( i != -1 );
+            var left = value.Substring( 0, i );
+            var right = value.Substring( i + 1 );
+            return (left, right);
         }
         public static (string Left, string Right) LeftRightOf(this string value, string separator) {
             var i = value.IndexOf( separator );
-            if (i != -1) {
-                var left = value.Substring( 0, i );
-                var right = value.Substring( i + 1 );
-                return (left, right);
-            }
-            throw Exceptions.Argument.Invalid( $"Value {value} is invalid" );
+            Assert.Argument.Message( $"Argument 'value' ({value}) is invalid" ).Valid( i != -1 );
+            var left = value.Substring( 0, i );
+            var right = value.Substring( i + 1 );
+            return (left, right);
         }
 
         // Join

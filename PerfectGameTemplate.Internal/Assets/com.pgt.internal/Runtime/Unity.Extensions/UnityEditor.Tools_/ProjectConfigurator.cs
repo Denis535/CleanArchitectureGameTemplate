@@ -12,31 +12,28 @@ namespace UnityEditor.Tools_ {
     using UnityEngine.Framework.Game;
     using UnityEngine.Framework.UI;
 
-    public abstract class ProjectConfiguratorBase {
+    public abstract class ProjectConfigurator {
 
         // Configure
         public virtual void Configure() {
             foreach (var assembly in Compilation.CompilationPipeline.GetAssemblies().Where( IsSupported )) {
                 Configure( assembly );
             }
+        }
+        public virtual void Configure(Compilation.Assembly assembly) {
             foreach (var script in MonoImporter.GetAllRuntimeMonoScripts().Where( IsSupported )) {
                 Configure( script );
             }
         }
-        public virtual void Configure(Compilation.Assembly assembly) {
-        }
         public virtual void Configure(MonoScript script) {
             var order = GetExecutionOrder( script );
-            SetExecutionOrder( script, order );
-        }
-
-        // GetExecutionOrder
-        public abstract int? GetExecutionOrder(MonoScript script);
-        public static void SetExecutionOrder(MonoScript script, int? order) {
             if (order.HasValue && order != MonoImporter.GetExecutionOrder( script )) {
                 MonoImporter.SetExecutionOrder( script, order.Value );
             }
         }
+
+        // GetExecutionOrder
+        public abstract int? GetExecutionOrder(MonoScript script);
 
         // IsSupported
         public virtual bool IsSupported(Compilation.Assembly assembly) {
@@ -51,7 +48,7 @@ namespace UnityEditor.Tools_ {
         }
 
     }
-    public class ProjectConfigurator : ProjectConfiguratorBase {
+    public class ProjectConfigurator2 : ProjectConfigurator {
 
         // Configure
         public override void Configure() {
@@ -74,33 +71,30 @@ namespace UnityEditor.Tools_ {
             return null;
         }
         public virtual int? GetExecutionOrder_UI(MonoScript script) {
-            // Audio
-            if (script.CanConfigure( typeof( UIAudioTheme ) )) return ScriptExecutionOrders.UI + 30;
+            // Audible
+            if (script.CanConfigure( typeof( UIAudioThemeBase ) )) return ScriptExecutionOrders.UI + 20;
             // Logical
-            if (script.CanConfigure( typeof( UIScreen ) )) return ScriptExecutionOrders.UI + 20;
+            if (script.CanConfigure( typeof( UIScreenBase ) )) return ScriptExecutionOrders.UI + 10;
             // Misc
-            if (script.CanConfigure( typeof( UIInfrastructure ) )) return ScriptExecutionOrders.UI + 10;
             if (script.CanConfigure( typeof( UIRouterBase ) )) return ScriptExecutionOrders.UI;
             return null;
         }
         public virtual int? GetExecutionOrder_App(MonoScript script) {
             // App
-            if (script.CanConfigure( typeof( AppManagerBase ) )) return ScriptExecutionOrders.App + 10;
-            // Game
-            if (script.CanConfigure( typeof( GameManagerBase ) )) return ScriptExecutionOrders.App;
+            if (script.CanConfigure( typeof( ApplicationBase ) )) return ScriptExecutionOrders.App;
             return null;
         }
         public virtual int? GetExecutionOrder_Game(MonoScript script) {
             // Game
-            if (script.CanConfigure( typeof( GameBase ) )) return ScriptExecutionOrders.Game;
-            if (script.CanConfigure( typeof( PlayerBase ) )) return ScriptExecutionOrders.Game - 10;
+            if (script.CanConfigure( typeof( GameBase ) )) return ScriptExecutionOrders.Game + 10;
+            if (script.CanConfigure( typeof( PlayerBase ) )) return ScriptExecutionOrders.Game;
             // World
-            if (script.CanConfigure( typeof( WorldBase ) )) return ScriptExecutionOrders.Game_World;
-            if (script.CanConfigure( typeof( WorldViewBase ) )) return ScriptExecutionOrders.Game_World - 10;
+            if (script.CanConfigure( typeof( WorldBase ) )) return ScriptExecutionOrders.World + 10;
+            if (script.CanConfigure( typeof( WorldViewBase ) )) return ScriptExecutionOrders.World;
             // Entity
-            if (script.CanConfigure( typeof( EntityBase ) )) return ScriptExecutionOrders.Game_Entity;
-            if (script.CanConfigure( typeof( EntityViewBase ) )) return ScriptExecutionOrders.Game_Entity - 10;
-            if (script.CanConfigure( typeof( EntityBodyBase ) )) return ScriptExecutionOrders.Game_Entity - 20;
+            if (script.CanConfigure( typeof( EntityBase ) )) return ScriptExecutionOrders.Entity + 20;
+            if (script.CanConfigure( typeof( EntityViewBase ) )) return ScriptExecutionOrders.Entity + 10;
+            if (script.CanConfigure( typeof( EntityBodyBase ) )) return ScriptExecutionOrders.Entity;
             return null;
         }
 

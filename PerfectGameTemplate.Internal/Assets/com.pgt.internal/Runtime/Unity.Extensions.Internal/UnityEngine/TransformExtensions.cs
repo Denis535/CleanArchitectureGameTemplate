@@ -8,10 +8,12 @@ namespace UnityEngine {
 
     public static class TransformExtensions {
 
-        // Require
+        // Require/Transform
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static Transform Require(this Transform transform, string path) {
-            return transform.Find( path ) ?? throw Exceptions.Internal.Exception( $"Transform {path} was not found" );
+            var result = transform.Find( path );
+            Assert.Operation.Message( $"Transform {path} was not found" ).Valid( result != null );
+            return result;
         }
 
     }

@@ -1,3 +1,4 @@
+#nullable enable
 namespace UnityEngine.Framework {
     using System;
     using System.Collections;
@@ -8,10 +9,8 @@ namespace UnityEngine.Framework {
 
         // Awake
         public void Awake() {
-            Singleton.Register( this );
         }
         public void OnDestroy() {
-            Singleton.Unregister( this );
         }
 
     }

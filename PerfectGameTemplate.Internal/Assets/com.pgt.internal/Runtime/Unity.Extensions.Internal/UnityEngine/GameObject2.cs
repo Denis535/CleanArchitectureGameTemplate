@@ -8,32 +8,46 @@ namespace UnityEngine {
 
     public static class GameObject2 {
 
-        // Require
+        // Require/GameObject
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static GameObject Require(string name) {
-            return GameObject.Find( name ) ?? throw Exceptions.Internal.Exception( $"GameObject {name} was not found" );
+            var result = GameObject.Find( name );
+            Assert.Operation.Message( $"GameObject {name} was not found" ).Valid( result != null );
+            return result;
         }
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static GameObject RequireGameObjectWithTag(string tag) {
-            return GameObject.FindGameObjectWithTag( tag ) ?? throw Exceptions.Internal.Exception( $"GameObject (with tag {tag}) was not found" );
+            var result = GameObject.FindGameObjectWithTag( tag );
+            Assert.Operation.Message( $"GameObject (with tag {tag}) was not found" ).Valid( result != null );
+            return result;
         }
+        // Require/GameObjects
+        [MethodImpl( MethodImplOptions.AggressiveInlining )]
+        public static GameObject[] RequireGameObjectsWithTag<T>(string tag) {
+            var result = GameObject.FindGameObjectsWithTag( tag ).NullIfEmpty();
+            Assert.Operation.Message( $"GameObjects (with tag {tag}) was not found" ).Valid( result != null );
+            return result;
+        }
+
+        // Require/Object
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static T RequireFirstObjectByType<T>(FindObjectsInactive findObjectsInactive) where T : Object {
-            return GameObject.FindFirstObjectByType<T>( findObjectsInactive ) ?? throw Exceptions.Internal.Exception( $"Object {typeof( T )} was not found" );
+            var result = GameObject.FindFirstObjectByType<T>( findObjectsInactive );
+            Assert.Operation.Message( $"Object {typeof( T )} was not found" ).Valid( result != null );
+            return result;
         }
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static T RequireAnyObjectByType<T>(FindObjectsInactive findObjectsInactive) where T : Object {
-            return GameObject.FindAnyObjectByType<T>( findObjectsInactive ) ?? throw Exceptions.Internal.Exception( $"Object {typeof( T )} was not found" );
+            var result = GameObject.FindAnyObjectByType<T>( findObjectsInactive );
+            Assert.Operation.Message( $"Object {typeof( T )} was not found" ).Valid( result != null );
+            return result;
         }
-
-        // Require
-        [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static GameObject[] RequireGameObjectsWithTag<T>(string tag) {
-            return GameObject.FindGameObjectsWithTag( tag ).NullIfEmpty() ?? throw Exceptions.Internal.Exception( $"GameObjects (with tag {tag}) was not found" );
-        }
+        // Require/Objects
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static T[] RequireObjectsByType<T>(FindObjectsInactive findObjectsInactive, FindObjectsSortMode sortMode) where T : Object {
-            return GameObject.FindObjectsByType<T>( findObjectsInactive, sortMode ).NullIfEmpty() ?? throw Exceptions.Internal.Exception( $"Objects {typeof( T )} was not found" );
+            var result = GameObject.FindObjectsByType<T>( findObjectsInactive, sortMode ).NullIfEmpty();
+            Assert.Operation.Message( $"Objects {typeof( T )} was not found" ).Valid( result != null );
+            return result;
         }
 
     }

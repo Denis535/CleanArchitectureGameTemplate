@@ -7,10 +7,10 @@ namespace UnityEngine.Framework.UI {
 
     public readonly struct UIMessageDispatcher {
 
-        private IUIMessageObservable Observable { get; }
+        private IUIObservable Observable { get; }
 
         // Constructor
-        internal UIMessageDispatcher(IUIMessageObservable observable) {
+        internal UIMessageDispatcher(IUIObservable observable) {
             Observable = observable;
         }
 
@@ -37,11 +37,11 @@ namespace UnityEngine.Framework.UI {
         }
 
         // Helpers
-        private static void Dispatch(IUIMessageObservable observable, UIMessage message) {
+        private static void Dispatch(IUIObservable observable, UIMessage message) {
             observable.OnMessageEvent?.Invoke( message );
             DispatchBubbleUp( observable, message );
         }
-        private static void DispatchBubbleUp(IUIMessageObservable observable, UIMessage message) {
+        private static void DispatchBubbleUp(IUIObservable observable, UIMessage message) {
             if (!message.IsReceived) {
                 var owner = GetOwner( observable );
                 if (owner != null) {
@@ -51,22 +51,22 @@ namespace UnityEngine.Framework.UI {
             }
         }
         // Helpers
-        private static IUIMessageObservable? GetOwner(IUIMessageObservable observable) {
-            if (observable is UIScreen screen) {
+        private static IUIObservable? GetOwner(IUIObservable observable) {
+            if (observable is UIScreenBase screen) {
                 return null;
             }
-            if (observable is UIWidget widget) {
-                return (IUIMessageObservable?) widget.Parent ?? widget.Screen;
+            if (observable is UIWidgetBase widget) {
+                return (IUIObservable?) widget.Parent ?? widget.Screen;
             }
-            if (observable is UIView view) {
-                if (view is UIScreenView screenView) {
+            if (observable is UIViewBase view) {
+                if (view is UIScreenViewBase screenView) {
                     return screenView.Screen;
                 }
-                if (view is UIWidgetView widgetView) {
+                if (view is UIWidgetViewBase widgetView) {
                     return widgetView.Widget;
                 }
-                if (view is UISubView subView) {
-                    var ancestor = subView.GetFirstAncestorOfType<UIView>();
+                if (view is UISubViewBase subView) {
+                    var ancestor = subView.GetFirstAncestorOfType<UIViewBase>();
                     if (ancestor != null) return ancestor;
                     return null;
                 }

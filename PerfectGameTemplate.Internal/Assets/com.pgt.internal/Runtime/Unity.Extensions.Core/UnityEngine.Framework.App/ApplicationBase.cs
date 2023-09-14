@@ -1,11 +1,11 @@
-#nullable enable
-namespace UnityEngine.Framework.UI {
+﻿#nullable enable
+namespace UnityEngine.Framework.App {
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
 
-    public abstract class UIRouterBase : MonoBehaviour {
+    public abstract class ApplicationBase : MonoBehaviour {
 
         // Awake
         public void Awake() {

@@ -6,7 +6,7 @@ namespace UnityEngine.Framework.UI {
     using UnityEngine;
 
     // Message
-    public record UIMessage {
+    public abstract record UIMessage {
         public bool IsReceived { get; internal set; } = false;
     }
     // Command
