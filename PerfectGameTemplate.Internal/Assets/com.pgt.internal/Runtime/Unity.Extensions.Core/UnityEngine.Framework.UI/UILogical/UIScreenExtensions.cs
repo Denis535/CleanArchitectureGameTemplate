@@ -3,6 +3,7 @@ namespace UnityEngine.Framework.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using UnityEngine;
 
     public static class UIScreenExtensions {
@@ -47,24 +48,116 @@ namespace UnityEngine.Framework.UI {
 
         // OnDescendantWidgetAttach
         public static void OnBeforeDescendantWidgetAttach<TWidget>(this UIScreenBase screen, Action<TWidget> callback) where TWidget : UIWidgetBase {
-            screen.OnBeforeDescendantWidgetAttachEvent += widget => {
-                if (widget is TWidget widget_) callback( widget_ );
+            screen.OnBeforeDescendantWidgetAttachEvent += descendant => {
+                if (descendant is TWidget descendant_) callback( descendant_ );
             };
         }
         public static void OnAfterDescendantWidgetAttach<TWidget>(this UIScreenBase screen, Action<TWidget> callback) where TWidget : UIWidgetBase {
-            screen.OnAfterDescendantWidgetAttachEvent += widget => {
-                if (widget is TWidget widget_) callback( widget_ );
+            screen.OnAfterDescendantWidgetAttachEvent += descendant => {
+                if (descendant is TWidget descendant_) callback( descendant_ );
             };
         }
         public static void OnBeforeDescendantWidgetDetach<TWidget>(this UIScreenBase screen, Action<TWidget> callback) where TWidget : UIWidgetBase {
-            screen.OnBeforeDescendantWidgetDetachEvent += widget => {
-                if (widget is TWidget widget_) callback( widget_ );
+            screen.OnBeforeDescendantWidgetDetachEvent += descendant => {
+                if (descendant is TWidget descendant_) callback( descendant_ );
             };
         }
         public static void OnAfterDescendantWidgetDetach<TWidget>(this UIScreenBase screen, Action<TWidget> callback) where TWidget : UIWidgetBase {
-            screen.OnAfterDescendantWidgetDetachEvent += widget => {
-                if (widget is TWidget widget_) callback( widget_ );
+            screen.OnAfterDescendantWidgetDetachEvent += descendant => {
+                if (descendant is TWidget descendant_) callback( descendant_ );
             };
+        }
+
+        // WhenDescendantWidgetAttach
+        public static Task<UIWidgetBase> WhenBeforeDescendantWidgetAttach(this UIScreenBase screen, Func<UIWidgetBase, bool> predicate) {
+            var tcs = new TaskCompletionSource<UIWidgetBase>();
+            screen.OnBeforeDescendantWidgetAttachEvent += OnBeforeDescendantWidgetAttach;
+            void OnBeforeDescendantWidgetAttach(UIWidgetBase descendant) {
+                if (predicate( descendant )) {
+                    screen.OnBeforeDescendantWidgetAttachEvent -= OnBeforeDescendantWidgetAttach;
+                    tcs.SetResult( descendant );
+                }
+            }
+            return tcs.Task;
+        }
+        public static Task<UIWidgetBase> WhenAfterDescendantWidgetAttach(this UIScreenBase screen, Func<UIWidgetBase, bool> predicate) {
+            var tcs = new TaskCompletionSource<UIWidgetBase>();
+            screen.OnAfterDescendantWidgetAttachEvent += OnAfterDescendantWidgetAttach;
+            void OnAfterDescendantWidgetAttach(UIWidgetBase descendant) {
+                if (predicate( descendant )) {
+                    screen.OnAfterDescendantWidgetAttachEvent -= OnAfterDescendantWidgetAttach;
+                    tcs.SetResult( descendant );
+                }
+            }
+            return tcs.Task;
+        }
+        public static Task<UIWidgetBase> WhenBeforeDescendantWidgetDetach(this UIScreenBase screen, Func<UIWidgetBase, bool> predicate) {
+            var tcs = new TaskCompletionSource<UIWidgetBase>();
+            screen.OnBeforeDescendantWidgetDetachEvent += OnBeforeDescendantWidgetDetach;
+            void OnBeforeDescendantWidgetDetach(UIWidgetBase descendant) {
+                if (predicate( descendant )) {
+                    screen.OnBeforeDescendantWidgetDetachEvent -= OnBeforeDescendantWidgetDetach;
+                    tcs.SetResult( descendant );
+                }
+            }
+            return tcs.Task;
+        }
+        public static Task<UIWidgetBase> WhenAfterDescendantWidgetDetach(this UIScreenBase screen, Func<UIWidgetBase, bool> predicate) {
+            var tcs = new TaskCompletionSource<UIWidgetBase>();
+            screen.OnAfterDescendantWidgetDetachEvent += OnAfterDescendantWidgetDetach;
+            void OnAfterDescendantWidgetDetach(UIWidgetBase descendant) {
+                if (predicate( descendant )) {
+                    screen.OnAfterDescendantWidgetDetachEvent -= OnAfterDescendantWidgetDetach;
+                    tcs.SetResult( descendant );
+                }
+            }
+            return tcs.Task;
+        }
+
+        // WhenDescendantWidgetAttach
+        public static Task<TWidget> WhenBeforeDescendantWidgetAttach<TWidget>(this UIScreenBase screen) where TWidget : UIWidgetBase {
+            var tcs = new TaskCompletionSource<TWidget>();
+            screen.OnBeforeDescendantWidgetAttachEvent += OnBeforeDescendantWidgetAttach;
+            void OnBeforeDescendantWidgetAttach(UIWidgetBase descendant) {
+                if (descendant is TWidget descendant_) {
+                    screen.OnBeforeDescendantWidgetAttachEvent -= OnBeforeDescendantWidgetAttach;
+                    tcs.SetResult( descendant_ );
+                }
+            }
+            return tcs.Task;
+        }
+        public static Task<TWidget> WhenAfterDescendantWidgetAttach<TWidget>(this UIScreenBase screen) where TWidget : UIWidgetBase {
+            var tcs = new TaskCompletionSource<TWidget>();
+            screen.OnAfterDescendantWidgetAttachEvent += OnAfterDescendantWidgetAttach;
+            void OnAfterDescendantWidgetAttach(UIWidgetBase descendant) {
+                if (descendant is TWidget descendant_) {
+                    screen.OnAfterDescendantWidgetAttachEvent -= OnAfterDescendantWidgetAttach;
+                    tcs.SetResult( descendant_ );
+                }
+            }
+            return tcs.Task;
+        }
+        public static Task<TWidget> WhenBeforeDescendantWidgetDetach<TWidget>(this UIScreenBase screen) where TWidget : UIWidgetBase {
+            var tcs = new TaskCompletionSource<TWidget>();
+            screen.OnBeforeDescendantWidgetDetachEvent += OnBeforeDescendantWidgetDetach;
+            void OnBeforeDescendantWidgetDetach(UIWidgetBase descendant) {
+                if (descendant is TWidget descendant_) {
+                    screen.OnBeforeDescendantWidgetDetachEvent -= OnBeforeDescendantWidgetDetach;
+                    tcs.SetResult( descendant_ );
+                }
+            }
+            return tcs.Task;
+        }
+        public static Task<TWidget> WhenAfterDescendantWidgetDetach<TWidget>(this UIScreenBase screen) where TWidget : UIWidgetBase {
+            var tcs = new TaskCompletionSource<TWidget>();
+            screen.OnAfterDescendantWidgetDetachEvent += OnAfterDescendantWidgetDetach;
+            void OnAfterDescendantWidgetDetach(UIWidgetBase descendant) {
+                if (descendant is TWidget descendant_) {
+                    screen.OnAfterDescendantWidgetDetachEvent -= OnAfterDescendantWidgetDetach;
+                    tcs.SetResult( descendant_ );
+                }
+            }
+            return tcs.Task;
         }
 
     }

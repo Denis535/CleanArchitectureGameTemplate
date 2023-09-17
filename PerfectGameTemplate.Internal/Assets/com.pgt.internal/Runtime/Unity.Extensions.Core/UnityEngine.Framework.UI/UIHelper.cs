@@ -39,47 +39,5 @@ namespace UnityEngine.Framework.UI {
             return result;
         }
 
-        // OnBeforeDescendantAttach
-        public static void OnBeforeDescendantAttach(this IUILogicalElement element, UIWidgetBase widget) {
-            if (element is UIWidgetBase parent) {
-                parent.OnBeforeDescendantAttachEvent?.Invoke( widget );
-                parent.OnBeforeDescendantAttach( widget );
-            } else
-            if (element is UIScreenBase screen) {
-                screen.OnBeforeDescendantWidgetAttachEvent?.Invoke( widget );
-                screen.OnBeforeDescendantWidgetAttach( widget );
-            }
-        }
-        public static void OnAfterDescendantAttach(this IUILogicalElement element, UIWidgetBase widget) {
-            if (element is UIWidgetBase parent) {
-                parent.OnAfterDescendantAttach( widget );
-                parent.OnAfterDescendantAttachEvent?.Invoke( widget );
-            } else
-            if (element is UIScreenBase screen) {
-                screen.OnAfterDescendantWidgetAttach( widget );
-                screen.OnAfterDescendantWidgetAttachEvent?.Invoke( widget );
-            }
-        }
-        public static void OnBeforeDescendantDetach(this IUILogicalElement element, UIWidgetBase widget) {
-            if (element is UIWidgetBase parent) {
-                parent.OnBeforeDescendantDetachEvent?.Invoke( widget );
-                parent.OnBeforeDescendantDetach( widget );
-            } else
-            if (element is UIScreenBase screen) {
-                screen.OnBeforeDescendantWidgetDetachEvent?.Invoke( widget );
-                screen.OnBeforeDescendantWidgetDetach( widget );
-            }
-        }
-        public static void OnAfterDescendantDetach(this IUILogicalElement element, UIWidgetBase widget) {
-            if (element is UIWidgetBase parent) {
-                parent.OnAfterDescendantDetach( widget );
-                parent.OnAfterDescendantDetachEvent?.Invoke( widget );
-            } else
-            if (element is UIScreenBase screen) {
-                screen.OnAfterDescendantWidgetDetach( widget );
-                screen.OnAfterDescendantWidgetDetachEvent?.Invoke( widget );
-            }
-        }
-
     }
 }

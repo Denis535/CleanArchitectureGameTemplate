@@ -38,8 +38,8 @@ namespace UnityEngine.Framework.UI {
 
         // Awake
         public void Awake() {
-            Document = this.GetDependencyContainer().Resolve<UIDocument>( this );
-            AudioSource = this.GetDependencyContainer().Resolve<AudioSource>( this );
+            Document = this.GetDependencyContainer().GetDependency<UIDocument>( this ) ?? gameObject.RequireComponentInChildren<UIDocument>();
+            AudioSource = this.GetDependencyContainer().GetDependency<AudioSource>( this ) ?? gameObject.RequireComponentInChildren<AudioSource>();
         }
         public void OnDestroy() {
             if (Widget != null) this.DetachWidget();
@@ -95,13 +95,13 @@ namespace UnityEngine.Framework.UI {
         }
 
         // OnDescendantWidgetAttach
-        public virtual void OnBeforeDescendantWidgetAttach(UIWidgetBase widget) {
+        public virtual void OnBeforeDescendantWidgetAttach(UIWidgetBase descendant) {
         }
-        public virtual void OnAfterDescendantWidgetAttach(UIWidgetBase widget) {
+        public virtual void OnAfterDescendantWidgetAttach(UIWidgetBase descendant) {
         }
-        public virtual void OnBeforeDescendantWidgetDetach(UIWidgetBase widget) {
+        public virtual void OnBeforeDescendantWidgetDetach(UIWidgetBase descendant) {
         }
-        public virtual void OnAfterDescendantWidgetDetach(UIWidgetBase widget) {
+        public virtual void OnAfterDescendantWidgetDetach(UIWidgetBase descendant) {
         }
 
         // Helpers

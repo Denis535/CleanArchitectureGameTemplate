@@ -1,26 +1,27 @@
 # Overview
 The PerfectGameTemplate is well designed game template allowing you to quickly and efficiently start developing your project.
-It demonstrates well thought out structure and architecture of project.
-And it also provides framework (like Uber Ribs) which helps you design high quality project architecture (like Clean Architecture) and useful system extensions, engine extensions, and tools.
+It shows you well thought out structure and architecture of project following best practices (like Clean Architecture, Uber Ribs).
+It provides you with useful framework, utils, extensions and tools.
+It uses UI Toolkit with Pug and Stylus for easy creation of most beautiful UI.
 
 # Reference
 It consists of two projects: PerfectGameTemplate and PerfectGameTemplate.Internal.
 
 # Reference (PerfectGameTemplate)
 The project contains all modules.
-## Main
+## Project
 The module contains scenes (Launcher, Program, MainScene, GameScene), main classes and tools.
-## UI
+## Project.UI
 The module contains screens (MainScreen, GameScreen, DebugScreen), widgets, views, styles and other.
-## App
+## Project.App
 The module contains application logic, global variables and constants.
-## Game
+## Project.Game
 The module contains game (domain) logic.
-## Core
-The module contains everything common for all modules (asset addresses and labels).
+## Project.Core
+The module contains everything common for all modules (settings, asset addresses and labels).
 
 # Reference (PerfectGameTemplate.Internal)
-The project encapsulates everything rarely viewed and changed (third party, libraries, frameworks, utils).
+The project encapsulates everything rarely viewed and changed (third party, libraries, frameworks, utils, extensions).
 ## System
 - Assertions
 - Exceptions

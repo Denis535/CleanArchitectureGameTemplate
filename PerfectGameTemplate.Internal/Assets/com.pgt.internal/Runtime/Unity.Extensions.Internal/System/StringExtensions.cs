@@ -7,27 +7,55 @@ namespace System {
 
     public static class StringExtensions {
 
-        // LeftRightOf
-        public static (string Left, string Right) LeftRightOf(this string value, char separator) {
-            var i = value.IndexOf( separator );
-            Assert.Argument.Message( $"Argument 'value' ({value}) is invalid" ).Valid( i != -1 );
-            var left = value.Substring( 0, i );
-            var right = value.Substring( i + 1 );
-            return (left, right);
+        // TakeLeftOf
+        public static string? TakeLeftOf(this string value, int index) {
+            if (index != -1) return value.Substring( 0, index );
+            return null;
         }
-        public static (string Left, string Right) LeftRightOf(this string value, string separator) {
+        public static string? TakeLeftOf(this string value, char separator) {
             var i = value.IndexOf( separator );
-            Assert.Argument.Message( $"Argument 'value' ({value}) is invalid" ).Valid( i != -1 );
-            var left = value.Substring( 0, i );
-            var right = value.Substring( i + 1 );
-            return (left, right);
+            if (i != -1) return value.Substring( 0, i );
+            return null;
+        }
+        public static string? TakeLeftOf(this string value, string separator) {
+            var i = value.IndexOf( separator );
+            if (i != -1) return value.Substring( 0, i );
+            return null;
+        }
+
+        // TakeStartingWith
+        public static string? TakeStartingWith(this string value, int index) {
+            if (index != -1) return value.Substring( index );
+            return null;
+        }
+        public static string? TakeStartingWith(this string value, char @string) {
+            var i = value.IndexOf( @string );
+            if (i != -1) return value.Substring( i );
+            return null;
+        }
+        public static string? TakeStartingWith(this string value, string @string) {
+            var i = value.IndexOf( @string );
+            if (i != -1) return value.Substring( i );
+            return null;
+        }
+
+        // TakeRightOf
+        public static string? TakeRightOf(this string value, char separator) {
+            var i = value.IndexOf( separator );
+            if (i != -1) return value.Substring( i + 1 );
+            return null;
+        }
+        public static string? TakeRightOf(this string value, string separator) {
+            var i = value.IndexOf( separator );
+            if (i != -1) return value.Substring( i + separator.Length );
+            return null;
         }
 
         // Join
-        public static string Join(this IEnumerable<string> values, char separator) {
+        public static string Join(this char separator, IEnumerable<string> values) {
             return string.Join( separator, values );
         }
-        public static string Join(this IEnumerable<string> values, string separator) {
+        public static string Join(this string separator, IEnumerable<string> values) {
             return string.Join( separator, values );
         }
 
@@ -40,15 +68,15 @@ namespace System {
         }
 
         // Trim
-        public static string Trim(this string value, string prefix, string suffix) {
-            return value.TrimStart( prefix ).TrimEnd( suffix );
+        public static string Trim(this string value, string trim) {
+            return value.TrimStart( trim ).TrimEnd( trim );
         }
-        public static string TrimStart(this string value, string prefix) {
-            if (value.StartsWith( prefix )) return value.Remove( 0, prefix.Length );
+        public static string TrimStart(this string value, string trim) {
+            if (value.StartsWith( trim )) return value.Remove( 0, trim.Length );
             return value;
         }
-        public static string TrimEnd(this string value, string suffix) {
-            if (value.EndsWith( suffix )) return value.Remove( value.Length - suffix.Length, suffix.Length );
+        public static string TrimEnd(this string value, string trim) {
+            if (value.EndsWith( trim )) return value.Remove( value.Length - trim.Length, trim.Length );
             return value;
         }
 

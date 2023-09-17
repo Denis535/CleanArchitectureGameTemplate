@@ -5,46 +5,39 @@ namespace UnityEditor.Tools_ {
     using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
     using System.Linq;
     using System.Text;
-    using System.Text.RegularExpressions;
     using UnityEditor;
     using UnityEngine;
 
     public class ProjectWindow {
 
-        public Regex Regex { get; }
-
         // Constructor
-        public ProjectWindow(params string[] modules) {
-            EditorApplication.projectWindowItemOnGUI = OnProjectItemGUI;
-            Regex = CreateRegex( modules );
+        public ProjectWindow() {
+            EditorApplication.projectWindowItemOnGUI = OnGUI;
         }
 
-        // OnProjectItemGUI
-        public void OnProjectItemGUI(string guid, Rect rect) {
+        // OnGUI
+        public virtual void OnGUI(string guid, Rect rect) {
             var path = AssetDatabase.GUIDToAssetPath( guid );
-            DrawItem( rect, path );
-        }
-
-        // DrawItem
-        public virtual void DrawItem(Rect rect, string path) {
-            if (IsMatch( Regex, path, out var module, out var content )) {
+            if (IsModule( path, out var module, out var content )) {
                 if (content == null) {
                     DrawModule( rect, path, module );
                 } else {
-                    if (content.Equals( "Assets" ) || content.StartsWith( "Assets." ) || content.Equals( "Resources" ) || content.StartsWith( "Resources." )) {
+                    if (IsAssets( content )) {
                         DrawAssets( rect, path, module, content );
-                    } else
-                    if (content.Contains( '/' ) || AssetDatabase.IsValidFolder( path )) {
+                    } else if (IsSources( content )) {
                         DrawSources( rect, path, module, content );
                     }
                 }
             }
         }
+
+        // DrawItem
         public virtual void DrawModule(Rect rect, string path, string module) {
             var color = HSVA( 0, 1, 1, 0.3f );
-            DrawItem( rect, path, color );
+            DrawItem( rect, color, path );
         }
         public virtual void DrawAssets(Rect rect, string path, string module, string content) {
             var depth = content.Count( i => i is '/' );
@@ -52,7 +45,7 @@ namespace UnityEditor.Tools_ {
                 0 => HSVA( 060f / 360f, 1f, 1f / 1.0f, 0.3f ),
                 _ => HSVA( 060f / 360f, 1f, 1f / 2.5f, 0.3f ),
             };
-            DrawItem( rect, path, color );
+            DrawItem( rect, color, path );
         }
         public virtual void DrawSources(Rect rect, string path, string module, string content) {
             var depth = content.Count( i => i is '/' );
@@ -60,43 +53,45 @@ namespace UnityEditor.Tools_ {
                 0 => HSVA( 120f / 360f, 1f, 1f / 1.0f, 0.3f ),
                 _ => HSVA( 120f / 360f, 1f, 1f / 2.5f, 0.3f ),
             };
-            DrawItem( rect, path, color );
+            DrawItem( rect, color, path );
         }
-        public virtual void DrawItem(Rect rect, string path, Color color) {
+        public virtual void DrawItem(Rect rect, Color color, string path) {
             rect.x -= 16;
             rect.width = 16;
             DrawRect( rect, color );
         }
 
-        // Helpers
-        private static Regex CreateRegex(params string[] modules) {
-            // ^     - begin of line
-            // $     - end of line
-            // ?     - zero / one
-            // *     - zero / more
-            // +     - one  / more
-            // (.*)  - match zero / more of any
-            // (.*?) - match zero / more of any (non-greedy)
-            // (.+)  - match one / more of any
-            // (.+?) - match one / more of any (non-greedy)
-            var builder = new StringBuilder();
-            builder.Append( @"(?<base> ^(.*?)/)" ).AppendLine();
-            builder.Append( @"(?<module> (" ).AppendJoin( "|", modules.Select( Regex.Escape ) ).Append( @") (/|$))" ).AppendLine();
-            builder.Append( @"(?<content> (.*))" );
-            return new Regex( builder.ToString(), RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace );
-        }
-        private static bool IsMatch(Regex regex, string path, [NotNullWhen( true )] out string? module, out string? content) {
-            var match = regex.Match( path );
-            if (match.Success) {
-                module = match.Groups[ "module" ].Value;
-                content = match.Groups[ "content" ].Value.NullIfEmpty();
-                return true;
-            } else {
-                module = null;
-                content = null;
-                return false;
+        // IsModule
+        public virtual bool IsModule(string path, [NotNullWhen( true )] out string? module, out string? content) {
+            if (path.StartsWith( "Assets/" )) {
+                var path2 = path.TakeRightOf( '/' );
+                if (path2 != null && IsModule( path2 )) {
+                    module = path2.TakeLeftOf( '/' ) ?? path2;
+                    content = path2.TakeRightOf( '/' );
+                    return true;
+                }
             }
+            module = null;
+            content = null;
+            return false;
         }
+        public virtual bool IsModule(string path) {
+            return path.Equals( "Project" ) || path.StartsWith( "Project/" ) ||
+                    path.Equals( "Project.UI" ) || path.StartsWith( "Project.UI/" ) ||
+                    path.Equals( "Project.App" ) || path.StartsWith( "Project.App/" ) ||
+                    path.Equals( "Project.App" ) || path.StartsWith( "Project.App/" ) ||
+                    path.Equals( "Project.Game" ) || path.StartsWith( "Project.Game/" ) ||
+                    path.Equals( "Project.Core" ) || path.StartsWith( "Project.Core/" ) ||
+                    path.Equals( "Project.Internal" ) || path.StartsWith( "Project.Internal/" ) ||
+                    path.Equals( "Project.Tests" ) || path.StartsWith( "Project.Tests/" );
+        }
+        public virtual bool IsAssets(string path) {
+            return path.StartsWith( "Assets" ) || path.StartsWith( "Resources" );
+        }
+        public virtual bool IsSources(string path) {
+            return Path.GetExtension( path ) is not ".asmdef" and not ".asmref" and not ".rsp";
+        }
+
         // Helpers
         protected static Color RGBA(float r, float g, float b, float a) {
             return new Color( r, g, b, a );
@@ -106,7 +101,6 @@ namespace UnityEditor.Tools_ {
             color.a = a;
             return color;
         }
-        // Helpers
         protected static void DrawRect(Rect rect, Color color) {
             var prev = GUI.color;
             GUI.color = color;

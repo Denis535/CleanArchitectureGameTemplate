@@ -42,6 +42,9 @@ namespace UnityEngine.Framework.UI {
         public IReadOnlyList<UIWidgetBase> Children => Children_;
         public IReadOnlyList<UIWidgetBase> Descendants => this.GetDescendants();
         public IReadOnlyList<UIWidgetBase> DescendantsAndSelf => this.GetDescendantsAndSelf();
+        // OnAttach
+        public Action? OnAttachEvent { get; set; }
+        public Action? OnDetachEvent { get; set; }
         // OnDescendantAttach
         public Action<UIWidgetBase>? OnBeforeDescendantAttachEvent { get; set; }
         public Action<UIWidgetBase>? OnAfterDescendantAttachEvent { get; set; }
@@ -64,8 +67,9 @@ namespace UnityEngine.Framework.UI {
             Assert.Object.Message( $"Widget {this} must be valid" ).Valid( Screen == null );
             State = UIWidgetState.Attaching;
             Screen = screen;
-            Owner!.OnBeforeDescendantAttach( this );
+            OnBeforeDescendantAttach( Owner!, this );
             {
+                OnAttachEvent?.Invoke();
                 OnAttach();
                 Screen!.ShowWidget( this );
                 OnShow();
@@ -73,7 +77,7 @@ namespace UnityEngine.Framework.UI {
                     child.Attach( Screen );
                 }
             }
-            Owner!.OnAfterDescendantAttach( this );
+            OnAfterDescendantAttach( Owner!, this );
             State = UIWidgetState.Attached;
         }
         internal void Detach(UIScreenBase screen) {
@@ -81,7 +85,7 @@ namespace UnityEngine.Framework.UI {
             Assert.Object.Message( $"Widget {this} must be attached" ).Valid( IsAttached );
             Assert.Object.Message( $"Widget {this} must be valid" ).Valid( Screen == screen );
             State = UIWidgetState.Detaching;
-            Owner!.OnBeforeDescendantDetach( this );
+            OnBeforeDescendantDetach( Owner!, this );
             {
                 foreach (var child in Children.Reverse()) {
                     child.Detach( Screen );
@@ -89,8 +93,9 @@ namespace UnityEngine.Framework.UI {
                 OnHide();
                 Screen!.HideWidget( this );
                 OnDetach();
+                OnDetachEvent?.Invoke();
             }
-            Owner!.OnAfterDescendantDetach( this );
+            OnAfterDescendantDetach( Owner!, this );
             Screen = null;
             State = UIWidgetState.Detached;
             if (DisposeAutomatically) {
@@ -107,47 +112,89 @@ namespace UnityEngine.Framework.UI {
         public abstract void OnHide();
 
         // AttachChild
-        protected internal virtual void __AttachChild__(UIWidgetBase widget) {
-            Assert.Argument.Message( $"Argument 'widget' must be non-null" ).NotNull( widget != null );
-            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be non-attached" ).Valid( widget.IsNonAttached );
-            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be valid" ).Valid( widget.Screen == null );
-            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be valid" ).Valid( widget.Parent == null );
-            Assert.Object.Message( $"Widget {this} must have no child {widget} widget" ).Valid( !Children.Contains( widget ) );
+        protected internal virtual void __AttachChild__(UIWidgetBase child) {
+            Assert.Argument.Message( $"Argument 'child' must be non-null" ).NotNull( child != null );
+            Assert.Argument.Message( $"Argument 'child' ({child}) must be non-attached" ).Valid( child.IsNonAttached );
+            Assert.Argument.Message( $"Argument 'child' ({child}) must be valid" ).Valid( child.Screen == null );
+            Assert.Argument.Message( $"Argument 'child' ({child}) must be valid" ).Valid( child.Parent == null );
+            Assert.Object.Message( $"Widget {this} must have no child {child} widget" ).Valid( !Children.Contains( child ) );
             using (Lock.Enter()) {
-                Children_.Add( widget );
-                widget.Parent = this;
+                Children_.Add( child );
+                child.Parent = this;
                 if (IsAttached) {
-                    widget.Attach( Screen );
+                    child.Attach( Screen );
                 }
             }
         }
-        protected internal virtual void __DetachChild__(UIWidgetBase widget) {
-            Assert.Argument.Message( $"Argument 'widget' must be non-null" ).NotNull( widget != null );
-            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be attached or non-attached" ).Valid( widget.IsAttached || widget.IsNonAttached );
-            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be valid" ).Valid( widget.Screen == Screen || widget.Screen == null );
-            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be valid" ).Valid( widget.Parent == this );
-            Assert.Object.Message( $"Widget {this} must have child {widget} widget" ).Valid( Children.Contains( widget ) );
+        protected internal virtual void __DetachChild__(UIWidgetBase child) {
+            Assert.Argument.Message( $"Argument 'child' must be non-null" ).NotNull( child != null );
+            Assert.Argument.Message( $"Argument 'child' ({child}) must be attached or non-attached" ).Valid( child.IsAttached || child.IsNonAttached );
+            Assert.Argument.Message( $"Argument 'child' ({child}) must be valid" ).Valid( child.Screen == Screen || child.Screen == null );
+            Assert.Argument.Message( $"Argument 'child' ({child}) must be valid" ).Valid( child.Parent == this );
+            Assert.Object.Message( $"Widget {this} must have child {child} widget" ).Valid( Children.Contains( child ) );
             using (Lock.Enter()) {
                 if (IsAttached) {
-                    widget.Detach( Screen );
+                    child.Detach( Screen );
                 }
-                widget.Parent = null;
-                Children_.Remove( widget );
+                child.Parent = null;
+                Children_.Remove( child );
             }
         }
 
         // OnDescendantAttach
-        public virtual void OnBeforeDescendantAttach(UIWidgetBase widget) {
-            Owner!.OnBeforeDescendantAttach( widget );
+        public virtual void OnBeforeDescendantAttach(UIWidgetBase descendant) {
+            OnBeforeDescendantAttach( Owner!, descendant );
         }
-        public virtual void OnAfterDescendantAttach(UIWidgetBase widget) {
-            Owner!.OnAfterDescendantAttach( widget );
+        public virtual void OnAfterDescendantAttach(UIWidgetBase descendant) {
+            OnAfterDescendantAttach( Owner!, descendant );
         }
-        public virtual void OnBeforeDescendantDetach(UIWidgetBase widget) {
-            Owner!.OnBeforeDescendantDetach( widget );
+        public virtual void OnBeforeDescendantDetach(UIWidgetBase descendant) {
+            OnBeforeDescendantDetach( Owner!, descendant );
         }
-        public virtual void OnAfterDescendantDetach(UIWidgetBase widget) {
-            Owner!.OnAfterDescendantDetach( widget );
+        public virtual void OnAfterDescendantDetach(UIWidgetBase descendant) {
+            OnAfterDescendantDetach( Owner!, descendant );
+        }
+
+        // Helpers/OnDescendantAttach
+        private static void OnBeforeDescendantAttach(IUILogicalElement element, UIWidgetBase descendant) {
+            if (element is UIWidgetBase parent) {
+                parent.OnBeforeDescendantAttachEvent?.Invoke( descendant );
+                parent.OnBeforeDescendantAttach( descendant );
+            } else
+            if (element is UIScreenBase screen) {
+                screen.OnBeforeDescendantWidgetAttachEvent?.Invoke( descendant );
+                screen.OnBeforeDescendantWidgetAttach( descendant );
+            }
+        }
+        private static void OnAfterDescendantAttach(IUILogicalElement element, UIWidgetBase descendant) {
+            if (element is UIWidgetBase parent) {
+                parent.OnAfterDescendantAttach( descendant );
+                parent.OnAfterDescendantAttachEvent?.Invoke( descendant );
+            } else
+            if (element is UIScreenBase screen) {
+                screen.OnAfterDescendantWidgetAttach( descendant );
+                screen.OnAfterDescendantWidgetAttachEvent?.Invoke( descendant );
+            }
+        }
+        private static void OnBeforeDescendantDetach(IUILogicalElement element, UIWidgetBase descendant) {
+            if (element is UIWidgetBase parent) {
+                parent.OnBeforeDescendantDetachEvent?.Invoke( descendant );
+                parent.OnBeforeDescendantDetach( descendant );
+            } else
+            if (element is UIScreenBase screen) {
+                screen.OnBeforeDescendantWidgetDetachEvent?.Invoke( descendant );
+                screen.OnBeforeDescendantWidgetDetach( descendant );
+            }
+        }
+        private static void OnAfterDescendantDetach(IUILogicalElement element, UIWidgetBase descendant) {
+            if (element is UIWidgetBase parent) {
+                parent.OnAfterDescendantDetach( descendant );
+                parent.OnAfterDescendantDetachEvent?.Invoke( descendant );
+            } else
+            if (element is UIScreenBase screen) {
+                screen.OnAfterDescendantWidgetDetach( descendant );
+                screen.OnAfterDescendantWidgetDetachEvent?.Invoke( descendant );
+            }
         }
 
     }
@@ -179,25 +226,25 @@ namespace UnityEngine.Framework.UI {
         }
 
         // AttachChild
-        protected internal override void __AttachChild__(UIWidgetBase widget) {
-            base.__AttachChild__( widget );
+        protected internal override void __AttachChild__(UIWidgetBase child) {
+            base.__AttachChild__( child );
         }
-        protected internal override void __DetachChild__(UIWidgetBase widget) {
-            base.__DetachChild__( widget );
+        protected internal override void __DetachChild__(UIWidgetBase child) {
+            base.__DetachChild__( child );
         }
 
         // OnDescendantAttach
-        public override void OnBeforeDescendantAttach(UIWidgetBase widget) {
-            base.OnBeforeDescendantAttach( widget );
+        public override void OnBeforeDescendantAttach(UIWidgetBase descendant) {
+            base.OnBeforeDescendantAttach( descendant );
         }
-        public override void OnAfterDescendantAttach(UIWidgetBase widget) {
-            base.OnAfterDescendantAttach( widget );
+        public override void OnAfterDescendantAttach(UIWidgetBase descendant) {
+            base.OnAfterDescendantAttach( descendant );
         }
-        public override void OnBeforeDescendantDetach(UIWidgetBase widget) {
-            base.OnBeforeDescendantDetach( widget );
+        public override void OnBeforeDescendantDetach(UIWidgetBase descendant) {
+            base.OnBeforeDescendantDetach( descendant );
         }
-        public override void OnAfterDescendantDetach(UIWidgetBase widget) {
-            base.OnAfterDescendantDetach( widget );
+        public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
+            base.OnAfterDescendantDetach( descendant );
         }
 
     }

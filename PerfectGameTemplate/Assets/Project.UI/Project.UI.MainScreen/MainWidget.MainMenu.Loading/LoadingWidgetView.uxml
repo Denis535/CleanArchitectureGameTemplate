@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+  <Style src="project://database/Assets/Project.UI/Assets.Project.UI/Styles/UIStyleSheet.uss"></Style>
+  <Project.UI.MainScreen.LoadingWidgetView class="justify-content-end align-items-center">
+    <ui:Label class="color-light font-size-200 font-style-bold margin-2" text="Loading..."></ui:Label>
+  </Project.UI.MainScreen.LoadingWidgetView>
+</ui:UXML>

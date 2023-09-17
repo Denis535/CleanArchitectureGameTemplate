@@ -25,15 +25,7 @@ namespace UnityEditor.Tools_ {
                 Configure( script );
             }
         }
-        public virtual void Configure(MonoScript script) {
-            var order = GetExecutionOrder( script );
-            if (order.HasValue && order != MonoImporter.GetExecutionOrder( script )) {
-                MonoImporter.SetExecutionOrder( script, order.Value );
-            }
-        }
-
-        // GetExecutionOrder
-        public abstract int? GetExecutionOrder(MonoScript script);
+        public abstract void Configure(MonoScript script);
 
         // IsSupported
         public virtual bool IsSupported(Compilation.Assembly assembly) {
@@ -58,13 +50,18 @@ namespace UnityEditor.Tools_ {
             base.Configure( assembly );
         }
         public override void Configure(MonoScript script) {
-            base.Configure( script );
+            var order = GetExecutionOrder( script );
+            if (order.HasValue && order != MonoImporter.GetExecutionOrder( script )) {
+                MonoImporter.SetExecutionOrder( script, order.Value );
+            }
         }
 
         // GetExecutionOrder
-        public override int? GetExecutionOrder(MonoScript script) {
+        public virtual int? GetExecutionOrder(MonoScript script) {
             return GetExecutionOrder_Program( script ) ?? GetExecutionOrder_UI( script ) ?? GetExecutionOrder_App( script ) ?? GetExecutionOrder_Game( script );
         }
+
+        // GetExecutionOrder
         public virtual int? GetExecutionOrder_Program(MonoScript script) {
             // Program
             if (script.CanConfigure( typeof( ProgramBase ) )) return ScriptExecutionOrders.Program;

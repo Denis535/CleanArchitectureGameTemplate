@@ -1,0 +1,72 @@
+mixin game-view()
+    Project::UI::MainScreen::JoinGameWidgetView2::GameView.grow-1.basis-0
+        ui:ColumnGroup.light5.medium.grow-1
+            ui:Label(text="Game" name="title").title
+            ui:RowScope
+                ui:TextField(label="Name" name="game-name" max-length="100").label-width-150px.grow-1
+            ui:RowScope
+                ui:DropdownField2(label="Mode" name="game-mode").label-width-150px.grow-1
+                ui:DropdownField2(label="World" name="game-world").label-width-150px.grow-1
+                ui:Toggle(label="Private" name="is-game-private").label-width-150px.grow-0
+
+mixin player-view()
+    Project::UI::MainScreen::JoinGameWidgetView2::PlayerView.grow-1.basis-0
+        ui:ColumnGroup.light5.medium.grow-1
+            ui:Label(text="Player" name="title").title
+            ui:RowScope
+                ui:TextField(label="Name" name="player-name" max-length="100" readonly="True").label-width-150px.grow-1
+            ui:RowScope
+                ui:DropdownField2(label="Role" name="player-role").label-width-150px.grow-1
+
+mixin lobby-view()
+    ui:ColumnGroup.dark5.medium.grow-1
+        ui:Label(text="Lobby" name="title").title
+        +lobby-players-view()
+
+mixin lobby-players-view()
+        Project::UI::MainScreen::JoinGameWidgetView2::PlayersView.grow-1
+            ui:ScrollView.dark2.grow-1
+                ui:Box.light10
+                    ui:Label(text="Player 1").font-style-bold
+                ui:Box.light10
+                    ui:Label(text="Player 2").font-style-bold
+                ui:Box.dark10
+                    ui:Label(text="Player 3").font-style-bold
+                ui:Box.dark10
+                    ui:Label(text="Player 4").font-style-bold
+                ui:Box.light10
+                    ui:Label(text="Player 5").font-style-bold
+                ui:Box.light10
+                    ui:Label(text="Player 6").font-style-bold
+                ui:Box.dark10
+                    ui:Label(text="Player 7").font-style-bold
+                ui:Box.dark10
+                    ui:Label(text="Player 8").font-style-bold
+                ui:Box.light10
+                    ui:Label(text="Player 9").font-style-bold
+                ui:Box.light10
+                    ui:Label(text="Player 10").font-style-bold
+                ui:Box.dark10
+                    ui:Label(text="Player 11").font-style-bold
+                ui:Box.dark10
+                    ui:Label(text="Player 12").font-style-bold
+                ui:Box.light10
+                    ui:Label(text="Player 13").font-style-bold
+                ui:Box.light10
+                    ui:Label(text="Player 14").font-style-bold
+
+doctype xml
+ui:UXML(xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False")
+    Style(src="project://database/Assets/Project.UI/Assets.Project.UI/Styles/UIStyleSheet.uss")
+    Project::UI::MainScreen::JoinGameWidgetView2.large-widget-view
+        ui:Card
+            ui:Header
+                ui:Label(text="Join Game" name="title")
+            ui:Content
+                ui:RowScope.grow-0.basis-40
+                    +game-view()
+                    +player-view()
+                +lobby-view()
+            ui:Footer
+                ui:Button(text="Ok" name="okey")
+                ui:Button(text="Back" name="back")

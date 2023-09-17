@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+  <Style src="project://database/Assets/Project.UI/Assets.Project.UI/Styles/UIStyleSheet.uss"></Style>
+  <Project.UI.Common.PlayerProfileWidgetView class="middle-widget-view">
+    <ui:Card>
+      <ui:Header>
+        <ui:Label text="Player Profile" name="title"></ui:Label>
+      </ui:Header>
+      <ui:Content>
+        <ui:ColumnGroup class="dark2 large grow-1">
+          <ui:TextField class="label-width-25" label="Name" name="name" max-length="16"></ui:TextField>
+        </ui:ColumnGroup>
+      </ui:Content>
+      <ui:Footer>
+        <ui:Button text="Ok" name="okey"></ui:Button>
+        <ui:Button text="Back" name="back"></ui:Button>
+      </ui:Footer>
+    </ui:Card>
+  </Project.UI.Common.PlayerProfileWidgetView>
+</ui:UXML>

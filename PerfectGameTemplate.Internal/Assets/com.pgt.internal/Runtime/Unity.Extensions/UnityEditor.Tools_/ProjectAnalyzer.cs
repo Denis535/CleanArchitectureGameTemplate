@@ -7,7 +7,6 @@ namespace UnityEditor.Tools_ {
     using System.Linq;
     using System.Reflection;
     using System.Runtime.CompilerServices;
-    using UnityEditor;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.App;
@@ -27,8 +26,7 @@ namespace UnityEditor.Tools_ {
                 Analyze( type );
             }
         }
-        public virtual void Analyze(Type type) {
-        }
+        public abstract void Analyze(Type type);
 
         // IsSupported
         public virtual bool IsSupported(Compilation.Assembly assembly) {
@@ -50,11 +48,10 @@ namespace UnityEditor.Tools_ {
             base.Analyze( assembly );
         }
         public override void Analyze(Type type) {
-            base.Analyze( type );
-            Analyze_Program( type, PlayerSettings.productName );
-            Analyze_UI( type, PlayerSettings.productName );
-            Analyze_App( type, PlayerSettings.productName );
-            Analyze_Game( type, PlayerSettings.productName );
+            Analyze_Program( type, "Project" );
+            Analyze_UI( type, "Project" );
+            Analyze_App( type, "Project" );
+            Analyze_Game( type, "Project" );
         }
 
         // Analyze
@@ -185,7 +182,7 @@ namespace UnityEditor.Tools_ {
             // Namespace || Namespace.
             var @namespace = type.Namespace.TrimEnd( '_' );
             if (!@namespace.IsNamespaceMatch( patterns )) {
-                Debug.LogWarningFormat( "Type '{0}' must be within namespace '{1}'", type.FullName, patterns.Join( ", " ) );
+                Debug.LogWarningFormat( "Type '{0}' must be within namespace '{1}'", type.FullName, string.Join( ", ", patterns ) );
             }
         }
 
@@ -203,7 +200,7 @@ namespace UnityEditor.Tools_ {
             // *Name* || Name* || *Name || Name
             var name = type.GetSimpleName().TrimEnd( '_', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ).TrimEnd( "Base" );
             if (!name.IsNameMatch( patterns )) {
-                Debug.LogWarningFormat( "Type '{0}' must have name '{1}'", name, patterns.Join( ", " ) );
+                Debug.LogWarningFormat( "Type '{0}' must have name '{1}'", name, string.Join( ", ", patterns ) );
             }
         }
 

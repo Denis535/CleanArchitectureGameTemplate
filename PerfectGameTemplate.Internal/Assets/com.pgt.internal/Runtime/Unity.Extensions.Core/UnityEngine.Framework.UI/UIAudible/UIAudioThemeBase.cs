@@ -19,7 +19,7 @@ namespace UnityEngine.Framework.UI {
 
         // Awake
         public void Awake() {
-            AudioSource = this.GetDependencyContainer().Resolve<AudioSource>( this );
+            AudioSource = this.GetDependencyContainer().GetDependency<AudioSource>( this ) ?? gameObject.RequireComponentInChildren<AudioSource>();
         }
         public void OnDestroy() {
         }

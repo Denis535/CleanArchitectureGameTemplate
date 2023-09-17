@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-  <Style src="project://database/Assets/PGT.UI/Assets.PGT.UI/Styles/UIStyleSheet.uss"></Style>
-  <PGT.UI.MainScreen.LoadingWidgetView class="justify-content-end align-items-center">
-    <ui:Label class="color-light font-size-200 font-style-bold margin-2" text="Loading..."></ui:Label>
-  </PGT.UI.MainScreen.LoadingWidgetView>
-</ui:UXML>

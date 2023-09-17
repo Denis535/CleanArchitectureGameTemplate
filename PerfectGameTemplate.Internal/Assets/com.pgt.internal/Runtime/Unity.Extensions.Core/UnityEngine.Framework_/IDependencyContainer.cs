@@ -24,12 +24,12 @@ namespace UnityEngine.Framework {
         }
 
         // Resolve
-        T Resolve<T>(object? argument = null) where T : notnull {
+        T Resolve<T>(object? argument) where T : notnull {
             var result = GetDependency<T>( argument );
             Assert.Operation.Message( $"Dependency {typeof( T )} ({argument}) was not resolved" ).Valid( result != null );
             return result;
         }
-        object? Resolve(Type type, object? argument = null) {
+        object? Resolve(Type type, object? argument) {
             var result = GetDependency( type, argument );
             Assert.Operation.Message( $"Dependency {type} ({argument}) was not resolved" ).Valid( result != null );
             return result;
@@ -46,10 +46,10 @@ namespace UnityEngine.Framework {
         }
 
         // GetDependency
-        protected T? GetDependency<T>(object? argument) where T : notnull {
+        T? GetDependency<T>(object? argument) where T : notnull {
             return (T?) GetDependency( typeof( T ), argument );
         }
-        protected object? GetDependency(Type type, object? argument);
+        object? GetDependency(Type type, object? argument);
 
     }
 }
