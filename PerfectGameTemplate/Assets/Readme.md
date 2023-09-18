@@ -1,7 +1,7 @@
 # Overview
 The PerfectGameTemplate is well designed game template allowing you to quickly and efficiently start developing your project.
 It shows you well thought out structure and architecture of project following best practices (like Clean Architecture, Uber Ribs).
-It provides you with useful framework, utils, extensions and tools.
+And also it provides you with useful framework, utils, extensions and tools.
 
 # Features
 - Well designed project structure.

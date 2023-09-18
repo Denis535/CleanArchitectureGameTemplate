@@ -1,5 +1,5 @@
-@import url("UIStyleSheet_Unity.uss");
-@import url("UIStyleSheet_Unity2.uss");
+@import url("UIStyleSheet_Core.uss");
+@import url("UIStyleSheet_Core2.uss");
 @import url("UIStyleSheet_Library.uss");
 .screen-view,
 .views-container,
