@@ -7,24 +7,18 @@ namespace UnityEngine.Framework.UI {
 
     // Message
     public abstract record UIMessage {
-        public bool IsReceived { get; internal set; } = false;
+        public bool IsReceived { get; internal set; }
     }
     // Command
     public abstract record UICommand : UIMessage {
     }
     public abstract record UICommand<TSender> : UICommand {
         public TSender Sender { get; internal set; } = default!;
-        public abstract record Validatable : UICommand<TSender> {
-            public bool IsValid { get; set; }
-        }
     }
     // Event
     public abstract record UIEvent : UIMessage {
     }
     public abstract record UIEvent<TSender> : UIEvent {
         public TSender Sender { get; internal set; } = default!;
-        public abstract record Validatable : UIEvent<TSender> {
-            public bool IsValid { get; set; }
-        }
     }
 }

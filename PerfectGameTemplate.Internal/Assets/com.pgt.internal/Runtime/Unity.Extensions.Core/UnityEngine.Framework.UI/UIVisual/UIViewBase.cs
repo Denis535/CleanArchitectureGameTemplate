@@ -17,7 +17,6 @@ namespace UnityEngine.Framework.UI {
         public bool IsDisposed { get; private set; }
         // Observable
         public Action<UIMessage>? OnMessageEvent { get; set; }
-        public UIMessageDispatcher Dispatcher => new UIMessageDispatcher( this );
 
         // Create
         public static T Create<T>() where T : UIViewBase, new() {

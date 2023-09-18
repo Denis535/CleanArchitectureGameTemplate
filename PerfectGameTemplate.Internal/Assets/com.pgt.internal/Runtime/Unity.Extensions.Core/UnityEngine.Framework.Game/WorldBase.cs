@@ -5,6 +5,6 @@ namespace UnityEngine.Framework.Game {
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class WorldBase : MonoBehaviour {
+    public abstract class WorldBase : MonoBehaviour {
     }
 }

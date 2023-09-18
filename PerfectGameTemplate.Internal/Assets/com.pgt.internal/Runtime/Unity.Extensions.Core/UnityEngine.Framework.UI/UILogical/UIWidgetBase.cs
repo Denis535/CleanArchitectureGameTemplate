@@ -15,7 +15,6 @@ namespace UnityEngine.Framework.UI {
         public virtual bool DisposeAutomatically => true;
         // Observable
         public Action<UIMessage>? OnMessageEvent { get; set; }
-        public UIMessageDispatcher Dispatcher => new UIMessageDispatcher( this );
         // View
         [MemberNotNullWhen( true, "View" )] public bool IsViewable => IsViewableInternal;
         public UIWidgetViewBase? View => ViewInternal;

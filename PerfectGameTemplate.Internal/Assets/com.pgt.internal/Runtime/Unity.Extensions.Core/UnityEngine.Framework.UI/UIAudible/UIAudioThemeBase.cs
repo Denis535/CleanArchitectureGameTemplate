@@ -8,7 +8,7 @@ namespace UnityEngine.Framework.UI {
     public abstract class UIAudioThemeBase : MonoBehaviour {
 
         // Globals
-        public AudioSource AudioSource { get; protected set; } = default!;
+        protected internal AudioSource AudioSource { get; set; } = default!;
         // AudioSource
         public bool IsPlaying => AudioSource.isPlaying;
         public bool IsPausing { get; private set; }

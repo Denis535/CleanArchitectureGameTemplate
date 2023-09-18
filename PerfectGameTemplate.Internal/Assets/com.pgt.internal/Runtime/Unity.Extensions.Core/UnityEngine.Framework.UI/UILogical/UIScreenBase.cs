@@ -14,11 +14,10 @@ namespace UnityEngine.Framework.UI {
         // System
         private Lock Lock { get; } = new Lock();
         // Globals
-        public UIDocument Document { get; protected set; } = default!;
-        public AudioSource AudioSource { get; protected set; } = default!;
+        protected internal UIDocument Document { get; set; } = default!;
+        protected internal AudioSource AudioSource { get; set; } = default!;
         // Observable
         public Action<UIMessage>? OnMessageEvent { get; set; }
-        public UIMessageDispatcher Dispatcher => new UIMessageDispatcher( this );
         // View
         public UIScreenViewBase View {
             get => view;
