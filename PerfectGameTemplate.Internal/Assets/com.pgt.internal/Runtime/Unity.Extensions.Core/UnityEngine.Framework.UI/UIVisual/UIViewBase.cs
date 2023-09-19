@@ -15,7 +15,6 @@ namespace UnityEngine.Framework.UI {
 
         // System
         public bool IsDisposed { get; private set; }
-        // Observable
         public Action<UIMessage>? OnMessageEvent { get; set; }
 
         // Create
@@ -32,7 +31,7 @@ namespace UnityEngine.Framework.UI {
         }
 
         // Constructor
-        internal UIViewBase() {
+        public UIViewBase() {
             AddToClassList( "view" );
         }
         public virtual void Initialize() {

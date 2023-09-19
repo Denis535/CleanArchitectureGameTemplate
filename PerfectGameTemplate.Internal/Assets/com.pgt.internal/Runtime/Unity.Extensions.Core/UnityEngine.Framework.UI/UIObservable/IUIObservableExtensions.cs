@@ -73,7 +73,6 @@ namespace UnityEngine.Framework.UI {
                 }
             }
         }
-        // Helpers
         private static IUIObservable? GetOwner(this IUIObservable observable) {
             if (observable is UIScreenBase screen) {
                 return null;

@@ -13,12 +13,6 @@ namespace UnityEngine.Framework.UI {
 
         public UIScreenBase Target => (UIScreenBase) target;
 
-        // Awake
-        public void Awake() {
-        }
-        public void OnDestroy() {
-        }
-
         // OnInspectorGUI
         public override void OnInspectorGUI() {
             base.OnInspectorGUI();

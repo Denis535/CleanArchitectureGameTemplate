@@ -6,6 +6,7 @@ namespace UnityEngine.Framework.UI {
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using UnityEngine;
+    using UnityEngine.UIElements;
 
     public abstract class UIWidgetBase : IUILogicalElement, IUIObservable, IDisposable {
 
@@ -13,22 +14,17 @@ namespace UnityEngine.Framework.UI {
         private Lock Lock { get; } = new Lock();
         public bool IsDisposed { get; private protected set; }
         public virtual bool DisposeAutomatically => true;
-        // Observable
         public Action<UIMessage>? OnMessageEvent { get; set; }
         // View
-        [MemberNotNullWhen( true, "View" )] public bool IsViewable => IsViewableInternal;
-        public UIWidgetViewBase? View => ViewInternal;
-        // View/Internal
-        [MemberNotNullWhen( true, "ViewInternal" )] protected private virtual bool IsViewableInternal => false;
-        protected private virtual UIWidgetViewBase? ViewInternal => null;
-        // State
+        [MemberNotNullWhen( true, "View" )] public bool IsViewable => this is IUIViewable;
+        public UIWidgetViewBase? View => (UIWidgetViewBase?) (this as IUIViewable)?.View;
+        // Owner
+        internal IUILogicalElement? Owner => (IUILogicalElement?) Parent ?? Screen;
+        // Screen
         public UIWidgetState State { get; private set; } = UIWidgetState.Unattached;
         [MemberNotNullWhen( true, "Screen" )] public bool IsAttached => State is UIWidgetState.Attaching or UIWidgetState.Attached or UIWidgetState.Detaching;
         [MemberNotNullWhen( true, "Screen" )] public bool IsAttachedStrict => State is UIWidgetState.Attached;
         [MemberNotNullWhen( false, "Screen" )] public bool IsNonAttached => State is UIWidgetState.Unattached or UIWidgetState.Detached;
-        // Owner
-        internal IUILogicalElement? Owner => (IUILogicalElement?) Parent ?? Screen;
-        // Screen
         public UIScreenBase? Screen { get; private set; }
         // Parent
         [MemberNotNullWhen( false, "Parent" )] public bool IsRoot => Parent == null;
@@ -197,22 +193,21 @@ namespace UnityEngine.Framework.UI {
         }
 
     }
-    public abstract class UIWidgetBase<TView> : UIWidgetBase where TView : notnull, UIWidgetViewBase {
+    public abstract class UIWidgetBase<TView> : UIWidgetBase, IUIViewable where TView : notnull, UIWidgetViewBase {
 
         private TView view = default!;
 
         // View
-        public new bool IsViewable => base.IsViewable;
         public new TView View {
-            get => (TView) base.View!;
+            get => view;
             protected init {
                 view = value;
                 view.Widget = this;
             }
         }
-        // View/Internal
-        protected private override bool IsViewableInternal => true;
-        protected private override UIWidgetViewBase? ViewInternal => view;
+        UIViewBase IUIViewable.View => View;
+        public bool IsEnabled { get => View.enabledSelf; set => View.SetEnabled( value ); }
+        public bool IsDisplayed { get => View.IsDisplayed(); set => View.SetDisplayed( value ); }
 
         // Constructor
         public UIWidgetBase() {

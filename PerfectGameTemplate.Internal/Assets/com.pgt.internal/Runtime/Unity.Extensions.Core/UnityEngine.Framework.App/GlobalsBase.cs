@@ -58,7 +58,7 @@ namespace UnityEngine.Framework.App {
             var value = PlayerPrefs.GetString( key, @default.ToString() );
             return Enum.TryParse<T>( value, out var value2 ) ? value2 : @default;
         }
-        // Utils
+        // Helpers
         protected static void Save(string key, string value) {
             PlayerPrefs.SetString( key, value );
         }

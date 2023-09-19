@@ -44,18 +44,18 @@ namespace UnityEngine.Framework.UI {
             AudioSource.UnPause();
         }
 
-        // Utils
-        public static AudioClip GetNext(IList<AudioClip> themes, AudioClip? theme) {
+        // Helpers
+        protected static AudioClip GetNext(IList<AudioClip> themes, AudioClip? theme) {
             var ind = themes.IndexOf( theme! );
             ind = (ind + 1) % themes.Count;
             return themes[ ind ];
         }
-        public static AudioClip GetRandom(IList<AudioClip> themes, AudioClip? theme) {
+        protected static AudioClip GetRandom(IList<AudioClip> themes, AudioClip? theme) {
             var ind = UnityEngine.Random.Range( 0, themes.Count );
             if (themes[ ind ] != theme) return themes[ ind ];
             return GetRandom( themes, theme );
         }
-        public static IList<AudioClip> Shuffle(IList<AudioClip> themes) {
+        protected static IList<AudioClip> Shuffle(IList<AudioClip> themes) {
             for (var i = 0; i < themes.Count; i++) {
                 var i2 = i + UnityEngine.Random.Range( 0, themes.Count - i );
                 (themes[ i ], themes[ i2 ]) = (themes[ i2 ], themes[ i ]);
