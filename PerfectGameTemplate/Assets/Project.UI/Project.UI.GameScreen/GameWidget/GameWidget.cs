@@ -6,7 +6,7 @@ namespace Project.UI.GameScreen {
     using UnityEngine;
     using UnityEngine.Framework.UI;
 
-    public class GameWidget : UIWidget2<GameWidgetView> {
+    public class GameWidget : UIWidgetBase<GameWidgetView> {
 
         // Constructor
         public GameWidget() {

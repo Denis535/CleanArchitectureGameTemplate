@@ -3,26 +3,13 @@ namespace Project {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Text;
     using Project.App;
-    using Project.UI;
-    using Project.UI.MainScreen;
-    using Unity.Services.Authentication;
-    using Unity.Services.Core;
-    using Unity.Services.Qos;
     using UnityEngine;
     using UnityEngine.Framework;
-    using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
     public class Program : ProgramBase {
-
-        // Globals
-        private UIScreenBase Screen => this.GetDependencyContainer().Resolve<UIScreenBase>( null );
-        private UIRouter Router { get; set; } = default!;
-        private IAuthenticationService AuthenticationService => this.GetDependencyContainer().Resolve<IAuthenticationService>( null );
-        private IQosService QosService => this.GetDependencyContainer().Resolve<IQosService>( null );
 
         // OnLoad
         [RuntimeInitializeOnLoadMethod( RuntimeInitializeLoadType.BeforeSplashScreen )]
@@ -37,53 +24,13 @@ namespace Project {
         // Awake
         public new void Awake() {
             base.Awake();
-            Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
         }
         public new void OnDestroy() {
             base.OnDestroy();
         }
 
         // Start
-        public async void Start() {
-            // LoadScene
-            await Router.LoadMainSceneAsync();
-            destroyCancellationToken.ThrowIfCancellationRequested();
-
-            // Initialize
-            //Screen.Widget!.Children.OfType<MainMenuWidget>().First().View.SetEnabled( false );
-            //{
-            //    // UnityServices
-            //    try {
-            //        var options = new InitializationOptions();
-            //        await UnityServices.InitializeAsync( options );
-            //        destroyCancellationToken.ThrowIfCancellationRequested();
-            //    } catch (Exception ex) {
-            //        var error = UILogicalFactory.ErrorDialogWidget( "Error", ex.Message ).OnSubmit( "Ok", () => Router.Quit() );
-            //        Screen.Widget!.AttachChild( error );
-            //        await Screen.WhenAfterDescendantWidgetDetach( i => i == error );
-            //        return;
-            //    }
-            //    // AuthenticationService
-            //    try {
-            //        await AuthenticationService.SignInAnonymouslyAsync();
-            //        destroyCancellationToken.ThrowIfCancellationRequested();
-            //        //Debug.LogFormat( "Player: {0}", AuthenticationService.PlayerInfo?.Username );
-            //        //Debug.LogFormat( "Player Id: {0}", AuthenticationService.PlayerInfo?.Id );
-            //    } catch (Exception ex) {
-            //        var error = UILogicalFactory.ErrorDialogWidget( "Error", ex.Message ).OnSubmit( "Ok", () => Router.Quit() );
-            //        Screen.Widget!.AttachChild( error );
-            //        await Screen.WhenAfterDescendantWidgetDetach( i => i == error );
-            //        return;
-            //    }
-            //}
-            //Screen.Widget!.Children.OfType<MainMenuWidget>().First().View.SetEnabled( true );
-
-            // QosService
-            //var results = await QosService.GetSortedQosResultsAsync( "multiplay", null );
-            //destroyCancellationToken.ThrowIfCancellationRequested();
-            //foreach (var result in results) {
-            //    Debug.LogFormat( "Qos: Region={0}, AverageLatencyMs={1}, PacketLossPercent={2}", result.Region, result.AverageLatencyMs, result.PacketLossPercent );
-            //}
+        public void Start() {
         }
         public void Update() {
         }

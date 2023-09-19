@@ -25,6 +25,38 @@ namespace UnityEngine.ResourceManagement.AsyncOperations {
             return handle.Status == AsyncOperationStatus.Failed;
         }
 
+        // Wait
+        public static void Wait(this AsyncOperationHandle handle) {
+            handle.WaitForCompletion();
+        }
+        public static void Wait<T>(this AsyncOperationHandle<T> handle) {
+            handle.WaitForCompletion();
+        }
+
+        // Wait/Async
+        public static Task WaitAsync(this AsyncOperationHandle handle, CancellationToken cancellationToken) {
+            var tcs = new TaskCompletionSource<object?>();
+            handle.Completed += i => {
+                if (cancellationToken.IsCancellationRequested) {
+                    tcs.SetCanceled();
+                } else {
+                    tcs.SetResult( null );
+                }
+            };
+            return tcs.Task;
+        }
+        public static Task WaitAsync<T>(this AsyncOperationHandle<T> handle, CancellationToken cancellationToken) {
+            var tcs = new TaskCompletionSource<object?>();
+            handle.Completed += i => {
+                if (cancellationToken.IsCancellationRequested) {
+                    tcs.SetCanceled();
+                } else {
+                    tcs.SetResult( null );
+                }
+            };
+            return tcs.Task;
+        }
+
         // GetResult
         public static object? GetResult(this AsyncOperationHandle handle) {
             return handle.WaitForCompletion();

@@ -7,7 +7,7 @@ namespace Project.UI.MainScreen {
     using UnityEngine;
     using UnityEngine.Framework.UI;
 
-    public class MainWidget : UIWidget2<MainWidgetView> {
+    public class MainWidget : UIWidgetBase<MainWidgetView> {
 
         // Constructor
         public MainWidget() {

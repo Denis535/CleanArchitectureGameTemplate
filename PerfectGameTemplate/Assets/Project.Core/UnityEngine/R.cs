@@ -207,10 +207,10 @@ namespace UnityEngine {
                 }
                 public static class @Styles {
                     public const string @UIStyleSheet = "Project.UI/Styles/UIStyleSheet.uss";
+                    public const string @UIStyleSheet_Core = "Project.UI/Styles/UIStyleSheet_Core.uss";
+                    public const string @UIStyleSheet_Core2 = "Project.UI/Styles/UIStyleSheet_Core2.uss";
                     public const string @UIStyleSheet_Internal = "Project.UI/Styles/UIStyleSheet_Internal.uss";
                     public const string @UIStyleSheet_Library = "Project.UI/Styles/UIStyleSheet_Library.uss";
-                    public const string @UIStyleSheet_Unity = "Project.UI/Styles/UIStyleSheet_Unity.uss";
-                    public const string @UIStyleSheet_Unity2 = "Project.UI/Styles/UIStyleSheet_Unity2.uss";
                 }
                 public static class @Themes {
                     public const string @UIThemeStyleSheet = "Project.UI/Themes/UIThemeStyleSheet.tss";

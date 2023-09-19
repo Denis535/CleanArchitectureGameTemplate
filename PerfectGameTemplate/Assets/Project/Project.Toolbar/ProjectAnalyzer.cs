@@ -1,6 +1,6 @@
 ﻿#if UNITY_EDITOR
 #nullable enable
-namespace Project.Tools {
+namespace Project.Toolbar {
     using System;
     using System.Collections;
     using System.Collections.Generic;

@@ -9,7 +9,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class VideoSettingsWidget : UIWidget2<VideoSettingsWidgetView> {
+    public class VideoSettingsWidget : UIWidgetBase<VideoSettingsWidgetView> {
 
         // Globals
         private Globals.VideoSettings VideoSettings { get; }

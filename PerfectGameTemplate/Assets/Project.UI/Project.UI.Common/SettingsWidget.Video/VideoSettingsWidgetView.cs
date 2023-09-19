@@ -17,7 +17,7 @@ namespace Project.UI.Common {
         public record OkeyCommand() : UICommand<VideoSettingsWidgetView>;
         public record BackCommand() : UICommand<VideoSettingsWidgetView>;
     }
-    public partial class VideoSettingsWidgetView : UIWidgetView2 {
+    public partial class VideoSettingsWidgetView : UIWidgetViewBase {
 
         // Content
         private Label title = default!;

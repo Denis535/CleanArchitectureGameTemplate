@@ -7,7 +7,7 @@ namespace Project.UI.GameScreen {
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
-    public class GameMenuWidget : UIWidget2<GameMenuWidgetView> {
+    public class GameMenuWidget : UIWidgetBase<GameMenuWidgetView> {
 
         // Globals
         private UIRouter Router { get; }
@@ -41,7 +41,7 @@ namespace Project.UI.GameScreen {
                 this.AttachChild( UILogicalFactory.SettingsWidget() );
             } );
             view.OnCommand( (GameMenuWidgetView.MainMenuCommand cmd) => {
-                var dialog = UILogicalFactory.DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", async () => await Router.LoadMainSceneAsync() ).OnCancel( "No", null );
+                var dialog = UILogicalFactory.DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", async () => await Router.LoadMainSceneAsync( default ) ).OnCancel( "No", null );
                 this.AttachChild( dialog );
             } );
             return view;

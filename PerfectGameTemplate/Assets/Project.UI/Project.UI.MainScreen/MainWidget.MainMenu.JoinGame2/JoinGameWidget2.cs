@@ -10,7 +10,7 @@ namespace Project.UI.MainScreen {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class JoinGameWidget2 : UIWidget2<JoinGameWidgetView2> {
+    public class JoinGameWidget2 : UIWidgetBase<JoinGameWidgetView2> {
 
         // Globals
         private UIRouter Router { get; }
@@ -85,7 +85,7 @@ namespace Project.UI.MainScreen {
                 var playerName = View.Player.PlayerName.Value!;
                 var playerRole = View.Player.PlayerRole.As<PlayerRole>().Value;
                 var playerDesc = new PlayerDesc( playerName, playerRole );
-                _ = Router.LoadGameSceneAsync( gameDesc, playerDesc );
+                _ = Router.LoadGameSceneAsync( gameDesc, playerDesc, default );
                 this.AttachChild( UILogicalFactory.LoadingWidget() );
             } );
             view.OnCommand( (JoinGameWidgetView2.BackCommand cmd) => {

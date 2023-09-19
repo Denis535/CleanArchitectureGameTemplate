@@ -6,8 +6,6 @@ namespace Project {
     using System.Text;
     using Project.App;
     using Project.UI;
-    using Project.UI.GameScreen;
-    using Project.UI.MainScreen;
     using Unity.Services.Authentication;
     using Unity.Services.Lobbies;
     using Unity.Services.Qos;
@@ -53,14 +51,8 @@ namespace Project {
 
         // GetDependency
         public object? GetDependency(Type type, object? argument) {
-            if (type == typeof( UIScreenBase )) {
-                return GameObject.FindAnyObjectByType<UIScreenBase>();
-            }
-            if (type == typeof( MainScreen )) {
-                return GameObject.FindAnyObjectByType<MainScreen>();
-            }
-            if (type == typeof( GameScreen )) {
-                return GameObject.FindAnyObjectByType<GameScreen>();
+            if (type == typeof( UIScreen )) {
+                return GameObject.FindAnyObjectByType<UIScreen>();
             }
             if (type == typeof( UIDocument )) {
                 return Document;

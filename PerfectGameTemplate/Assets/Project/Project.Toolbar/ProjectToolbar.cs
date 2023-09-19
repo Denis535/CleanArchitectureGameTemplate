@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #nullable enable
-namespace Project.Tools {
+namespace Project.Toolbar {
     using System;
     using System.Collections;
     using System.Collections.Generic;
@@ -20,7 +20,8 @@ namespace Project.Tools {
         [InitializeOnLoadMethod]
         internal static void OnLoad() {
             if (!EditorApplication.isPlaying) {
-                EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>( "Assets/Project/Assets.Project/Program.unity" );
+                //EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>( "Assets/Project/Assets.Project/Program.unity" );
+                EditorSceneManager.playModeStartScene = null;
             }
         }
 
@@ -39,49 +40,49 @@ namespace Project.Tools {
         }
 
         // LoadScene
-        [MenuItem( "Tools/Launcher", priority = 100 )]
+        [MenuItem( "Project/Launcher", priority = 100 )]
         internal static void LoadLauncher() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/Launcher.unity" );
         }
-        [MenuItem( "Tools/Program", priority = 101 )]
+        [MenuItem( "Project/Program", priority = 101 )]
         internal static void LoadProgram() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/Program.unity" );
         }
-        [MenuItem( "Tools/Main Scene", priority = 102 )]
+        [MenuItem( "Project/Main Scene", priority = 102 )]
         internal static void LoadMainScene() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/MainScene.unity" );
         }
-        [MenuItem( "Tools/Game Scene", priority = 103 )]
+        [MenuItem( "Project/Game Scene", priority = 103 )]
         internal static void LoadGameScene() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/GameScene.unity" );
         }
 
         // LoadWorld
-        [MenuItem( "Tools/Test World 1", priority = 200 )]
+        [MenuItem( "Project/Test World 1", priority = 200 )]
         internal static void LoadTestLevel1() {
             EditorSceneManager.OpenScene( "Assets/Project.Game/Assets.Project.Game.World/TestWorld_1.unity" );
         }
-        [MenuItem( "Tools/Test World 2", priority = 201 )]
+        [MenuItem( "Project/Test World 2", priority = 201 )]
         internal static void LoadTestLevel2() {
             EditorSceneManager.OpenScene( "Assets/Project.Game/Assets.Project.Game.World/TestWorld_2.unity" );
         }
 
         // Build
-        [MenuItem( "Tools/Pre Build", priority = 300 )]
+        [MenuItem( "Project/Pre Build", priority = 300 )]
         internal static void PreBuild() {
             new ProjectBuilder2().PreBuild();
         }
-        [MenuItem( "Tools/Build Development", priority = 301 )]
+        [MenuItem( "Project/Build Development", priority = 301 )]
         internal static void BuildDevelopment() {
             new ProjectBuilder2().BuildDevelopment();
         }
-        [MenuItem( "Tools/Build Production", priority = 302 )]
+        [MenuItem( "Project/Build Production", priority = 302 )]
         internal static void BuildProduction() {
             new ProjectBuilder2().BuildProduction();
         }
 
         // OpenAssets
-        [MenuItem( "Tools/Open Assets (UIAudioTheme)", priority = 1000 )]
+        [MenuItem( "Project/Open Assets (UIAudioTheme)", priority = 1000 )]
         internal static void OpenAssets_UIAudioTheme() {
             OpenAssets( GetPatterns(
                 // MainScreen
@@ -90,7 +91,7 @@ namespace Project.Tools {
                 "Assets/*/Project.UI.GameScreen/*Theme.cs"
                 ) );
         }
-        [MenuItem( "Tools/Open Assets (UIScreen)", priority = 1001 )]
+        [MenuItem( "Project/Open Assets (UIScreen)", priority = 1001 )]
         internal static void OpenAssets_UIScreen() {
             OpenAssets( GetPatterns(
                 // MainScreen
@@ -99,7 +100,7 @@ namespace Project.Tools {
                 "Assets/*/Project.UI.GameScreen/*Screen.cs"
                 ) );
         }
-        [MenuItem( "Tools/Open Assets (UIWidget)", priority = 1002 )]
+        [MenuItem( "Project/Open Assets (UIWidget)", priority = 1002 )]
         internal static void OpenAssets_UIWidget() {
             OpenAssets( GetPatterns(
                 // MainScreen
@@ -116,7 +117,7 @@ namespace Project.Tools {
                 "Assets/*/Project.UI.Common/*Widget2.cs"
                 ) );
         }
-        [MenuItem( "Tools/Open Assets (UIView)", priority = 1003 )]
+        [MenuItem( "Project/Open Assets (UIView)", priority = 1003 )]
         internal static void OpenAssets_UIView() {
             OpenAssets( GetPatterns(
                 // MainScreen

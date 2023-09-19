@@ -6,7 +6,7 @@ namespace Project.UI.Common {
     using UnityEngine;
     using UnityEngine.Framework.UI;
 
-    public abstract class DialogWidgetBase<TView> : UIWidget2<TView>, IUIModalWidget where TView : DialogWidgetViewBase {
+    public abstract class DialogWidgetBase<TView> : UIWidgetBase<TView>, IUIModalWidget where TView : DialogWidgetViewBase {
 
         // Props
         public string? Title {

@@ -6,7 +6,7 @@ namespace Project.UI.Common {
     using UnityEngine;
     using UnityEngine.Framework.UI;
 
-    public class SettingsWidget : UIWidget2<SettingsWidgetView> {
+    public class SettingsWidget : UIWidgetBase<SettingsWidgetView> {
 
         // Constructor
         public SettingsWidget() {

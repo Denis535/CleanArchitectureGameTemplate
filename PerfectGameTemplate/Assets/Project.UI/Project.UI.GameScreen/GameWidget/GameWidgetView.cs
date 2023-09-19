@@ -13,7 +13,7 @@ namespace Project.UI.GameScreen {
         public new class UxmlFactory : UxmlFactory<GameWidgetView, UxmlTraits> { }
         public record PauseCommand() : UICommand<GameWidgetView>;
     }
-    public partial class GameWidgetView : UIWidgetView2 {
+    public partial class GameWidgetView : UIWidgetViewBase {
 
         // Constructor
         public GameWidgetView() {

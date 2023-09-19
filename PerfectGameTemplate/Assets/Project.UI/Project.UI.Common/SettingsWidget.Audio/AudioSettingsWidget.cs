@@ -8,7 +8,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
-    public class AudioSettingsWidget : UIWidget2<AudioSettingsWidgetView> {
+    public class AudioSettingsWidget : UIWidgetBase<AudioSettingsWidgetView> {
 
         // Globals
         private Globals.AudioSettings AudioSettings { get; }

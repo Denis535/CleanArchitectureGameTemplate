@@ -7,7 +7,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public abstract class DialogWidgetViewBase : UIWidgetView2, IUIModalWidgetView {
+    public abstract class DialogWidgetViewBase : UIWidgetViewBase, IUIModalWidgetView {
 
         // Content
         protected Card card = default!;

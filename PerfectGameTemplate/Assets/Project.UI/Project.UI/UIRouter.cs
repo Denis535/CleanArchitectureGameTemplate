@@ -17,20 +17,33 @@ namespace Project.UI {
 
     public class UIRouter : UIRouterBase {
 
-        private static SceneInstance program;
-        private SceneInstance mainScene;
-        private SceneInstance gameScene;
-        private SceneInstance worldScene;
+        private static AsyncOperationHandle<SceneInstance> programHandle;
+        private AsyncOperationHandle<SceneInstance> mainSceneHandle;
+        private AsyncOperationHandle<SceneInstance> gameSceneHandle;
+        private AsyncOperationHandle<SceneInstance> worldSceneHandle;
 
         // System
         private Lock Lock { get; } = new Lock();
         // Globals
         private Application2 Application { get; set; } = default!;
+        // IsSceneLoading
+        public static bool IsProgramLoading => programHandle.IsValid();
+        public bool IsMainSceneLoading => mainSceneHandle.IsValid();
+        public bool IsGameSceneLoading => gameSceneHandle.IsValid();
+        public bool IsWorldSceneLoading => worldSceneHandle.IsValid();
         // IsSceneLoaded
-        public static bool IsProgramLoaded => program.Scene.IsValid();
-        public bool IsMainSceneLoaded => mainScene.Scene.IsValid();
-        public bool IsGameSceneLoaded => gameScene.Scene.IsValid();
-        public bool IsWorldSceneLoaded => worldScene.Scene.IsValid();
+        public static bool IsProgramLoaded => programHandle.IsValid() && programHandle.Result.Scene.isLoaded;
+        public bool IsMainSceneLoaded => mainSceneHandle.IsValid() && mainSceneHandle.Result.Scene.isLoaded;
+        public bool IsGameSceneLoaded => gameSceneHandle.IsValid() && gameSceneHandle.Result.Scene.isLoaded;
+        public bool IsWorldSceneLoaded => worldSceneHandle.IsValid() && worldSceneHandle.Result.Scene.isLoaded;
+        // OnSceneLoading
+        public static event Action? OnProgramLoadingEvent;
+        public event Action? OnMainSceneLoadingEvent;
+        public event Action? OnGameSceneLoadingEvent;
+        // OnSceneLoaded
+        public static event Action? OnProgramLoadedEvent;
+        public event Action? OnMainSceneLoadedEvent;
+        public event Action? OnGameSceneLoadedEvent;
 
         // Awake
         public new void Awake() {
@@ -42,25 +55,32 @@ namespace Project.UI {
         }
 
         // LoadScene
-        public static async Task LoadProgramAsync() {
+        public static async Task LoadProgramAsync(CancellationToken cancellationToken) {
             Release.LogFormat( "Load: Program" );
-            program = await LoadSceneAsync( R.Project.Program, LoadSceneMode.Single, true, default );
+            OnProgramLoadingEvent?.Invoke();
+            programHandle = Addressables2.LoadSceneAsync( R.Project.Program, LoadSceneMode.Single, true );
+            await programHandle.WaitAsync( cancellationToken );
+            OnProgramLoadedEvent?.Invoke();
         }
-        public async Task LoadMainSceneAsync() {
+        public async Task LoadMainSceneAsync(CancellationToken cancellationToken) {
             Release.LogFormat( "Load: MainScene" );
             using (Lock.Enter()) {
-                await UnloadGameSceneInternalAsync( destroyCancellationToken );
-                await UnloadWorldSceneInternalAsync( destroyCancellationToken );
-                await LoadMainSceneInternalAsync( destroyCancellationToken );
+                OnMainSceneLoadingEvent?.Invoke();
+                await UnloadGameSceneInternalAsync( cancellationToken );
+                await UnloadWorldSceneInternalAsync( cancellationToken );
+                await LoadMainSceneInternalAsync( cancellationToken );
+                OnMainSceneLoadedEvent?.Invoke();
             }
         }
-        public async Task LoadGameSceneAsync(GameDesc gameDesc, PlayerDesc playerDesc) {
+        public async Task LoadGameSceneAsync(GameDesc gameDesc, PlayerDesc playerDesc, CancellationToken cancellationToken) {
             Release.LogFormat( "Load: GameScene" );
             using (Lock.Enter()) {
+                OnGameSceneLoadingEvent?.Invoke();
                 await Task.Delay( 3_000 );
-                await LoadWorldSceneInternalAsync( gameDesc.World, destroyCancellationToken );
-                await UnloadMainSceneInternalAsync( destroyCancellationToken );
-                await LoadGameSceneInternalAsync( gameDesc, playerDesc, destroyCancellationToken );
+                await LoadWorldSceneInternalAsync( gameDesc.World, cancellationToken );
+                await UnloadMainSceneInternalAsync( cancellationToken );
+                await LoadGameSceneInternalAsync( gameDesc, playerDesc, cancellationToken );
+                OnGameSceneLoadedEvent?.Invoke();
             }
         }
 
@@ -98,43 +118,43 @@ namespace Project.UI {
 
         // LoadScene
         private async Task LoadMainSceneInternalAsync(CancellationToken cancellationToken) {
-            mainScene = await LoadSceneAsync( R.Project.MainScene, LoadSceneMode.Additive, true, cancellationToken );
+            mainSceneHandle = Addressables2.LoadSceneAsync( R.Project.MainScene, LoadSceneMode.Additive, true );
+            var mainScene = await mainSceneHandle.GetResultAsync( cancellationToken );
+            SceneManager.SetActiveScene( mainScene.Scene );
         }
         private async Task LoadGameSceneInternalAsync(GameDesc gameDesc, PlayerDesc playerDesc, CancellationToken cancellationToken) {
-            gameScene = await LoadSceneAsync( R.Project.GameScene, LoadSceneMode.Additive, true, cancellationToken );
+            gameSceneHandle = Addressables2.LoadSceneAsync( R.Project.GameScene, LoadSceneMode.Additive, true );
+            var gameScene = await gameSceneHandle.GetResultAsync( cancellationToken );
+            SceneManager.SetActiveScene( gameScene.Scene );
             Application.StartGame( gameDesc, playerDesc );
         }
         private async Task LoadWorldSceneInternalAsync(GameWorld world, CancellationToken cancellationToken) {
-            worldScene = await LoadSceneAsync( GetAddress( world ), LoadSceneMode.Additive, true, cancellationToken );
+            worldSceneHandle = Addressables2.LoadSceneAsync( GetAddress( world ), LoadSceneMode.Additive, true );
+            await worldSceneHandle.WaitAsync( cancellationToken );
         }
 
         // UnloadScene
         private async Task UnloadMainSceneInternalAsync(CancellationToken cancellationToken) {
-            if (mainScene.Scene.IsValid()) {
-                await UnloadSceneAsync( mainScene, cancellationToken );
+            if (mainSceneHandle.IsValid()) {
+                await Addressables2.UnloadSceneAsync( mainSceneHandle ).WaitAsync( cancellationToken );
+                mainSceneHandle = default;
             }
         }
         private async Task UnloadGameSceneInternalAsync(CancellationToken cancellationToken) {
-            if (gameScene.Scene.IsValid()) {
+            if (gameSceneHandle.IsValid()) {
                 Application.StopGame();
-                await UnloadSceneAsync( gameScene, cancellationToken );
+                await Addressables2.UnloadSceneAsync( gameSceneHandle ).WaitAsync( cancellationToken );
+                gameSceneHandle = default;
             }
         }
         private async Task UnloadWorldSceneInternalAsync(CancellationToken cancellationToken) {
-            if (worldScene.Scene.IsValid()) {
-                await UnloadSceneAsync( worldScene, cancellationToken );
+            if (worldSceneHandle.IsValid()) {
+                await Addressables2.UnloadSceneAsync( worldSceneHandle ).WaitAsync( cancellationToken );
+                worldSceneHandle = default;
             }
         }
 
         // Helpers
-        private static async Task<SceneInstance> LoadSceneAsync(string key, LoadSceneMode mode, bool activateOnLoad, CancellationToken cancellationToken) {
-            var instance = await Addressables2.LoadSceneAsync( key, mode, activateOnLoad ).GetResultAsync( cancellationToken );
-            SceneManager.SetActiveScene( instance.Scene );
-            return instance;
-        }
-        private static Task UnloadSceneAsync(SceneInstance instance, CancellationToken cancellationToken) {
-            return Addressables2.UnloadSceneAsync( instance ).GetResultAsync( cancellationToken );
-        }
         private static string GetAddress(GameWorld world) {
             return world switch {
                 GameWorld.TestWorld1 => R.Project.Game.World.TestWorld_1,

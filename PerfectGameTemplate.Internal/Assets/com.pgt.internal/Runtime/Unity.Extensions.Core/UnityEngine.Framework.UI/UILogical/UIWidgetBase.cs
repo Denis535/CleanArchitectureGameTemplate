@@ -5,6 +5,7 @@ namespace UnityEngine.Framework.UI {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
     using UnityEngine;
     using UnityEngine.UIElements;
 
@@ -12,7 +13,9 @@ namespace UnityEngine.Framework.UI {
 
         // System
         private Lock Lock { get; } = new Lock();
-        public bool IsDisposed { get; private protected set; }
+        public bool IsDisposed { get; private set; }
+        private CancellationTokenSource DisposeCancellationTokenSource { get; } = new CancellationTokenSource();
+        public CancellationToken DisposeCancellationToken => DisposeCancellationTokenSource.Token;
         public virtual bool DisposeAutomatically => true;
         public Action<UIMessage>? OnMessageEvent { get; set; }
         // View
@@ -53,6 +56,8 @@ namespace UnityEngine.Framework.UI {
             Assert.Object.Message( $"Widget {this} must be alive" ).Alive( !IsDisposed );
             Assert.Object.Message( $"Widget {this} must be non-attached" ).Valid( IsNonAttached );
             IsDisposed = true;
+            DisposeCancellationTokenSource.Cancel();
+            DisposeCancellationTokenSource.Dispose();
         }
 
         // Attach
@@ -100,11 +105,9 @@ namespace UnityEngine.Framework.UI {
 
         // OnAttach
         public abstract void OnAttach();
-        public abstract void OnDetach();
-
-        // OnShow
         public abstract void OnShow();
         public abstract void OnHide();
+        public abstract void OnDetach();
 
         // AttachChild
         protected internal virtual void __AttachChild__(UIWidgetBase child) {
@@ -215,8 +218,8 @@ namespace UnityEngine.Framework.UI {
         public override void Dispose() {
             Assert.Object.Message( $"Widget {this} must be alive" ).Alive( !IsDisposed );
             Assert.Object.Message( $"Widget {this} must be non-attached" ).Valid( IsNonAttached );
-            IsDisposed = true;
             View.Dispose();
+            base.Dispose();
         }
 
         // AttachChild

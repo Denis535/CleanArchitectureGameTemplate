@@ -16,7 +16,7 @@ namespace Project.UI.MainScreen {
         public record SettingsCommand() : UICommand<MainMenuWidgetView>;
         public record QuitCommand() : UICommand<MainMenuWidgetView>;
     }
-    public partial class MainMenuWidgetView : UIWidgetView2 {
+    public partial class MainMenuWidgetView : UIWidgetViewBase {
 
         // Content
         private Label title = default!;

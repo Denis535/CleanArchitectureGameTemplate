@@ -4,6 +4,7 @@ namespace Project.UI.MainScreen {
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
+    using UnityEngine.Framework.UI;
     using UnityEngine.Scripting;
     using UnityEngine.UIElements;
     using UnityEngine.UIElements.Experimental;
@@ -12,7 +13,7 @@ namespace Project.UI.MainScreen {
         [Preserve]
         public new class UxmlFactory : UxmlFactory<MainWidgetView, UxmlTraits> { }
     }
-    public partial class MainWidgetView : UIWidgetView2 {
+    public partial class MainWidgetView : UIWidgetViewBase {
 
         // Content
         private VisualElement background = default!;

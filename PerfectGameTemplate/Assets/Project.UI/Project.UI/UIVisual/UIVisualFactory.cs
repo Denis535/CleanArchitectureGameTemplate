@@ -15,10 +15,6 @@ namespace Project.UI {
     public static class UIVisualFactory {
 
         // Main
-        public static MainScreenView MainScreen() {
-            var view = Create<MainScreenView>();
-            return view;
-        }
         public static MainWidgetView MainWidget() {
             var view = Create<MainWidgetView>( R.Project.UI.MainScreen.MainWidgetView );
             return view;
@@ -49,10 +45,6 @@ namespace Project.UI {
         }
 
         // Game
-        public static GameScreenView GameScreen() {
-            var view = Create<GameScreenView>();
-            return view;
-        }
         public static GameWidgetView GameWidget() {
             var view = Create<GameWidgetView>( R.Project.UI.GameScreen.GameWidgetView );
             return view;

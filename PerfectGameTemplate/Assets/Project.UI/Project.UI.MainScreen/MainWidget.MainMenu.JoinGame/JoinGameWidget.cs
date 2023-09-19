@@ -10,7 +10,7 @@ namespace Project.UI.MainScreen {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class JoinGameWidget : UIWidget2<JoinGameWidgetView> {
+    public class JoinGameWidget : UIWidgetBase<JoinGameWidgetView> {
 
         // Globals
         private UIRouter Router { get; }

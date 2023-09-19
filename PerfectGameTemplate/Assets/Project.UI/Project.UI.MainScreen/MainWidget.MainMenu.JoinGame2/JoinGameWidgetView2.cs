@@ -14,7 +14,7 @@ namespace Project.UI.MainScreen {
         public record OkeyCommand() : UICommand<JoinGameWidgetView2>;
         public record BackCommand() : UICommand<JoinGameWidgetView2>;
     }
-    public partial class JoinGameWidgetView2 : UIWidgetView2 {
+    public partial class JoinGameWidgetView2 : UIWidgetViewBase {
 
         // Content
         private Label title = default!;
@@ -55,8 +55,8 @@ namespace Project.UI.MainScreen {
         }
 
     }
-    public partial class JoinGameWidgetView2 : UIWidgetView2 {
-        public class GameView : UISubView2 {
+    public partial class JoinGameWidgetView2 : UIWidgetViewBase {
+        public class GameView : UISubViewBase {
             [Preserve]
             public new class UxmlFactory : UxmlFactory<GameView, UxmlTraits> { }
             public record GameNameEvent(string GameName) : UIEvent<GameView>;
@@ -107,7 +107,7 @@ namespace Project.UI.MainScreen {
             }
 
         }
-        public class PlayerView : UISubView2 {
+        public class PlayerView : UISubViewBase {
             [Preserve]
             public new class UxmlFactory : UxmlFactory<PlayerView, UxmlTraits> { }
             public record PlayerNameEvent(string PlayerName) : UIEvent<PlayerView>;
@@ -144,7 +144,7 @@ namespace Project.UI.MainScreen {
             }
 
         }
-        public class PlayersView : UISubView2 {
+        public class PlayersView : UISubViewBase {
             [Preserve]
             public new class UxmlFactory : UxmlFactory<PlayersView, UxmlTraits> { }
         }

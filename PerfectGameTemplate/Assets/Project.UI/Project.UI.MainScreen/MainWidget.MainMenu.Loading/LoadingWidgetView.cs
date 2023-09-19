@@ -5,6 +5,7 @@ namespace Project.UI.MainScreen {
     using System.Collections.Generic;
     using System.Text;
     using UnityEngine;
+    using UnityEngine.Framework.UI;
     using UnityEngine.Scripting;
     using UnityEngine.UIElements;
     using UnityEngine.UIElements.Experimental;
@@ -13,7 +14,7 @@ namespace Project.UI.MainScreen {
         [Preserve]
         public new class UxmlFactory : UxmlFactory<LoadingWidgetView, UxmlTraits> { }
     }
-    public partial class LoadingWidgetView : UIWidgetView2 {
+    public partial class LoadingWidgetView : UIWidgetViewBase {
 
         // Content
         private Label loading = default!;

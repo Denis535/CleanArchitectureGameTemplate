@@ -15,7 +15,7 @@ namespace Project.UI.GameScreen {
         public record SettingsCommand() : UICommand<GameMenuWidgetView>;
         public record MainMenuCommand() : UICommand<GameMenuWidgetView>;
     }
-    public partial class GameMenuWidgetView : UIWidgetView2 {
+    public partial class GameMenuWidgetView : UIWidgetViewBase {
 
         // Content
         private Label title = default!;

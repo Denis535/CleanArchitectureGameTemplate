@@ -18,7 +18,7 @@ namespace Project.UI.Common {
         public record OkeyCommand() : UICommand<AudioSettingsWidgetView>;
         public record BackCommand() : UICommand<AudioSettingsWidgetView>;
     }
-    public partial class AudioSettingsWidgetView : UIWidgetView2 {
+    public partial class AudioSettingsWidgetView : UIWidgetViewBase {
 
         // Content
         private Label title = default!;

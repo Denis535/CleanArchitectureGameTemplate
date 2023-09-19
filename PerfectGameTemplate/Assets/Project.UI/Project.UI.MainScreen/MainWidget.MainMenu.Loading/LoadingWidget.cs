@@ -4,8 +4,9 @@ namespace Project.UI.MainScreen {
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
+    using UnityEngine.Framework.UI;
 
-    public class LoadingWidget : UIWidget2<LoadingWidgetView> {
+    public class LoadingWidget : UIWidgetBase<LoadingWidgetView> {
 
         // Constructor
         public LoadingWidget() {

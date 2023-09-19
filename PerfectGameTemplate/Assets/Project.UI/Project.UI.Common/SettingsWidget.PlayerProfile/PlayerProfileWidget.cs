@@ -8,7 +8,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
-    public class PlayerProfileWidget : UIWidget2<PlayerProfileWidgetView> {
+    public class PlayerProfileWidget : UIWidgetBase<PlayerProfileWidgetView> {
 
         // Globals
         private Globals.PlayerProfile PlayerProfile { get; }

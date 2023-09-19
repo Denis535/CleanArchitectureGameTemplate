@@ -7,7 +7,7 @@ namespace Project.UI.MainScreen {
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
-    public class MainMenuWidget : UIWidget2<MainMenuWidgetView> {
+    public class MainMenuWidget : UIWidgetBase<MainMenuWidgetView> {
 
         // Globals
         private UIRouter Router { get; }
