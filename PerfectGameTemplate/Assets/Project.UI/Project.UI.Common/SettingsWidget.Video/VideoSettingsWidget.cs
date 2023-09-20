@@ -37,7 +37,7 @@ namespace Project.UI.Common {
             VideoSettings.Load();
         }
 
-        // Helpers/View
+        // Helpers
         private VideoSettingsWidgetView CreateView() {
             var view = UIVisualFactory.VideoSettingsWidget();
             view.OnEvent( (VideoSettingsWidgetView.IsFullScreenEvent evt) => {

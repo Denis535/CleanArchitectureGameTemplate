@@ -23,27 +23,21 @@ namespace Project.UI.GameScreen {
 
         // OnAttach
         public override void OnAttach() {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            Actions.Enable();
+            SetGameEnabled( true, Actions );
         }
         public override void OnShow() {
         }
         public override void OnHide() {
         }
         public override void OnDetach() {
-            Actions.Disable();
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = false;
+            SetGameEnabled( false, Actions );
         }
 
         // OnDescendantWidgetAttach
         public override void OnBeforeDescendantAttach(UIWidgetBase descendant) {
             base.OnBeforeDescendantAttach( descendant );
             if (descendant is GameMenuWidget) {
-                Actions.Disable();
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                SetGameEnabled( false, Actions );
             }
         }
         public override void OnAfterDescendantAttach(UIWidgetBase descendant) {
@@ -54,27 +48,33 @@ namespace Project.UI.GameScreen {
         }
         public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
             if (descendant is GameMenuWidget) {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                Actions.Enable();
+                SetGameEnabled( true, Actions );
             }
             base.OnAfterDescendantDetach( descendant );
         }
 
         // Update
         public void Update() {
-            //if (Actions.Game.Fire.WasPressedThisFrame()) {
-            //    Debug.Log( "Fire" );
-            //}
+            if (Actions.UI.Cancel.WasPressedThisFrame()) {
+                this.AttachChild( UILogicalFactory.GameMenuWidget() );
+            }
         }
 
-        // Helpers/View
+        // Helpers
         private GameWidgetView CreateView() {
             var view = UIVisualFactory.GameWidget();
-            view.OnCommand( (GameWidgetView.PauseCommand cmd) => {
-                this.AttachChild( UILogicalFactory.GameMenuWidget() );
-            } );
             return view;
+        }
+        private static void SetGameEnabled(bool value, InputActions actions) {
+            if (value) {
+                actions.Enable();
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            } else {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                actions.Disable();
+            }
         }
 
     }

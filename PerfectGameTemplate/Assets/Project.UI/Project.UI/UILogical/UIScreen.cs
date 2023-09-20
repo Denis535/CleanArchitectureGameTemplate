@@ -40,7 +40,6 @@ namespace Project.UI {
                 if (Widget != null) this.DetachWidget();
                 this.AttachWidget( UILogicalFactory.GameWidget() );
             }
-
             if (Widget is GameWidget gameWidget) {
                 gameWidget.Update();
             }

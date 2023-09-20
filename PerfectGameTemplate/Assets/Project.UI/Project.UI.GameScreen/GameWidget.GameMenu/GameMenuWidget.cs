@@ -31,7 +31,7 @@ namespace Project.UI.GameScreen {
         public override void OnDetach() {
         }
 
-        // Helpers/View
+        // Helpers
         private GameMenuWidgetView CreateView() {
             var view = UIVisualFactory.GameMenuWidget();
             view.OnCommand( (GameMenuWidgetView.ResumeCommand cmd) => {

@@ -68,7 +68,7 @@ namespace Project.UI.MainScreen {
             base.OnAfterDescendantDetach( widget );
         }
 
-        // Helpers/View
+        // Helpers
         private JoinGameWidgetView CreateView() {
             var view = UIVisualFactory.JoinGameWidget();
             view.Game.OnEvent( (JoinGameWidgetView.GameView.GameNameEvent evt) => {

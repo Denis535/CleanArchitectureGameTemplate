@@ -37,7 +37,7 @@ namespace Project.UI.Common {
             AudioSettings.Load();
         }
 
-        // Helpers/View
+        // Helpers
         private AudioSettingsWidgetView CreateView() {
             var view = UIVisualFactory.AudioSettingsWidget();
             view.OnEvent( (AudioSettingsWidgetView.MasterVolumeEvent evt) => {

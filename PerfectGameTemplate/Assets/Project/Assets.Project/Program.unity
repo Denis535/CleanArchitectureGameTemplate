@@ -222,7 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54368618a3aee74d8d87f57c8521ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screen: {fileID: 0}
+  theme: {fileID: 243093304}
+  screen: {fileID: 938585823}
   router: {fileID: 3160590370860231193}
   application: {fileID: 3512483430981800128}
 --- !u!1 &454812440
@@ -312,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 454812440}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!114 &454812444

@@ -140,7 +140,7 @@
   font-size: 120%;
   -unity-font-style: bold;
 }
-MainWidgetView .background {
+MainWidgetView {
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI.MainScreen/Images/Background.png');
   -unity-background-scale-mode: stretch-to-fill;
   position: absolute;

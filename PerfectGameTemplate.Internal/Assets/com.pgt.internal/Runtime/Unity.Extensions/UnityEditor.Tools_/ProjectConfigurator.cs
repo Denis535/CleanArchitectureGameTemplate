@@ -69,11 +69,11 @@ namespace UnityEditor.Tools_ {
         }
         public virtual int? GetExecutionOrder_UI(MonoScript script) {
             // Audible
-            if (script.CanConfigure( typeof( UIAudioThemeBase ) )) return ScriptExecutionOrders.UI + 20;
+            if (script.CanConfigure( typeof( UIAudioThemeBase ) )) return ScriptExecutionOrders.UIAudioTheme;
             // Logical
-            if (script.CanConfigure( typeof( UIScreenBase ) )) return ScriptExecutionOrders.UI + 10;
+            if (script.CanConfigure( typeof( UIScreenBase ) )) return ScriptExecutionOrders.UIScreen;
             // Misc
-            if (script.CanConfigure( typeof( UIRouterBase ) )) return ScriptExecutionOrders.UI;
+            if (script.CanConfigure( typeof( UIRouterBase ) )) return ScriptExecutionOrders.UIRouter;
             return null;
         }
         public virtual int? GetExecutionOrder_App(MonoScript script) {

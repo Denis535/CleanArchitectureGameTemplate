@@ -34,7 +34,7 @@ namespace Project.UI.Common {
             PlayerProfile.Load();
         }
 
-        // Helpers/View
+        // Helpers
         private PlayerProfileWidgetView CreateView() {
             var view = UIVisualFactory.PlayerProfileWidget();
             view.OnEvent( (PlayerProfileWidgetView.NameEvent evt) => {

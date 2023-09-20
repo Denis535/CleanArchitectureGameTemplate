@@ -26,7 +26,7 @@ namespace Project.UI.MainScreen {
         public override void OnDetach() {
         }
 
-        // Helpers/View
+        // Helpers
         private LoadingWidgetView CreateView() {
             var view = UIVisualFactory.LoadingWidget();
             return view;

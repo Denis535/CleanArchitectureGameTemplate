@@ -26,7 +26,7 @@ namespace Project.UI.Common {
         public override void OnDetach() {
         }
 
-        // Helpers/View
+        // Helpers
         private SettingsWidgetView CreateView() {
             var view = UIVisualFactory.SettingsWidget();
             view.OnCommand( (SettingsWidgetView.PlayerProfileCommand cmd) => {

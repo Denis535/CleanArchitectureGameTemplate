@@ -14,11 +14,13 @@ namespace Project {
 
     public class DependencyContainer : MonoBehaviour, IDependencyContainer {
 
+        [SerializeField] private UITheme theme = default!;
         [SerializeField] private UIScreen screen = default!;
         [SerializeField] private UIRouter router = default!;
         [SerializeField] private Application2 application = default!;
 
         // Globals
+        private UITheme Theme => theme;
         private UIScreen Screen => screen;
         private UIRouter Router => router;
         private Application2 Application => application;
@@ -45,13 +47,20 @@ namespace Project {
 
         // GetDependency
         public object? GetDependency(Type type, object? argument) {
+            if (type == typeof( UITheme )) {
+                Assert.Object.Message( $"Object {Theme} must be awakened" ).Valid( Theme.didAwake );
+                return Theme;
+            }
             if (type == typeof( UIScreen )) {
+                Assert.Object.Message( $"Object {Screen} must be awakened" ).Valid( Screen.didAwake );
                 return Screen;
             }
             if (type == typeof( UIRouter )) {
+                Assert.Object.Message( $"Object {Router} must be awakened" ).Valid( Router.didAwake );
                 return Router;
             }
             if (type == typeof( Application2 )) {
+                Assert.Object.Message( $"Object {Application} must be awakened" ).Valid( Application.didAwake );
                 return Application;
             }
             if (type == typeof( Globals )) {

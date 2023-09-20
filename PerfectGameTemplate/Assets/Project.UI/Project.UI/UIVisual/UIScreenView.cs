@@ -34,15 +34,11 @@ namespace Project.UI {
 
         // Constructor
         public UIScreenView() {
+            Add( viewsContainer = CreateViewsContainer() );
+            Add( modalViewsContainer = CreateModalViewsContainer() );
         }
         public override void Initialize() {
             base.Initialize();
-            // Content
-            this.Children(
-                viewsContainer = CreateViewsContainer(),
-                modalViewsContainer = CreateModalViewsContainer()
-            );
-            // Assets
             Window = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window ).GetResult()!;
             InfoWindow = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window_Info ).GetResult()!;
             WarningWindow = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window_Warning ).GetResult()!;
@@ -73,15 +69,16 @@ namespace Project.UI {
         // ShowView
         public override void ShowView(UIWidgetViewBase view, UIWidgetViewBase[] shadowed) {
             view.OnAttachToPanel( PlayAttach );
-            view.OnEventTrickleDown<FocusInEvent>( PlayFocus );
+            view.OnEventTrickleDown<FocusEvent>( PlayFocus );
             view.OnEventTrickleDown<ClickEvent>( PlayClick );
             view.OnEventTrickleDown<ChangeEvent<object>>( PlayChange );
             view.OnEventTrickleDown<ChangeEvent<string>>( PlayChange );
             view.OnEventTrickleDown<ChangeEvent<int>>( PlayChange );
             view.OnEventTrickleDown<ChangeEvent<float>>( PlayChange );
             view.OnEventTrickleDown<ChangeEvent<bool>>( PlayChange );
-            view.OnEventTrickleDown<NavigationSubmitEvent>( PlaySubmit );
-            view.OnEventTrickleDown<NavigationCancelEvent>( PlayCancel );
+            //view.OnEventTrickleDown<NavigationSubmitEvent>( PlaySubmit );
+            //view.OnEventTrickleDown<NavigationCancelEvent>( PlayCancel );
+
             view.OnSubmit( evt => {
                 // todo: it doesn't work
                 // I can not handle NavigationSubmitEvent event for Button.
@@ -108,43 +105,48 @@ namespace Project.UI {
                     }
                 }
             } );
-            ShowView( view, shadowed.LastOrDefault() );
+
+            if (shadowed.LastOrDefault() is not MainWidgetView or GameWidgetView) {
+                ShowView( view, shadowed.LastOrDefault() );
+            } else {
+                ShowView( view, null );
+            }
         }
         public override void HideView(UIWidgetViewBase view, UIWidgetViewBase[] unshadowed) {
-            HideView( view, unshadowed.LastOrDefault() );
+            if (unshadowed.LastOrDefault() is not MainWidgetView or GameWidgetView) {
+                HideView( view, unshadowed.LastOrDefault() );
+            } else {
+                HideView( view, null );
+            }
         }
 
         // ShowView
         private void ShowView(UIWidgetViewBase view, UIWidgetViewBase? shadowed) {
-            shadowed?.SaveFocus();
+            if (shadowed != null) {
+                SaveFocus( shadowed );
+            }
             if (!view.IsModal()) {
-                if (shadowed is not MainWidgetView or GameWidgetView) {
-                    shadowed?.SetDisplayed( false );
-                    shadowed?.SetEnabled( false );
-                }
+                shadowed?.SetDisplayed( false );
+                shadowed?.SetEnabled( false );
                 viewsContainer.Add( view );
             } else {
-                if (shadowed is not MainWidgetView or GameWidgetView) {
-                    shadowed?.SetEnabled( false );
-                }
+                shadowed?.SetEnabled( false );
                 modalViewsContainer.Add( view );
             }
-            view.SetFocus();
+            SetFocus( view );
         }
         private void HideView(UIWidgetViewBase view, UIWidgetViewBase? unshadowed) {
             if (!view.IsModal()) {
                 viewsContainer.Remove( view );
-                if (unshadowed is not MainWidgetView or GameWidgetView) {
-                    unshadowed?.SetEnabled( true );
-                    unshadowed?.SetDisplayed( true );
-                }
+                unshadowed?.SetEnabled( true );
+                unshadowed?.SetDisplayed( true );
             } else {
                 modalViewsContainer.Remove( view );
-                if (unshadowed is not MainWidgetView or GameWidgetView) {
-                    unshadowed?.SetEnabled( true );
-                }
+                unshadowed?.SetEnabled( true );
             }
-            unshadowed?.LoadFocus();
+            if (unshadowed != null) {
+                LoadFocus( unshadowed );
+            }
         }
 
         // Helpers
@@ -166,7 +168,7 @@ namespace Project.UI {
                 this.PlayAudioClip( ErrorWindow );
             }
         }
-        private void PlayFocus(FocusInEvent evt) {
+        private void PlayFocus(FocusEvent evt) {
             if (evt.direction != FocusChangeDirection.none && evt.direction != FocusChangeDirection.unspecified) {
                 this.PlayAudioClip( Focus );
             }
@@ -206,24 +208,24 @@ namespace Project.UI {
                 }
             }
         }
-        private void PlaySubmit(NavigationSubmitEvent evt) {
-            if (evt.target is Button button) {
-                if (!button.IsValid()) {
-                    this.PlayAudioClip( InvalidSelect );
-                } else
-                if (button.IsSubmit()) {
-                    this.PlayAudioClip( ConfirmSelect );
-                } else
-                if (button.IsCancel()) {
-                    this.PlayAudioClip( CancelSelect );
-                } else {
-                    this.PlayAudioClip( Select );
-                }
-            }
-        }
-        private void PlayCancel(NavigationCancelEvent evt) {
-            this.PlayAudioClip( CancelSelect );
-        }
+        //private void PlaySubmit(NavigationSubmitEvent evt) {
+        //    if (evt.target is Button button) {
+        //        if (!button.IsValid()) {
+        //            this.PlayAudioClip( InvalidSelect );
+        //        } else
+        //        if (button.IsSubmit()) {
+        //            this.PlayAudioClip( ConfirmSelect );
+        //        } else
+        //        if (button.IsCancel()) {
+        //            this.PlayAudioClip( CancelSelect );
+        //        } else {
+        //            this.PlayAudioClip( Select );
+        //        }
+        //    }
+        //}
+        //private void PlayCancel(NavigationCancelEvent evt) {
+        //    this.PlayAudioClip( CancelSelect );
+        //}
         // Helpers
         private static void PlayWindowAnimation(UIWidgetViewBase view) {
             var animation = ValueAnimation<float>.Create( view, Mathf.LerpUnclamped );

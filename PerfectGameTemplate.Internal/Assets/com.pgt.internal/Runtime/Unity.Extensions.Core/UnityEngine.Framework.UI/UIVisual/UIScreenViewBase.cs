@@ -26,7 +26,7 @@ namespace UnityEngine.Framework.UI {
         public abstract void ShowView(UIWidgetViewBase view, UIWidgetViewBase[] shadowed);
         public abstract void HideView(UIWidgetViewBase view, UIWidgetViewBase[] unshadowed);
 
-        // Helpers
+        // Helpers/CreateViewsContainer
         protected static VisualElement CreateViewsContainer() {
             var viewsContainer = new VisualElement().SetUp( "views-container", "views-container" );
             viewsContainer.pickingMode = PickingMode.Ignore;
@@ -37,7 +37,7 @@ namespace UnityEngine.Framework.UI {
             modalViewsContainer.pickingMode = PickingMode.Ignore;
             return modalViewsContainer;
         }
-        // Helpers
+        // Helpers/AddView
         protected static void AddView(VisualElement container, UIWidgetViewBase view, UIWidgetViewBase? shadowed) {
             shadowed?.SetDisplayed( false );
             shadowed?.SetEnabled( false );
@@ -55,6 +55,35 @@ namespace UnityEngine.Framework.UI {
         protected static void RemoveModalView(VisualElement container, UIWidgetViewBase view, UIWidgetViewBase? unshadowed) {
             container.Remove( view );
             unshadowed?.SetEnabled( true );
+        }
+        // Helpers/Focus
+        protected static void SetFocus(UIWidgetViewBase view) {
+            Assert.Object.Message( $"View {view} must be attached" ).Valid( view.panel != null );
+            if (view.focusable) {
+                view.Focus();
+            } else {
+                view.focusable = true;
+                view.delegatesFocus = true;
+                view.Focus();
+                view.delegatesFocus = false;
+                view.focusable = false;
+            }
+        }
+        protected static void LoadFocus(UIWidgetViewBase view) {
+            Assert.Object.Message( $"View {view} must be attached" ).Valid( view.panel != null );
+            var focusedElement = (VisualElement?) view.userData;
+            if (focusedElement != null) {
+                focusedElement.Focus();
+            }
+        }
+        protected static void SaveFocus(UIWidgetViewBase view) {
+            Assert.Object.Message( $"View {view} must be attached" ).Valid( view.panel != null );
+            var focusedElement = (VisualElement?) view.focusController.focusedElement;
+            if (focusedElement != null && (view == focusedElement || view.Contains( focusedElement ))) {
+                view.userData = focusedElement;
+            } else {
+                view.userData = null;
+            }
         }
 
     }

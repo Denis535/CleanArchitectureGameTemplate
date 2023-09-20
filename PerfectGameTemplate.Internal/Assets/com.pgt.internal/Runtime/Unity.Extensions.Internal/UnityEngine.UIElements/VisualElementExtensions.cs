@@ -153,39 +153,5 @@ namespace UnityEngine.UIElements {
             element.RegisterCallback( callback );
         }
 
-        // Focus
-        public static bool IsFocused(this VisualElement element) {
-            Assert.Object.Message( $"Element {element} must be attached" ).Valid( element.panel != null );
-            return element == element.focusController.focusedElement;
-        }
-        public static void SetFocus(this VisualElement element) {
-            Assert.Object.Message( $"Element {element} must be attached" ).Valid( element.panel != null );
-            if (element.focusable) {
-                element.Focus();
-            } else {
-                element.focusable = true;
-                element.delegatesFocus = true;
-                element.Focus();
-                element.delegatesFocus = false;
-                element.focusable = false;
-            }
-        }
-        public static void LoadFocus(this VisualElement element) {
-            Assert.Object.Message( $"Element {element} must be attached" ).Valid( element.panel != null );
-            var focusable = (VisualElement?) element.userData;
-            if (focusable != null) {
-                focusable.Focus();
-            }
-        }
-        public static void SaveFocus(this VisualElement element) {
-            Assert.Object.Message( $"Element {element} must be attached" ).Valid( element.panel != null );
-            var focusable = (VisualElement?) element.focusController.focusedElement;
-            if (focusable != null && (element == focusable || element.Contains( focusable ))) {
-                element.userData = focusable;
-            } else {
-                element.userData = null;
-            }
-        }
-
     }
 }

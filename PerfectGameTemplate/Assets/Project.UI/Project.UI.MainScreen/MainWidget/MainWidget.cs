@@ -31,7 +31,7 @@ namespace Project.UI.MainScreen {
         // OnDescendantAttach
         public override void OnBeforeDescendantAttach(UIWidgetBase widget) {
             base.OnBeforeDescendantAttach( widget );
-            View.Background = Descendants.Where( i => !i.IsModal() ).Where( i => i.IsViewable ).Count();
+            View.SetBackgroundEffect( Descendants.Where( i => !i.IsModal() ).Where( i => i.IsViewable ).Count() );
         }
         public override void OnAfterDescendantAttach(UIWidgetBase widget) {
             base.OnAfterDescendantAttach( widget );
@@ -40,11 +40,11 @@ namespace Project.UI.MainScreen {
             base.OnBeforeDescendantDetach( widget );
         }
         public override void OnAfterDescendantDetach(UIWidgetBase widget) {
-            View.Background = Descendants.Where( i => !i.IsModal() ).Where( i => i.IsViewable ).Where( i => i != widget ).Count();
+            View.SetBackgroundEffect( Descendants.Where( i => !i.IsModal() ).Where( i => i.IsViewable ).Where( i => i != widget ).Count() );
             base.OnAfterDescendantDetach( widget );
         }
 
-        // Helpers/View
+        // Helpers
         private MainWidgetView CreateView() {
             var view = UIVisualFactory.MainWidget();
             return view;

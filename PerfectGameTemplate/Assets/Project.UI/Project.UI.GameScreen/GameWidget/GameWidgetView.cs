@@ -11,7 +11,6 @@ namespace Project.UI.GameScreen {
     public partial class GameWidgetView {
         [Preserve]
         public new class UxmlFactory : UxmlFactory<GameWidgetView, UxmlTraits> { }
-        public record PauseCommand() : UICommand<GameWidgetView>;
     }
     public partial class GameWidgetView : UIWidgetViewBase {
 
@@ -22,9 +21,6 @@ namespace Project.UI.GameScreen {
             base.Initialize();
             // OnEvent
             this.OnAttachToPanel( evt => {
-            } );
-            this.OnCancel( evt => {
-                new PauseCommand().Execute( this );
             } );
         }
         public override void Dispose() {
