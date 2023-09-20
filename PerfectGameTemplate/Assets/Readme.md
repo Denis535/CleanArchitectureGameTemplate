@@ -49,8 +49,8 @@ The project encapsulates everything rarely viewed and changed (third party, libr
 - Pug.
 - Addressables.
 ## UnityEngine.Framework
-- Program - entry point.
-- IDependencyContainer - dependency container.
+- Program.
+- IDependencyContainer.
 ## UnityEngine.Framework.UI
 - UIAudioTheme - audible component.
 - UIScreen - logical component.

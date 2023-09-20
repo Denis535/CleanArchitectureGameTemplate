@@ -11,21 +11,15 @@ namespace Project {
     using Unity.Services.Qos;
     using UnityEngine;
     using UnityEngine.Framework;
-    using UnityEngine.Framework.UI;
-    using UnityEngine.UIElements;
 
     public class DependencyContainer : MonoBehaviour, IDependencyContainer {
 
-        [SerializeField] private UIDocument document = default!;
-        [SerializeField] private AudioSource musicAudioSource = default!;
-        [SerializeField] private AudioSource sfxAudioSource = default!;
+        [SerializeField] private UIScreen screen = default!;
         [SerializeField] private UIRouter router = default!;
         [SerializeField] private Application2 application = default!;
 
         // Globals
-        private UIDocument Document => document;
-        private AudioSource MusicAudioSource => musicAudioSource;
-        private AudioSource SfxAudioSource => sfxAudioSource;
+        private UIScreen Screen => screen;
         private UIRouter Router => router;
         private Application2 Application => application;
         private Globals Globals { get; set; } = default!;
@@ -52,16 +46,7 @@ namespace Project {
         // GetDependency
         public object? GetDependency(Type type, object? argument) {
             if (type == typeof( UIScreen )) {
-                return GameObject.FindAnyObjectByType<UIScreen>();
-            }
-            if (type == typeof( UIDocument )) {
-                return Document;
-            }
-            if (type == typeof( AudioSource ) && argument is UIAudioThemeBase) {
-                return MusicAudioSource;
-            }
-            if (type == typeof( AudioSource ) && argument is UIScreenBase) {
-                return SfxAudioSource;
+                return Screen;
             }
             if (type == typeof( UIRouter )) {
                 return Router;

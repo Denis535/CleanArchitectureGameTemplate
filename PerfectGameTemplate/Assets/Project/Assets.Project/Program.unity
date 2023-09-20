@@ -120,6 +120,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &243093302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 243093303}
+  - component: {fileID: 243093304}
+  m_Layer: 0
+  m_Name: UITheme
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &243093303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243093302}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1331180746}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &243093304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243093302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a59afaa62090148ba298f6f3680205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &305890568
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,9 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54368618a3aee74d8d87f57c8521ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  document: {fileID: 454812444}
-  musicAudioSource: {fileID: 1331180747}
-  sfxAudioSource: {fileID: 856803557}
+  screen: {fileID: 0}
   router: {fileID: 3160590370860231193}
   application: {fileID: 3512483430981800128}
 --- !u!1 &454812440
@@ -232,17 +275,28 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: 0}
-  m_PointAction: {fileID: 0}
-  m_MoveAction: {fileID: 0}
-  m_SubmitAction: {fileID: 0}
-  m_CancelAction: {fileID: 0}
-  m_LeftClickAction: {fileID: 0}
-  m_MiddleClickAction: {fileID: 0}
-  m_RightClickAction: {fileID: 0}
-  m_ScrollWheelAction: {fileID: 0}
-  m_TrackedDevicePositionAction: {fileID: 0}
-  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: d57d739dca51506468c4f9c17003b79f,
+    type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: d57d739dca51506468c4f9c17003b79f,
+    type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: d57d739dca51506468c4f9c17003b79f,
+    type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: d57d739dca51506468c4f9c17003b79f,
+    type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: d57d739dca51506468c4f9c17003b79f,
+    type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: d57d739dca51506468c4f9c17003b79f,
+    type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: d57d739dca51506468c4f9c17003b79f,
+    type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: d57d739dca51506468c4f9c17003b79f,
+    type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: d57d739dca51506468c4f9c17003b79f,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: d57d739dca51506468c4f9c17003b79f,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: d57d739dca51506468c4f9c17003b79f,
+    type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
@@ -438,7 +492,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 454812441}
-  - {fileID: 1331180746}
   - {fileID: 856803556}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -496,7 +549,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 938585821}
+  m_Father: {fileID: 243093303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1331180747
 AudioSource:
@@ -688,6 +741,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 305890569}
+  - {fileID: 243093303}
   - {fileID: 938585821}
   - {fileID: 3160590370860231192}
   - {fileID: 9125411407125789979}

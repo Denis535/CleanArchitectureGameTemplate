@@ -8,33 +8,20 @@ namespace Project.UI {
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
-    using UnityEngine.InputSystem;
 
     public class UIScreen : UIScreenBase<UIScreenView> {
 
         // Globals
         private UIRouter Router { get; set; } = default!;
-        // Actions
-        private InputActions Actions { get; set; } = default!;
 
         // Awake
         public new void Awake() {
             base.Awake();
             Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
-            Actions = new InputActions();
             View = UIViewBase.Create<UIScreenView>();
         }
         public new void OnDestroy() {
-            Actions.Dispose();
             base.OnDestroy();
-        }
-
-        // OnEnable
-        public void OnEnable() {
-            Actions.Enable();
-        }
-        public void OnDisable() {
-            Actions.Disable();
         }
 
         // Start
@@ -52,6 +39,10 @@ namespace Project.UI {
             if (Router.IsGameSceneLoaded && Widget is not GameWidget) {
                 if (Widget != null) this.DetachWidget();
                 this.AttachWidget( UILogicalFactory.GameWidget() );
+            }
+
+            if (Widget is GameWidget gameWidget) {
+                gameWidget.Update();
             }
         }
 
@@ -74,9 +65,6 @@ namespace Project.UI {
         // OnDescendantWidgetAttach
         public override void OnBeforeDescendantWidgetAttach(UIWidgetBase descendant) {
             base.OnBeforeDescendantWidgetAttach( descendant );
-            if (descendant is GameMenuWidget) {
-                Actions.Disable();
-            }
         }
         public override void OnAfterDescendantWidgetAttach(UIWidgetBase descendant) {
             base.OnAfterDescendantWidgetAttach( descendant );
@@ -85,9 +73,6 @@ namespace Project.UI {
             base.OnBeforeDescendantWidgetDetach( descendant );
         }
         public override void OnAfterDescendantWidgetDetach(UIWidgetBase descendant) {
-            if (descendant is GameMenuWidget) {
-                Actions.Enable();
-            }
             base.OnAfterDescendantWidgetDetach( descendant );
         }
 
