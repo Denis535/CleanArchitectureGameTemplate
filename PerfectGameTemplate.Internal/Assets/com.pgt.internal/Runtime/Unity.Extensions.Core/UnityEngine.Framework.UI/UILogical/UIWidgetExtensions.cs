@@ -18,7 +18,7 @@ namespace UnityEngine.Framework.UI {
 
         // DetachSelf
         public static void DetachSelf(this UIWidgetBase widget) {
-            Assert.Object.Message( $"Widget {widget} must have parent or must be be attached" ).Valid( widget.Parent != null || widget.IsAttached );
+            Assert.Object.Message( $"Widget {widget} must have parent or must be attached" ).Valid( widget.Parent != null || widget.IsAttached );
             if (widget.Parent != null) {
                 widget.Parent.DetachChild( widget );
             } else {

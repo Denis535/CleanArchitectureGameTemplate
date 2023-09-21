@@ -141,6 +141,9 @@ namespace Project.UI {
 
         // Helpers
         private void PlayAttach(AttachToPanelEvent evt) {
+            if (evt.target is GameMenuWidgetView) {
+                this.PlayAudioClip( Select );
+            } else
             if (evt.target is DialogWidgetView dialog) {
                 PlayWindowAnimation( dialog );
                 this.PlayAudioClip( Window );

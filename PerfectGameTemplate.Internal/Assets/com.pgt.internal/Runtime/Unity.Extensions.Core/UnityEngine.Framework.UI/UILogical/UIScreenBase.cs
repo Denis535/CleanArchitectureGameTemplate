@@ -37,8 +37,8 @@ namespace UnityEngine.Framework.UI {
 
         // Awake
         public void Awake() {
-            Document = this.GetDependencyContainer().GetDependency<UIDocument>( this ) ?? gameObject.RequireComponentInChildren<UIDocument>();
-            AudioSource = this.GetDependencyContainer().GetDependency<AudioSource>( this ) ?? gameObject.RequireComponentInChildren<AudioSource>();
+            Document = gameObject.RequireComponentInChildren<UIDocument>();
+            AudioSource = gameObject.RequireComponentInChildren<AudioSource>();
         }
         public void OnDestroy() {
             if (Widget != null) this.DetachWidget();
@@ -50,27 +50,22 @@ namespace UnityEngine.Framework.UI {
         protected internal virtual void __AttachWidget__(UIWidgetBase widget) {
             // You can override it but you should not directly call this method
             Assert.Argument.Message( $"Argument 'widget' must be non-null" ).NotNull( widget != null );
-            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be non-attached" ).Valid( widget.IsNonAttached );
-            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be valid" ).Valid( widget.Screen == null );
-            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be valid" ).Valid( widget.Parent == null );
             Assert.Object.Message( $"Screen {this} must have no widget" ).Valid( Widget == null );
             using (Lock.Enter()) {
                 Widget = widget;
-                Widget.Parent = null;
                 Widget.Attach( this );
             }
         }
         protected internal virtual void __DetachWidget__(UIWidgetBase widget) {
             // You can override it but you should not directly call this method
             Assert.Argument.Message( $"Argument 'widget' must be non-null" ).NotNull( widget != null );
-            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be attached" ).Valid( widget.IsAttached );
-            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be valid" ).Valid( widget.Screen == this );
-            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be valid" ).Valid( widget.Parent == null );
             Assert.Object.Message( $"Screen {this} must have widget" ).Valid( Widget != null );
             Assert.Object.Message( $"Screen {this} must have widget {widget} widget" ).Valid( Widget == widget );
             using (Lock.Enter()) {
                 Widget.Detach( this );
-                Widget.Parent = null;
+                if (Widget.DisposeAutomatically) {
+                    Widget.Dispose();
+                }
                 Widget = null;
             }
         }
@@ -78,7 +73,7 @@ namespace UnityEngine.Framework.UI {
         // ShowWidget
         public virtual void ShowWidget(UIWidgetBase widget) {
             Assert.Argument.Message( $"Argument 'widget' must be non-null" ).NotNull( widget != null );
-            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be attached" ).Valid( widget.IsAttached );
+            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be attached" ).Valid( widget.IsAttached || widget.IsAttaching );
             Assert.Argument.Message( $"Argument 'widget' ({widget}) must be valid" ).Valid( widget.Screen == this );
             if (widget.IsViewable) {
                 var shadowed = Widget!.DescendantsAndSelf.TakeWhile( i => i != widget ).Where( i => i.IsViewable ).Select( i => i.View! ).ToArray();
@@ -87,7 +82,7 @@ namespace UnityEngine.Framework.UI {
         }
         public virtual void HideWidget(UIWidgetBase widget) {
             Assert.Argument.Message( $"Argument 'widget' must be non-null" ).NotNull( widget != null );
-            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be attached" ).Valid( widget.IsAttached );
+            Assert.Argument.Message( $"Argument 'widget' ({widget}) must be attached" ).Valid( widget.IsAttached || widget.IsDetaching );
             Assert.Argument.Message( $"Argument 'widget' ({widget}) must be valid" ).Valid( widget.Screen == this );
             if (widget.IsViewable) {
                 var unshadowed = Widget!.DescendantsAndSelf.TakeWhile( i => i != widget ).Where( i => i.IsViewable ).Select( i => i.View! ).ToArray();

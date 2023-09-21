@@ -25,13 +25,14 @@ namespace UnityEngine.Framework.UI {
         internal IUILogicalElement? Owner => (IUILogicalElement?) Parent ?? Screen;
         // Screen
         public UIWidgetState State { get; private set; } = UIWidgetState.Unattached;
-        [MemberNotNullWhen( true, "Screen" )] public bool IsAttached => State is UIWidgetState.Attaching or UIWidgetState.Attached or UIWidgetState.Detaching;
-        [MemberNotNullWhen( true, "Screen" )] public bool IsAttachedStrict => State is UIWidgetState.Attached;
+        [MemberNotNullWhen( true, "Screen" )] public bool IsAttached => State is UIWidgetState.Attached;
+        [MemberNotNullWhen( true, "Screen" )] public bool IsAttaching => State is UIWidgetState.Attaching;
+        [MemberNotNullWhen( true, "Screen" )] public bool IsDetaching => State is UIWidgetState.Detaching;
         [MemberNotNullWhen( false, "Screen" )] public bool IsNonAttached => State is UIWidgetState.Unattached or UIWidgetState.Detached;
         public UIScreenBase? Screen { get; private set; }
         // Parent
         [MemberNotNullWhen( false, "Parent" )] public bool IsRoot => Parent == null;
-        public UIWidgetBase? Parent { get; internal set; }
+        public UIWidgetBase? Parent { get; private set; }
         public IReadOnlyList<UIWidgetBase> Ancestors => this.GetAncestors();
         public IReadOnlyList<UIWidgetBase> AncestorsAndSelf => this.GetAncestorsAndSelf();
         // Children
@@ -83,6 +84,7 @@ namespace UnityEngine.Framework.UI {
         internal void Detach(UIScreenBase screen) {
             Assert.Argument.Message( $"Argument 'screen' must be non-null" ).NotNull( screen );
             Assert.Object.Message( $"Widget {this} must be attached" ).Valid( IsAttached );
+            Assert.Object.Message( $"Widget {this} must be valid" ).Valid( Screen != null );
             Assert.Object.Message( $"Widget {this} must be valid" ).Valid( Screen == screen );
             State = UIWidgetState.Detaching;
             OnBeforeDescendantDetach( Owner!, this );
@@ -98,9 +100,30 @@ namespace UnityEngine.Framework.UI {
             OnAfterDescendantDetach( Owner!, this );
             Screen = null;
             State = UIWidgetState.Detached;
-            if (DisposeAutomatically) {
-                Dispose();
+        }
+
+        // Attach
+        private void Attach(UIWidgetBase parent) {
+            Assert.Argument.Message( $"Argument 'parent' must be non-null" ).NotNull( parent != null );
+            Assert.Object.Message( $"Widget {this} must be valid" ).Valid( Parent == null );
+            Assert.Object.Message( $"Widget {this} must be valid" ).Valid( IsNonAttached );
+            Assert.Object.Message( $"Widget {this} must be valid" ).Valid( Screen == null );
+            Parent = parent;
+            if (Parent.IsAttached) {
+                Attach( Parent.Screen );
             }
+        }
+        private void Detach(UIWidgetBase parent) {
+            Assert.Argument.Message( $"Argument 'parent' must be non-null" ).NotNull( parent != null );
+            Assert.Object.Message( $"Widget {this} must be valid" ).Valid( Parent != null );
+            Assert.Object.Message( $"Widget {this} must be valid" ).Valid( Parent == parent );
+            if (Parent.IsAttached) {
+                //Assert.Object.Message( $"Widget {this} must be valid" ).Valid( IsAttached );
+                //Assert.Object.Message( $"Widget {this} must be valid" ).Valid( Screen != null );
+                //Assert.Object.Message( $"Widget {this} must be valid" ).Valid( Screen == Parent.Screen );
+                Detach( Parent.Screen );
+            }
+            Parent = null;
         }
 
         // OnAttach
@@ -112,29 +135,20 @@ namespace UnityEngine.Framework.UI {
         // AttachChild
         protected internal virtual void __AttachChild__(UIWidgetBase child) {
             Assert.Argument.Message( $"Argument 'child' must be non-null" ).NotNull( child != null );
-            Assert.Argument.Message( $"Argument 'child' ({child}) must be non-attached" ).Valid( child.IsNonAttached );
-            Assert.Argument.Message( $"Argument 'child' ({child}) must be valid" ).Valid( child.Screen == null );
-            Assert.Argument.Message( $"Argument 'child' ({child}) must be valid" ).Valid( child.Parent == null );
             Assert.Object.Message( $"Widget {this} must have no child {child} widget" ).Valid( !Children.Contains( child ) );
             using (Lock.Enter()) {
                 Children_.Add( child );
-                child.Parent = this;
-                if (IsAttached) {
-                    child.Attach( Screen );
-                }
+                child.Attach( this );
             }
         }
         protected internal virtual void __DetachChild__(UIWidgetBase child) {
             Assert.Argument.Message( $"Argument 'child' must be non-null" ).NotNull( child != null );
-            Assert.Argument.Message( $"Argument 'child' ({child}) must be attached or non-attached" ).Valid( child.IsAttached || child.IsNonAttached );
-            Assert.Argument.Message( $"Argument 'child' ({child}) must be valid" ).Valid( child.Screen == Screen || child.Screen == null );
-            Assert.Argument.Message( $"Argument 'child' ({child}) must be valid" ).Valid( child.Parent == this );
             Assert.Object.Message( $"Widget {this} must have child {child} widget" ).Valid( Children.Contains( child ) );
             using (Lock.Enter()) {
-                if (IsAttached) {
-                    child.Detach( Screen );
+                child.Detach( this );
+                if (child.DisposeAutomatically) {
+                    child.Dispose();
                 }
-                child.Parent = null;
                 Children_.Remove( child );
             }
         }
