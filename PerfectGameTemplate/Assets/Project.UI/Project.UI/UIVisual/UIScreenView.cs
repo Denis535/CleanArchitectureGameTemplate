@@ -76,33 +76,23 @@ namespace Project.UI {
             view.OnEventTrickleDown<ChangeEvent<int>>( PlayChange );
             view.OnEventTrickleDown<ChangeEvent<float>>( PlayChange );
             view.OnEventTrickleDown<ChangeEvent<bool>>( PlayChange );
-            //view.OnEventTrickleDown<NavigationSubmitEvent>( PlaySubmit );
-            //view.OnEventTrickleDown<NavigationCancelEvent>( PlayCancel );
-
-            view.OnSubmit( evt => {
-                // todo: it doesn't work
-                // I can not handle NavigationSubmitEvent event for Button.
-                // Button stops bubble up propagation of NavigationSubmitEvent event.
-                // Fucking Unity will not fix it.
-                // https://unity3d.atlassian.net/servicedesk/customer/portal/2/IN-35341
-                //private void OnNavigationSubmit(NavigationSubmitEvent evt) {
-                //    clickable?.SimulateSingleClick( evt );
-                //    evt.StopPropagation();
-                //}
+            view.OnEventTrickleDown<NavigationSubmitEvent>( evt => {
                 if (evt.target is Button button) {
                     using (var click = ClickEvent.GetPooled()) {
                         click.target = button;
                         button.SendEvent( click );
                     }
+                    evt.StopPropagation();
                 }
             } );
-            view.OnCancel( evt => {
+            view.OnEventTrickleDown<NavigationCancelEvent>( evt => {
                 var button = view.Query<Button>().Where( i => i.IsCancel() || i.IsQuit() || i.name == "resume" ).First();
                 if (button != null) {
                     using (var click = ClickEvent.GetPooled()) {
                         click.target = button;
                         button.SendEvent( click );
                     }
+                    evt.StopPropagation();
                 }
             } );
 
@@ -208,24 +198,6 @@ namespace Project.UI {
                 }
             }
         }
-        //private void PlaySubmit(NavigationSubmitEvent evt) {
-        //    if (evt.target is Button button) {
-        //        if (!button.IsValid()) {
-        //            this.PlayAudioClip( InvalidSelect );
-        //        } else
-        //        if (button.IsSubmit()) {
-        //            this.PlayAudioClip( ConfirmSelect );
-        //        } else
-        //        if (button.IsCancel()) {
-        //            this.PlayAudioClip( CancelSelect );
-        //        } else {
-        //            this.PlayAudioClip( Select );
-        //        }
-        //    }
-        //}
-        //private void PlayCancel(NavigationCancelEvent evt) {
-        //    this.PlayAudioClip( CancelSelect );
-        //}
         // Helpers
         private static void PlayWindowAnimation(UIWidgetViewBase view) {
             var animation = ValueAnimation<float>.Create( view, Mathf.LerpUnclamped );
