@@ -3,6 +3,7 @@ namespace Project.UI.Common {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using UnityEngine;
     using UnityEngine.Framework.UI;
 
@@ -59,6 +60,30 @@ namespace Project.UI.Common {
             return this;
         }
 
+        // OnSubmit
+        public DialogWidgetBase<TView> OnSubmit(string text, Action? onConfirm, out Task task) {
+            var tcs = new TaskCompletionSource<object?>();
+            task = tcs.Task;
+            View.OnSubmit( text, () => {
+                onConfirm?.Invoke();
+                tcs.SetResult( null );
+                this.DetachSelf();
+            } );
+            View.Footer.IsDisplayed = true;
+            return this;
+        }
+        public DialogWidgetBase<TView> OnCancel(string text, Action? onCancel, out Task task) {
+            var tcs = new TaskCompletionSource<object?>();
+            task = tcs.Task;
+            View.OnCancel( text, () => {
+                onCancel?.Invoke();
+                tcs.SetResult( null );
+                this.DetachSelf();
+            } );
+            View.Footer.IsDisplayed = true;
+            return this;
+        }
+
     }
     // Dialog
     public class DialogWidget : DialogWidgetBase<DialogWidgetView> {
@@ -79,6 +104,14 @@ namespace Project.UI.Common {
         }
         public new DialogWidget OnCancel(string text, Action? onCancel) {
             return (DialogWidget) base.OnCancel( text, onCancel );
+        }
+
+        // OnSubmit
+        public new DialogWidget OnSubmit(string text, Action? onConfirm, out Task task) {
+            return (DialogWidget) base.OnSubmit( text, onConfirm, out task );
+        }
+        public new DialogWidget OnCancel(string text, Action? onCancel, out Task task) {
+            return (DialogWidget) base.OnCancel( text, onCancel, out task );
         }
 
     }
@@ -103,6 +136,14 @@ namespace Project.UI.Common {
             return (InfoDialogWidget) base.OnCancel( text, onCancel );
         }
 
+        // OnSubmit
+        public new InfoDialogWidget OnSubmit(string text, Action? onConfirm, out Task task) {
+            return (InfoDialogWidget) base.OnSubmit( text, onConfirm, out task );
+        }
+        public new InfoDialogWidget OnCancel(string text, Action? onCancel, out Task task) {
+            return (InfoDialogWidget) base.OnCancel( text, onCancel, out task );
+        }
+
     }
     // WarningDialog
     public class WarningDialogWidget : DialogWidgetBase<WarningDialogWidgetView> {
@@ -125,6 +166,14 @@ namespace Project.UI.Common {
             return (WarningDialogWidget) base.OnCancel( text, onCancel );
         }
 
+        // OnSubmit
+        public new WarningDialogWidget OnSubmit(string text, Action? onConfirm, out Task task) {
+            return (WarningDialogWidget) base.OnSubmit( text, onConfirm, out task );
+        }
+        public new WarningDialogWidget OnCancel(string text, Action? onCancel, out Task task) {
+            return (WarningDialogWidget) base.OnCancel( text, onCancel, out task );
+        }
+
     }
     // ErrorDialog
     public class ErrorDialogWidget : DialogWidgetBase<ErrorDialogWidgetView> {
@@ -145,6 +194,14 @@ namespace Project.UI.Common {
         }
         public new ErrorDialogWidget OnCancel(string text, Action? onCancel) {
             return (ErrorDialogWidget) base.OnCancel( text, onCancel );
+        }
+
+        // OnSubmit
+        public new ErrorDialogWidget OnSubmit(string text, Action? onConfirm, out Task task) {
+            return (ErrorDialogWidget) base.OnSubmit( text, onConfirm, out task );
+        }
+        public new ErrorDialogWidget OnCancel(string text, Action? onCancel, out Task task) {
+            return (ErrorDialogWidget) base.OnCancel( text, onCancel, out task );
         }
 
     }
