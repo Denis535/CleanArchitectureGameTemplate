@@ -200,10 +200,12 @@ get-unity-property(property)
         return s("-unity-%s", property)
     null
 get-url-value(url)
+    // todo: does this support addressables?
     if url != null
         url = get-string(url)
-        if match('^(project://)', url)
-            return s("url('%s')", url)
-        else
-            return s("resource('%s')", url)
+        return s("url('%s')", url)
+        // if match('^(project://)', url)
+        //     return s("url('%s')", url)
+        // else
+        //     return s("resource('%s')", url)
     null
