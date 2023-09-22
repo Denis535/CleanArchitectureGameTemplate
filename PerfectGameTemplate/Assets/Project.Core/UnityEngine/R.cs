@@ -14,8 +14,12 @@ namespace UnityEngine {
         }
         public static class @Project {
             public const string @Program = "Project/Program.unity";
-            public const string @MainScene = "Project/MainScene.unity";
-            public const string @GameScene = "Project/GameScene.unity";
+            public static class @MainScene {
+                public const string @MainScene_ = "Project.MainScene/MainScene_.unity";
+            }
+            public static class @GameScene {
+                public const string @GameScene_ = "Project.GameScene/GameScene_.unity";
+            }
             public static class @UI {
                 public static class @MainScreen {
                     public const string @CreateGameWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame/CreateGameWidgetView.uxml";
@@ -216,11 +220,9 @@ namespace UnityEngine {
                     public const string @UIThemeStyleSheet = "Project.UI/Themes/UIThemeStyleSheet.tss";
                 }
             }
-            public static class @Game {
-                public static class @World {
-                    public const string @TestWorld_1 = "Project.Game.World/TestWorld_1.unity";
-                    public const string @TestWorld_2 = "Project.Game.World/TestWorld_2.unity";
-                }
+            public static class @WorldScene {
+                public const string @TestWorld_1 = "Project.WorldScene/TestWorld_1.unity";
+                public const string @TestWorld_2 = "Project.WorldScene/TestWorld_2.unity";
             }
         }
     }

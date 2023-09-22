@@ -76,7 +76,7 @@ namespace UnityEditor.Tools_ {
             return false;
         }
         public virtual bool IsModule(string path) {
-            return path.Equals( "Project" ) || path.StartsWith( "Project." );
+            return path.StartsWith( "Project" );
         }
         public virtual bool IsAssets(string path) {
             return path.StartsWith( "Assets" ) || path.StartsWith( "Resources" );

@@ -38,6 +38,12 @@ namespace Project.UI {
         public void Start() {
         }
         public void Update() {
+            if (Router.IsMainSceneLoaded) {
+                
+            } else
+            if (Router.IsGameSceneLoaded) {
+                
+            }
         }
 
         // Helpers

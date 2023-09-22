@@ -118,12 +118,12 @@ namespace Project.UI {
 
         // LoadScene
         private async Task LoadMainSceneInternalAsync(CancellationToken cancellationToken) {
-            mainSceneHandle = Addressables2.LoadSceneAsync( R.Project.MainScene, LoadSceneMode.Additive, true );
+            mainSceneHandle = Addressables2.LoadSceneAsync( R.Project.MainScene.MainScene_, LoadSceneMode.Additive, true );
             var mainScene = await mainSceneHandle.GetResultAsync( cancellationToken );
             SceneManager.SetActiveScene( mainScene.Scene );
         }
         private async Task LoadGameSceneInternalAsync(GameDesc gameDesc, PlayerDesc playerDesc, CancellationToken cancellationToken) {
-            gameSceneHandle = Addressables2.LoadSceneAsync( R.Project.GameScene, LoadSceneMode.Additive, true );
+            gameSceneHandle = Addressables2.LoadSceneAsync( R.Project.GameScene.GameScene_, LoadSceneMode.Additive, true );
             var gameScene = await gameSceneHandle.GetResultAsync( cancellationToken );
             SceneManager.SetActiveScene( gameScene.Scene );
             Application.StartGame( gameDesc, playerDesc );
@@ -157,8 +157,8 @@ namespace Project.UI {
         // Helpers
         private static string GetAddress(GameWorld world) {
             return world switch {
-                GameWorld.TestWorld1 => R.Project.Game.World.TestWorld_1,
-                GameWorld.TestWorld2 => R.Project.Game.World.TestWorld_2,
+                GameWorld.TestWorld1 => R.Project.WorldScene.TestWorld_1,
+                GameWorld.TestWorld2 => R.Project.WorldScene.TestWorld_2,
                 _ => throw Exceptions.Internal.NotSupported( $"World {world} not supported" ),
             };
         }

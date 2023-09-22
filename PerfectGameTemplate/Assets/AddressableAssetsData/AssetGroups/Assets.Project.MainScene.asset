@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Assets.Project
+  m_Name: Assets.Project.MainScene
   m_EditorClassIdentifier: 
-  m_GroupName: Assets.Project
+  m_GroupName: Assets.Project.MainScene
   m_Data:
     m_SerializedData: []
-  m_GUID: 12b846aacc10c6440bad170613e70ed7
+  m_GUID: 7504dc8f38dee8b43ae4ba503039b7c4
   m_SerializeEntries:
-  - m_GUID: 49ef10eb212885b4db0e2048d56e74df
-    m_Address: Project/Program.unity
+  - m_GUID: 79ed1955852343040adc955447974c28
+    m_Address: Project.MainScene
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -26,5 +26,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 8c8417ae2abb549498500522f9dbf026, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 0cefd2a3c6212d948992c6e5789f9ef3, type: 2}
-    - {fileID: 11400000, guid: a11d2524339efcb4483e00589829188f, type: 2}
+    - {fileID: 11400000, guid: 1c921da1a96f25047b181420eb04ca0b, type: 2}
+    - {fileID: 11400000, guid: 2fbc6c276095a58448cfc34305c13249, type: 2}
