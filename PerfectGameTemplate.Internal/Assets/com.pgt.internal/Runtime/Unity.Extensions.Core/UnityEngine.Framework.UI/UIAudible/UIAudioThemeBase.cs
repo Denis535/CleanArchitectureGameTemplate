@@ -12,10 +12,11 @@ namespace UnityEngine.Framework.UI {
         // AudioSource
         public bool IsPlaying => AudioSource.isPlaying;
         public bool IsPausing { get; private set; }
-        public bool Mute { get => AudioSource.mute; set => AudioSource.mute = value; }
+        public float Time { get => AudioSource.time; set => AudioSource.time = value; }
         public float Volume { get => AudioSource.volume; set => AudioSource.volume = value; }
+        public bool Mute { get => AudioSource.mute; set => AudioSource.mute = value; }
         // AudioClip
-        public AudioClip AudioClip => AudioSource.clip;
+        public AudioClip? AudioClip => AudioSource.clip;
 
         // Awake
         public void Awake() {
@@ -45,22 +46,22 @@ namespace UnityEngine.Framework.UI {
         }
 
         // Helpers
-        protected static AudioClip GetNext(IList<AudioClip> themes, AudioClip? theme) {
-            var ind = themes.IndexOf( theme! );
-            ind = (ind + 1) % themes.Count;
-            return themes[ ind ];
+        protected static T GetNextValue<T>(T[] array, T? value) {
+            var ind = array.IndexOf( value );
+            ind = (ind + 1) % array.Length;
+            return array[ ind ];
         }
-        protected static AudioClip GetRandom(IList<AudioClip> themes, AudioClip? theme) {
-            var ind = UnityEngine.Random.Range( 0, themes.Count );
-            if (themes[ ind ] != theme) return themes[ ind ];
-            return GetRandom( themes, theme );
+        protected static T GetRandomValue<T>(T[] array, T? value) {
+            var ind = UnityEngine.Random.Range( 0, array.Length );
+            if (ReferenceEquals( array[ ind ], value ) && array.Length >= 2) return GetRandomValue( array, value );
+            return array[ ind ];
         }
-        protected static IList<AudioClip> Shuffle(IList<AudioClip> themes) {
-            for (var i = 0; i < themes.Count; i++) {
-                var i2 = i + UnityEngine.Random.Range( 0, themes.Count - i );
-                (themes[ i ], themes[ i2 ]) = (themes[ i2 ], themes[ i ]);
+        protected static T[] Shuffle<T>(T[] array) {
+            for (var i = 0; i < array.Length; i++) {
+                var i2 = i + UnityEngine.Random.Range( 0, array.Length - i );
+                (array[ i ], array[ i2 ]) = (array[ i2 ], array[ i ]);
             }
-            return themes;
+            return array;
         }
 
     }

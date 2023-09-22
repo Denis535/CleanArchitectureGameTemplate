@@ -8,7 +8,7 @@ namespace UnityEngine.Framework.UI {
     using UnityEditor;
     using UnityEngine;
 
-    [CustomEditor( typeof( UIScreenBase<> ), true )]
+    [CustomEditor( typeof( UIScreenBase ), true )]
     public class UIScreenEditor : Editor {
 
         public UIScreenBase Target => (UIScreenBase) target;
@@ -16,10 +16,12 @@ namespace UnityEngine.Framework.UI {
         // OnInspectorGUI
         public override void OnInspectorGUI() {
             base.OnInspectorGUI();
-            LabelField( "Widget", GetDisplayString( Target.Widget ) );
+            if (EditorApplication.isPlaying) {
+                LabelField( "Widget", GetDisplayString( Target.Widget ) );
+            }
         }
         public override bool RequiresConstantRepaint() {
-            return true;
+            return EditorApplication.isPlaying;
         }
 
         // Helpers
@@ -29,7 +31,6 @@ namespace UnityEngine.Framework.UI {
                 EditorGUI.SelectableLabel( GUILayoutUtility.GetRect( new GUIContent( text ), GUI.skin.textField ), text, GUI.skin.textField );
             }
         }
-        // Helpers
         private static string? GetDisplayString(UIWidgetBase? widget) {
             if (widget == null) return null;
             var builder = new StringBuilder();

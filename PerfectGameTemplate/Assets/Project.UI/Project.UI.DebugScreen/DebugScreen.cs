@@ -23,7 +23,7 @@ namespace Project.UI.DebugScreen {
             using (new GUILayout.VerticalScope( GUI.skin.box )) {
                 GUILayout.Label( "Fps: " + (1f / Time.smoothDeltaTime).ToString( "000." ), EditorStyles.label );
                 GUILayout.Label( "Focused: " + Application.isFocused, EditorStyles.label );
-                GUILayout.Label( "Focused Element: " + GetFocusedElement()?.Convert( GetDisplayString ), EditorStyles.label );
+                //GUILayout.Label( "Focused Element: " + GetFocusedElement()?.Convert( GetDisplayString ), EditorStyles.label );
             }
         }
 

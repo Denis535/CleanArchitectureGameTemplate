@@ -9,6 +9,9 @@ namespace Project.App {
 
     public class Application2 : ApplicationBase {
 
+        public bool IsGameRunning { get; private set; }
+        public bool IsGamePaused { get; set; }
+
         // Awake
         public new void Awake() {
             base.Awake();
@@ -20,8 +23,10 @@ namespace Project.App {
         // StartGame
         public void StartGame(GameDesc gameDesc, PlayerDesc playerDesc) {
             //var game = GameObject2.RequireAnyObjectByType<GameBase>( FindObjectsInactive.Exclude );
+            IsGameRunning = true;
         }
         public void StopGame() {
+            IsGameRunning = false;
         }
 
     }

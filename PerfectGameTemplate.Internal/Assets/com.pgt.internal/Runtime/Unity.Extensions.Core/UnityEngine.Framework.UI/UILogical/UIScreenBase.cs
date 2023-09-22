@@ -18,7 +18,7 @@ namespace UnityEngine.Framework.UI {
         protected internal UIDocument Document { get; set; } = default!;
         protected internal AudioSource AudioSource { get; set; } = default!;
         // View
-        protected internal UIScreenViewBase View {
+        public UIScreenViewBase View {
             get => view;
             protected set {
                 view = value;

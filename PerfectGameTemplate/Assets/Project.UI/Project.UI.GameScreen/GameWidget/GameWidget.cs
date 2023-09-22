@@ -3,18 +3,24 @@ namespace Project.UI.GameScreen {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using Project.App;
     using UnityEngine;
+    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
     using UnityEngine.InputSystem;
 
     public class GameWidget : UIWidgetBase<GameWidgetView> {
 
+        // Globals
+        private Application2 Application { get; }
+        // Actions
         private InputActions Actions { get; }
 
         // Constructor
         public GameWidget() {
-            View = CreateView();
+            Application = this.GetDependencyContainer().Resolve<Application2>( null );
             Actions = new InputActions();
+            View = CreateView();
         }
         public override void Dispose() {
             Actions.Dispose();
@@ -23,21 +29,21 @@ namespace Project.UI.GameScreen {
 
         // OnAttach
         public override void OnAttach() {
-            SetGameEnabled( true, Actions );
+            SetGameEnabled( true );
         }
         public override void OnShow() {
         }
         public override void OnHide() {
         }
         public override void OnDetach() {
-            SetGameEnabled( false, Actions );
+            SetGameEnabled( false );
         }
 
         // OnDescendantWidgetAttach
         public override void OnBeforeDescendantAttach(UIWidgetBase descendant) {
             base.OnBeforeDescendantAttach( descendant );
             if (descendant is GameMenuWidget) {
-                SetGameEnabled( false, Actions );
+                SetGameEnabled( false );
             }
         }
         public override void OnAfterDescendantAttach(UIWidgetBase descendant) {
@@ -48,7 +54,7 @@ namespace Project.UI.GameScreen {
         }
         public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
             if (descendant is GameMenuWidget) {
-                SetGameEnabled( true, Actions );
+                SetGameEnabled( true );
             }
             base.OnAfterDescendantDetach( descendant );
         }
@@ -65,15 +71,17 @@ namespace Project.UI.GameScreen {
             var view = UIVisualFactory.GameWidget();
             return view;
         }
-        private static void SetGameEnabled(bool value, InputActions actions) {
+        private void SetGameEnabled(bool value) {
             if (value) {
-                actions.Enable();
+                Actions.Enable();
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                Application.IsGamePaused = false;
             } else {
+                Application.IsGamePaused = true;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                actions.Disable();
+                Actions.Disable();
             }
         }
 

@@ -76,14 +76,7 @@ namespace UnityEditor.Tools_ {
             return false;
         }
         public virtual bool IsModule(string path) {
-            return path.Equals( "Project" ) || path.StartsWith( "Project/" ) ||
-                    path.Equals( "Project.UI" ) || path.StartsWith( "Project.UI/" ) ||
-                    path.Equals( "Project.App" ) || path.StartsWith( "Project.App/" ) ||
-                    path.Equals( "Project.App" ) || path.StartsWith( "Project.App/" ) ||
-                    path.Equals( "Project.Game" ) || path.StartsWith( "Project.Game/" ) ||
-                    path.Equals( "Project.Core" ) || path.StartsWith( "Project.Core/" ) ||
-                    path.Equals( "Project.Internal" ) || path.StartsWith( "Project.Internal/" ) ||
-                    path.Equals( "Project.Tests" ) || path.StartsWith( "Project.Tests/" );
+            return path.Equals( "Project" ) || path.StartsWith( "Project." );
         }
         public virtual bool IsAssets(string path) {
             return path.StartsWith( "Assets" ) || path.StartsWith( "Resources" );
