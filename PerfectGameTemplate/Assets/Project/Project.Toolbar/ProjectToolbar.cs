@@ -20,8 +20,8 @@ namespace Project.Toolbar {
         [InitializeOnLoadMethod]
         internal static void OnLoad() {
             if (!EditorApplication.isPlaying) {
-                //EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>( "Assets/Project/Assets.Project/Program.unity" );
-                EditorSceneManager.playModeStartScene = null;
+                EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>( "Assets/Project/Assets.Project/Program.unity" );
+                //EditorSceneManager.playModeStartScene = null;
             }
         }
 
@@ -50,21 +50,21 @@ namespace Project.Toolbar {
         }
         [MenuItem( "Project/Main Scene", priority = 102 )]
         internal static void LoadMainScene() {
-            EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/MainScene.unity" );
+            EditorSceneManager.OpenScene( "Assets/Project.Domain.MainScene/Assets.Project.Domain.MainScene/MainScene.unity" );
         }
         [MenuItem( "Project/Game Scene", priority = 103 )]
         internal static void LoadGameScene() {
-            EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/GameScene.unity" );
+            EditorSceneManager.OpenScene( "Assets/Project.Domain.GameScene/Assets.Project.Domain.GameScene/GameScene.unity" );
         }
 
         // LoadWorld
         [MenuItem( "Project/Test World 1", priority = 200 )]
         internal static void LoadTestLevel1() {
-            EditorSceneManager.OpenScene( "Assets/Project.Game/Assets.Project.Game.World/TestWorld_1.unity" );
+            EditorSceneManager.OpenScene( "Assets/Project.Domain.WorldScene/Assets.Project.Domain.WorldScene/TestWorld_1.unity" );
         }
         [MenuItem( "Project/Test World 2", priority = 201 )]
         internal static void LoadTestLevel2() {
-            EditorSceneManager.OpenScene( "Assets/Project.Game/Assets.Project.Game.World/TestWorld_2.unity" );
+            EditorSceneManager.OpenScene( "Assets/Project.Domain.WorldScene/Assets.Project.Domain.WorldScene/TestWorld_2.unity" );
         }
 
         // Build
