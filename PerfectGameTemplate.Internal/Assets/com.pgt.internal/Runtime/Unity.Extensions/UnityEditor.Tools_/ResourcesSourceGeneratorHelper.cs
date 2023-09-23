@@ -9,7 +9,7 @@ namespace UnityEditor.Tools_ {
     using UnityEditor.AddressableAssets.Settings;
     using UnityEngine;
 
-    internal static class AssetsSourceGeneratorHelper {
+    internal static class ResourcesSourceGeneratorHelper {
 
         // GetEntries
         public static List<AddressableAssetEntry> GetEntries(this AddressableAssetSettings settings) {
@@ -22,7 +22,7 @@ namespace UnityEditor.Tools_ {
         public static KeyValueTreeList<AddressableAssetEntry> GetTreeList(IEnumerable<AddressableAssetEntry> entries) {
             var treeList = new KeyValueTreeList<AddressableAssetEntry>();
             foreach (var entry in entries) {
-                var path = GetPath( entry ).ToArray();
+                var path = GetPath( entry );
                 treeList.AddValue( path.SkipLast( 1 ), path.Last(), entry );
             }
             return treeList;

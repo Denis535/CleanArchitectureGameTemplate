@@ -13,7 +13,7 @@ namespace Project.Toolbar {
 
         // Build/Pre
         public override void PreBuild() {
-            new AssetsSourceGenerator().Generate( "Assets/Project.Core/UnityEngine/R.cs", "UnityEngine", "R", AddressableAssetSettingsDefaultObject.Settings );
+            new ResourcesSourceGenerator().Generate( "Assets/Project.Core/UnityEngine/R.cs", "UnityEngine", "R", AddressableAssetSettingsDefaultObject.Settings );
             new LabelsSourceGenerator().Generate( "Assets/Project.Core/UnityEngine/L.cs", "UnityEngine", "L", AddressableAssetSettingsDefaultObject.Settings );
             new ProjectConfigurator2().Configure();
             new ProjectAnalyzer2().Analyze();

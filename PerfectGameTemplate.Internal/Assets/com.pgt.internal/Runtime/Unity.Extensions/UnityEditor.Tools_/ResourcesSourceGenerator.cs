@@ -11,41 +11,47 @@ namespace UnityEditor.Tools_ {
     using UnityEditor.AddressableAssets.Settings;
     using UnityEngine;
 
-    public class AssetsSourceGenerator {
+    public class ResourcesSourceGenerator {
 
         // Generate
-        public void Generate(string path, string @namespace, string @class, AddressableAssetSettings settings) {
+        public void Generate(string path, string @namespace, string name, AddressableAssetSettings settings) {
             var builder = new StringBuilder();
-            var treeList = AssetsSourceGeneratorHelper.GetTreeList( settings.GetEntries().Where( IsSupported ) );
-            AppendCompilationUnit( builder, @namespace, @class, treeList );
+            var treeList = ResourcesSourceGeneratorHelper.GetTreeList( settings.GetEntries().Where( IsSupported ) );
+            AppendCompilationUnit( builder, @namespace, name, treeList );
             WriteText( path, builder.ToString() );
         }
 
         // AppendCompilationUnit
-        private void AppendCompilationUnit(StringBuilder builder, string @namespace, string @class, KeyValueTreeList<AddressableAssetEntry> treeList) {
+        private void AppendCompilationUnit(StringBuilder builder, string @namespace, string name, KeyValueTreeList<AddressableAssetEntry> treeList) {
             builder.AppendLine( $"namespace {@namespace} {{" );
             {
-                AppendClass( builder, 1, @class, treeList.Items.ToArray() );
+                AppendClass( builder, 1, name, treeList.Items.ToArray() );
             }
             builder.AppendLine( "}" );
         }
         private void AppendClass(StringBuilder builder, int indent, string name, KeyValueTreeList<AddressableAssetEntry>.Item[] items) {
-            builder.AppendIndent( indent ).AppendLine( $"public static class @{Escape( name )} {{" );
+            builder.AppendIndent( indent ).AppendLine( $"public static class @{name} {{" );
             foreach (var item in Sort( items )) {
                 if (item is KeyValueTreeList<AddressableAssetEntry>.ValueItem value) {
-                    AppendConst( builder, indent + 1, value.Key, value );
+                    var key = Escape( value.Key );
+                    if (key == name) key = $"{key}_";
+                    var value_ = value.Value;
+                    AppendConst( builder, indent + 1, key, value_ );
                 } else
                 if (item is KeyValueTreeList<AddressableAssetEntry>.ListItem list) {
-                    AppendClass( builder, indent + 1, list.Key, list.Items.ToArray() );
+                    var key = Escape( list.Key );
+                    if (key == name) key = $"{key}_";
+                    var items_ = list.Items.ToArray();
+                    AppendClass( builder, indent + 1, key, items_ );
                 }
             }
             builder.AppendIndent( indent ).AppendLine( "}" );
         }
-        private void AppendConst(StringBuilder builder, int indent, string name, KeyValueTreeList<AddressableAssetEntry>.ValueItem item) {
-            if (item.Value.IsAsset()) {
-                builder.AppendIndent( indent ).AppendLine( $"public const string @{Escape( name )} = \"{item.Value.address}\";" );
+        private void AppendConst(StringBuilder builder, int indent, string name, AddressableAssetEntry value) {
+            if (value.IsAsset()) {
+                builder.AppendIndent( indent ).AppendLine( $"public const string @{name} = \"{value.address}\";" );
             } else {
-                throw Exceptions.Internal.NotSupported( $"Entry {item.Value} is not supported" );
+                throw Exceptions.Internal.NotSupported( $"Entry {value} is not supported" );
             }
         }
 
@@ -64,14 +70,10 @@ namespace UnityEditor.Tools_ {
                 .ThenByDescending( i => i.Key.Equals( "App" ) )
                 .ThenByDescending( i => i.Key.Equals( "Domain" ) )
                 .ThenByDescending( i => i.Key.Equals( "Game" ) )
-                .ThenByDescending( i => i.Key.Equals( "Entities" ) )
                 .ThenByDescending( i => i.Key.Equals( "World" ) )
+                .ThenByDescending( i => i.Key.Equals( "Entities" ) )
                 .ThenByDescending( i => i.Key.Equals( "Core" ) )
                 .ThenByDescending( i => i.Key.Equals( "Internal" ) )
-
-                .ThenByDescending( i => i.Key.Equals( "Common" ) )
-                .ThenByDescending( i => i.Key.Equals( "MainScreen" ) )
-                .ThenByDescending( i => i.Key.Equals( "GameScreen" ) )
 
                 .ThenByDescending( i => i.Key.Equals( "Launcher" ) )
                 .ThenByDescending( i => i.Key.Equals( "LauncherScene" ) )
@@ -84,6 +86,10 @@ namespace UnityEditor.Tools_ {
                 .ThenByDescending( i => i.Key.Equals( "WorldScene" ) )
                 .ThenByDescending( i => i.Key.Equals( "LevelScene" ) )
 
+                .ThenByDescending( i => i.Key.Equals( "Common" ) )
+                .ThenByDescending( i => i.Key.Equals( "MainScreen" ) )
+                .ThenByDescending( i => i.Key.Equals( "GameScreen" ) )
+
                 .ThenBy( i => i.Key );
         }
 
@@ -92,7 +98,7 @@ namespace UnityEditor.Tools_ {
             return entry.MainAssetType != typeof( DefaultAsset );
         }
 
-        // Escape
+        // Helpers
         private static string Escape(string value) {
             var chars = value.ToCharArray();
             for (var i = 0; i < chars.Length; i++) {
@@ -100,7 +106,6 @@ namespace UnityEditor.Tools_ {
             }
             return new string( chars );
         }
-        // Helpers
         private static void WriteText(string path, string text) {
             if (!File.Exists( path ) || File.ReadAllText( path ) != text) {
                 File.WriteAllText( path, text );

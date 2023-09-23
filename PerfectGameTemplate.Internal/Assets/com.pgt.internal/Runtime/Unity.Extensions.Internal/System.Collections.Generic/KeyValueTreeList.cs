@@ -11,43 +11,37 @@ namespace System.Collections.Generic {
         // Create
         public static KeyValueTreeList<T> Create<T>(IEnumerable<(string[] Dir, string Key, T Value)> items) {
             var treeList = new KeyValueTreeList<T>();
-            foreach (var (keys, key, value) in items) {
-                treeList.AddValue( keys, key, value );
-            }
-            return treeList;
-        }
-        public static KeyValueTreeList<T> Create<T>(IEnumerable<(string[] Dir, T Value)> items) {
-            var treeList = new KeyValueTreeList<T>();
-            foreach (var (keys, value) in items) {
-                treeList.AddValue( keys.SkipLast( 1 ), keys.Last(), value );
+            foreach (var (dir, key, value) in items) {
+                treeList.AddValue( dir, key, value );
             }
             return treeList;
         }
 
     }
-    public partial class KeyValueTreeList<T> {
-        internal interface IList {
-            List<KeyValueTreeList<T>.Item> Items { get; }
-        }
+    public class KeyValueTreeList<T> : KeyValueTreeList<T>.IListItem {
+        // Item
         public abstract class Item {
             public string Key { get; }
             public Item(string key) {
                 Key = key;
             }
         }
+        // Item/Value
         public class ValueItem : Item {
             public T Value { get; }
             public ValueItem(string key, T value) : base( key ) {
                 Value = value;
             }
         }
-        public class ListItem : Item, IList {
+        // Item/List
+        internal interface IListItem {
+            List<KeyValueTreeList<T>.Item> Items { get; }
+        }
+        public class ListItem : Item, IListItem {
             public List<KeyValueTreeList<T>.Item> Items { get; } = new List<KeyValueTreeList<T>.Item>( 0 );
             public ListItem(string key) : base( key ) {
             }
         }
-    }
-    public partial class KeyValueTreeList<T> : KeyValueTreeList<T>.IList {
 
         public List<KeyValueTreeList<T>.Item> Items { get; } = new List<Item>();
 
@@ -106,7 +100,7 @@ namespace System.Collections.Generic {
     internal static class KeyValueTreeListHelper {
 
         // GetList
-        public static KeyValueTreeList<T>.IList? GetList<T>(this KeyValueTreeList<T>.IList list, IEnumerable<string> keys) {
+        public static KeyValueTreeList<T>.IListItem? GetList<T>(this KeyValueTreeList<T>.IListItem list, IEnumerable<string> keys) {
             var result = list;
             foreach (var key in keys) {
                 result = result.GetList( key );
@@ -114,7 +108,7 @@ namespace System.Collections.Generic {
             }
             return result;
         }
-        public static KeyValueTreeList<T>.IList GetOrAddList<T>(this KeyValueTreeList<T>.IList list, IEnumerable<string> keys) {
+        public static KeyValueTreeList<T>.IListItem GetOrAddList<T>(this KeyValueTreeList<T>.IListItem list, IEnumerable<string> keys) {
             var result = list;
             foreach (var key in keys) {
                 result = result.GetOrAddList( key );
@@ -123,11 +117,11 @@ namespace System.Collections.Generic {
         }
 
         // GetList
-        private static KeyValueTreeList<T>.ListItem? GetList<T>(this KeyValueTreeList<T>.IList list, string key) {
+        private static KeyValueTreeList<T>.ListItem? GetList<T>(this KeyValueTreeList<T>.IListItem list, string key) {
             var result = list.Items.OfType<KeyValueTreeList<T>.ListItem>().Where( i => i.Key == key ).FirstOrDefault();
             return result;
         }
-        private static KeyValueTreeList<T>.ListItem GetOrAddList<T>(this KeyValueTreeList<T>.IList list, string key) {
+        private static KeyValueTreeList<T>.ListItem GetOrAddList<T>(this KeyValueTreeList<T>.IListItem list, string key) {
             var result = list.Items.OfType<KeyValueTreeList<T>.ListItem>().Where( i => i.Key == key ).FirstOrDefault();
             if (result == null) {
                 result = new KeyValueTreeList<T>.ListItem( key );
@@ -137,7 +131,7 @@ namespace System.Collections.Generic {
         }
 
         // Sort
-        public static void Sort_<T>(this KeyValueTreeList<T>.IList list, Comparison<KeyValueTreeList<T>.Item> comparison) {
+        public static void Sort_<T>(this KeyValueTreeList<T>.IListItem list, Comparison<KeyValueTreeList<T>.Item> comparison) {
             list.Items.Sort( comparison );
             foreach (var item in list.Items.OfType<KeyValueTreeList<T>.ListItem>()) {
                 item.Sort_( comparison );
@@ -145,20 +139,28 @@ namespace System.Collections.Generic {
         }
 
         // AppendObject
-        public static void AppendObject<T>(this StringBuilder builder, KeyValueTreeList<T> list) {
+        public static void AppendObject<T>(this StringBuilder builder, KeyValueTreeList<T> treeList) {
             builder.Append( "KeyValueTreeList:" );
-            foreach (var item in list.Items) {
-                builder.AppendObject( item.Key, item );
+            foreach (var item in treeList.Items) {
+                if (item is KeyValueTreeList<T>.ValueItem value) {
+                    builder.AppendObject( value.Key, value );
+                } else
+                if (item is KeyValueTreeList<T>.ListItem list) {
+                    builder.AppendObject( list.Key, list );
+                }
             }
         }
-        public static void AppendObject<T>(this StringBuilder builder, string path, KeyValueTreeList<T>.Item item) {
-            if (item is KeyValueTreeList<T>.ValueItem value) {
-                builder.AppendLine();
-                builder.Append( path ).Append( ": " ).Append( value.Value );
-            } else
-            if (item is KeyValueTreeList<T>.ListItem list) {
-                foreach (var i in list.Items) {
-                    builder.AppendObject( $"{path}/{i.Key}", i );
+        private static void AppendObject<T>(this StringBuilder builder, string path, KeyValueTreeList<T>.ValueItem value) {
+            builder.AppendLine();
+            builder.Append( path ).Append( ": " ).Append( value.Value );
+        }
+        private static void AppendObject<T>(this StringBuilder builder, string path, KeyValueTreeList<T>.ListItem list) {
+            foreach (var item in list.Items) {
+                if (item is KeyValueTreeList<T>.ValueItem value) {
+                    builder.AppendObject( $"{path}/{value.Key}", value );
+                } else
+                if (item is KeyValueTreeList<T>.ListItem list_) {
+                    builder.AppendObject( $"{path}/{list_.Key}", list_ );
                 }
             }
         }

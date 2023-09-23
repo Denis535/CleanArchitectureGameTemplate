@@ -180,10 +180,10 @@ namespace UnityEngine {
             }
             public static class @Domain {
                 public static class @MainScene {
-                    public const string @MainScene_ = "Project.Domain.MainScene/MainScene_.unity";
+                    public const string @MainScene_ = "Project.Domain.MainScene/MainScene.unity";
                 }
                 public static class @GameScene {
-                    public const string @GameScene_ = "Project.Domain.GameScene/GameScene_.unity";
+                    public const string @GameScene_ = "Project.Domain.GameScene/GameScene.unity";
                 }
                 public static class @WorldScene {
                     public const string @TestWorld_1 = "Project.Domain.WorldScene/TestWorld_1.unity";

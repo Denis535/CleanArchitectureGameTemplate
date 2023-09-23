@@ -13,7 +13,7 @@ namespace UnityEditor.Tools_ {
         public static KeyValueTreeList<string> GetTreeList(IEnumerable<string> labels) {
             var treeList = new KeyValueTreeList<string>();
             foreach (var label in labels) {
-                var path = GetPath( label ).ToArray();
+                var path = GetPath( label );
                 treeList.AddValue( path.SkipLast( 1 ), path.Last(), label );
             }
             return treeList;
