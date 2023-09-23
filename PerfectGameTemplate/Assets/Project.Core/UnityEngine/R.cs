@@ -3,13 +3,11 @@ namespace UnityEngine {
         public static class @UnityEngine {
             public static class @Audio {
                 public const string @AudioMixer = "UnityEngine.Audio/AudioMixer.mixer";
-                public static class @AudioMixer_ {
-                    public const string @Game = "UnityEngine.Audio/AudioMixer.mixer[Game]";
-                    public const string @Master = "UnityEngine.Audio/AudioMixer.mixer[Master]";
-                    public const string @Music = "UnityEngine.Audio/AudioMixer.mixer[Music]";
-                    public const string @Sfx = "UnityEngine.Audio/AudioMixer.mixer[Sfx]";
-                    public const string @Snapshot = "UnityEngine.Audio/AudioMixer.mixer[Snapshot]";
-                }
+                public const string @AudioMixer__Game = "UnityEngine.Audio/AudioMixer.mixer[Game]";
+                public const string @AudioMixer__Master = "UnityEngine.Audio/AudioMixer.mixer[Master]";
+                public const string @AudioMixer__Music = "UnityEngine.Audio/AudioMixer.mixer[Music]";
+                public const string @AudioMixer__Sfx = "UnityEngine.Audio/AudioMixer.mixer[Sfx]";
+                public const string @AudioMixer__Snapshot = "UnityEngine.Audio/AudioMixer.mixer[Snapshot]";
             }
         }
         public static class @Project {
@@ -19,76 +17,52 @@ namespace UnityEngine {
                     public static class @SettingsWidget {
                         public static class @Audio {
                             public const string @AudioSettingsWidgetView = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml";
-                            public static class @AudioSettingsWidgetView_ {
-                                public const string @inlineStyle = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml[inlineStyle]";
-                            }
+                            public const string @AudioSettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml[inlineStyle]";
                         }
                         public static class @PlayerProfile {
                             public const string @PlayerProfileWidgetView = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml";
-                            public static class @PlayerProfileWidgetView_ {
-                                public const string @inlineStyle = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml[inlineStyle]";
-                            }
+                            public const string @PlayerProfileWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml[inlineStyle]";
                         }
                         public const string @SettingsWidgetView = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml";
-                        public static class @SettingsWidgetView_ {
-                            public const string @inlineStyle = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml[inlineStyle]";
-                        }
+                        public const string @SettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml[inlineStyle]";
                         public static class @Video {
                             public const string @VideoSettingsWidgetView = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml";
-                            public static class @VideoSettingsWidgetView_ {
-                                public const string @inlineStyle = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml[inlineStyle]";
-                            }
+                            public const string @VideoSettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml[inlineStyle]";
                         }
                     }
                 }
                 public static class @MainScreen {
                     public static class @Images {
                         public const string @Background = "Project.UI.MainScreen/Images/Background.png";
-                        public static class @Background_ {
-                            public const string @Background = "Project.UI.MainScreen/Images/Background.png[Background]";
-                        }
+                        public const string @Background__Background = "Project.UI.MainScreen/Images/Background.png[Background]";
                     }
                     public static class @MainWidget {
                         public static class @MainMenu {
                             public static class @CreateGame {
                                 public const string @CreateGameWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame/CreateGameWidgetView.uxml";
-                                public static class @CreateGameWidgetView_ {
-                                    public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame/CreateGameWidgetView.uxml[inlineStyle]";
-                                }
+                                public const string @CreateGameWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame/CreateGameWidgetView.uxml[inlineStyle]";
                             }
                             public static class @CreateGame2 {
                                 public const string @CreateGameWidgetView2 = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame2/CreateGameWidgetView2.uxml";
-                                public static class @CreateGameWidgetView2_ {
-                                    public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame2/CreateGameWidgetView2.uxml[inlineStyle]";
-                                }
+                                public const string @CreateGameWidgetView2__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame2/CreateGameWidgetView2.uxml[inlineStyle]";
                             }
                             public static class @JoinGame {
                                 public const string @JoinGameWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame/JoinGameWidgetView.uxml";
-                                public static class @JoinGameWidgetView_ {
-                                    public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame/JoinGameWidgetView.uxml[inlineStyle]";
-                                }
+                                public const string @JoinGameWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame/JoinGameWidgetView.uxml[inlineStyle]";
                             }
                             public static class @JoinGame2 {
                                 public const string @JoinGameWidgetView2 = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml";
-                                public static class @JoinGameWidgetView2_ {
-                                    public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml[inlineStyle]";
-                                }
+                                public const string @JoinGameWidgetView2__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml[inlineStyle]";
                             }
                             public static class @Loading {
                                 public const string @LoadingWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.Loading/LoadingWidgetView.uxml";
-                                public static class @LoadingWidgetView_ {
-                                    public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.Loading/LoadingWidgetView.uxml[inlineStyle]";
-                                }
+                                public const string @LoadingWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.Loading/LoadingWidgetView.uxml[inlineStyle]";
                             }
                             public const string @MainMenuWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu/MainMenuWidgetView.uxml";
-                            public static class @MainMenuWidgetView_ {
-                                public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu/MainMenuWidgetView.uxml[inlineStyle]";
-                            }
+                            public const string @MainMenuWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu/MainMenuWidgetView.uxml[inlineStyle]";
                         }
                         public const string @MainWidgetView = "Project.UI.MainScreen/MainWidget/MainWidgetView.uxml";
-                        public static class @MainWidgetView_ {
-                            public const string @inlineStyle = "Project.UI.MainScreen/MainWidget/MainWidgetView.uxml[inlineStyle]";
-                        }
+                        public const string @MainWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget/MainWidgetView.uxml[inlineStyle]";
                     }
                     public static class @Music {
                         public const string @Theme = "Project.UI.MainScreen/Music/Theme @Akira Yamaoka — Never Forgive Me, Never Forget Me.flac";
@@ -98,14 +72,10 @@ namespace UnityEngine {
                     public static class @GameWidget {
                         public static class @GameMenu {
                             public const string @GameMenuWidgetView = "Project.UI.GameScreen/GameWidget.GameMenu/GameMenuWidgetView.uxml";
-                            public static class @GameMenuWidgetView_ {
-                                public const string @inlineStyle = "Project.UI.GameScreen/GameWidget.GameMenu/GameMenuWidgetView.uxml[inlineStyle]";
-                            }
+                            public const string @GameMenuWidgetView__inlineStyle = "Project.UI.GameScreen/GameWidget.GameMenu/GameMenuWidgetView.uxml[inlineStyle]";
                         }
                         public const string @GameWidgetView = "Project.UI.GameScreen/GameWidget/GameWidgetView.uxml";
-                        public static class @GameWidgetView_ {
-                            public const string @inlineStyle = "Project.UI.GameScreen/GameWidget/GameWidgetView.uxml[inlineStyle]";
-                        }
+                        public const string @GameWidgetView__inlineStyle = "Project.UI.GameScreen/GameWidget/GameWidgetView.uxml[inlineStyle]";
                     }
                     public static class @Music {
                         public const string @Theme_1 = "Project.UI.GameScreen/Music/Theme_1 @Ugasanie - Obfuscation.flac";
@@ -116,89 +86,57 @@ namespace UnityEngine {
                 public static class @Fonts {
                     public static class @Inter {
                         public const string @Inter_Italic = "Project.UI/Fonts/Inter/Inter-Italic.ttf";
-                        public static class @Inter_Italic_ {
-                            public const string @Font_Material = "Project.UI/Fonts/Inter/Inter-Italic.ttf[Font Material]";
-                            public const string @Font_Texture = "Project.UI/Fonts/Inter/Inter-Italic.ttf[Font Texture]";
-                        }
+                        public const string @Inter_Italic__Font_Material = "Project.UI/Fonts/Inter/Inter-Italic.ttf[Font Material]";
+                        public const string @Inter_Italic__Font_Texture = "Project.UI/Fonts/Inter/Inter-Italic.ttf[Font Texture]";
                         public const string @Inter_Regular = "Project.UI/Fonts/Inter/Inter-Regular.ttf";
-                        public static class @Inter_Regular_ {
-                            public const string @Font_Material = "Project.UI/Fonts/Inter/Inter-Regular.ttf[Font Material]";
-                            public const string @Font_Texture = "Project.UI/Fonts/Inter/Inter-Regular.ttf[Font Texture]";
-                        }
+                        public const string @Inter_Regular__Font_Material = "Project.UI/Fonts/Inter/Inter-Regular.ttf[Font Material]";
+                        public const string @Inter_Regular__Font_Texture = "Project.UI/Fonts/Inter/Inter-Regular.ttf[Font Texture]";
                         public const string @Inter_SemiBold = "Project.UI/Fonts/Inter/Inter-SemiBold.ttf";
-                        public static class @Inter_SemiBold_ {
-                            public const string @Font_Material = "Project.UI/Fonts/Inter/Inter-SemiBold.ttf[Font Material]";
-                            public const string @Font_Texture = "Project.UI/Fonts/Inter/Inter-SemiBold.ttf[Font Texture]";
-                        }
+                        public const string @Inter_SemiBold__Font_Material = "Project.UI/Fonts/Inter/Inter-SemiBold.ttf[Font Material]";
+                        public const string @Inter_SemiBold__Font_Texture = "Project.UI/Fonts/Inter/Inter-SemiBold.ttf[Font Texture]";
                         public const string @Inter_SemiBoldItalic = "Project.UI/Fonts/Inter/Inter-SemiBoldItalic.ttf";
-                        public static class @Inter_SemiBoldItalic_ {
-                            public const string @Font_Material = "Project.UI/Fonts/Inter/Inter-SemiBoldItalic.ttf[Font Material]";
-                            public const string @Font_Texture = "Project.UI/Fonts/Inter/Inter-SemiBoldItalic.ttf[Font Texture]";
-                        }
+                        public const string @Inter_SemiBoldItalic__Font_Material = "Project.UI/Fonts/Inter/Inter-SemiBoldItalic.ttf[Font Material]";
+                        public const string @Inter_SemiBoldItalic__Font_Texture = "Project.UI/Fonts/Inter/Inter-SemiBoldItalic.ttf[Font Texture]";
                         public const string @Inter_Small = "Project.UI/Fonts/Inter/Inter-Small.ttf";
-                        public static class @Inter_Small_ {
-                            public const string @Font_Material = "Project.UI/Fonts/Inter/Inter-Small.ttf[Font Material]";
-                            public const string @Font_Texture = "Project.UI/Fonts/Inter/Inter-Small.ttf[Font Texture]";
-                        }
+                        public const string @Inter_Small__Font_Material = "Project.UI/Fonts/Inter/Inter-Small.ttf[Font Material]";
+                        public const string @Inter_Small__Font_Texture = "Project.UI/Fonts/Inter/Inter-Small.ttf[Font Texture]";
                     }
                     public const string @Lucida_Grande = "Project.UI/Fonts/Lucida Grande.ttf";
                     public const string @Lucida_Grande_Big = "Project.UI/Fonts/Lucida Grande Big.ttf";
-                    public static class @Lucida_Grande_Big_ {
-                        public const string @Font_Material = "Project.UI/Fonts/Lucida Grande Big.ttf[Font Material]";
-                        public const string @Font_Texture = "Project.UI/Fonts/Lucida Grande Big.ttf[Font Texture]";
-                    }
+                    public const string @Lucida_Grande_Big__Font_Material = "Project.UI/Fonts/Lucida Grande Big.ttf[Font Material]";
+                    public const string @Lucida_Grande_Big__Font_Texture = "Project.UI/Fonts/Lucida Grande Big.ttf[Font Texture]";
                     public const string @Lucida_Grande_Bold = "Project.UI/Fonts/Lucida Grande Bold.ttf";
-                    public static class @Lucida_Grande_Bold_ {
-                        public const string @Font_Material = "Project.UI/Fonts/Lucida Grande Bold.ttf[Font Material]";
-                        public const string @Font_Texture = "Project.UI/Fonts/Lucida Grande Bold.ttf[Font Texture]";
-                    }
+                    public const string @Lucida_Grande_Bold__Font_Material = "Project.UI/Fonts/Lucida Grande Bold.ttf[Font Material]";
+                    public const string @Lucida_Grande_Bold__Font_Texture = "Project.UI/Fonts/Lucida Grande Bold.ttf[Font Texture]";
                     public const string @Lucida_Grande_small = "Project.UI/Fonts/Lucida Grande small.ttf";
                     public const string @Lucida_Grande_small_bold = "Project.UI/Fonts/Lucida Grande small bold.ttf";
-                    public static class @Lucida_Grande_small_bold_ {
-                        public const string @Font_Material = "Project.UI/Fonts/Lucida Grande small bold.ttf[Font Material]";
-                        public const string @Font_Texture = "Project.UI/Fonts/Lucida Grande small bold.ttf[Font Texture]";
-                    }
-                    public static class @Lucida_Grande_small_ {
-                        public const string @Font_Material = "Project.UI/Fonts/Lucida Grande small.ttf[Font Material]";
-                        public const string @Font_Texture = "Project.UI/Fonts/Lucida Grande small.ttf[Font Texture]";
-                    }
+                    public const string @Lucida_Grande_small_bold__Font_Material = "Project.UI/Fonts/Lucida Grande small bold.ttf[Font Material]";
+                    public const string @Lucida_Grande_small_bold__Font_Texture = "Project.UI/Fonts/Lucida Grande small bold.ttf[Font Texture]";
+                    public const string @Lucida_Grande_small__Font_Material = "Project.UI/Fonts/Lucida Grande small.ttf[Font Material]";
+                    public const string @Lucida_Grande_small__Font_Texture = "Project.UI/Fonts/Lucida Grande small.ttf[Font Texture]";
                     public const string @Lucida_Grande_Warning = "Project.UI/Fonts/Lucida Grande Warning.ttf";
-                    public static class @Lucida_Grande_Warning_ {
-                        public const string @Font_Material = "Project.UI/Fonts/Lucida Grande Warning.ttf[Font Material]";
-                        public const string @Font_Texture = "Project.UI/Fonts/Lucida Grande Warning.ttf[Font Texture]";
-                    }
-                    public static class @Lucida_Grande_ {
-                        public const string @Font_Material = "Project.UI/Fonts/Lucida Grande.ttf[Font Material]";
-                        public const string @Font_Texture = "Project.UI/Fonts/Lucida Grande.ttf[Font Texture]";
-                    }
+                    public const string @Lucida_Grande_Warning__Font_Material = "Project.UI/Fonts/Lucida Grande Warning.ttf[Font Material]";
+                    public const string @Lucida_Grande_Warning__Font_Texture = "Project.UI/Fonts/Lucida Grande Warning.ttf[Font Texture]";
+                    public const string @Lucida_Grande__Font_Material = "Project.UI/Fonts/Lucida Grande.ttf[Font Material]";
+                    public const string @Lucida_Grande__Font_Texture = "Project.UI/Fonts/Lucida Grande.ttf[Font Texture]";
                     public static class @NotInter {
                         public const string @NotInter_Regular = "Project.UI/Fonts/NotInter/NotInter-Regular.ttf";
-                        public static class @NotInter_Regular_ {
-                            public const string @Font_Material = "Project.UI/Fonts/NotInter/NotInter-Regular.ttf[Font Material]";
-                            public const string @Font_Texture = "Project.UI/Fonts/NotInter/NotInter-Regular.ttf[Font Texture]";
-                        }
+                        public const string @NotInter_Regular__Font_Material = "Project.UI/Fonts/NotInter/NotInter-Regular.ttf[Font Material]";
+                        public const string @NotInter_Regular__Font_Texture = "Project.UI/Fonts/NotInter/NotInter-Regular.ttf[Font Texture]";
                     }
                     public static class @RobotoMono {
                         public const string @RobotoMono_Bold = "Project.UI/Fonts/RobotoMono/RobotoMono-Bold.ttf";
-                        public static class @RobotoMono_Bold_ {
-                            public const string @Font_Material = "Project.UI/Fonts/RobotoMono/RobotoMono-Bold.ttf[Font Material]";
-                            public const string @Font_Texture = "Project.UI/Fonts/RobotoMono/RobotoMono-Bold.ttf[Font Texture]";
-                        }
+                        public const string @RobotoMono_Bold__Font_Material = "Project.UI/Fonts/RobotoMono/RobotoMono-Bold.ttf[Font Material]";
+                        public const string @RobotoMono_Bold__Font_Texture = "Project.UI/Fonts/RobotoMono/RobotoMono-Bold.ttf[Font Texture]";
                         public const string @RobotoMono_BoldItalic = "Project.UI/Fonts/RobotoMono/RobotoMono-BoldItalic.ttf";
-                        public static class @RobotoMono_BoldItalic_ {
-                            public const string @Font_Material = "Project.UI/Fonts/RobotoMono/RobotoMono-BoldItalic.ttf[Font Material]";
-                            public const string @Font_Texture = "Project.UI/Fonts/RobotoMono/RobotoMono-BoldItalic.ttf[Font Texture]";
-                        }
+                        public const string @RobotoMono_BoldItalic__Font_Material = "Project.UI/Fonts/RobotoMono/RobotoMono-BoldItalic.ttf[Font Material]";
+                        public const string @RobotoMono_BoldItalic__Font_Texture = "Project.UI/Fonts/RobotoMono/RobotoMono-BoldItalic.ttf[Font Texture]";
                         public const string @RobotoMono_Italic = "Project.UI/Fonts/RobotoMono/RobotoMono-Italic.ttf";
-                        public static class @RobotoMono_Italic_ {
-                            public const string @Font_Material = "Project.UI/Fonts/RobotoMono/RobotoMono-Italic.ttf[Font Material]";
-                            public const string @Font_Texture = "Project.UI/Fonts/RobotoMono/RobotoMono-Italic.ttf[Font Texture]";
-                        }
+                        public const string @RobotoMono_Italic__Font_Material = "Project.UI/Fonts/RobotoMono/RobotoMono-Italic.ttf[Font Material]";
+                        public const string @RobotoMono_Italic__Font_Texture = "Project.UI/Fonts/RobotoMono/RobotoMono-Italic.ttf[Font Texture]";
                         public const string @RobotoMono_Regular = "Project.UI/Fonts/RobotoMono/RobotoMono-Regular.ttf";
-                        public static class @RobotoMono_Regular_ {
-                            public const string @Font_Material = "Project.UI/Fonts/RobotoMono/RobotoMono-Regular.ttf[Font Material]";
-                            public const string @Font_Texture = "Project.UI/Fonts/RobotoMono/RobotoMono-Regular.ttf[Font Texture]";
-                        }
+                        public const string @RobotoMono_Regular__Font_Material = "Project.UI/Fonts/RobotoMono/RobotoMono-Regular.ttf[Font Material]";
+                        public const string @RobotoMono_Regular__Font_Texture = "Project.UI/Fonts/RobotoMono/RobotoMono-Regular.ttf[Font Texture]";
                     }
                 }
                 public static class @Images {

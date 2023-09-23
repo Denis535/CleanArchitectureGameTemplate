@@ -37,7 +37,7 @@ namespace UnityEditor.Tools_ {
                     var dir = GetDir( entry.ParentEntry );
                     var name = GetName( entry.ParentEntry );
                     var name2 = entry.TargetAsset.name;
-                    return dir.Append( name + "_" ).Append( name2 ).ToArray();
+                    return dir.Append( name + "__" + name2 ).ToArray();
                 }
             } else {
                 throw Exceptions.Internal.NotSupported( $"Entry {entry} is not supported" );
