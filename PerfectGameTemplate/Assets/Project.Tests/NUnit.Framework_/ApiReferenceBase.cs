@@ -9,16 +9,18 @@ namespace NUnit.Framework {
 
     public abstract class ApiReferenceBase {
 
-        // Validate
-        public abstract void Validate();
+        // Test
+        public abstract void Test();
 
-        // GetReference
-        public abstract object[] GetReference();
+        // GetActualTypes
+        public abstract object[] GetActualTypes();
+
+        // GetExpectedTypes
+        public abstract object[] GetExpectedTypes();
 
         // Heleprs
         protected static void AssertThatTypesAreEqual(Type[] actual, Type[] expected) {
-            var missing = expected.Except( actual ).ToArray();
-            var extra = actual.Except( expected ).ToArray();
+            AssertThatTypesAreEqual( actual, expected, out var missing, out var extra );
             if (missing.Any()) {
                 TestContext.WriteLine( "Missing: " );
                 foreach (var missing_ in missing) {
@@ -34,6 +36,11 @@ namespace NUnit.Framework {
                 Assert.Fail( "Actual types has '{0}' extra types", extra.Length );
             }
         }
+        protected static void AssertThatTypesAreEqual(Type[] actual, Type[] expected, out Type[] missing, out Type[] extra) {
+            missing = expected.Except( actual ).ToArray();
+            extra = actual.Except( expected ).ToArray();
+        }
+        // Heleprs
         protected static bool IsObsolete(Type type) {
             if (type.GetCustomAttribute<ObsoleteAttribute>() != null) return true;
             if (type.DeclaringType != null) return IsObsolete( type.DeclaringType );

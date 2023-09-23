@@ -10,16 +10,16 @@ namespace UIToolkit {
 
     public class UIToolkit : ApiReferenceBase {
 
-        // Validate
+        // Test
         [Test]
-        public override void Validate() {
-            var actual = GetReference().OfType<Type>().ToArray();
-            var expected = typeof( VisualElement ).Assembly.GetExportedTypes().Where( i => typeof( VisualElement ).IsAssignableFrom( i ) ).ToArray();
+        public override void Test() {
+            var actual = GetActualTypes().OfType<Type>().ToArray();
+            var expected = GetExpectedTypes().OfType<Type>().ToArray();
             AssertThatTypesAreEqual( actual, expected );
         }
 
-        // GetReference
-        public override object[] GetReference() {
+        // GetActualTypes
+        public override object[] GetActualTypes() {
             return new object[] {
                 "UnityEngine.UIElements",
                 // Base
@@ -102,6 +102,11 @@ namespace UIToolkit {
                 typeof( GroupBox ),
                 typeof( HelpBox ),
             };
+        }
+
+        // GetExpectedTypes
+        public override object[] GetExpectedTypes() {
+            return typeof( VisualElement ).Assembly.GetExportedTypes().Where( i => typeof( VisualElement ).IsAssignableFrom( i ) ).ToArray();
         }
 
     }
