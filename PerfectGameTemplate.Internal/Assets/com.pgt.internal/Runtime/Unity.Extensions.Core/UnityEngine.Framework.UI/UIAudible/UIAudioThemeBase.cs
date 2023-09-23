@@ -47,14 +47,22 @@ namespace UnityEngine.Framework.UI {
 
         // Helpers
         protected static T GetNextValue<T>(T[] array, T? value) {
-            var ind = array.IndexOf( value );
-            ind = (ind + 1) % array.Length;
-            return array[ ind ];
+            var index = array.IndexOf( value );
+            if (index != -1) {
+                index = (index + 1) % array.Length;
+                return array[ index ];
+            }
+            return array[ 0 ];
         }
         protected static T GetRandomValue<T>(T[] array, T? value) {
-            var ind = UnityEngine.Random.Range( 0, array.Length );
-            if (ReferenceEquals( array[ ind ], value ) && array.Length >= 2) return GetRandomValue( array, value );
-            return array[ ind ];
+            var index = UnityEngine.Random.Range( 0, array.Length );
+            if (index != -1) {
+                if (ReferenceEquals( array[ index ], value ) && array.Length > 1) {
+                    return GetRandomValue( array, value );
+                }
+                return array[ index ];
+            }
+            return array[ 0 ];
         }
         protected static T[] Shuffle<T>(T[] array) {
             for (var i = 0; i < array.Length; i++) {

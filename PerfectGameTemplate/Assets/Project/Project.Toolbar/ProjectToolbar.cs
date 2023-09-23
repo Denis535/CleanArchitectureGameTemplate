@@ -86,52 +86,52 @@ namespace Project.Toolbar {
         internal static void OpenAssets_UIAudioTheme() {
             OpenAssets( GetPatterns(
                 // MainScreen
-                "Assets/*/Project.UI.MainScreen/*Theme.cs",
+                "Assets/Project.UI.MainScreen/Project.UI.MainScreen/*Theme.cs",
                 // GameScreen
-                "Assets/*/Project.UI.GameScreen/*Theme.cs"
+                "Assets/Project.UI.GameScreen/Project.UI.GameScreen/*Theme.cs"
                 ) );
         }
         [MenuItem( "Project/Open Assets (UIScreen)", priority = 1001 )]
         internal static void OpenAssets_UIScreen() {
             OpenAssets( GetPatterns(
                 // MainScreen
-                "Assets/*/Project.UI.MainScreen/*Screen.cs",
+                "Assets/Project.UI.MainScreen/Project.UI.MainScreen/*Screen.cs",
                 // GameScreen
-                "Assets/*/Project.UI.GameScreen/*Screen.cs"
+                "Assets/Project.UI.GameScreen/Project.UI.GameScreen/*Screen.cs"
                 ) );
         }
         [MenuItem( "Project/Open Assets (UIWidget)", priority = 1002 )]
         internal static void OpenAssets_UIWidget() {
             OpenAssets( GetPatterns(
                 // MainScreen
-                "Assets/*/Project.UI.MainScreen/*WidgetBase.cs",
-                "Assets/*/Project.UI.MainScreen/*Widget.cs",
-                "Assets/*/Project.UI.MainScreen/*Widget2.cs",
+                "Assets/Project.UI.MainScreen/Project.UI.MainScreen/*WidgetBase.cs",
+                "Assets/Project.UI.MainScreen/Project.UI.MainScreen/*Widget.cs",
+                "Assets/Project.UI.MainScreen/Project.UI.MainScreen/*Widget2.cs",
                 // GameScreen
-                "Assets/*/Project.UI.GameScreen/*WidgetBase.cs",
-                "Assets/*/Project.UI.GameScreen/*Widget.cs",
-                "Assets/*/Project.UI.GameScreen/*Widget2.cs",
+                "Assets/Project.UI.GameScreen/Project.UI.GameScreen/*WidgetBase.cs",
+                "Assets/Project.UI.GameScreen/Project.UI.GameScreen/*Widget.cs",
+                "Assets/Project.UI.GameScreen/Project.UI.GameScreen/*Widget2.cs",
                 // Common
-                "Assets/*/Project.UI.Common/*WidgetBase.cs",
-                "Assets/*/Project.UI.Common/*Widget.cs",
-                "Assets/*/Project.UI.Common/*Widget2.cs"
+                "Assets/Project.UI/Project.UI.Common/*WidgetBase.cs",
+                "Assets/Project.UI/Project.UI.Common/*Widget.cs",
+                "Assets/Project.UI/Project.UI.Common/*Widget2.cs"
                 ) );
         }
         [MenuItem( "Project/Open Assets (UIView)", priority = 1003 )]
         internal static void OpenAssets_UIView() {
             OpenAssets( GetPatterns(
                 // MainScreen
-                "Assets/*/Project.UI.MainScreen/*ViewBase.cs",
-                "Assets/*/Project.UI.MainScreen/*View.cs",
-                "Assets/*/Project.UI.MainScreen/*View2.cs",
+                "Assets/Project.UI.MainScreen/Project.UI.MainScreen/*ViewBase.cs",
+                "Assets/Project.UI.MainScreen/Project.UI.MainScreen/*View.cs",
+                "Assets/Project.UI.MainScreen/Project.UI.MainScreen/*View2.cs",
                 // GameScreen
-                "Assets/*/Project.UI.GameScreen/*ViewBase.cs",
-                "Assets/*/Project.UI.GameScreen/*View.cs",
-                "Assets/*/Project.UI.GameScreen/*View2.cs",
+                "Assets/Project.UI.GameScreen/Project.UI.GameScreen/*ViewBase.cs",
+                "Assets/Project.UI.GameScreen/Project.UI.GameScreen/*View.cs",
+                "Assets/Project.UI.GameScreen/Project.UI.GameScreen/*View2.cs",
                 // Common
-                "Assets/*/Project.UI.Common/*ViewBase.cs",
-                "Assets/*/Project.UI.Common/*View.cs",
-                "Assets/*/Project.UI.Common/*View2.cs"
+                "Assets/Project.UI/Project.UI.Common/*ViewBase.cs",
+                "Assets/Project.UI/Project.UI.Common/*View.cs",
+                "Assets/Project.UI/Project.UI.Common/*View2.cs"
                 ) );
         }
 

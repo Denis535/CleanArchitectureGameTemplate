@@ -19,9 +19,12 @@ namespace UnityEngine {
                 var time01 = Mathf.InverseLerp( 0, duration, time );
                 var value = Mathf.Lerp( from, to, time01 );
                 onUpdate.Invoke( @object, value );
-                if (time >= duration) break;
-                await Task.Yield();
-                time += Time.unscaledDeltaTime;
+                if (time < duration) {
+                    await Task.Yield();
+                    time += Time.unscaledDeltaTime;
+                } else {
+                    break;
+                }
             }
             if (!cancellationToken.IsCancellationRequested) {
                 onComplete?.Invoke( @object );
