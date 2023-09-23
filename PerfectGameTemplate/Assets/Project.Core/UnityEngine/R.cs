@@ -1,5 +1,5 @@
 namespace UnityEngine {
-    public static class R {
+    public static class @R {
         public static class @UnityEngine {
             public static class @Audio {
                 public const string @AudioMixer = "UnityEngine.Audio/AudioMixer.mixer";
@@ -15,76 +15,102 @@ namespace UnityEngine {
         public static class @Project {
             public const string @Program = "Project/Program.unity";
             public static class @UI {
+                public static class @Common {
+                    public static class @SettingsWidget {
+                        public static class @Audio {
+                            public const string @AudioSettingsWidgetView = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml";
+                            public static class @AudioSettingsWidgetView_ {
+                                public const string @inlineStyle = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml[inlineStyle]";
+                            }
+                        }
+                        public static class @PlayerProfile {
+                            public const string @PlayerProfileWidgetView = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml";
+                            public static class @PlayerProfileWidgetView_ {
+                                public const string @inlineStyle = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml[inlineStyle]";
+                            }
+                        }
+                        public const string @SettingsWidgetView = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml";
+                        public static class @SettingsWidgetView_ {
+                            public const string @inlineStyle = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml[inlineStyle]";
+                        }
+                        public static class @Video {
+                            public const string @VideoSettingsWidgetView = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml";
+                            public static class @VideoSettingsWidgetView_ {
+                                public const string @inlineStyle = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml[inlineStyle]";
+                            }
+                        }
+                    }
+                }
                 public static class @MainScreen {
-                    public const string @CreateGameWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame/CreateGameWidgetView.uxml";
-                    public static class @CreateGameWidgetView_ {
-                        public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame/CreateGameWidgetView.uxml[inlineStyle]";
-                    }
-                    public const string @CreateGameWidgetView2 = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame2/CreateGameWidgetView2.uxml";
-                    public static class @CreateGameWidgetView2_ {
-                        public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame2/CreateGameWidgetView2.uxml[inlineStyle]";
-                    }
                     public static class @Images {
                         public const string @Background = "Project.UI.MainScreen/Images/Background.png";
                         public static class @Background_ {
                             public const string @Background = "Project.UI.MainScreen/Images/Background.png[Background]";
                         }
                     }
-                    public const string @JoinGameWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame/JoinGameWidgetView.uxml";
-                    public static class @JoinGameWidgetView_ {
-                        public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame/JoinGameWidgetView.uxml[inlineStyle]";
-                    }
-                    public const string @JoinGameWidgetView2 = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml";
-                    public static class @JoinGameWidgetView2_ {
-                        public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml[inlineStyle]";
-                    }
-                    public const string @LoadingWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.Loading/LoadingWidgetView.uxml";
-                    public static class @LoadingWidgetView_ {
-                        public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.Loading/LoadingWidgetView.uxml[inlineStyle]";
-                    }
-                    public const string @MainMenuWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu/MainMenuWidgetView.uxml";
-                    public static class @MainMenuWidgetView_ {
-                        public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu/MainMenuWidgetView.uxml[inlineStyle]";
-                    }
-                    public const string @MainWidgetView = "Project.UI.MainScreen/MainWidget/MainWidgetView.uxml";
-                    public static class @MainWidgetView_ {
-                        public const string @inlineStyle = "Project.UI.MainScreen/MainWidget/MainWidgetView.uxml[inlineStyle]";
+                    public static class @MainWidget {
+                        public static class @MainMenu {
+                            public static class @CreateGame {
+                                public const string @CreateGameWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame/CreateGameWidgetView.uxml";
+                                public static class @CreateGameWidgetView_ {
+                                    public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame/CreateGameWidgetView.uxml[inlineStyle]";
+                                }
+                            }
+                            public static class @CreateGame2 {
+                                public const string @CreateGameWidgetView2 = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame2/CreateGameWidgetView2.uxml";
+                                public static class @CreateGameWidgetView2_ {
+                                    public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame2/CreateGameWidgetView2.uxml[inlineStyle]";
+                                }
+                            }
+                            public static class @JoinGame {
+                                public const string @JoinGameWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame/JoinGameWidgetView.uxml";
+                                public static class @JoinGameWidgetView_ {
+                                    public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame/JoinGameWidgetView.uxml[inlineStyle]";
+                                }
+                            }
+                            public static class @JoinGame2 {
+                                public const string @JoinGameWidgetView2 = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml";
+                                public static class @JoinGameWidgetView2_ {
+                                    public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml[inlineStyle]";
+                                }
+                            }
+                            public static class @Loading {
+                                public const string @LoadingWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.Loading/LoadingWidgetView.uxml";
+                                public static class @LoadingWidgetView_ {
+                                    public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.Loading/LoadingWidgetView.uxml[inlineStyle]";
+                                }
+                            }
+                            public const string @MainMenuWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu/MainMenuWidgetView.uxml";
+                            public static class @MainMenuWidgetView_ {
+                                public const string @inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu/MainMenuWidgetView.uxml[inlineStyle]";
+                            }
+                        }
+                        public const string @MainWidgetView = "Project.UI.MainScreen/MainWidget/MainWidgetView.uxml";
+                        public static class @MainWidgetView_ {
+                            public const string @inlineStyle = "Project.UI.MainScreen/MainWidget/MainWidgetView.uxml[inlineStyle]";
+                        }
                     }
                     public static class @Music {
                         public const string @Theme = "Project.UI.MainScreen/Music/Theme @Akira Yamaoka — Never Forgive Me, Never Forget Me.flac";
                     }
                 }
                 public static class @GameScreen {
-                    public const string @GameMenuWidgetView = "Project.UI.GameScreen/GameWidget.GameMenu/GameMenuWidgetView.uxml";
-                    public static class @GameMenuWidgetView_ {
-                        public const string @inlineStyle = "Project.UI.GameScreen/GameWidget.GameMenu/GameMenuWidgetView.uxml[inlineStyle]";
-                    }
-                    public const string @GameWidgetView = "Project.UI.GameScreen/GameWidget/GameWidgetView.uxml";
-                    public static class @GameWidgetView_ {
-                        public const string @inlineStyle = "Project.UI.GameScreen/GameWidget/GameWidgetView.uxml[inlineStyle]";
+                    public static class @GameWidget {
+                        public static class @GameMenu {
+                            public const string @GameMenuWidgetView = "Project.UI.GameScreen/GameWidget.GameMenu/GameMenuWidgetView.uxml";
+                            public static class @GameMenuWidgetView_ {
+                                public const string @inlineStyle = "Project.UI.GameScreen/GameWidget.GameMenu/GameMenuWidgetView.uxml[inlineStyle]";
+                            }
+                        }
+                        public const string @GameWidgetView = "Project.UI.GameScreen/GameWidget/GameWidgetView.uxml";
+                        public static class @GameWidgetView_ {
+                            public const string @inlineStyle = "Project.UI.GameScreen/GameWidget/GameWidgetView.uxml[inlineStyle]";
+                        }
                     }
                     public static class @Music {
                         public const string @Theme_1 = "Project.UI.GameScreen/Music/Theme_1 @Ugasanie - Obfuscation.flac";
                         public const string @Theme_2 = "Project.UI.GameScreen/Music/Theme_2 @Ugasanie - Arctic Hysteria.flac";
                         public const string @Theme_3 = "Project.UI.GameScreen/Music/Theme_3 @Ugasanie - To the Lord of the Polar Desert With Seven Faces.flac";
-                    }
-                }
-                public static class @Common {
-                    public const string @AudioSettingsWidgetView = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml";
-                    public static class @AudioSettingsWidgetView_ {
-                        public const string @inlineStyle = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml[inlineStyle]";
-                    }
-                    public const string @PlayerProfileWidgetView = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml";
-                    public static class @PlayerProfileWidgetView_ {
-                        public const string @inlineStyle = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml[inlineStyle]";
-                    }
-                    public const string @SettingsWidgetView = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml";
-                    public static class @SettingsWidgetView_ {
-                        public const string @inlineStyle = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml[inlineStyle]";
-                    }
-                    public const string @VideoSettingsWidgetView = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml";
-                    public static class @VideoSettingsWidgetView_ {
-                        public const string @inlineStyle = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml[inlineStyle]";
                     }
                 }
                 public static class @Fonts {
@@ -116,10 +142,6 @@ namespace UnityEngine {
                         }
                     }
                     public const string @Lucida_Grande = "Project.UI/Fonts/Lucida Grande.ttf";
-                    public static class @Lucida_Grande_ {
-                        public const string @Font_Material = "Project.UI/Fonts/Lucida Grande.ttf[Font Material]";
-                        public const string @Font_Texture = "Project.UI/Fonts/Lucida Grande.ttf[Font Texture]";
-                    }
                     public const string @Lucida_Grande_Big = "Project.UI/Fonts/Lucida Grande Big.ttf";
                     public static class @Lucida_Grande_Big_ {
                         public const string @Font_Material = "Project.UI/Fonts/Lucida Grande Big.ttf[Font Material]";
@@ -131,19 +153,23 @@ namespace UnityEngine {
                         public const string @Font_Texture = "Project.UI/Fonts/Lucida Grande Bold.ttf[Font Texture]";
                     }
                     public const string @Lucida_Grande_small = "Project.UI/Fonts/Lucida Grande small.ttf";
-                    public static class @Lucida_Grande_small_ {
-                        public const string @Font_Material = "Project.UI/Fonts/Lucida Grande small.ttf[Font Material]";
-                        public const string @Font_Texture = "Project.UI/Fonts/Lucida Grande small.ttf[Font Texture]";
-                    }
                     public const string @Lucida_Grande_small_bold = "Project.UI/Fonts/Lucida Grande small bold.ttf";
                     public static class @Lucida_Grande_small_bold_ {
                         public const string @Font_Material = "Project.UI/Fonts/Lucida Grande small bold.ttf[Font Material]";
                         public const string @Font_Texture = "Project.UI/Fonts/Lucida Grande small bold.ttf[Font Texture]";
                     }
+                    public static class @Lucida_Grande_small_ {
+                        public const string @Font_Material = "Project.UI/Fonts/Lucida Grande small.ttf[Font Material]";
+                        public const string @Font_Texture = "Project.UI/Fonts/Lucida Grande small.ttf[Font Texture]";
+                    }
                     public const string @Lucida_Grande_Warning = "Project.UI/Fonts/Lucida Grande Warning.ttf";
                     public static class @Lucida_Grande_Warning_ {
                         public const string @Font_Material = "Project.UI/Fonts/Lucida Grande Warning.ttf[Font Material]";
                         public const string @Font_Texture = "Project.UI/Fonts/Lucida Grande Warning.ttf[Font Texture]";
+                    }
+                    public static class @Lucida_Grande_ {
+                        public const string @Font_Material = "Project.UI/Fonts/Lucida Grande.ttf[Font Material]";
+                        public const string @Font_Texture = "Project.UI/Fonts/Lucida Grande.ttf[Font Texture]";
                     }
                     public static class @NotInter {
                         public const string @NotInter_Regular = "Project.UI/Fonts/NotInter/NotInter-Regular.ttf";

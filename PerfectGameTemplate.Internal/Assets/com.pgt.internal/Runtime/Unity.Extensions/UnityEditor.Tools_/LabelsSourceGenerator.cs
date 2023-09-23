@@ -22,35 +22,27 @@ namespace UnityEditor.Tools_ {
         }
 
         // AppendCompilationUnit
-        private static void AppendCompilationUnit(StringBuilder builder, string @namespace, string @class, KeyValueTreeList<string> treeList) {
+        private void AppendCompilationUnit(StringBuilder builder, string @namespace, string @class, KeyValueTreeList<string> treeList) {
             builder.AppendLine( $"namespace {@namespace} {{" );
             {
                 AppendClass( builder, 1, @class, treeList.Items.ToArray() );
             }
             builder.AppendLine( "}" );
         }
-        private static void AppendClass(StringBuilder builder, int indent, string @class, KeyValueTreeList<string>.Item[] items) {
-            builder.AppendIndent( indent ).AppendLine( $"public static class {@class} {{" );
+        private void AppendClass(StringBuilder builder, int indent, string name, KeyValueTreeList<string>.Item[] items) {
+            builder.AppendIndent( indent ).AppendLine( $"public static class @{Escape( name )} {{" );
             foreach (var item in items) {
-                AppendValueOrScope( builder, indent + 1, item );
+                if (item is KeyValueTreeList<string>.ValueItem value) {
+                    AppendConst( builder, indent + 1, value.Key, value );
+                } else
+                if (item is KeyValueTreeList<string>.ListItem list) {
+                    AppendClass( builder, indent + 1, list.Key, list.Items.ToArray() );
+                }
             }
             builder.AppendIndent( indent ).AppendLine( "}" );
         }
-        private static void AppendValueOrScope(StringBuilder builder, int indent, KeyValueTreeList<string>.Item item) {
-            if (item is KeyValueTreeList<string>.ValueItem value) {
-                var name = value.Key;
-                var label = value.Value;
-                builder.AppendIndent( indent ).AppendLine( $"public const string @{name} = \"{label}\";" );
-            } else
-            if (item is KeyValueTreeList<string>.ListItem scope) {
-                var name = scope.Key;
-                var items = scope.Items;
-                builder.AppendIndent( indent ).AppendLine( $"public static class @{name} {{" );
-                foreach (var i in items) {
-                    AppendValueOrScope( builder, indent + 1, i );
-                }
-                builder.AppendIndent( indent ).AppendLine( "}" );
-            }
+        private void AppendConst(StringBuilder builder, int indent, string name, KeyValueTreeList<string>.ValueItem item) {
+            builder.AppendIndent( indent ).AppendLine( $"public const string @{Escape( name )} = \"{item.Value}\";" );
         }
 
         // IsSupported
@@ -58,6 +50,14 @@ namespace UnityEditor.Tools_ {
             return true;
         }
 
+        // Helpers
+        private static string Escape(string value) {
+            var chars = value.ToCharArray();
+            for (var i = 0; i < chars.Length; i++) {
+                if (!char.IsLetterOrDigit( chars[ i ] )) chars[ i ] = '_';
+            }
+            return new string( chars );
+        }
         // Helpers
         private static void WriteText(string path, string text) {
             if (!File.Exists( path ) || File.ReadAllText( path ) != text) {

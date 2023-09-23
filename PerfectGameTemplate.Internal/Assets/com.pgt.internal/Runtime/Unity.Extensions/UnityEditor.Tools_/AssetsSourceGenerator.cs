@@ -22,48 +22,35 @@ namespace UnityEditor.Tools_ {
         }
 
         // AppendCompilationUnit
-        private static void AppendCompilationUnit(StringBuilder builder, string @namespace, string @class, KeyValueTreeList<AddressableAssetEntry> treeList) {
+        private void AppendCompilationUnit(StringBuilder builder, string @namespace, string @class, KeyValueTreeList<AddressableAssetEntry> treeList) {
             builder.AppendLine( $"namespace {@namespace} {{" );
             {
                 AppendClass( builder, 1, @class, treeList.Items.ToArray() );
             }
             builder.AppendLine( "}" );
         }
-        private static void AppendClass(StringBuilder builder, int indent, string @class, KeyValueTreeList<AddressableAssetEntry>.Item[] items) {
-            builder.AppendIndent( indent ).AppendLine( $"public static class {@class} {{" );
+        private void AppendClass(StringBuilder builder, int indent, string name, KeyValueTreeList<AddressableAssetEntry>.Item[] items) {
+            builder.AppendIndent( indent ).AppendLine( $"public static class @{Escape( name )} {{" );
             foreach (var item in Sort( items )) {
-                AppendValueOrScope( builder, indent + 1, item );
+                if (item is KeyValueTreeList<AddressableAssetEntry>.ValueItem value) {
+                    AppendConst( builder, indent + 1, value.Key, value );
+                } else
+                if (item is KeyValueTreeList<AddressableAssetEntry>.ListItem list) {
+                    AppendClass( builder, indent + 1, list.Key, list.Items.ToArray() );
+                }
             }
             builder.AppendIndent( indent ).AppendLine( "}" );
         }
-        private static void AppendValueOrScope(StringBuilder builder, int indent, KeyValueTreeList<AddressableAssetEntry>.Item item) {
-            if (item is KeyValueTreeList<AddressableAssetEntry>.ValueItem value) {
-                var name = value.Key;
-                var address = value.Value.address;
-                if (value.Value.IsAsset()) {
-                    builder.AppendIndent( indent ).AppendLine( $"public const string @{name} = \"{address}\";" );
-                } else {
-                    throw Exceptions.Internal.NotSupported( $"Entry {value.Value} is not supported" );
-                }
-            } else
-            if (item is KeyValueTreeList<AddressableAssetEntry>.ListItem scope) {
-                var name = scope.Key;
-                var items = scope.Items;
-                builder.AppendIndent( indent ).AppendLine( $"public static class @{name} {{" );
-                foreach (var i in Sort( items )) {
-                    AppendValueOrScope( builder, indent + 1, i );
-                }
-                builder.AppendIndent( indent ).AppendLine( "}" );
+        private void AppendConst(StringBuilder builder, int indent, string name, KeyValueTreeList<AddressableAssetEntry>.ValueItem item) {
+            if (item.Value.IsAsset()) {
+                builder.AppendIndent( indent ).AppendLine( $"public const string @{Escape( name )} = \"{item.Value.address}\";" );
+            } else {
+                throw Exceptions.Internal.NotSupported( $"Entry {item.Value} is not supported" );
             }
         }
 
-        // IsSupported
-        public virtual bool IsSupported(AddressableAssetEntry entry) {
-            return entry.MainAssetType != typeof( DefaultAsset );
-        }
-
-        // Helpers
-        private static IEnumerable<KeyValueTreeList<AddressableAssetEntry>.Item> Sort(IEnumerable<KeyValueTreeList<AddressableAssetEntry>.Item> items) {
+        // Sort
+        public virtual IEnumerable<KeyValueTreeList<AddressableAssetEntry>.Item> Sort(IEnumerable<KeyValueTreeList<AddressableAssetEntry>.Item> items) {
             return items
                 .OrderByDescending( i => i.Key.Equals( "EditorSceneList" ) )
                 .ThenByDescending( i => i.Key.Equals( "Resources" ) )
@@ -71,7 +58,21 @@ namespace UnityEditor.Tools_ {
                 .ThenByDescending( i => i.Key.Equals( "UnityEngine" ) )
                 .ThenByDescending( i => i.Key.Equals( "UnityEditor" ) )
 
-                .ThenByDescending( i => i.Key.Equals( "Scenes" ) )
+                .ThenByDescending( i => i.Key.Equals( "Program" ) )
+                .ThenByDescending( i => i.Key.Equals( "Presentation" ) )
+                .ThenByDescending( i => i.Key.Equals( "UI" ) )
+                .ThenByDescending( i => i.Key.Equals( "App" ) )
+                .ThenByDescending( i => i.Key.Equals( "Domain" ) )
+                .ThenByDescending( i => i.Key.Equals( "Game" ) )
+                .ThenByDescending( i => i.Key.Equals( "Entities" ) )
+                .ThenByDescending( i => i.Key.Equals( "World" ) )
+                .ThenByDescending( i => i.Key.Equals( "Core" ) )
+                .ThenByDescending( i => i.Key.Equals( "Internal" ) )
+
+                .ThenByDescending( i => i.Key.Equals( "Common" ) )
+                .ThenByDescending( i => i.Key.Equals( "MainScreen" ) )
+                .ThenByDescending( i => i.Key.Equals( "GameScreen" ) )
+
                 .ThenByDescending( i => i.Key.Equals( "Launcher" ) )
                 .ThenByDescending( i => i.Key.Equals( "LauncherScene" ) )
                 .ThenByDescending( i => i.Key.Equals( "Startup" ) )
@@ -80,24 +81,24 @@ namespace UnityEditor.Tools_ {
                 .ThenByDescending( i => i.Key.Equals( "ProgramScene" ) )
                 .ThenByDescending( i => i.Key.Equals( "MainScene" ) )
                 .ThenByDescending( i => i.Key.Equals( "GameScene" ) )
-
-                .ThenByDescending( i => i.Key.Equals( "Program" ) )
-                .ThenByDescending( i => i.Key.Equals( "Presentation" ) )
-                .ThenByDescending( i => i.Key.Equals( "UI" ) )
-                .ThenByDescending( i => i.Key.Equals( "App" ) )
-                .ThenByDescending( i => i.Key.Equals( "Game" ) )
-                .ThenByDescending( i => i.Key.Equals( "Core" ) )
-                .ThenByDescending( i => i.Key.Equals( "Internal" ) )
-
-                .ThenByDescending( i => i.Key.Equals( "MainScreen" ) )
-                .ThenByDescending( i => i.Key.Equals( "GameScreen" ) )
-
-                .ThenByDescending( i => i.Key.Equals( "Objects" ) )
-                .ThenByDescending( i => i.Key.Equals( "Subjects" ) )
-                .ThenByDescending( i => i.Key.Equals( "World" ) )
-                .ThenByDescending( i => i.Key.Equals( "Levels" ) )
+                .ThenByDescending( i => i.Key.Equals( "WorldScene" ) )
+                .ThenByDescending( i => i.Key.Equals( "LevelScene" ) )
 
                 .ThenBy( i => i.Key );
+        }
+
+        // IsSupported
+        public virtual bool IsSupported(AddressableAssetEntry entry) {
+            return entry.MainAssetType != typeof( DefaultAsset );
+        }
+
+        // Escape
+        private static string Escape(string value) {
+            var chars = value.ToCharArray();
+            for (var i = 0; i < chars.Length; i++) {
+                if (!char.IsLetterOrDigit( chars[ i ] )) chars[ i ] = '_';
+            }
+            return new string( chars );
         }
         // Helpers
         private static void WriteText(string path, string text) {

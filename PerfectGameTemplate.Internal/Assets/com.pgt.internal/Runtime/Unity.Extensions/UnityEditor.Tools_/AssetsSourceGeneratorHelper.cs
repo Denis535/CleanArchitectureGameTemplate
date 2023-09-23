@@ -22,7 +22,7 @@ namespace UnityEditor.Tools_ {
         public static KeyValueTreeList<AddressableAssetEntry> GetTreeList(IEnumerable<AddressableAssetEntry> entries) {
             var treeList = new KeyValueTreeList<AddressableAssetEntry>();
             foreach (var entry in entries) {
-                var path = GetPath( entry ).Select( Escape ).ToArray();
+                var path = GetPath( entry ).ToArray();
                 treeList.AddValue( path.SkipLast( 1 ), path.Last(), entry );
             }
             return treeList;
@@ -44,26 +44,13 @@ namespace UnityEditor.Tools_ {
             }
         }
         private static string[] GetDir(AddressableAssetEntry entry) {
-            var isInAssets = entry.AssetPath.Contains( "/Assets." );
-            var dir = Path.GetDirectoryName( entry.address ).Split( '/', '\\' );
-            if (isInAssets) {
-                return dir.SelectMany( i => i.Split( '.' ) ).ToArray();
-            } else {
-                return dir.First().Split( '.' );
-            }
+            return Path.GetDirectoryName( entry.address ).Split( '/', '\\', '.' );
         }
         private static string GetName(AddressableAssetEntry entry) {
             var name = Path.GetFileNameWithoutExtension( entry.address );
             if (name.Contains( " #" )) name = name.Substring( 0, name.IndexOf( " #" ) );
             if (name.Contains( " @" )) name = name.Substring( 0, name.IndexOf( " @" ) );
             return name;
-        }
-        private static string Escape(string value) {
-            var chars = value.ToCharArray();
-            for (var i = 0; i < chars.Length; i++) {
-                if (!char.IsLetterOrDigit( chars[ i ] )) chars[ i ] = '_';
-            }
-            return new string( chars );
         }
 
         // IsAsset

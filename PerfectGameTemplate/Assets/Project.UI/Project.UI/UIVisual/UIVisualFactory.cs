@@ -16,59 +16,59 @@ namespace Project.UI {
 
         // Main
         public static MainWidgetView MainWidget() {
-            var view = Create<MainWidgetView>( R.Project.UI.MainScreen.MainWidgetView );
+            var view = Create<MainWidgetView>( R.Project.UI.MainScreen.MainWidget.MainWidgetView );
             return view;
         }
         public static MainMenuWidgetView MainMenuWidget() {
-            var view = Create<MainMenuWidgetView>( R.Project.UI.MainScreen.MainMenuWidgetView );
+            var view = Create<MainMenuWidgetView>( R.Project.UI.MainScreen.MainWidget.MainMenu.MainMenuWidgetView );
             return view;
         }
         public static CreateGameWidgetView CreateGameWidget() {
-            var view = Create<CreateGameWidgetView>( R.Project.UI.MainScreen.CreateGameWidgetView );
+            var view = Create<CreateGameWidgetView>( R.Project.UI.MainScreen.MainWidget.MainMenu.CreateGame.CreateGameWidgetView );
             return view;
         }
         public static CreateGameWidgetView2 CreateGameWidget2() {
-            var view = Create<CreateGameWidgetView2>( R.Project.UI.MainScreen.CreateGameWidgetView2 );
+            var view = Create<CreateGameWidgetView2>( R.Project.UI.MainScreen.MainWidget.MainMenu.CreateGame2.CreateGameWidgetView2 );
             return view;
         }
         public static JoinGameWidgetView JoinGameWidget() {
-            var view = Create<JoinGameWidgetView>( R.Project.UI.MainScreen.JoinGameWidgetView );
+            var view = Create<JoinGameWidgetView>( R.Project.UI.MainScreen.MainWidget.MainMenu.JoinGame.JoinGameWidgetView );
             return view;
         }
         public static JoinGameWidgetView2 JoinGameWidget2() {
-            var view = Create<JoinGameWidgetView2>( R.Project.UI.MainScreen.JoinGameWidgetView2 );
+            var view = Create<JoinGameWidgetView2>( R.Project.UI.MainScreen.MainWidget.MainMenu.JoinGame2.JoinGameWidgetView2 );
             return view;
         }
         public static LoadingWidgetView LoadingWidget() {
-            var view = Create<LoadingWidgetView>( R.Project.UI.MainScreen.LoadingWidgetView );
+            var view = Create<LoadingWidgetView>( R.Project.UI.MainScreen.MainWidget.MainMenu.Loading.LoadingWidgetView );
             return view;
         }
 
         // Game
         public static GameWidgetView GameWidget() {
-            var view = Create<GameWidgetView>( R.Project.UI.GameScreen.GameWidgetView );
+            var view = Create<GameWidgetView>( R.Project.UI.GameScreen.GameWidget.GameWidgetView );
             return view;
         }
         public static GameMenuWidgetView GameMenuWidget() {
-            var view = Create<GameMenuWidgetView>( R.Project.UI.GameScreen.GameMenuWidgetView );
+            var view = Create<GameMenuWidgetView>( R.Project.UI.GameScreen.GameWidget.GameMenu.GameMenuWidgetView );
             return view;
         }
 
         // Settings
         public static SettingsWidgetView SettingsWidget() {
-            var view = Create<SettingsWidgetView>( R.Project.UI.Common.SettingsWidgetView );
+            var view = Create<SettingsWidgetView>( R.Project.UI.Common.SettingsWidget.SettingsWidgetView );
             return view;
         }
         public static PlayerProfileWidgetView PlayerProfileWidget() {
-            var view = Create<PlayerProfileWidgetView>( R.Project.UI.Common.PlayerProfileWidgetView );
+            var view = Create<PlayerProfileWidgetView>( R.Project.UI.Common.SettingsWidget.PlayerProfile.PlayerProfileWidgetView );
             return view;
         }
         public static VideoSettingsWidgetView VideoSettingsWidget() {
-            var view = Create<VideoSettingsWidgetView>( R.Project.UI.Common.VideoSettingsWidgetView );
+            var view = Create<VideoSettingsWidgetView>( R.Project.UI.Common.SettingsWidget.Video.VideoSettingsWidgetView );
             return view;
         }
         public static AudioSettingsWidgetView AudioSettingsWidget() {
-            var view = Create<AudioSettingsWidgetView>( R.Project.UI.Common.AudioSettingsWidgetView );
+            var view = Create<AudioSettingsWidgetView>( R.Project.UI.Common.SettingsWidget.Audio.AudioSettingsWidgetView );
             return view;
         }
 
