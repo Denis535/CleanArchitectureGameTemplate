@@ -178,16 +178,16 @@ namespace UnityEngine {
                     public const string @UIThemeStyleSheet = "Project.UI/Themes/UIThemeStyleSheet.tss";
                 }
             }
-            public static class @Domain {
+            public static class @Entities {
                 public static class @MainScene {
-                    public const string @MainScene_ = "Project.Domain.MainScene/MainScene.unity";
+                    public const string @MainScene_ = "Project.Entities.MainScene/MainScene.unity";
                 }
                 public static class @GameScene {
-                    public const string @GameScene_ = "Project.Domain.GameScene/GameScene.unity";
+                    public const string @GameScene_ = "Project.Entities.GameScene/GameScene.unity";
                 }
                 public static class @WorldScene {
-                    public const string @TestWorld_1 = "Project.Domain.WorldScene/TestWorld_1.unity";
-                    public const string @TestWorld_2 = "Project.Domain.WorldScene/TestWorld_2.unity";
+                    public const string @TestWorld_1 = "Project.Entities.WorldScene/TestWorld_1.unity";
+                    public const string @TestWorld_2 = "Project.Entities.WorldScene/TestWorld_2.unity";
                 }
             }
         }
