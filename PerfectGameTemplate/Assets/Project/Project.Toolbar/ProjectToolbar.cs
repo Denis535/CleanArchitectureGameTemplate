@@ -50,21 +50,21 @@ namespace Project.Toolbar {
         }
         [MenuItem( "Project/Main Scene", priority = 102 )]
         internal static void LoadMainScene() {
-            EditorSceneManager.OpenScene( "Assets/Project.Entities.MainScene/Assets.Project.Entities.MainScene/MainScene.unity" );
+            EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/MainScene.unity" );
         }
         [MenuItem( "Project/Game Scene", priority = 103 )]
         internal static void LoadGameScene() {
-            EditorSceneManager.OpenScene( "Assets/Project.Entities.GameScene/Assets.Project.Entities.GameScene/GameScene.unity" );
+            EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/GameScene.unity" );
         }
 
-        // LoadWorld
-        [MenuItem( "Project/Test World 1", priority = 200 )]
-        internal static void LoadTestLevel1() {
-            EditorSceneManager.OpenScene( "Assets/Project.Entities.WorldScene/Assets.Project.Entities.WorldScene/TestWorld_1.unity" );
+        // LoadScene
+        [MenuItem( "Project/Test World Scene 1", priority = 200 )]
+        internal static void LoadTestWorldScene_1() {
+            EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/TestWorldScene_1.unity" );
         }
-        [MenuItem( "Project/Test World 2", priority = 201 )]
-        internal static void LoadTestLevel2() {
-            EditorSceneManager.OpenScene( "Assets/Project.Entities.WorldScene/Assets.Project.Entities.WorldScene/TestWorld_2.unity" );
+        [MenuItem( "Project/Test World Scene 2", priority = 201 )]
+        internal static void LoadTestWorldScene_2() {
+            EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/TestWorldScene_2.unity" );
         }
 
         // Build

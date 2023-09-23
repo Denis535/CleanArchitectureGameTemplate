@@ -33,8 +33,8 @@ The module contains scenes, main classes and tools.
 The module contains screens, widgets, views, styles and other.
 ## Project.App
 The module contains application logic, global variables and constants.
-## Project.Domain
-The module contains domain logic.
+## Project.Entities
+The module contains entities (domain) logic.
 ## Project.Core
 The module contains everything common for all modules (settings, asset addresses and labels).
 
