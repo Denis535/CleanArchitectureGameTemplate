@@ -10,15 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Project.Core
+  m_Name: Project.Common
   m_EditorClassIdentifier: 
-  m_GroupName: Project.Core
+  m_GroupName: Project.Common
   m_Data:
     m_SerializedData: []
   m_GUID: e467ef11b61446f4782c0233de1e4e00
   m_SerializeEntries:
   - m_GUID: 90e2823520b580a47b2e95e06eac4ab7
     m_Address: UnityEngine.Audio/AudioMixer.mixer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0e9054c239152c44a3085c14fc749c5
+    m_Address: Project.Entities.Common
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

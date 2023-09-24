@@ -22,51 +22,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 263082a25b8688e45b5eefc8989b3d1f
-    m_Address: Project.UI.Common
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a29260584c80e3d40ad2c5076c412886
-    m_Address: Project.UI
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d6555d2a4bc96de42868550f62e4c4fe
-    m_Address: Project.UI
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7aad2e07666b7854080cef1732678100
-    m_Address: Project.UI.Common
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fff64f5a47e86724db8bfcf179eeb887
-    m_Address: Project.Entities
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 925374fb0fa1f8e40b9210efb3615f67
-    m_Address: Project.UI.MainScreen
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d0b645410f9467f4abd3fcbd9b7444db
-    m_Address: Project.UI.MainScreen
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1fd7d41c9cf66134cb98e2bcb428d816
-    m_Address: Project.UI.GameScreen
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8251838560314614e9a9acfabad511f5
-    m_Address: Project.UI.GameScreen
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8c8417ae2abb549498500522f9dbf026, type: 2}
   m_SchemaSet:

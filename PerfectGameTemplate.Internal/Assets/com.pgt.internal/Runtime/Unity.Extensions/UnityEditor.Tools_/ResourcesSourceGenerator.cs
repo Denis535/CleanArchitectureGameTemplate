@@ -58,20 +58,20 @@ namespace UnityEditor.Tools_ {
         // Sort
         public virtual IEnumerable<KeyValueTreeList<AddressableAssetEntry>.Item> Sort(IEnumerable<KeyValueTreeList<AddressableAssetEntry>.Item> items) {
             return items
-                .OrderByDescending( i => i.Key.Equals( "EditorSceneList" ) )
-                .ThenByDescending( i => i.Key.Equals( "Resources" ) )
-
-                .ThenByDescending( i => i.Key.Equals( "UnityEngine" ) )
+                .OrderByDescending( i => i.Key.Equals( "UnityEngine" ) )
                 .ThenByDescending( i => i.Key.Equals( "UnityEditor" ) )
 
-                .ThenByDescending( i => i.Key.Equals( "Program" ) )
+                .ThenByDescending( i => i.Key.Equals( "EditorSceneList" ) )
+                .ThenByDescending( i => i.Key.Equals( "Resources" ) )
+
+                .ThenByDescending( i => i.Key.Equals( "Project" ) )
                 .ThenByDescending( i => i.Key.Equals( "Presentation" ) )
                 .ThenByDescending( i => i.Key.Equals( "UI" ) )
                 .ThenByDescending( i => i.Key.Equals( "App" ) )
                 .ThenByDescending( i => i.Key.Equals( "Domain" ) )
+                .ThenByDescending( i => i.Key.Equals( "Entities" ) )
                 .ThenByDescending( i => i.Key.Equals( "Game" ) )
                 .ThenByDescending( i => i.Key.Equals( "World" ) )
-                .ThenByDescending( i => i.Key.Equals( "Entities" ) )
                 .ThenByDescending( i => i.Key.Equals( "Core" ) )
                 .ThenByDescending( i => i.Key.Equals( "Internal" ) )
 
@@ -85,10 +85,10 @@ namespace UnityEditor.Tools_ {
                 .ThenByDescending( i => i.Key.Equals( "GameScene" ) )
                 .ThenByDescending( i => i.Key.Equals( "WorldScene" ) )
                 .ThenByDescending( i => i.Key.Equals( "LevelScene" ) )
-
-                .ThenByDescending( i => i.Key.Equals( "Common" ) )
                 .ThenByDescending( i => i.Key.Equals( "MainScreen" ) )
                 .ThenByDescending( i => i.Key.Equals( "GameScreen" ) )
+                .ThenByDescending( i => i.Key.Equals( "DebugScreen" ) )
+                .ThenByDescending( i => i.Key.Equals( "Common" ) )
 
                 .ThenBy( i => i.Key );
         }

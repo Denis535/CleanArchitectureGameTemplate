@@ -207,7 +207,7 @@ namespace Project.UI {
         }
 
         // Helpers
-        private static void PlayDialogAnimation(UIWidgetViewBase view) {
+        private static void PlayDialogAnimation(DialogWidgetViewBase view) {
             var animation = ValueAnimation<float>.Create( view, Mathf.LerpUnclamped );
             animation.valueUpdated = (view, t) => {
                 var tx = Easing.OutBack( Easing.InPower( t, 2 ), 4 );

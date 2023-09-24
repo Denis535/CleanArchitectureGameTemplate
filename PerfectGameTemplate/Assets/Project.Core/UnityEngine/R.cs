@@ -11,26 +11,7 @@ namespace UnityEngine {
             }
         }
         public static class @Project {
-            public const string @Program = "Project/Program.unity";
             public static class @UI {
-                public static class @Common {
-                    public static class @SettingsWidget {
-                        public static class @Audio {
-                            public const string @AudioSettingsWidgetView = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml";
-                            public const string @AudioSettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml[inlineStyle]";
-                        }
-                        public static class @PlayerProfile {
-                            public const string @PlayerProfileWidgetView = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml";
-                            public const string @PlayerProfileWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml[inlineStyle]";
-                        }
-                        public const string @SettingsWidgetView = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml";
-                        public const string @SettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml[inlineStyle]";
-                        public static class @Video {
-                            public const string @VideoSettingsWidgetView = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml";
-                            public const string @VideoSettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml[inlineStyle]";
-                        }
-                    }
-                }
                 public static class @MainScreen {
                     public static class @Images {
                         public const string @Background = "Project.UI.MainScreen/Images/Background.png";
@@ -81,6 +62,24 @@ namespace UnityEngine {
                         public const string @Theme_1 = "Project.UI.GameScreen/Music/Theme_1 @Ugasanie - Obfuscation.flac";
                         public const string @Theme_2 = "Project.UI.GameScreen/Music/Theme_2 @Ugasanie - Arctic Hysteria.flac";
                         public const string @Theme_3 = "Project.UI.GameScreen/Music/Theme_3 @Ugasanie - To the Lord of the Polar Desert With Seven Faces.flac";
+                    }
+                }
+                public static class @Common {
+                    public static class @SettingsWidget {
+                        public static class @Audio {
+                            public const string @AudioSettingsWidgetView = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml";
+                            public const string @AudioSettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml[inlineStyle]";
+                        }
+                        public static class @PlayerProfile {
+                            public const string @PlayerProfileWidgetView = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml";
+                            public const string @PlayerProfileWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml[inlineStyle]";
+                        }
+                        public const string @SettingsWidgetView = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml";
+                        public const string @SettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml[inlineStyle]";
+                        public static class @Video {
+                            public const string @VideoSettingsWidgetView = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml";
+                            public const string @VideoSettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml[inlineStyle]";
+                        }
                     }
                 }
                 public static class @Fonts {
@@ -167,21 +166,28 @@ namespace UnityEngine {
                     public const string @Window_Info = "Project.UI/Sounds/Window_Info.wav";
                     public const string @Window_Warning = "Project.UI/Sounds/Window_Warning.wav";
                 }
-                public static class @Styles {
-                    public const string @UIStyleSheet = "Project.UI/Styles/UIStyleSheet.uss";
-                    public const string @UIStyleSheet_Core = "Project.UI/Styles/UIStyleSheet_Core.uss";
-                    public const string @UIStyleSheet_Core2 = "Project.UI/Styles/UIStyleSheet_Core2.uss";
-                    public const string @UIStyleSheet_Internal = "Project.UI/Styles/UIStyleSheet_Internal.uss";
-                    public const string @UIStyleSheet_Library = "Project.UI/Styles/UIStyleSheet_Library.uss";
+                public static class @StyleSheets {
+                    public const string @StyleSheet = "Project.UI/StyleSheets/StyleSheet.uss";
+                    public const string @StyleSheet_Core = "Project.UI/StyleSheets/StyleSheet_Core.uss";
+                    public const string @StyleSheet_Core2 = "Project.UI/StyleSheets/StyleSheet_Core2.uss";
+                    public const string @StyleSheet_Internal = "Project.UI/StyleSheets/StyleSheet_Internal.uss";
+                    public const string @StyleSheet_Library = "Project.UI/StyleSheets/StyleSheet_Library.uss";
                 }
-                public static class @Themes {
-                    public const string @UIThemeStyleSheet = "Project.UI/Themes/UIThemeStyleSheet.tss";
+                public static class @ThemeStyleSheets {
+                    public const string @ThemeStyleSheet = "Project.UI/ThemeStyleSheets/ThemeStyleSheet.tss";
                 }
             }
-            public const string @MainScene = "Project/MainScene.unity";
-            public const string @GameScene = "Project/GameScene.unity";
-            public const string @TestWorldScene_1 = "Project/TestWorldScene_1.unity";
-            public const string @TestWorldScene_2 = "Project/TestWorldScene_2.unity";
+            public const string @Program = "Project/Program.unity";
+            public static class @MainScene {
+                public const string @MainScene_ = "Project.MainScene/MainScene.unity";
+            }
+            public static class @GameScene {
+                public const string @GameScene_ = "Project.GameScene/GameScene.unity";
+            }
+            public static class @WorldScene {
+                public const string @TestWorldScene_1 = "Project.WorldScene/TestWorldScene_1.unity";
+                public const string @TestWorldScene_2 = "Project.WorldScene/TestWorldScene_2.unity";
+            }
         }
     }
 }

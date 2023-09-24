@@ -23,12 +23,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: baa2542bf5f84e941bbb15771cb36f4a
-    m_Address: Project/TestWorldScene_1.unity
+    m_Address: Project.WorldScene/TestWorldScene_1.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0f3501d410c9cb4797a30fb9b72c7ad
-    m_Address: Project/TestWorldScene_2.unity
+    m_Address: Project.WorldScene/TestWorldScene_2.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -6,15 +6,15 @@ namespace System {
     using System.Linq;
 
     public static class Exceptions {
-        //public static class Argument {
+        //internal static class Argument {
         //    public static ArgumentException Invalid(FormattableString message) => Exception<ArgumentException>( message.GetDisplayString() );
         //    public static ArgumentOutOfRangeException OutOfRange(FormattableString message) => Exception<ArgumentOutOfRangeException>( message.GetDisplayString() );
         //    public static ArgumentNullException Null(FormattableString message) => Exception<ArgumentNullException>( message.GetDisplayString() );
         //}
-        //public static class Operation {
+        //internal static class Operation {
         //    public static InvalidOperationException Invalid(FormattableString message) => Exception<InvalidOperationException>( message.GetDisplayString() );
         //}
-        //public static class Object {
+        //internal static class Object {
         //    public static ObjectInvalidException Invalid(FormattableString message) => Exception<ObjectInvalidException>( message.GetDisplayString() );
         //    public static ObjectDisposedException Disposed(FormattableString message) => Exception<ObjectDisposedException>( message.GetDisplayString() );
         //}

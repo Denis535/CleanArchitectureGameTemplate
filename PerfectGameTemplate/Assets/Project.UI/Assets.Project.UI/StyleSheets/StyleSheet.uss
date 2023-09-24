@@ -1,6 +1,6 @@
-@import url("UIStyleSheet_Core.uss");
-@import url("UIStyleSheet_Core2.uss");
-@import url("UIStyleSheet_Library.uss");
+@import url("StyleSheet_Core.uss");
+@import url("StyleSheet_Core2.uss");
+@import url("StyleSheet_Library.uss");
 .screen-view,
 .views-container,
 .modal-views-container {

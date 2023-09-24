@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-  <Style src="project://database/Assets/Project.UI/Assets.Project.UI/Styles/UIStyleSheet.uss"></Style>
+  <Style src="project://database/Assets/Project.UI/Assets.Project.UI/StyleSheets/StyleSheet.uss"></Style>
   <Project.UI.MainScreen.JoinGameWidgetView class="large-widget-view">
     <ui:Card>
       <ui:Header>

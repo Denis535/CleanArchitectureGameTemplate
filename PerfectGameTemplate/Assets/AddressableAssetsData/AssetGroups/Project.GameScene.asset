@@ -23,7 +23,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 02e7dbf70fff4f44cb0c4f21dd381bf3
-    m_Address: Project/GameScene.unity
+    m_Address: Project.GameScene/GameScene.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
