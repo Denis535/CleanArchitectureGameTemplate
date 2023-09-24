@@ -145,13 +145,13 @@ namespace UnityEngine.UIElements {
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static T RequireElement<T>(this VisualElement element, string? name, params string[] classes) where T : VisualElement {
             var result = element.Query<T>( name, classes ).First();
-            Assert.Operation.Message( $"Element {typeof( T )} ({name}) was not found" ).Valid( result != null );
+            Assert.Operation.Message( $"Element {typeof( T )} ({name}, {classes}) was not found" ).Valid( result != null );
             return result;
         }
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static T[] RequireElements<T>(this VisualElement element, string? name, params string[] classes) where T : VisualElement {
             var result = element.Query<T>( name, classes ).ToList().ToArray().NullIfEmpty();
-            Assert.Operation.Message( $"Elements {typeof( T )} ({name}) was not found" ).Valid( result != null );
+            Assert.Operation.Message( $"Elements {typeof( T )} ({name}, {classes}) was not found" ).Valid( result != null );
             return result;
         }
 

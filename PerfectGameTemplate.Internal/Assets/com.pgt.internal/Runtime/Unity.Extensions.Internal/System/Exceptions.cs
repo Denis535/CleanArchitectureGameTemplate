@@ -3,6 +3,7 @@ namespace System {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
 
     public static class Exceptions {
         //public static class Argument {
@@ -31,15 +32,17 @@ namespace System {
             return (T) constructor.Invoke( new object?[] { message, null } );
         }
         internal static string GetDisplayString(this FormattableString message) {
-            var format = message.Format;
-            var args = message.GetArguments();
-            for (var i = 0; i < args.Length; i++) {
-                format = format.Replace( $" {{{i}}} ", $" '{{{i}}}' " );
+            var format = message.Format.Replace( "{", "'{" ).Replace( "}", "}'" );
+            var arguments = message.GetArguments();
+            for (var i = 0; i < arguments.Length; i++) {
+                if (arguments[ i ] is IList list) {
+                    arguments[ i ] = string.Join( ", ", list.Cast<object?>().ToArray() );
+                } else
+                if (arguments[ i ] is null) {
+                    arguments[ i ] = "Null";
+                }
             }
-            for (var i = 0; i < args.Length; i++) {
-                args[ i ] = args[ i ] ?? "Null";
-            }
-            return string.Format( format, args );
+            return string.Format( format, arguments );
         }
 
     }

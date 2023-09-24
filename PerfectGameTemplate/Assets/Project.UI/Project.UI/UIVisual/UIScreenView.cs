@@ -68,26 +68,7 @@ namespace Project.UI {
 
         // ShowView
         public override void ShowView(UIWidgetViewBase view, UIWidgetViewBase[] shadowed) {
-            view.OnEventTrickleDown<NavigationSubmitEvent>( evt => {
-                if (evt.target is Button button) {
-                    using (var click = ClickEvent.GetPooled()) {
-                        click.target = button;
-                        button.SendEvent( click );
-                    }
-                    evt.StopPropagation();
-                }
-            } );
-            view.OnEventTrickleDown<NavigationCancelEvent>( evt => {
-                var button = view.Query<Button>().Where( i => i.IsCancel() || i.IsQuit() || i.name == "resume" ).First();
-                if (button != null) {
-                    using (var click = ClickEvent.GetPooled()) {
-                        click.target = button;
-                        button.SendEvent( click );
-                    }
-                    evt.StopPropagation();
-                }
-            } );
-            view.OnAttachToPanel( PlayAttach );
+            view.OnEvent<AttachToPanelEvent>( PlayAttach );
             view.OnEventTrickleDown<FocusEvent>( PlayFocus );
             view.OnEventTrickleDown<ClickEvent>( PlayClick );
             view.OnEventTrickleDown<ChangeEvent<object>>( PlayChange );
@@ -95,6 +76,8 @@ namespace Project.UI {
             view.OnEventTrickleDown<ChangeEvent<int>>( PlayChange );
             view.OnEventTrickleDown<ChangeEvent<float>>( PlayChange );
             view.OnEventTrickleDown<ChangeEvent<bool>>( PlayChange );
+            view.OnEventTrickleDown<NavigationSubmitEvent>( OnSubmit );
+            view.OnEventTrickleDown<NavigationCancelEvent>( OnCancel );
             if (shadowed.LastOrDefault() is not MainWidgetView or GameWidgetView) {
                 ShowView( view, shadowed.LastOrDefault() );
             } else {
@@ -138,25 +121,25 @@ namespace Project.UI {
             }
         }
 
-        // Helpers
+        // PlaySfx
         private void PlayAttach(AttachToPanelEvent evt) {
             if (evt.target is GameMenuWidgetView) {
                 this.PlayAudioClip( Select );
             } else
             if (evt.target is DialogWidgetView dialog) {
-                PlayWindowAnimation( dialog );
+                PlayDialogAnimation( dialog );
                 this.PlayAudioClip( Window );
             } else
             if (evt.target is InfoDialogWidgetView infoDialog) {
-                PlayWindowAnimation( infoDialog );
+                PlayDialogAnimation( infoDialog );
                 this.PlayAudioClip( InfoWindow );
             } else
             if (evt.target is WarningDialogWidgetView warningDialog) {
-                PlayWindowAnimation( warningDialog );
+                PlayDialogAnimation( warningDialog );
                 this.PlayAudioClip( WarningWindow );
             } else
             if (evt.target is ErrorDialogWidgetView errorDialog) {
-                PlayWindowAnimation( errorDialog );
+                PlayDialogAnimation( errorDialog );
                 this.PlayAudioClip( ErrorWindow );
             }
         }
@@ -200,8 +183,31 @@ namespace Project.UI {
                 }
             }
         }
+
+        // OnSubmit
+        private void OnSubmit(NavigationSubmitEvent evt) {
+            if (evt.target is Button button) {
+                using (var click = ClickEvent.GetPooled()) {
+                    click.target = button;
+                    button.SendEvent( click );
+                }
+                evt.StopPropagation();
+            }
+        }
+        private void OnCancel(NavigationCancelEvent evt) {
+            var view = (UIWidgetViewBase) evt.currentTarget;
+            var button = view.Query<Button>().Where( i => i.IsCancel() || i.IsQuit() || i.name == "resume" ).First();
+            if (button != null) {
+                using (var click = ClickEvent.GetPooled()) {
+                    click.target = button;
+                    button.SendEvent( click );
+                }
+                evt.StopPropagation();
+            }
+        }
+
         // Helpers
-        private static void PlayWindowAnimation(UIWidgetViewBase view) {
+        private static void PlayDialogAnimation(UIWidgetViewBase view) {
             var animation = ValueAnimation<float>.Create( view, Mathf.LerpUnclamped );
             animation.valueUpdated = (view, t) => {
                 var tx = Easing.OutBack( Easing.InPower( t, 2 ), 4 );
