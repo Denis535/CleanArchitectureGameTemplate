@@ -17,13 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 7504dc8f38dee8b43ae4ba503039b7c4
   m_SerializeEntries:
-  - m_GUID: 79ed1955852343040adc955447974c28
-    m_Address: Project.Entities.MainScene
+  - m_GUID: 8fd087f789884c8498e7b0962048667e
+    m_Address: Project/MainScene.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8fd087f789884c8498e7b0962048667e
-    m_Address: Project.MainScene/MainScene.unity
+  - m_GUID: d0b645410f9467f4abd3fcbd9b7444db
+    m_Address: Project.UI.MainScreen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 925374fb0fa1f8e40b9210efb3615f67
+    m_Address: Project.UI.MainScreen
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

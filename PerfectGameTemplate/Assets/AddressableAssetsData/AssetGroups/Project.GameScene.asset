@@ -17,13 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: f049c10c8e3222d479f4b15d80c8641b
   m_SerializeEntries:
-  - m_GUID: daca19f51cddab347abb34e99946c80f
-    m_Address: Project.Entities.GameScene
+  - m_GUID: 02e7dbf70fff4f44cb0c4f21dd381bf3
+    m_Address: Project/GameScene.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 02e7dbf70fff4f44cb0c4f21dd381bf3
-    m_Address: Project.GameScene/GameScene.unity
+  - m_GUID: 8251838560314614e9a9acfabad511f5
+    m_Address: Project.UI.GameScreen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1fd7d41c9cf66134cb98e2bcb428d816
+    m_Address: Project.UI.GameScreen
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
