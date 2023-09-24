@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
-  m_Name: Project.App_ContentUpdateGroupSchema
+  m_Name: Project.MainScene_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 966e8fb7b67c2344db6a639611d2224a, type: 2}
+  m_Group: {fileID: 11400000, guid: 9a4624f4c5dc1b74e82d73879ca91382, type: 2}
   m_StaticContent: 0

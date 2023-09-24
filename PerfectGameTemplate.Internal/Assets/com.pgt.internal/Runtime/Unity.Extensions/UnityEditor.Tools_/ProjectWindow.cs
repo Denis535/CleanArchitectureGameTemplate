@@ -36,26 +36,26 @@ namespace UnityEditor.Tools_ {
 
         // DrawItem
         public virtual void DrawModule(Rect rect, string path, string module) {
-            var color = HSVA( 0, 1, 1, 0.3f );
-            DrawItem( rect, color, path );
+            var color = HSVA( 000, 1, 1, 0.3f );
+            DrawItem( rect, path, color );
         }
         public virtual void DrawAssets(Rect rect, string path, string module, string content) {
             var depth = content.Count( i => i is '/' );
             var color = depth switch {
-                0 => HSVA( 060f / 360f, 1f, 1f / 1.0f, 0.3f ),
-                _ => HSVA( 060f / 360f, 1f, 1f / 2.5f, 0.3f ),
+                0 => HSVA( 060, 1f, 1.0f, 0.3f ),
+                _ => HSVA( 060, 1f, 0.4f, 0.3f ),
             };
-            DrawItem( rect, color, path );
+            DrawItem( rect, path, color );
         }
         public virtual void DrawSources(Rect rect, string path, string module, string content) {
             var depth = content.Count( i => i is '/' );
             var color = depth switch {
-                0 => HSVA( 120f / 360f, 1f, 1f / 1.0f, 0.3f ),
-                _ => HSVA( 120f / 360f, 1f, 1f / 2.5f, 0.3f ),
+                0 => HSVA( 120, 1f, 1.0f, 0.3f ),
+                _ => HSVA( 120, 1f, 0.4f, 0.3f ),
             };
-            DrawItem( rect, color, path );
+            DrawItem( rect, path, color );
         }
-        public virtual void DrawItem(Rect rect, Color color, string path) {
+        public virtual void DrawItem(Rect rect, string path, Color color) {
             rect.x -= 16;
             rect.width = 16;
             DrawRect( rect, color );
@@ -86,11 +86,8 @@ namespace UnityEditor.Tools_ {
         }
 
         // Helpers
-        protected static Color RGBA(float r, float g, float b, float a) {
-            return new Color( r, g, b, a );
-        }
-        protected static Color HSVA(float h, float s, float v, float a) {
-            var color = Color.HSVToRGB( h, s, v );
+        protected static Color HSVA(int h, float s, float v, float a) {
+            var color = Color.HSVToRGB( h / 360f, s, v );
             color.a = a;
             return color;
         }

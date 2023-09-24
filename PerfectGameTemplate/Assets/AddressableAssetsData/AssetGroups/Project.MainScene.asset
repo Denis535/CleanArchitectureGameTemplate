@@ -10,15 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Project.App
+  m_Name: Project.MainScene
   m_EditorClassIdentifier: 
-  m_GroupName: Project.App
+  m_GroupName: Project.MainScene
   m_Data:
     m_SerializedData: []
-  m_GUID: 8408374bd31d26c4991450352977f1c9
+  m_GUID: 7504dc8f38dee8b43ae4ba503039b7c4
   m_SerializeEntries:
-  - m_GUID: 37d9107ce0cdd934f879703dc7622bb8
-    m_Address: Project.App
+  - m_GUID: 79ed1955852343040adc955447974c28
+    m_Address: Project.Entities.MainScene
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8fd087f789884c8498e7b0962048667e
+    m_Address: Project/MainScene.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -26,5 +31,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 8c8417ae2abb549498500522f9dbf026, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 67fdab35e8ba36e42bae82d74ec3c71c, type: 2}
-    - {fileID: 11400000, guid: bd1c2c5a46f728c45a0a3153c56904a3, type: 2}
+    - {fileID: 11400000, guid: 1c921da1a96f25047b181420eb04ca0b, type: 2}
+    - {fileID: 11400000, guid: 2fbc6c276095a58448cfc34305c13249, type: 2}

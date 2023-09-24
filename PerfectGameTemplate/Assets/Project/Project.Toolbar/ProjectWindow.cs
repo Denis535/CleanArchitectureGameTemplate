@@ -36,8 +36,8 @@ namespace Project.Toolbar {
         public override void DrawSources(Rect rect, string path, string module, string content) {
             base.DrawSources( rect, path, module, content );
         }
-        public override void DrawItem(Rect rect, Color color, string path) {
-            base.DrawItem( rect, color, path );
+        public override void DrawItem(Rect rect, string path, Color color) {
+            base.DrawItem( rect, path, color );
         }
 
         // IsModule
