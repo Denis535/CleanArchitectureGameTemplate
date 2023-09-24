@@ -68,14 +68,6 @@ namespace Project.UI {
 
         // ShowView
         public override void ShowView(UIWidgetViewBase view, UIWidgetViewBase[] shadowed) {
-            view.OnAttachToPanel( PlayAttach );
-            view.OnEventTrickleDown<FocusEvent>( PlayFocus );
-            view.OnEventTrickleDown<ClickEvent>( PlayClick );
-            view.OnEventTrickleDown<ChangeEvent<object>>( PlayChange );
-            view.OnEventTrickleDown<ChangeEvent<string>>( PlayChange );
-            view.OnEventTrickleDown<ChangeEvent<int>>( PlayChange );
-            view.OnEventTrickleDown<ChangeEvent<float>>( PlayChange );
-            view.OnEventTrickleDown<ChangeEvent<bool>>( PlayChange );
             view.OnEventTrickleDown<NavigationSubmitEvent>( evt => {
                 if (evt.target is Button button) {
                     using (var click = ClickEvent.GetPooled()) {
@@ -95,7 +87,14 @@ namespace Project.UI {
                     evt.StopPropagation();
                 }
             } );
-
+            view.OnAttachToPanel( PlayAttach );
+            view.OnEventTrickleDown<FocusEvent>( PlayFocus );
+            view.OnEventTrickleDown<ClickEvent>( PlayClick );
+            view.OnEventTrickleDown<ChangeEvent<object>>( PlayChange );
+            view.OnEventTrickleDown<ChangeEvent<string>>( PlayChange );
+            view.OnEventTrickleDown<ChangeEvent<int>>( PlayChange );
+            view.OnEventTrickleDown<ChangeEvent<float>>( PlayChange );
+            view.OnEventTrickleDown<ChangeEvent<bool>>( PlayChange );
             if (shadowed.LastOrDefault() is not MainWidgetView or GameWidgetView) {
                 ShowView( view, shadowed.LastOrDefault() );
             } else {

@@ -35,23 +35,23 @@ namespace Project.UI.Common {
         }
 
         // OnSubmit
-        public void OnSubmit(string text, Action? onConfirm) {
-            var confirm = new Button().SetUp( "confirm" ).Text( text );
-            confirm.OnClick( evt => {
-                if (confirm.IsValid()) {
-                    onConfirm?.Invoke();
+        public void OnSubmit(string text, Action? callback) {
+            var button = new Button().SetUp( "submit" ).Text( text );
+            button.OnClick( evt => {
+                if (button.IsValid()) {
+                    callback?.Invoke();
                 }
             } );
-            footer.Add( confirm );
+            footer.Add( button );
         }
-        public void OnCancel(string text, Action? onCancel) {
-            var cancel = new Button().SetUp( "cancel" ).Text( text );
-            cancel.OnClick( evt => {
-                if (cancel.IsValid()) {
-                    onCancel?.Invoke();
+        public void OnCancel(string text, Action? callback) {
+            var button = new Button().SetUp( "cancel" ).Text( text );
+            button.OnClick( evt => {
+                if (button.IsValid()) {
+                    callback?.Invoke();
                 }
             } );
-            footer.Add( cancel );
+            footer.Add( button );
         }
 
     }

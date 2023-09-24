@@ -43,17 +43,17 @@ namespace Project.UI.Common {
         }
 
         // OnSubmit
-        public DialogWidgetBase<TView> OnSubmit(string text, Action? onConfirm) {
+        public DialogWidgetBase<TView> OnSubmit(string text, Action? callback) {
             View.OnSubmit( text, () => {
-                onConfirm?.Invoke();
+                callback?.Invoke();
                 this.DetachSelf();
             } );
             View.Footer.IsDisplayed = true;
             return this;
         }
-        public DialogWidgetBase<TView> OnCancel(string text, Action? onCancel) {
+        public DialogWidgetBase<TView> OnCancel(string text, Action? callback) {
             View.OnCancel( text, () => {
-                onCancel?.Invoke();
+                callback?.Invoke();
                 this.DetachSelf();
             } );
             View.Footer.IsDisplayed = true;
@@ -61,22 +61,22 @@ namespace Project.UI.Common {
         }
 
         // OnSubmit
-        public DialogWidgetBase<TView> OnSubmit(string text, Action? onConfirm, out Task task) {
+        public DialogWidgetBase<TView> OnSubmit(string text, Action? callback, out Task task) {
             var tcs = new TaskCompletionSource<object?>();
             task = tcs.Task;
             View.OnSubmit( text, () => {
-                onConfirm?.Invoke();
+                callback?.Invoke();
                 tcs.SetResult( null );
                 this.DetachSelf();
             } );
             View.Footer.IsDisplayed = true;
             return this;
         }
-        public DialogWidgetBase<TView> OnCancel(string text, Action? onCancel, out Task task) {
+        public DialogWidgetBase<TView> OnCancel(string text, Action? callback, out Task task) {
             var tcs = new TaskCompletionSource<object?>();
             task = tcs.Task;
             View.OnCancel( text, () => {
-                onCancel?.Invoke();
+                callback?.Invoke();
                 tcs.SetResult( null );
                 this.DetachSelf();
             } );
@@ -99,19 +99,19 @@ namespace Project.UI.Common {
         }
 
         // OnSubmit
-        public new DialogWidget OnSubmit(string text, Action? onConfirm) {
-            return (DialogWidget) base.OnSubmit( text, onConfirm );
+        public new DialogWidget OnSubmit(string text, Action? callback) {
+            return (DialogWidget) base.OnSubmit( text, callback );
         }
-        public new DialogWidget OnCancel(string text, Action? onCancel) {
-            return (DialogWidget) base.OnCancel( text, onCancel );
+        public new DialogWidget OnCancel(string text, Action? callback) {
+            return (DialogWidget) base.OnCancel( text, callback );
         }
 
         // OnSubmit
-        public new DialogWidget OnSubmit(string text, Action? onConfirm, out Task task) {
-            return (DialogWidget) base.OnSubmit( text, onConfirm, out task );
+        public new DialogWidget OnSubmit(string text, Action? callback, out Task task) {
+            return (DialogWidget) base.OnSubmit( text, callback, out task );
         }
-        public new DialogWidget OnCancel(string text, Action? onCancel, out Task task) {
-            return (DialogWidget) base.OnCancel( text, onCancel, out task );
+        public new DialogWidget OnCancel(string text, Action? callback, out Task task) {
+            return (DialogWidget) base.OnCancel( text, callback, out task );
         }
 
     }
@@ -129,19 +129,19 @@ namespace Project.UI.Common {
         }
 
         // OnSubmit
-        public new InfoDialogWidget OnSubmit(string text, Action? onConfirm) {
-            return (InfoDialogWidget) base.OnSubmit( text, onConfirm );
+        public new InfoDialogWidget OnSubmit(string text, Action? callback) {
+            return (InfoDialogWidget) base.OnSubmit( text, callback );
         }
-        public new InfoDialogWidget OnCancel(string text, Action? onCancel) {
-            return (InfoDialogWidget) base.OnCancel( text, onCancel );
+        public new InfoDialogWidget OnCancel(string text, Action? callback) {
+            return (InfoDialogWidget) base.OnCancel( text, callback );
         }
 
         // OnSubmit
-        public new InfoDialogWidget OnSubmit(string text, Action? onConfirm, out Task task) {
-            return (InfoDialogWidget) base.OnSubmit( text, onConfirm, out task );
+        public new InfoDialogWidget OnSubmit(string text, Action? callback, out Task task) {
+            return (InfoDialogWidget) base.OnSubmit( text, callback, out task );
         }
-        public new InfoDialogWidget OnCancel(string text, Action? onCancel, out Task task) {
-            return (InfoDialogWidget) base.OnCancel( text, onCancel, out task );
+        public new InfoDialogWidget OnCancel(string text, Action? callback, out Task task) {
+            return (InfoDialogWidget) base.OnCancel( text, callback, out task );
         }
 
     }
@@ -159,19 +159,19 @@ namespace Project.UI.Common {
         }
 
         // OnSubmit
-        public new WarningDialogWidget OnSubmit(string text, Action? onConfirm) {
-            return (WarningDialogWidget) base.OnSubmit( text, onConfirm );
+        public new WarningDialogWidget OnSubmit(string text, Action? callback) {
+            return (WarningDialogWidget) base.OnSubmit( text, callback );
         }
-        public new WarningDialogWidget OnCancel(string text, Action? onCancel) {
-            return (WarningDialogWidget) base.OnCancel( text, onCancel );
+        public new WarningDialogWidget OnCancel(string text, Action? callback) {
+            return (WarningDialogWidget) base.OnCancel( text, callback );
         }
 
         // OnSubmit
-        public new WarningDialogWidget OnSubmit(string text, Action? onConfirm, out Task task) {
-            return (WarningDialogWidget) base.OnSubmit( text, onConfirm, out task );
+        public new WarningDialogWidget OnSubmit(string text, Action? callback, out Task task) {
+            return (WarningDialogWidget) base.OnSubmit( text, callback, out task );
         }
-        public new WarningDialogWidget OnCancel(string text, Action? onCancel, out Task task) {
-            return (WarningDialogWidget) base.OnCancel( text, onCancel, out task );
+        public new WarningDialogWidget OnCancel(string text, Action? callback, out Task task) {
+            return (WarningDialogWidget) base.OnCancel( text, callback, out task );
         }
 
     }
@@ -189,19 +189,19 @@ namespace Project.UI.Common {
         }
 
         // OnSubmit
-        public new ErrorDialogWidget OnSubmit(string text, Action? onConfirm) {
-            return (ErrorDialogWidget) base.OnSubmit( text, onConfirm );
+        public new ErrorDialogWidget OnSubmit(string text, Action? callback) {
+            return (ErrorDialogWidget) base.OnSubmit( text, callback );
         }
-        public new ErrorDialogWidget OnCancel(string text, Action? onCancel) {
-            return (ErrorDialogWidget) base.OnCancel( text, onCancel );
+        public new ErrorDialogWidget OnCancel(string text, Action? callback) {
+            return (ErrorDialogWidget) base.OnCancel( text, callback );
         }
 
         // OnSubmit
-        public new ErrorDialogWidget OnSubmit(string text, Action? onConfirm, out Task task) {
-            return (ErrorDialogWidget) base.OnSubmit( text, onConfirm, out task );
+        public new ErrorDialogWidget OnSubmit(string text, Action? callback, out Task task) {
+            return (ErrorDialogWidget) base.OnSubmit( text, callback, out task );
         }
-        public new ErrorDialogWidget OnCancel(string text, Action? onCancel, out Task task) {
-            return (ErrorDialogWidget) base.OnCancel( text, onCancel, out task );
+        public new ErrorDialogWidget OnCancel(string text, Action? callback, out Task task) {
+            return (ErrorDialogWidget) base.OnCancel( text, callback, out task );
         }
 
     }
