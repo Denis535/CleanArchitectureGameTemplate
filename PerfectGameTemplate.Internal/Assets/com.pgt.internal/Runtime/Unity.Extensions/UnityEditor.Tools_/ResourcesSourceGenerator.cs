@@ -70,8 +70,6 @@ namespace UnityEditor.Tools_ {
                 .ThenByDescending( i => i.Key.Equals( "App" ) )
                 .ThenByDescending( i => i.Key.Equals( "Domain" ) )
                 .ThenByDescending( i => i.Key.Equals( "Entities" ) )
-                .ThenByDescending( i => i.Key.Equals( "Game" ) )
-                .ThenByDescending( i => i.Key.Equals( "World" ) )
                 .ThenByDescending( i => i.Key.Equals( "Core" ) )
                 .ThenByDescending( i => i.Key.Equals( "Internal" ) )
 

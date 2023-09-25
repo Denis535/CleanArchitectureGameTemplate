@@ -33,60 +33,28 @@ namespace UnityEngine.ResourceManagement.AsyncOperations {
             handle.WaitForCompletion();
         }
 
-        // Wait/Async
-        public static Task WaitAsync(this AsyncOperationHandle handle, CancellationToken cancellationToken) {
-            var tcs = new TaskCompletionSource<object?>();
-            handle.Completed += i => {
-                if (cancellationToken.IsCancellationRequested) {
-                    tcs.SetCanceled();
-                } else {
-                    tcs.SetResult( null );
-                }
-            };
-            return tcs.Task;
+        // GetResult
+        public static object GetResult(this AsyncOperationHandle handle) {
+            return handle.WaitForCompletion();
         }
-        public static Task WaitAsync<T>(this AsyncOperationHandle<T> handle, CancellationToken cancellationToken) {
-            var tcs = new TaskCompletionSource<object?>();
-            handle.Completed += i => {
-                if (cancellationToken.IsCancellationRequested) {
-                    tcs.SetCanceled();
-                } else {
-                    tcs.SetResult( null );
-                }
-            };
-            return tcs.Task;
+        public static T GetResult<T>(this AsyncOperationHandle<T> handle) {
+            return handle.WaitForCompletion();
         }
 
-        // GetResult
-        public static object? GetResult(this AsyncOperationHandle handle) {
-            return handle.WaitForCompletion();
+        // Wait/Async
+        public static Task WaitAsync(this AsyncOperationHandle handle, CancellationToken cancellationToken) {
+            return handle.Task.WithCancellation( cancellationToken );
         }
-        public static T? GetResult<T>(this AsyncOperationHandle<T> handle) {
-            return handle.WaitForCompletion();
+        public static Task WaitAsync<T>(this AsyncOperationHandle<T> handle, CancellationToken cancellationToken) {
+            return handle.Task.WithCancellation( cancellationToken );
         }
 
         // GetResult/Async
-        public static Task<object?> GetResultAsync(this AsyncOperationHandle handle, CancellationToken cancellationToken) {
-            var tcs = new TaskCompletionSource<object?>();
-            handle.Completed += i => {
-                if (cancellationToken.IsCancellationRequested) {
-                    tcs.SetCanceled();
-                } else {
-                    tcs.SetResult( i.Result );
-                }
-            };
-            return tcs.Task;
+        public static Task<object> GetResultAsync(this AsyncOperationHandle handle, CancellationToken cancellationToken) {
+            return handle.Task.WithCancellation( cancellationToken );
         }
-        public static Task<T?> GetResultAsync<T>(this AsyncOperationHandle<T> handle, CancellationToken cancellationToken) {
-            var tcs = new TaskCompletionSource<T?>();
-            handle.Completed += i => {
-                if (cancellationToken.IsCancellationRequested) {
-                    tcs.SetCanceled();
-                } else {
-                    tcs.SetResult( i.Result );
-                }
-            };
-            return tcs.Task;
+        public static Task<T> GetResultAsync<T>(this AsyncOperationHandle<T> handle, CancellationToken cancellationToken) {
+            return handle.Task.WithCancellation( cancellationToken );
         }
 
     }

@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #nullable enable
-namespace Project.Toolbar {
+namespace Project.Tools_ {
     using System;
     using System.Collections;
     using System.Collections.Generic;
@@ -13,8 +13,8 @@ namespace Project.Toolbar {
 
         // Build/Pre
         public override void PreBuild() {
-            new ResourcesSourceGenerator().Generate( "Assets/Project.Core/UnityEngine/R.cs", "UnityEngine", "R", AddressableAssetSettingsDefaultObject.Settings );
-            new LabelsSourceGenerator().Generate( "Assets/Project.Core/UnityEngine/L.cs", "UnityEngine", "L", AddressableAssetSettingsDefaultObject.Settings );
+            new ResourcesSourceGenerator().Generate( "Assets/Project.Core/Project/R.cs", "Project", "R", AddressableAssetSettingsDefaultObject.Settings );
+            new LabelsSourceGenerator().Generate( "Assets/Project.Core/Project/L.cs", "Project", "L", AddressableAssetSettingsDefaultObject.Settings );
             new ProjectConfigurator2().Configure();
             new ProjectAnalyzer2().Analyze();
         }

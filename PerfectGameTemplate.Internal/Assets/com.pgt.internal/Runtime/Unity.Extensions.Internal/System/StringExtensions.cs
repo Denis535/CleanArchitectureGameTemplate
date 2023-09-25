@@ -40,6 +40,10 @@ namespace System {
         }
 
         // TakeRightOf
+        public static string? TakeRightOf(this string value, int index) {
+            if (index != -1) return value.Substring( index + 1 );
+            return null;
+        }
         public static string? TakeRightOf(this string value, char separator) {
             var i = value.IndexOf( separator );
             if (i != -1) return value.Substring( i + 1 );

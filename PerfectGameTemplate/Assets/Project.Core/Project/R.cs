@@ -1,4 +1,4 @@
-namespace UnityEngine {
+namespace Project {
     public static class @R {
         public static class @UnityEngine {
             public static class @Audio {

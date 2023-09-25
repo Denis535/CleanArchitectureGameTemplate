@@ -58,8 +58,7 @@ namespace Project.UI {
         public static async Task LoadProgramAsync(CancellationToken cancellationToken) {
             Release.LogFormat( "Load: Program" );
             OnProgramLoadingEvent?.Invoke();
-            programHandle = Addressables2.LoadSceneAsync( R.Project.Program, LoadSceneMode.Single, true );
-            await programHandle.WaitAsync( cancellationToken );
+            await LoadProgramInternalAsync( cancellationToken );
             OnProgramLoadedEvent?.Invoke();
         }
         public async Task LoadMainSceneAsync(CancellationToken cancellationToken) {
@@ -117,6 +116,10 @@ namespace Project.UI {
         }
 
         // LoadScene
+        private static async Task LoadProgramInternalAsync(CancellationToken cancellationToken) {
+            programHandle = Addressables2.LoadSceneAsync( R.Project.Program, LoadSceneMode.Single, true );
+            _ = await programHandle.GetResultAsync( cancellationToken );
+        }
         private async Task LoadMainSceneInternalAsync(CancellationToken cancellationToken) {
             mainSceneHandle = Addressables2.LoadSceneAsync( R.Project.MainScene, LoadSceneMode.Additive, true );
             var mainScene = await mainSceneHandle.GetResultAsync( cancellationToken );
@@ -130,7 +133,7 @@ namespace Project.UI {
         }
         private async Task LoadWorldSceneInternalAsync(GameWorld world, CancellationToken cancellationToken) {
             worldSceneHandle = Addressables2.LoadSceneAsync( GetAddress( world ), LoadSceneMode.Additive, true );
-            await worldSceneHandle.WaitAsync( cancellationToken );
+            _ = await worldSceneHandle.GetResultAsync( cancellationToken );
         }
 
         // UnloadScene

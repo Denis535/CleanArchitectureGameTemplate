@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 #nullable enable
-namespace UnityEditor.Tools_ {
+namespace UnityEditor.Windows {
     using System;
     using System.Collections;
     using System.Collections.Generic;

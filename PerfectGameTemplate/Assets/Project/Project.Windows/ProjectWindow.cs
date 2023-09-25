@@ -1,12 +1,12 @@
 ﻿#if UNITY_EDITOR
 #nullable enable
-namespace Project.Toolbar {
+namespace Project.Windows {
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using UnityEditor;
-    using UnityEditor.Tools_;
+    using UnityEditor.Windows;
     using UnityEngine;
 
     public class ProjectWindow2 : ProjectWindow {

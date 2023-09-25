@@ -21,12 +21,14 @@ namespace Project.UI {
             R.Project.UI.GameScreen.Music.Theme_3,
         };
         // Globals
+        private UIScreen Screen { get; set; } = default!;
         private UIRouter Router { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
 
         // Awake
         public new void Awake() {
             base.Awake();
+            Screen = this.GetDependencyContainer().Resolve<UIScreen>( null );
             Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
         }
@@ -38,12 +40,12 @@ namespace Project.UI {
         public void Start() {
         }
         public void Update() {
-            if (Router.IsMainSceneLoaded) {
-                
-            } else
-            if (Router.IsGameSceneLoaded) {
-                
-            }
+            //if (Router.IsMainSceneLoaded) {
+
+            //} else
+            //if (Router.IsGameSceneLoaded) {
+
+            //}
         }
 
         // Helpers

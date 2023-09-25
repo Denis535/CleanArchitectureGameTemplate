@@ -18,8 +18,6 @@ namespace UnityEngine.AddressableAssets {
         public static AsyncOperationHandle<IList<T>> LoadAssetsAsync<T>(params string[] keys) where T : Object {
             return Addressables.LoadAssetsAsync<T>( (IEnumerable) keys, null!, Addressables.MergeMode.Union );
         }
-
-        // LoadScene/Async
         public static AsyncOperationHandle<SceneInstance> LoadSceneAsync(string key, LoadSceneMode mode, bool activateOnLoad) {
             return Addressables.LoadSceneAsync( key, mode, activateOnLoad );
         }

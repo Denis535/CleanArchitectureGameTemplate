@@ -3,6 +3,7 @@ namespace Project.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using Project.App;
     using Project.UI.GameScreen;
     using Project.UI.MainScreen;
     using UnityEngine;
@@ -13,11 +14,23 @@ namespace Project.UI {
 
         // Globals
         private UIRouter Router { get; set; } = default!;
+        private Application2 Application { get; set; } = default!;
 
         // Awake
         public new void Awake() {
             base.Awake();
             Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
+            Application = this.GetDependencyContainer().Resolve<Application2>( null );
+            //Router.OnMainSceneLoadedEvent += () => {
+            //    // Exception: Reentering the Update method is not allowed. This can happen when calling WaitForCompletion on an operation while inside of a callback.
+            //    if (Widget != null) this.DetachWidget();
+            //    this.AttachWidget( UIWidgetFactory.MainWidget() );
+            //};
+            //Router.OnGameSceneLoadedEvent += () => {
+            //    // Exception: Reentering the Update method is not allowed. This can happen when calling WaitForCompletion on an operation while inside of a callback.
+            //    if (Widget != null) this.DetachWidget();
+            //    this.AttachWidget( UIWidgetFactory.GameWidget() );
+            //};
             View = UIViewBase.Create<UIScreenView>();
         }
         public new void OnDestroy() {
