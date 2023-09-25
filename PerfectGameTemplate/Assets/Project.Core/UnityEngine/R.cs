@@ -17,46 +17,46 @@ namespace UnityEngine {
                         public const string @Background = "Project.UI.MainScreen/Images/Background.png";
                         public const string @Background__Background = "Project.UI.MainScreen/Images/Background.png[Background]";
                     }
-                    public static class @Main {
+                    public static class @MainWidget {
                         public static class @MainMenu {
                             public static class @CreateGame {
-                                public const string @CreateGameWidgetView = "Project.UI.MainScreen/Main.MainMenu.CreateGame/CreateGameWidgetView.uxml";
-                                public const string @CreateGameWidgetView__inlineStyle = "Project.UI.MainScreen/Main.MainMenu.CreateGame/CreateGameWidgetView.uxml[inlineStyle]";
+                                public const string @CreateGameWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame/CreateGameWidgetView.uxml";
+                                public const string @CreateGameWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame/CreateGameWidgetView.uxml[inlineStyle]";
                             }
                             public static class @CreateGame2 {
-                                public const string @CreateGameWidgetView2 = "Project.UI.MainScreen/Main.MainMenu.CreateGame2/CreateGameWidgetView2.uxml";
-                                public const string @CreateGameWidgetView2__inlineStyle = "Project.UI.MainScreen/Main.MainMenu.CreateGame2/CreateGameWidgetView2.uxml[inlineStyle]";
+                                public const string @CreateGameWidgetView2 = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame2/CreateGameWidgetView2.uxml";
+                                public const string @CreateGameWidgetView2__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.CreateGame2/CreateGameWidgetView2.uxml[inlineStyle]";
                             }
                             public static class @JoinGame {
-                                public const string @JoinGameWidgetView = "Project.UI.MainScreen/Main.MainMenu.JoinGame/JoinGameWidgetView.uxml";
-                                public const string @JoinGameWidgetView__inlineStyle = "Project.UI.MainScreen/Main.MainMenu.JoinGame/JoinGameWidgetView.uxml[inlineStyle]";
+                                public const string @JoinGameWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame/JoinGameWidgetView.uxml";
+                                public const string @JoinGameWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame/JoinGameWidgetView.uxml[inlineStyle]";
                             }
                             public static class @JoinGame2 {
-                                public const string @JoinGameWidgetView2 = "Project.UI.MainScreen/Main.MainMenu.JoinGame2/JoinGameWidgetView2.uxml";
-                                public const string @JoinGameWidgetView2__inlineStyle = "Project.UI.MainScreen/Main.MainMenu.JoinGame2/JoinGameWidgetView2.uxml[inlineStyle]";
+                                public const string @JoinGameWidgetView2 = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml";
+                                public const string @JoinGameWidgetView2__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml[inlineStyle]";
                             }
                             public static class @Loading {
-                                public const string @LoadingWidgetView = "Project.UI.MainScreen/Main.MainMenu.Loading/LoadingWidgetView.uxml";
-                                public const string @LoadingWidgetView__inlineStyle = "Project.UI.MainScreen/Main.MainMenu.Loading/LoadingWidgetView.uxml[inlineStyle]";
+                                public const string @LoadingWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.Loading/LoadingWidgetView.uxml";
+                                public const string @LoadingWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.Loading/LoadingWidgetView.uxml[inlineStyle]";
                             }
-                            public const string @MainMenuWidgetView = "Project.UI.MainScreen/Main.MainMenu/MainMenuWidgetView.uxml";
-                            public const string @MainMenuWidgetView__inlineStyle = "Project.UI.MainScreen/Main.MainMenu/MainMenuWidgetView.uxml[inlineStyle]";
+                            public const string @MainMenuWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu/MainMenuWidgetView.uxml";
+                            public const string @MainMenuWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu/MainMenuWidgetView.uxml[inlineStyle]";
                         }
-                        public const string @MainWidgetView = "Project.UI.MainScreen/Main/MainWidgetView.uxml";
-                        public const string @MainWidgetView__inlineStyle = "Project.UI.MainScreen/Main/MainWidgetView.uxml[inlineStyle]";
+                        public const string @MainWidgetView = "Project.UI.MainScreen/MainWidget/MainWidgetView.uxml";
+                        public const string @MainWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget/MainWidgetView.uxml[inlineStyle]";
                     }
                     public static class @Music {
                         public const string @Theme = "Project.UI.MainScreen/Music/Theme @Akira Yamaoka — Never Forgive Me, Never Forget Me.flac";
                     }
                 }
                 public static class @GameScreen {
-                    public static class @Game {
+                    public static class @GameWidget {
                         public static class @GameMenu {
-                            public const string @GameMenuWidgetView = "Project.UI.GameScreen/Game.GameMenu/GameMenuWidgetView.uxml";
-                            public const string @GameMenuWidgetView__inlineStyle = "Project.UI.GameScreen/Game.GameMenu/GameMenuWidgetView.uxml[inlineStyle]";
+                            public const string @GameMenuWidgetView = "Project.UI.GameScreen/GameWidget.GameMenu/GameMenuWidgetView.uxml";
+                            public const string @GameMenuWidgetView__inlineStyle = "Project.UI.GameScreen/GameWidget.GameMenu/GameMenuWidgetView.uxml[inlineStyle]";
                         }
-                        public const string @GameWidgetView = "Project.UI.GameScreen/Game/GameWidgetView.uxml";
-                        public const string @GameWidgetView__inlineStyle = "Project.UI.GameScreen/Game/GameWidgetView.uxml[inlineStyle]";
+                        public const string @GameWidgetView = "Project.UI.GameScreen/GameWidget/GameWidgetView.uxml";
+                        public const string @GameWidgetView__inlineStyle = "Project.UI.GameScreen/GameWidget/GameWidgetView.uxml[inlineStyle]";
                     }
                     public static class @Music {
                         public const string @Theme_1 = "Project.UI.GameScreen/Music/Theme_1 @Ugasanie - Obfuscation.flac";
@@ -65,20 +65,20 @@ namespace UnityEngine {
                     }
                 }
                 public static class @Common {
-                    public static class @Settings {
+                    public static class @SettingsWidget {
                         public static class @Audio {
-                            public const string @AudioSettingsWidgetView = "Project.UI.Common/Settings.Audio/AudioSettingsWidgetView.uxml";
-                            public const string @AudioSettingsWidgetView__inlineStyle = "Project.UI.Common/Settings.Audio/AudioSettingsWidgetView.uxml[inlineStyle]";
+                            public const string @AudioSettingsWidgetView = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml";
+                            public const string @AudioSettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml[inlineStyle]";
                         }
                         public static class @PlayerProfile {
-                            public const string @PlayerProfileWidgetView = "Project.UI.Common/Settings.PlayerProfile/PlayerProfileWidgetView.uxml";
-                            public const string @PlayerProfileWidgetView__inlineStyle = "Project.UI.Common/Settings.PlayerProfile/PlayerProfileWidgetView.uxml[inlineStyle]";
+                            public const string @PlayerProfileWidgetView = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml";
+                            public const string @PlayerProfileWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml[inlineStyle]";
                         }
-                        public const string @SettingsWidgetView = "Project.UI.Common/Settings/SettingsWidgetView.uxml";
-                        public const string @SettingsWidgetView__inlineStyle = "Project.UI.Common/Settings/SettingsWidgetView.uxml[inlineStyle]";
+                        public const string @SettingsWidgetView = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml";
+                        public const string @SettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml[inlineStyle]";
                         public static class @Video {
-                            public const string @VideoSettingsWidgetView = "Project.UI.Common/Settings.Video/VideoSettingsWidgetView.uxml";
-                            public const string @VideoSettingsWidgetView__inlineStyle = "Project.UI.Common/Settings.Video/VideoSettingsWidgetView.uxml[inlineStyle]";
+                            public const string @VideoSettingsWidgetView = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml";
+                            public const string @VideoSettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml[inlineStyle]";
                         }
                     }
                 }

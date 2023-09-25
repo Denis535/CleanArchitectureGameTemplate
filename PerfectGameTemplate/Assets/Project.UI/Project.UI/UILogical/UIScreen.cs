@@ -34,11 +34,11 @@ namespace Project.UI {
 #endif
             if (Router.IsMainSceneLoaded && Widget is not MainWidget) {
                 if (Widget != null) this.DetachWidget();
-                this.AttachWidget( UILogicalFactory.MainWidget() );
+                this.AttachWidget( UIWidgetFactory.MainWidget() );
             } else
             if (Router.IsGameSceneLoaded && Widget is not GameWidget) {
                 if (Widget != null) this.DetachWidget();
-                this.AttachWidget( UILogicalFactory.GameWidget() );
+                this.AttachWidget( UIWidgetFactory.GameWidget() );
             }
             if (Widget is GameWidget gameWidget) {
                 gameWidget.Update();
