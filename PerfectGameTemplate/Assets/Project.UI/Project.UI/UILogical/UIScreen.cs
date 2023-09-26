@@ -45,13 +45,17 @@ namespace Project.UI {
 #if UNITY_EDITOR
             AddViewIfNeeded( Document, View );
 #endif
-            if (Router.IsMainSceneLoaded && Widget is not MainWidget) {
-                if (Widget != null) this.DetachWidget();
-                this.AttachWidget( UIWidgetFactory.MainWidget() );
+            if (Router.IsMainSceneLoaded) {
+                if (Widget is not MainWidget) {
+                    Widget?.DetachSelf();
+                    this.AttachWidget( UIWidgetFactory.MainWidget() );
+                }
             } else
-            if (Router.IsGameSceneLoaded && Widget is not GameWidget) {
-                if (Widget != null) this.DetachWidget();
-                this.AttachWidget( UIWidgetFactory.GameWidget() );
+            if (Router.IsGameSceneLoaded) {
+                if (Application.IsGameRunning && Widget is not GameWidget) {
+                    Widget?.DetachSelf();
+                    this.AttachWidget( UIWidgetFactory.GameWidget() );
+                }
             }
             if (Widget is GameWidget gameWidget) {
                 gameWidget.Update();

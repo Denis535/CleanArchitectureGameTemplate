@@ -27,10 +27,10 @@ namespace Project.UI {
         // Globals
         private Application2 Application { get; set; } = default!;
         // IsSceneLoading
-        public static bool IsProgramLoading => programHandle.IsValid();
-        public bool IsMainSceneLoading => mainSceneHandle.IsValid();
-        public bool IsGameSceneLoading => gameSceneHandle.IsValid();
-        public bool IsWorldSceneLoading => worldSceneHandle.IsValid();
+        public static bool IsProgramLoading => programHandle.IsValid() && !programHandle.Result.Scene.isLoaded;
+        public bool IsMainSceneLoading => mainSceneHandle.IsValid() && !mainSceneHandle.Result.Scene.isLoaded;
+        public bool IsGameSceneLoading => gameSceneHandle.IsValid() && !gameSceneHandle.Result.Scene.isLoaded;
+        public bool IsWorldSceneLoading => worldSceneHandle.IsValid() && !worldSceneHandle.Result.Scene.isLoaded;
         // IsSceneLoaded
         public static bool IsProgramLoaded => programHandle.IsValid() && programHandle.Result.Scene.isLoaded;
         public bool IsMainSceneLoaded => mainSceneHandle.IsValid() && mainSceneHandle.Result.Scene.isLoaded;
@@ -58,16 +58,21 @@ namespace Project.UI {
         public static async Task LoadProgramAsync(CancellationToken cancellationToken) {
             Release.LogFormat( "Load: Program" );
             OnProgramLoadingEvent?.Invoke();
-            await LoadProgramInternalAsync( cancellationToken );
+            {
+                await LoadProgramInternalAsync( cancellationToken );
+            }
             OnProgramLoadedEvent?.Invoke();
         }
         public async Task LoadMainSceneAsync(CancellationToken cancellationToken) {
             Release.LogFormat( "Load: MainScene" );
             using (Lock.Enter()) {
                 OnMainSceneLoadingEvent?.Invoke();
-                await UnloadGameSceneInternalAsync( cancellationToken );
-                await UnloadWorldSceneInternalAsync( cancellationToken );
-                await LoadMainSceneInternalAsync( cancellationToken );
+                {
+                    if (Application.IsGameRunning) Application.StopGame();
+                    await UnloadGameSceneInternalAsync( cancellationToken );
+                    await UnloadWorldSceneInternalAsync( cancellationToken );
+                    await LoadMainSceneInternalAsync( cancellationToken );
+                }
                 OnMainSceneLoadedEvent?.Invoke();
             }
         }
@@ -75,10 +80,14 @@ namespace Project.UI {
             Release.LogFormat( "Load: GameScene" );
             using (Lock.Enter()) {
                 OnGameSceneLoadingEvent?.Invoke();
-                await Task.Delay( 3_000 );
-                await LoadWorldSceneInternalAsync( gameDesc.World, cancellationToken );
-                await UnloadMainSceneInternalAsync( cancellationToken );
-                await LoadGameSceneInternalAsync( gameDesc, playerDesc, cancellationToken );
+                {
+                    Application.SetGameLoading();
+                    await Task.Delay( 3_000 );
+                    await LoadWorldSceneInternalAsync( gameDesc.World, cancellationToken );
+                    await UnloadMainSceneInternalAsync( cancellationToken );
+                    await LoadGameSceneInternalAsync( gameDesc, playerDesc, cancellationToken );
+                    Application.StartGame( gameDesc, playerDesc );
+                }
                 OnGameSceneLoadedEvent?.Invoke();
             }
         }
@@ -104,9 +113,12 @@ namespace Project.UI {
         }
         private async void OnQuitAsync() {
             using (Lock.Enter()) {
-                await UnloadMainSceneInternalAsync( default );
-                await UnloadGameSceneInternalAsync( default );
-                await UnloadWorldSceneInternalAsync( default );
+                {
+                    if (Application.IsGameRunning) Application.StopGame();
+                    await UnloadMainSceneInternalAsync( default );
+                    await UnloadGameSceneInternalAsync( default );
+                    await UnloadWorldSceneInternalAsync( default );
+                }
 #if UNITY_EDITOR
                 EditorApplication.ExitPlaymode();
 #else
@@ -115,7 +127,7 @@ namespace Project.UI {
             }
         }
 
-        // LoadScene
+        // Helpers/LoadScene
         private static async Task LoadProgramInternalAsync(CancellationToken cancellationToken) {
             programHandle = Addressables2.LoadSceneAsync( R.Project.Program, LoadSceneMode.Single, true );
             _ = await programHandle.GetResultAsync( cancellationToken );
@@ -129,14 +141,12 @@ namespace Project.UI {
             gameSceneHandle = Addressables2.LoadSceneAsync( R.Project.GameScene, LoadSceneMode.Additive, true );
             var gameScene = await gameSceneHandle.GetResultAsync( cancellationToken );
             SceneManager.SetActiveScene( gameScene.Scene );
-            Application.StartGame( gameDesc, playerDesc );
         }
         private async Task LoadWorldSceneInternalAsync(GameWorld world, CancellationToken cancellationToken) {
-            worldSceneHandle = Addressables2.LoadSceneAsync( GetAddress( world ), LoadSceneMode.Additive, true );
+            worldSceneHandle = Addressables2.LoadSceneAsync( GetWorldSceneAddress( world ), LoadSceneMode.Additive, true );
             _ = await worldSceneHandle.GetResultAsync( cancellationToken );
         }
-
-        // UnloadScene
+        // Helpers/UnloadScene
         private async Task UnloadMainSceneInternalAsync(CancellationToken cancellationToken) {
             if (mainSceneHandle.IsValid()) {
                 await Addressables2.UnloadSceneAsync( mainSceneHandle ).WaitAsync( cancellationToken );
@@ -145,7 +155,6 @@ namespace Project.UI {
         }
         private async Task UnloadGameSceneInternalAsync(CancellationToken cancellationToken) {
             if (gameSceneHandle.IsValid()) {
-                Application.StopGame();
                 await Addressables2.UnloadSceneAsync( gameSceneHandle ).WaitAsync( cancellationToken );
                 gameSceneHandle = default;
             }
@@ -156,13 +165,12 @@ namespace Project.UI {
                 worldSceneHandle = default;
             }
         }
-
-        // Helpers
-        private static string GetAddress(GameWorld world) {
+        // Helpers/Misc
+        private static string GetWorldSceneAddress(GameWorld world) {
             return world switch {
                 GameWorld.TestWorld1 => R.Project.TestWorldScene_1,
                 GameWorld.TestWorld2 => R.Project.TestWorldScene_2,
-                _ => throw Exceptions.Internal.NotSupported( $"World {world} not supported" ),
+                _ => throw Exceptions.Internal.NotSupported( $"WorldScene {world} not supported" ),
             };
         }
 

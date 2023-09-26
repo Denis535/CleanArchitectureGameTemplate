@@ -29,21 +29,24 @@ namespace Project.UI.GameScreen {
 
         // OnAttach
         public override void OnAttach() {
-            SetGameEnabled( true );
+            Application.EnableGame();
+            Actions.Enable();
         }
         public override void OnShow() {
         }
         public override void OnHide() {
         }
         public override void OnDetach() {
-            SetGameEnabled( false );
+            Actions.Disable();
+            Application.DisableGame();
         }
 
         // OnDescendantWidgetAttach
         public override void OnBeforeDescendantAttach(UIWidgetBase descendant) {
             base.OnBeforeDescendantAttach( descendant );
             if (descendant is GameMenuWidget) {
-                SetGameEnabled( false );
+                Actions.Disable();
+                Application.DisableGame();
             }
         }
         public override void OnAfterDescendantAttach(UIWidgetBase descendant) {
@@ -54,7 +57,8 @@ namespace Project.UI.GameScreen {
         }
         public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
             if (descendant is GameMenuWidget) {
-                SetGameEnabled( true );
+                Application.EnableGame();
+                Actions.Enable();
             }
             base.OnAfterDescendantDetach( descendant );
         }
@@ -70,19 +74,6 @@ namespace Project.UI.GameScreen {
         private GameWidgetView CreateView() {
             var view = UIViewFactory.GameWidget();
             return view;
-        }
-        private void SetGameEnabled(bool value) {
-            if (value) {
-                Actions.Enable();
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                Application.IsGamePaused = false;
-            } else {
-                Application.IsGamePaused = true;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                Actions.Disable();
-            }
         }
 
     }

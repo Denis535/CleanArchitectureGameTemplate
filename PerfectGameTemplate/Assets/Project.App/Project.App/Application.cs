@@ -9,8 +9,11 @@ namespace Project.App {
 
     public class Application2 : ApplicationBase {
 
-        public bool IsGameRunning { get; private set; }
-        public bool IsGamePaused { get; set; }
+        public GameState GameState { get; private set; }
+        public bool IsGameLoading => GameState == GameState.Loading;
+        public bool IsGameRunning => GameState == GameState.Running;
+        public bool IsGameRunningAndEnabled => GameState == GameState.RunningAndEnabled;
+        public bool IsGameRunningAndDisabled => GameState == GameState.RunningAndDisabled;
 
         // Awake
         public new void Awake() {
@@ -20,15 +23,43 @@ namespace Project.App {
             base.OnDestroy();
         }
 
-        // StartGame
-        public void StartGame(GameDesc gameDesc, PlayerDesc playerDesc) {
-            //var game = GameObject2.RequireAnyObjectByType<GameBase>( FindObjectsInactive.Exclude );
-            IsGameRunning = true;
-        }
-        public void StopGame() {
-            IsGameRunning = false;
+        // SetGameLoading
+        public void SetGameLoading() {
+            Assert.Operation.Message( $"GameState {GameState} must be valid" ).Valid( GameState is GameState.None );
+            GameState = GameState.Loading;
         }
 
+        // StartGame
+        public void StartGame(GameDesc gameDesc, PlayerDesc playerDesc) {
+            Assert.Operation.Message( $"GameState {GameState} must be valid" ).Valid( GameState is GameState.Loading );
+            GameState = GameState.Running;
+            //var game = GameObject2.RequireAnyObjectByType<GameBase>( FindObjectsInactive.Exclude );
+        }
+        public void EnableGame() {
+            Assert.Operation.Message( $"GameState {GameState} must be valid" ).Valid( GameState is GameState.Running or GameState.RunningAndDisabled );
+            GameState = GameState.RunningAndEnabled;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        public void DisableGame() {
+            Assert.Operation.Message( $"GameState {GameState} must be valid" ).Valid( GameState is GameState.Running or GameState.RunningAndEnabled );
+            GameState = GameState.RunningAndDisabled;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        public void StopGame() {
+            Assert.Operation.Message( $"GameState {GameState} must be valid" ).Valid( GameState is GameState.Running or GameState.RunningAndEnabled or GameState.RunningAndDisabled );
+            GameState = GameState.None;
+        }
+
+    }
+    // GameState
+    public enum GameState {
+        None,
+        Loading,
+        Running,
+        RunningAndEnabled, // unpaused
+        RunningAndDisabled, // paused
     }
     // GameDesc
     public class GameDesc {
