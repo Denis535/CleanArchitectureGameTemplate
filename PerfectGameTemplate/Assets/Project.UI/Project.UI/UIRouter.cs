@@ -46,39 +46,35 @@ namespace Project.UI {
         public async Task LoadMainSceneAsync(CancellationToken cancellationToken) {
             Release.LogFormat( "Load: MainScene" );
             using (Lock.Enter()) {
-                Application.SetMainSceneLoading();
-                {
-                    if (Application.IsGameRunning) Application.StopGame();
+                if (Application.IsGameSceneLoaded) {
+                    Application.StopGame();
+                    Application.SetGameSceneUnloading();
                     await UnloadGameSceneInternalAsync( cancellationToken );
                     await UnloadWorldSceneInternalAsync( cancellationToken );
-                    await LoadMainSceneInternalAsync( cancellationToken );
                 }
-                Application.SetMainSceneLoaded();
+                {
+                    Application.SetMainSceneLoading();
+                    await LoadMainSceneInternalAsync( cancellationToken );
+                    Application.SetMainSceneLoaded();
+                }
             }
         }
         public async Task LoadGameSceneAsync(GameDesc gameDesc, PlayerDesc playerDesc, CancellationToken cancellationToken) {
             Release.LogFormat( "Load: GameScene" );
             using (Lock.Enter()) {
-                Application.SetGameSceneLoading();
+                if (Application.IsMainSceneLoaded) {
+                    Application.SetMainSceneUnloading();
+                    await UnloadMainSceneInternalAsync( cancellationToken );
+                }
                 {
+                    Application.SetGameSceneLoading();
                     await Task.Delay( 3_000 );
                     await LoadWorldSceneInternalAsync( gameDesc.World, cancellationToken );
-                    await UnloadMainSceneInternalAsync( cancellationToken );
                     await LoadGameSceneInternalAsync( gameDesc, playerDesc, cancellationToken );
+                    Application.SetGameSceneLoaded();
                     Application.StartGame( gameDesc, playerDesc );
                 }
-                Application.SetGameSceneLoaded();
             }
-        }
-
-        // UnloadScene
-        private async Task UnloadMainSceneAsync(CancellationToken cancellationToken) {
-            await UnloadMainSceneInternalAsync( cancellationToken );
-        }
-        private async Task UnloadGameSceneAsync(CancellationToken cancellationToken) {
-            if (Application.IsGameRunning) Application.StopGame();
-            await UnloadGameSceneInternalAsync( cancellationToken );
-            await UnloadWorldSceneInternalAsync( cancellationToken );
         }
 
         // Quit
@@ -94,7 +90,7 @@ namespace Project.UI {
         }
         private bool OnQuit() {
             Release.Log( "OnQuit" );
-            if (mainSceneHandle.IsValid() || gameSceneHandle.IsValid() || worldSceneHandle.IsValid()) {
+            if (!Application.IsQuited) {
                 OnQuitAsync();
                 return false;
             }
@@ -104,8 +100,14 @@ namespace Project.UI {
             using (Lock.Enter()) {
                 Application.SetQuitting();
                 {
-                    await UnloadMainSceneAsync( default );
-                    await UnloadGameSceneAsync( default );
+                    if (Application.IsMainSceneLoaded) {
+                        await UnloadMainSceneInternalAsync( default );
+                    }
+                    if (Application.IsGameSceneLoaded) {
+                        Application.StopGame();
+                        await UnloadGameSceneInternalAsync( default );
+                        await UnloadWorldSceneInternalAsync( default );
+                    }
                 }
                 Application.SetQuited();
 #if UNITY_EDITOR

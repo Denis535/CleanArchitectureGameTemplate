@@ -35,13 +35,13 @@ namespace Project.UI {
 #if UNITY_EDITOR
             AddViewIfNeeded( Document, View );
 #endif
-            if (Application.MainSceneLoaded) {
+            if (Application.IsMainSceneLoaded) {
                 if (Widget is not MainWidget) {
                     Widget?.DetachSelf();
                     this.AttachWidget( UIWidgetFactory.MainWidget() );
                 }
             } else
-            if (Application.GameSceneLoaded) {
+            if (Application.IsGameSceneLoaded) {
                 if (Widget is not GameWidget) {
                     Widget?.DetachSelf();
                     this.AttachWidget( UIWidgetFactory.GameWidget() );
