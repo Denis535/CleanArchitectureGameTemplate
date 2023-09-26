@@ -3,6 +3,7 @@ namespace Project.UI.Common {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Threading;
     using System.Threading.Tasks;
     using UnityEngine;
     using UnityEngine.Framework.UI;
@@ -13,15 +14,15 @@ namespace Project.UI.Common {
         public string? Title {
             get => View.Title.Text;
             set {
-                View.Header.IsDisplayed = value != null;
                 View.Title.Text = value;
+                View.Header.IsDisplayed = value != null;
             }
         }
         public string? Message {
             get => View.Message.Text;
             set {
-                View.Content.IsDisplayed = value != null;
                 View.Message.Text = value;
+                View.Content.IsDisplayed = value != null;
             }
         }
 
@@ -61,26 +62,36 @@ namespace Project.UI.Common {
         }
 
         // OnSubmit
-        public DialogWidgetBase<TView> OnSubmit(string text, Action? callback, out Task task) {
+        public DialogWidgetBase<TView> OnSubmit(string text, Action? callback, CancellationToken cancellationToken, out Task task) {
             var tcs = new TaskCompletionSource<object?>();
-            task = tcs.Task;
             View.OnSubmit( text, () => {
                 callback?.Invoke();
-                tcs.SetResult( null );
+                tcs.TrySetResult( null );
                 this.DetachSelf();
             } );
             View.Footer.IsDisplayed = true;
+            var cancellationTokenRegistration = default( CancellationTokenRegistration );
+            cancellationTokenRegistration = cancellationToken.Register( () => {
+                tcs.TrySetCanceled( cancellationToken );
+                cancellationTokenRegistration.Dispose();
+            } );
+            task = tcs.Task;
             return this;
         }
-        public DialogWidgetBase<TView> OnCancel(string text, Action? callback, out Task task) {
+        public DialogWidgetBase<TView> OnCancel(string text, Action? callback, CancellationToken cancellationToken, out Task task) {
             var tcs = new TaskCompletionSource<object?>();
-            task = tcs.Task;
             View.OnCancel( text, () => {
                 callback?.Invoke();
-                tcs.SetResult( null );
+                tcs.TrySetResult( null );
                 this.DetachSelf();
             } );
             View.Footer.IsDisplayed = true;
+            var cancellationTokenRegistration = default( CancellationTokenRegistration );
+            cancellationTokenRegistration = cancellationToken.Register( () => {
+                tcs.TrySetCanceled( cancellationToken );
+                cancellationTokenRegistration.Dispose();
+            } );
+            task = tcs.Task;
             return this;
         }
 
@@ -107,11 +118,11 @@ namespace Project.UI.Common {
         }
 
         // OnSubmit
-        public new DialogWidget OnSubmit(string text, Action? callback, out Task task) {
-            return (DialogWidget) base.OnSubmit( text, callback, out task );
+        public new DialogWidget OnSubmit(string text, Action? callback, CancellationToken cancellationToken, out Task task) {
+            return (DialogWidget) base.OnSubmit( text, callback, cancellationToken, out task );
         }
-        public new DialogWidget OnCancel(string text, Action? callback, out Task task) {
-            return (DialogWidget) base.OnCancel( text, callback, out task );
+        public new DialogWidget OnCancel(string text, Action? callback, CancellationToken cancellationToken, out Task task) {
+            return (DialogWidget) base.OnCancel( text, callback, cancellationToken, out task );
         }
 
     }
@@ -137,11 +148,11 @@ namespace Project.UI.Common {
         }
 
         // OnSubmit
-        public new InfoDialogWidget OnSubmit(string text, Action? callback, out Task task) {
-            return (InfoDialogWidget) base.OnSubmit( text, callback, out task );
+        public new InfoDialogWidget OnSubmit(string text, Action? callback, CancellationToken cancellationToken, out Task task) {
+            return (InfoDialogWidget) base.OnSubmit( text, callback, cancellationToken, out task );
         }
-        public new InfoDialogWidget OnCancel(string text, Action? callback, out Task task) {
-            return (InfoDialogWidget) base.OnCancel( text, callback, out task );
+        public new InfoDialogWidget OnCancel(string text, Action? callback, CancellationToken cancellationToken, out Task task) {
+            return (InfoDialogWidget) base.OnCancel( text, callback, cancellationToken, out task );
         }
 
     }
@@ -167,11 +178,11 @@ namespace Project.UI.Common {
         }
 
         // OnSubmit
-        public new WarningDialogWidget OnSubmit(string text, Action? callback, out Task task) {
-            return (WarningDialogWidget) base.OnSubmit( text, callback, out task );
+        public new WarningDialogWidget OnSubmit(string text, Action? callback, CancellationToken cancellationToken, out Task task) {
+            return (WarningDialogWidget) base.OnSubmit( text, callback, cancellationToken, out task );
         }
-        public new WarningDialogWidget OnCancel(string text, Action? callback, out Task task) {
-            return (WarningDialogWidget) base.OnCancel( text, callback, out task );
+        public new WarningDialogWidget OnCancel(string text, Action? callback, CancellationToken cancellationToken, out Task task) {
+            return (WarningDialogWidget) base.OnCancel( text, callback, cancellationToken, out task );
         }
 
     }
@@ -197,11 +208,11 @@ namespace Project.UI.Common {
         }
 
         // OnSubmit
-        public new ErrorDialogWidget OnSubmit(string text, Action? callback, out Task task) {
-            return (ErrorDialogWidget) base.OnSubmit( text, callback, out task );
+        public new ErrorDialogWidget OnSubmit(string text, Action? callback, CancellationToken cancellationToken, out Task task) {
+            return (ErrorDialogWidget) base.OnSubmit( text, callback, cancellationToken, out task );
         }
-        public new ErrorDialogWidget OnCancel(string text, Action? callback, out Task task) {
-            return (ErrorDialogWidget) base.OnCancel( text, callback, out task );
+        public new ErrorDialogWidget OnCancel(string text, Action? callback, CancellationToken cancellationToken, out Task task) {
+            return (ErrorDialogWidget) base.OnCancel( text, callback, cancellationToken, out task );
         }
 
     }
