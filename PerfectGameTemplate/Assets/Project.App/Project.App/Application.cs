@@ -9,8 +9,14 @@ namespace Project.App {
 
     public class Application2 : ApplicationBase {
 
+        // AppState
+        public AppState AppState { get; private set; }
+        public bool MainSceneLoading => AppState == AppState.MainSceneLoading;
+        public bool MainSceneLoaded => AppState == AppState.MainSceneLoaded;
+        public bool GameSceneLoading => AppState == AppState.GameSceneLoading;
+        public bool GameSceneLoaded => AppState == AppState.GameSceneLoaded;
+        // GameState
         public GameState GameState { get; private set; }
-        public bool IsGameLoading => GameState == GameState.Loading;
         public bool IsGameRunning => GameState == GameState.Running;
         public bool IsGameRunningAndEnabled => GameState == GameState.RunningAndEnabled;
         public bool IsGameRunningAndDisabled => GameState == GameState.RunningAndDisabled;
@@ -23,15 +29,35 @@ namespace Project.App {
             base.OnDestroy();
         }
 
-        // SetGameLoading
-        public void SetGameLoading() {
-            Assert.Operation.Message( $"GameState {GameState} must be valid" ).Valid( GameState is GameState.None );
-            GameState = GameState.Loading;
+        // AppState
+        public void SetMainSceneLoading() {
+            Assert.Operation.Message( $"AppState {AppState} must be valid" ).Valid( AppState is AppState.None or AppState.GameSceneLoaded );
+            AppState = AppState.MainSceneLoading;
+        }
+        public void SetMainSceneLoaded() {
+            Assert.Operation.Message( $"AppState {AppState} must be valid" ).Valid( AppState is AppState.MainSceneLoading );
+            AppState = AppState.MainSceneLoaded;
+        }
+        public void SetGameSceneLoading() {
+            Assert.Operation.Message( $"AppState {AppState} must be valid" ).Valid( AppState is AppState.MainSceneLoaded );
+            AppState = AppState.GameSceneLoading;
+        }
+        public void SetGameSceneLoaded() {
+            Assert.Operation.Message( $"AppState {AppState} must be valid" ).Valid( AppState is AppState.GameSceneLoading );
+            AppState = AppState.GameSceneLoaded;
+        }
+        public void SetQuitting() {
+            Assert.Operation.Message( $"AppState {AppState} must be valid" ).Valid( AppState is AppState.MainSceneLoaded or AppState.GameSceneLoaded );
+            AppState = AppState.Quitting;
+        }
+        public void SetQuited() {
+            Assert.Operation.Message( $"AppState {AppState} must be valid" ).Valid( AppState is AppState.Quitting );
+            AppState = AppState.Quited;
         }
 
-        // StartGame
+        // GameState
         public void StartGame(GameDesc gameDesc, PlayerDesc playerDesc) {
-            Assert.Operation.Message( $"GameState {GameState} must be valid" ).Valid( GameState is GameState.Loading );
+            Assert.Operation.Message( $"GameState {GameState} must be valid" ).Valid( GameState is GameState.None );
             GameState = GameState.Running;
             //var game = GameObject2.RequireAnyObjectByType<GameBase>( FindObjectsInactive.Exclude );
         }
@@ -53,10 +79,19 @@ namespace Project.App {
         }
 
     }
+    // AppState
+    public enum AppState {
+        None,
+        MainSceneLoading,
+        MainSceneLoaded,
+        GameSceneLoading,
+        GameSceneLoaded,
+        Quitting,
+        Quited,
+    }
     // GameState
     public enum GameState {
         None,
-        Loading,
         Running,
         RunningAndEnabled, // unpaused
         RunningAndDisabled, // paused

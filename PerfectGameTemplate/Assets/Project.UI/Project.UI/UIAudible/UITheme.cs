@@ -29,19 +29,6 @@ namespace Project.UI {
         public new void Awake() {
             base.Awake();
             Screen = this.GetDependencyContainer().Resolve<UIScreen>( null );
-            //Screen.OnBeforeDescendantWidgetAttach( descendant => {
-            //    if (descendant is MainWidget) {
-                    
-            //    } else
-            //    if (descendant is LoadingWidget) {
-                    
-            //    } else
-            //    if (descendant is GameWidget) {
-                    
-            //    }
-            //} );
-            //Screen.OnAfterDescendantWidgetDetach( descendant => {
-            //} );
             Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
         }
@@ -53,12 +40,6 @@ namespace Project.UI {
         public void Start() {
         }
         public void Update() {
-            //if (Router.IsMainSceneLoaded) {
-
-            //} else
-            //if (Router.IsGameSceneLoaded) {
-
-            //}
         }
 
         // Helpers

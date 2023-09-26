@@ -26,24 +26,6 @@ namespace Project.UI {
         private Lock Lock { get; } = new Lock();
         // Globals
         private Application2 Application { get; set; } = default!;
-        // IsSceneLoading
-        public static bool IsProgramLoading => programHandle.IsValid() && !programHandle.Result.Scene.isLoaded;
-        public bool IsMainSceneLoading => mainSceneHandle.IsValid() && !mainSceneHandle.Result.Scene.isLoaded;
-        public bool IsGameSceneLoading => gameSceneHandle.IsValid() && !gameSceneHandle.Result.Scene.isLoaded;
-        public bool IsWorldSceneLoading => worldSceneHandle.IsValid() && !worldSceneHandle.Result.Scene.isLoaded;
-        // IsSceneLoaded
-        public static bool IsProgramLoaded => programHandle.IsValid() && programHandle.Result.Scene.isLoaded;
-        public bool IsMainSceneLoaded => mainSceneHandle.IsValid() && mainSceneHandle.Result.Scene.isLoaded;
-        public bool IsGameSceneLoaded => gameSceneHandle.IsValid() && gameSceneHandle.Result.Scene.isLoaded;
-        public bool IsWorldSceneLoaded => worldSceneHandle.IsValid() && worldSceneHandle.Result.Scene.isLoaded;
-        // OnSceneLoading
-        public static event Action? OnProgramLoadingEvent;
-        public event Action? OnMainSceneLoadingEvent;
-        public event Action? OnGameSceneLoadingEvent;
-        // OnSceneLoaded
-        public static event Action? OnProgramLoadedEvent;
-        public event Action? OnMainSceneLoadedEvent;
-        public event Action? OnGameSceneLoadedEvent;
 
         // Awake
         public new void Awake() {
@@ -57,39 +39,46 @@ namespace Project.UI {
         // LoadScene
         public static async Task LoadProgramAsync(CancellationToken cancellationToken) {
             Release.LogFormat( "Load: Program" );
-            OnProgramLoadingEvent?.Invoke();
             {
                 await LoadProgramInternalAsync( cancellationToken );
             }
-            OnProgramLoadedEvent?.Invoke();
         }
         public async Task LoadMainSceneAsync(CancellationToken cancellationToken) {
             Release.LogFormat( "Load: MainScene" );
             using (Lock.Enter()) {
-                OnMainSceneLoadingEvent?.Invoke();
+                Application.SetMainSceneLoading();
                 {
                     if (Application.IsGameRunning) Application.StopGame();
                     await UnloadGameSceneInternalAsync( cancellationToken );
                     await UnloadWorldSceneInternalAsync( cancellationToken );
                     await LoadMainSceneInternalAsync( cancellationToken );
                 }
-                OnMainSceneLoadedEvent?.Invoke();
+                Application.SetMainSceneLoaded();
             }
         }
         public async Task LoadGameSceneAsync(GameDesc gameDesc, PlayerDesc playerDesc, CancellationToken cancellationToken) {
             Release.LogFormat( "Load: GameScene" );
             using (Lock.Enter()) {
-                OnGameSceneLoadingEvent?.Invoke();
+                Application.SetGameSceneLoading();
                 {
-                    Application.SetGameLoading();
                     await Task.Delay( 3_000 );
                     await LoadWorldSceneInternalAsync( gameDesc.World, cancellationToken );
                     await UnloadMainSceneInternalAsync( cancellationToken );
                     await LoadGameSceneInternalAsync( gameDesc, playerDesc, cancellationToken );
                     Application.StartGame( gameDesc, playerDesc );
                 }
-                OnGameSceneLoadedEvent?.Invoke();
+                Application.SetGameSceneLoaded();
             }
+        }
+
+        // UnloadScene
+        private async Task UnloadMainSceneAsync(CancellationToken cancellationToken) {
+            await UnloadMainSceneInternalAsync( cancellationToken );
+        }
+        private async Task UnloadGameSceneAsync(CancellationToken cancellationToken) {
+            if (Application.IsGameRunning) Application.StopGame();
+            await UnloadGameSceneInternalAsync( cancellationToken );
+            await UnloadWorldSceneInternalAsync( cancellationToken );
         }
 
         // Quit
@@ -105,7 +94,7 @@ namespace Project.UI {
         }
         private bool OnQuit() {
             Release.Log( "OnQuit" );
-            if (IsMainSceneLoaded || IsGameSceneLoaded || IsWorldSceneLoaded) {
+            if (mainSceneHandle.IsValid() || gameSceneHandle.IsValid() || worldSceneHandle.IsValid()) {
                 OnQuitAsync();
                 return false;
             }
@@ -113,12 +102,12 @@ namespace Project.UI {
         }
         private async void OnQuitAsync() {
             using (Lock.Enter()) {
+                Application.SetQuitting();
                 {
-                    if (Application.IsGameRunning) Application.StopGame();
-                    await UnloadMainSceneInternalAsync( default );
-                    await UnloadGameSceneInternalAsync( default );
-                    await UnloadWorldSceneInternalAsync( default );
+                    await UnloadMainSceneAsync( default );
+                    await UnloadGameSceneAsync( default );
                 }
+                Application.SetQuited();
 #if UNITY_EDITOR
                 EditorApplication.ExitPlaymode();
 #else
