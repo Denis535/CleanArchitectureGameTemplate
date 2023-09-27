@@ -47,6 +47,9 @@ namespace Project.UI {
                     this.AttachWidget( UIWidgetFactory.GameWidget() );
                 }
             }
+            if (Widget is MainWidget mainWidget) {
+                mainWidget.Update();
+            }
             if (Widget is GameWidget gameWidget) {
                 gameWidget.Update();
             }

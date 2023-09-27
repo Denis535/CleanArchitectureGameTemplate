@@ -47,17 +47,17 @@ namespace Project.UI.MainScreen {
         }
 
         // OnDescendantAttach
-        public override void OnBeforeDescendantAttach(UIWidgetBase widget) {
-            base.OnBeforeDescendantAttach( widget );
+        public override void OnBeforeDescendantAttach(UIWidgetBase descendant) {
+            base.OnBeforeDescendantAttach( descendant );
         }
-        public override void OnAfterDescendantAttach(UIWidgetBase widget) {
-            base.OnAfterDescendantAttach( widget );
+        public override void OnAfterDescendantAttach(UIWidgetBase descendant) {
+            base.OnAfterDescendantAttach( descendant );
         }
-        public override void OnBeforeDescendantDetach(UIWidgetBase widget) {
-            base.OnBeforeDescendantDetach( widget );
+        public override void OnBeforeDescendantDetach(UIWidgetBase descendant) {
+            base.OnBeforeDescendantDetach( descendant );
         }
-        public override void OnAfterDescendantDetach(UIWidgetBase widget) {
-            if (widget is JoinGameWidget2 child) {
+        public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
+            if (descendant is JoinGameWidget2 child) {
                 View.Game.GameName.Value = child.View.Game.GameName.Value;
                 View.Game.GameMode.As<GameMode>().ValueChoices = child.View.Game.GameMode.As<GameMode>().ValueChoices;
                 View.Game.GameWorld.As<GameWorld>().ValueChoices = child.View.Game.GameWorld.As<GameWorld>().ValueChoices;
@@ -65,7 +65,7 @@ namespace Project.UI.MainScreen {
                 View.Player.PlayerName.Value = child.View.Player.PlayerName.Value;
                 View.Player.PlayerRole.Value = child.View.Player.PlayerRole.Value;
             }
-            base.OnAfterDescendantDetach( widget );
+            base.OnAfterDescendantDetach( descendant );
         }
 
         // Helpers

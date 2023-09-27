@@ -48,17 +48,17 @@ namespace Project.UI.MainScreen {
         }
 
         // OnDescendantAttach
-        public override void OnBeforeDescendantAttach(UIWidgetBase widget) {
-            base.OnBeforeDescendantAttach( widget );
+        public override void OnBeforeDescendantAttach(UIWidgetBase descendant) {
+            base.OnBeforeDescendantAttach( descendant );
         }
-        public override void OnAfterDescendantAttach(UIWidgetBase widget) {
-            base.OnAfterDescendantAttach( widget );
+        public override void OnAfterDescendantAttach(UIWidgetBase descendant) {
+            base.OnAfterDescendantAttach( descendant );
         }
-        public override void OnBeforeDescendantDetach(UIWidgetBase widget) {
-            base.OnBeforeDescendantDetach( widget );
+        public override void OnBeforeDescendantDetach(UIWidgetBase descendant) {
+            base.OnBeforeDescendantDetach( descendant );
         }
-        public override void OnAfterDescendantDetach(UIWidgetBase widget) {
-            base.OnAfterDescendantDetach( widget );
+        public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
+            base.OnAfterDescendantDetach( descendant );
         }
 
         // Helpers
