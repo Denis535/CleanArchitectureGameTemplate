@@ -21,6 +21,21 @@ namespace Project.UI {
             base.Awake();
             Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
+            //Application.OnAppStateChangeEvent += state => {
+            //    if (state is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.GameSceneLoading or AppState.GameSceneUnloading) {
+            //        if (Widget is not MainWidget) {
+            //            Widget?.DetachSelf();
+            //            this.AttachWidget( UIWidgetFactory.MainWidget() );
+            //        }
+            //    } else if (state is AppState.GameSceneLoaded) {
+            //        if (Widget is not GameWidget) {
+            //            Widget?.DetachSelf();
+            //            this.AttachWidget( UIWidgetFactory.GameWidget() );
+            //        }
+            //    } else {
+            //        Widget?.DetachSelf();
+            //    }
+            //};
             View = UIViewBase.Create<UIScreenView>();
         }
         public new void OnDestroy() {
@@ -35,12 +50,12 @@ namespace Project.UI {
 #if UNITY_EDITOR
             AddViewIfNeeded( Document, View );
 #endif
-            if (Application.IsMainSceneLoading || Application.IsMainSceneLoaded || Application.IsMainSceneUnloading || Application.IsGameSceneLoading || Application.IsGameSceneUnloading) {
+            if (Application.AppState is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.GameSceneLoading or AppState.GameSceneUnloading) {
                 if (Widget is not MainWidget) {
                     Widget?.DetachSelf();
                     this.AttachWidget( UIWidgetFactory.MainWidget() );
                 }
-            } else if (Application.IsGameSceneLoaded) {
+            } else if (Application.AppState is AppState.GameSceneLoaded) {
                 if (Widget is not GameWidget) {
                     Widget?.DetachSelf();
                     this.AttachWidget( UIWidgetFactory.GameWidget() );

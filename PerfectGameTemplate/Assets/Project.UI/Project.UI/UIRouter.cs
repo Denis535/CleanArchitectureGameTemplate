@@ -50,14 +50,15 @@ namespace Project.UI {
             Release.LogFormat( "LoadMainScene" );
             using (Lock.Enter()) {
                 if (Application.IsGameSceneLoaded) {
-                    // Unload
+                    // StopGame
                     Application.StopGame();
+                    // UnloadGameScene
                     Application.SetGameSceneUnloading();
                     await UnloadGameSceneInternalAsync( cancellationToken );
                     await UnloadWorldSceneInternalAsync( cancellationToken );
                 }
                 {
-                    // Load
+                    // LoadMainScene
                     Application.SetMainSceneLoading();
                     await LoadMainSceneInternalAsync( cancellationToken );
                     Application.SetMainSceneLoaded();
@@ -68,17 +69,18 @@ namespace Project.UI {
             Release.LogFormat( "LoadGameScene, {0}, {1}", gameDesc, playerDesc );
             using (Lock.Enter()) {
                 if (Application.IsMainSceneLoaded) {
-                    // Unload
+                    // UnloadMainScene
                     Application.SetMainSceneUnloading();
                     await UnloadMainSceneInternalAsync( cancellationToken );
                 }
                 {
-                    // Load
+                    // LoadGameScene
                     Application.SetGameSceneLoading();
                     await Task.Delay( 3_000 );
                     await LoadWorldSceneInternalAsync( gameDesc.World, cancellationToken );
                     await LoadGameSceneInternalAsync( gameDesc, playerDesc, cancellationToken );
                     Application.SetGameSceneLoaded();
+                    // StartGame
                     Application.StartGame( gameDesc, playerDesc );
                 }
             }

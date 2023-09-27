@@ -23,6 +23,9 @@ namespace Project.App {
         public GameState GameState { get; private set; }
         public bool IsGameRunning => GameState == GameState.Running;
         public bool IsGameRunningAndPaused => GameState == GameState.RunningAndPaused;
+        // OnEvent
+        public event Action<AppState>? OnAppStateChangeEvent;
+        public event Action<GameState>? OnGameStateChangeEvent;
 
         // Awake
         public new void Awake() {
@@ -36,63 +39,75 @@ namespace Project.App {
         public void SetMainSceneLoading() {
             Assert.Operation.Message( $"AppState {AppState} is invalid" ).Valid( AppState is AppState.None or AppState.GameSceneUnloading );
             AppState = AppState.MainSceneLoading;
+            OnAppStateChangeEvent?.Invoke( AppState );
         }
         public void SetMainSceneLoaded() {
             Assert.Operation.Message( $"AppState {AppState} is invalid" ).Valid( AppState is AppState.MainSceneLoading );
             AppState = AppState.MainSceneLoaded;
+            OnAppStateChangeEvent?.Invoke( AppState );
         }
         public void SetMainSceneUnloading() {
             Assert.Operation.Message( $"AppState {AppState} is invalid" ).Valid( AppState is AppState.MainSceneLoaded );
             AppState = AppState.MainSceneUnloading;
+            OnAppStateChangeEvent?.Invoke( AppState );
         }
         // AppState
         public void SetGameSceneLoading() {
             Assert.Operation.Message( $"AppState {AppState} is invalid" ).Valid( AppState is AppState.None or AppState.MainSceneUnloading );
             AppState = AppState.GameSceneLoading;
+            OnAppStateChangeEvent?.Invoke( AppState );
         }
         public void SetGameSceneLoaded() {
             Assert.Operation.Message( $"AppState {AppState} is invalid" ).Valid( AppState is AppState.GameSceneLoading );
             AppState = AppState.GameSceneLoaded;
+            OnAppStateChangeEvent?.Invoke( AppState );
         }
         public void SetGameSceneUnloading() {
             Assert.Operation.Message( $"AppState {AppState} is invalid" ).Valid( AppState is AppState.GameSceneLoaded );
             AppState = AppState.GameSceneUnloading;
+            OnAppStateChangeEvent?.Invoke( AppState );
         }
         // AppState
         public void SetQuitting() {
             Assert.Operation.Message( $"AppState {AppState} is invalid" ).Valid( AppState is AppState.MainSceneLoaded );
             AppState = AppState.Quitting;
+            OnAppStateChangeEvent?.Invoke( AppState );
         }
         public void SetQuited() {
             Assert.Operation.Message( $"AppState {AppState} is invalid" ).Valid( AppState is AppState.Quitting );
             AppState = AppState.Quited;
+            OnAppStateChangeEvent?.Invoke( AppState );
         }
 
         // GameState
         public void StartGame(GameDesc gameDesc, PlayerDesc playerDesc) {
             Assert.Operation.Message( $"AppState {AppState} is invalid" ).Valid( AppState is AppState.GameSceneLoaded );
             Assert.Operation.Message( $"GameState {GameState} is invalid" ).Valid( GameState is GameState.None );
-            GameState = GameState.Running;
             Cursor.lockState = CursorLockMode.Locked;
             //var game = GameObject2.RequireAnyObjectByType<GameBase>( FindObjectsInactive.Exclude );
+            GameState = GameState.Running;
+            OnGameStateChangeEvent?.Invoke( GameState );
         }
         public void PauseGame() {
             Assert.Operation.Message( $"AppState {AppState} is invalid" ).Valid( AppState is AppState.GameSceneLoaded );
             Assert.Operation.Message( $"GameState {GameState} is invalid" ).Valid( GameState is GameState.Running );
-            GameState = GameState.RunningAndPaused;
             Cursor.lockState = CursorLockMode.None;
+            GameState = GameState.RunningAndPaused;
+            OnGameStateChangeEvent?.Invoke( GameState );
         }
         public void UnPauseGame() {
             Assert.Operation.Message( $"AppState {AppState} is invalid" ).Valid( AppState is AppState.GameSceneLoaded );
             Assert.Operation.Message( $"GameState {GameState} is invalid" ).Valid( GameState is GameState.RunningAndPaused );
-            GameState = GameState.Running;
             Cursor.lockState = CursorLockMode.Locked;
+            GameState = GameState.Running;
+            OnGameStateChangeEvent?.Invoke( GameState );
         }
         public void StopGame() {
             Assert.Operation.Message( $"AppState {AppState} is invalid" ).Valid( AppState is AppState.GameSceneLoaded );
             Assert.Operation.Message( $"GameState {GameState} is invalid" ).Valid( GameState is GameState.Running or GameState.RunningAndPaused );
-            GameState = GameState.None;
             Cursor.lockState = CursorLockMode.None;
+            GameState = GameState.None;
+            OnGameStateChangeEvent?.Invoke( GameState );
         }
 
     }
