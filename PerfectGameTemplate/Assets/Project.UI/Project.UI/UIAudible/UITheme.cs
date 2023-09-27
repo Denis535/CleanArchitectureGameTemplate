@@ -40,6 +40,13 @@ namespace Project.UI {
         public void Start() {
         }
         public void Update() {
+            if (Application.IsMainSceneLoading || Application.IsMainSceneLoaded || Application.IsMainSceneUnloading || Application.IsGameSceneLoading || Application.IsGameSceneUnloading) {
+                
+            } else if (Application.IsGameSceneLoaded) {
+                
+            } else {
+                
+            }
         }
 
         // Helpers

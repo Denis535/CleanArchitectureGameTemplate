@@ -63,6 +63,9 @@ namespace Project {
                 Assert.Object.Message( $"Object {Application} must be awakened" ).Valid( Application.didAwake );
                 return Application;
             }
+            if (type == typeof( Camera )) {
+                return Camera.main;
+            }
             if (type == typeof( Globals )) {
                 return Globals;
             }

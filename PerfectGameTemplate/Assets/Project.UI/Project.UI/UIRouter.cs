@@ -41,13 +41,13 @@ namespace Project.UI {
 
         // LoadScene
         public static async Task LoadProgramAsync(CancellationToken cancellationToken) {
-            Release.LogFormat( "Load: Program" );
+            Release.LogFormat( "LoadProgram" );
             {
                 await LoadProgramInternalAsync( cancellationToken );
             }
         }
         public async Task LoadMainSceneAsync(CancellationToken cancellationToken) {
-            Release.LogFormat( "Load: MainScene" );
+            Release.LogFormat( "LoadMainScene" );
             using (Lock.Enter()) {
                 if (Application.IsGameSceneLoaded) {
                     // Unload
@@ -65,7 +65,7 @@ namespace Project.UI {
             }
         }
         public async Task LoadGameSceneAsync(GameDesc gameDesc, PlayerDesc playerDesc, CancellationToken cancellationToken) {
-            Release.LogFormat( "Load: GameScene, {0}, {1}", gameDesc, playerDesc );
+            Release.LogFormat( "LoadGameScene, {0}, {1}", gameDesc, playerDesc );
             using (Lock.Enter()) {
                 if (Application.IsMainSceneLoaded) {
                     // Unload
@@ -92,6 +92,7 @@ namespace Project.UI {
                 if (Application.IsMainSceneLoaded) {
                     await UnloadMainSceneInternalAsync( default );
                 }
+                await UnloadProgramInternalAsync( default );
                 Application.SetQuited();
             }
             EditorApplication.ExitPlaymode();
@@ -99,7 +100,7 @@ namespace Project.UI {
 #else
         // Quit
         public void Quit() {
-            Release.Log( "Quit: " + Application.IsQuited );
+            Release.Log( "Quit" );
             UnityEngine.Application.Quit();
         }
         private bool OnQuit() {
@@ -116,9 +117,10 @@ namespace Project.UI {
                 if (Application.IsMainSceneLoaded) {
                     await UnloadMainSceneInternalAsync( default );
                 }
+                await UnloadProgramInternalAsync( default );
                 Application.SetQuited();
             }
-            Quit(); // todo: it doesn't work (probably this is Unity bug)
+            UnityEngine.Application.Quit();
         }
 #endif
 
@@ -142,6 +144,12 @@ namespace Project.UI {
             _ = await worldSceneHandle.GetResultAsync( cancellationToken );
         }
         // Helpers/UnloadScene
+        private static async Task UnloadProgramInternalAsync(CancellationToken cancellationToken) {
+            if (programHandle.IsValid()) {
+                await Addressables2.UnloadSceneAsync( programHandle ).WaitAsync( cancellationToken );
+                programHandle = default;
+            }
+        }
         private async Task UnloadMainSceneInternalAsync(CancellationToken cancellationToken) {
             if (mainSceneHandle.IsValid()) {
                 await Addressables2.UnloadSceneAsync( mainSceneHandle ).WaitAsync( cancellationToken );

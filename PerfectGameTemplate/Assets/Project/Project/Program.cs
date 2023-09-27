@@ -9,6 +9,7 @@ namespace Project {
     using UnityEngine.Framework;
     using UnityEngine.UIElements;
 
+    // Ideally leave this blank
     public class Program : ProgramBase {
 
         // OnLoad

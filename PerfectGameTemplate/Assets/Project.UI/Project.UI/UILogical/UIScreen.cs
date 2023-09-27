@@ -40,8 +40,7 @@ namespace Project.UI {
                     Widget?.DetachSelf();
                     this.AttachWidget( UIWidgetFactory.MainWidget() );
                 }
-            } else
-            if (Application.IsGameSceneLoaded) {
+            } else if (Application.IsGameSceneLoaded) {
                 if (Widget is not GameWidget) {
                     Widget?.DetachSelf();
                     this.AttachWidget( UIWidgetFactory.GameWidget() );
@@ -51,7 +50,7 @@ namespace Project.UI {
             }
             if (Widget is MainWidget mainWidget) {
                 mainWidget.Update();
-            }
+            } else
             if (Widget is GameWidget gameWidget) {
                 gameWidget.Update();
             }
