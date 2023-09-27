@@ -35,7 +35,7 @@ namespace Project.UI {
 #if UNITY_EDITOR
             AddViewIfNeeded( Document, View );
 #endif
-            if (Application.IsMainSceneLoaded) {
+            if (Application.IsMainSceneLoading || Application.IsGameSceneUnloading) {
                 if (Widget is not MainWidget) {
                     Widget?.DetachSelf();
                     this.AttachWidget( UIWidgetFactory.MainWidget() );
