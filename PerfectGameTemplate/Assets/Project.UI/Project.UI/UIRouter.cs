@@ -47,12 +47,14 @@ namespace Project.UI {
             Release.LogFormat( "Load: MainScene" );
             using (Lock.Enter()) {
                 if (Application.IsGameSceneLoaded) {
+                    // Unload
                     Application.StopGame();
                     Application.SetGameSceneUnloading();
                     await UnloadGameSceneInternalAsync( cancellationToken );
                     await UnloadWorldSceneInternalAsync( cancellationToken );
                 }
                 {
+                    // Load
                     Application.SetMainSceneLoading();
                     await LoadMainSceneInternalAsync( cancellationToken );
                     Application.SetMainSceneLoaded();
@@ -63,10 +65,12 @@ namespace Project.UI {
             Release.LogFormat( "Load: GameScene" );
             using (Lock.Enter()) {
                 if (Application.IsMainSceneLoaded) {
+                    // Unload  
                     Application.SetMainSceneUnloading();
                     await UnloadMainSceneInternalAsync( cancellationToken );
                 }
                 {
+                    // Load
                     Application.SetGameSceneLoading();
                     await Task.Delay( 3_000 );
                     await LoadWorldSceneInternalAsync( gameDesc.World, cancellationToken );
@@ -97,25 +101,23 @@ namespace Project.UI {
             return true;
         }
         private async void OnQuitAsync() {
+            Application.SetQuitting();
             using (Lock.Enter()) {
-                Application.SetQuitting();
-                {
-                    if (Application.IsMainSceneLoaded) {
-                        await UnloadMainSceneInternalAsync( default );
-                    }
-                    if (Application.IsGameSceneLoaded) {
-                        Application.StopGame();
-                        await UnloadGameSceneInternalAsync( default );
-                        await UnloadWorldSceneInternalAsync( default );
-                    }
+                if (Application.IsMainSceneLoaded) {
+                    await UnloadMainSceneInternalAsync( default );
                 }
-                Application.SetQuited();
-#if UNITY_EDITOR
-                EditorApplication.ExitPlaymode();
-#else
-                UnityEngine.Application.Quit();
-#endif
+                if (Application.IsGameSceneLoaded) {
+                    Application.StopGame();
+                    await UnloadGameSceneInternalAsync( default );
+                    await UnloadWorldSceneInternalAsync( default );
+                }
             }
+            Application.SetQuited();
+#if UNITY_EDITOR
+            EditorApplication.ExitPlaymode();
+#else
+            UnityEngine.Application.Quit();
+#endif
         }
 
         // Helpers/LoadScene
