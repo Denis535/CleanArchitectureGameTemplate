@@ -1,124 +1,120 @@
 #nullable enable
-#if !UNITY_EDITOR
-#define NOT_UNITY_EDITOR
-#endif
 namespace UnityEngine {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using UnityEngine;
 
     public static class Release {
 
         // Log
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void Log(object message) {
+            if (Application.isEditor) return;
             Debug.Log( message );
         }
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void Log(object message, Object context) {
+            if (Application.isEditor) return;
             Debug.Log( message, context );
         }
         // Log
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void LogFormat(string format, params object[] args) {
+            if (Application.isEditor) return;
             Debug.LogFormat( format, args );
         }
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void LogFormat(Object context, string format, params object[] args) {
+            if (Application.isEditor) return;
             Debug.LogFormat( context, format, args );
         }
 
         // Log/Warning
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void LogWarning(object message) {
+            if (Application.isEditor) return;
             Debug.LogWarning( message );
         }
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void LogWarning(object message, Object context) {
+            if (Application.isEditor) return;
             Debug.LogWarning( message, context );
         }
         // Log/Warning
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void LogWarningFormat(string format, params object[] args) {
+            if (Application.isEditor) return;
             Debug.LogWarningFormat( format, args );
         }
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void LogWarningFormat(Object context, string format, params object[] args) {
+            if (Application.isEditor) return;
             Debug.LogWarningFormat( context, format, args );
         }
 
         // Log/Error
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void LogError(object message) {
+            if (Application.isEditor) return;
             Debug.LogError( message );
         }
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void LogError(object message, Object context) {
+            if (Application.isEditor) return;
             Debug.LogError( message, context );
         }
         // Log/Error
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void LogErrorFormat(string format, params object[] args) {
+            if (Application.isEditor) return;
             Debug.LogErrorFormat( format, args );
         }
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void LogErrorFormat(Object context, string format, params object[] args) {
+            if (Application.isEditor) return;
             Debug.LogErrorFormat( context, format, args );
         }
 
         // Log/Assertion
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void LogAssertion(object message) {
+            if (Application.isEditor) return;
             Debug.LogAssertion( message );
         }
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void LogAssertion(object message, Object context) {
+            if (Application.isEditor) return;
             Debug.LogAssertion( message, context );
         }
         // Log/Assertion
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void LogAssertionFormat(string format, params object[] args) {
+            if (Application.isEditor) return;
             Debug.LogAssertionFormat( format, args );
         }
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void LogAssertionFormat(Object context, string format, params object[] args) {
+            if (Application.isEditor) return;
             Debug.LogAssertionFormat( context, format, args );
         }
 
         // Assert
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void Assert(bool condition) {
+            if (Application.isEditor) return;
             Debug.Assert( condition );
         }
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void Assert(bool condition, Object context) {
+            if (Application.isEditor) return;
             Debug.Assert( condition, context );
         }
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void Assert(bool condition, object message) {
+            if (Application.isEditor) return;
             Debug.Assert( condition, message );
         }
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void Assert(bool condition, string message) {
+            if (Application.isEditor) return;
             Debug.Assert( condition, message );
         }
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void Assert(bool condition, object message, Object context) {
+            if (Application.isEditor) return;
             Debug.Assert( condition, message, context );
         }
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void Assert(bool condition, string message, Object context) {
+            if (Application.isEditor) return;
             Debug.Assert( condition, message, context );
         }
         // Assert
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void AssertFormat(bool condition, string format, params object[] args) {
+            if (Application.isEditor) return;
             Debug.AssertFormat( condition, format, args );
         }
-        [Conditional( "NOT_UNITY_EDITOR" )]
         public static void AssertFormat(bool condition, Object context, string format, params object[] args) {
+            if (Application.isEditor) return;
             Debug.AssertFormat( condition, context, format, args );
         }
 

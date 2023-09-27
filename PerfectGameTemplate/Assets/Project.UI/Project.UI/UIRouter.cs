@@ -31,7 +31,9 @@ namespace Project.UI {
         public new void Awake() {
             base.Awake();
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
+#if !UNITY_EDITOR
             UnityEngine.Application.wantsToQuit += OnQuit;
+#endif
         }
         public new void OnDestroy() {
             base.OnDestroy();
@@ -66,7 +68,7 @@ namespace Project.UI {
             Release.LogFormat( "Load: GameScene, {0}, {1}", gameDesc, playerDesc );
             using (Lock.Enter()) {
                 if (Application.IsMainSceneLoaded) {
-                    // Unload  
+                    // Unload
                     Application.SetMainSceneUnloading();
                     await UnloadMainSceneInternalAsync( cancellationToken );
                 }
@@ -82,13 +84,23 @@ namespace Project.UI {
             }
         }
 
+#if UNITY_EDITOR
+        // Quit
+        public async void Quit() {
+            using (Lock.Enter()) {
+                Application.SetQuitting();
+                if (Application.IsMainSceneLoaded) {
+                    await UnloadMainSceneInternalAsync( default );
+                }
+                Application.SetQuited();
+            }
+            EditorApplication.ExitPlaymode();
+        }
+#else
         // Quit
         public void Quit() {
-#if UNITY_EDITOR
-            OnQuit();
-#else
+            Release.Log( "Quit: " + Application.IsQuited );
             UnityEngine.Application.Quit();
-#endif
         }
         private bool OnQuit() {
             Release.Log( "OnQuit: " + Application.IsQuited );
@@ -106,12 +118,9 @@ namespace Project.UI {
                 }
                 Application.SetQuited();
             }
-#if UNITY_EDITOR
-            EditorApplication.ExitPlaymode();
-#else
-            UnityEngine.Application.Quit();
-#endif
+            Quit(); // todo: it doesn't work (probably this is Unity bug)
         }
+#endif
 
         // Helpers/LoadScene
         private static async Task LoadProgramInternalAsync(CancellationToken cancellationToken) {
