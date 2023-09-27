@@ -60,7 +60,7 @@ namespace Project.App {
         }
         // AppState
         public void SetQuitting() {
-            Assert.Operation.Message( $"AppState {AppState} is invalid" ).Valid( AppState is AppState.MainSceneLoaded or AppState.GameSceneLoaded );
+            Assert.Operation.Message( $"AppState {AppState} is invalid" ).Valid( AppState is AppState.MainSceneLoaded );
             AppState = AppState.Quitting;
         }
         public void SetQuited() {

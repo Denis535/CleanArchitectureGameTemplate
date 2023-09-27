@@ -31,6 +31,7 @@ namespace Project.UI {
         public new void Awake() {
             base.Awake();
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
+            UnityEngine.Application.wantsToQuit += OnQuit;
         }
         public new void OnDestroy() {
             base.OnDestroy();
@@ -62,7 +63,7 @@ namespace Project.UI {
             }
         }
         public async Task LoadGameSceneAsync(GameDesc gameDesc, PlayerDesc playerDesc, CancellationToken cancellationToken) {
-            Release.LogFormat( "Load: GameScene" );
+            Release.LogFormat( "Load: GameScene, {0}, {1}", gameDesc, playerDesc );
             using (Lock.Enter()) {
                 if (Application.IsMainSceneLoaded) {
                     // Unload  
@@ -86,14 +87,11 @@ namespace Project.UI {
 #if UNITY_EDITOR
             OnQuit();
 #else
-            Release.Log( "Quit" );
-            UnityEngine.Application.wantsToQuit -= OnQuit;
-            UnityEngine.Application.wantsToQuit += OnQuit;
             UnityEngine.Application.Quit();
 #endif
         }
         private bool OnQuit() {
-            Release.Log( "OnQuit" );
+            Release.Log( "OnQuit: " + Application.IsQuited );
             if (!Application.IsQuited) {
                 OnQuitAsync();
                 return false;
@@ -101,18 +99,13 @@ namespace Project.UI {
             return true;
         }
         private async void OnQuitAsync() {
-            Application.SetQuitting();
             using (Lock.Enter()) {
+                Application.SetQuitting();
                 if (Application.IsMainSceneLoaded) {
                     await UnloadMainSceneInternalAsync( default );
                 }
-                if (Application.IsGameSceneLoaded) {
-                    Application.StopGame();
-                    await UnloadGameSceneInternalAsync( default );
-                    await UnloadWorldSceneInternalAsync( default );
-                }
+                Application.SetQuited();
             }
-            Application.SetQuited();
 #if UNITY_EDITOR
             EditorApplication.ExitPlaymode();
 #else

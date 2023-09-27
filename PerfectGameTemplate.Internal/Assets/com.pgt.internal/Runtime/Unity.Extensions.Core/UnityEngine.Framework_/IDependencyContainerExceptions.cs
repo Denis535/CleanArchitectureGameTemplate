@@ -57,5 +57,10 @@ namespace UnityEngine.Framework {
             return IDependencyContainer.Instance;
         }
 
+        // Misc
+        public static IDependencyContainer GetDependencyContainer(this MonoBehaviour monoBehaviour) {
+            return IDependencyContainer.Instance;
+        }
+
     }
 }

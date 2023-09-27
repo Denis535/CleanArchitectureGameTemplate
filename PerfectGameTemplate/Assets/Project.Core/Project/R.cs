@@ -9,6 +9,7 @@ namespace Project {
                 public const string @AudioMixer__Sfx = "UnityEngine.Audio/AudioMixer.mixer[Sfx]";
                 public const string @AudioMixer__Snapshot = "UnityEngine.Audio/AudioMixer.mixer[Snapshot]";
             }
+            public const string @LightingSettings = "UnityEngine/LightingSettings.lighting";
         }
         public static class @Project {
             public static class @UI {
