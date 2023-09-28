@@ -1,4 +1,4 @@
-namespace Project {
+namespace UnityEngine.AddressableAssets {
     public static class @R {
         public static class @UnityEngine {
             public static class @Audio {

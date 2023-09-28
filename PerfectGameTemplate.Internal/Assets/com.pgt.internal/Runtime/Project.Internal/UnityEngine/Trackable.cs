@@ -3,6 +3,7 @@ namespace UnityEngine {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using UnityEngine;
 
     public struct Trackable<T> {
@@ -32,7 +33,7 @@ namespace UnityEngine {
             }
             return false;
         }
-        public bool IsFresh(out T? value) {
+        public bool IsFresh([MaybeNullWhen( false )] out T value) {
             if (frame == Time.frameCount) {
                 value = this.value;
                 return true;

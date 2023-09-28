@@ -13,8 +13,8 @@ namespace Project.Tools {
 
         // Build/Pre
         public override void PreBuild() {
-            new ResourcesSourceGenerator().Generate( "Assets/Project.Core/Project/R.cs", "Project", "R", AddressableAssetSettingsDefaultObject.Settings );
-            new LabelsSourceGenerator().Generate( "Assets/Project.Core/Project/L.cs", "Project", "L", AddressableAssetSettingsDefaultObject.Settings );
+            new ResourcesSourceGenerator().Generate( "Assets/Project.Core/UnityEngine.AddressableAssets/R.cs", "UnityEngine.AddressableAssets", "R", AddressableAssetSettingsDefaultObject.Settings );
+            new LabelsSourceGenerator().Generate( "Assets/Project.Core/UnityEngine.AddressableAssets/L.cs", "UnityEngine.AddressableAssets", "L", AddressableAssetSettingsDefaultObject.Settings );
             new ProjectConfigurator2().Configure();
             new ProjectAnalyzer2().Analyze();
         }
