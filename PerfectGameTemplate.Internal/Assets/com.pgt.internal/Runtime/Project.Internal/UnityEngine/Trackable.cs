@@ -58,7 +58,6 @@ namespace UnityEngine {
 
         // SetValue
         public void SetValue(T value) {
-            Assert.Operation.Message( $"Value is already set in this frame" ).Valid( Frame != Time.frameCount );
             this.Value = value;
             this.Frame = Time.frameCount;
         }
