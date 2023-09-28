@@ -91,9 +91,7 @@ namespace Project.UI {
         public async void Quit() {
             using (Lock.Enter()) {
                 Application.SetQuitting();
-                if (Application.IsMainSceneLoaded) {
-                    await UnloadMainSceneInternalAsync( default );
-                }
+                await UnloadMainSceneInternalAsync( default );
                 await UnloadProgramInternalAsync( default );
                 Application.SetQuited();
             }
