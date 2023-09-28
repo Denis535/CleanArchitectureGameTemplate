@@ -35,12 +35,12 @@ namespace Project.UI {
 #if UNITY_EDITOR
             AddViewIfNeeded( Document, View );
 #endif
-            if (Application.AppState is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.GameSceneLoading or AppState.GameSceneUnloading) {
+            if (Application.AppState.Value is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.GameSceneLoading or AppState.GameSceneUnloading) {
                 if (Widget is not MainWidget) {
                     Widget?.DetachSelf();
                     this.AttachWidget( UIWidgetFactory.MainWidget() );
                 }
-            } else if (Application.AppState is AppState.GameSceneLoaded) {
+            } else if (Application.AppState.Value is AppState.GameSceneLoaded) {
                 if (Widget is not GameWidget) {
                     Widget?.DetachSelf();
                     this.AttachWidget( UIWidgetFactory.GameWidget() );
@@ -48,6 +48,7 @@ namespace Project.UI {
             } else {
                 Widget?.DetachSelf();
             }
+
             if (Widget is MainWidget mainWidget) {
                 mainWidget.Update();
             } else

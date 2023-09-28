@@ -47,7 +47,7 @@ namespace UnityEngine.AddressableAssets {
                         public const string @MainWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget/MainWidgetView.uxml[inlineStyle]";
                     }
                     public static class @Music {
-                        public const string @Theme = "Project.UI.MainScreen/Music/Theme @Akira Yamaoka — Never Forgive Me, Never Forget Me.flac";
+                        public const string @Theme = "Project.UI.MainScreen/Music/Theme #Sylvain Texier — The Walk (Piano Noir Rework).mp3";
                     }
                 }
                 public static class @GameScreen {
