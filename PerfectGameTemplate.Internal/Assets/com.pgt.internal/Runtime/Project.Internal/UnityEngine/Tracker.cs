@@ -7,38 +7,34 @@ namespace UnityEngine {
 
     public class Tracker<T, TObj> {
 
-        private readonly Func<TObj, T> valueGetter;
-        private bool hasPrevValue = false;
-        private T prevValue = default!;
+        private Func<TObj, T> ValueGetter { get; }
+        private bool HasPrevValue { get; set; } = false;
+        private T PrevValue { get; set; } = default!;
 
         // Constructor
         public Tracker(Func<TObj, T> valueGetter) {
-            this.valueGetter = valueGetter;
+            ValueGetter = valueGetter;
         }
 
         // IsFresh
         public bool IsFresh(TObj @object) {
-            var newValue = valueGetter( @object );
-            if (IsFresh( newValue, hasPrevValue, prevValue )) {
-                hasPrevValue = true;
-                prevValue = newValue;
+            var newValue = ValueGetter( @object );
+            if (IsFresh( newValue, HasPrevValue, PrevValue )) {
+                (HasPrevValue, PrevValue) = (true, newValue);
                 return true;
             } else {
-                hasPrevValue = true;
-                prevValue = newValue;
+                (HasPrevValue, PrevValue) = (true, newValue);
                 return false;
             }
         }
         public bool IsFresh(TObj @object, out T value) {
-            var newValue = valueGetter( @object );
-            if (IsFresh( newValue, hasPrevValue, prevValue )) {
-                hasPrevValue = true;
-                prevValue = newValue;
+            var newValue = ValueGetter( @object );
+            if (IsFresh( newValue, HasPrevValue, PrevValue )) {
+                (HasPrevValue, PrevValue) = (true, newValue);
                 value = newValue;
                 return true;
             } else {
-                hasPrevValue = true;
-                prevValue = newValue;
+                (HasPrevValue, PrevValue) = (true, newValue);
                 value = newValue;
                 return false;
             }

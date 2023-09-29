@@ -8,68 +8,67 @@ namespace UnityEngine {
     public class Trackable<T> {
 
         private readonly TrackableSource<T> source;
-
-        public T Value {
-            get {
-                Assert.Object.Message( $"Trackable {this} must be initialized" ).Valid( source.Frame != -1 );
-                return source.Value;
-            }
-        }
+        public T Value => source.Value;
+        public bool IsFresh => source.IsFresh;
 
         // Constructor
         internal Trackable(TrackableSource<T> source) {
             this.source = source;
         }
 
-        // IsFresh
-        public bool IsFresh() {
-            Assert.Object.Message( $"Trackable {this} must be initialized" ).Valid( source.Frame != -1 );
-            if (source.Frame == Time.frameCount) {
-                return true;
-            }
-            return false;
-        }
-        public bool IsFresh(out T value) {
-            Assert.Object.Message( $"Trackable {this} must be initialized" ).Valid( source.Frame != -1 );
-            if (source.Frame == Time.frameCount) {
-                value = source.Value;
-                return true;
-            }
+        // Peek
+        public bool Peek(out T value) {
             value = source.Value;
-            return false;
+            return source.IsFresh;
+        }
+
+        // Consume
+        public bool Consume(out T value) {
+            value = source.Value;
+            var isFresh = source.IsFresh;
+            source.IsFresh = false;
+            return isFresh;
         }
 
         // Utils
         public override string ToString() {
-            return Value?.ToString() ?? "Null";
+            return "Trackable ({0}, {1})".Format( source.Value, source.IsFresh );
         }
 
     }
     public class TrackableSource<T> {
 
         internal T Value { get; private set; }
-        internal int Frame { get; private set; }
+        internal bool IsFresh { get; set; }
         public Trackable<T> Trackable { get; }
 
         // Constructor
-        public TrackableSource() {
-            this.Value = default!;
-            this.Frame = -1;
+        public TrackableSource(T value) {
+            Value = value;
+            IsFresh = true;
             Trackable = new Trackable<T>( this );
         }
 
         // SetValue
         public void SetValue(T value) {
-            // you should use it only within update
-            // todo: restrict use it from end of frame
-            Assert.Operation.Message( $"Value is already set in this frame" ).Valid( Frame != Time.frameCount );
-            this.Value = value;
-            this.Frame = Time.frameCount;
+            Assert.Operation.Message( $"Value is already set" ).Valid( !IsFresh );
+            Value = value;
+            IsFresh = true;
+        }
+
+        // TrySetValue
+        public bool TrySetValue(T value) {
+            if (!IsFresh) {
+                Value = value;
+                IsFresh = true;
+                return true;
+            }
+            return false;
         }
 
         // Utils
         public override string ToString() {
-            return Value?.ToString() ?? "Null";
+            return "TrackableSource ({0}, {1})".Format( Value, IsFresh );
         }
 
     }
