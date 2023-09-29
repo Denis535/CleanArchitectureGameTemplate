@@ -5,11 +5,13 @@ namespace UnityEngine {
     using System.Collections.Generic;
     using UnityEngine;
 
+    // One producer, one consumer
     public class Trackable<T> {
 
         private readonly TrackableSource<T> source;
+
         public T Value => source.Value;
-        public bool IsFresh => source.IsFresh;
+        public bool IsChanged => source.IsChanged;
 
         // Constructor
         internal Trackable(TrackableSource<T> source) {
@@ -19,48 +21,46 @@ namespace UnityEngine {
         // Peek
         public bool Peek(out T value) {
             value = source.Value;
-            return source.IsFresh;
+            return source.IsChanged;
         }
 
         // Consume
         public bool Consume(out T value) {
             value = source.Value;
-            var isFresh = source.IsFresh;
-            source.IsFresh = false;
-            return isFresh;
+            var isChanged = source.IsChanged;
+            source.IsChanged = false;
+            return isChanged;
         }
 
         // Utils
         public override string ToString() {
-            return "Trackable ({0}, {1})".Format( source.Value, source.IsFresh );
+            return "Trackable ({0}, {1})".Format( source.Value, source.IsChanged );
         }
 
     }
     public class TrackableSource<T> {
 
         internal T Value { get; private set; }
-        internal bool IsFresh { get; set; }
+        internal bool IsChanged { get; set; }
         public Trackable<T> Trackable { get; }
 
         // Constructor
         public TrackableSource(T value) {
             Value = value;
-            IsFresh = true;
+            IsChanged = true;
             Trackable = new Trackable<T>( this );
         }
 
         // SetValue
         public void SetValue(T value) {
-            Assert.Operation.Message( $"Value is already set" ).Valid( !IsFresh );
-            Value = value;
-            IsFresh = true;
+            Assert.Operation.Message( $"Value is already set" ).Valid( !IsChanged );
+            (Value, IsChanged) = (value, true);
         }
 
         // TrySetValue
         public bool TrySetValue(T value) {
-            if (!IsFresh) {
-                Value = value;
-                IsFresh = true;
+            if (!IsChanged) {
+                (Value, IsChanged) = (value, true);
                 return true;
             }
             return false;
@@ -68,7 +68,7 @@ namespace UnityEngine {
 
         // Utils
         public override string ToString() {
-            return "TrackableSource ({0}, {1})".Format( Value, IsFresh );
+            return "TrackableSource ({0}, {1})".Format( Value, IsChanged );
         }
 
     }

@@ -7,42 +7,55 @@ namespace UnityEngine {
 
     public class Tracker<T, TObj> {
 
-        private Func<TObj, T> ValueGetter { get; }
-        private bool HasPrevValue { get; set; } = false;
-        private T PrevValue { get; set; } = default!;
+        private Func<TObj, T> ValueSelector { get; }
+        private bool HasValue { get; set; }
+        private T Value { get; set; }
 
         // Constructor
-        public Tracker(Func<TObj, T> valueGetter) {
-            ValueGetter = valueGetter;
+        public Tracker(Func<TObj, T> valueSelector) {
+            ValueSelector = valueSelector;
+            HasValue = false;
+            Value = default!;
         }
 
-        // IsFresh
-        public bool IsFresh(TObj @object) {
-            var newValue = ValueGetter( @object );
-            if (IsFresh( newValue, HasPrevValue, PrevValue )) {
-                (HasPrevValue, PrevValue) = (true, newValue);
+        // IsChanged
+        public bool IsChanged(TObj @object) {
+            var newValue = ValueSelector( @object );
+            if (!HasValue || IsChanged( Value, newValue )) {
+                (HasValue, Value) = (true, newValue);
                 return true;
             } else {
-                (HasPrevValue, PrevValue) = (true, newValue);
                 return false;
             }
         }
-        public bool IsFresh(TObj @object, out T value) {
-            var newValue = ValueGetter( @object );
-            if (IsFresh( newValue, HasPrevValue, PrevValue )) {
-                (HasPrevValue, PrevValue) = (true, newValue);
-                value = newValue;
+        public bool IsChanged(TObj @object, out T value) {
+            var newValue = ValueSelector( @object );
+            if (!HasValue || IsChanged( Value, newValue )) {
+                (HasValue, Value) = (true, newValue);
+                value = Value;
                 return true;
             } else {
-                (HasPrevValue, PrevValue) = (true, newValue);
-                value = newValue;
+                value = Value;
+                return false;
+            }
+        }
+        public bool IsChanged(TObj @object, out T value, out bool hasPrevValue, out T prevValue) {
+            var newValue = ValueSelector( @object );
+            if (!HasValue || IsChanged( Value, newValue )) {
+                (hasPrevValue, prevValue) = (HasValue, Value);
+                (HasValue, Value) = (true, newValue);
+                value = Value;
+                return true;
+            } else {
+                (hasPrevValue, prevValue) = (HasValue, Value);
+                value = Value;
                 return false;
             }
         }
 
         // Helpers
-        private static bool IsFresh(T newValue, bool hasPrevValue, T prevValue) {
-            return !(hasPrevValue && EqualityComparer<T>.Default.Equals( newValue, prevValue ));
+        private static bool IsChanged(T value, T newValue) {
+            return !EqualityComparer<T>.Default.Equals( value, newValue );
         }
 
     }
