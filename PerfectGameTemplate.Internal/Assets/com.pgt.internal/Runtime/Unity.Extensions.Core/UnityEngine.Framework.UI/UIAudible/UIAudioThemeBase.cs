@@ -3,6 +3,7 @@ namespace UnityEngine.Framework.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using UnityEngine;
 
     public abstract class UIAudioThemeBase : MonoBehaviour {
@@ -46,6 +47,21 @@ namespace UnityEngine.Framework.UI {
         }
 
         // Helpers
+        protected static void Shuffle<T>(T[] array) {
+            for (int i = 0, j = array.Length; i < array.Length; i++, j--) {
+                var rnd = i + UnityEngine.Random.Range( 0, j );
+                (array[ i ], array[ rnd ]) = (array[ rnd ], array[ i ]);
+            }
+        }
+        protected static T[] GetShuffled<T>(T[] array) {
+            var random = new System.Random();
+            var result = array.ToArray();
+            for (int i = 0, j = result.Length; i < result.Length; i++, j--) {
+                var rnd = i + random.Next( 0, j );
+                (result[ i ], result[ rnd ]) = (result[ rnd ], result[ i ]);
+            }
+            return result;
+        }
         protected static T GetNextValue<T>(T[] array, T? value) {
             var index = array.IndexOf( value );
             if (index != -1) {
@@ -63,12 +79,6 @@ namespace UnityEngine.Framework.UI {
                 return array[ index ];
             }
             return array[ 0 ];
-        }
-        protected static void Shuffle<T>(T[] array) {
-            for (var i = 0; i < array.Length; i++) {
-                var i2 = i + UnityEngine.Random.Range( 0, array.Length - i );
-                (array[ i ], array[ i2 ]) = (array[ i2 ], array[ i ]);
-            }
         }
 
     }

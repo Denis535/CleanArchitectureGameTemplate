@@ -11,15 +11,14 @@ namespace Project.UI {
 
     public class UITheme : UIAudioThemeBase {
 
-        private readonly string[] MainThemes = new string[] {
-            R.Project.UI.MainScreen.Music.Theme
-        };
-        private readonly string[] GameThemes = new string[] {
+        private static readonly string[] MainThemes = GetShuffled( new string[] {
+            R.Project.UI.MainScreen.Music.Theme,
+        } );
+        private static readonly string[] GameThemes = GetShuffled( new string[] {
             R.Project.UI.GameScreen.Music.Theme_1,
             R.Project.UI.GameScreen.Music.Theme_2,
             R.Project.UI.GameScreen.Music.Theme_3,
-            R.Project.UI.GameScreen.Music.Theme_4,
-        };
+        } );
 
         // Globals
         private Application2 Application { get; set; } = default!;
@@ -43,8 +42,6 @@ namespace Project.UI {
         // Awake
         public new void Awake() {
             base.Awake();
-            Shuffle( MainThemes );
-            Shuffle( GameThemes );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
         }
         public new void OnDestroy() {
@@ -55,12 +52,18 @@ namespace Project.UI {
         public void Start() {
         }
         public void Update() {
-            if (StateTracker.IsChanged( this, out var state )) {
-                if (state == UIThemeState.None) {
-                } else if (state == UIThemeState.MainTheme) {
-                } else if (state == UIThemeState.GameTheme) {
-                }
-            }
+            //if (StateTracker.IsChanged( this, out var state )) {
+            //    switch (state) {
+            //        case UIThemeState.MainTheme:
+            //            var theme = await Addressables2.LoadAssetAsync<AudioClip>( GetNextValue( MainThemes, null ) ).GetResultAsync( default );
+            //            Play( theme );
+            //            break;
+            //        case UIThemeState.GameTheme:
+            //            break;
+            //        case UIThemeState.None:
+            //            break;
+            //    }
+            //}
         }
 
         // Helpers

@@ -52,14 +52,18 @@ namespace Project.UI {
             AddViewIfNeeded( Document, View );
 #endif
             if (StateTracker.IsChanged( this, out var state )) {
-                if (state == UIScreenState.None) {
-                    Widget?.DetachSelf();
-                } else if (state == UIScreenState.MainScreen) {
-                    Widget?.DetachSelf();
-                    this.AttachWidget( UIWidgetFactory.MainWidget() );
-                } else if (state == UIScreenState.GameScreen) {
-                    Widget?.DetachSelf();
-                    this.AttachWidget( UIWidgetFactory.GameWidget() );
+                switch (state) {
+                    case UIScreenState.MainScreen:
+                        Widget?.DetachSelf();
+                        this.AttachWidget( UIWidgetFactory.MainWidget() );
+                        break;
+                    case UIScreenState.GameScreen:
+                        Widget?.DetachSelf();
+                        this.AttachWidget( UIWidgetFactory.GameWidget() );
+                        break;
+                    case UIScreenState.None:
+                        Widget?.DetachSelf();
+                        break;
                 }
             }
             if (Widget is MainWidget mainWidget) {
