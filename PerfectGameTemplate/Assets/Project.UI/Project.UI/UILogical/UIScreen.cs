@@ -15,6 +15,19 @@ namespace Project.UI {
         // Globals
         private UIRouter Router { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
+        // UIScreenState
+        private UIScreenState State {
+            get {
+                if (Application.AppState is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.GameSceneLoading or AppState.GameSceneUnloading) {
+                    return UIScreenState.MainScreen;
+                }
+                if (Application.AppState is AppState.GameSceneLoaded) {
+                    return UIScreenState.GameScreen;
+                }
+                return UIScreenState.None;
+            }
+        }
+        private Tracker<UIScreenState, UIScreen> StateTracker { get; } = new Tracker<UIScreenState, UIScreen>( i => i.State );
 
         // Awake
         public new void Awake() {
@@ -35,18 +48,16 @@ namespace Project.UI {
 #if UNITY_EDITOR
             AddViewIfNeeded( Document, View );
 #endif
-            if (Application.AppState is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.GameSceneLoading or AppState.GameSceneUnloading) {
-                if (Widget is not MainWidget) {
+            if (StateTracker.IsChanged( this, out var state )) {
+                if (state == UIScreenState.None) {
+                    Widget?.DetachSelf();
+                } else if (state == UIScreenState.MainScreen) {
                     Widget?.DetachSelf();
                     this.AttachWidget( UIWidgetFactory.MainWidget() );
-                }
-            } else if (Application.AppState is AppState.GameSceneLoaded) {
-                if (Widget is not GameWidget) {
+                } else if (state == UIScreenState.GameScreen) {
                     Widget?.DetachSelf();
                     this.AttachWidget( UIWidgetFactory.GameWidget() );
                 }
-            } else {
-                Widget?.DetachSelf();
             }
             if (Widget is MainWidget mainWidget) {
                 mainWidget.Update();
@@ -86,5 +97,10 @@ namespace Project.UI {
             base.OnAfterDescendantWidgetDetach( descendant );
         }
 
+    }
+    public enum UIScreenState {
+        None,
+        MainScreen,
+        GameScreen,
     }
 }

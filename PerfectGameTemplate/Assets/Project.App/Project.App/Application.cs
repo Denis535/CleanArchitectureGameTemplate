@@ -20,7 +20,7 @@ namespace Project.App {
         public bool IsQuitting => AppState == AppState.Quitting;
         public bool IsQuited => AppState == AppState.Quited;
         // GameState
-        public GameState GameState { get; private set; } = GameState.None;
+        public GameState GameState { get; private set; } = GameState.None; // todo: move it to Game
         public bool IsGameRunning => GameState == GameState.Running;
         public bool IsGameRunningAndPaused => GameState == GameState.RunningAndPaused;
 

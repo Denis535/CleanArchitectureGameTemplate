@@ -43,6 +43,7 @@ The project encapsulates everything rarely viewed and changed (third party, libr
 ## System
 - Assertions.
 - Exceptions.
+- Option.
 ## UnityEngine
 - UI Toolkit.
 - Stylus.
@@ -68,8 +69,9 @@ The project encapsulates everything rarely viewed and changed (third party, libr
 - Entity - entity (player avatar).
 - EntityView - entity visual/audible component.
 - EntityBody - entity physical component.
-## UnityEditor
+## UnityEditor.Windows
 - ProjectWindow - project window with folders and assets painted in special colors.
+## UnityEditor.Tools
 - SourceGenerator - source generator to generate assets addresses and labels.
 - ProjectConfigurator - project configurator to configure scripts execution order.
 - ProjectAnalyzer - project analyzer to analyzer coding conventions.
