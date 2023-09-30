@@ -15,7 +15,7 @@ namespace Project.UI {
         // Globals
         private UIRouter Router { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
-        // UIScreenState
+        // State
         private UIScreenState State {
             get {
                 if (Application.AppState is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.GameSceneLoading or AppState.GameSceneUnloading) {
@@ -23,6 +23,9 @@ namespace Project.UI {
                 }
                 if (Application.AppState is AppState.GameSceneLoaded) {
                     return UIScreenState.GameScreen;
+                }
+                if (Application.AppState is AppState.Quitting or AppState.Quited) {
+                    return UIScreenState.None;
                 }
                 return UIScreenState.None;
             }
@@ -98,7 +101,7 @@ namespace Project.UI {
         }
 
     }
-    public enum UIScreenState {
+    internal enum UIScreenState {
         None,
         MainScreen,
         GameScreen,

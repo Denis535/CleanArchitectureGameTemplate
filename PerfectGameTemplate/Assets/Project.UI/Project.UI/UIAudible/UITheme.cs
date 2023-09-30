@@ -3,8 +3,6 @@ namespace Project.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Threading;
-    using System.Threading.Tasks;
     using Project.App;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
@@ -13,10 +11,10 @@ namespace Project.UI {
 
     public class UITheme : UIAudioThemeBase {
 
-        private static readonly string[] MainThemes = new string[] {
+        private readonly string[] MainThemes = new string[] {
             R.Project.UI.MainScreen.Music.Theme
         };
-        private static readonly string[] GameThemes = new string[] {
+        private readonly string[] GameThemes = new string[] {
             R.Project.UI.GameScreen.Music.Theme_1,
             R.Project.UI.GameScreen.Music.Theme_2,
             R.Project.UI.GameScreen.Music.Theme_3,
@@ -24,15 +22,29 @@ namespace Project.UI {
         };
 
         // Globals
-        private UIScreen Screen { get; set; } = default!;
-        private UIRouter Router { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
+        // State
+        private UIThemeState State {
+            get {
+                if (Application.AppState is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.GameSceneLoading or AppState.GameSceneUnloading) {
+                    return UIThemeState.MainTheme;
+                }
+                if (Application.AppState is AppState.GameSceneLoaded) {
+                    return UIThemeState.GameTheme;
+                }
+                if (Application.AppState is AppState.Quitting or AppState.Quited) {
+                    return UIThemeState.None;
+                }
+                return UIThemeState.None;
+            }
+        }
+        private Tracker<UIThemeState, UITheme> StateTracker { get; } = new Tracker<UIThemeState, UITheme>( i => i.State );
 
         // Awake
         public new void Awake() {
             base.Awake();
-            Screen = this.GetDependencyContainer().Resolve<UIScreen>( null );
-            Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
+            Shuffle( MainThemes );
+            Shuffle( GameThemes );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
         }
         public new void OnDestroy() {
@@ -43,24 +55,28 @@ namespace Project.UI {
         public void Start() {
         }
         public void Update() {
-            //if (Application.AppState is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.GameSceneLoading or AppState.GameSceneUnloading) {
-
-            //} else if (Application.AppState is AppState.GameSceneLoaded) {
-
-            //} else {
-
-            //}
+            if (StateTracker.IsChanged( this, out var state )) {
+                if (state == UIThemeState.None) {
+                } else if (state == UIThemeState.MainTheme) {
+                } else if (state == UIThemeState.GameTheme) {
+                }
+            }
         }
 
         // Helpers
-        private static void Fade(AudioSource audioSource, CancellationToken cancellationToken) {
-            UnityUtils.PlayAnimation( audioSource,
-                1, -1, 10,
-                (i, v) => i.pitch = v,
-                null,
-                null,
-                cancellationToken );
-        }
+        //private static void Fade(AudioSource audioSource, CancellationToken cancellationToken) {
+        //    UnityUtils.PlayAnimation( audioSource,
+        //        1, -1, 10,
+        //        (i, v) => i.pitch = v,
+        //        null,
+        //        null,
+        //        cancellationToken );
+        //}
 
+    }
+    internal enum UIThemeState {
+        None,
+        MainTheme,
+        GameTheme,
     }
 }

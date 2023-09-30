@@ -64,12 +64,11 @@ namespace UnityEngine.Framework.UI {
             }
             return array[ 0 ];
         }
-        protected static T[] Shuffle<T>(T[] array) {
+        protected static void Shuffle<T>(T[] array) {
             for (var i = 0; i < array.Length; i++) {
                 var i2 = i + UnityEngine.Random.Range( 0, array.Length - i );
                 (array[ i ], array[ i2 ]) = (array[ i2 ], array[ i ]);
             }
-            return array;
         }
 
     }
