@@ -60,9 +60,10 @@ namespace UnityEngine.AddressableAssets {
                         public const string @GameWidgetView__inlineStyle = "Project.UI.GameScreen/GameWidget/GameWidgetView.uxml[inlineStyle]";
                     }
                     public static class @Music {
-                        public const string @Theme_1 = "Project.UI.GameScreen/Music/Theme_1 @Ugasanie - Obfuscation.flac";
-                        public const string @Theme_2 = "Project.UI.GameScreen/Music/Theme_2 @Ugasanie - Arctic Hysteria.flac";
-                        public const string @Theme_3 = "Project.UI.GameScreen/Music/Theme_3 @Ugasanie - To the Lord of the Polar Desert With Seven Faces.flac";
+                        public const string @Theme_1 = "Project.UI.GameScreen/Music/Theme 1 #Treha Sektori — Devarhahn.mp3";
+                        public const string @Theme_2 = "Project.UI.GameScreen/Music/Theme 2 #Treha Sektori — Vehemah Merah Tahermah.mp3";
+                        public const string @Theme_3 = "Project.UI.GameScreen/Music/Theme 3 #Treha Sektori — Sevorh Deh Armenh.mp3";
+                        public const string @Theme_4 = "Project.UI.GameScreen/Music/Theme 4 #Treha Sektori — Sehanh Teh Veriah.mp3";
                     }
                 }
                 public static class @Common {

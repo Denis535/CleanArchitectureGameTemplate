@@ -8,21 +8,19 @@ namespace UnityEngine {
     public class Tracker<T, TObj> {
 
         private Func<TObj, T> ValueSelector { get; }
-        private bool HasValue { get; set; }
-        private T Value { get; set; }
+        private Option<T> Value { get; set; }
 
         // Constructor
         public Tracker(Func<TObj, T> valueSelector) {
             ValueSelector = valueSelector;
-            HasValue = false;
-            Value = default!;
+            Value = default;
         }
 
         // IsChanged
         public bool IsChanged(TObj @object) {
             var newValue = ValueSelector( @object );
-            if (!HasValue || IsChanged( Value, newValue )) {
-                (HasValue, Value) = (true, newValue);
+            if (!Value.Equals( newValue )) {
+                Value = new Option<T>( newValue );
                 return true;
             } else {
                 return false;
@@ -30,32 +28,27 @@ namespace UnityEngine {
         }
         public bool IsChanged(TObj @object, out T value) {
             var newValue = ValueSelector( @object );
-            if (!HasValue || IsChanged( Value, newValue )) {
-                (HasValue, Value) = (true, newValue);
-                value = Value;
+            if (!Value.Equals( newValue )) {
+                Value = new Option<T>( newValue );
+                value = Value.Value;
                 return true;
             } else {
-                value = Value;
+                value = Value.Value;
                 return false;
             }
         }
-        public bool IsChanged(TObj @object, out T value, out bool hasPrevValue, out T prevValue) {
+        public bool IsChanged(TObj @object, out T value, out Option<T> prevValue) {
             var newValue = ValueSelector( @object );
-            if (!HasValue || IsChanged( Value, newValue )) {
-                (hasPrevValue, prevValue) = (HasValue, Value);
-                (HasValue, Value) = (true, newValue);
-                value = Value;
+            if (!Value.Equals( newValue )) {
+                prevValue = Value;
+                Value = new Option<T>( newValue );
+                value = Value.Value;
                 return true;
             } else {
-                (hasPrevValue, prevValue) = (HasValue, Value);
-                value = Value;
+                prevValue = Value;
+                value = Value.Value;
                 return false;
             }
-        }
-
-        // Helpers
-        private static bool IsChanged(T value, T newValue) {
-            return !EqualityComparer<T>.Default.Equals( value, newValue );
         }
 
     }

@@ -13,15 +13,16 @@ namespace Project.UI {
 
     public class UITheme : UIAudioThemeBase {
 
-        // Themes
-        private static string[] MainThemes = new string[] {
+        private static readonly string[] MainThemes = new string[] {
             R.Project.UI.MainScreen.Music.Theme
         };
-        private static string[] GameThemes = new string[] {
+        private static readonly string[] GameThemes = new string[] {
             R.Project.UI.GameScreen.Music.Theme_1,
             R.Project.UI.GameScreen.Music.Theme_2,
             R.Project.UI.GameScreen.Music.Theme_3,
+            R.Project.UI.GameScreen.Music.Theme_4,
         };
+
         // Globals
         private UIScreen Screen { get; set; } = default!;
         private UIRouter Router { get; set; } = default!;
