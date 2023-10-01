@@ -72,6 +72,10 @@ namespace Project.UI {
                         break;
                 }
             }
+            if (!IsPlaying && Themes != null) {
+                StopTheme();
+                PlayNextTheme();
+            }
         }
 
         // PlayThemes
@@ -84,6 +88,12 @@ namespace Project.UI {
             } else {
                 StopTheme();
             }
+        }
+
+        // PlayNextTheme
+        private void PlayNextTheme() {
+            Index = (Index + 1) % Themes!.Length;
+            PlayTheme( Themes[ Index ] );
         }
 
         // PlayTheme

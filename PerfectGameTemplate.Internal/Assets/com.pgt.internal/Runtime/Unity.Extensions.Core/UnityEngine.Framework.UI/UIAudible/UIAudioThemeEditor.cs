@@ -16,15 +16,23 @@ namespace UnityEngine.Framework.UI {
         public override void OnInspectorGUI() {
             base.OnInspectorGUI();
             if (EditorApplication.isPlaying) {
-                EditorGUILayout.LabelField( "Clip", $"{Target.Clip?.name ?? "Null"} ({Target.Clip?.length ?? 0})" );
-                EditorGUILayout.LabelField( "IsPlaying", Target.IsPlaying.ToString() );
-                EditorGUILayout.LabelField( "Time", Target.Time.ToString() );
-                EditorGUILayout.LabelField( "Volume", Target.Volume.ToString() );
-                EditorGUILayout.LabelField( "Mute", Target.Mute.ToString() );
+                LabelField( "Clip", $"{Target.Clip?.name ?? "Null"} ({Target.Clip?.length ?? 0})" );
+                LabelField( "IsPlaying", Target.IsPlaying.ToString() );
+                LabelField( "Time", Target.Time.ToString() );
+                LabelField( "Volume", Target.Volume.ToString() );
+                LabelField( "Mute", Target.Mute.ToString() );
             }
         }
         public override bool RequiresConstantRepaint() {
             return EditorApplication.isPlaying;
+        }
+
+        // Helpers
+        private static void LabelField(string label, string? text) {
+            using (new EditorGUILayout.HorizontalScope()) {
+                EditorGUILayout.PrefixLabel( label );
+                EditorGUI.SelectableLabel( GUILayoutUtility.GetRect( new GUIContent( text ), GUI.skin.textField ), text, GUI.skin.textField );
+            }
         }
 
     }
