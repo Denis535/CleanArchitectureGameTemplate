@@ -26,20 +26,7 @@ namespace Project.UI {
         // Globals
         private Application2 Application { get; set; } = default!;
         // State
-        private UIThemeState State {
-            get {
-                if (Application.AppState is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.GameSceneLoading or AppState.GameSceneUnloading) {
-                    return UIThemeState.MainTheme;
-                }
-                if (Application.AppState is AppState.GameSceneLoaded) {
-                    return UIThemeState.GameTheme;
-                }
-                if (Application.AppState is AppState.Quitting or AppState.Quited) {
-                    return UIThemeState.None;
-                }
-                return UIThemeState.None;
-            }
-        }
+        private UIThemeState State => GetState( Application.AppState );
         private Tracker<UIThemeState, UITheme> StateTracker { get; } = new Tracker<UIThemeState, UITheme>( i => i.State );
         // Themes
         private string[]? Themes { get; set; }
@@ -62,38 +49,42 @@ namespace Project.UI {
             if (StateTracker.IsChanged( this, out var state )) {
                 switch (state) {
                     case UIThemeState.MainTheme:
-                        PlayThemes( MainThemes );
+                        StopTheme();
+                        (Themes, Index) = (MainThemes, 0);
+                        PlayTheme( Themes[ Index ] );
                         break;
                     case UIThemeState.GameTheme:
-                        PlayThemes( GameThemes );
+                        StopTheme();
+                        (Themes, Index) = (GameThemes, 0);
+                        PlayTheme( Themes[ Index ] );
                         break;
                     case UIThemeState.None:
-                        PlayThemes( null );
+                        StopTheme();
+                        (Themes, Index) = (null, 0);
                         break;
                 }
             }
-            if (!IsPlaying && Themes != null) {
-                StopTheme();
-                PlayNextTheme();
-            }
-        }
 
-        // PlayThemes
-        private void PlayThemes(string[]? themes) {
-            Themes = themes;
-            Index = 0;
-            if (Themes != null) {
+            if (IsPlaying && !IsPausing && !AudioSource.isPlaying) {
                 StopTheme();
-                PlayTheme( Themes[ Index ] );
-            } else {
-                StopTheme();
+                if (Themes != null) {
+                    Index = (Index + 1) % Themes!.Length;
+                    PlayTheme( Themes[ Index ] );
+                }
             }
-        }
 
-        // PlayNextTheme
-        private void PlayNextTheme() {
-            Index = (Index + 1) % Themes!.Length;
-            PlayTheme( Themes[ Index ] );
+            if (State is UIThemeState.MainTheme) {
+                //if (Application.AppState is AppState.MainSceneUnloading or AppState.GameSceneLoading) {
+                //}
+            }
+
+            if (State is UIThemeState.GameTheme) {
+                if (Application.IsGameRunning) {
+                    if (IsPausing) UnPause();
+                } else if (Application.IsGameRunningAndPaused) {
+                    if (!IsPausing) Pause();
+                }
+            }
         }
 
         // PlayTheme
@@ -101,6 +92,7 @@ namespace Project.UI {
             Assert.Operation.Message( $"ThemeOperationHandle {themeOperationHandle} must not exist" ).Valid( !themeOperationHandle.IsValid() );
             themeOperationHandle = Addressables2.LoadAssetAsync<AudioClip>( theme );
             Play( await themeOperationHandle.GetResultAsync( default ) );
+            AudioSource.pitch = 100_000;
         }
         private void StopTheme() {
             Stop();
@@ -108,6 +100,20 @@ namespace Project.UI {
                 Addressables2.Release( themeOperationHandle );
                 themeOperationHandle = default;
             }
+        }
+
+        // Helpers
+        private static UIThemeState GetState(AppState state) {
+            if (state is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.GameSceneLoading or AppState.GameSceneUnloading) {
+                return UIThemeState.MainTheme;
+            }
+            if (state is AppState.GameSceneLoaded) {
+                return UIThemeState.GameTheme;
+            }
+            if (state is AppState.Quitting or AppState.Quited) {
+                return UIThemeState.None;
+            }
+            return UIThemeState.None;
         }
 
     }

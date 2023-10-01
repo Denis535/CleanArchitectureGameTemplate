@@ -12,7 +12,8 @@ namespace UnityEngine.Framework.UI {
         protected internal AudioSource AudioSource { get; set; } = default!;
         // AudioSource
         public AudioClip? Clip => AudioSource.clip;
-        public bool IsPlaying => AudioSource.isPlaying;
+        public bool IsPlaying { get; private set; }
+        public bool IsPausing { get; private set; }
         public float Time { get => AudioSource.time; set => AudioSource.time = value; }
         public float Volume { get => AudioSource.volume; set => AudioSource.volume = value; }
         public bool Mute { get => AudioSource.mute; set => AudioSource.mute = value; }
@@ -26,19 +27,23 @@ namespace UnityEngine.Framework.UI {
 
         // Play
         public void Play(AudioClip clip) {
+            IsPlaying = true;
             AudioSource.clip = clip;
             AudioSource.Play();
         }
         public void Stop() {
+            IsPlaying = false;
             AudioSource.Stop();
             AudioSource.clip = null;
         }
 
         // Pause
         public void Pause() {
+            IsPausing = true;
             AudioSource.Pause();
         }
         public void UnPause() {
+            IsPausing = false;
             AudioSource.UnPause();
         }
 

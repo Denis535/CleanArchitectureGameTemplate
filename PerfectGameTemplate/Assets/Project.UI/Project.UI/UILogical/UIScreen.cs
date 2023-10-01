@@ -16,20 +16,7 @@ namespace Project.UI {
         private UIRouter Router { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
         // State
-        private UIScreenState State {
-            get {
-                if (Application.AppState is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.GameSceneLoading or AppState.GameSceneUnloading) {
-                    return UIScreenState.MainScreen;
-                }
-                if (Application.AppState is AppState.GameSceneLoaded) {
-                    return UIScreenState.GameScreen;
-                }
-                if (Application.AppState is AppState.Quitting or AppState.Quited) {
-                    return UIScreenState.None;
-                }
-                return UIScreenState.None;
-            }
-        }
+        private UIScreenState State => GetState( Application.AppState );
         private Tracker<UIScreenState, UIScreen> StateTracker { get; } = new Tracker<UIScreenState, UIScreen>( i => i.State );
 
         // Awake
@@ -102,6 +89,20 @@ namespace Project.UI {
         }
         public override void OnAfterDescendantWidgetDetach(UIWidgetBase descendant) {
             base.OnAfterDescendantWidgetDetach( descendant );
+        }
+
+        // Helpers
+        private static UIScreenState GetState(AppState state) {
+            if (state is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.GameSceneLoading or AppState.GameSceneUnloading) {
+                return UIScreenState.MainScreen;
+            }
+            if (state is AppState.GameSceneLoaded) {
+                return UIScreenState.GameScreen;
+            }
+            if (state is AppState.Quitting or AppState.Quited) {
+                return UIScreenState.None;
+            }
+            return UIScreenState.None;
         }
 
     }
