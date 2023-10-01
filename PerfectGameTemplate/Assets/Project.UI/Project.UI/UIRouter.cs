@@ -139,8 +139,8 @@ namespace Project.UI {
             var gameScene = await gameSceneOperationHandle.GetResultAsync( cancellationToken );
             SceneManager.SetActiveScene( gameScene.Scene );
         }
-        private async Task LoadWorldSceneInternalAsync(string address, CancellationToken cancellationToken) {
-            worldSceneOperationHandle = Addressables2.LoadSceneAsync( address, LoadSceneMode.Additive, true );
+        private async Task LoadWorldSceneInternalAsync(string key, CancellationToken cancellationToken) {
+            worldSceneOperationHandle = Addressables2.LoadSceneAsync( key, LoadSceneMode.Additive, true );
             _ = await worldSceneOperationHandle.GetResultAsync( cancellationToken );
         }
         // Helpers/UnloadScene
@@ -173,7 +173,7 @@ namespace Project.UI {
             return world switch {
                 GameWorld.TestWorld1 => R.Project.TestWorldScene_1,
                 GameWorld.TestWorld2 => R.Project.TestWorldScene_2,
-                _ => throw Exceptions.Internal.NotSupported( $"WorldScene {world} not supported" ),
+                _ => throw Exceptions.Internal.NotSupported( $"World {world} not supported" ),
             };
         }
 

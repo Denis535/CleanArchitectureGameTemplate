@@ -16,12 +16,11 @@ namespace UnityEngine.Framework.UI {
         public override void OnInspectorGUI() {
             base.OnInspectorGUI();
             if (EditorApplication.isPlaying) {
+                EditorGUILayout.LabelField( "Clip", $"{Target.Clip?.name ?? "Null"} ({Target.Clip?.length ?? 0})" );
                 EditorGUILayout.LabelField( "IsPlaying", Target.IsPlaying.ToString() );
-                EditorGUILayout.LabelField( "IsPausing", Target.IsPausing.ToString() );
                 EditorGUILayout.LabelField( "Time", Target.Time.ToString() );
                 EditorGUILayout.LabelField( "Volume", Target.Volume.ToString() );
                 EditorGUILayout.LabelField( "Mute", Target.Mute.ToString() );
-                EditorGUILayout.LabelField( "Clip", $"{Target.AudioClip?.name ?? "Null"} ({Target.AudioClip?.length ?? 0})" );
             }
         }
         public override bool RequiresConstantRepaint() {

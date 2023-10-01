@@ -21,22 +21,34 @@ namespace UnityEngine.ResourceManagement.AsyncOperations {
         }
 
         // Wait/Async
-        public static async Task WaitAsync<T>(this AsyncOperationBase<T> operation, CancellationToken cancellationToken) {
-            cancellationToken.ThrowIfCancellationRequested();
-            while (operation.IsRunning) {
-                await Task.Yield();
+        public static async Task WaitAsync<T>(this AsyncOperationBase<T> operation, CancellationToken cancellationToken, Action<AsyncOperationBase<T>>? onComplete = null, Action<AsyncOperationBase<T>>? onCancel = null) {
+            try {
                 cancellationToken.ThrowIfCancellationRequested();
+                while (operation.IsRunning) {
+                    await Task.Yield();
+                    cancellationToken.ThrowIfCancellationRequested();
+                }
+                onComplete?.Invoke( operation );
+            } catch (OperationCanceledException) {
+                onCancel?.Invoke( operation );
+                throw;
             }
         }
 
         // GetResult/Async
-        public static async Task<T> GetResultAsync<T>(this AsyncOperationBase<T> operation, CancellationToken cancellationToken) {
-            cancellationToken.ThrowIfCancellationRequested();
-            while (operation.IsRunning) {
-                await Task.Yield();
+        public static async Task<T> GetResultAsync<T>(this AsyncOperationBase<T> operation, CancellationToken cancellationToken, Action<AsyncOperationBase<T>>? onComplete = null, Action<AsyncOperationBase<T>>? onCancel = null) {
+            try {
                 cancellationToken.ThrowIfCancellationRequested();
+                while (operation.IsRunning) {
+                    await Task.Yield();
+                    cancellationToken.ThrowIfCancellationRequested();
+                }
+                onComplete?.Invoke( operation );
+                return operation.Result;
+            } catch (OperationCanceledException) {
+                onCancel?.Invoke( operation );
+                throw;
             }
-            return operation.Result;
         }
 
     }

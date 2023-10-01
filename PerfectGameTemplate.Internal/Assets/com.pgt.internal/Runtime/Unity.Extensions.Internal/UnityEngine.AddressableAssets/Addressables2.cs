@@ -9,7 +9,7 @@ namespace UnityEngine.AddressableAssets {
     using UnityEngine.SceneManagement;
     using Object = Object;
 
-    public static class Addressables2 {
+    public static partial class Addressables2 {
 
         // LoadAsset/Async
         public static AsyncOperationHandle<T> LoadAssetAsync<T>(string key) where T : Object {
@@ -20,17 +20,6 @@ namespace UnityEngine.AddressableAssets {
         }
         public static AsyncOperationHandle<SceneInstance> LoadSceneAsync(string key, LoadSceneMode mode, bool activateOnLoad) {
             return Addressables.LoadSceneAsync( key, mode, activateOnLoad );
-        }
-
-        // Instantiate/Async
-        public static AsyncOperationHandle<GameObject> InstantiateAsync(string key) {
-            return Addressables.InstantiateAsync( key, new InstantiationParameters() );
-        }
-        public static AsyncOperationHandle<GameObject> InstantiateAsync(string key, Transform parent, bool instantiateInWorldSpace) {
-            return Addressables.InstantiateAsync( key, new InstantiationParameters( parent, instantiateInWorldSpace ) );
-        }
-        public static AsyncOperationHandle<GameObject> InstantiateAsync(string key, Vector3 position, Quaternion rotation, Transform? parent = null) {
-            return Addressables.InstantiateAsync( key, new InstantiationParameters( position, rotation, parent ) );
         }
 
         // Release
@@ -54,11 +43,27 @@ namespace UnityEngine.AddressableAssets {
         public static void Release<T>(IList<T> objects) where T : Object {
             Addressables.Release( objects );
         }
-        public static bool ReleaseInstance(GameObject gameObject) {
-            return Addressables.ReleaseInstance( gameObject );
-        }
         public static AsyncOperationHandle<SceneInstance> UnloadSceneAsync(SceneInstance instance) {
             return Addressables.UnloadSceneAsync( instance );
+        }
+
+    }
+    public static partial class Addressables2 {
+
+        // Instantiate/Async
+        public static AsyncOperationHandle<GameObject> InstantiateAsync(string key) {
+            return Addressables.InstantiateAsync( key, new InstantiationParameters() );
+        }
+        public static AsyncOperationHandle<GameObject> InstantiateAsync(string key, Transform parent, bool instantiateInWorldSpace) {
+            return Addressables.InstantiateAsync( key, new InstantiationParameters( parent, instantiateInWorldSpace ) );
+        }
+        public static AsyncOperationHandle<GameObject> InstantiateAsync(string key, Vector3 position, Quaternion rotation, Transform? parent = null) {
+            return Addressables.InstantiateAsync( key, new InstantiationParameters( position, rotation, parent ) );
+        }
+
+        // Release
+        public static bool ReleaseInstance(GameObject gameObject) {
+            return Addressables.ReleaseInstance( gameObject );
         }
 
     }

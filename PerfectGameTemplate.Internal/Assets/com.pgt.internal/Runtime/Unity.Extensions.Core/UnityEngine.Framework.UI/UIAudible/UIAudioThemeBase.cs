@@ -11,13 +11,11 @@ namespace UnityEngine.Framework.UI {
         // Globals
         protected internal AudioSource AudioSource { get; set; } = default!;
         // AudioSource
+        public AudioClip? Clip => AudioSource.clip;
         public bool IsPlaying => AudioSource.isPlaying;
-        public bool IsPausing { get; private set; }
         public float Time { get => AudioSource.time; set => AudioSource.time = value; }
         public float Volume { get => AudioSource.volume; set => AudioSource.volume = value; }
         public bool Mute { get => AudioSource.mute; set => AudioSource.mute = value; }
-        // AudioClip
-        public AudioClip? AudioClip => AudioSource.clip;
 
         // Awake
         public void Awake() {
@@ -38,11 +36,9 @@ namespace UnityEngine.Framework.UI {
 
         // Pause
         public void Pause() {
-            IsPausing = true;
             AudioSource.Pause();
         }
         public void UnPause() {
-            IsPausing = false;
             AudioSource.UnPause();
         }
 

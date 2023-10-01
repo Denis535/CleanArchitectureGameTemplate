@@ -42,19 +42,47 @@ namespace UnityEngine.ResourceManagement.AsyncOperations {
         }
 
         // Wait/Async
-        public static Task WaitAsync(this AsyncOperationHandle handle, CancellationToken cancellationToken) {
-            return handle.Task.WithCancellation( cancellationToken );
+        public static Task WaitAsync(this AsyncOperationHandle handle, CancellationToken cancellationToken, Action<AsyncOperationHandle>? onComplete = null, Action<AsyncOperationHandle>? onCancel = null) {
+            try {
+                var result = handle.Task.WaitAsync( cancellationToken );
+                onComplete?.Invoke( handle );
+                return result;
+            } catch (OperationCanceledException) {
+                onCancel?.Invoke( handle );
+                throw;
+            }
         }
-        public static Task WaitAsync<T>(this AsyncOperationHandle<T> handle, CancellationToken cancellationToken) {
-            return handle.Task.WithCancellation( cancellationToken );
+        public static Task WaitAsync<T>(this AsyncOperationHandle<T> handle, CancellationToken cancellationToken, Action<AsyncOperationHandle<T>>? onComplete = null, Action<AsyncOperationHandle<T>>? onCancel = null) {
+            try {
+                var result = handle.Task.WaitAsync( cancellationToken );
+                onComplete?.Invoke( handle );
+                return result;
+            } catch (OperationCanceledException) {
+                onCancel?.Invoke( handle );
+                throw;
+            }
         }
 
         // GetResult/Async
-        public static Task<object> GetResultAsync(this AsyncOperationHandle handle, CancellationToken cancellationToken) {
-            return handle.Task.WithCancellation( cancellationToken );
+        public static Task<object> GetResultAsync(this AsyncOperationHandle handle, CancellationToken cancellationToken, Action<AsyncOperationHandle>? onComplete = null, Action<AsyncOperationHandle>? onCancel = null) {
+            try {
+                var result = handle.Task.WaitAsync( cancellationToken );
+                onComplete?.Invoke( handle );
+                return result;
+            } catch (OperationCanceledException) {
+                onCancel?.Invoke( handle );
+                throw;
+            }
         }
-        public static Task<T> GetResultAsync<T>(this AsyncOperationHandle<T> handle, CancellationToken cancellationToken) {
-            return handle.Task.WithCancellation( cancellationToken );
+        public static Task<T> GetResultAsync<T>(this AsyncOperationHandle<T> handle, CancellationToken cancellationToken, Action<AsyncOperationHandle<T>>? onComplete = null, Action<AsyncOperationHandle<T>>? onCancel = null) {
+            try {
+                var result = handle.Task.WaitAsync( cancellationToken );
+                onComplete?.Invoke( handle );
+                return result;
+            } catch (OperationCanceledException) {
+                onCancel?.Invoke( handle );
+                throw;
+            }
         }
 
     }

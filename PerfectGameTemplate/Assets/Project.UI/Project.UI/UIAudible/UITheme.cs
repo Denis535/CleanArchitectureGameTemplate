@@ -8,6 +8,7 @@ namespace Project.UI {
     using UnityEngine.AddressableAssets;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
+    using UnityEngine.ResourceManagement.AsyncOperations;
 
     public class UITheme : UIAudioThemeBase {
 
@@ -19,6 +20,8 @@ namespace Project.UI {
             R.Project.UI.GameScreen.Music.Theme_2,
             R.Project.UI.GameScreen.Music.Theme_3,
         } );
+
+        private AsyncOperationHandle<AudioClip> themeOperationHandle;
 
         // Globals
         private Application2 Application { get; set; } = default!;
@@ -38,6 +41,9 @@ namespace Project.UI {
             }
         }
         private Tracker<UIThemeState, UITheme> StateTracker { get; } = new Tracker<UIThemeState, UITheme>( i => i.State );
+        // Themes
+        private string[]? Themes { get; set; }
+        private int Index { get; set; }
 
         // Awake
         public new void Awake() {
@@ -45,6 +51,7 @@ namespace Project.UI {
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
         }
         public new void OnDestroy() {
+            StopTheme();
             base.OnDestroy();
         }
 
@@ -52,29 +59,46 @@ namespace Project.UI {
         public void Start() {
         }
         public void Update() {
-            //if (StateTracker.IsChanged( this, out var state )) {
-            //    switch (state) {
-            //        case UIThemeState.MainTheme:
-            //            var theme = await Addressables2.LoadAssetAsync<AudioClip>( GetNextValue( MainThemes, null ) ).GetResultAsync( default );
-            //            Play( theme );
-            //            break;
-            //        case UIThemeState.GameTheme:
-            //            break;
-            //        case UIThemeState.None:
-            //            break;
-            //    }
-            //}
+            if (StateTracker.IsChanged( this, out var state )) {
+                switch (state) {
+                    case UIThemeState.MainTheme:
+                        PlayThemes( MainThemes );
+                        break;
+                    case UIThemeState.GameTheme:
+                        PlayThemes( GameThemes );
+                        break;
+                    case UIThemeState.None:
+                        PlayThemes( null );
+                        break;
+                }
+            }
         }
 
-        // Helpers
-        //private static void Fade(AudioSource audioSource, CancellationToken cancellationToken) {
-        //    UnityUtils.PlayAnimation( audioSource,
-        //        1, -1, 10,
-        //        (i, v) => i.pitch = v,
-        //        null,
-        //        null,
-        //        cancellationToken );
-        //}
+        // PlayThemes
+        private void PlayThemes(string[]? themes) {
+            Themes = themes;
+            Index = 0;
+            if (Themes != null) {
+                StopTheme();
+                PlayTheme( Themes[ Index ] );
+            } else {
+                StopTheme();
+            }
+        }
+
+        // PlayTheme
+        private async void PlayTheme(string theme) {
+            Assert.Operation.Message( $"ThemeOperationHandle {themeOperationHandle} must not exist" ).Valid( !themeOperationHandle.IsValid() );
+            themeOperationHandle = Addressables2.LoadAssetAsync<AudioClip>( theme );
+            Play( await themeOperationHandle.GetResultAsync( default ) );
+        }
+        private void StopTheme() {
+            Stop();
+            if (themeOperationHandle.IsValid()) {
+                Addressables2.Release( themeOperationHandle );
+                themeOperationHandle = default;
+            }
+        }
 
     }
     internal enum UIThemeState {

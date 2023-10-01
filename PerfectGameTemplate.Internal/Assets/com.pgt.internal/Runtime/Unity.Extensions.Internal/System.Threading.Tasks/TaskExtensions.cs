@@ -7,8 +7,8 @@ namespace System.Threading.Tasks {
 
     public static class TaskExtensions {
 
-        // WithCancellation
-        public static async Task WithCancellation(this Task task, CancellationToken cancellationToken) {
+        // WaitAsync
+        public static async Task WaitAsync(this Task task, CancellationToken cancellationToken) {
             if (task.IsCompleted) {
                 await task.ConfigureAwait( false );
                 return;
@@ -28,7 +28,7 @@ namespace System.Threading.Tasks {
             }
             await task.ConfigureAwait( false );
         }
-        public static async Task<T> WithCancellation<T>(this Task<T> task, CancellationToken cancellationToken) {
+        public static async Task<T> WaitAsync<T>(this Task<T> task, CancellationToken cancellationToken) {
             if (task.IsCompleted) {
                 return await task.ConfigureAwait( false );
             }
