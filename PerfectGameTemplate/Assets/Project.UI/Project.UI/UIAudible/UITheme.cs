@@ -92,7 +92,6 @@ namespace Project.UI {
             Assert.Operation.Message( $"ThemeOperationHandle {themeOperationHandle} must not exist" ).Valid( !themeOperationHandle.IsValid() );
             themeOperationHandle = Addressables2.LoadAssetAsync<AudioClip>( theme );
             Play( await themeOperationHandle.GetResultAsync( default ) );
-            AudioSource.pitch = 100_000;
         }
         private void StopTheme() {
             Stop();
