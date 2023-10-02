@@ -73,17 +73,18 @@ namespace Project.UI {
                 }
             }
 
-            if (State is UIThemeState.MainTheme) {
-                //if (Application.AppState is AppState.MainSceneUnloading or AppState.GameSceneLoading) {
-                //}
-            }
-
-            if (State is UIThemeState.GameTheme) {
-                if (Application.IsGameRunning) {
-                    if (IsPausing) UnPause();
-                } else if (Application.IsGameRunningAndPaused) {
-                    if (!IsPausing) Pause();
-                }
+            switch (State) {
+                case UIThemeState.MainTheme:
+                    //if (Application.AppState is AppState.MainSceneUnloading or AppState.GameSceneLoading) {
+                    //}
+                    break;
+                case UIThemeState.GameTheme:
+                    if (Application.IsGameRunning) {
+                        if (IsPausing) UnPause();
+                    } else if (Application.IsGameRunningAndPaused) {
+                        if (!IsPausing) Pause();
+                    }
+                    break;
             }
         }
 

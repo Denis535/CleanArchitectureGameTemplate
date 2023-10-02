@@ -38,6 +38,7 @@ namespace Project.UI {
 #if UNITY_EDITOR
             AddViewIfNeeded( Document, View );
 #endif
+
             if (StateTracker.IsChanged( this, out var state )) {
                 switch (state) {
                     case UIScreenState.MainScreen:
@@ -53,11 +54,14 @@ namespace Project.UI {
                         break;
                 }
             }
-            if (Widget is MainWidget mainWidget) {
-                mainWidget.Update();
-            } else
-            if (Widget is GameWidget gameWidget) {
-                gameWidget.Update();
+
+            switch (Widget) {
+                case MainWidget mainWidget:
+                    mainWidget.Update();
+                    break;
+                case GameWidget gameWidget:
+                    gameWidget.Update();
+                    break;
             }
         }
 
