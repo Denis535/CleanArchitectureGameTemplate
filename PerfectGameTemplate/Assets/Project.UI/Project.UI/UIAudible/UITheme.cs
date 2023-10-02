@@ -64,7 +64,6 @@ namespace Project.UI {
                         break;
                 }
             }
-
             if (IsPlaying && !IsPausing && !AudioSource.isPlaying) {
                 StopTheme();
                 if (Themes != null) {
@@ -72,11 +71,11 @@ namespace Project.UI {
                     PlayTheme( Themes[ Index ] );
                 }
             }
-
             switch (State) {
                 case UIThemeState.MainTheme:
-                    //if (Application.AppState is AppState.MainSceneUnloading or AppState.GameSceneLoading) {
-                    //}
+                    if (Application.AppState is AppState.MainSceneUnloading or AppState.GameSceneLoading) {
+                        Volume = Mathf.MoveTowards( Volume, 0, Volume * 0.5f * UnityEngine.Time.deltaTime );
+                    }
                     break;
                 case UIThemeState.GameTheme:
                     if (Application.IsGameRunning) {
@@ -93,6 +92,7 @@ namespace Project.UI {
             Assert.Operation.Message( $"ThemeOperationHandle {themeOperationHandle} must not exist" ).Valid( !themeOperationHandle.IsValid() );
             themeOperationHandle = Addressables2.LoadAssetAsync<AudioClip>( theme );
             Play( await themeOperationHandle.GetResultAsync( default ) );
+            Volume = 1;
         }
         private void StopTheme() {
             Stop();
