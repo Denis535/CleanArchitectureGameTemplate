@@ -49,18 +49,22 @@ namespace Project {
         public object? GetDependency(Type type, object? argument) {
             if (type == typeof( UITheme )) {
                 Assert.Object.Message( $"Object {Theme} must be awakened" ).Valid( Theme.didAwake );
+                Assert.Object.Message( $"Object {Theme} must be Alive" ).Alive( Theme );
                 return Theme;
             }
             if (type == typeof( UIScreen )) {
                 Assert.Object.Message( $"Object {Screen} must be awakened" ).Valid( Screen.didAwake );
+                Assert.Object.Message( $"Object {Screen} must be Alive" ).Alive( Screen );
                 return Screen;
             }
             if (type == typeof( UIRouter )) {
                 Assert.Object.Message( $"Object {Router} must be awakened" ).Valid( Router.didAwake );
+                Assert.Object.Message( $"Object {Router} must be Alive" ).Alive( Router );
                 return Router;
             }
             if (type == typeof( Application2 )) {
                 Assert.Object.Message( $"Object {Application} must be awakened" ).Valid( Application.didAwake );
+                Assert.Object.Message( $"Object {Application} must be Alive" ).Alive( Application );
                 return Application;
             }
             if (type == typeof( Camera )) {

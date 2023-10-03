@@ -21,13 +21,13 @@ namespace Project.UI {
             R.Project.UI.GameScreen.Music.Theme_3,
         } );
 
+        private readonly Tracker<UIThemeState, UITheme> stateTracker = new Tracker<UIThemeState, UITheme>( i => i.State );
         private AsyncOperationHandle<AudioClip> themeOperationHandle;
 
         // Globals
         private Application2 Application { get; set; } = default!;
         // State
-        private UIThemeState State => GetState( Application.AppState );
-        private Tracker<UIThemeState, UITheme> StateTracker { get; } = new Tracker<UIThemeState, UITheme>( i => i.State );
+        public UIThemeState State => GetState( Application.AppState );
         // Themes
         private string[]? Themes { get; set; }
         private int Index { get; set; }
@@ -46,7 +46,7 @@ namespace Project.UI {
         public void Start() {
         }
         public void Update() {
-            if (StateTracker.IsChanged( this, out var state )) {
+            if (stateTracker.IsChanged( this, out var state )) {
                 switch (state) {
                     case UIThemeState.MainTheme:
                         StopTheme();
@@ -117,7 +117,7 @@ namespace Project.UI {
         }
 
     }
-    internal enum UIThemeState {
+    public enum UIThemeState {
         None,
         MainTheme,
         GameTheme,

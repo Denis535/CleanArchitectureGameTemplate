@@ -10,14 +10,18 @@ namespace Project.UI.DebugScreen {
     using UnityEngine.Framework;
     using UnityEngine.UIElements;
 
-    [DefaultExecutionOrder( ScriptExecutionOrders.UIScreen )]
+    [DefaultExecutionOrder( ScriptExecutionOrders.Program )]
     public class DebugScreen : MonoBehaviour {
 
         // Globals
+        private UITheme Theme { get; set; } = default!;
+        private UIScreen Screen { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
 
         // Awake
         public void Awake() {
+            Theme = this.GetDependencyContainer().Resolve<UITheme>( null );
+            Screen = this.GetDependencyContainer().Resolve<UIScreen>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
         }
         public void OnDestroy() {
@@ -27,8 +31,10 @@ namespace Project.UI.DebugScreen {
         public void OnGUI() {
             using (new GUILayout.VerticalScope( GUI.skin.box )) {
                 GUILayout.Label( "Fps: " + (1f / Time.smoothDeltaTime).ToString( "000." ) );
-                GUILayout.Label( "AppState: " + Application.AppState );
-                GUILayout.Label( "GameState: " + Application.GameState );
+                GUILayout.Label( "Theme: " + Theme.State );
+                GUILayout.Label( "Screen: " + Screen.State );
+                GUILayout.Label( "App: " + Application.AppState );
+                GUILayout.Label( "Game: " + Application.GameState );
                 //GUILayout.Label( "IsFocused: " + UnityEngine.Application.isFocused );
                 //GUILayout.Label( "Focused Element: " + GetFocusedElement()?.Convert( GetDisplayString ) );
             }

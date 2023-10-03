@@ -12,12 +12,13 @@ namespace Project.UI {
 
     public class UIScreen : UIScreenBase<UIScreenView> {
 
+        private readonly Tracker<UIScreenState, UIScreen> stateTracker = new Tracker<UIScreenState, UIScreen>( i => i.State );
+
         // Globals
         private UIRouter Router { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
         // State
-        private UIScreenState State => GetState( Application.AppState );
-        private Tracker<UIScreenState, UIScreen> StateTracker { get; } = new Tracker<UIScreenState, UIScreen>( i => i.State );
+        public UIScreenState State => GetState( Application.AppState );
 
         // Awake
         public new void Awake() {
@@ -39,7 +40,7 @@ namespace Project.UI {
             AddViewIfNeeded( Document, View );
 #endif
 
-            if (StateTracker.IsChanged( this, out var state )) {
+            if (stateTracker.IsChanged( this, out var state )) {
                 switch (state) {
                     case UIScreenState.MainScreen:
                         Widget?.DetachSelf();
@@ -110,7 +111,7 @@ namespace Project.UI {
         }
 
     }
-    internal enum UIScreenState {
+    public enum UIScreenState {
         None,
         MainScreen,
         GameScreen,
