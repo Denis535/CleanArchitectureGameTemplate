@@ -27,7 +27,9 @@ namespace Project.UI {
         // Globals
         private Application2 Application { get; set; } = default!;
         // State
-        public UIThemeState State => GetState( Application.AppState );
+        public UIThemeState State => GetState( Application.State );
+        public bool IsMainTheme => State == UIThemeState.MainTheme;
+        public bool IsGameTheme => State == UIThemeState.GameTheme;
         // Themes
         private string[]? Themes { get; set; }
         private int Index { get; set; }
@@ -46,22 +48,18 @@ namespace Project.UI {
         public void Start() {
         }
         public void Update() {
-            if (stateTracker.IsChanged( this, out var state )) {
-                switch (state) {
-                    case UIThemeState.MainTheme:
-                        StopTheme();
-                        (Themes, Index) = (MainThemes, 0);
-                        PlayTheme( Themes[ Index ] );
-                        break;
-                    case UIThemeState.GameTheme:
-                        StopTheme();
-                        (Themes, Index) = (GameThemes, 0);
-                        PlayTheme( Themes[ Index ] );
-                        break;
-                    case UIThemeState.None:
-                        StopTheme();
-                        (Themes, Index) = (null, 0);
-                        break;
+            if (stateTracker.IsChanged( this )) {
+                if (IsMainTheme) {
+                    StopTheme();
+                    (Themes, Index) = (MainThemes, 0);
+                    PlayTheme( Themes[ Index ] );
+                } else if (IsGameTheme) {
+                    StopTheme();
+                    (Themes, Index) = (GameThemes, 0);
+                    PlayTheme( Themes[ Index ] );
+                } else {
+                    StopTheme();
+                    (Themes, Index) = (null, 0);
                 }
             }
             if (IsPlaying && !IsPausing && !AudioSource.isPlaying) {
@@ -71,19 +69,16 @@ namespace Project.UI {
                     PlayTheme( Themes[ Index ] );
                 }
             }
-            switch (State) {
-                case UIThemeState.MainTheme:
-                    if (Application.AppState is AppState.MainSceneUnloading or AppState.GameSceneLoading) {
-                        Volume = Mathf.MoveTowards( Volume, 0, Volume * 0.5f * UnityEngine.Time.deltaTime );
-                    }
-                    break;
-                case UIThemeState.GameTheme:
-                    if (Application.IsGameRunning) {
-                        if (IsPausing) UnPause();
-                    } else if (Application.IsGameRunningAndPaused) {
-                        if (!IsPausing) Pause();
-                    }
-                    break;
+            if (IsMainTheme) {
+                if (Application.IsMainSceneUnloading || Application.IsGameSceneLoading) {
+                    Volume = Mathf.MoveTowards( Volume, 0, Volume * 0.5f * UnityEngine.Time.deltaTime );
+                }
+            } else if (IsGameTheme) {
+                if (Application.Game!.IsRunning) {
+                    if (IsPausing) UnPause();
+                } else if (Application.Game!.IsRunningAndPaused) {
+                    if (!IsPausing) Pause();
+                }
             }
         }
 
@@ -117,6 +112,7 @@ namespace Project.UI {
         }
 
     }
+    // UIThemeState
     public enum UIThemeState {
         None,
         MainTheme,

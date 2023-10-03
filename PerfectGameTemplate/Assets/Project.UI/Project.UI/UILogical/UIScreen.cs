@@ -18,7 +18,9 @@ namespace Project.UI {
         private UIRouter Router { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
         // State
-        public UIScreenState State => GetState( Application.AppState );
+        public UIScreenState State => GetState( Application.State );
+        public bool IsMainScreen => State == UIScreenState.MainScreen;
+        public bool IsGameScreen => State == UIScreenState.GameScreen;
 
         // Awake
         public new void Awake() {
@@ -40,30 +42,19 @@ namespace Project.UI {
             AddViewIfNeeded( Document, View );
 #endif
 
-            if (stateTracker.IsChanged( this, out var state )) {
-                switch (state) {
-                    case UIScreenState.MainScreen:
-                        Widget?.DetachSelf();
-                        this.AttachWidget( UIWidgetFactory.MainWidget() );
-                        break;
-                    case UIScreenState.GameScreen:
-                        Widget?.DetachSelf();
-                        this.AttachWidget( UIWidgetFactory.GameWidget() );
-                        break;
-                    case UIScreenState.None:
-                        Widget?.DetachSelf();
-                        break;
+            if (stateTracker.IsChanged( this )) {
+                if (IsMainScreen) {
+                    Widget?.DetachSelf();
+                    this.AttachWidget( UIWidgetFactory.MainWidget() );
+                } else if (IsGameScreen) {
+                    Widget?.DetachSelf();
+                    this.AttachWidget( UIWidgetFactory.GameWidget() );
+                } else {
+                    Widget?.DetachSelf();
                 }
             }
-
-            switch (Widget) {
-                case MainWidget mainWidget:
-                    mainWidget.Update();
-                    break;
-                case GameWidget gameWidget:
-                    gameWidget.Update();
-                    break;
-            }
+            (Widget as MainWidget)?.Update();
+            (Widget as GameWidget)?.Update();
         }
 
         // AttachWidget
@@ -111,6 +102,7 @@ namespace Project.UI {
         }
 
     }
+    // UIScreenState
     public enum UIScreenState {
         None,
         MainScreen,

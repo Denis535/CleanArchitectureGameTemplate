@@ -33,8 +33,8 @@ namespace Project.UI.DebugScreen {
                 GUILayout.Label( "Fps: " + (1f / Time.smoothDeltaTime).ToString( "000." ) );
                 GUILayout.Label( "Theme: " + Theme.State );
                 GUILayout.Label( "Screen: " + Screen.State );
-                GUILayout.Label( "App: " + Application.AppState );
-                GUILayout.Label( "Game: " + Application.GameState );
+                GUILayout.Label( "App: " + Application.State );
+                GUILayout.Label( "Game: " + Application.Game?.State );
                 //GUILayout.Label( "IsFocused: " + UnityEngine.Application.isFocused );
                 //GUILayout.Label( "Focused Element: " + GetFocusedElement()?.Convert( GetDisplayString ) );
             }

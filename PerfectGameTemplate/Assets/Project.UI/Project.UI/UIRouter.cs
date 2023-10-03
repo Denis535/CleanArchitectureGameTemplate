@@ -6,6 +6,7 @@ namespace Project.UI {
     using System.Threading;
     using System.Threading.Tasks;
     using Project.App;
+    using Project.Entities.GameScene;
     using UnityEditor;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
@@ -51,7 +52,7 @@ namespace Project.UI {
             using (Lock.Enter()) {
                 if (Application.IsGameSceneLoaded) {
                     // StopGame
-                    Application.StopGame();
+                    Application.Game!.StopGame();
                     // UnloadGameScene
                     Application.SetGameSceneUnloading();
                     await UnloadGameSceneInternalAsync( cancellationToken );
@@ -81,7 +82,7 @@ namespace Project.UI {
                     await LoadGameSceneInternalAsync( cancellationToken );
                     Application.SetGameSceneLoaded();
                     // StartGame
-                    Application.StartGame( gameDesc, playerDesc );
+                    Application.Game!.StartGame( gameDesc, playerDesc );
                 }
             }
         }

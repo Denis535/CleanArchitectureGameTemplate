@@ -3,7 +3,7 @@ namespace Project {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using Project.App;
+    using Project.Entities.GameScene;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.UIElements;

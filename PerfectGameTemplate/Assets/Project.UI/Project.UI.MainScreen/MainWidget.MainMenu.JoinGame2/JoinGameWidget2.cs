@@ -4,7 +4,7 @@ namespace Project.UI.MainScreen {
     using System.Collections;
     using System.Collections.Generic;
     using Project.App;
-    using Unity.Services.Lobbies;
+    using Project.Entities.GameScene;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
