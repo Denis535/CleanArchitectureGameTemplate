@@ -27,7 +27,7 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private LoadingWidgetView CreateView() {
+        private static LoadingWidgetView CreateView() {
             var view = UIViewFactory.LoadingWidget();
             return view;
         }

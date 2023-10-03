@@ -16,7 +16,7 @@ namespace Project.UI.Common {
         // Constructor
         public PlayerProfileWidget() {
             PlayerProfile = this.GetDependencyContainer().Resolve<Globals.PlayerProfile>( null );
-            View = CreateView();
+            View = CreateView( this, PlayerProfile );
         }
         public override void Dispose() {
             base.Dispose();
@@ -35,7 +35,7 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private PlayerProfileWidgetView CreateView() {
+        private static PlayerProfileWidgetView CreateView(UIWidgetBase widget, Globals.PlayerProfile playerProfile) {
             var view = UIViewFactory.PlayerProfileWidget();
             view.OnEvent( (PlayerProfileWidgetView.NameEvent evt) => {
                 view.Name.IsValid = Globals.PlayerProfile.IsNameValid( evt.Name );
@@ -45,20 +45,20 @@ namespace Project.UI.Common {
                 if (!cmd.IsValid) {
                     if (string.IsNullOrWhiteSpace( cmd.Sender.Name.Value )) {
                         var dialog = UIWidgetFactory.WarningDialogWidget( "Warning", $"Name is empty" ).OnSubmit( "Ok", null );
-                        this.AttachChild( dialog );
+                        widget.AttachChild( dialog );
                         return;
                     } else {
                         var dialog = UIWidgetFactory.WarningDialogWidget( "Warning", $"Name \"{cmd.Sender.Name.Value}\" is invalid" ).OnSubmit( "Ok", null );
-                        this.AttachChild( dialog );
+                        widget.AttachChild( dialog );
                         return;
                     }
                 }
-                PlayerProfile.PlayerName = cmd.Sender.Name.Value!;
-                PlayerProfile.Save();
-                this.DetachSelf();
+                playerProfile.PlayerName = cmd.Sender.Name.Value!;
+                playerProfile.Save();
+                widget.DetachSelf();
             } );
             view.OnCommand( (PlayerProfileWidgetView.BackCommand cmd) => {
-                this.DetachSelf();
+                widget.DetachSelf();
             } );
             return view;
         }

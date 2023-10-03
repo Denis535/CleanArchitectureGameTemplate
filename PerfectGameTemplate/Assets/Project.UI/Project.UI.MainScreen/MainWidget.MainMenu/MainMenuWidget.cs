@@ -15,7 +15,7 @@ namespace Project.UI.MainScreen {
         // Constructor
         public MainMenuWidget() {
             Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
-            View = CreateView();
+            View = CreateView( this, Router );
         }
         public override void Dispose() {
             base.Dispose();
@@ -32,20 +32,20 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private MainMenuWidgetView CreateView() {
+        private static MainMenuWidgetView CreateView(UIWidgetBase widget, UIRouter router) {
             var view = UIViewFactory.MainMenuWidget();
             view.OnCommand( (MainMenuWidgetView.CreateGameCommand cmd) => {
-                this.AttachChild( UIWidgetFactory.CreateGameWidget() );
+                widget.AttachChild( UIWidgetFactory.CreateGameWidget() );
             } );
             view.OnCommand( (MainMenuWidgetView.JoinGameCommand cmd) => {
-                this.AttachChild( UIWidgetFactory.JoinGameWidget() );
+                widget.AttachChild( UIWidgetFactory.JoinGameWidget() );
             } );
             view.OnCommand( (MainMenuWidgetView.SettingsCommand cmd) => {
-                this.AttachChild( UIWidgetFactory.SettingsWidget() );
+                widget.AttachChild( UIWidgetFactory.SettingsWidget() );
             } );
             view.OnCommand( (MainMenuWidgetView.QuitCommand cmd) => {
-                var dialog = UIWidgetFactory.DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => Router.Quit() ).OnCancel( "No", null );
-                this.AttachChild( dialog );
+                var dialog = UIWidgetFactory.DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => router.Quit() ).OnCancel( "No", null );
+                widget.AttachChild( dialog );
             } );
             return view;
         }

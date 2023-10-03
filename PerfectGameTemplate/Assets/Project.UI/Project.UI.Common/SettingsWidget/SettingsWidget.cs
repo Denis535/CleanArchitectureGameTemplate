@@ -10,7 +10,7 @@ namespace Project.UI.Common {
 
         // Constructor
         public SettingsWidget() {
-            View = CreateView();
+            View = CreateView( this );
         }
         public override void Dispose() {
             base.Dispose();
@@ -27,19 +27,19 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private SettingsWidgetView CreateView() {
+        private static SettingsWidgetView CreateView(UIWidgetBase widget) {
             var view = UIViewFactory.SettingsWidget();
             view.OnCommand( (SettingsWidgetView.PlayerProfileCommand cmd) => {
-                this.AttachChild( UIWidgetFactory.PlayerProfileWidget() );
+                widget.AttachChild( UIWidgetFactory.PlayerProfileWidget() );
             } );
             view.OnCommand( (SettingsWidgetView.VideoSettingsCommand cmd) => {
-                this.AttachChild( UIWidgetFactory.VideoSettingsWidget() );
+                widget.AttachChild( UIWidgetFactory.VideoSettingsWidget() );
             } );
             view.OnCommand( (SettingsWidgetView.AudioSettingsCommand cmd) => {
-                this.AttachChild( UIWidgetFactory.AudioSettingsWidget() );
+                widget.AttachChild( UIWidgetFactory.AudioSettingsWidget() );
             } );
             view.OnCommand( (SettingsWidgetView.BackCommand cmd) => {
-                this.DetachSelf();
+                widget.DetachSelf();
             } );
             return view;
         }

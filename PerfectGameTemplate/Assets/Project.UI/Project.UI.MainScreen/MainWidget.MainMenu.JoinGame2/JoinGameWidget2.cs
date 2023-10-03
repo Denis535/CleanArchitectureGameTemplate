@@ -25,7 +25,7 @@ namespace Project.UI.MainScreen {
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
             PlayerProfile = this.GetDependencyContainer().Resolve<Globals.PlayerProfile>( null );
             //LobbyService = this.GetDependencyContainer().Resolve<ILobbyService>( null );
-            View = CreateView();
+            View = CreateView( this, Router );
         }
         public override void Dispose() {
             base.Dispose();
@@ -63,7 +63,7 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private JoinGameWidgetView2 CreateView() {
+        private static JoinGameWidgetView2 CreateView(UIWidgetBase widget, UIRouter router) {
             var view = UIViewFactory.JoinGameWidget2();
             view.Game.OnEvent( (JoinGameWidgetView2.GameView.GameNameEvent evt) => {
             } );
@@ -83,14 +83,14 @@ namespace Project.UI.MainScreen {
                 var gameWorld = view.Game.GameWorld.As<GameWorld>().Value;
                 var isGamePrivate = view.Game.IsGamePrivate.Value;
                 var gameDesc = new GameDesc( gameName, gameMode, gameWorld, isGamePrivate );
-                var playerName = View.Player.PlayerName.Value!;
-                var playerRole = View.Player.PlayerRole.As<PlayerRole>().Value;
+                var playerName = view.Player.PlayerName.Value!;
+                var playerRole = view.Player.PlayerRole.As<PlayerRole>().Value;
                 var playerDesc = new PlayerDesc( playerName, playerRole );
-                Router.LoadGameSceneAsync( gameDesc, playerDesc, default ).Throw();
-                this.AttachChild( UIWidgetFactory.LoadingWidget() );
+                router.LoadGameSceneAsync( gameDesc, playerDesc, default ).Throw();
+                widget.AttachChild( UIWidgetFactory.LoadingWidget() );
             } );
             view.OnCommand( (JoinGameWidgetView2.BackCommand cmd) => {
-                this.DetachSelf();
+                widget.DetachSelf();
             } );
             return view;
         }

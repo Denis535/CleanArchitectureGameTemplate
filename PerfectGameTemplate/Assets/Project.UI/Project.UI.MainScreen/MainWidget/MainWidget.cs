@@ -59,7 +59,7 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private MainWidgetView CreateView() {
+        private static MainWidgetView CreateView() {
             var view = UIViewFactory.MainWidget();
             return view;
         }

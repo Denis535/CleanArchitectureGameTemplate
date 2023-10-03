@@ -17,7 +17,7 @@ namespace Project.UI.Common {
         // Constructor
         public VideoSettingsWidget() {
             VideoSettings = this.GetDependencyContainer().Resolve<Globals.VideoSettings>( null );
-            View = CreateView();
+            View = CreateView( this, VideoSettings );
         }
         public override void Dispose() {
             base.Dispose();
@@ -38,26 +38,26 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private VideoSettingsWidgetView CreateView() {
+        private static VideoSettingsWidgetView CreateView(UIWidgetBase widget, Globals.VideoSettings videoSettings) {
             var view = UIViewFactory.VideoSettingsWidget();
             view.OnEvent( (VideoSettingsWidgetView.IsFullScreenEvent evt) => {
-                VideoSettings.IsFullScreen = evt.IsFullScreen;
+                videoSettings.IsFullScreen = evt.IsFullScreen;
             } );
             view.OnEvent( (VideoSettingsWidgetView.ScreenResolutionEvent evt) => {
-                VideoSettings.ScreenResolution = (Resolution) evt.ScreenResolution!;
+                videoSettings.ScreenResolution = (Resolution) evt.ScreenResolution!;
             } );
             view.OnEvent( (VideoSettingsWidgetView.IsVSyncEvent evt) => {
-                VideoSettings.IsVSync = evt.IsVSync;
+                videoSettings.IsVSync = evt.IsVSync;
             } );
             view.OnCommand( (VideoSettingsWidgetView.OkeyCommand cmd) => {
-                VideoSettings.IsFullScreen = cmd.Sender.IsFullScreen.Value;
-                VideoSettings.ScreenResolution = cmd.Sender.ScreenResolution.As<Resolution>().Value;
-                VideoSettings.IsVSync = cmd.Sender.IsVSync.Value;
-                VideoSettings.Save();
-                this.DetachSelf();
+                videoSettings.IsFullScreen = cmd.Sender.IsFullScreen.Value;
+                videoSettings.ScreenResolution = cmd.Sender.ScreenResolution.As<Resolution>().Value;
+                videoSettings.IsVSync = cmd.Sender.IsVSync.Value;
+                videoSettings.Save();
+                widget.DetachSelf();
             } );
             view.OnCommand( (VideoSettingsWidgetView.BackCommand cmd) => {
-                this.DetachSelf();
+                widget.DetachSelf();
             } );
             return view;
         }

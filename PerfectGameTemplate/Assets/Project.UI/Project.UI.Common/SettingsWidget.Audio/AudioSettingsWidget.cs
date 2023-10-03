@@ -16,7 +16,7 @@ namespace Project.UI.Common {
         // Constructor
         public AudioSettingsWidget() {
             AudioSettings = this.GetDependencyContainer().Resolve<Globals.AudioSettings>( null );
-            View = CreateView();
+            View = CreateView( this, AudioSettings );
         }
         public override void Dispose() {
             base.Dispose();
@@ -38,30 +38,30 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private AudioSettingsWidgetView CreateView() {
+        private static AudioSettingsWidgetView CreateView(UIWidgetBase widget, Globals.AudioSettings audioSettings) {
             var view = UIViewFactory.AudioSettingsWidget();
             view.OnEvent( (AudioSettingsWidgetView.MasterVolumeEvent evt) => {
-                AudioSettings.MasterVolume = evt.MasterVolume;
+                audioSettings.MasterVolume = evt.MasterVolume;
             } );
             view.OnEvent( (AudioSettingsWidgetView.MusicVolumeEvent evt) => {
-                AudioSettings.MusicVolume = evt.MusicVolume;
+                audioSettings.MusicVolume = evt.MusicVolume;
             } );
             view.OnEvent( (AudioSettingsWidgetView.SfxVolumeEvent evt) => {
-                AudioSettings.SfxVolume = evt.SfxVolume;
+                audioSettings.SfxVolume = evt.SfxVolume;
             } );
             view.OnEvent( (AudioSettingsWidgetView.GameVolumeEvent evt) => {
-                AudioSettings.GameVolume = evt.GameVolume;
+                audioSettings.GameVolume = evt.GameVolume;
             } );
             view.OnCommand( (AudioSettingsWidgetView.OkeyCommand cmd) => {
-                AudioSettings.MasterVolume = cmd.Sender.MasterVolume.Value;
-                AudioSettings.MusicVolume = cmd.Sender.MusicVolume.Value;
-                AudioSettings.SfxVolume = cmd.Sender.SfxVolume.Value;
-                AudioSettings.GameVolume = cmd.Sender.GameVolume.Value;
-                AudioSettings.Save();
-                this.DetachSelf();
+                audioSettings.MasterVolume = cmd.Sender.MasterVolume.Value;
+                audioSettings.MusicVolume = cmd.Sender.MusicVolume.Value;
+                audioSettings.SfxVolume = cmd.Sender.SfxVolume.Value;
+                audioSettings.GameVolume = cmd.Sender.GameVolume.Value;
+                audioSettings.Save();
+                widget.DetachSelf();
             } );
             view.OnCommand( (AudioSettingsWidgetView.BackCommand cmd) => {
-                this.DetachSelf();
+                widget.DetachSelf();
             } );
             return view;
         }

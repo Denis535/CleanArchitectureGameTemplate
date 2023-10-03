@@ -24,7 +24,7 @@ namespace Project.UI.MainScreen {
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
             PlayerProfile = this.GetDependencyContainer().Resolve<Globals.PlayerProfile>( null );
             //LobbyService = this.GetDependencyContainer().Resolve<ILobbyService>( null );
-            View = CreateView();
+            View = CreateView( this );
         }
         public override void Dispose() {
             base.Dispose();
@@ -57,19 +57,19 @@ namespace Project.UI.MainScreen {
             base.OnBeforeDescendantDetach( descendant );
         }
         public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
-            if (descendant is CreateGameWidget2 child) {
-                View.Game.GameName.Value = child.View.Game.GameName.Value;
-                View.Game.GameMode.As<GameMode>().ValueChoices = child.View.Game.GameMode.As<GameMode>().ValueChoices;
-                View.Game.GameWorld.As<GameWorld>().ValueChoices = child.View.Game.GameWorld.As<GameWorld>().ValueChoices;
-                View.Game.IsGamePrivate.Value = child.View.Game.IsGamePrivate.Value;
-                View.Player.PlayerName.Value = child.View.Player.PlayerName.Value;
-                View.Player.PlayerRole.Value = child.View.Player.PlayerRole.Value;
+            if (descendant is CreateGameWidget2 createGameWidget) {
+                View.Game.GameName.Value = createGameWidget.View.Game.GameName.Value;
+                View.Game.GameMode.As<GameMode>().ValueChoices = createGameWidget.View.Game.GameMode.As<GameMode>().ValueChoices;
+                View.Game.GameWorld.As<GameWorld>().ValueChoices = createGameWidget.View.Game.GameWorld.As<GameWorld>().ValueChoices;
+                View.Game.IsGamePrivate.Value = createGameWidget.View.Game.IsGamePrivate.Value;
+                View.Player.PlayerName.Value = createGameWidget.View.Player.PlayerName.Value;
+                View.Player.PlayerRole.Value = createGameWidget.View.Player.PlayerRole.Value;
             }
             base.OnAfterDescendantDetach( descendant );
         }
 
         // Helpers
-        private CreateGameWidgetView CreateView() {
+        private static CreateGameWidgetView CreateView(UIWidgetBase widget) {
             var view = UIViewFactory.CreateGameWidget();
             view.Game.OnEvent( (CreateGameWidgetView.GameView.GameNameEvent evt) => {
             } );
@@ -84,10 +84,10 @@ namespace Project.UI.MainScreen {
             view.Player.OnEvent( (CreateGameWidgetView.PlayerView.PlayerRoleEvent evt) => {
             } );
             view.OnCommand( (CreateGameWidgetView.OkeyCommand cmd) => {
-                this.AttachChild( UIWidgetFactory.CreateGameWidget2() );
+                widget.AttachChild( UIWidgetFactory.CreateGameWidget2() );
             } );
             view.OnCommand( (CreateGameWidgetView.BackCommand cmd) => {
-                this.DetachSelf();
+                widget.DetachSelf();
             } );
             return view;
         }

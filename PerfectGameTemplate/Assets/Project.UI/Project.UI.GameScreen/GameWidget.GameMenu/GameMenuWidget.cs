@@ -16,7 +16,7 @@ namespace Project.UI.GameScreen {
         // Constructor
         public GameMenuWidget() {
             Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
-            View = CreateView();
+            View = CreateView( this, Router );
         }
         public override void Dispose() {
             base.Dispose();
@@ -33,17 +33,17 @@ namespace Project.UI.GameScreen {
         }
 
         // Helpers
-        private GameMenuWidgetView CreateView() {
+        private static GameMenuWidgetView CreateView(UIWidgetBase widget, UIRouter router) {
             var view = UIViewFactory.GameMenuWidget();
             view.OnCommand( (GameMenuWidgetView.ResumeCommand cmd) => {
-                this.DetachSelf();
+                widget.DetachSelf();
             } );
             view.OnCommand( (GameMenuWidgetView.SettingsCommand cmd) => {
-                this.AttachChild( UIWidgetFactory.SettingsWidget() );
+                widget.AttachChild( UIWidgetFactory.SettingsWidget() );
             } );
             view.OnCommand( (GameMenuWidgetView.MainMenuCommand cmd) => {
-                var dialog = UIWidgetFactory.DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => Router.LoadMainSceneAsync( default ).Throw() ).OnCancel( "No", null );
-                this.AttachChild( dialog );
+                var dialog = UIWidgetFactory.DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => router.LoadMainSceneAsync( default ).Throw() ).OnCancel( "No", null );
+                widget.AttachChild( dialog );
             } );
             return view;
         }
