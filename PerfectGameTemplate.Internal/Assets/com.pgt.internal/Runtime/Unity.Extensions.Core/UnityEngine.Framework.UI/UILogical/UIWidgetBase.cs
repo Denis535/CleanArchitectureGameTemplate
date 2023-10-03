@@ -11,11 +11,17 @@ namespace UnityEngine.Framework.UI {
 
     public abstract class UIWidgetBase : IUILogicalElement, IUIObservable, IDisposable {
 
+        private CancellationTokenSource? disposeCancellationTokenSource;
+
         // System
         private Lock Lock { get; } = new Lock();
         public bool IsDisposed { get; private set; }
-        private CancellationTokenSource DisposeCancellationTokenSource { get; } = new CancellationTokenSource();
-        public CancellationToken DisposeCancellationToken => DisposeCancellationTokenSource.Token;
+        public CancellationToken DisposeCancellationToken {
+            get {
+                disposeCancellationTokenSource ??= new CancellationTokenSource();
+                return disposeCancellationTokenSource.Token;
+            }
+        }
         public virtual bool DisposeAutomatically => true;
         public Action<UIMessage>? OnMessageEvent { get; set; }
         // View
@@ -42,8 +48,10 @@ namespace UnityEngine.Framework.UI {
         public IReadOnlyList<UIWidgetBase> Descendants => this.GetDescendants();
         public IReadOnlyList<UIWidgetBase> DescendantsAndSelf => this.GetDescendantsAndSelf();
         // OnAttach
+        public Action? OnBeforeAttachEvent { get; set; }
         public Action? OnAttachEvent { get; set; }
         public Action? OnDetachEvent { get; set; }
+        public Action? OnAfterDetachEvent { get; set; }
         // OnDescendantAttach
         public Action<UIWidgetBase>? OnBeforeDescendantAttachEvent { get; set; }
         public Action<UIWidgetBase>? OnAfterDescendantAttachEvent { get; set; }
@@ -57,8 +65,7 @@ namespace UnityEngine.Framework.UI {
             Assert.Object.Message( $"Widget {this} must be alive" ).Alive( !IsDisposed );
             Assert.Object.Message( $"Widget {this} must be non-attached" ).Valid( IsNonAttached );
             IsDisposed = true;
-            DisposeCancellationTokenSource.Cancel();
-            DisposeCancellationTokenSource.Dispose();
+            disposeCancellationTokenSource?.Cancel();
         }
 
         // Attach
@@ -70,13 +77,16 @@ namespace UnityEngine.Framework.UI {
             Screen = screen;
             OnBeforeDescendantAttach( Owner!, this );
             {
+                // OnBeforeAttach
+                OnBeforeAttachEvent?.Invoke();
+                OnBeforeAttach();
+                Screen!.ShowWidget( this );
+                // OnAttach
                 OnAttachEvent?.Invoke();
                 OnAttach();
-                Screen!.ShowWidget( this );
-                OnShow();
-                foreach (var child in Children) {
-                    child.Attach( Screen );
-                }
+            }
+            foreach (var child in Children) {
+                child.Attach( Screen );
             }
             OnAfterDescendantAttach( Owner!, this );
             State = UIWidgetState.Attached;
@@ -88,14 +98,17 @@ namespace UnityEngine.Framework.UI {
             Assert.Object.Message( $"Widget {this} must be valid" ).Valid( Screen == screen );
             State = UIWidgetState.Detaching;
             OnBeforeDescendantDetach( Owner!, this );
+            foreach (var child in Children.Reverse()) {
+                child.Detach( Screen );
+            }
             {
-                foreach (var child in Children.Reverse()) {
-                    child.Detach( Screen );
-                }
-                OnHide();
-                Screen!.HideWidget( this );
+                // OnDetach
                 OnDetach();
                 OnDetachEvent?.Invoke();
+                // OnAfterDetach
+                Screen!.HideWidget( this );
+                OnAfterDetach();
+                OnAfterDetachEvent?.Invoke();
             }
             OnAfterDescendantDetach( Owner!, this );
             Screen = null;
@@ -127,10 +140,10 @@ namespace UnityEngine.Framework.UI {
         }
 
         // OnAttach
+        public abstract void OnBeforeAttach();
         public abstract void OnAttach();
-        public abstract void OnShow();
-        public abstract void OnHide();
         public abstract void OnDetach();
+        public abstract void OnAfterDetach();
 
         // AttachChild
         protected internal virtual void __AttachChild__(UIWidgetBase child) {
@@ -146,10 +159,10 @@ namespace UnityEngine.Framework.UI {
             Assert.Object.Message( $"Widget {this} must have child {child} widget" ).Valid( Children.Contains( child ) );
             using (Lock.Enter()) {
                 child.Detach( this );
+                Children_.Remove( child );
                 if (child.DisposeAutomatically) {
                     child.Dispose();
                 }
-                Children_.Remove( child );
             }
         }
 

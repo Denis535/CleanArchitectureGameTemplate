@@ -44,11 +44,17 @@ namespace UnityEngine.Framework.UI {
         }
 
         // OnAttach
+        public static void OnBeforeAttach(this UIWidgetBase widget, Action callback) {
+            widget.OnBeforeAttachEvent += callback;
+        }
         public static void OnAttach(this UIWidgetBase widget, Action callback) {
             widget.OnAttachEvent += callback;
         }
         public static void OnDetach(this UIWidgetBase widget, Action callback) {
             widget.OnDetachEvent += callback;
+        }
+        public static void OnAfterDetach(this UIWidgetBase widget, Action callback) {
+            widget.OnAfterDetachEvent += callback;
         }
 
         // OnDescendantAttach

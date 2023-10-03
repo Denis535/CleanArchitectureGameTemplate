@@ -42,7 +42,6 @@ namespace Project.UI {
 #if UNITY_EDITOR
             AddViewIfNeeded( Document, View );
 #endif
-
             if (stateTracker.IsChanged( this )) {
                 if (IsMainScreen) {
                     Widget?.DetachSelf();

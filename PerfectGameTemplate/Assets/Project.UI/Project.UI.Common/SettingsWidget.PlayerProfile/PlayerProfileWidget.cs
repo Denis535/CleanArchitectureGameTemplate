@@ -23,14 +23,14 @@ namespace Project.UI.Common {
         }
 
         // OnAttach
-        public override void OnAttach() {
+        public override void OnBeforeAttach() {
             View.Name.Value = PlayerProfile.PlayerName;
         }
-        public override void OnShow() {
-        }
-        public override void OnHide() {
+        public override void OnAttach() {
         }
         public override void OnDetach() {
+        }
+        public override void OnAfterDetach() {
             PlayerProfile.Load();
         }
 

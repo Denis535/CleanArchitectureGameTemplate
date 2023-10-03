@@ -28,14 +28,14 @@ namespace Project.UI.GameScreen {
         }
 
         // OnAttach
-        public override void OnAttach() {
+        public override void OnBeforeAttach() {
             Actions.Enable();
         }
-        public override void OnShow() {
-        }
-        public override void OnHide() {
+        public override void OnAttach() {
         }
         public override void OnDetach() {
+        }
+        public override void OnAfterDetach() {
             Actions.Disable();
         }
 

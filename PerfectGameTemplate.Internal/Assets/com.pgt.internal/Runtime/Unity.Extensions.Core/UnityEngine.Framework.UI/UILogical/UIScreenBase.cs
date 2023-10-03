@@ -63,10 +63,10 @@ namespace UnityEngine.Framework.UI {
             Assert.Object.Message( $"Screen {this} must have widget {widget} widget" ).Valid( Widget == widget );
             using (Lock.Enter()) {
                 Widget.Detach( this );
-                if (Widget.DisposeAutomatically) {
-                    Widget.Dispose();
-                }
                 Widget = null;
+                if (widget.DisposeAutomatically) {
+                    widget.Dispose();
+                }
             }
         }
 

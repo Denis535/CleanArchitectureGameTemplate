@@ -6,7 +6,7 @@ namespace UnityEngine {
     using UnityEngine;
 
     // One producer, one consumer
-    public class Trackable<T> {
+    public readonly struct Trackable<T> {
 
         private readonly TrackableSource<T> source;
 
@@ -19,13 +19,13 @@ namespace UnityEngine {
         }
 
         // Peek
-        public bool Peek(out T value) {
+        public readonly bool Peek(out T value) {
             value = source.Value;
             return source.IsChanged;
         }
 
         // Consume
-        public bool Consume(out T value) {
+        public readonly bool Consume(out T value) {
             value = source.Value;
             var isChanged = source.IsChanged;
             source.IsChanged = false;
@@ -33,7 +33,7 @@ namespace UnityEngine {
         }
 
         // Utils
-        public override string ToString() {
+        public readonly override string ToString() {
             return "Trackable ({0}, {1})".Format( source.Value, source.IsChanged );
         }
 
@@ -42,13 +42,12 @@ namespace UnityEngine {
 
         internal T Value { get; private set; }
         internal bool IsChanged { get; set; }
-        public Trackable<T> Trackable { get; }
+        public Trackable<T> Trackable => new Trackable<T>( this );
 
         // Constructor
         public TrackableSource(T value) {
             Value = value;
             IsChanged = true;
-            Trackable = new Trackable<T>( this );
         }
 
         // SetValue

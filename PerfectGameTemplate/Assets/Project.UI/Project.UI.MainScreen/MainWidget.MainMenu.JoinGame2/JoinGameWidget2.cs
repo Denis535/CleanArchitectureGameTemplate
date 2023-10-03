@@ -32,7 +32,7 @@ namespace Project.UI.MainScreen {
         }
 
         // OnAttach
-        public override void OnAttach() {
+        public override void OnBeforeAttach() {
             var parent = (JoinGameWidget?) Parent;
             View.Game.GameName.Value = parent!.View.Game.GameName.Value;
             View.Game.GameMode.As<GameMode>().ValueChoices = parent!.View.Game.GameMode.As<GameMode>().ValueChoices;
@@ -41,11 +41,11 @@ namespace Project.UI.MainScreen {
             View.Player.PlayerName.Value = parent!.View.Player.PlayerName.Value;
             View.Player.PlayerRole.As<PlayerRole>().ValueChoices = parent!.View.Player.PlayerRole.As<PlayerRole>().ValueChoices;
         }
-        public override void OnShow() {
-        }
-        public override void OnHide() {
+        public override void OnAttach() {
         }
         public override void OnDetach() {
+        }
+        public override void OnAfterDetach() {
         }
 
         // OnDescendantAttach

@@ -23,17 +23,17 @@ namespace Project.UI.Common {
         }
 
         // OnAttach
-        public override void OnAttach() {
+        public override void OnBeforeAttach() {
             View.MasterVolume.Value = AudioSettings.MasterVolume;
             View.MusicVolume.Value = AudioSettings.MusicVolume;
             View.SfxVolume.Value = AudioSettings.SfxVolume;
             View.GameVolume.Value = AudioSettings.GameVolume;
         }
-        public override void OnShow() {
-        }
-        public override void OnHide() {
+        public override void OnAttach() {
         }
         public override void OnDetach() {
+        }
+        public override void OnAfterDetach() {
             AudioSettings.Load();
         }
 
