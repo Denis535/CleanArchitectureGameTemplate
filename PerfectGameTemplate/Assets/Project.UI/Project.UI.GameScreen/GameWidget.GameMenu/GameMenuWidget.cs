@@ -3,6 +3,7 @@ namespace Project.UI.GameScreen {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
@@ -41,7 +42,7 @@ namespace Project.UI.GameScreen {
                 this.AttachChild( UIWidgetFactory.SettingsWidget() );
             } );
             view.OnCommand( (GameMenuWidgetView.MainMenuCommand cmd) => {
-                var dialog = UIWidgetFactory.DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", async () => await Router.LoadMainSceneAsync( default ) ).OnCancel( "No", null );
+                var dialog = UIWidgetFactory.DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => Router.LoadMainSceneAsync( default ).Throw() ).OnCancel( "No", null );
                 this.AttachChild( dialog );
             } );
             return view;

@@ -51,7 +51,7 @@ namespace Project.App {
         public void SetGameSceneLoaded() {
             Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.GameSceneLoading );
             State = AppState.GameSceneLoaded;
-            Game = GameObject2.RequireAnyObjectByType<Game>( FindObjectsInactive.Include );
+            Game = GameObject2.RequireAnyObjectByType<Game>( FindObjectsInactive.Exclude );
         }
         public void SetGameSceneUnloading() {
             Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.GameSceneLoaded );
@@ -61,7 +61,6 @@ namespace Project.App {
         public void SetQuitting() {
             Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.MainSceneLoaded );
             State = AppState.Quitting;
-            Game = null;
         }
         public void SetQuited() {
             Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.Quitting );

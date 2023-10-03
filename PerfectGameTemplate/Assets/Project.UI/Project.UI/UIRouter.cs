@@ -78,7 +78,7 @@ namespace Project.UI {
                     // LoadGameScene
                     Application.SetGameSceneLoading();
                     await Task.Delay( 3_000 );
-                    await LoadWorldSceneInternalAsync( GetWorldSceneAddress( gameDesc.World ), cancellationToken );
+                    await LoadWorldSceneInternalAsync( GetWorldAddress( gameDesc.World ), cancellationToken );
                     await LoadGameSceneInternalAsync( cancellationToken );
                     Application.SetGameSceneLoaded();
                     // StartGame
@@ -170,7 +170,7 @@ namespace Project.UI {
             }
         }
         // Helpers/Misc
-        private static string GetWorldSceneAddress(GameWorld world) {
+        private static string GetWorldAddress(GameWorld world) {
             return world switch {
                 GameWorld.TestWorld1 => R.Project.TestWorldScene_1,
                 GameWorld.TestWorld2 => R.Project.TestWorldScene_2,

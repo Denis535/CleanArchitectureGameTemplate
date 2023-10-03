@@ -3,6 +3,7 @@ namespace Project {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Project.UI;
     using UnityEngine;
 
@@ -16,7 +17,7 @@ namespace Project {
 
         // Start
         public void Start() {
-            _ = UIRouter.LoadProgramAsync( default );
+            UIRouter.LoadProgramAsync( default ).Throw();
         }
         public void Update() {
         }

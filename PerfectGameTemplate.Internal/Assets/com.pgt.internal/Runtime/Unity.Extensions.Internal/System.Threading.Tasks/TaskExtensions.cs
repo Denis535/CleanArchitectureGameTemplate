@@ -47,5 +47,10 @@ namespace System.Threading.Tasks {
             return await task.ConfigureAwait( false );
         }
 
+        // Throw
+        public static async void Throw(this Task task) {
+            await task;
+        }
+
     }
 }

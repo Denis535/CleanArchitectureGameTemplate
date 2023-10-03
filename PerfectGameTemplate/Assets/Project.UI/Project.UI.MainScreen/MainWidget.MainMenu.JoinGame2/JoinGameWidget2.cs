@@ -3,6 +3,7 @@ namespace Project.UI.MainScreen {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Project.App;
     using Project.Entities.GameScene;
     using UnityEngine;
@@ -85,7 +86,7 @@ namespace Project.UI.MainScreen {
                 var playerName = View.Player.PlayerName.Value!;
                 var playerRole = View.Player.PlayerRole.As<PlayerRole>().Value;
                 var playerDesc = new PlayerDesc( playerName, playerRole );
-                _ = Router.LoadGameSceneAsync( gameDesc, playerDesc, default );
+                Router.LoadGameSceneAsync( gameDesc, playerDesc, default ).Throw();
                 this.AttachChild( UIWidgetFactory.LoadingWidget() );
             } );
             view.OnCommand( (JoinGameWidgetView2.BackCommand cmd) => {

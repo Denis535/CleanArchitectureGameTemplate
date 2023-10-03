@@ -3,6 +3,7 @@ namespace Project.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Project.App;
     using Project.UI.GameScreen;
     using Project.UI.MainScreen;
@@ -34,8 +35,8 @@ namespace Project.UI {
         }
 
         // Start
-        public async void Start() {
-            await Router.LoadMainSceneAsync( default );
+        public void Start() {
+            Router.LoadMainSceneAsync( default ).Throw();
         }
         public void Update() {
 #if UNITY_EDITOR
