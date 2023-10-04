@@ -15,12 +15,16 @@ namespace Project.UI.MainScreen {
     public class MainWidget : UIWidgetBase<MainWidgetView> {
 
         // Globals
+        private UIRouter Router { get; }
         private Application2 Application { get; }
+        private Globals Globals { get; set; } = default!;
         private IAuthenticationService AuthenticationService => Unity.Services.Authentication.AuthenticationService.Instance;
 
         // Constructor
         public MainWidget() {
+            Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
+            Globals = this.GetDependencyContainer().Resolve<Globals>( null );
             View = CreateView();
         }
         public override void Dispose() {
@@ -31,9 +35,40 @@ namespace Project.UI.MainScreen {
         public override void OnBeforeAttach() {
         }
         public override async void OnAttach() {
-            while (!Application.IsMainSceneLoaded) await Task.Yield();
-            while (UnityServices.State != ServicesInitializationState.Initializing) await Task.Yield();
-            while (!AuthenticationService.IsSignedIn) await Task.Yield();
+            // UnityServices
+            if (UnityServices.State != ServicesInitializationState.Initialized) {
+                try {
+                    var dialog = UIWidgetFactory.DialogWidget( "Initialization (unity services)", "Please, wait..." );
+                    this.AttachChild( dialog );
+                    var options = new InitializationOptions();
+                    if (Globals.Profile != null) options.SetProfile( Globals.Profile );
+                    await UnityServices.InitializeAsync( options );
+                    dialog.DetachSelf();
+                } catch (Exception ex) {
+                    var dialog = UIWidgetFactory.ErrorDialogWidget( "Error", ex.Message ).OnSubmit( "Ok", () => Router.Quit() );
+                    this.AttachChild( dialog );
+                    return;
+                }
+            }
+            // AuthenticationService
+            if (AuthenticationService.IsSignedIn) {
+                try {
+                    var dialog = UIWidgetFactory.DialogWidget( "Authentication", "Please, wait..." );
+                    this.AttachChild( dialog );
+                    var options = new SignInOptions();
+                    options.CreateAccount = true;
+                    await AuthenticationService.SignInAnonymouslyAsync( options );
+                    dialog.DetachSelf();
+                } catch (Exception ex) {
+                    var dialog = UIWidgetFactory.ErrorDialogWidget( "Error", ex.Message ).OnSubmit( "Ok", () => Router.Quit() );
+                    this.AttachChild( dialog );
+                    return;
+                }
+            }
+            // MainMenuWidget
+            while (!Application.IsMainSceneLoaded) {
+                await Task.Yield();
+            }
             this.AttachChild( UIWidgetFactory.MainMenuWidget() );
         }
         public override void OnDetach() {

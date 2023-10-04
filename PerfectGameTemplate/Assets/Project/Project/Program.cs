@@ -7,8 +7,6 @@ namespace Project {
     using Project.App;
     using Project.Entities.GameScene;
     using Project.UI;
-    using Unity.Services.Authentication;
-    using Unity.Services.Core;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.UIElements;
@@ -19,8 +17,6 @@ namespace Project {
         // Globals
         private UIRouter Router { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
-        private Globals Globals { get; set; } = default!;
-        private IAuthenticationService AuthenticationService => Unity.Services.Authentication.AuthenticationService.Instance;
 
         // OnLoad
         [RuntimeInitializeOnLoadMethod( RuntimeInitializeLoadType.BeforeSplashScreen )]
@@ -47,7 +43,6 @@ namespace Project {
             base.Awake();
             Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
-            Globals = this.GetDependencyContainer().Resolve<Globals>( null );
         }
         public new void OnDestroy() {
             base.OnDestroy();
@@ -56,18 +51,6 @@ namespace Project {
         // Start
         public async void Start() {
             await Router.LoadMainSceneAsync( default );
-            {
-                // UnityServices
-                var options = new InitializationOptions();
-                if (Globals.Profile != null) options.SetProfile( Globals.Profile );
-                await UnityServices.InitializeAsync( options );
-            }
-            {
-                // AuthenticationService
-                var options = new SignInOptions();
-                options.CreateAccount = true;
-                await AuthenticationService.SignInAnonymouslyAsync( options );
-            }
         }
         public void Update() {
         }

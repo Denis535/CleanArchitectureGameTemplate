@@ -78,17 +78,19 @@ namespace Project.UI {
             view.OnEventTrickleDown<ChangeEvent<bool>>( PlayChange );
             view.OnEventTrickleDown<NavigationSubmitEvent>( OnSubmit );
             view.OnEventTrickleDown<NavigationCancelEvent>( OnCancel );
-            if (shadowed.LastOrDefault() is not MainWidgetView or GameWidgetView) {
-                ShowView( view, shadowed.LastOrDefault() );
-            } else {
+            var shadowed_ = shadowed.LastOrDefault();
+            if (shadowed_ is MainWidgetView or GameWidgetView || shadowed_.IsModal()) {
                 ShowView( view, null );
+            } else {
+                ShowView( view, shadowed_ );
             }
         }
         public override void HideView(UIWidgetViewBase view, UIWidgetViewBase[] unshadowed) {
-            if (unshadowed.LastOrDefault() is not MainWidgetView or GameWidgetView) {
-                HideView( view, unshadowed.LastOrDefault() );
-            } else {
+            var unshadowed_ = unshadowed.LastOrDefault();
+            if (unshadowed_ is MainWidgetView or GameWidgetView || unshadowed_.IsModal()) {
                 HideView( view, null );
+            } else {
+                HideView( view, unshadowed_ );
             }
         }
 
@@ -98,8 +100,8 @@ namespace Project.UI {
                 SaveFocus( shadowed );
             }
             if (!view.IsModal()) {
-                shadowed?.SetDisplayed( false );
                 shadowed?.SetEnabled( false );
+                shadowed?.SetDisplayed( false );
                 viewsContainer.Add( view );
             } else {
                 shadowed?.SetEnabled( false );
@@ -110,8 +112,8 @@ namespace Project.UI {
         private void HideView(UIWidgetViewBase view, UIWidgetViewBase? unshadowed) {
             if (!view.IsModal()) {
                 viewsContainer.Remove( view );
-                unshadowed?.SetEnabled( true );
                 unshadowed?.SetDisplayed( true );
+                unshadowed?.SetEnabled( true );
             } else {
                 modalViewsContainer.Remove( view );
                 unshadowed?.SetEnabled( true );
