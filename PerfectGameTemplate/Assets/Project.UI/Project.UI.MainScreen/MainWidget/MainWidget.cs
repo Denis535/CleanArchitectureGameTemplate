@@ -4,7 +4,10 @@ namespace Project.UI.MainScreen {
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     using Project.App;
+    using Unity.Services.Authentication;
+    using Unity.Services.Core;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
@@ -13,6 +16,7 @@ namespace Project.UI.MainScreen {
 
         // Globals
         private Application2 Application { get; }
+        private IAuthenticationService AuthenticationService => Unity.Services.Authentication.AuthenticationService.Instance;
 
         // Constructor
         public MainWidget() {
@@ -26,7 +30,11 @@ namespace Project.UI.MainScreen {
         // OnAttach
         public override void OnBeforeAttach() {
         }
-        public override void OnAttach() {
+        public override async void OnAttach() {
+            while (!Application.IsMainSceneLoaded) await Task.Yield();
+            while (UnityServices.State != ServicesInitializationState.Initializing) await Task.Yield();
+            while (!AuthenticationService.IsSignedIn) await Task.Yield();
+            this.AttachChild( UIWidgetFactory.MainMenuWidget() );
         }
         public override void OnDetach() {
         }
@@ -51,11 +59,6 @@ namespace Project.UI.MainScreen {
 
         // Update
         public void Update() {
-            if (Application.IsMainSceneLoaded) {
-                if (!Children.OfType<MainMenuWidget>().Any()) {
-                    this.AttachChild( UIWidgetFactory.MainMenuWidget() );
-                }
-            }
         }
 
         // Helpers

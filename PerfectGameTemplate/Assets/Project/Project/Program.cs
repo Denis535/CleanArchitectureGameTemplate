@@ -4,8 +4,11 @@ namespace Project {
     using System.Collections;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using Project.App;
     using Project.Entities.GameScene;
     using Project.UI;
+    using Unity.Services.Authentication;
+    using Unity.Services.Core;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.UIElements;
@@ -15,10 +18,14 @@ namespace Project {
 
         // Globals
         private UIRouter Router { get; set; } = default!;
+        private Application2 Application { get; set; } = default!;
+        private Globals Globals { get; set; } = default!;
+        private IAuthenticationService AuthenticationService => Unity.Services.Authentication.AuthenticationService.Instance;
 
         // OnLoad
         [RuntimeInitializeOnLoadMethod( RuntimeInitializeLoadType.BeforeSplashScreen )]
         internal static void OnLoad() {
+            UnityEngine.Application.logMessageReceived += OnLog;
             //if (Debug.isDebugBuild) {
             //    Screen.fullScreen = false;
             //    Screen.SetResolution( 1280, 720, false );
@@ -26,18 +33,41 @@ namespace Project {
             DropdownField2.Formatter = GetDisplayString;
         }
 
+        // OnLog
+        private static void OnLog(string message, string stackTrace, LogType type) {
+#if RELEASE
+            if (type is LogType.Error or LogType.Assert or LogType.Exception) {
+                UnityEngine.Application.Quit( 1 );
+            }
+#endif
+        }
+
         // Awake
         public new void Awake() {
             base.Awake();
             Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
+            Application = this.GetDependencyContainer().Resolve<Application2>( null );
+            Globals = this.GetDependencyContainer().Resolve<Globals>( null );
         }
         public new void OnDestroy() {
             base.OnDestroy();
         }
 
         // Start
-        public void Start() {
-            Router.LoadMainSceneAsync( default ).Throw();
+        public async void Start() {
+            await Router.LoadMainSceneAsync( default );
+            {
+                // UnityServices
+                var options = new InitializationOptions();
+                if (Globals.Profile != null) options.SetProfile( Globals.Profile );
+                await UnityServices.InitializeAsync( options );
+            }
+            {
+                // AuthenticationService
+                var options = new SignInOptions();
+                options.CreateAccount = true;
+                await AuthenticationService.SignInAnonymouslyAsync( options );
+            }
         }
         public void Update() {
         }

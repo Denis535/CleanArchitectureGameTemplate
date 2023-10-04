@@ -10,7 +10,7 @@ namespace Project.UI.DebugScreen {
     using UnityEngine.Framework;
     using UnityEngine.UIElements;
 
-    [DefaultExecutionOrder( ScriptExecutionOrders.Program )]
+    [DefaultExecutionOrder( ScriptExecutionOrders.Program + 10 )]
     public class DebugScreen : MonoBehaviour {
 
         // Globals
