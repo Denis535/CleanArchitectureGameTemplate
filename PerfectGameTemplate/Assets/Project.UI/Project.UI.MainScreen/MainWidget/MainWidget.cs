@@ -38,7 +38,7 @@ namespace Project.UI.MainScreen {
             // UnityServices
             if (UnityServices.State != ServicesInitializationState.Initialized) {
                 try {
-                    var dialog = UIWidgetFactory.DialogWidget( "Initialization (unity services)", "Please, wait..." );
+                    var dialog = UIWidgetFactory.InfoDialogWidget( "Initialization (unity services)", "Please, wait..." );
                     this.AttachChild( dialog );
                     var options = new InitializationOptions();
                     if (Globals.Profile != null) options.SetProfile( Globals.Profile );
@@ -51,9 +51,9 @@ namespace Project.UI.MainScreen {
                 }
             }
             // AuthenticationService
-            if (AuthenticationService.IsSignedIn) {
+            if (!AuthenticationService.IsSignedIn) {
                 try {
-                    var dialog = UIWidgetFactory.DialogWidget( "Authentication", "Please, wait..." );
+                    var dialog = UIWidgetFactory.InfoDialogWidget( "Authentication", "Please, wait..." );
                     this.AttachChild( dialog );
                     var options = new SignInOptions();
                     options.CreateAccount = true;
