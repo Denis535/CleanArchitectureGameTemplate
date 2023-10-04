@@ -35,24 +35,18 @@ namespace Project.UI.MainScreen {
         public override void OnBeforeAttach() {
         }
         public override async void OnAttach() {
-            // MainMenuWidget
+            // MainScene
             if (!Application.IsMainSceneLoaded) {
-                var dialog = UIWidgetFactory.DialogWidget( "Loading", "Please, wait..." );
-                this.AttachChild( dialog );
                 while (!Application.IsMainSceneLoaded) {
                     await Task.Yield();
                 }
-                dialog.DetachSelf();
             }
             // UnityServices
             if (UnityServices.State != ServicesInitializationState.Initialized) {
                 try {
-                    var dialog = UIWidgetFactory.DialogWidget( "Initialization (unity services)", "Please, wait..." );
-                    this.AttachChild( dialog );
                     var options = new InitializationOptions();
                     if (Globals.Profile != null) options.SetProfile( Globals.Profile );
                     await UnityServices.InitializeAsync( options );
-                    dialog.DetachSelf();
                 } catch (Exception ex) {
                     var dialog = UIWidgetFactory.ErrorDialogWidget( "Error", ex.Message ).OnSubmit( "Ok", () => Router.Quit() );
                     this.AttachChild( dialog );
@@ -62,18 +56,16 @@ namespace Project.UI.MainScreen {
             // AuthenticationService
             if (!AuthenticationService.IsSignedIn) {
                 try {
-                    var dialog = UIWidgetFactory.DialogWidget( "Authentication", "Please, wait..." );
-                    this.AttachChild( dialog );
                     var options = new SignInOptions();
                     options.CreateAccount = true;
                     await AuthenticationService.SignInAnonymouslyAsync( options );
-                    dialog.DetachSelf();
                 } catch (Exception ex) {
                     var dialog = UIWidgetFactory.ErrorDialogWidget( "Error", ex.Message ).OnSubmit( "Ok", () => Router.Quit() );
                     this.AttachChild( dialog );
                     return;
                 }
             }
+            // MainMenuWidget
             this.AttachChild( UIWidgetFactory.MainMenuWidget() );
         }
         public override void OnDetach() {
