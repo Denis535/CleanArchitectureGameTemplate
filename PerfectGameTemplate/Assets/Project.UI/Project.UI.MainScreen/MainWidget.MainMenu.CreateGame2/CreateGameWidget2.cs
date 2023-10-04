@@ -86,7 +86,7 @@ namespace Project.UI.MainScreen {
                 var playerName = view.Player.PlayerName.Value!;
                 var playerRole = view.Player.PlayerRole.As<PlayerRole>().Value;
                 var playerDesc = new PlayerDesc( playerName, playerRole );
-                //router.LoadGameSceneAsync( gameDesc, playerDesc, default ).Throw();
+                router.LoadGameSceneAsync( gameDesc, playerDesc, default ).Throw();
                 widget.AttachChild( UIWidgetFactory.LoadingWidget() );
             } );
             view.OnCommand( (CreateGameWidgetView2.BackCommand cmd) => {
