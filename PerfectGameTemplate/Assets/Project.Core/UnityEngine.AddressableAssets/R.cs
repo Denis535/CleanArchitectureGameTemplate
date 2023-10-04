@@ -47,7 +47,7 @@ namespace UnityEngine.AddressableAssets {
                         public const string @MainWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget/MainWidgetView.uxml[inlineStyle]";
                     }
                     public static class @Music {
-                        public const string @Theme = "Project.UI.MainScreen/Music/Theme #Black Paper  - Pulse.mp3";
+                        public const string @Theme = "Project.UI.MainScreen/Music/Theme #Black Paper  - Pulse.flac";
                     }
                 }
                 public static class @GameScreen {
@@ -60,9 +60,9 @@ namespace UnityEngine.AddressableAssets {
                         public const string @GameWidgetView__inlineStyle = "Project.UI.GameScreen/GameWidget/GameWidgetView.uxml[inlineStyle]";
                     }
                     public static class @Music {
-                        public const string @Theme_1 = "Project.UI.GameScreen/Music/Theme 1 #Black Paper - Inside My Head.mp3";
-                        public const string @Theme_2 = "Project.UI.GameScreen/Music/Theme 2 #Black Paper - I'm with You.mp3";
-                        public const string @Theme_3 = "Project.UI.GameScreen/Music/Theme 3 #Black Paper - Bottom Line.mp3";
+                        public const string @Theme_1 = "Project.UI.GameScreen/Music/Theme 1 #Black Paper - Inside My Head.flac";
+                        public const string @Theme_2 = "Project.UI.GameScreen/Music/Theme 2 #Black Paper - I'm with You.flac";
+                        public const string @Theme_3 = "Project.UI.GameScreen/Music/Theme 3 #Black Paper - Bottom Line.flac";
                     }
                 }
                 public static class @Common {
