@@ -16,7 +16,6 @@ namespace Project.UI {
         private readonly Tracker<UIScreenState, UIScreen> stateTracker = new Tracker<UIScreenState, UIScreen>( i => i.State );
 
         // Globals
-        private UIRouter Router { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
         // State
         public UIScreenState State => GetState( Application.State );
@@ -26,7 +25,6 @@ namespace Project.UI {
         // Awake
         public new void Awake() {
             base.Awake();
-            Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
             View = UIViewBase.Create<UIScreenView>();
         }
@@ -36,7 +34,6 @@ namespace Project.UI {
 
         // Start
         public void Start() {
-            Router.LoadMainSceneAsync( default ).Throw();
         }
         public void Update() {
 #if UNITY_EDITOR

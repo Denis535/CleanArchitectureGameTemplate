@@ -3,13 +3,18 @@ namespace Project {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Project.Entities.GameScene;
+    using Project.UI;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.UIElements;
 
     // Ideally leave this blank
     public class Program : ProgramBase {
+
+        // Globals
+        private UIRouter Router { get; set; } = default!;
 
         // OnLoad
         [RuntimeInitializeOnLoadMethod( RuntimeInitializeLoadType.BeforeSplashScreen )]
@@ -24,6 +29,7 @@ namespace Project {
         // Awake
         public new void Awake() {
             base.Awake();
+            Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
         }
         public new void OnDestroy() {
             base.OnDestroy();
@@ -31,6 +37,7 @@ namespace Project {
 
         // Start
         public void Start() {
+            Router.LoadMainSceneAsync( default ).Throw();
         }
         public void Update() {
         }
