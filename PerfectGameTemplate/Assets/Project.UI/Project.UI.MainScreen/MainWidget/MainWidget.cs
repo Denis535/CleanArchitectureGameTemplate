@@ -35,10 +35,19 @@ namespace Project.UI.MainScreen {
         public override void OnBeforeAttach() {
         }
         public override async void OnAttach() {
+            // MainMenuWidget
+            if (!Application.IsMainSceneLoaded) {
+                var dialog = UIWidgetFactory.DialogWidget( "Loading", "Please, wait..." );
+                this.AttachChild( dialog );
+                while (!Application.IsMainSceneLoaded) {
+                    await Task.Yield();
+                }
+                dialog.DetachSelf();
+            }
             // UnityServices
             if (UnityServices.State != ServicesInitializationState.Initialized) {
                 try {
-                    var dialog = UIWidgetFactory.InfoDialogWidget( "Initialization (unity services)", "Please, wait..." );
+                    var dialog = UIWidgetFactory.DialogWidget( "Initialization (unity services)", "Please, wait..." );
                     this.AttachChild( dialog );
                     var options = new InitializationOptions();
                     if (Globals.Profile != null) options.SetProfile( Globals.Profile );
@@ -53,7 +62,7 @@ namespace Project.UI.MainScreen {
             // AuthenticationService
             if (!AuthenticationService.IsSignedIn) {
                 try {
-                    var dialog = UIWidgetFactory.InfoDialogWidget( "Authentication", "Please, wait..." );
+                    var dialog = UIWidgetFactory.DialogWidget( "Authentication", "Please, wait..." );
                     this.AttachChild( dialog );
                     var options = new SignInOptions();
                     options.CreateAccount = true;
@@ -64,10 +73,6 @@ namespace Project.UI.MainScreen {
                     this.AttachChild( dialog );
                     return;
                 }
-            }
-            // MainMenuWidget
-            while (!Application.IsMainSceneLoaded) {
-                await Task.Yield();
             }
             this.AttachChild( UIWidgetFactory.MainMenuWidget() );
         }

@@ -128,10 +128,6 @@ namespace Project.UI {
             if (evt.target is GameMenuWidgetView) {
                 this.PlayAudioClip( Select );
             } else
-            if (evt.target is DialogWidgetView dialog) {
-                PlayDialogAnimation( dialog );
-                this.PlayAudioClip( Window );
-            } else
             if (evt.target is InfoDialogWidgetView infoDialog) {
                 PlayDialogAnimation( infoDialog );
                 this.PlayAudioClip( InfoWindow );
