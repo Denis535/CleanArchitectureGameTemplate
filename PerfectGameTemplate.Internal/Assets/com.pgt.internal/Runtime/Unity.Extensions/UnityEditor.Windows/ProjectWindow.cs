@@ -21,17 +21,44 @@ namespace UnityEditor.Windows {
         // OnGUI
         public virtual void OnGUI(string guid, Rect rect) {
             var path = AssetDatabase.GUIDToAssetPath( guid );
-            if (IsModule( path, out var module, out var content )) {
-                if (content == null) {
+            if (GetModule( path, out var module )) {
+                if (!GetContent( module, out var content )) {
                     DrawModule( rect, path, module );
-                } else {
-                    if (IsAssets( content )) {
-                        DrawAssets( rect, path, module, content );
-                    } else if (IsSources( content )) {
-                        DrawSources( rect, path, module, content );
-                    }
+                    return;
+                }
+                if (IsAssets( content )) {
+                    DrawAssets( rect, path, module, content );
+                    return;
+                }
+                if (IsSources( content )) {
+                    DrawSources( rect, path, module, content );
+                    return;
                 }
             }
+        }
+
+        // GetModule
+        public virtual bool GetModule(string path, [MaybeNullWhen( false )] out string module) {
+            if (!path.StartsWith( "Assets/" )) {
+                module = null;
+                return false;
+            }
+            var path2 = path.TakeRightOf( '/' );
+            if (path2 != null && IsModule( path2 )) {
+                module = path2;
+                return true;
+            }
+            module = null;
+            return false;
+        }
+        public virtual bool GetContent(string path, [MaybeNullWhen( false )] out string content) {
+            var path2 = path.TakeRightOf( '/' );
+            if (path2 != null) {
+                content = path2;
+                return true;
+            }
+            content = null;
+            return false;
         }
 
         // DrawItem
@@ -62,19 +89,6 @@ namespace UnityEditor.Windows {
         }
 
         // IsModule
-        public virtual bool IsModule(string path, [NotNullWhen( true )] out string? module, out string? content) {
-            if (path.StartsWith( "Assets/" )) {
-                var path2 = path.TakeRightOf( '/' );
-                if (path2 != null && IsModule( path2 )) {
-                    module = path2.TakeLeftOf( '/' ) ?? path2;
-                    content = path2.TakeRightOf( '/' );
-                    return true;
-                }
-            }
-            module = null;
-            content = null;
-            return false;
-        }
         public virtual bool IsModule(string path) {
             return path.StartsWith( "Project" );
         }

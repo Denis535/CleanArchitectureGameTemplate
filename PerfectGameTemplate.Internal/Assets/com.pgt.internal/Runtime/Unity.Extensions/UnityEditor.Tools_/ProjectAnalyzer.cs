@@ -124,33 +124,33 @@ namespace UnityEditor.Tools_ {
         public virtual void Analyze_Game(Type type, string @namespace) {
             // Game
             if (type.CanAnalyze( typeof( GameBase ) )) {
-                type.Namespace( "UnityEngine.Framework.Game", $"{@namespace}.Game" );
+                type.Namespace( "UnityEngine.Framework.Game", $"{@namespace}.Domain", $"{@namespace}.Entities", $"{@namespace}.Game" );
                 type.Name( "*Game" );
             }
             if (type.CanAnalyze( typeof( PlayerBase ) )) {
-                type.Namespace( "UnityEngine.Framework.Game", $"{@namespace}.Game" );
+                type.Namespace( "UnityEngine.Framework.Game", $"{@namespace}.Domain", $"{@namespace}.Entities", $"{@namespace}.Game" );
                 type.Name( "*Player" );
             }
             // World
             if (type.CanAnalyze( typeof( WorldBase ) )) {
-                type.Namespace( "UnityEngine.Framework.Game", $"{@namespace}.Game" );
+                type.Namespace( "UnityEngine.Framework.Game", $"{@namespace}.Domain", $"{@namespace}.Entities", $"{@namespace}.Game" );
                 type.Name( "*World" );
             }
             if (type.CanAnalyze( typeof( WorldViewBase ) )) {
-                type.Namespace( "UnityEngine.Framework.Game", $"{@namespace}.Game" );
+                type.Namespace( "UnityEngine.Framework.Game", $"{@namespace}.Domain", $"{@namespace}.Entities", $"{@namespace}.Game" );
                 type.Name( "*View" );
             }
             // Entity
             if (type.CanAnalyze( typeof( EntityBase ) )) {
-                type.Namespace( "UnityEngine.Framework.Game", $"{@namespace}.Game" );
+                type.Namespace( "UnityEngine.Framework.Game", $"{@namespace}.Domain", $"{@namespace}.Entities", $"{@namespace}.Game" );
                 type.Name( "*Entity" );
             }
             if (type.CanAnalyze( typeof( EntityViewBase ) )) {
-                type.Namespace( "UnityEngine.Framework.Game", $"{@namespace}.Game" );
+                type.Namespace( "UnityEngine.Framework.Game", $"{@namespace}.Domain", $"{@namespace}.Entities", $"{@namespace}.Game" );
                 type.Name( "*View" );
             }
             if (type.CanAnalyze( typeof( EntityBodyBase ) )) {
-                type.Namespace( "UnityEngine.Framework.Game", $"{@namespace}.Game" );
+                type.Namespace( "UnityEngine.Framework.Game", $"{@namespace}.Domain", $"{@namespace}.Entities", $"{@namespace}.Game" );
                 type.Name( "*Body" );
             }
         }

@@ -26,6 +26,14 @@ namespace Project.Windows {
             base.OnGUI( guid, rect );
         }
 
+        // GetModule
+        public override bool GetModule(string path, [MaybeNullWhen( false )] out string module) {
+            return base.GetModule( path, out module );
+        }
+        public override bool GetContent(string path, [MaybeNullWhen( false )] out string content) {
+            return base.GetContent( path, out content );
+        }
+
         // DrawModule
         public override void DrawModule(Rect rect, string path, string module) {
             base.DrawModule( rect, path, module );
@@ -41,9 +49,6 @@ namespace Project.Windows {
         }
 
         // IsModule
-        public override bool IsModule(string path, [NotNullWhen( true )] out string? module, out string? content) {
-            return base.IsModule( path, out module, out content );
-        }
         public override bool IsModule(string path) {
             return base.IsModule( path );
         }
