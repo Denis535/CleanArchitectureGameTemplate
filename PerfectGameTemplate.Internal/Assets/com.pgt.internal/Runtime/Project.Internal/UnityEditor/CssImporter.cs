@@ -6,12 +6,12 @@ namespace UnityEditor {
     using UnityEditor.AssetImporters;
     using UnityEngine;
 
-    [ScriptedImporter( 1, "pug" )]
-    public class PugImporter : ScriptedImporter {
+    [ScriptedImporter( 1, "css" )]
+    public class CssImporter : ScriptedImporter {
 
-        [MenuItem( "Assets/Create/UI Toolkit/Pug" )]
+        [MenuItem( "Assets/Create/UI Toolkit/Css" )]
         public static void CreateAsset() {
-            ProjectWindowUtil.CreateAssetWithContent( "New Document.pug", "" );
+            ProjectWindowUtil.CreateAssetWithContent( "New Style Sheet.css", "" );
         }
 
         public override void OnImportAsset(AssetImportContext context) {

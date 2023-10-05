@@ -4,7 +4,6 @@ namespace Project.Windows {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using UnityEditor;
     using UnityEditor.Windows;
     using UnityEngine;
@@ -27,11 +26,22 @@ namespace Project.Windows {
         }
 
         // GetModule
-        public override bool GetModule(string path, [MaybeNullWhen( false )] out string module) {
-            return base.GetModule( path, out module );
+        public override string? GetModule(string path) {
+            return base.GetModule( path );
         }
-        public override bool GetContent(string path, [MaybeNullWhen( false )] out string content) {
-            return base.GetContent( path, out content );
+        public override string? GetContent(string path) {
+            return base.GetContent( path );
+        }
+
+        // IsModule
+        public override bool IsModule(string path) {
+            return base.IsModule( path );
+        }
+        public override bool IsAssets(string path) {
+            return base.IsAssets( path );
+        }
+        public override bool IsSources(string path) {
+            return base.IsSources( path );
         }
 
         // DrawModule
@@ -46,17 +56,6 @@ namespace Project.Windows {
         }
         public override void DrawItem(Rect rect, string path, Color color) {
             base.DrawItem( rect, path, color );
-        }
-
-        // IsModule
-        public override bool IsModule(string path) {
-            return base.IsModule( path );
-        }
-        public override bool IsAssets(string path) {
-            return base.IsAssets( path );
-        }
-        public override bool IsSources(string path) {
-            return base.IsSources( path );
         }
 
     }

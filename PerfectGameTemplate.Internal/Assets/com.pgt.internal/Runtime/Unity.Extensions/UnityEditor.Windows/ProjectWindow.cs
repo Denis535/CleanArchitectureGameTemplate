@@ -4,7 +4,6 @@ namespace UnityEditor.Windows {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Text;
@@ -21,8 +20,10 @@ namespace UnityEditor.Windows {
         // OnGUI
         public virtual void OnGUI(string guid, Rect rect) {
             var path = AssetDatabase.GUIDToAssetPath( guid );
-            if (GetModule( path, out var module )) {
-                if (!GetContent( module, out var content )) {
+            var module = GetModule( path );
+            var content = module != null ? GetContent( module ) : null;
+            if (module != null) {
+                if (content == null) {
                     DrawModule( rect, path, module );
                     return;
                 }
@@ -38,30 +39,34 @@ namespace UnityEditor.Windows {
         }
 
         // GetModule
-        public virtual bool GetModule(string path, [MaybeNullWhen( false )] out string module) {
-            if (!path.StartsWith( "Assets/" )) {
-                module = null;
-                return false;
-            }
+        public virtual string? GetModule(string path) {
+            if (!path.StartsWith( "Assets/" )) return null;
             var path2 = path.TakeRightOf( '/' );
             if (path2 != null && IsModule( path2 )) {
-                module = path2;
-                return true;
+                return path2;
             }
-            module = null;
-            return false;
+            return null;
         }
-        public virtual bool GetContent(string path, [MaybeNullWhen( false )] out string content) {
+        public virtual string? GetContent(string path) {
             var path2 = path.TakeRightOf( '/' );
             if (path2 != null) {
-                content = path2;
-                return true;
+                return path2;
             }
-            content = null;
-            return false;
+            return null;
         }
 
-        // DrawItem
+        // IsModule
+        public virtual bool IsModule(string path) {
+            return path.StartsWith( "Project" );
+        }
+        public virtual bool IsAssets(string path) {
+            return path.StartsWith( "Assets" ) || path.StartsWith( "Resources" );
+        }
+        public virtual bool IsSources(string path) {
+            return Path.GetExtension( path ) is not ".asmdef" and not ".asmref" and not ".rsp";
+        }
+
+        // DrawModule
         public virtual void DrawModule(Rect rect, string path, string module) {
             var color = HSVA( 000, 1, 1, 0.3f );
             DrawItem( rect, path, color );
@@ -86,17 +91,6 @@ namespace UnityEditor.Windows {
             rect.x -= 16;
             rect.width = 16;
             DrawRect( rect, color );
-        }
-
-        // IsModule
-        public virtual bool IsModule(string path) {
-            return path.StartsWith( "Project" );
-        }
-        public virtual bool IsAssets(string path) {
-            return path.StartsWith( "Assets" ) || path.StartsWith( "Resources" );
-        }
-        public virtual bool IsSources(string path) {
-            return Path.GetExtension( path ) is not ".asmdef" and not ".asmref" and not ".rsp";
         }
 
         // Helpers

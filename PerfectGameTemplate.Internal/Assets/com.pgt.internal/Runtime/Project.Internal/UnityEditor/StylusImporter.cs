@@ -11,7 +11,7 @@ namespace UnityEditor {
 
         [MenuItem( "Assets/Create/UI Toolkit/Stylus" )]
         public static void CreateAsset() {
-            ProjectWindowUtil.CreateAssetWithContent( "New Stylus.styl", "" );
+            ProjectWindowUtil.CreateAssetWithContent( "New Style Sheet.styl", "" );
         }
 
         public override void OnImportAsset(AssetImportContext context) {

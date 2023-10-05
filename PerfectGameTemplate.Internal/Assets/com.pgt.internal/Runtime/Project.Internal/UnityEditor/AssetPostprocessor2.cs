@@ -40,6 +40,10 @@ namespace UnityEditor {
                 CompilePug( path, Path.ChangeExtension( path, ".uxml" ) );
                 AssetDatabase.ImportAsset( Path.ChangeExtension( path, ".uxml" ) );
             }
+            if (Path.GetExtension( path ) == ".css") {
+                CompilePostCss( path, Path.ChangeExtension( path, ".uss" ) );
+                AssetDatabase.ImportAsset( Path.ChangeExtension( path, ".uss" ) );
+            }
             if (Path.GetExtension( path ) == ".styl") {
                 CompileStylus( path, Path.ChangeExtension( path, ".uss" ) );
                 AssetDatabase.ImportAsset( Path.ChangeExtension( path, ".uss" ) );
@@ -49,20 +53,22 @@ namespace UnityEditor {
             if (Path.GetExtension( path ) == ".pug") {
                 AssetDatabase.DeleteAsset( Path.ChangeExtension( path, ".uxml" ) );
             }
+            if (Path.GetExtension( path ) == ".css") {
+                AssetDatabase.DeleteAsset( Path.ChangeExtension( path, ".uss" ) );
+            }
             if (Path.GetExtension( path ) == ".styl") {
                 AssetDatabase.DeleteAsset( Path.ChangeExtension( path, ".uss" ) );
             }
         }
         private static void OnAssetMoved(string path, string oldPath) {
             if (Path.GetExtension( oldPath ) == ".pug") {
-                CompilePug( path, Path.ChangeExtension( path, ".uxml" ) );
-                AssetDatabase.ImportAsset( Path.ChangeExtension( path, ".uxml" ) );
-                AssetDatabase.DeleteAsset( Path.ChangeExtension( oldPath, ".uxml" ) );
+                AssetDatabase.MoveAsset( Path.ChangeExtension( oldPath, ".uxml" ), Path.ChangeExtension( path, ".uxml" ) );
+            }
+            if (Path.GetExtension( oldPath ) == ".css") {
+                AssetDatabase.MoveAsset( Path.ChangeExtension( oldPath, ".uss" ), Path.ChangeExtension( path, ".uss" ) );
             }
             if (Path.GetExtension( oldPath ) == ".styl") {
-                CompileStylus( path, Path.ChangeExtension( path, ".uss" ) );
-                AssetDatabase.ImportAsset( Path.ChangeExtension( path, ".uss" ) );
-                AssetDatabase.DeleteAsset( Path.ChangeExtension( oldPath, ".uss" ) );
+                AssetDatabase.MoveAsset( Path.ChangeExtension( oldPath, ".uss" ), Path.ChangeExtension( path, ".uss" ) );
             }
         }
 
@@ -96,6 +102,17 @@ namespace UnityEditor {
                     }}
                 }});
             }}
+            " );
+        }
+        private static void CompilePostCss(string src, string dist) {
+            EvaluateJavaScript( $@"
+            const FS = require('fs');
+            const Path = require('path');
+            const Stylus = require( require.resolve('postcss', {{ paths: [ Path.join(process.env.APPDATA, '/npm/node_modules') ] }} ) );
+
+            const src = '{src}';
+            const dist = '{dist}';
+            const source = FS.readFileSync(src, 'utf8');
             " );
         }
         private static void CompileStylus(string src, string dist) {
