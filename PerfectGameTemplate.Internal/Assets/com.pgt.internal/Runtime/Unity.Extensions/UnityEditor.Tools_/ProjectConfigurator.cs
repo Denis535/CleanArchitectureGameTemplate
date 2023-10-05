@@ -19,12 +19,11 @@ namespace UnityEditor.Tools_ {
             foreach (var assembly in Compilation.CompilationPipeline.GetAssemblies().Where( IsSupported )) {
                 Configure( assembly );
             }
-        }
-        public virtual void Configure(Compilation.Assembly assembly) {
             foreach (var script in MonoImporter.GetAllRuntimeMonoScripts().Where( IsSupported )) {
                 Configure( script );
             }
         }
+        public abstract void Configure(Compilation.Assembly assembly);
         public abstract void Configure(MonoScript script);
 
         // IsSupported
@@ -47,7 +46,6 @@ namespace UnityEditor.Tools_ {
             base.Configure();
         }
         public override void Configure(Compilation.Assembly assembly) {
-            base.Configure( assembly );
         }
         public override void Configure(MonoScript script) {
             var order = GetExecutionOrder( script );
@@ -60,8 +58,6 @@ namespace UnityEditor.Tools_ {
         public virtual int? GetExecutionOrder(MonoScript script) {
             return GetExecutionOrder_Program( script ) ?? GetExecutionOrder_UI( script ) ?? GetExecutionOrder_App( script ) ?? GetExecutionOrder_Game( script );
         }
-
-        // GetExecutionOrder
         public virtual int? GetExecutionOrder_Program(MonoScript script) {
             // Program
             if (script.CanConfigure( typeof( ProgramBase ) )) return ScriptExecutionOrders.Program;

@@ -6,7 +6,6 @@ namespace UnityEditor.Tools_ {
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
-    using System.Runtime.CompilerServices;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.App;
@@ -20,13 +19,12 @@ namespace UnityEditor.Tools_ {
             foreach (var assembly in Compilation.CompilationPipeline.GetAssemblies().Where( IsSupported )) {
                 Analyze( assembly );
             }
-        }
-        public virtual void Analyze(Compilation.Assembly assembly) {
-            foreach (var type in Assembly.LoadFrom( assembly.outputPath ).DefinedTypes) {
-                Analyze( type );
+            foreach (var script in MonoImporter.GetAllRuntimeMonoScripts().Where( IsSupported )) {
+                Analyze( script );
             }
         }
-        public abstract void Analyze(Type type);
+        public abstract void Analyze(Compilation.Assembly assembly);
+        public abstract void Analyze(MonoScript script);
 
         // IsSupported
         public virtual bool IsSupported(Compilation.Assembly assembly) {
@@ -35,6 +33,9 @@ namespace UnityEditor.Tools_ {
                 !assembly.name.Equals( "UnityEngine" ) && !assembly.name.StartsWith( "UnityEngine." ) &&
                 !assembly.name.Equals( "UnityEditor" ) && !assembly.name.StartsWith( "UnityEditor." ) &&
                 !assembly.name.Equals( "PPv2URPConverters" );
+        }
+        public virtual bool IsSupported(MonoScript script) {
+            return AssetDatabase.GetAssetPath( script ).StartsWith( "Assets/" );
         }
 
     }
@@ -45,16 +46,20 @@ namespace UnityEditor.Tools_ {
             base.Analyze();
         }
         public override void Analyze(Compilation.Assembly assembly) {
-            base.Analyze( assembly );
+            foreach (var type in Assembly.LoadFrom( assembly.outputPath ).DefinedTypes) {
+                Analyze( type );
+            }
         }
-        public override void Analyze(Type type) {
+        public override void Analyze(MonoScript script) {
+        }
+
+        // Analyze
+        public virtual void Analyze(Type type) {
             Analyze_Program( type, "Project" );
             Analyze_UI( type, "Project" );
             Analyze_App( type, "Project" );
             Analyze_Game( type, "Project" );
         }
-
-        // Analyze
         public virtual void Analyze_Program(Type type, string @namespace) {
             // Program
             if (type.CanAnalyze( typeof( ProgramBase ) )) {
@@ -169,7 +174,6 @@ namespace UnityEditor.Tools_ {
         }
 
         // Namespace
-        [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static void Namespace(this Type type, string pattern) {
             // Namespace || Namespace.
             var @namespace = type.Namespace.TrimEnd( '_' );
@@ -177,7 +181,6 @@ namespace UnityEditor.Tools_ {
                 Debug.LogWarningFormat( "Type '{0}' must be within namespace '{1}'", type.FullName, pattern );
             }
         }
-        [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static void Namespace(this Type type, params string[] patterns) {
             // Namespace || Namespace.
             var @namespace = type.Namespace.TrimEnd( '_' );
@@ -187,7 +190,6 @@ namespace UnityEditor.Tools_ {
         }
 
         // Name
-        [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static void Name(this Type type, string pattern) {
             // *Name* || Name* || *Name || Name
             var name = type.GetSimpleName().TrimEnd( '_', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ).TrimEnd( "Base" );
@@ -195,7 +197,6 @@ namespace UnityEditor.Tools_ {
                 Debug.LogWarningFormat( "Type '{0}' must have name '{1}'", name, pattern );
             }
         }
-        [MethodImpl( MethodImplOptions.AggressiveInlining )]
         public static void Name(this Type type, params string[] patterns) {
             // *Name* || Name* || *Name || Name
             var name = type.GetSimpleName().TrimEnd( '_', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ).TrimEnd( "Base" );
