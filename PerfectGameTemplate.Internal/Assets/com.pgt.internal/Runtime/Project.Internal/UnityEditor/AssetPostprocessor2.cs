@@ -89,7 +89,7 @@ namespace UnityEditor {
 
             Pug.render(source, options, onComplete);
 
-            // callback
+            // onCallback
             function onComplete(error, result) {{
                 if (error) {{
                     console.error(error);
@@ -110,11 +110,12 @@ namespace UnityEditor {
             const FS = require('fs');
             const Path = require('path');
             const PostCss = require( require.resolve('postcss', {{ paths: [ Path.join(process.env.APPDATA, '/npm/node_modules') ] }} ) );
+            const PostCssUse = require( require.resolve('postcss-use', {{ paths: [ Path.join(process.env.APPDATA, '/npm/node_modules') ] }} ) );
 
             const src = '{src}';
             const dist = '{dist}';
             const source = FS.readFileSync(src, 'utf8');
-            const plugins = [];
+            const plugins = [new PostCssUse({{ modules: '*' }})];
             const options = {{
                 from: src,
                 to: dist
@@ -124,7 +125,7 @@ namespace UnityEditor {
                 .process(source, options)
                 .then(onComplete);
 
-            // callback
+            // onCallback
             function onComplete(result) {{
                 for (const warning of result.warnings()) {{
                     console.log(warning.toString());
@@ -156,7 +157,7 @@ namespace UnityEditor {
                 .define('get-string', getStringEx, raw = true)
                 .render(onComplete);
 
-            // callback
+            // onCallback
             function onComplete(error, result) {{
                 if (error) {{
                     console.error(error);
