@@ -87,20 +87,21 @@ namespace UnityEditor {
                 pretty: true
             }};
 
-            Pug.render(source, options, callback);
+            Pug.render(source, options, onComplete);
 
             // callback
-            function callback(error, result) {{
+            function onComplete(error, result) {{
                 if (error) {{
                     console.error(error);
-                    return;
+                    FS.writeFile(dist, '', onError);
+                }} else {{
+                    FS.writeFile(dist, result.replaceAll('::', '.'), onError);
                 }}
-                FS.writeFile(dist, result.replaceAll('::', '.'), function(error) {{
-                    if (error) {{
-                        console.error(error);
-                        return;
-                    }}
-                }});
+            }}
+            function onError(error) {{
+                if (error) {{
+                    console.error(error);
+                }}
             }}
             " );
         }
@@ -108,11 +109,33 @@ namespace UnityEditor {
             EvaluateJavaScript( $@"
             const FS = require('fs');
             const Path = require('path');
-            const Stylus = require( require.resolve('postcss', {{ paths: [ Path.join(process.env.APPDATA, '/npm/node_modules') ] }} ) );
+            const PostCss = require( require.resolve('postcss', {{ paths: [ Path.join(process.env.APPDATA, '/npm/node_modules') ] }} ) );
 
             const src = '{src}';
             const dist = '{dist}';
             const source = FS.readFileSync(src, 'utf8');
+            const plugins = [];
+            const options = {{
+                from: src,
+                to: dist
+            }};
+
+            PostCss(plugins)
+                .process(source, options)
+                .then(onComplete);
+
+            // callback
+            function onComplete(result) {{
+                for (const warning of result.warnings()) {{
+                    console.log(warning.toString());
+                }}
+                FS.writeFile(dist, result.css, onError);
+            }}
+            function onError(error) {{
+                if (error) {{
+                    console.error(error);
+                }}
+            }}
             " );
         }
         private static void CompileStylus(string src, string dist) {
@@ -131,20 +154,21 @@ namespace UnityEditor {
                 .define('eval', evalEx)
                 .define('raw-eval', rawEvalEx, raw = true)
                 .define('get-string', getStringEx, raw = true)
-                .render(callback);
+                .render(onComplete);
 
             // callback
-            function callback(error, result) {{
+            function onComplete(error, result) {{
                 if (error) {{
                     console.error(error);
-                    return;
+                    FS.writeFile(dist, '', onError);
+                }} else {{
+                    FS.writeFile(dist, result, onError);
                 }}
-                FS.writeFile(dist, result, function(error) {{
-                    if (error) {{
-                        console.error(error);
-                        return;
-                    }}
-                }});
+            }}
+            function onError(error) {{
+                if (error) {{
+                    console.error(error);
+                }}
             }}
             
             // extensions
@@ -189,7 +213,7 @@ namespace UnityEditor {
                 var outputTask = process.StandardOutput.ReadToEndAsync();
                 var errorTask = process.StandardError.ReadToEndAsync();
 
-                if (!string.IsNullOrEmpty( outputTask.Result )) Debug.Log( outputTask.Result ); // todo: it can freeze due to sync nature
+                if (!string.IsNullOrEmpty( outputTask.Result )) Debug.Log( outputTask.Result ); // todo: it can freeze (when buffer is overloaded) due to sync nature
                 if (!string.IsNullOrEmpty( errorTask.Result )) Debug.LogError( errorTask.Result );
 
                 process.StandardInput.Close();
