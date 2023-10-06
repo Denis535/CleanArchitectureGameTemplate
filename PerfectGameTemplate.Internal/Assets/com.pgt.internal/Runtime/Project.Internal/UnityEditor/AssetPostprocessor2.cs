@@ -110,12 +110,12 @@ namespace UnityEditor {
             const FS = require('fs');
             const Path = require('path');
             const PostCss = require( require.resolve('postcss', {{ paths: [ Path.join(process.env.APPDATA, '/npm/node_modules') ] }} ) );
-            const PostCssUse = require( require.resolve('postcss-use', {{ paths: [ Path.join(process.env.APPDATA, '/npm/node_modules') ] }} ) );
+            const PostCss_Use = require( require.resolve('postcss-use', {{ paths: [ Path.join(process.env.APPDATA, '/npm/node_modules') ] }} ) );
 
             const src = '{src}';
             const dist = '{dist}';
             const source = FS.readFileSync(src, 'utf8');
-            const plugins = [new PostCssUse({{ modules: '*' }})];
+            const plugins = [PostCss_Use({{modules: '*'}})];
             const options = {{
                 from: src,
                 to: dist
@@ -128,7 +128,7 @@ namespace UnityEditor {
             // onCallback
             function onComplete(result) {{
                 for (const warning of result.warnings()) {{
-                    console.log(warning.toString());
+                    console.warn(warning.toString());
                 }}
                 FS.writeFile(dist, result.css, onError);
             }}

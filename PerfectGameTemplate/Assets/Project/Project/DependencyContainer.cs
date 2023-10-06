@@ -5,6 +5,7 @@ namespace Project {
     using System.Collections.Generic;
     using System.Text;
     using Project.App;
+    using Project.Entities.GameScene;
     using Project.UI;
     using Unity.Services.Authentication;
     using Unity.Services.Lobbies;
@@ -47,24 +48,28 @@ namespace Project {
 
         // GetDependency
         public object? GetDependency(Type type, object? argument) {
+            Assert.Object.Message( $"Object {this} must be awakened" ).Valid( didAwake );
+            Assert.Object.Message( $"Object {this} must be alive" ).Alive( this );
+            // UI
             if (type == typeof( UITheme )) {
                 Assert.Object.Message( $"Object {Theme} must be awakened" ).Valid( Theme.didAwake );
-                Assert.Object.Message( $"Object {Theme} must be Alive" ).Alive( Theme );
+                Assert.Object.Message( $"Object {Theme} must be alive" ).Alive( Theme );
                 return Theme;
             }
             if (type == typeof( UIScreen )) {
                 Assert.Object.Message( $"Object {Screen} must be awakened" ).Valid( Screen.didAwake );
-                Assert.Object.Message( $"Object {Screen} must be Alive" ).Alive( Screen );
+                Assert.Object.Message( $"Object {Screen} must be alive" ).Alive( Screen );
                 return Screen;
             }
             if (type == typeof( UIRouter )) {
                 Assert.Object.Message( $"Object {Router} must be awakened" ).Valid( Router.didAwake );
-                Assert.Object.Message( $"Object {Router} must be Alive" ).Alive( Router );
+                Assert.Object.Message( $"Object {Router} must be alive" ).Alive( Router );
                 return Router;
             }
+            // App
             if (type == typeof( Application2 )) {
                 Assert.Object.Message( $"Object {Application} must be awakened" ).Valid( Application.didAwake );
-                Assert.Object.Message( $"Object {Application} must be Alive" ).Alive( Application );
+                Assert.Object.Message( $"Object {Application} must be alive" ).Alive( Application );
                 return Application;
             }
             if (type == typeof( Camera )) {
@@ -93,6 +98,16 @@ namespace Project {
             }
             if (type == typeof( IQosService )) {
                 return QosService;
+            }
+            // Game
+            if (type == typeof( Game )) {
+                Assert.Object.Message( $"Object {Application} must be awakened" ).Valid( Application.didAwake );
+                Assert.Object.Message( $"Object {Application} must be alive" ).Alive( Application );
+                if (Application.Game != null) {
+                    Assert.Object.Message( $"Object {Application.Game} must be awakened" ).Valid( Application.Game.didAwake );
+                    Assert.Object.Message( $"Object {Application.Game} must be alive" ).Alive( Application.Game );
+                    return Application.Game;
+                }
             }
             return null;
         }
