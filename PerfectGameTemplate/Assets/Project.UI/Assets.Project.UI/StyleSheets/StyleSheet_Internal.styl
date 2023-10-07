@@ -130,6 +130,22 @@ create-layout-skin(position, width, height, margin, border, padding)
         border:   border,
         padding:  padding
     }
+
+// helpers
+get-view-skin(skin)
+    if skin != null
+        skin = get-string(skin)
+        skin = view-skins[skin] or error('View skins has no skin: ' + skin)
+        return skin
+    return {}
+get-layout-skin(skin)
+    if skin != null
+        skin = get-string(skin)
+        skin = layout-skins[skin] or error('Layout skins has no skin: ' + skin)
+        return skin
+    return {}
+
+// helpers
 get-theme-color(key)
     if key != null
         key = get-string(key)
@@ -157,20 +173,9 @@ get-theme-border-radius(key)
     null
 
 // helpers
-get-view-skin(skin)
-    if skin != null
-        skin = get-string(skin)
-        skin = view-skins[skin] or error('View skins has no skin: ' + skin)
-        return skin
-    return {}
-get-layout-skin(skin)
-    if skin != null
-        skin = get-string(skin)
-        skin = layout-skins[skin] or error('Layout skins has no skin: ' + skin)
-        return skin
-    return {}
+invoke(func, args...)
+    func(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9], args[10], args[11], args[12], args[13], args[14], args[15])
 
-// helpers
 add-property(property, value)
     property = get-unity-property(property) if property == 'overflow-clip-box'
     property = get-unity-property(property) if property == 'font'
@@ -204,8 +209,4 @@ get-url-value(url)
     if url != null
         url = get-string(url)
         return s("url('%s')", url)
-        // if match('^(project://)', url)
-        //     return s("url('%s')", url)
-        // else
-        //     return s("resource('%s')", url)
     null

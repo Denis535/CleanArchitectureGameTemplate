@@ -1,4 +1,4 @@
-/* View */
+/* view */
 .display-flex {
   display: flex;
 }
@@ -314,7 +314,7 @@
 .opacity-100 {
   opacity: 1;
 }
-/* View/Cursor */
+/* view/cursor */
 .cursor-arrow {
   cursor: arrow;
 }
@@ -354,7 +354,7 @@
 .cursor-fps {
   cursor: fps;
 }
-/* View/Foreground */
+/* view/foreground */
 .color-white {
   color: white;
 }
@@ -1549,7 +1549,7 @@
 .text-align-lower-right {
   -unity-text-align: lower-right;
 }
-/* View/Background */
+/* view/background */
 .background-color-white {
   background-color: white;
 }
@@ -1604,7 +1604,7 @@
 .background-image-color-transparent {
   -unity-background-image-tint-color: transparent;
 }
-/* View/Border */
+/* view/border */
 .border-color-white {
   border-color: white;
 }
@@ -1740,7 +1740,7 @@
 .border-right-color-transparent {
   border-right-color: transparent;
 }
-/* View/Border */
+/* view/border */
 .border-radius-0px {
   border-radius: 0px;
 }
@@ -1906,7 +1906,7 @@
 .border-bottom-right-radius-10px {
   border-bottom-right-radius: 10px;
 }
-/* Layout/Position */
+/* layout/position */
 .position-relative {
   position: relative;
 }
@@ -9149,7 +9149,7 @@
 .right-200px {
   right: 200px;
 }
-/* Layout/Width */
+/* layout/width */
 .width-auto {
   width: auto;
 }
@@ -11877,7 +11877,7 @@
 .max-width-200px {
   max-width: 200px;
 }
-/* Layout/Width */
+/* layout/width */
 .label-width-auto > .unity-label {
   width: auto;
 }
@@ -14605,7 +14605,7 @@
 .max-label-width-200px > .unity-label {
   max-width: 200px;
 }
-/* Layout/Height */
+/* layout/height */
 .height-auto {
   height: auto;
 }
@@ -17333,7 +17333,7 @@
 .max-height-200px {
   max-height: 200px;
 }
-/* Layout/Margin */
+/* layout/margin */
 .margin-auto {
   margin: auto;
 }
@@ -26379,7 +26379,7 @@
 .margin-right-200px {
   margin-right: 200px;
 }
-/* Layout/Border */
+/* layout/border */
 .border-width-0px {
   border-width: 0px;
 }
@@ -26545,7 +26545,7 @@
 .border-right-width-10px {
   border-right-width: 10px;
 }
-/* Layout/Padding */
+/* layout/padding */
 .padding-n100 {
   padding: -100%;
 }
@@ -35576,7 +35576,7 @@
 .padding-right-200px {
   padding-right: 200px;
 }
-/* Flex */
+/* flex */
 .grow-0 {
   flex-grow: 0;
 }
@@ -37104,7 +37104,7 @@
 .align-self-stretch {
   align-self: stretch;
 }
-/* Flex/Container */
+/* flex/container */
 .column {
   flex-direction: column;
 }
@@ -37165,7 +37165,7 @@
 .align-content-stretch {
   align-content: stretch;
 }
-/* Transform */
+/* transform */
 .transform-origin-center {
   transform-origin: center;
 }
