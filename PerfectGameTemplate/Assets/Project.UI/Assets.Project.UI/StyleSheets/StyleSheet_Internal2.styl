@@ -1,27 +1,40 @@
 // view
+view(foreground, background, border)
+    view-foreground foreground.color, foreground.font, foreground.text
+    view-background background.color, background.image
+    view-border     border.color,     border.radius
+// view
 view-foreground(color = null, font = null, text = null)
-    add-property 'color',                                  color
-    add-property 'font'                                    font.url     if font != null
-    add-property 'font-definition'                         font.url     if font != null
-    add-property 'font-size',                              font.size    if font != null
-    add-property 'font-style',                             font.style   if font != null
-    add-property 'text-align',                             text.align   if text != null
-    add-property 'text-outline',                           text.outline if text != null
-    add-property 'text-shadow'                             text.shadow  if text != null
+    add-property 'color',           color
+    add-property 'font',            get(font, 'url'    )
+    add-property 'font-definition', get(font, 'url'    )
+    add-property 'font-size',       get(font, 'size'   )
+    add-property 'font-style',      get(font, 'style'  )
+    add-property 'text-align',      get(text, 'align'  )
+    add-property 'text-outline',    get(text, 'outline')
+    add-property 'text-shadow',     get(text, 'shadow' )
+// view
 view-background(background-color = null, background-image = null)
-    add-property 'background-color',                       background-color
-    add-property 'background-image',                       background-image.url        if background-image != null
-    add-property 'background-image-tint-color'             background-image.color      if background-image != null
-    add-property 'background-scale-mode'                   background-image.scale-mode if background-image != null
+    add-property 'background-color',            background-color
+    add-property 'background-image',            get(background-image, 'url'         )
+    add-property 'background-image-tint-color', get(background-image, 'color'       )
+    add-property 'background-scale-mode',       get(background-image, 'scale-mode'  )
+    add-property 'slice-left',                  get(background-image, 'slice-left'  )
+    add-property 'slice-right',                 get(background-image, 'slice-right' )
+    add-property 'slice-top',                   get(background-image, 'slice-top'   )
+    add-property 'slice-bottom',                get(background-image, 'slice-bottom')
+    add-property 'slice-scale',                 get(background-image, 'slice-scale' )
+// view
 view-border(border-color = null, border-radius = null)
-    add-property 'border-left-color',                      border-color[0]                   
-    add-property 'border-right-color',                     border-color[1] or border-color[0]
-    add-property 'border-top-color',                       border-color[2] or border-color[0]
-    add-property 'border-bottom-color',                    border-color[3] or border-color[0]
-    add-property 'border-top-left-radius',                 border-radius[0]                    
-    add-property 'border-top-right-radius',                border-radius[1] or border-radius[0]
-    add-property 'border-bottom-left-radius',              border-radius[2] or border-radius[0]
-    add-property 'border-bottom-right-radius',             border-radius[3] or border-radius[0]
+    add-property 'border-left-color',          border-color[0]                   
+    add-property 'border-right-color',         border-color[1] or border-color[0]
+    add-property 'border-top-color',           border-color[2] or border-color[0]
+    add-property 'border-bottom-color',        border-color[3] or border-color[0]
+    add-property 'border-top-left-radius',     border-radius[0]                    
+    add-property 'border-top-right-radius',    border-radius[1] or border-radius[0]
+    add-property 'border-bottom-left-radius',  border-radius[2] or border-radius[0]
+    add-property 'border-bottom-right-radius', border-radius[3] or border-radius[0]
+// view
 fnt(url = null, size = null, style = null)
     return {
         url:   url,
@@ -34,53 +47,66 @@ txt(align = null, outline = null, shadow = null)
         outline: outline,
         shadow:  shadow
     }
-img(url = null, color = null, scale-mode = null)
+img(url = null, color = null, scale-mode = null, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
     return {
-        url:        url,
-        color:      color,
-        scale-mode: scale-mode
+        url:          url,
+        color:        color,
+        scale-mode:   scale-mode,
+        slice-left:   slice-left,
+        slice-right:  slice-right,
+        slice-top:    slice-top,
+        slice-bottom: slice-bottom,
+        slice-scale:  slice-scale
     }
 
 // layout
+layout(position, size, box)
+    layout-position position.position, position.left, position.right, position.top, position.bottom
+    layout-size     size.width, size.height
+    layout-box      box.margin, box.border, box.padding
+// layout
 layout-position(position = null, left = null, right = null, top = null, bottom = null)
-    add-property 'position',                               position
-    add-property 'left',                                   left
-    add-property 'right',                                  right
-    add-property 'top',                                    top
-    add-property 'bottom',                                 bottom
+    add-property 'position', position
+    add-property 'left',     left
+    add-property 'right',    right
+    add-property 'top',      top
+    add-property 'bottom',   bottom
+// layout
 layout-size(width = null, height = null)
-    add-property 'width',                                  width[0]
-    add-property 'min-width',                              width[1]
-    add-property 'max-width',                              width[2]
-    add-property 'height',                                 height[0]
-    add-property 'min-height',                             height[1]
-    add-property 'max-height',                             height[2]
+    add-property 'width',      width[0]
+    add-property 'min-width',  width[1]
+    add-property 'max-width',  width[2]
+    add-property 'height',     height[0]
+    add-property 'min-height', height[1]
+    add-property 'max-height', height[2]
+// layout
 layout-box(margin = null, border = null, padding = null)
-    add-property 'margin-left',                            margin[0]
-    add-property 'margin-right',                           margin[1] or margin[0]
-    add-property 'margin-top',                             margin[2] or margin[0]
-    add-property 'margin-bottom',                          margin[3] or margin[0]
-    add-property 'border-left-width',                      border[0]
-    add-property 'border-right-width',                     border[1] or border[0]
-    add-property 'border-top-width',                       border[2] or border[0]
-    add-property 'border-bottom-width',                    border[3] or border[0]
-    add-property 'padding-left',                           padding[0]
-    add-property 'padding-right',                          padding[1] or padding[0]
-    add-property 'padding-top',                            padding[2] or padding[0]
-    add-property 'padding-bottom',                         padding[3] or padding[0]
+    add-property 'margin-left',         margin[0]
+    add-property 'margin-right',        margin[1] or margin[0]
+    add-property 'margin-top',          margin[2] or margin[0]
+    add-property 'margin-bottom',       margin[3] or margin[0]
+    add-property 'border-left-width',   border[0]
+    add-property 'border-right-width',  border[1] or border[0]
+    add-property 'border-top-width',    border[2] or border[0]
+    add-property 'border-bottom-width', border[3] or border[0]
+    add-property 'padding-left',        padding[0]
+    add-property 'padding-right',       padding[1] or padding[0]
+    add-property 'padding-top',         padding[2] or padding[0]
+    add-property 'padding-bottom',      padding[3] or padding[0]
 
 // flex
 flex(flex-grow = null, flex-shrink = null, flex-basis = null, align-self = null)
-    add-property 'flex-grow',                              flex-grow
-    add-property 'flex-shrink',                            flex-shrink
-    add-property 'flex-basis',                             flex-basis
-    add-property 'align-self',                             align-self
+    add-property 'flex-grow',   flex-grow
+    add-property 'flex-shrink', flex-shrink
+    add-property 'flex-basis',  flex-basis
+    add-property 'align-self',  align-self
+// flex
 flex2(flex-direction = null, justify-content = null, align-items = null)
-    add-property 'flex-direction',                         flex-direction
-    add-property 'flex-wrap',                              null
-    add-property 'justify-content',                        justify-content
-    add-property 'align-items',                            align-items
-    add-property 'align-content',                          null
+    add-property 'flex-direction',  flex-direction
+    add-property 'flex-wrap',       null
+    add-property 'justify-content', justify-content
+    add-property 'align-items',     align-items
+    add-property 'align-content',   null
 
 // get
 get(value, keys...)
@@ -106,11 +132,11 @@ add-property(property, value)
     property = get-unity-property(property) if property == 'paragraph-spacing'
     property = get-unity-property(property) if property == 'background-image-tint-color'
     property = get-unity-property(property) if property == 'background-scale-mode'
-    property = get-unity-property(property) if property == 'slice-scale'
     property = get-unity-property(property) if property == 'slice-left'
     property = get-unity-property(property) if property == 'slice-right'
     property = get-unity-property(property) if property == 'slice-top'
     property = get-unity-property(property) if property == 'slice-bottom'
+    property = get-unity-property(property) if property == 'slice-scale'
     value = get-url-value(value) if property == '-unity-font'
     value = get-url-value(value) if property == '-unity-font-definition'
     value = get-url-value(value) if property == 'background-image'

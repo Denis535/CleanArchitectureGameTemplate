@@ -9,9 +9,14 @@ create-view-skin(color, background-color, background-image-color, border-color, 
         background: {
             color: get-theme-background-color(background-color),
             image: {
-                url: null,
-                color: get-theme-background-image-color(background-image-color),
-                scale-mode: null
+                url:          null,
+                color:        get-theme-background-image-color(background-image-color),
+                scale-mode:   null,
+                slice-left:   null,
+                slice-right:  null,
+                slice-top:    null,
+                slice-bottom: null,
+                slice-scale:  null
             }
         },
         border: {
@@ -45,9 +50,14 @@ skin(skin, font = null, text = null, image = null, alpha = 1, alpha2 = (alpha+3)
     //
     background-color = get(skin, 'background', 'color')
     background-image = {
-        url:        get(image, 'url')        or get(skin, 'background', 'image', 'url'       ),
-        color:      get(image, 'color')      or get(skin, 'background', 'image', 'color'     ),
-        scale-mode: get(image, 'scale-mode') or get(skin, 'background', 'image', 'scale-mode')
+        url:          get(image, 'url'         ) or get(skin, 'background', 'image', 'url'         ),
+        color:        get(image, 'color'       ) or get(skin, 'background', 'image', 'color'       ),
+        scale-mode:   get(image, 'scale-mode'  ) or get(skin, 'background', 'image', 'scale-mode'  ),
+        slice-left:   get(image, 'slice-left'  ) or get(skin, 'background', 'image', 'slice-left'  ),
+        slice-right:  get(image, 'slice-right' ) or get(skin, 'background', 'image', 'slice-right' ),
+        slice-top:    get(image, 'slice-top'   ) or get(skin, 'background', 'image', 'slice-top'   ),
+        slice-bottom: get(image, 'slice-bottom') or get(skin, 'background', 'image', 'slice-bottom'),
+        slice-scale:  get(image, 'slice-scale' ) or get(skin, 'background', 'image', 'slice-scale' )
     }
     //
     border-color  = get(skin, 'border', 'color' )
