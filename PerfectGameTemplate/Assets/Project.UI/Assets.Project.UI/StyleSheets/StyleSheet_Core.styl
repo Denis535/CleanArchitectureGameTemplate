@@ -97,236 +97,236 @@ layouts = {
 
 // label
 label()
-    add-skin(label, fnt(), txt(upper-left))
-    add-skin2(label)
+    add-view-skin(label, fnt(), txt(upper-left))
+    add-layout-skin(label)
     add-flex(0, 1, auto, auto)
 
 // button
 button()
-    add-skin(button, fnt(null, null, bold), txt(middle-center))
-    add-skin2(button)
+    add-view-skin(button, fnt(null, null, bold), txt(middle-center))
+    add-layout-skin(button)
     add-flex(0, 1, auto, auto)
 
 // field
 field()
-    add-skin(field)
-    add-skin2(field)
+    add-view-skin(field)
+    add-layout-skin(field)
     add-flex(0, 1, auto, auto)
     add-flex2(row, flex-start, stretch)
 field-label()
-    add-skin(field-label, fnt(null, null, bold), txt(middle-left))
-    add-skin2(field-label)
+    add-view-skin(field-label, fnt(null, null, bold), txt(middle-left))
+    add-layout-skin(field-label)
     add-flex(0, 1, auto, auto)
 field-input()
-    add-skin(field-input, fnt(), txt(middle-left))
-    add-skin2(field-input)
+    add-view-skin(field-input, fnt(), txt(middle-left))
+    add-layout-skin(field-input)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-end, center)
 
 // text-field
 text-field-input()
 text-field-input--text()
-    add-skin(component)
-    add-skin2(component)
+    add-view-skin(component)
+    add-layout-skin(component)
     add-flex(1, 1, auto, auto)
 
 // popup-field
 popup-field-input()
 popup-field-input--text()
-    add-skin(component)
-    add-skin2(component)
+    add-view-skin(component)
+    add-layout-skin(component)
     add-flex(1, 1, auto, auto)
 popup-field-input--arrow()
-    add-skin(image-component, null, null, img('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png'))
-    add-skin2(image-component, null, 12px, 12px, 2px)
+    add-view-skin(image-component, null, null, img('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png'))
+    add-layout-skin(image-component, null, 12px, 12px, 2px)
 
 // slider-field
 slider-field-input()
 slider-field-input--container()
-    add-skin(component)
-    add-skin2(component)
+    add-view-skin(component)
+    add-layout-skin(component)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
 slider-field-input--tracker()
-    add-skin(light-box-component, alpha: 0.50)
-    add-skin2(box-component, null, auto, 8px)
+    add-view-skin(light-box-component, alpha: 0.50)
+    add-layout-skin(box-component, null, auto, 8px)
     add-flex(1, 1, auto, auto)
 slider-field-input--dragger()
-    add-skin(light-box-component)
-    add-skin2(box-component, absolute, 8px, 24px)
+    add-view-skin(light-box-component)
+    add-layout-skin(box-component, absolute, 8px, 24px)
     add-flex(0, 1, auto, auto)
 
 // toggle-field
 toggle-field-input()
 toggle-field-input--checkmark(value)
-    add-skin(light-image-component, null, null, img(value ? 'project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png' : null))
-    add-skin2(image-component, null, 16px, 16px)
+    add-view-skin(light-image-component, null, null, img(value ? 'project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png' : null))
+    add-layout-skin(image-component, null, 16px, 16px)
 
 // scroll-view
 scroll-view()
-    add-skin(scroll-view)
-    add-skin2(scroll-view)
+    add-view-skin(scroll-view)
+    add-layout-skin(scroll-view)
     add-flex(0, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
     &.light
-        add-skin(light-scroll-view, alpha: 0.00)
+        add-view-skin(light-scroll-view, alpha: 0.00)
     &.light1
-        add-skin(light-scroll-view, alpha: 0.10)
+        add-view-skin(light-scroll-view, alpha: 0.10)
     &.light2
-        add-skin(light-scroll-view, alpha: 0.20)
+        add-view-skin(light-scroll-view, alpha: 0.20)
     &.light3
-        add-skin(light-scroll-view, alpha: 0.30)
+        add-view-skin(light-scroll-view, alpha: 0.30)
     &.light4
-        add-skin(light-scroll-view, alpha: 0.40)
+        add-view-skin(light-scroll-view, alpha: 0.40)
     &.light5
-        add-skin(light-scroll-view, alpha: 0.50)
+        add-view-skin(light-scroll-view, alpha: 0.50)
     &.light6
-        add-skin(light-scroll-view, alpha: 0.60)
+        add-view-skin(light-scroll-view, alpha: 0.60)
     &.light7
-        add-skin(light-scroll-view, alpha: 0.70)
+        add-view-skin(light-scroll-view, alpha: 0.70)
     &.light8
-        add-skin(light-scroll-view, alpha: 0.80)
+        add-view-skin(light-scroll-view, alpha: 0.80)
     &.light9
-        add-skin(light-scroll-view, alpha: 0.90)
+        add-view-skin(light-scroll-view, alpha: 0.90)
     &.light10
-        add-skin(light-scroll-view, alpha: 1.00)
+        add-view-skin(light-scroll-view, alpha: 1.00)
     &.dark
-        add-skin(dark-scroll-view, alpha: 0.00)
+        add-view-skin(dark-scroll-view, alpha: 0.00)
     &.dark1
-        add-skin(dark-scroll-view, alpha: 0.10)
+        add-view-skin(dark-scroll-view, alpha: 0.10)
     &.dark2
-        add-skin(dark-scroll-view, alpha: 0.20)
+        add-view-skin(dark-scroll-view, alpha: 0.20)
     &.dark3
-        add-skin(dark-scroll-view, alpha: 0.30)
+        add-view-skin(dark-scroll-view, alpha: 0.30)
     &.dark4
-        add-skin(dark-scroll-view, alpha: 0.40)
+        add-view-skin(dark-scroll-view, alpha: 0.40)
     &.dark5
-        add-skin(dark-scroll-view, alpha: 0.50)
+        add-view-skin(dark-scroll-view, alpha: 0.50)
     &.dark6
-        add-skin(dark-scroll-view, alpha: 0.60)
+        add-view-skin(dark-scroll-view, alpha: 0.60)
     &.dark7
-        add-skin(dark-scroll-view, alpha: 0.70)
+        add-view-skin(dark-scroll-view, alpha: 0.70)
     &.dark8
-        add-skin(dark-scroll-view, alpha: 0.80)
+        add-view-skin(dark-scroll-view, alpha: 0.80)
     &.dark9
-        add-skin(dark-scroll-view, alpha: 0.90)
+        add-view-skin(dark-scroll-view, alpha: 0.90)
     &.dark10
-        add-skin(dark-scroll-view, alpha: 1.00)
+        add-view-skin(dark-scroll-view, alpha: 1.00)
 scroll-view--container()
-    add-skin(component)
-    add-skin2(component)
+    add-view-skin(component)
+    add-layout-skin(component)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, stretch)
 scroll-view--viewport()
     overflow hidden
-    add-skin(component)
-    add-skin2(component)
+    add-view-skin(component)
+    add-layout-skin(component)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
 scroll-view--content()
     overflow scroll
-    add-skin(component)
-    add-skin2(component, null, null, null, null, null, (12px 12px 10px 10px))
+    add-view-skin(component)
+    add-layout-skin(component, null, null, null, null, null, (12px 12px 10px 10px))
     add-flex(0, 0, auto, auto)
     add-flex2(column, flex-start, stretch)
 
 // horizontal-scroller
 horizontal-scroller()
-    add-skin(component)
-    add-skin2(component)
+    add-view-skin(component)
+    add-layout-skin(component)
     add-flex(0, 0, auto, auto)
     add-flex2(row, flex-start, stretch)
 horizontal-scroller--low-button()
-    add-skin(light-image-component, null, null, img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png'), alpha: 0.50)
-    add-skin2(image-component, (absolute 0px auto auto auto), 24px, 24px)
+    add-view-skin(light-image-component, null, null, img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png'), alpha: 0.50)
+    add-layout-skin(image-component, (absolute 0px auto auto auto), 24px, 24px)
 horizontal-scroller--high-button()
-    add-skin(light-image-component, null, null, img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png'), alpha: 0.50)
-    add-skin2(image-component, (absolute auto 0px auto auto), 24px, 24px)
+    add-view-skin(light-image-component, null, null, img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png'), alpha: 0.50)
+    add-layout-skin(image-component, (absolute auto 0px auto auto), 24px, 24px)
 horizontal-scroller--slider-field()
-    add-skin(component)
-    add-skin2(component, null, auto, auto, 0px, 0px, 0px)
+    add-view-skin(component)
+    add-layout-skin(component, null, auto, auto, 0px, 0px, 0px)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
 horizontal-scroller--slider-field-input()
-    add-skin(component)
-    add-skin2(component, null, auto, 24px, (24px 24px 0px 0px), 0px, 0px)
+    add-view-skin(component)
+    add-layout-skin(component, null, auto, 24px, (24px 24px 0px 0px), 0px, 0px)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
 horizontal-scroller--slider-field-input--container()
-    add-skin(component)
-    add-skin2(component)
+    add-view-skin(component)
+    add-layout-skin(component)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
 horizontal-scroller--slider-field-input--tracker()
-    add-skin(dark-box-component)
-    add-skin2(box-component, null, auto, 24px)
+    add-view-skin(dark-box-component)
+    add-layout-skin(box-component, null, auto, 24px)
     add-flex(1, 1, auto, auto)
 horizontal-scroller--slider-field-input--dragger()
-    add-skin(light-box-component, alpha: 0.50)
-    add-skin2(box-component, absolute, auto, 24px)
+    add-view-skin(light-box-component, alpha: 0.50)
+    add-layout-skin(box-component, absolute, auto, 24px)
     add-flex(0, 1, auto, auto)
 
 // vertical-scroller
 vertical-scroller()
-    add-skin(component)
-    add-skin2(component)
+    add-view-skin(component)
+    add-layout-skin(component)
     add-flex(0, 0, auto, auto)
     add-flex2(column, flex-start, stretch)
 vertical-scroller--low-button()
-    add-skin(light-image-component, null, null, img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png'), alpha: 0.50)
-    add-skin2(image-component, (absolute auto auto 0px auto), 24px, 24px)
+    add-view-skin(light-image-component, null, null, img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png'), alpha: 0.50)
+    add-layout-skin(image-component, (absolute auto auto 0px auto), 24px, 24px)
 vertical-scroller--high-button()
-    add-skin(light-image-component, null, null, img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png'), alpha: 0.50)
-    add-skin2(image-component, (absolute auto auto auto 0px), 24px, 24px)
+    add-view-skin(light-image-component, null, null, img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png'), alpha: 0.50)
+    add-layout-skin(image-component, (absolute auto auto auto 0px), 24px, 24px)
 vertical-scroller--slider-field()
-    add-skin(component)
-    add-skin2(component, null, auto, auto, 0px, 0px, 0px)
+    add-view-skin(component)
+    add-layout-skin(component, null, auto, auto, 0px, 0px, 0px)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, center)
 vertical-scroller--slider-field-input()
-    add-skin(component)
-    add-skin2(component, null, 24px, auto, (0px 0px 24px 24px), 0px, 0px)
+    add-view-skin(component)
+    add-layout-skin(component, null, 24px, auto, (0px 0px 24px 24px), 0px, 0px)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, center)
 vertical-scroller--slider-field-input--container()
-    add-skin(component)
-    add-skin2(component)
+    add-view-skin(component)
+    add-layout-skin(component)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, center)
 vertical-scroller--slider-field-input--tracker()
-    add-skin(dark-box-component)
-    add-skin2(box-component, null, 24px, auto)
+    add-view-skin(dark-box-component)
+    add-layout-skin(box-component, null, 24px, auto)
     add-flex(1, 1, auto, auto)
 vertical-scroller--slider-field-input--dragger()
-    add-skin(light-box-component, alpha: 0.50)
-    add-skin2(box-component, absolute, 24px, auto)
+    add-view-skin(light-box-component, alpha: 0.50)
+    add-layout-skin(box-component, absolute, 24px, auto)
     add-flex(0, 1, auto, auto)
 
 // dropdown-view
 dropdown-view()
-    add-skin(null)
-    add-skin2(null)
+    add-view-skin(null)
+    add-layout-skin(null)
     add-flex(0, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
 dropdown-view--scroll-view()
-    add-skin(dropdown-view)
-    add-skin2(dropdown-view)
+    add-view-skin(dropdown-view)
+    add-layout-skin(dropdown-view)
 dropdown-view--scroll-view--container()
 dropdown-view--scroll-view--viewport()
 dropdown-view--scroll-view--content()
     add-layout-box(0px, 0px, 0px)
 dropdown-view--scroll-view--item()
-    add-skin(component)
-    add-skin2(component, null, null, null, null, null, (12px 12px 10px 10px))
+    add-view-skin(component)
+    add-layout-skin(component, null, null, null, null, null, (12px 12px 10px 10px))
     add-flex(0, 1, auto, auto)
     add-flex2(row, flex-start, center)
 dropdown-view--scroll-view--item-checkmark(value)
-    add-skin(image-component, null, null, img(value ? 'project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png' : null))
-    add-skin2(image-component, null, 16px, 16px, (0px 12px 0px 0px))
+    add-view-skin(image-component, null, null, img(value ? 'project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png' : null))
+    add-layout-skin(image-component, null, 16px, 16px, (0px 12px 0px 0px))
     add-flex(0, 1, auto, auto)
 dropdown-view--scroll-view--item-text()
-    add-skin(component)
-    add-skin2(component)
+    add-view-skin(component)
+    add-layout-skin(component)
     add-flex(1, 1, auto, auto)
 
 // PanelSettings
@@ -341,25 +341,25 @@ dropdown-view--scroll-view--item-text()
 .unity-label
     label()
     &:focus
-        add-skin(focus-effect)
+        add-view-skin(focus-effect)
     &.invalid
-        add-skin(invalid-effect)
+        add-view-skin(invalid-effect)
 
 // button
 .unity-button
     button()
     &:focus
-        add-skin(focus-effect)
+        add-view-skin(focus-effect)
     &.invalid
-        add-skin(invalid-effect)
+        add-view-skin(invalid-effect)
 
 // repeat-button
 .unity-repeat-button
     button()
     &:focus
-        add-skin(focus-effect)
+        add-view-skin(focus-effect)
     &.invalid
-        add-skin(invalid-effect)
+        add-view-skin(invalid-effect)
 
 // field
 .unity-base-field
@@ -367,15 +367,15 @@ dropdown-view--scroll-view--item-text()
     &__label
         field-label()
         :focus > &
-            add-skin(focus-effect)
+            add-view-skin(focus-effect)
         .invalid > &
-            add-skin(invalid-effect)
+            add-view-skin(invalid-effect)
     &__input
         field-input()
         :focus > &
-            add-skin(focus-effect-without-foreground)
+            add-view-skin(focus-effect-without-foreground)
         .invalid > &
-            add-skin(invalid-effect-without-foreground)
+            add-view-skin(invalid-effect-without-foreground)
 
 // text-field
 .unity-base-text-field
@@ -442,7 +442,7 @@ dropdown-view--scroll-view--item-text()
             horizontal-scroller--slider-field-input--dragger()
     .unity-base-slider:focus
         #unity-dragger
-            add-skin(focus-effect)
+            add-view-skin(focus-effect)
 
 // scroller--vertical
 .unity-scroller--vertical
@@ -463,7 +463,7 @@ dropdown-view--scroll-view--item-text()
             vertical-scroller--slider-field-input--dragger()
     .unity-base-slider:focus
         #unity-dragger
-            add-skin(focus-effect)
+            add-view-skin(focus-effect)
 
 // dropdown
 .unity-base-dropdown
@@ -482,7 +482,7 @@ dropdown-view--scroll-view--item-text()
     &__item
         dropdown-view--scroll-view--item()
     &__item:hover
-        add-skin(hover-effect)
+        add-view-skin(hover-effect)
     &__item &__checkmark
         dropdown-view--scroll-view--item-checkmark(false)
     &__item:checked &__checkmark

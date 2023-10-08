@@ -49,7 +49,7 @@ create-layout-skin(position, width, height, margin, border, padding)
     }
 
 // add-skin
-add-skin(skin, font = null, text = null, image = null, alpha = 1, alpha2 = (alpha+3)/4)
+add-view-skin(skin, font = null, text = null, image = null, alpha = 1, alpha2 = (alpha+3)/4)
     skin                               = get-view-skin(skin)
     skin.foreground.font.url           = font['url']     if font['url']     != null
     skin.foreground.font.size          = font['size']    if font['size']    != null
@@ -57,7 +57,7 @@ add-skin(skin, font = null, text = null, image = null, alpha = 1, alpha2 = (alph
     skin.foreground.text.align         = text['align']   if text['align']   != null
     skin.foreground.text.outline       = text['outline'] if text['outline'] != null
     skin.foreground.text.shadow        = text['shadow']  if text['shadow']  != null
-    skin.background.color              = alpha(skin.background.color, alpha(skin.background.color) * alpha ) if skin.background.color != null
+    skin.background.color              = alpha(skin.background.color, alpha(skin.background.color) * alpha) if skin.background.color != null
     skin.background.image.url          = image.url          if image['url']          != null
     skin.background.image.color        = image.color        if image['color']        != null
     skin.background.image.scale-mode   = image.scale-mode   if image['scale-mode']   != null
@@ -68,7 +68,7 @@ add-skin(skin, font = null, text = null, image = null, alpha = 1, alpha2 = (alph
     skin.background.image.slice-scale  = image.slice-scale  if image['slice-scale']  != null
     skin.border.color                  = alpha(skin.border.color, alpha(skin.border.color) * alpha2) if skin.border.color != null
     add-view skin.foreground, skin.background, skin.border
-add-skin2(skin, position = null, width = null, height = null, margin = null, border = null, padding = null)
+add-layout-skin(skin, position = null, width = null, height = null, margin = null, border = null, padding = null)
     skin                   = get-layout-skin(skin)
     skin.position.position = position if position != null
     skin.size.width        = width    if width    != null
