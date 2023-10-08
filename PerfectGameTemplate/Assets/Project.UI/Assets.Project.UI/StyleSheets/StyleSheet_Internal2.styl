@@ -15,6 +15,7 @@ border(color, radius)
         color:  color,
         radius: radius
     }
+// view
 fnt(url, size, style)
     return {
         url:   url,
@@ -103,11 +104,11 @@ add-layout(position, size, box)
     add-layout-box      get(box, 'margin'), get(box, 'border'), get(box, 'padding')
 // add-layout
 add-layout-position(position, left = null, right = null, top = null, bottom = null)
-    add-property 'position', position[0]
-    add-property 'left',     left   or position[1]
-    add-property 'right',    right  or position[2]
-    add-property 'top',      top    or position[3]
-    add-property 'bottom',   bottom or position[4]
+    add-property 'position', position
+    add-property 'left',     left
+    add-property 'right',    right
+    add-property 'top',      top
+    add-property 'bottom',   bottom
 // add-layout
 add-layout-size(width, height)
     add-property 'width',      width[0]
@@ -185,7 +186,7 @@ get-url-value(url)
 get(obj, keys...)
     value = obj
     for key in keys
-        value = value[key]
+        value = value[key] if value != null
     value
 
 // invoke
