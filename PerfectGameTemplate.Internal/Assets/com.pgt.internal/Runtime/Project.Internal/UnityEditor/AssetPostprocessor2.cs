@@ -60,15 +60,15 @@ namespace UnityEditor {
                 AssetDatabase.DeleteAsset( Path.ChangeExtension( path, ".uss" ) );
             }
         }
-        private static void OnAssetMoved(string path, string oldPath) {
-            if (Path.GetExtension( oldPath ) == ".pug") {
-                AssetDatabase.MoveAsset( Path.ChangeExtension( oldPath, ".uxml" ), Path.ChangeExtension( path, ".uxml" ) );
+        private static void OnAssetMoved(string newPath, string oldPath) {
+            if (Path.GetExtension( newPath ) == ".pug") {
+                AssetDatabase.MoveAsset( Path.ChangeExtension( oldPath, ".uxml" ), Path.ChangeExtension( newPath, ".uxml" ) );
             }
-            if (Path.GetExtension( oldPath ) == ".css") {
-                AssetDatabase.MoveAsset( Path.ChangeExtension( oldPath, ".uss" ), Path.ChangeExtension( path, ".uss" ) );
+            if (Path.GetExtension( newPath ) == ".css") {
+                AssetDatabase.MoveAsset( Path.ChangeExtension( oldPath, ".uss" ), Path.ChangeExtension( newPath, ".uss" ) );
             }
-            if (Path.GetExtension( oldPath ) == ".styl") {
-                AssetDatabase.MoveAsset( Path.ChangeExtension( oldPath, ".uss" ), Path.ChangeExtension( path, ".uss" ) );
+            if (Path.GetExtension( newPath ) == ".styl") {
+                AssetDatabase.MoveAsset( Path.ChangeExtension( oldPath, ".uss" ), Path.ChangeExtension( newPath, ".uss" ) );
             }
         }
 
