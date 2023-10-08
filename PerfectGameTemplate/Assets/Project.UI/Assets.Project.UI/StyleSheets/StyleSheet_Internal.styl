@@ -3,8 +3,16 @@ create-view-skin(color, background-color, background-image-color, border-color, 
     return {
         foreground: {
             color: get-theme-color(color),
-            font:  null,
-            text:  null
+            font: {
+                url:   null,
+                size:  null,
+                style: null
+            },
+            text: {
+                align:   null,
+                outline: null,
+                shadow:  null
+            }
         },
         background: {
             color: get-theme-background-color(background-color),
@@ -42,51 +50,33 @@ create-layout-skin(position, width, height, margin, border, padding)
 
 // skin
 skin(skin, font = null, text = null, image = null, alpha = 1, alpha2 = (alpha+3)/4)
-    skin = get-view-skin(skin)
-    //
-    color =         get(skin, 'foreground', 'color')
-    font  = font or get(skin, 'foreground', 'font' )
-    text  = text or get(skin, 'foreground', 'text' )
-    //
-    background-color = get(skin, 'background', 'color')
-    background-image = {
-        url:          get(image, 'url'         ) or get(skin, 'background', 'image', 'url'         ),
-        color:        get(image, 'color'       ) or get(skin, 'background', 'image', 'color'       ),
-        scale-mode:   get(image, 'scale-mode'  ) or get(skin, 'background', 'image', 'scale-mode'  ),
-        slice-left:   get(image, 'slice-left'  ) or get(skin, 'background', 'image', 'slice-left'  ),
-        slice-right:  get(image, 'slice-right' ) or get(skin, 'background', 'image', 'slice-right' ),
-        slice-top:    get(image, 'slice-top'   ) or get(skin, 'background', 'image', 'slice-top'   ),
-        slice-bottom: get(image, 'slice-bottom') or get(skin, 'background', 'image', 'slice-bottom'),
-        slice-scale:  get(image, 'slice-scale' ) or get(skin, 'background', 'image', 'slice-scale' )
-    }
-    //
-    border-color  = get(skin, 'border', 'color' )
-    border-radius = get(skin, 'border', 'radius')
-    //
-    background-color = alpha(background-color, alpha(background-color) * alpha ) if background-color != null
-    border-color     = alpha(border-color,     alpha(border-color)     * alpha2) if border-color != null
-    view-foreground color, font, text
-    view-background background-color, background-image
-    view-border     border-color, border-radius
+    skin                               = get-view-skin(skin)
+    skin.foreground.font.url           = font['url']     if font['url']     != null
+    skin.foreground.font.size          = font['size']    if font['size']    != null
+    skin.foreground.font.style         = font['style']   if font['style']   != null
+    skin.foreground.text.align         = text['align']   if text['align']   != null
+    skin.foreground.text.outline       = text['outline'] if text['outline'] != null
+    skin.foreground.text.shadow        = text['shadow']  if text['shadow']  != null
+    skin.background.color              = alpha(skin.background.color, alpha(skin.background.color) * alpha ) if skin.background.color != null
+    skin.background.image.url          = image.url          if image['url']          != null
+    skin.background.image.color        = image.color        if image['color']        != null
+    skin.background.image.scale-mode   = image.scale-mode   if image['scale-mode']   != null
+    skin.background.image.slice-left   = image.slice-left   if image['slice-left']   != null
+    skin.background.image.slice-right  = image.slice-right  if image['slice-right']  != null
+    skin.background.image.slice-top    = image.slice-top    if image['slice-top']    != null
+    skin.background.image.slice-bottom = image.slice-bottom if image['slice-bottom'] != null
+    skin.background.image.slice-scale  = image.slice-scale  if image['slice-scale']  != null
+    skin.border.color                  = alpha(skin.border.color, alpha(skin.border.color) * alpha2) if skin.border.color != null
+    view skin.foreground, skin.background, skin.border
 skin2(skin, position = null, width = null, height = null, margin = null, border = null, padding = null)
-    skin = get-layout-skin(skin)
-    //
-    pos    = get(position, 0) or get(skin, 'position', 'position', 0)
-    left   = get(position, 1) or get(skin, 'position', 'position', 1)
-    right  = get(position, 2) or get(skin, 'position', 'position', 2)
-    top    = get(position, 3) or get(skin, 'position', 'position', 3)
-    bottom = get(position, 4) or get(skin, 'position', 'position', 4)
-    //
-    width  = width  or get(skin, 'size', 'width' )
-    height = height or get(skin, 'size', 'height')
-    //
-    margin  = margin  or get(skin, 'box', 'margin' )
-    border  = border  or get(skin, 'box', 'border' )
-    padding = padding or get(skin, 'box', 'padding')
-    //
-    layout-position pos, left, right, top, bottom
-    layout-size     width, height
-    layout-box      margin, border, padding
+    skin                   = get-layout-skin(skin)
+    skin.position.position = position if position != null
+    skin.size.width        = width    if width    != null
+    skin.size.height       = height   if height   != null
+    skin.box.margin        = margin   if margin   != null
+    skin.box.border        = border   if border   != null
+    skin.box.padding       = padding  if padding  != null
+    layout skin.position, skin.size, skin.box
 
 // get-theme-value
 get-theme-color(key)
@@ -120,11 +110,11 @@ get-view-skin(skin)
     if skin != null
         skin = get-string(skin)
         skin = views[skin] or error('View skin is not found: ' + skin)
-        return skin
-    return null
+        return clone(skin)
+    return create-view-skin(null, null, null, null, null)
 get-layout-skin(skin)
     if skin != null
         skin = get-string(skin)
         skin = layouts[skin] or error('Layout skin is not found: ' + skin)
-        return skin
-    return null
+        return clone(skin)
+    return create-layout-skin(null, null, null, null, null, null)

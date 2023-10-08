@@ -66,11 +66,11 @@ layout(position, size, box)
     layout-box      box.margin, box.border, box.padding
 // layout
 layout-position(position = null, left = null, right = null, top = null, bottom = null)
-    add-property 'position', position
-    add-property 'left',     left
-    add-property 'right',    right
-    add-property 'top',      top
-    add-property 'bottom',   bottom
+    add-property 'position', position[0]
+    add-property 'left',     left   or position[1]
+    add-property 'right',    right  or position[2]
+    add-property 'top',      top    or position[3]
+    add-property 'bottom',   bottom or position[4]
 // layout
 layout-size(width = null, height = null)
     add-property 'width',      width[0]
