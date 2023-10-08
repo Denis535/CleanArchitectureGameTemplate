@@ -7,9 +7,9 @@
 
 // view
 .view
-    add-layout-position()
-    add-layout-size()
-    add-layout-box()
+    add-layout-position(null)
+    add-layout-size(null, null)
+    add-layout-box(null, null, null)
 
 // screen-view
 .screen-view
@@ -53,9 +53,9 @@
 
 // sub-view
 .sub-view
-    add-layout-position()
-    add-layout-size()
-    add-layout-box()
+    add-layout-position(null)
+    add-layout-size(null, null)
+    add-layout-box(null, null, null)
 
 // card
 // .unity-card
@@ -102,15 +102,15 @@
 
 // title
 .title
-    add-view-foreground(font: fnt(null, 120%, bold))
-    add-view-background()
-    add-view-border()
+    add-view-foreground(null, fnt(null, 120%, bold), null)
+    add-view-background(null, null)
+    add-view-border(null, null)
 
 // MainWidgetView
 MainWidgetView
-	add-view-foreground()
+	add-view-foreground(null, null, null)
 	add-view-background(null, img('project://database/Assets/Project.UI/Assets.Project.UI.MainScreen/Images/Background.png', null, stretch-to-fill))
-	add-view-border()
+	add-view-border(null, null)
 	add-layout-position(absolute)
 	add-layout-size(100%, 100%)
 	add-layout-box(0px, 0px, 0px)

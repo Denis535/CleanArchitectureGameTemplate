@@ -1,53 +1,33 @@
-// add-view
-add-view(foreground, background, border)
-    add-view-foreground foreground.color, foreground.font, foreground.text
-    add-view-background background.color, background.image
-    add-view-border     border.color,     border.radius
-// add-view
-add-view-foreground(color = null, font = null, text = null)
-    add-property 'color',           color
-    add-property 'font',            get(font, 'url'    )
-    add-property 'font-definition', get(font, 'url'    )
-    add-property 'font-size',       get(font, 'size'   )
-    add-property 'font-style',      get(font, 'style'  )
-    add-property 'text-align',      get(text, 'align'  )
-    add-property 'text-outline',    get(text, 'outline')
-    add-property 'text-shadow',     get(text, 'shadow' )
-// add-view
-add-view-background(background-color = null, background-image = null)
-    add-property 'background-color',            background-color
-    add-property 'background-image',            get(background-image, 'url'         )
-    add-property 'background-image-tint-color', get(background-image, 'color'       )
-    add-property 'background-scale-mode',       get(background-image, 'scale-mode'  )
-    add-property 'slice-left',                  get(background-image, 'slice-left'  )
-    add-property 'slice-right',                 get(background-image, 'slice-right' )
-    add-property 'slice-top',                   get(background-image, 'slice-top'   )
-    add-property 'slice-bottom',                get(background-image, 'slice-bottom')
-    add-property 'slice-scale',                 get(background-image, 'slice-scale' )
-// add-view
-add-view-border(border-color = null, border-radius = null)
-    add-property 'border-left-color',          border-color[0]                   
-    add-property 'border-right-color',         border-color[1] or border-color[0]
-    add-property 'border-top-color',           border-color[2] or border-color[0]
-    add-property 'border-bottom-color',        border-color[3] or border-color[0]
-    add-property 'border-top-left-radius',     border-radius[0]                    
-    add-property 'border-top-right-radius',    border-radius[1] or border-radius[0]
-    add-property 'border-bottom-left-radius',  border-radius[2] or border-radius[0]
-    add-property 'border-bottom-right-radius', border-radius[3] or border-radius[0]
-// add-view
-fnt(url = null, size = null, style = null)
+// view
+foreground(color, font, text)
+    return {
+        color: color,
+        font:  font,
+        text:  text
+    }
+background(color, image)
+    return {
+        color: color,
+        image: image
+    }
+border(color, radius)
+    return {
+        color:  color,
+        radius: radius
+    }
+fnt(url, size, style)
     return {
         url:   url,
         size:  size,
         style: style
     }
-txt(align = null, outline = null, shadow = null)
+txt(align, outline = null, shadow = null)
     return {
         align:   align,
         outline: outline,
         shadow:  shadow
     }
-img(url = null, color = null, scale-mode = null, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
+img(url, color = null, scale-mode = null, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
     return {
         url:          url,
         color:        color,
@@ -58,6 +38,63 @@ img(url = null, color = null, scale-mode = null, slice-left = null, slice-right 
         slice-bottom: slice-bottom,
         slice-scale:  slice-scale
     }
+// layout
+pos(position, left, right, top, bottom)
+    return {
+        position: position[0],
+        left:     left   or position[1],
+        right:    right  or position[2],
+        top:      top    or position[3],
+        bottom:   bottom or position[4]
+    }
+size(width, height)
+    return {
+        width:  width,
+        height: height
+    }
+box(margin, border, padding)
+    return {
+        margin:  margin,
+        border:  border,
+        padding: padding
+    }
+
+// add-view
+add-view(foreground, background, border)
+    add-view-foreground foreground.color, foreground.font, foreground.text
+    add-view-background background.color, background.image
+    add-view-border     border.color,     border.radius
+// add-view
+add-view-foreground(color, font, text)
+    add-property 'color',           color
+    add-property 'font',            get(font, 'url'    )
+    add-property 'font-definition', get(font, 'url'    )
+    add-property 'font-size',       get(font, 'size'   )
+    add-property 'font-style',      get(font, 'style'  )
+    add-property 'text-align',      get(text, 'align'  )
+    add-property 'text-outline',    get(text, 'outline')
+    add-property 'text-shadow',     get(text, 'shadow' )
+// add-view
+add-view-background(background-color, background-image)
+    add-property 'background-color',            background-color
+    add-property 'background-image',            get(background-image, 'url'         )
+    add-property 'background-image-tint-color', get(background-image, 'color'       )
+    add-property 'background-scale-mode',       get(background-image, 'scale-mode'  )
+    add-property 'slice-left',                  get(background-image, 'slice-left'  )
+    add-property 'slice-right',                 get(background-image, 'slice-right' )
+    add-property 'slice-top',                   get(background-image, 'slice-top'   )
+    add-property 'slice-bottom',                get(background-image, 'slice-bottom')
+    add-property 'slice-scale',                 get(background-image, 'slice-scale' )
+// add-view
+add-view-border(border-color, border-radius)
+    add-property 'border-left-color',          border-color[0]                   
+    add-property 'border-right-color',         border-color[1] or border-color[0]
+    add-property 'border-top-color',           border-color[2] or border-color[0]
+    add-property 'border-bottom-color',        border-color[3] or border-color[0]
+    add-property 'border-top-left-radius',     border-radius[0]                    
+    add-property 'border-top-right-radius',    border-radius[1] or border-radius[0]
+    add-property 'border-bottom-left-radius',  border-radius[2] or border-radius[0]
+    add-property 'border-bottom-right-radius', border-radius[3] or border-radius[0]
 
 // add-layout
 add-layout(position, size, box)
@@ -65,14 +102,14 @@ add-layout(position, size, box)
     add-layout-size     size.width, size.height
     add-layout-box      box.margin, box.border, box.padding
 // add-layout
-add-layout-position(position = null, left = null, right = null, top = null, bottom = null)
+add-layout-position(position, left = null, right = null, top = null, bottom = null)
     add-property 'position', position[0]
     add-property 'left',     left   or position[1]
     add-property 'right',    right  or position[2]
     add-property 'top',      top    or position[3]
     add-property 'bottom',   bottom or position[4]
 // add-layout
-add-layout-size(width = null, height = null)
+add-layout-size(width, height)
     add-property 'width',      width[0]
     add-property 'min-width',  width[1]
     add-property 'max-width',  width[2]
@@ -80,7 +117,7 @@ add-layout-size(width = null, height = null)
     add-property 'min-height', height[1]
     add-property 'max-height', height[2]
 // add-layout
-add-layout-box(margin = null, border = null, padding = null)
+add-layout-box(margin, border, padding)
     add-property 'margin-left',         margin[0]
     add-property 'margin-right',        margin[1] or margin[0]
     add-property 'margin-top',          margin[2] or margin[0]
@@ -95,13 +132,13 @@ add-layout-box(margin = null, border = null, padding = null)
     add-property 'padding-bottom',      padding[3] or padding[0]
 
 // add-flex
-add-flex(flex-grow = null, flex-shrink = null, flex-basis = null, align-self = null)
+add-flex(flex-grow, flex-shrink, flex-basis, align-self)
     add-property 'flex-grow',   flex-grow
     add-property 'flex-shrink', flex-shrink
     add-property 'flex-basis',  flex-basis
     add-property 'align-self',  align-self
 // add-flex
-add-flex2(flex-direction = null, justify-content = null, align-items = null)
+add-flex2(flex-direction, justify-content, align-items)
     add-property 'flex-direction',  flex-direction
     add-property 'flex-wrap',       null
     add-property 'justify-content', justify-content
@@ -145,9 +182,10 @@ get-url-value(url)
     null
 
 // get
-get(value, keys...)
+get(obj, keys...)
+    value = obj
     for key in keys
-        value = value[key] if value != null
+        value = value[key]
     value
 
 // invoke
