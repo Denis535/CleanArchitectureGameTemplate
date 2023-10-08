@@ -1,10 +1,10 @@
-// view
-view(foreground, background, border)
-    view-foreground foreground.color, foreground.font, foreground.text
-    view-background background.color, background.image
-    view-border     border.color,     border.radius
-// view
-view-foreground(color = null, font = null, text = null)
+// add-view
+add-view(foreground, background, border)
+    add-view-foreground foreground.color, foreground.font, foreground.text
+    add-view-background background.color, background.image
+    add-view-border     border.color,     border.radius
+// add-view
+add-view-foreground(color = null, font = null, text = null)
     add-property 'color',           color
     add-property 'font',            get(font, 'url'    )
     add-property 'font-definition', get(font, 'url'    )
@@ -13,8 +13,8 @@ view-foreground(color = null, font = null, text = null)
     add-property 'text-align',      get(text, 'align'  )
     add-property 'text-outline',    get(text, 'outline')
     add-property 'text-shadow',     get(text, 'shadow' )
-// view
-view-background(background-color = null, background-image = null)
+// add-view
+add-view-background(background-color = null, background-image = null)
     add-property 'background-color',            background-color
     add-property 'background-image',            get(background-image, 'url'         )
     add-property 'background-image-tint-color', get(background-image, 'color'       )
@@ -24,8 +24,8 @@ view-background(background-color = null, background-image = null)
     add-property 'slice-top',                   get(background-image, 'slice-top'   )
     add-property 'slice-bottom',                get(background-image, 'slice-bottom')
     add-property 'slice-scale',                 get(background-image, 'slice-scale' )
-// view
-view-border(border-color = null, border-radius = null)
+// add-view
+add-view-border(border-color = null, border-radius = null)
     add-property 'border-left-color',          border-color[0]                   
     add-property 'border-right-color',         border-color[1] or border-color[0]
     add-property 'border-top-color',           border-color[2] or border-color[0]
@@ -34,7 +34,7 @@ view-border(border-color = null, border-radius = null)
     add-property 'border-top-right-radius',    border-radius[1] or border-radius[0]
     add-property 'border-bottom-left-radius',  border-radius[2] or border-radius[0]
     add-property 'border-bottom-right-radius', border-radius[3] or border-radius[0]
-// view
+// add-view
 fnt(url = null, size = null, style = null)
     return {
         url:   url,
@@ -59,28 +59,28 @@ img(url = null, color = null, scale-mode = null, slice-left = null, slice-right 
         slice-scale:  slice-scale
     }
 
-// layout
-layout(position, size, box)
-    layout-position position.position, position.left, position.right, position.top, position.bottom
-    layout-size     size.width, size.height
-    layout-box      box.margin, box.border, box.padding
-// layout
-layout-position(position = null, left = null, right = null, top = null, bottom = null)
+// add-layout
+add-layout(position, size, box)
+    add-layout-position position.position, position.left, position.right, position.top, position.bottom
+    add-layout-size     size.width, size.height
+    add-layout-box      box.margin, box.border, box.padding
+// add-layout
+add-layout-position(position = null, left = null, right = null, top = null, bottom = null)
     add-property 'position', position[0]
     add-property 'left',     left   or position[1]
     add-property 'right',    right  or position[2]
     add-property 'top',      top    or position[3]
     add-property 'bottom',   bottom or position[4]
-// layout
-layout-size(width = null, height = null)
+// add-layout
+add-layout-size(width = null, height = null)
     add-property 'width',      width[0]
     add-property 'min-width',  width[1]
     add-property 'max-width',  width[2]
     add-property 'height',     height[0]
     add-property 'min-height', height[1]
     add-property 'max-height', height[2]
-// layout
-layout-box(margin = null, border = null, padding = null)
+// add-layout
+add-layout-box(margin = null, border = null, padding = null)
     add-property 'margin-left',         margin[0]
     add-property 'margin-right',        margin[1] or margin[0]
     add-property 'margin-top',          margin[2] or margin[0]
@@ -94,29 +94,19 @@ layout-box(margin = null, border = null, padding = null)
     add-property 'padding-top',         padding[2] or padding[0]
     add-property 'padding-bottom',      padding[3] or padding[0]
 
-// flex
-flex(flex-grow = null, flex-shrink = null, flex-basis = null, align-self = null)
+// add-flex
+add-flex(flex-grow = null, flex-shrink = null, flex-basis = null, align-self = null)
     add-property 'flex-grow',   flex-grow
     add-property 'flex-shrink', flex-shrink
     add-property 'flex-basis',  flex-basis
     add-property 'align-self',  align-self
-// flex
-flex2(flex-direction = null, justify-content = null, align-items = null)
+// add-flex
+add-flex2(flex-direction = null, justify-content = null, align-items = null)
     add-property 'flex-direction',  flex-direction
     add-property 'flex-wrap',       null
     add-property 'justify-content', justify-content
     add-property 'align-items',     align-items
     add-property 'align-content',   null
-
-// get
-get(value, keys...)
-    for key in keys
-        value = value[key] if value != null
-    value
-
-// invoke
-invoke(func, args...)
-    func(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9], args[10], args[11], args[12], args[13], args[14], args[15])
 
 // add-property
 add-property(property, value)
@@ -153,3 +143,13 @@ get-url-value(url)
         url = get-string(url)
         return s("url('%s')", url)
     null
+
+// get
+get(value, keys...)
+    for key in keys
+        value = value[key] if value != null
+    value
+
+// invoke
+invoke(func, args...)
+    func(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9], args[10], args[11], args[12], args[13], args[14], args[15])

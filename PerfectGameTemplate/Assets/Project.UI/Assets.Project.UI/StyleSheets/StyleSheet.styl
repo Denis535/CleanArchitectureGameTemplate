@@ -7,55 +7,55 @@
 
 // view
 .view
-    layout-position()
-    layout-size()
-    layout-box()
+    add-layout-position()
+    add-layout-size()
+    add-layout-box()
 
 // screen-view
 .screen-view
 .views-container
 .modal-views-container
-    layout-position(absolute)
-    layout-size(100%, 100%)
-    layout-box(0px, 0px, 0px)
+    add-layout-position(absolute)
+    add-layout-size(100%, 100%)
+    add-layout-box(0px, 0px, 0px)
 
 // widget-view
 .widget-view
-    layout-position(absolute)
-    layout-size(100%, 100%)
-    layout-box(0px, 0px, 0px)
+    add-layout-position(absolute)
+    add-layout-size(100%, 100%)
+    add-layout-box(0px, 0px, 0px)
     translate 0% 0%
 .left-widget-view
-    layout-position(absolute, left: 5%, bottom: 10%)
-    layout-size(30%, auto)
-    layout-box(0px, 0px, 0px)
+    add-layout-position(absolute, left: 5%, bottom: 10%)
+    add-layout-size(30%, auto)
+    add-layout-box(0px, 0px, 0px)
     translate 0% 0%
 .small-widget-view
-    layout-position(absolute, left: 50%, top: 50%)
-    layout-size(60%, 50%)
-    layout-box(0px, 0px, 0px)
+    add-layout-position(absolute, left: 50%, top: 50%)
+    add-layout-size(60%, 50%)
+    add-layout-box(0px, 0px, 0px)
     translate -50% -50%
 .middle-widget-view
-    layout-position(absolute, left: 50%, top: 50%)
-    layout-size(80%, 70%)
-    layout-box(0px, 0px, 0px)
+    add-layout-position(absolute, left: 50%, top: 50%)
+    add-layout-size(80%, 70%)
+    add-layout-box(0px, 0px, 0px)
     translate -50% -50%
 .large-widget-view
-    layout-position(absolute, left: 50%, top: 50%)
-    layout-size(90%, 80%)
-    layout-box(0px, 0px, 0px)
+    add-layout-position(absolute, left: 50%, top: 50%)
+    add-layout-size(90%, 80%)
+    add-layout-box(0px, 0px, 0px)
     translate -50% -50%
 .modal-widget-view
-    layout-position(absolute, left: 50%, top: 49%)
-    layout-size(60%, 50%)
-    layout-box(0px, 0px, 0px)
+    add-layout-position(absolute, left: 50%, top: 49%)
+    add-layout-size(60%, 50%)
+    add-layout-box(0px, 0px, 0px)
     translate -50% -50%
 
 // sub-view
 .sub-view
-    layout-position()
-    layout-size()
-    layout-box()
+    add-layout-position()
+    add-layout-size()
+    add-layout-box()
 
 // card
 // .unity-card
@@ -102,18 +102,18 @@
 
 // title
 .title
-    view-foreground(font: fnt(null, 120%, bold))
-    view-background()
-    view-border()
+    add-view-foreground(font: fnt(null, 120%, bold))
+    add-view-background()
+    add-view-border()
 
 // MainWidgetView
 MainWidgetView
-	view-foreground()
-	view-background(null, img('project://database/Assets/Project.UI/Assets.Project.UI.MainScreen/Images/Background.png', null, stretch-to-fill))
-	view-border()
-	layout-position(absolute)
-	layout-size(100%, 100%)
-	layout-box(0px, 0px, 0px)
+	add-view-foreground()
+	add-view-background(null, img('project://database/Assets/Project.UI/Assets.Project.UI.MainScreen/Images/Background.png', null, stretch-to-fill))
+	add-view-border()
+	add-layout-position(absolute)
+	add-layout-size(100%, 100%)
+	add-layout-box(0px, 0px, 0px)
 	transition-property scale, -unity-background-image-tint-color
 	transition-duration 3s
 	transition-timing-function ease

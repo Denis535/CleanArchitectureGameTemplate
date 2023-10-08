@@ -101,183 +101,198 @@ layouts = {
 
 // card
 card()
-    skin(card)
-    skin2(card)
-    flex(1, 1, auto, auto)
-    flex2(column, flex-start, stretch)
+    add-skin(card)
+    add-skin2(card)
+    add-flex(1, 1, auto, auto)
+    add-flex2(column, flex-start, stretch)
 card-header()
-    skin(card-header, fnt(null, 130%, bold))
-    skin2(card-header)
-    flex(0, 0, auto, auto)
-    flex2(row, center, center)
+    add-skin(card-header, fnt(null, 130%, bold))
+    add-skin2(card-header)
+    add-flex(0, 0, auto, auto)
+    add-flex2(row, center, center)
 card-content()
-    skin(card-content, fnt(null, 100%, normal))
-    skin2(card-content)
-    flex(1, 1, auto, auto)
-    flex2(column, flex-start, stretch)
+    add-skin(card-content, fnt(null, 100%, normal))
+    add-skin2(card-content)
+    add-flex(1, 1, auto, auto)
+    add-flex2(column, flex-start, stretch)
 card-footer()
-    skin(card-footer, fnt(null, 130%, bold))
-    skin2(card-footer)
-    flex(0, 0, auto, auto)
-    flex2(row, space-around, center)
+    add-skin(card-footer, fnt(null, 130%, bold))
+    add-skin2(card-footer)
+    add-flex(0, 0, auto, auto)
+    add-flex2(row, space-around, center)
 
 // dialog-card
 dialog-card()
-    skin(null)
-    skin2(null)
+    add-skin(null)
+    add-skin2(null)
 dialog-card-header()
-    skin(null)
-    skin2(null)
-dialog-card-header-info()
-    skin(card-header-info)
-    skin2(null)
-dialog-card-header-warning()
-    skin(card-header-warning)
-    skin2(null)
-dialog-card-header-error()
-    skin(card-header-error)
-    skin2(null)
+    add-skin(null)
+    add-skin2(null)
 dialog-card-content()
-    skin(null, fnt(null, 120%, bold))
-    skin2(null)
-    flex(null, null, null, null)
-    flex2(null, center, center)
+    add-skin(null, fnt(null, 120%, bold))
+    add-skin2(null)
+    add-flex(null, null, null, null)
+    add-flex2(null, center, center)
 dialog-card-footer()
-    skin(null)
-    skin2(null)
+    add-skin(null)
+    add-skin2(null)
+
+// info-dialog-card
+dialog-card-header-info()
+    add-skin(card-header-info)
+    add-skin2(null)
+
+// warning-dialog-card
+dialog-card-header-warning()
+    add-skin(card-header-warning)
+    add-skin2(null)
+
+// error-dialog-card
+dialog-card-header-error()
+    add-skin(card-header-error)
+    add-skin2(null)
 
 // scope
 scope()
-    skin(scope)
-    skin2(scope)
+    add-skin(scope)
+    add-skin2(scope)
     &.small
-        skin2(small-scope)
+        add-skin(null)
+        add-skin2(small-scope)
     &.medium
-        skin2(medium-scope)
+        add-skin(null)
+        add-skin2(medium-scope)
     &.large
-        skin2(large-scope)
+        add-skin(null)
+        add-skin2(large-scope)
 column-scope()
-    flex(0, 1, auto, auto)
-    flex2(column, flex-start, stretch)
+    add-flex(0, 1, auto, auto)
+    add-flex2(column, flex-start, stretch)
 row-scope()
-    flex(0, 1, auto, auto)
-    flex2(row, flex-start, stretch)
+    add-flex(0, 1, auto, auto)
+    add-flex2(row, flex-start, stretch)
 
 // group
 group()
-    skin(group)
-    skin2(group)
+    add-skin(group)
+    add-skin2(group)
     &.light
-        skin(light-group, alpha: 0.00)
+        add-skin(light-group, alpha: 0.00)
     &.light1
-        skin(light-group, alpha: 0.10)
+        add-skin(light-group, alpha: 0.10)
     &.light2
-        skin(light-group, alpha: 0.20)
+        add-skin(light-group, alpha: 0.20)
     &.light3
-        skin(light-group, alpha: 0.30)
+        add-skin(light-group, alpha: 0.30)
     &.light4
-        skin(light-group, alpha: 0.40)
+        add-skin(light-group, alpha: 0.40)
     &.light5
-        skin(light-group, alpha: 0.50)
+        add-skin(light-group, alpha: 0.50)
     &.light6
-        skin(light-group, alpha: 0.60)
+        add-skin(light-group, alpha: 0.60)
     &.light7
-        skin(light-group, alpha: 0.70)
+        add-skin(light-group, alpha: 0.70)
     &.light8
-        skin(light-group, alpha: 0.80)
+        add-skin(light-group, alpha: 0.80)
     &.light9
-        skin(light-group, alpha: 0.90)
+        add-skin(light-group, alpha: 0.90)
     &.light10
-        skin(light-group, alpha: 1.00)
+        add-skin(light-group, alpha: 1.00)
     &.dark
-        skin(dark-group, alpha: 0.00)
+        add-skin(dark-group, alpha: 0.00)
     &.dark1
-        skin(dark-group, alpha: 0.10)
+        add-skin(dark-group, alpha: 0.10)
     &.dark2
-        skin(dark-group, alpha: 0.20)
+        add-skin(dark-group, alpha: 0.20)
     &.dark3
-        skin(dark-group, alpha: 0.30)
+        add-skin(dark-group, alpha: 0.30)
     &.dark4
-        skin(dark-group, alpha: 0.40)
+        add-skin(dark-group, alpha: 0.40)
     &.dark5
-        skin(dark-group, alpha: 0.50)
+        add-skin(dark-group, alpha: 0.50)
     &.dark6
-        skin(dark-group, alpha: 0.60)
+        add-skin(dark-group, alpha: 0.60)
     &.dark7
-        skin(dark-group, alpha: 0.70)
+        add-skin(dark-group, alpha: 0.70)
     &.dark8
-        skin(dark-group, alpha: 0.80)
+        add-skin(dark-group, alpha: 0.80)
     &.dark9
-        skin(dark-group, alpha: 0.90)
+        add-skin(dark-group, alpha: 0.90)
     &.dark10
-        skin(dark-group, alpha: 1.00)
+        add-skin(dark-group, alpha: 1.00)
     &.small
-        skin2(small-group)
+        add-skin(null)
+        add-skin2(small-group)
     &.medium
-        skin2(medium-group)
+        add-skin(null)
+        add-skin2(medium-group)
     &.large
-        skin2(large-group)
+        add-skin(null)
+        add-skin2(large-group)
 column-group()
-    flex(0, 1, auto, auto)
-    flex2(column, flex-start, stretch)
+    add-flex(0, 1, auto, auto)
+    add-flex2(column, flex-start, stretch)
 row-group()
-    flex(0, 1, auto, auto)
-    flex2(row, flex-start, stretch)
+    add-flex(0, 1, auto, auto)
+    add-flex2(row, flex-start, stretch)
 
 // box
 box()
-    skin(box)
-    skin2(box)
+    add-skin(box)
+    add-skin2(box)
     &.light
-        skin(light-box, alpha: 0.00)
+        add-skin(light-box, alpha: 0.00)
     &.light1
-        skin(light-box, alpha: 0.10)
+        add-skin(light-box, alpha: 0.10)
     &.light2
-        skin(light-box, alpha: 0.20)
+        add-skin(light-box, alpha: 0.20)
     &.light3
-        skin(light-box, alpha: 0.30)
+        add-skin(light-box, alpha: 0.30)
     &.light4
-        skin(light-box, alpha: 0.40)
+        add-skin(light-box, alpha: 0.40)
     &.light5
-        skin(light-box, alpha: 0.50)
+        add-skin(light-box, alpha: 0.50)
     &.light6
-        skin(light-box, alpha: 0.60)
+        add-skin(light-box, alpha: 0.60)
     &.light7
-        skin(light-box, alpha: 0.70)
+        add-skin(light-box, alpha: 0.70)
     &.light8
-        skin(light-box, alpha: 0.80)
+        add-skin(light-box, alpha: 0.80)
     &.light9
-        skin(light-box, alpha: 0.90)
+        add-skin(light-box, alpha: 0.90)
     &.light10
-        skin(light-box, alpha: 1.00)
+        add-skin(light-box, alpha: 1.00)
     &.dark
-        skin(dark-box, alpha: 0.00)
+        add-skin(dark-box, alpha: 0.00)
     &.dark1
-        skin(dark-box, alpha: 0.10)
+        add-skin(dark-box, alpha: 0.10)
     &.dark2
-        skin(dark-box, alpha: 0.20)
+        add-skin(dark-box, alpha: 0.20)
     &.dark3
-        skin(dark-box, alpha: 0.30)
+        add-skin(dark-box, alpha: 0.30)
     &.dark4
-        skin(dark-box, alpha: 0.40)
+        add-skin(dark-box, alpha: 0.40)
     &.dark5
-        skin(dark-box, alpha: 0.50)
+        add-skin(dark-box, alpha: 0.50)
     &.dark6
-        skin(dark-box, alpha: 0.60)
+        add-skin(dark-box, alpha: 0.60)
     &.dark7
-        skin(dark-box, alpha: 0.70)
+        add-skin(dark-box, alpha: 0.70)
     &.dark8
-        skin(dark-box, alpha: 0.80)
+        add-skin(dark-box, alpha: 0.80)
     &.dark9
-        skin(dark-box, alpha: 0.90)
+        add-skin(dark-box, alpha: 0.90)
     &.dark10
-        skin(dark-box, alpha: 1.00)
+        add-skin(dark-box, alpha: 1.00)
     &.small
-        skin2(small-box)
+        add-skin(null)
+        add-skin2(small-box)
     &.medium
-        skin2(medium-box)
+        add-skin(null)
+        add-skin2(medium-box)
     &.large
-        skin2(large-box)
+        add-skin(null)
+        add-skin2(large-box)
 
 // card
 .unity-card
@@ -289,7 +304,7 @@ box()
 .unity-footer
     card-footer()
     *
-        layout-size(25%, null)
+        add-layout-size(25%, null)
 
 // dialog-card
 .unity-dialog-card

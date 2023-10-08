@@ -48,8 +48,8 @@ create-layout-skin(position, width, height, margin, border, padding)
         }
     }
 
-// skin
-skin(skin, font = null, text = null, image = null, alpha = 1, alpha2 = (alpha+3)/4)
+// add-skin
+add-skin(skin, font = null, text = null, image = null, alpha = 1, alpha2 = (alpha+3)/4)
     skin                               = get-view-skin(skin)
     skin.foreground.font.url           = font['url']     if font['url']     != null
     skin.foreground.font.size          = font['size']    if font['size']    != null
@@ -67,8 +67,8 @@ skin(skin, font = null, text = null, image = null, alpha = 1, alpha2 = (alpha+3)
     skin.background.image.slice-bottom = image.slice-bottom if image['slice-bottom'] != null
     skin.background.image.slice-scale  = image.slice-scale  if image['slice-scale']  != null
     skin.border.color                  = alpha(skin.border.color, alpha(skin.border.color) * alpha2) if skin.border.color != null
-    view skin.foreground, skin.background, skin.border
-skin2(skin, position = null, width = null, height = null, margin = null, border = null, padding = null)
+    add-view skin.foreground, skin.background, skin.border
+add-skin2(skin, position = null, width = null, height = null, margin = null, border = null, padding = null)
     skin                   = get-layout-skin(skin)
     skin.position.position = position if position != null
     skin.size.width        = width    if width    != null
@@ -76,7 +76,7 @@ skin2(skin, position = null, width = null, height = null, margin = null, border 
     skin.box.margin        = margin   if margin   != null
     skin.box.border        = border   if border   != null
     skin.box.padding       = padding  if padding  != null
-    layout skin.position, skin.size, skin.box
+    add-layout skin.position, skin.size, skin.box
 
 // get-theme-value
 get-theme-color(key)
