@@ -48,7 +48,7 @@ theme = {
         image-component:               2px
     }
 }
-view-skins = {
+views = {
     // element
     label:                             create-view-skin(null,           none,                null,        none,            element        ),
     button:                            create-view-skin(dark,           light-element,       null,        light-element,   element        ),
@@ -78,7 +78,7 @@ view-skins = {
     invalid-effect:                    create-view-skin(invalid-effect, null,                null,        invalid-effect,  null           ),
     invalid-effect-without-foreground: create-view-skin(null,           null,                null,        invalid-effect,  null           )
 }
-layout-skins = {
+layouts = {
     // element
     label:                             create-layout-skin(null, auto, auto, (4px            ), (1px            ), (12px 12px 10px 10px)   ),
     button:                            create-layout-skin(null, auto, auto, (4px            ), (1px            ), (12px 12px 10px 10px)   ),
@@ -341,25 +341,25 @@ dropdown-view--scroll-view--item-text()
 .unity-label
     label()
     &:focus
-        effect(focus-effect)
+        skin(focus-effect)
     &.invalid
-        effect(invalid-effect)
+        skin(invalid-effect)
 
 // button
 .unity-button
     button()
     &:focus
-        effect(focus-effect)
+        skin(focus-effect)
     &.invalid
-        effect(invalid-effect)
+        skin(invalid-effect)
 
 // repeat-button
 .unity-repeat-button
     button()
     &:focus
-        effect(focus-effect)
+        skin(focus-effect)
     &.invalid
-        effect(invalid-effect)
+        skin(invalid-effect)
 
 // field
 .unity-base-field
@@ -367,15 +367,15 @@ dropdown-view--scroll-view--item-text()
     &__label
         field-label()
         :focus > &
-            effect(focus-effect)
+            skin(focus-effect)
         .invalid > &
-            effect(invalid-effect)
+            skin(invalid-effect)
     &__input
         field-input()
         :focus > &
-            effect(focus-effect-without-foreground)
+            skin(focus-effect-without-foreground)
         .invalid > &
-            effect(invalid-effect-without-foreground)
+            skin(invalid-effect-without-foreground)
 
 // text-field
 .unity-base-text-field
@@ -442,7 +442,7 @@ dropdown-view--scroll-view--item-text()
             horizontal-scroller--slider-field-input--dragger()
     .unity-base-slider:focus
         #unity-dragger
-            effect(focus-effect)
+            skin(focus-effect)
 
 // scroller--vertical
 .unity-scroller--vertical
@@ -463,7 +463,7 @@ dropdown-view--scroll-view--item-text()
             vertical-scroller--slider-field-input--dragger()
     .unity-base-slider:focus
         #unity-dragger
-            effect(focus-effect)
+            skin(focus-effect)
 
 // dropdown
 .unity-base-dropdown
@@ -482,7 +482,7 @@ dropdown-view--scroll-view--item-text()
     &__item
         dropdown-view--scroll-view--item()
     &__item:hover
-        effect(hover-effect)
+        skin(hover-effect)
     &__item &__checkmark
         dropdown-view--scroll-view--item-checkmark(false)
     &__item:checked &__checkmark

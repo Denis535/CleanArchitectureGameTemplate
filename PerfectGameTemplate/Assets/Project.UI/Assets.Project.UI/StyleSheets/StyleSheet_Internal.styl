@@ -36,7 +36,7 @@ create-layout-skin(position, width, height, margin, border, padding)
     }
 
 // skin
-skin(skin, font = null, text = null, image = null, alpha = 1)
+skin(skin, font = null, text = null, image = null, alpha = 1, alpha2 = (alpha+3)/4)
     skin = get-view-skin(skin)
     //
     color =         get(skin, 'foreground', 'color')
@@ -53,8 +53,8 @@ skin(skin, font = null, text = null, image = null, alpha = 1)
     border-color  = get(skin, 'border', 'color' )
     border-radius = get(skin, 'border', 'radius')
     //
-    background-color = alpha(background-color, alpha(background-color) * alpha        ) if background-color != null
-    border-color     = alpha(border-color,     alpha(border-color)     * ((alpha+3)/4)) if border-color != null
+    background-color = alpha(background-color, alpha(background-color) * alpha ) if background-color != null
+    border-color     = alpha(border-color,     alpha(border-color)     * alpha2) if border-color != null
     view-foreground color, font, text
     view-background background-color, background-image
     view-border     border-color, border-radius
@@ -77,22 +77,6 @@ skin2(skin, position = null, width = null, height = null, margin = null, border 
     layout-position pos, left, right, top, bottom
     layout-size     width, height
     layout-box      margin, border, padding
-effect(effect)
-    skin(effect)
-
-// get-skin
-get-view-skin(skin)
-    if skin != null
-        skin = get-string(skin)
-        skin = view-skins[skin] or error('View skin is not found: ' + skin)
-        return skin
-    return null
-get-layout-skin(skin)
-    if skin != null
-        skin = get-string(skin)
-        skin = layout-skins[skin] or error('Layout skin is not found: ' + skin)
-        return skin
-    return null
 
 // get-theme-value
 get-theme-color(key)
@@ -120,3 +104,17 @@ get-theme-border-radius(key)
         key = get-string(key)
         return theme['border-radius'][key] or error('Theme has no border-radius: ' + key)
     null
+
+// get-skin
+get-view-skin(skin)
+    if skin != null
+        skin = get-string(skin)
+        skin = views[skin] or error('View skin is not found: ' + skin)
+        return skin
+    return null
+get-layout-skin(skin)
+    if skin != null
+        skin = get-string(skin)
+        skin = layouts[skin] or error('Layout skin is not found: ' + skin)
+        return skin
+    return null
