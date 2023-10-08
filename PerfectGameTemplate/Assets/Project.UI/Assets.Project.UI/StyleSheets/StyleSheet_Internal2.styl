@@ -61,9 +61,9 @@ box(margin, border, padding)
 
 // add-view
 add-view(foreground, background, border)
-    add-view-foreground foreground.color, foreground.font, foreground.text
-    add-view-background background.color, background.image
-    add-view-border     border.color,     border.radius
+    add-view-foreground get(foreground, 'color'), get(foreground, 'font'), get(foreground, 'text')
+    add-view-background get(background, 'color'), get(background, 'image')
+    add-view-border     get(border, 'color'), get(border, 'radius')
 // add-view
 add-view-foreground(color, font, text)
     add-property 'color',           color
@@ -98,9 +98,9 @@ add-view-border(border-color, border-radius)
 
 // add-layout
 add-layout(position, size, box)
-    add-layout-position position.position, position.left, position.right, position.top, position.bottom
-    add-layout-size     size.width, size.height
-    add-layout-box      box.margin, box.border, box.padding
+    add-layout-position get(position, 'position'), get(position, 'left'), get(position, 'right'), get(position, 'top'), get(position, 'bottom')
+    add-layout-size     get(size, 'width'), get(size, 'height')
+    add-layout-box      get(box, 'margin'), get(box, 'border'), get(box, 'padding')
 // add-layout
 add-layout-position(position, left = null, right = null, top = null, bottom = null)
     add-property 'position', position[0]
