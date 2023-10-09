@@ -1,4 +1,10 @@
 // view
+view(foreground, background, border)
+    return {
+        foreground: foreground,
+        background: background,
+        border:     border
+    }
 foreground(color, font, text)
     return {
         color: color,
@@ -40,6 +46,12 @@ img(url, color = null, scale-mode = null, slice-left = null, slice-right = null,
     }
 
 // layout
+layout(position, size, box)
+    return {
+        position: position,
+        size:     size,
+        box:      box
+    }
 pos(position, left = null, right = null, top = null, bottom = null)
     return {
         position: position[0],
@@ -61,10 +73,10 @@ box(margin, border, padding)
     }
 
 // add-view
-add-view(skin)
-    foreground = skin.foreground
-    background = skin.background
-    border     = skin.border
+add-view(view)
+    foreground = view.foreground
+    background = view.background
+    border     = view.border
     add-view-foreground get(foreground, 'color'), get(foreground, 'font'), get(foreground, 'text')
     add-view-background get(background, 'color'), get(background, 'image')
     add-view-border     get(border, 'color'), get(border, 'radius')
@@ -101,10 +113,10 @@ add-view-border(border-color, border-radius)
     add-property 'border-bottom-right-radius', border-radius[3] or border-radius[0]
 
 // add-layout
-add-layout(skin)
-    position = skin.position
-    size     = skin.size
-    box      = skin.box
+add-layout(layout)
+    position = layout.position
+    size     = layout.size
+    box      = layout.box
     add-layout-position get(position, 'position'), get(position, 'left'), get(position, 'right'), get(position, 'top'), get(position, 'bottom')
     add-layout-size     get(size, 'width'), get(size, 'height')
     add-layout-box      get(box, 'margin'), get(box, 'border'), get(box, 'padding')
