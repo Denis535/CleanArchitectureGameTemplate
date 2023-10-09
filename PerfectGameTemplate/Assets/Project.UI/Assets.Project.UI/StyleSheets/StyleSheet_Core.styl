@@ -80,19 +80,19 @@ views = {
 }
 layouts = {
     // element
-    label:                             layout-skin(null, auto, auto, (4px            ), (1px            ), (12px 12px 10px 10px)   ),
-    button:                            layout-skin(null, auto, auto, (4px            ), (1px            ), (12px 12px 10px 10px)   ),
-    field:                             layout-skin(null, auto, auto, (4px            ), (0px            ), (0px                )   ),
-    field-label:                       layout-skin(null, auto, auto, (0px 1px 0px 0px), (1px            ), (12px 12px 10px 10px)   ),
-    field-input:                       layout-skin(null, auto, auto, (1px 0px 0px 0px), (1px            ), (12px 12px 10px 10px)   ),
+    label:                             layout( pos(null), size(auto, auto), box((4px            ), (1px            ), (12px 12px 10px 10px)) ),
+    button:                            layout( pos(null), size(auto, auto), box((4px            ), (1px            ), (12px 12px 10px 10px)) ),
+    field:                             layout( pos(null), size(auto, auto), box((4px            ), (0px            ), (0px                )) ),
+    field-label:                       layout( pos(null), size(auto, auto), box((0px 1px 0px 0px), (1px            ), (12px 12px 10px 10px)) ),
+    field-input:                       layout( pos(null), size(auto, auto), box((1px 0px 0px 0px), (1px            ), (12px 12px 10px 10px)) ),
     // view
-    scroll-view:                       layout-skin(null, auto, auto, (4px            ), (1px            ), (0px                )   ),
+    scroll-view:                       layout( pos(null), size(auto, auto), box((4px            ), (1px            ), (0px                )) ),
     // view
-    dropdown-view:                     layout-skin(null, auto, auto, (0px            ), (1px            ), (0px                )   ),
+    dropdown-view:                     layout( pos(null), size(auto, auto), box((0px            ), (1px            ), (0px                )) ),
     // component
-    component:                         layout-skin(null, auto, auto, (0px            ), (0px            ), (0px                )   ),
-    box-component:                     layout-skin(null, auto, auto, (0px            ), (1px            ), (0px                )   ),
-    image-component:                   layout-skin(null, auto, auto, (0px            ), (1px            ), (0px                )   ),
+    component:                         layout( pos(null), size(auto, auto), box((0px            ), (0px            ), (0px                )) ),
+    box-component:                     layout( pos(null), size(auto, auto), box((0px            ), (1px            ), (0px                )) ),
+    image-component:                   layout( pos(null), size(auto, auto), box((0px            ), (1px            ), (0px                )) )
 }
 
 // label

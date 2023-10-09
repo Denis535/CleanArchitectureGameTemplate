@@ -6,44 +6,44 @@ view-skin(color, background-color, background-image-color, border-color, border-
     border-color           = get-theme-border-color(border-color)
     border-radius          = get-theme-border-radius(border-radius)
     view foreground(color, fnt(null, null, null), txt(null)), background(background-color, img(null, background-image-color, null)), border(border-color, border-radius)
-layout-skin(position, width, height, margin, border, padding)
-    layout pos(position[0], position[1], position[2], position[3], position[4]), size(width, height), box(margin, border, padding)
+// layout-skin(position, width, height, margin, border, padding)
+//     layout pos(position[0], position[1], position[2], position[3], position[4]), size(width, height), box(margin, border, padding)
 
 // add-skin
 add-view-skin(skin, font = null, text = null, image = null, alpha = 1, alpha2 = (alpha+3)/4)
-    skin                               = get-view-skin(skin)
-    skin.foreground.font.url           = font['url']        if font['url']     != null
-    skin.foreground.font.size          = font['size']       if font['size']    != null
-    skin.foreground.font.style         = font['style']      if font['style']   != null
-    skin.foreground.text.align         = text['align']      if text['align']   != null
-    skin.foreground.text.outline       = text['outline']    if text['outline'] != null
-    skin.foreground.text.shadow        = text['shadow']     if text['shadow']  != null
-    skin.background.color              = alpha(skin.background.color, alpha(skin.background.color) * alpha) if skin.background.color != null
-    skin.background.image.url          = image.url          if image['url']          != null
-    skin.background.image.color        = image.color        if image['color']        != null
-    skin.background.image.scale-mode   = image.scale-mode   if image['scale-mode']   != null
-    skin.background.image.slice-left   = image.slice-left   if image['slice-left']   != null
-    skin.background.image.slice-right  = image.slice-right  if image['slice-right']  != null
-    skin.background.image.slice-top    = image.slice-top    if image['slice-top']    != null
-    skin.background.image.slice-bottom = image.slice-bottom if image['slice-bottom'] != null
-    skin.background.image.slice-scale  = image.slice-scale  if image['slice-scale']  != null
-    skin.border.color                  = alpha(skin.border.color, alpha(skin.border.color) * alpha2) if skin.border.color != null
-    add-view skin
+    view                               = get-view(skin)
+    view.foreground.font.url           = font['url']        if font['url']     != null
+    view.foreground.font.size          = font['size']       if font['size']    != null
+    view.foreground.font.style         = font['style']      if font['style']   != null
+    view.foreground.text.align         = text['align']      if text['align']   != null
+    view.foreground.text.outline       = text['outline']    if text['outline'] != null
+    view.foreground.text.shadow        = text['shadow']     if text['shadow']  != null
+    view.background.color              = alpha(view.background.color, alpha(view.background.color) * alpha) if view.background.color != null
+    view.background.image.url          = image.url          if image['url']          != null
+    view.background.image.color        = image.color        if image['color']        != null
+    view.background.image.scale-mode   = image.scale-mode   if image['scale-mode']   != null
+    view.background.image.slice-left   = image.slice-left   if image['slice-left']   != null
+    view.background.image.slice-right  = image.slice-right  if image['slice-right']  != null
+    view.background.image.slice-top    = image.slice-top    if image['slice-top']    != null
+    view.background.image.slice-bottom = image.slice-bottom if image['slice-bottom'] != null
+    view.background.image.slice-scale  = image.slice-scale  if image['slice-scale']  != null
+    view.border.color                  = alpha(view.border.color, alpha(view.border.color) * alpha2) if view.border.color != null
+    add-view view
 add-layout-skin(skin, position = null, width = null, height = null, margin = null, border = null, padding = null)
-    skin                   = get-layout-skin(skin)
-    skin.position.position = position[0] if position[0] != null
-    skin.position.left     = position[1] if position[1] != null
-    skin.position.right    = position[2] if position[2] != null
-    skin.position.top      = position[3] if position[3] != null
-    skin.position.bottom   = position[4] if position[4] != null
-    skin.size.width        = width       if width   != null
-    skin.size.height       = height      if height  != null
-    skin.box.margin        = margin      if margin  != null
-    skin.box.border        = border      if border  != null
-    skin.box.padding       = padding     if padding != null
-    add-layout skin
+    layout                   = get-layout(skin)
+    layout.position.position = position[0] if position[0] != null
+    layout.position.left     = position[1] if position[1] != null
+    layout.position.right    = position[2] if position[2] != null
+    layout.position.top      = position[3] if position[3] != null
+    layout.position.bottom   = position[4] if position[4] != null
+    layout.size.width        = width       if width   != null
+    layout.size.height       = height      if height  != null
+    layout.box.margin        = margin      if margin  != null
+    layout.box.border        = border      if border  != null
+    layout.box.padding       = padding     if padding != null
+    add-layout layout
 
-// get-theme-value
+// get-theme
 get-theme-color(key)
     if key != null
         key = get-string(key)
@@ -71,15 +71,15 @@ get-theme-border-radius(key)
     null
 
 // get-skin
-get-view-skin(skin)
-    if skin != null
-        skin = get-string(skin)
-        skin = views[skin] or error('Views has no skin: ' + skin)
-        return clone(skin)
+get-view(name)
+    if name != null
+        name = get-string(name)
+        obj = views[name] or error('Views has no view: ' + name)
+        return clone(obj)
     view-skin(null, null, null, null, null)
-get-layout-skin(skin)
-    if skin != null
-        skin = get-string(skin)
-        skin = layouts[skin] or error('Layouts has no skin: ' + skin)
-        return clone(skin)
-    layout-skin(null, null, null, null, null, null)
+get-layout(name)
+    if name != null
+        name = get-string(name)
+        obj = layouts[name] or error('Layouts has no layout: ' + name)
+        return clone(obj)
+    layout(pos(null), size(null, null), box(null, null, null))
