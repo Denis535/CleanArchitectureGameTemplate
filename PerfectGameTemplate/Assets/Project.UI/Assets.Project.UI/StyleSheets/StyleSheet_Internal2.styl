@@ -1,11 +1,15 @@
 // add-view
 add-view(view)
-    foreground = view.foreground
-    background = view.background
-    border     = view.border
-    add-view-foreground get(foreground, 'color'), get(foreground, 'font'), get(foreground, 'text')
-    add-view-background get(background, 'color'), get(background, 'image')
-    add-view-border     get(border, 'color'), get(border, 'radius')
+    color            = get(view, 'foreground', 'color' )
+    font             = get(view, 'foreground', 'font'  )
+    text             = get(view, 'foreground', 'text'  )
+    background-color = get(view, 'background', 'color' )
+    background-image = get(view, 'background', 'image' )
+    border-color     = get(view, 'border',     'color' )
+    border-radius    = get(view, 'border',     'radius')
+    add-view-foreground color, font, text
+    add-view-background background-color, background-image
+    add-view-border     border-color, border-radius
 // add-view
 add-view-foreground(color, font, text)
     add-property 'color',           color
@@ -40,12 +44,19 @@ add-view-border(border-color, border-radius)
 
 // add-layout
 add-layout(layout)
-    position = layout.position
-    size     = layout.size
-    box      = layout.box
-    add-layout-position get(position, 'position'), get(position, 'left'), get(position, 'right'), get(position, 'top'), get(position, 'bottom')
-    add-layout-size     get(size, 'width'), get(size, 'height')
-    add-layout-box      get(box, 'margin'), get(box, 'border'), get(box, 'padding')
+    position = get(layout, 'position', 'position')
+    left     = get(layout, 'position', 'left'    )
+    right    = get(layout, 'position', 'right'   )
+    top      = get(layout, 'position', 'top'     )
+    bottom   = get(layout, 'position', 'bottom'  )
+    width    = get(layout, 'size',     'width'   )
+    height   = get(layout, 'size',     'height'  )
+    margin   = get(layout, 'box',      'margin'  )
+    border   = get(layout, 'box',      'border'  )
+    padding  = get(layout, 'box',      'padding' )
+    add-layout-position position, left, right, top, bottom
+    add-layout-size     width, height
+    add-layout-box      margin, border, padding
 // add-layout
 add-layout-position(position, left = null, right = null, top = null, bottom = null)
     add-property 'position', position
@@ -130,7 +141,10 @@ get-url-value(url)
 get(obj, keys...)
     value = obj
     for key in keys
-        value = value[key] if value != null
+        if value != null
+            value = value[get-string(key)]
+        else
+            return null
     value
 
 // invoke
