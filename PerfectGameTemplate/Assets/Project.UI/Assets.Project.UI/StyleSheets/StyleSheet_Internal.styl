@@ -1,12 +1,12 @@
 // create-skin
-create-view-skin(color, background-color, background-image-color, border-color, border-radius)
+view-skin(color, background-color, background-image-color, border-color, border-radius)
     color                  = get-theme-color(color)
     background-color       = get-theme-background-color(background-color)
     background-image-color = get-theme-background-image-color(background-image-color)
     border-color           = get-theme-border-color(border-color)
     border-radius          = get-theme-border-radius(border-radius)
     view foreground(color, fnt(null, null, null), txt(null)), background(background-color, img(null, background-image-color, null)), border(border-color, border-radius)
-create-layout-skin(position, width, height, margin, border, padding)
+layout-skin(position, width, height, margin, border, padding)
     layout pos(position[0], position[1], position[2], position[3], position[4]), size(width, height), box(margin, border, padding)
 
 // add-skin
@@ -76,10 +76,10 @@ get-view-skin(skin)
         skin = get-string(skin)
         skin = views[skin] or error('Views has no skin: ' + skin)
         return clone(skin)
-    create-view-skin(null, null, null, null, null)
+    view-skin(null, null, null, null, null)
 get-layout-skin(skin)
     if skin != null
         skin = get-string(skin)
         skin = layouts[skin] or error('Layouts has no skin: ' + skin)
         return clone(skin)
-    create-layout-skin(null, null, null, null, null, null)
+    layout-skin(null, null, null, null, null, null)

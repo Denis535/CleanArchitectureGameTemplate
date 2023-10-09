@@ -58,45 +58,45 @@ theme = {
 }
 views = {
     // card
-    card:                              create-view-skin(dark,           card,                null,        card,            card        ),
-    card-header:                       create-view-skin(dark,           card-header,         null,        card-header,     card-header ),
-    card-header-info:                  create-view-skin(dark,           card-header-info,    null,        card-header,     card-header ),
-    card-header-warning:               create-view-skin(dark,           card-header-warning, null,        card-header,     card-header ),
-    card-header-error:                 create-view-skin(dark,           card-header-error,   null,        card-header,     card-header ),
-    card-content:                      create-view-skin(dark,           card-content,        null,        card-content,    card-content),
-    card-footer:                       create-view-skin(dark,           card-footer,         null,        card-footer,     card-footer ),
+    card:                              view-skin(dark,           card,                null,        card,            card        ),
+    card-header:                       view-skin(dark,           card-header,         null,        card-header,     card-header ),
+    card-header-info:                  view-skin(dark,           card-header-info,    null,        card-header,     card-header ),
+    card-header-warning:               view-skin(dark,           card-header-warning, null,        card-header,     card-header ),
+    card-header-error:                 view-skin(dark,           card-header-error,   null,        card-header,     card-header ),
+    card-content:                      view-skin(dark,           card-content,        null,        card-content,    card-content),
+    card-footer:                       view-skin(dark,           card-footer,         null,        card-footer,     card-footer ),
     // scope
-    scope:                             create-view-skin(null,           none,                null,        none,            none        ),
+    scope:                             view-skin(null,           none,                null,        none,            none        ),
     // group
-    group:                             create-view-skin(null,           none,                null,        none,            group       ),
-    light-group:                       create-view-skin(dark,           light-group,         null,        light-group,     group       ),
-    dark-group:                        create-view-skin(light,          dark-group,          null,        dark-group,      group       ),
+    group:                             view-skin(null,           none,                null,        none,            group       ),
+    light-group:                       view-skin(dark,           light-group,         null,        light-group,     group       ),
+    dark-group:                        view-skin(light,          dark-group,          null,        dark-group,      group       ),
     // box
-    box:                               create-view-skin(null,           none,                null,        none,            box         ),
-    light-box:                         create-view-skin(dark,           light-box,           null,        light-box,       box         ),
-    dark-box:                          create-view-skin(light,          dark-box,            null,        dark-box,        box         ),
+    box:                               view-skin(null,           none,                null,        none,            box         ),
+    light-box:                         view-skin(dark,           light-box,           null,        light-box,       box         ),
+    dark-box:                          view-skin(light,          dark-box,            null,        dark-box,        box         ),
 }
 layouts = {
     // card
-    card:                              create-layout-skin(null, auto, auto, (0px            ), (1px            ), (0px                )),
-    card-header:                       create-layout-skin(null, auto, auto, (0px            ), (0px 0px 0px 1px), (12px 12px 10px 10px)),
-    card-content:                      create-layout-skin(null, auto, auto, (0px            ), (0px            ), (24px 24px 20px 20px)),
-    card-footer:                       create-layout-skin(null, auto, auto, (0px            ), (0px 0px 1px 0px), (24px 24px 20px 20px)),
+    card:                              layout-skin(null, auto, auto, (0px            ), (1px            ), (0px                )),
+    card-header:                       layout-skin(null, auto, auto, (0px            ), (0px 0px 0px 1px), (12px 12px 10px 10px)),
+    card-content:                      layout-skin(null, auto, auto, (0px            ), (0px            ), (24px 24px 20px 20px)),
+    card-footer:                       layout-skin(null, auto, auto, (0px            ), (0px 0px 1px 0px), (24px 24px 20px 20px)),
     // scope
-    scope:                             create-layout-skin(null, auto, auto, (0px            ), (0px            ), ( 0px  0px  0px  0px)),
-    small-scope:                       create-layout-skin(null, auto, auto, (0px            ), (0px            ), ( 6px  6px  5px  5px)),
-    medium-scope:                      create-layout-skin(null, auto, auto, (0px            ), (0px            ), (12px 12px 10px 10px)),
-    large-scope:                       create-layout-skin(null, auto, auto, (0px            ), (0px            ), (24px 24px 20px 20px)),
+    scope:                             layout-skin(null, auto, auto, (0px            ), (0px            ), ( 0px  0px  0px  0px)),
+    small-scope:                       layout-skin(null, auto, auto, (0px            ), (0px            ), ( 6px  6px  5px  5px)),
+    medium-scope:                      layout-skin(null, auto, auto, (0px            ), (0px            ), (12px 12px 10px 10px)),
+    large-scope:                       layout-skin(null, auto, auto, (0px            ), (0px            ), (24px 24px 20px 20px)),
     // group
-    group:                             create-layout-skin(null, auto, auto, (4px            ), (1px            ), ( 0px  0px  0px  0px)),
-    small-group:                       create-layout-skin(null, auto, auto, (4px            ), (1px            ), ( 6px  6px  5px  5px)),
-    medium-group:                      create-layout-skin(null, auto, auto, (4px            ), (1px            ), (12px 12px 10px 10px)),
-    large-group:                       create-layout-skin(null, auto, auto, (4px            ), (1px            ), (24px 24px 20px 20px)),
+    group:                             layout-skin(null, auto, auto, (4px            ), (1px            ), ( 0px  0px  0px  0px)),
+    small-group:                       layout-skin(null, auto, auto, (4px            ), (1px            ), ( 6px  6px  5px  5px)),
+    medium-group:                      layout-skin(null, auto, auto, (4px            ), (1px            ), (12px 12px 10px 10px)),
+    large-group:                       layout-skin(null, auto, auto, (4px            ), (1px            ), (24px 24px 20px 20px)),
     // box
-    box:                               create-layout-skin(null, auto, auto, (4px            ), (1px            ), ( 0px  0px  0px  0px)),
-    small-box:                         create-layout-skin(null, auto, auto, (4px            ), (1px            ), ( 6px  6px  5px  5px)),
-    medium-box:                        create-layout-skin(null, auto, auto, (4px            ), (1px            ), (12px 12px 10px 10px)),
-    large-box:                         create-layout-skin(null, auto, auto, (4px            ), (1px            ), (24px 24px 20px 20px)),
+    box:                               layout-skin(null, auto, auto, (4px            ), (1px            ), ( 0px  0px  0px  0px)),
+    small-box:                         layout-skin(null, auto, auto, (4px            ), (1px            ), ( 6px  6px  5px  5px)),
+    medium-box:                        layout-skin(null, auto, auto, (4px            ), (1px            ), (12px 12px 10px 10px)),
+    large-box:                         layout-skin(null, auto, auto, (4px            ), (1px            ), (24px 24px 20px 20px)),
 }
 
 // card

@@ -50,49 +50,49 @@ theme = {
 }
 views = {
     // element
-    label:                             create-view-skin(null,           none,                null,        none,            element        ),
-    button:                            create-view-skin(dark,           light-element,       null,        light-element,   element        ),
-    field:                             create-view-skin(null,           none,                null,        none,            element        ),
-    field-label:                       create-view-skin(dark,           light-element,       null,        light-element,   element        ),
-    field-input:                       create-view-skin(light,          dark-element,        null,        dark-element,    element        ),
+    label:                             view-skin(null,           none,                null,        none,            element        ),
+    button:                            view-skin(dark,           light-element,       null,        light-element,   element        ),
+    field:                             view-skin(null,           none,                null,        none,            element        ),
+    field-label:                       view-skin(dark,           light-element,       null,        light-element,   element        ),
+    field-input:                       view-skin(light,          dark-element,        null,        dark-element,    element        ),
     // view
-    scroll-view:                       create-view-skin(null,           none,                null,        none,            view           ),
-    light-scroll-view:                 create-view-skin(dark,           light-view,          null,        light-view,      view           ),
-    dark-scroll-view:                  create-view-skin(light,          dark-view,           null,        dark-view,       view           ),
+    scroll-view:                       view-skin(null,           none,                null,        none,            view           ),
+    light-scroll-view:                 view-skin(dark,           light-view,          null,        light-view,      view           ),
+    dark-scroll-view:                  view-skin(light,          dark-view,           null,        dark-view,       view           ),
     // view
-    dropdown-view:                     create-view-skin(light,          dark-view,           null,        dark-view,       view           ),
+    dropdown-view:                     view-skin(light,          dark-view,           null,        dark-view,       view           ),
     // component
-    component:                         create-view-skin(null,           none,                null,        none,            component      ),
+    component:                         view-skin(null,           none,                null,        none,            component      ),
     // component
-    box-component:                     create-view-skin(null,           none,                null,        none,            box-component  ),
-    light-box-component:               create-view-skin(null,           light-component,     null,        light-component, box-component  ),
-    dark-box-component:                create-view-skin(null,           dark-component,      null,        dark-component,  box-component  ),
+    box-component:                     view-skin(null,           none,                null,        none,            box-component  ),
+    light-box-component:               view-skin(null,           light-component,     null,        light-component, box-component  ),
+    dark-box-component:                view-skin(null,           dark-component,      null,        dark-component,  box-component  ),
     // component
-    image-component:                   create-view-skin(null,           none,                light,       none,            image-component),
-    light-image-component:             create-view-skin(null,           light-component,     dark,        light-component, image-component),
-    dark-image-component:              create-view-skin(null,           dark-component,      light,       dark-component,  image-component),
+    image-component:                   view-skin(null,           none,                light,       none,            image-component),
+    light-image-component:             view-skin(null,           light-component,     dark,        light-component, image-component),
+    dark-image-component:              view-skin(null,           dark-component,      light,       dark-component,  image-component),
     // effect
-    hover-effect:                      create-view-skin(null,           hover-effect,        null,        null,            null           ),
-    focus-effect:                      create-view-skin(focus-effect,   null,                null,        focus-effect,    null           ),
-    focus-effect-without-foreground:   create-view-skin(null,           null,                null,        focus-effect,    null           ),
-    invalid-effect:                    create-view-skin(invalid-effect, null,                null,        invalid-effect,  null           ),
-    invalid-effect-without-foreground: create-view-skin(null,           null,                null,        invalid-effect,  null           )
+    hover-effect:                      view-skin(null,           hover-effect,        null,        null,            null           ),
+    focus-effect:                      view-skin(focus-effect,   null,                null,        focus-effect,    null           ),
+    focus-effect-without-foreground:   view-skin(null,           null,                null,        focus-effect,    null           ),
+    invalid-effect:                    view-skin(invalid-effect, null,                null,        invalid-effect,  null           ),
+    invalid-effect-without-foreground: view-skin(null,           null,                null,        invalid-effect,  null           )
 }
 layouts = {
     // element
-    label:                             create-layout-skin(null, auto, auto, (4px            ), (1px            ), (12px 12px 10px 10px)   ),
-    button:                            create-layout-skin(null, auto, auto, (4px            ), (1px            ), (12px 12px 10px 10px)   ),
-    field:                             create-layout-skin(null, auto, auto, (4px            ), (0px            ), (0px                )   ),
-    field-label:                       create-layout-skin(null, auto, auto, (0px 1px 0px 0px), (1px            ), (12px 12px 10px 10px)   ),
-    field-input:                       create-layout-skin(null, auto, auto, (1px 0px 0px 0px), (1px            ), (12px 12px 10px 10px)   ),
+    label:                             layout-skin(null, auto, auto, (4px            ), (1px            ), (12px 12px 10px 10px)   ),
+    button:                            layout-skin(null, auto, auto, (4px            ), (1px            ), (12px 12px 10px 10px)   ),
+    field:                             layout-skin(null, auto, auto, (4px            ), (0px            ), (0px                )   ),
+    field-label:                       layout-skin(null, auto, auto, (0px 1px 0px 0px), (1px            ), (12px 12px 10px 10px)   ),
+    field-input:                       layout-skin(null, auto, auto, (1px 0px 0px 0px), (1px            ), (12px 12px 10px 10px)   ),
     // view
-    scroll-view:                       create-layout-skin(null, auto, auto, (4px            ), (1px            ), (0px                )   ),
+    scroll-view:                       layout-skin(null, auto, auto, (4px            ), (1px            ), (0px                )   ),
     // view
-    dropdown-view:                     create-layout-skin(null, auto, auto, (0px            ), (1px            ), (0px                )   ),
+    dropdown-view:                     layout-skin(null, auto, auto, (0px            ), (1px            ), (0px                )   ),
     // component
-    component:                         create-layout-skin(null, auto, auto, (0px            ), (0px            ), (0px                )   ),
-    box-component:                     create-layout-skin(null, auto, auto, (0px            ), (1px            ), (0px                )   ),
-    image-component:                   create-layout-skin(null, auto, auto, (0px            ), (1px            ), (0px                )   ),
+    component:                         layout-skin(null, auto, auto, (0px            ), (0px            ), (0px                )   ),
+    box-component:                     layout-skin(null, auto, auto, (0px            ), (1px            ), (0px                )   ),
+    image-component:                   layout-skin(null, auto, auto, (0px            ), (1px            ), (0px                )   ),
 }
 
 // label
