@@ -58,23 +58,23 @@ theme = {
 }
 views = {
     // card
-    card:                              view-skin(dark,           card,                null,        card,            card        ),
-    card-header:                       view-skin(dark,           card-header,         null,        card-header,     card-header ),
-    card-header-info:                  view-skin(dark,           card-header-info,    null,        card-header,     card-header ),
-    card-header-warning:               view-skin(dark,           card-header-warning, null,        card-header,     card-header ),
-    card-header-error:                 view-skin(dark,           card-header-error,   null,        card-header,     card-header ),
-    card-content:                      view-skin(dark,           card-content,        null,        card-content,    card-content),
-    card-footer:                       view-skin(dark,           card-footer,         null,        card-footer,     card-footer ),
+    card:                              view( foreground( dark, fnt(), txt()), background(card,                img(null, null, null)), border(card,         card        ) ),
+    card-header:                       view( foreground( dark, fnt(), txt()), background(card-header,         img(null, null, null)), border(card-header,  card-header ) ),
+    card-header-info:                  view( foreground( dark, fnt(), txt()), background(card-header-info,    img(null, null, null)), border(card-header,  card-header ) ),
+    card-header-warning:               view( foreground( dark, fnt(), txt()), background(card-header-warning, img(null, null, null)), border(card-header,  card-header ) ),
+    card-header-error:                 view( foreground( dark, fnt(), txt()), background(card-header-error,   img(null, null, null)), border(card-header,  card-header ) ),
+    card-content:                      view( foreground( dark, fnt(), txt()), background(card-content,        img(null, null, null)), border(card-content, card-content) ),
+    card-footer:                       view( foreground( dark, fnt(), txt()), background(card-footer,         img(null, null, null)), border(card-footer,  card-footer ) ),
     // scope
-    scope:                             view-skin(null,           none,                null,        none,            none        ),
+    scope:                             view( foreground( null, fnt(), txt()), background(none,                img(null, null, null)), border(none,         none        ) ),
     // group
-    group:                             view-skin(null,           none,                null,        none,            group       ),
-    light-group:                       view-skin(dark,           light-group,         null,        light-group,     group       ),
-    dark-group:                        view-skin(light,          dark-group,          null,        dark-group,      group       ),
+    group:                             view( foreground( null, fnt(), txt()), background(none,                img(null, null, null)), border(none,         group       ) ),
+    light-group:                       view( foreground( dark, fnt(), txt()), background(light-group,         img(null, null, null)), border(light-group,  group       ) ),
+    dark-group:                        view( foreground(light, fnt(), txt()), background(dark-group,          img(null, null, null)), border(dark-group,   group       ) ),
     // box
-    box:                               view-skin(null,           none,                null,        none,            box         ),
-    light-box:                         view-skin(dark,           light-box,           null,        light-box,       box         ),
-    dark-box:                          view-skin(light,          dark-box,            null,        dark-box,        box         ),
+    box:                               view( foreground( null, fnt(), txt()), background(none,                img(null, null, null)), border(none,         box         ) ),
+    light-box:                         view( foreground( dark, fnt(), txt()), background(light-box,           img(null, null, null)), border(light-box,    box         ) ),
+    dark-box:                          view( foreground(light, fnt(), txt()), background(dark-box,            img(null, null, null)), border(dark-box,     box         ) )
 }
 layouts = {
     // card

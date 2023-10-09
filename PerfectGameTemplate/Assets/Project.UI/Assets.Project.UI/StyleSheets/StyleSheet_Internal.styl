@@ -1,11 +1,85 @@
+// view
+view(foreground, background, border)
+    return {
+        foreground: foreground,
+        background: background,
+        border:     border
+    }
+foreground(color, font, text)
+    return {
+        color: color,
+        font:  font,
+        text:  text
+    }
+background(color, image)
+    return {
+        color: color,
+        image: image
+    }
+border(color, radius)
+    return {
+        color:  color,
+        radius: radius
+    }
+fnt(url = null, size = null, style = null)
+    return {
+        url:   url,
+        size:  size,
+        style: style
+    }
+txt(align = null, outline = null, shadow = null)
+    return {
+        align:   align,
+        outline: outline,
+        shadow:  shadow
+    }
+img(url, color = null, scale-mode = null, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
+    return {
+        url:          url,
+        color:        color,
+        scale-mode:   scale-mode,
+        slice-left:   slice-left,
+        slice-right:  slice-right,
+        slice-top:    slice-top,
+        slice-bottom: slice-bottom,
+        slice-scale:  slice-scale
+    }
+
+// layout
+layout(position, size, box)
+    return {
+        position: position,
+        size:     size,
+        box:      box
+    }
+pos(position, left = null, right = null, top = null, bottom = null)
+    return {
+        position: position[0],
+        left:     left   or position[1],
+        right:    right  or position[2],
+        top:      top    or position[3],
+        bottom:   bottom or position[4]
+    }
+size(width, height)
+    return {
+        width:  width,
+        height: height
+    }
+box(margin, border, padding)
+    return {
+        margin:  margin,
+        border:  border,
+        padding: padding
+    }
+
 // create-skin
-view-skin(color, background-color, background-image-color, border-color, border-radius)
-    color                  = get-theme-color(color)
-    background-color       = get-theme-background-color(background-color)
-    background-image-color = get-theme-background-image-color(background-image-color)
-    border-color           = get-theme-border-color(border-color)
-    border-radius          = get-theme-border-radius(border-radius)
-    view foreground(color, fnt(null, null, null), txt(null)), background(background-color, img(null, background-image-color, null)), border(border-color, border-radius)
+// view-skin(color, background-color, background-image-color, border-color, border-radius)
+//     color                  = get-theme-color(color)
+//     background-color       = get-theme-background-color(background-color)
+//     background-image-color = get-theme-background-image-color(background-image-color)
+//     border-color           = get-theme-border-color(border-color)
+//     border-radius          = get-theme-border-radius(border-radius)
+//     view foreground(color, fnt(null, null, null), txt(null)), background(background-color, img(null, background-image-color, null)), border(border-color, border-radius)
 // layout-skin(position, width, height, margin, border, padding)
 //     layout pos(position[0], position[1], position[2], position[3], position[4]), size(width, height), box(margin, border, padding)
 
@@ -44,31 +118,31 @@ add-layout-skin(skin, position = null, width = null, height = null, margin = nul
     add-layout layout
 
 // get-theme
-get-theme-color(key)
-    if key != null
-        key = get-string(key)
-        return theme['color'][key] or error('Theme has no color: ' + key)
-    null
-get-theme-background-color(key)
-    if key != null
-        key = get-string(key)
-        return theme['background-color'][key] or theme['color'][key] or error('Theme has no background-color: ' + key)
-    null
-get-theme-background-image-color(key)
-    if key != null
-        key = get-string(key)
-        return theme['background-image-color'][key] or theme['color'][key] or error('Theme has no background-image-color: ' + key)
-    null
-get-theme-border-color(key)
-    if key != null
-        key = get-string(key)
-        return theme['border-color'][key] or theme['color'][key] or error('Theme has no border-color: ' + key)
-    null
-get-theme-border-radius(key)
-    if key != null
-        key = get-string(key)
-        return theme['border-radius'][key] or error('Theme has no border-radius: ' + key)
-    null
+// get-theme-color(key)
+//     if key != null
+//         key = get-string(key)
+//         return theme['color'][key] or error('Theme has no color: ' + key)
+//     null
+// get-theme-background-color(key)
+//     if key != null
+//         key = get-string(key)
+//         return theme['background-color'][key] or theme['color'][key] or error('Theme has no background-color: ' + key)
+//     null
+// get-theme-background-image-color(key)
+//     if key != null
+//         key = get-string(key)
+//         return theme['background-image-color'][key] or theme['color'][key] or error('Theme has no background-image-color: ' + key)
+//     null
+// get-theme-border-color(key)
+//     if key != null
+//         key = get-string(key)
+//         return theme['border-color'][key] or theme['color'][key] or error('Theme has no border-color: ' + key)
+//     null
+// get-theme-border-radius(key)
+//     if key != null
+//         key = get-string(key)
+//         return theme['border-radius'][key] or error('Theme has no border-radius: ' + key)
+//     null
 
 // get-skin
 get-view(name)
@@ -76,10 +150,10 @@ get-view(name)
         name = get-string(name)
         obj = views[name] or error('Views has no view: ' + name)
         return clone(obj)
-    view-skin(null, null, null, null, null)
+    view foreground(null, fnt(), txt()), background(null, img()), border(null, null)
 get-layout(name)
     if name != null
         name = get-string(name)
         obj = layouts[name] or error('Layouts has no layout: ' + name)
         return clone(obj)
-    layout(pos(null), size(null, null), box(null, null, null))
+    layout pos(null), size(null, null), box(null, null, null)
