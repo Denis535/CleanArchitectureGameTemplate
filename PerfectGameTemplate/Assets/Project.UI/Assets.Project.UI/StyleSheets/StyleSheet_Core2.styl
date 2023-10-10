@@ -101,70 +101,70 @@ layouts = {
 
 // card
 card()
-    add-view-skin(card)
-    add-layout-skin(card)
+    add-view(card)
+    add-layout(card)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
 card-header()
-    add-view-skin(card-header, fnt(null, 130%, bold))
-    add-layout-skin(card-header)
+    add-view(card-header, fnt(null, 130%, bold))
+    add-layout(card-header)
     add-flex(0, 0, auto, auto)
     add-flex2(row, center, center)
 card-content()
-    add-view-skin(card-content, fnt(null, 100%, normal))
-    add-layout-skin(card-content)
+    add-view(card-content, fnt(null, 100%, normal))
+    add-layout(card-content)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
 card-footer()
-    add-view-skin(card-footer, fnt(null, 130%, bold))
-    add-layout-skin(card-footer)
+    add-view(card-footer, fnt(null, 130%, bold))
+    add-layout(card-footer)
     add-flex(0, 0, auto, auto)
     add-flex2(row, space-around, center)
 
 // dialog-card
 dialog-card()
-    add-view-skin(null)
-    add-layout-skin(null)
+    add-view(null)
+    add-layout(null)
 dialog-card-header()
-    add-view-skin(null)
-    add-layout-skin(null)
+    add-view(null)
+    add-layout(null)
 dialog-card-content()
-    add-view-skin(null, fnt(null, 120%, bold))
-    add-layout-skin(null)
+    add-view(null, fnt(null, 120%, bold))
+    add-layout(null)
     add-flex(null, null, null, null)
     add-flex2(null, center, center)
 dialog-card-footer()
-    add-view-skin(null)
-    add-layout-skin(null)
+    add-view(null)
+    add-layout(null)
 
 // info-dialog-card
 dialog-card-header-info()
-    add-view-skin(card-header-info)
-    add-layout-skin(null)
+    add-view(card-header-info)
+    add-layout(null)
 
 // warning-dialog-card
 dialog-card-header-warning()
-    add-view-skin(card-header-warning)
-    add-layout-skin(null)
+    add-view(card-header-warning)
+    add-layout(null)
 
 // error-dialog-card
 dialog-card-header-error()
-    add-view-skin(card-header-error)
-    add-layout-skin(null)
+    add-view(card-header-error)
+    add-layout(null)
 
 // scope
 scope()
-    add-view-skin(scope)
-    add-layout-skin(scope)
+    add-view(scope)
+    add-layout(scope)
     &.small
-        add-view-skin(null)
-        add-layout-skin(small-scope)
+        add-view(null)
+        add-layout(small-scope)
     &.medium
-        add-view-skin(null)
-        add-layout-skin(medium-scope)
+        add-view(null)
+        add-layout(medium-scope)
     &.large
-        add-view-skin(null)
-        add-layout-skin(large-scope)
+        add-view(null)
+        add-layout(large-scope)
 column-scope()
     add-flex(0, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
@@ -174,61 +174,61 @@ row-scope()
 
 // group
 group()
-    add-view-skin(group)
-    add-layout-skin(group)
+    add-view(group)
+    add-layout(group)
     &.light
-        add-view-skin(light-group, alpha: 0.00)
+        add-view(light-group, alpha: 0.00)
     &.light1
-        add-view-skin(light-group, alpha: 0.10)
+        add-view(light-group, alpha: 0.10)
     &.light2
-        add-view-skin(light-group, alpha: 0.20)
+        add-view(light-group, alpha: 0.20)
     &.light3
-        add-view-skin(light-group, alpha: 0.30)
+        add-view(light-group, alpha: 0.30)
     &.light4
-        add-view-skin(light-group, alpha: 0.40)
+        add-view(light-group, alpha: 0.40)
     &.light5
-        add-view-skin(light-group, alpha: 0.50)
+        add-view(light-group, alpha: 0.50)
     &.light6
-        add-view-skin(light-group, alpha: 0.60)
+        add-view(light-group, alpha: 0.60)
     &.light7
-        add-view-skin(light-group, alpha: 0.70)
+        add-view(light-group, alpha: 0.70)
     &.light8
-        add-view-skin(light-group, alpha: 0.80)
+        add-view(light-group, alpha: 0.80)
     &.light9
-        add-view-skin(light-group, alpha: 0.90)
+        add-view(light-group, alpha: 0.90)
     &.light10
-        add-view-skin(light-group, alpha: 1.00)
+        add-view(light-group, alpha: 1.00)
     &.dark
-        add-view-skin(dark-group, alpha: 0.00)
+        add-view(dark-group, alpha: 0.00)
     &.dark1
-        add-view-skin(dark-group, alpha: 0.10)
+        add-view(dark-group, alpha: 0.10)
     &.dark2
-        add-view-skin(dark-group, alpha: 0.20)
+        add-view(dark-group, alpha: 0.20)
     &.dark3
-        add-view-skin(dark-group, alpha: 0.30)
+        add-view(dark-group, alpha: 0.30)
     &.dark4
-        add-view-skin(dark-group, alpha: 0.40)
+        add-view(dark-group, alpha: 0.40)
     &.dark5
-        add-view-skin(dark-group, alpha: 0.50)
+        add-view(dark-group, alpha: 0.50)
     &.dark6
-        add-view-skin(dark-group, alpha: 0.60)
+        add-view(dark-group, alpha: 0.60)
     &.dark7
-        add-view-skin(dark-group, alpha: 0.70)
+        add-view(dark-group, alpha: 0.70)
     &.dark8
-        add-view-skin(dark-group, alpha: 0.80)
+        add-view(dark-group, alpha: 0.80)
     &.dark9
-        add-view-skin(dark-group, alpha: 0.90)
+        add-view(dark-group, alpha: 0.90)
     &.dark10
-        add-view-skin(dark-group, alpha: 1.00)
+        add-view(dark-group, alpha: 1.00)
     &.small
-        add-view-skin(null)
-        add-layout-skin(small-group)
+        add-view(null)
+        add-layout(small-group)
     &.medium
-        add-view-skin(null)
-        add-layout-skin(medium-group)
+        add-view(null)
+        add-layout(medium-group)
     &.large
-        add-view-skin(null)
-        add-layout-skin(large-group)
+        add-view(null)
+        add-layout(large-group)
 column-group()
     add-flex(0, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
@@ -238,61 +238,61 @@ row-group()
 
 // box
 box()
-    add-view-skin(box)
-    add-layout-skin(box)
+    add-view(box)
+    add-layout(box)
     &.light
-        add-view-skin(light-box, alpha: 0.00)
+        add-view(light-box, alpha: 0.00)
     &.light1
-        add-view-skin(light-box, alpha: 0.10)
+        add-view(light-box, alpha: 0.10)
     &.light2
-        add-view-skin(light-box, alpha: 0.20)
+        add-view(light-box, alpha: 0.20)
     &.light3
-        add-view-skin(light-box, alpha: 0.30)
+        add-view(light-box, alpha: 0.30)
     &.light4
-        add-view-skin(light-box, alpha: 0.40)
+        add-view(light-box, alpha: 0.40)
     &.light5
-        add-view-skin(light-box, alpha: 0.50)
+        add-view(light-box, alpha: 0.50)
     &.light6
-        add-view-skin(light-box, alpha: 0.60)
+        add-view(light-box, alpha: 0.60)
     &.light7
-        add-view-skin(light-box, alpha: 0.70)
+        add-view(light-box, alpha: 0.70)
     &.light8
-        add-view-skin(light-box, alpha: 0.80)
+        add-view(light-box, alpha: 0.80)
     &.light9
-        add-view-skin(light-box, alpha: 0.90)
+        add-view(light-box, alpha: 0.90)
     &.light10
-        add-view-skin(light-box, alpha: 1.00)
+        add-view(light-box, alpha: 1.00)
     &.dark
-        add-view-skin(dark-box, alpha: 0.00)
+        add-view(dark-box, alpha: 0.00)
     &.dark1
-        add-view-skin(dark-box, alpha: 0.10)
+        add-view(dark-box, alpha: 0.10)
     &.dark2
-        add-view-skin(dark-box, alpha: 0.20)
+        add-view(dark-box, alpha: 0.20)
     &.dark3
-        add-view-skin(dark-box, alpha: 0.30)
+        add-view(dark-box, alpha: 0.30)
     &.dark4
-        add-view-skin(dark-box, alpha: 0.40)
+        add-view(dark-box, alpha: 0.40)
     &.dark5
-        add-view-skin(dark-box, alpha: 0.50)
+        add-view(dark-box, alpha: 0.50)
     &.dark6
-        add-view-skin(dark-box, alpha: 0.60)
+        add-view(dark-box, alpha: 0.60)
     &.dark7
-        add-view-skin(dark-box, alpha: 0.70)
+        add-view(dark-box, alpha: 0.70)
     &.dark8
-        add-view-skin(dark-box, alpha: 0.80)
+        add-view(dark-box, alpha: 0.80)
     &.dark9
-        add-view-skin(dark-box, alpha: 0.90)
+        add-view(dark-box, alpha: 0.90)
     &.dark10
-        add-view-skin(dark-box, alpha: 1.00)
+        add-view(dark-box, alpha: 1.00)
     &.small
-        add-view-skin(null)
-        add-layout-skin(small-box)
+        add-view(null)
+        add-layout(small-box)
     &.medium
-        add-view-skin(null)
-        add-layout-skin(medium-box)
+        add-view(null)
+        add-layout(medium-box)
     &.large
-        add-view-skin(null)
-        add-layout-skin(large-box)
+        add-view(null)
+        add-layout(large-box)
 
 // card
 .unity-card
