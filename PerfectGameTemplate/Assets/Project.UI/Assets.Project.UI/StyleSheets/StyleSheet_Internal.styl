@@ -49,6 +49,7 @@ img(url = null, color = null, scale-mode = null, slice-left = null, slice-right 
         slice-bottom: slice-bottom,
         slice-scale:  slice-scale
     }
+
 // create-layout
 create-layout(position, size, box)
     return {
@@ -82,14 +83,15 @@ add-view-skin(skin, font = null, text = null, image = null, alpha = 1, alpha2 = 
         view = get-view(skin)
         view.background.color = alpha(view.background.color, alpha(view.background.color) * alpha ) if view.background.color != null
         view.border.color     = alpha(view.border.color,     alpha(view.border.color)     * alpha2) if view.border.color     != null
-        add-view view
-    add-view create-view(create-foreground(null, font, text), create-background(null, image), create-border(null, null))
+        add-view-object view
+    add-view-objects create-foreground(null, font, text), create-background(null, image), create-border(null, null)
+
 // add-layout-skin
 add-layout-skin(skin, position = null, width = null, height = null, margin = null, border = null, padding = null)
     if (skin != null)
         layout = get-layout(skin)
-        add-layout layout
-    add-layout create-layout(create-position(position), create-size(width, height), create-box(margin, border, padding))
+        add-layout-object layout
+    add-layout-objects create-position(position), create-size(width, height), create-box(margin, border, padding)
 
 // get-theme
 get-theme-color(key)
@@ -123,6 +125,7 @@ get-view(key)
         result = get(views, key) or error('Views has no view: ' + get-string(key))
         return clone(result)
     null
+
 // get-layout
 get-layout(key)
     if key != null

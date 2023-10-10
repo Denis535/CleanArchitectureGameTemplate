@@ -1,11 +1,11 @@
 // add-view
-add-view(view)
-    foreground = get(view, 'foreground')
-    background = get(view, 'background')
-    border     = get(view, 'border'    )
+add-view-object(view)
+    add-view-objects get(view, 'foreground'), get(view, 'background'), get(view, 'border')
+// add-view
+add-view-objects(foreground, background, border)
     add-view-foreground get(foreground, 'color'), get(foreground, 'font'), get(foreground, 'text')
-    add-view-background get(background, 'color' ), get(background, 'image' )
-    add-view-border     get(border, 'color' ), get(border, 'radius' )
+    add-view-background get(background, 'color'), get(background, 'image')
+    add-view-border     get(border, 'color' ), get(border, 'radius')
 // add-view
 add-view-foreground(color, font, text)
     add-property 'color',           color
@@ -39,10 +39,10 @@ add-view-border(border-color, border-radius)
     add-property 'border-bottom-right-radius', border-radius[3] or border-radius[0]
 
 // add-layout
-add-layout(layout)
-    position = get(layout, 'position')
-    size     = get(layout, 'size'    )
-    box      = get(layout, 'box'     )
+add-layout-object(layout)
+    add-layout-objects get(layout, 'position'), get(layout, 'size'), get(layout, 'box')
+// add-layout
+add-layout-objects(position, size, box)
     add-layout-position get(position, 'position'), get(position, 'left'), get(position, 'right'), get(position, 'top'), get(position, 'bottom')
     add-layout-size     get(size, 'width'), get(size, 'height')
     add-layout-box      get(box, 'margin'), get(box, 'border'), get(box, 'padding')
