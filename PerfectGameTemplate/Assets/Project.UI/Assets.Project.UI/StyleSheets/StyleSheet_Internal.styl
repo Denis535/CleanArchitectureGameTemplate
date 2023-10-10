@@ -1,5 +1,5 @@
-// view
-view(foreground, background, border)
+// create-view
+create-view(foreground, background, border)
     return {
         foreground: foreground,
         background: background,
@@ -50,8 +50,8 @@ img(url = null, color = null, scale-mode = null, slice-left = null, slice-right 
         slice-scale:  slice-scale
     }
 
-// layout
-layout(position, size, box)
+// create-layout
+create-layout(position, size, box)
     return {
         position: position,
         size:     size,
@@ -143,11 +143,11 @@ get-view(key)
         key = get-string(key)
         result = views[key] or error('Views has no view: ' + key)
         return clone(result)
-    view foreground(null, fnt(), txt()), background(null, img()), border(null, null)
+    create-view( foreground(null, fnt(), txt()), background(null, img()), border(null, null) )
 // get-layout
 get-layout(key)
     if key != null
         key = get-string(key)
         result = layouts[key] or error('Layouts has no layout: ' + key)
         return clone(result)
-    layout pos(null), size(null, null), box(null, null, null)
+    create-layout( pos(null), size(null, null), box(null, null, null) )
