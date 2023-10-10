@@ -10,7 +10,6 @@
   height: 100%;
 }
 .unity-label {
-  -unity-text-align: upper-left;
   background-color: rgba(0,0,0,0);
   border-left-color: rgba(0,0,0,0);
   border-right-color: rgba(0,0,0,0);
@@ -20,6 +19,7 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  -unity-text-align: upper-left;
   width: auto;
   height: auto;
   margin-left: 4px;
@@ -55,8 +55,6 @@
 }
 .unity-button {
   color: #1a1a1a;
-  -unity-font-style: bold;
-  -unity-text-align: middle-center;
   background-color: rgba(237,230,222,0.5);
   border-left-color: #4d3900;
   border-right-color: #4d3900;
@@ -66,6 +64,8 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  -unity-font-style: bold;
+  -unity-text-align: middle-center;
   width: auto;
   height: auto;
   margin-left: 4px;
@@ -101,8 +101,6 @@
 }
 .unity-repeat-button {
   color: #1a1a1a;
-  -unity-font-style: bold;
-  -unity-text-align: middle-center;
   background-color: rgba(237,230,222,0.5);
   border-left-color: #4d3900;
   border-right-color: #4d3900;
@@ -112,6 +110,8 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  -unity-font-style: bold;
+  -unity-text-align: middle-center;
   width: auto;
   height: auto;
   margin-left: 4px;
@@ -179,8 +179,6 @@
 }
 .unity-base-field__label {
   color: #1a1a1a;
-  -unity-font-style: bold;
-  -unity-text-align: middle-left;
   background-color: rgba(237,230,222,0.5);
   border-left-color: #4d3900;
   border-right-color: #4d3900;
@@ -190,6 +188,8 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  -unity-font-style: bold;
+  -unity-text-align: middle-left;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -225,7 +225,6 @@
 }
 .unity-base-field__input {
   color: #e6e6e6;
-  -unity-text-align: middle-left;
   background-color: rgba(18,28,33,0.5);
   border-left-color: #997300;
   border-right-color: #997300;
@@ -235,6 +234,7 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  -unity-text-align: middle-left;
   width: auto;
   height: auto;
   margin-left: 1px;
@@ -329,7 +329,6 @@
 }
 .unity-base-popup-field__input .unity-base-popup-field__arrow {
   background-color: rgba(0,0,0,0);
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png');
   -unity-background-image-tint-color: #ede6de;
   border-left-color: rgba(0,0,0,0);
   border-right-color: rgba(0,0,0,0);
@@ -339,12 +338,13 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  width: 12px;
-  height: 12px;
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png');
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   border-left-width: 1px;
   border-right-width: 1px;
   border-top-width: 1px;
@@ -353,6 +353,12 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  width: 12px;
+  height: 12px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 .unity-base-slider__input #unity-drag-container {
   background-color: rgba(0,0,0,0);
@@ -397,7 +403,7 @@
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   width: auto;
-  height: 8px;
+  height: auto;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -410,6 +416,8 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  width: auto;
+  height: 8px;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
@@ -425,9 +433,8 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  position: absolute;
-  width: 8px;
-  height: 24px;
+  width: auto;
+  height: auto;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -440,6 +447,9 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  position: absolute;
+  width: 8px;
+  height: 24px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
@@ -456,8 +466,8 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  width: 16px;
-  height: 16px;
+  width: auto;
+  height: auto;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -470,10 +480,11 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  width: 16px;
+  height: 16px;
 }
 .unity-toggle__input:checked #unity-checkmark {
   background-color: rgba(237,230,222,0.8);
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
   -unity-background-image-tint-color: #121c21;
   border-left-color: #997300;
   border-right-color: #997300;
@@ -483,8 +494,9 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  width: 16px;
-  height: 16px;
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
+  width: auto;
+  height: auto;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -497,6 +509,8 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  width: 16px;
+  height: 16px;
 }
 .unity-scroll-view {
   background-color: rgba(0,0,0,0);
@@ -880,6 +894,10 @@
   border-right-width: 0px;
   border-top-width: 0px;
   border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 12px;
   padding-right: 12px;
   padding-top: 10px;
@@ -926,7 +944,6 @@
 }
 .unity-scroller--horizontal #unity-low-button {
   background-color: rgba(237,230,222,0.4);
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png');
   -unity-background-image-tint-color: #121c21;
   border-left-color: rgba(153,115,0,0.875);
   border-right-color: rgba(153,115,0,0.875);
@@ -936,6 +953,21 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png');
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   position: absolute;
   left: 0px;
   right: auto;
@@ -943,22 +975,9 @@
   bottom: auto;
   width: 24px;
   height: 24px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
 }
 .unity-scroller--horizontal #unity-high-button {
   background-color: rgba(237,230,222,0.4);
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png');
   -unity-background-image-tint-color: #121c21;
   border-left-color: rgba(153,115,0,0.875);
   border-right-color: rgba(153,115,0,0.875);
@@ -968,13 +987,9 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  position: absolute;
-  left: auto;
-  right: 0px;
-  top: auto;
-  bottom: auto;
-  width: 24px;
-  height: 24px;
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png');
+  width: auto;
+  height: auto;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -987,6 +1002,13 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  position: absolute;
+  left: auto;
+  right: 0px;
+  top: auto;
+  bottom: auto;
+  width: 24px;
+  height: 24px;
 }
 .unity-scroller--horizontal .unity-base-slider {
   background-color: rgba(0,0,0,0);
@@ -998,6 +1020,20 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -1030,6 +1066,20 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   width: auto;
   height: 24px;
   margin-left: 24px;
@@ -1095,7 +1145,7 @@
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   width: auto;
-  height: 24px;
+  height: auto;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -1108,6 +1158,8 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  width: auto;
+  height: 24px;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
@@ -1123,9 +1175,8 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  position: absolute;
   width: auto;
-  height: 24px;
+  height: auto;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -1138,6 +1189,9 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  position: absolute;
+  width: auto;
+  height: 24px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
@@ -1184,7 +1238,6 @@
 }
 .unity-scroller--vertical #unity-low-button {
   background-color: rgba(237,230,222,0.4);
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png');
   -unity-background-image-tint-color: #121c21;
   border-left-color: rgba(153,115,0,0.875);
   border-right-color: rgba(153,115,0,0.875);
@@ -1194,6 +1247,21 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png');
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   position: absolute;
   left: auto;
   right: auto;
@@ -1201,22 +1269,9 @@
   bottom: auto;
   width: 24px;
   height: 24px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
 }
 .unity-scroller--vertical #unity-high-button {
   background-color: rgba(237,230,222,0.4);
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png');
   -unity-background-image-tint-color: #121c21;
   border-left-color: rgba(153,115,0,0.875);
   border-right-color: rgba(153,115,0,0.875);
@@ -1226,13 +1281,9 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  position: absolute;
-  left: auto;
-  right: auto;
-  top: auto;
-  bottom: 0px;
-  width: 24px;
-  height: 24px;
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png');
+  width: auto;
+  height: auto;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -1245,6 +1296,13 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  position: absolute;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: 0px;
+  width: 24px;
+  height: 24px;
 }
 .unity-scroller--vertical .unity-base-slider {
   background-color: rgba(0,0,0,0);
@@ -1256,6 +1314,20 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -1288,6 +1360,20 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   width: 24px;
   height: auto;
   margin-left: 0px;
@@ -1352,7 +1438,7 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  width: 24px;
+  width: auto;
   height: auto;
   margin-left: 0px;
   margin-right: 0px;
@@ -1366,6 +1452,8 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  width: 24px;
+  height: auto;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
@@ -1381,8 +1469,7 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  position: absolute;
-  width: 24px;
+  width: auto;
   height: auto;
   margin-left: 0px;
   margin-right: 0px;
@@ -1396,6 +1483,9 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  position: absolute;
+  width: 24px;
+  height: auto;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
@@ -1481,6 +1571,10 @@
   border-right-width: 0px;
   border-top-width: 0px;
   border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 12px;
   padding-right: 12px;
   padding-top: 10px;
@@ -1507,10 +1601,10 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  width: 16px;
-  height: 16px;
+  width: auto;
+  height: auto;
   margin-left: 0px;
-  margin-right: 12px;
+  margin-right: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
   border-left-width: 1px;
@@ -1521,6 +1615,12 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  width: 16px;
+  height: 16px;
+  margin-left: 0px;
+  margin-right: 12px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
@@ -1528,7 +1628,6 @@
 }
 .unity-base-dropdown__item:checked .unity-base-dropdown__checkmark {
   background-color: rgba(0,0,0,0);
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
   -unity-background-image-tint-color: #ede6de;
   border-left-color: rgba(0,0,0,0);
   border-right-color: rgba(0,0,0,0);
@@ -1538,10 +1637,11 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  width: 16px;
-  height: 16px;
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
+  width: auto;
+  height: auto;
   margin-left: 0px;
-  margin-right: 12px;
+  margin-right: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
   border-left-width: 1px;
@@ -1552,6 +1652,12 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  width: 16px;
+  height: 16px;
+  margin-left: 0px;
+  margin-right: 12px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;

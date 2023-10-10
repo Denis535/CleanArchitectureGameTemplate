@@ -5,21 +5,21 @@ create-view(foreground, background, border)
         background: background,
         border:     border
     }
-foreground(color, font, text)
+create-foreground(color, font, text)
     color = get-theme-color(color)
     return {
         color: color,
         font:  font,
         text:  text
     }
-background(color, image)
+create-background(color, image)
     color = get-theme-background-color(color)
     image.color = get-theme-background-image-color(image.color) if image != null
     return {
         color: color,
         image: image
     }
-border(color, radius)
+create-border(color, radius)
     color = get-theme-border-color(color)
     radius = get-theme-border-radius(radius)
     return {
@@ -49,7 +49,6 @@ img(url = null, color = null, scale-mode = null, slice-left = null, slice-right 
         slice-bottom: slice-bottom,
         slice-scale:  slice-scale
     }
-
 // create-layout
 create-layout(position, size, box)
     return {
@@ -57,7 +56,7 @@ create-layout(position, size, box)
         size:     size,
         box:      box
     }
-pos(position, left = null, right = null, top = null, bottom = null)
+create-position(position, left = null, right = null, top = null, bottom = null)
     return {
         position: position[0],
         left:     left   or position[1],
@@ -65,51 +64,32 @@ pos(position, left = null, right = null, top = null, bottom = null)
         top:      top    or position[3],
         bottom:   bottom or position[4]
     }
-size(width, height)
+create-size(width, height)
     return {
         width:  width,
         height: height
     }
-box(margin, border, padding)
+create-box(margin, border, padding)
     return {
         margin:  margin,
         border:  border,
         padding: padding
     }
 
-// add-skin
+// add-view-skin
 add-view-skin(skin, font = null, text = null, image = null, alpha = 1, alpha2 = (alpha+3)/4)
-    view                               = get-view(skin)
-    view.foreground.font.url           = font['url']        if font['url']     != null
-    view.foreground.font.size          = font['size']       if font['size']    != null
-    view.foreground.font.style         = font['style']      if font['style']   != null
-    view.foreground.text.align         = text['align']      if text['align']   != null
-    view.foreground.text.outline       = text['outline']    if text['outline'] != null
-    view.foreground.text.shadow        = text['shadow']     if text['shadow']  != null
-    view.background.color              = alpha(view.background.color, alpha(view.background.color) * alpha) if view.background.color != null
-    view.background.image.url          = image.url          if image['url']          != null
-    view.background.image.color        = image.color        if image['color']        != null
-    view.background.image.scale-mode   = image.scale-mode   if image['scale-mode']   != null
-    view.background.image.slice-left   = image.slice-left   if image['slice-left']   != null
-    view.background.image.slice-right  = image.slice-right  if image['slice-right']  != null
-    view.background.image.slice-top    = image.slice-top    if image['slice-top']    != null
-    view.background.image.slice-bottom = image.slice-bottom if image['slice-bottom'] != null
-    view.background.image.slice-scale  = image.slice-scale  if image['slice-scale']  != null
-    view.border.color                  = alpha(view.border.color, alpha(view.border.color) * alpha2) if view.border.color != null
-    add-view view
+    if (skin != null)
+        view = get-view(skin)
+        view.background.color = alpha(view.background.color, alpha(view.background.color) * alpha ) if view.background.color != null
+        view.border.color     = alpha(view.border.color,     alpha(view.border.color)     * alpha2) if view.border.color     != null
+        add-view view
+    add-view create-view(create-foreground(null, font, text), create-background(null, image), create-border(null, null))
+// add-layout-skin
 add-layout-skin(skin, position = null, width = null, height = null, margin = null, border = null, padding = null)
-    layout                   = get-layout(skin)
-    layout.position.position = position[0] if position[0] != null
-    layout.position.left     = position[1] if position[1] != null
-    layout.position.right    = position[2] if position[2] != null
-    layout.position.top      = position[3] if position[3] != null
-    layout.position.bottom   = position[4] if position[4] != null
-    layout.size.width        = width       if width   != null
-    layout.size.height       = height      if height  != null
-    layout.box.margin        = margin      if margin  != null
-    layout.box.border        = border      if border  != null
-    layout.box.padding       = padding     if padding != null
-    add-layout layout
+    if (skin != null)
+        layout = get-layout(skin)
+        add-layout layout
+    add-layout create-layout(create-position(position), create-size(width, height), create-box(margin, border, padding))
 
 // get-theme
 get-theme-color(key)
@@ -140,14 +120,12 @@ get-theme-border-radius(key)
 // get-view
 get-view(key)
     if key != null
-        key = get-string(key)
-        result = views[key] or error('Views has no view: ' + key)
+        result = get(views, key) or error('Views has no view: ' + get-string(key))
         return clone(result)
-    create-view( foreground(null, fnt(), txt()), background(null, img()), border(null, null) )
+    null
 // get-layout
 get-layout(key)
     if key != null
-        key = get-string(key)
-        result = layouts[key] or error('Layouts has no layout: ' + key)
+        result = get(layouts, key) or error('Layouts has no layout: ' + get-string(key))
         return clone(result)
-    create-layout( pos(null), size(null, null), box(null, null, null) )
+    null
