@@ -73,13 +73,13 @@ create-box(margin, border, padding)
     }
 
 // add-view
-add-view(skin, color = null, font = null, text = null, image = null, alpha = 1, alpha2 = (alpha+3)/4)
+add-view(skin, color = null, font = null, text = null, bg-color = null, bg-image = null, bd-color = null, bd-radius = null, alpha = 1, alpha2 = (alpha+3)/4)
     if (skin != null)
         view = get-view(skin)
         view.background.color = alpha(view.background.color, alpha(view.background.color) * alpha ) if view.background.color != null
         view.border.color     = alpha(view.border.color,     alpha(view.border.color)     * alpha2) if view.border.color     != null
         add-view-object view
-    add-view-objects create-foreground(color, font, text), create-background(null, image), create-border(null, null)
+    add-view-objects create-foreground(color, font, text), create-background(bg-color, bg-image), create-border(bd-color, bd-radius)
 
 // add-layout
 add-layout(skin, position = null, width = null, height = null, margin = null, border = null, padding = null)
