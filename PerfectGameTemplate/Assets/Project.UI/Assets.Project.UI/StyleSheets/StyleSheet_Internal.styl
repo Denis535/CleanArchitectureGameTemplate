@@ -6,25 +6,20 @@ create-view(foreground, background, border)
         border:     border
     }
 create-foreground(color, font, text)
-    color = get-theme-color(color)
     return {
-        color: color,
+        color: get-theme-color(color),
         font:  font,
         text:  text
     }
 create-background(color, image)
-    color = get-theme-background-color(color)
-    image.color = get-theme-background-image-color(image.color) if image != null
     return {
-        color: color,
-        image: image
+        color: get-theme-background-color(color),
+        image: get-theme-background-image(image)
     }
 create-border(color, radius)
-    color = get-theme-border-color(color)
-    radius = get-theme-border-radius(radius)
     return {
-        color:  color,
-        radius: radius
+        color:  get-theme-border-color(color),
+        radius: get-theme-border-radius(radius)
     }
 fnt(url = null, size = null, style = null)
     return {
@@ -98,22 +93,18 @@ get-theme-color(key)
     if key != null
         return get(theme, 'color',                  key) or key
     null
-// get-theme
 get-theme-background-color(key)
     if key != null
         return get(theme, 'background-color',       key) or get(theme, 'color', key) or key
     null
-// get-theme
-get-theme-background-image-color(key)
+get-theme-background-image(key)
     if key != null
-        return get(theme, 'background-image-color', key) or get(theme, 'color', key) or key
+        return get(theme, 'background-image',       key) or get(theme, 'color', key) or key
     null
-// get-theme
 get-theme-border-color(key)
     if key != null
         return get(theme, 'border-color',           key) or get(theme, 'color', key) or key
     null
-// get-theme
 get-theme-border-radius(key)
     if key != null
         return get(theme, 'border-radius',          key) or key

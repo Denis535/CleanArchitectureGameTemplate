@@ -24,10 +24,10 @@ theme = {
         light-box:                     hsla( 30deg,  15%,  80%, 0.20),
         dark-box:                      hsla(200deg,  15%,  20%, 0.80),
     },
-    background-image-color: {
-        none:                          hsla(  0deg,   0%,   0%, 0.00),
-        light:                         hsla( 30deg,  30%,  90%, 1.00),
-        dark:                          hsla(200deg,  30%,  10%, 1.00),
+    background-image: {
+        none:                          img(null, hsla(  0deg,   0%,   0%, 0.00), null),
+        light:                         img(null, hsla( 30deg,  30%,  90%, 1.00), null),
+        dark:                          img(null, hsla(200deg,  30%,  10%, 1.00), null)
     },
     border-color: {
         none:                          hsla(  0deg,   0%,   0%, 0.00),
@@ -58,23 +58,23 @@ theme = {
 }
 views = {
     // card
-    card:                              create-view( create-foreground(dark,  fnt(), txt()), create-background(card,                img(null, null, null)), create-border(card,         card        ) ),
-    card-header:                       create-view( create-foreground(dark,  fnt(), txt()), create-background(card-header,         img(null, null, null)), create-border(card-header,  card-header ) ),
-    card-header-info:                  create-view( create-foreground(dark,  fnt(), txt()), create-background(card-header-info,    img(null, null, null)), create-border(card-header,  card-header ) ),
-    card-header-warning:               create-view( create-foreground(dark,  fnt(), txt()), create-background(card-header-warning, img(null, null, null)), create-border(card-header,  card-header ) ),
-    card-header-error:                 create-view( create-foreground(dark,  fnt(), txt()), create-background(card-header-error,   img(null, null, null)), create-border(card-header,  card-header ) ),
-    card-content:                      create-view( create-foreground(dark,  fnt(), txt()), create-background(card-content,        img(null, null, null)), create-border(card-content, card-content) ),
-    card-footer:                       create-view( create-foreground(dark,  fnt(), txt()), create-background(card-footer,         img(null, null, null)), create-border(card-footer,  card-footer ) ),
+    card:                              create-view( create-foreground(dark,  fnt(), txt()), create-background(card,                null), create-border(card,         card        ) ),
+    card-header:                       create-view( create-foreground(dark,  fnt(), txt()), create-background(card-header,         null), create-border(card-header,  card-header ) ),
+    card-header-info:                  create-view( create-foreground(dark,  fnt(), txt()), create-background(card-header-info,    null), create-border(card-header,  card-header ) ),
+    card-header-warning:               create-view( create-foreground(dark,  fnt(), txt()), create-background(card-header-warning, null), create-border(card-header,  card-header ) ),
+    card-header-error:                 create-view( create-foreground(dark,  fnt(), txt()), create-background(card-header-error,   null), create-border(card-header,  card-header ) ),
+    card-content:                      create-view( create-foreground(dark,  fnt(), txt()), create-background(card-content,        null), create-border(card-content, card-content) ),
+    card-footer:                       create-view( create-foreground(dark,  fnt(), txt()), create-background(card-footer,         null), create-border(card-footer,  card-footer ) ),
     // scope
-    scope:                             create-view( create-foreground(null,  fnt(), txt()), create-background(none,                img(null, null, null)), create-border(none,         none        ) ),
+    scope:                             create-view( create-foreground(null,  fnt(), txt()), create-background(none,                null), create-border(none,         none        ) ),
     // group
-    group:                             create-view( create-foreground(null,  fnt(), txt()), create-background(none,                img(null, null, null)), create-border(none,         group       ) ),
-    light-group:                       create-view( create-foreground(dark,  fnt(), txt()), create-background(light-group,         img(null, null, null)), create-border(light-group,  group       ) ),
-    dark-group:                        create-view( create-foreground(light, fnt(), txt()), create-background(dark-group,          img(null, null, null)), create-border(dark-group,   group       ) ),
+    group:                             create-view( create-foreground(null,  fnt(), txt()), create-background(none,                null), create-border(none,         group       ) ),
+    light-group:                       create-view( create-foreground(dark,  fnt(), txt()), create-background(light-group,         null), create-border(light-group,  group       ) ),
+    dark-group:                        create-view( create-foreground(light, fnt(), txt()), create-background(dark-group,          null), create-border(dark-group,   group       ) ),
     // box
-    box:                               create-view( create-foreground(null,  fnt(), txt()), create-background(none,                img(null, null, null)), create-border(none,         box         ) ),
-    light-box:                         create-view( create-foreground(dark,  fnt(), txt()), create-background(light-box,           img(null, null, null)), create-border(light-box,    box         ) ),
-    dark-box:                          create-view( create-foreground(light, fnt(), txt()), create-background(dark-box,            img(null, null, null)), create-border(dark-box,     box         ) )
+    box:                               create-view( create-foreground(null,  fnt(), txt()), create-background(none,                null), create-border(none,         box         ) ),
+    light-box:                         create-view( create-foreground(dark,  fnt(), txt()), create-background(light-box,           null), create-border(light-box,    box         ) ),
+    dark-box:                          create-view( create-foreground(light, fnt(), txt()), create-background(dark-box,            null), create-border(dark-box,     box         ) )
 }
 layouts = {
     // card

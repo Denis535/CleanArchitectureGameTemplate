@@ -22,10 +22,10 @@ theme = {
         light-component:               hsla( 30deg,  30%,  90%, 0.80),
         dark-component:                hsla(200deg,  30%,  10%, 0.80),
     },
-    background-image-color: {
-        none:                          hsla(  0deg,   0%,   0%, 0.00),
-        light:                         hsla( 30deg,  30%,  90%, 1.00),
-        dark:                          hsla(200deg,  30%,  10%, 1.00),
+    background-image: {
+        none:                          img(null, hsla(  0deg,   0%,   0%, 0.00), null),
+        light:                         img(null, hsla( 30deg,  30%,  90%, 1.00), null),
+        dark:                          img(null, hsla(200deg,  30%,  10%, 1.00), null)
     },
     border-color: {
         none:                          hsla(  0deg,   0%,   0%, 0.00),
@@ -53,30 +53,30 @@ theme = {
 }
 views = {
     // element
-    label:                             create-view( create-foreground(null,           fnt(), txt()), create-background(none,                img(null, null,  null)), create-border(none,            element        ) ),
-    button:                            create-view( create-foreground(dark,           fnt(), txt()), create-background(light-element,       img(null, null,  null)), create-border(light-element,   element        ) ),
-    field:                             create-view( create-foreground(null,           fnt(), txt()), create-background(none,                img(null, null,  null)), create-border(none,            element        ) ),
-    field-label:                       create-view( create-foreground(dark,           fnt(), txt()), create-background(light-element,       img(null, null,  null)), create-border(light-element,   element        ) ),
-    field-input:                       create-view( create-foreground(light,          fnt(), txt()), create-background(dark-element,        img(null, null,  null)), create-border(dark-element,    element        ) ),
+    label:                             create-view( create-foreground(null,           fnt(), txt()), create-background(none,            null ), create-border(none,            element        ) ),
+    button:                            create-view( create-foreground(dark,           fnt(), txt()), create-background(light-element,   null ), create-border(light-element,   element        ) ),
+    field:                             create-view( create-foreground(null,           fnt(), txt()), create-background(none,            null ), create-border(none,            element        ) ),
+    field-label:                       create-view( create-foreground(dark,           fnt(), txt()), create-background(light-element,   null ), create-border(light-element,   element        ) ),
+    field-input:                       create-view( create-foreground(light,          fnt(), txt()), create-background(dark-element,    null ), create-border(dark-element,    element        ) ),
     // view
-    scroll-view:                       create-view( create-foreground(null,           fnt(), txt()), create-background(none,                img(null, null,  null)), create-border(none,            view           ) ),
-    light-scroll-view:                 create-view( create-foreground(dark,           fnt(), txt()), create-background(light-view,          img(null, null,  null)), create-border(light-view,      view           ) ),
-    dark-scroll-view:                  create-view( create-foreground(light,          fnt(), txt()), create-background(dark-view,           img(null, null,  null)), create-border(dark-view,       view           ) ),
-    dropdown-view:                     create-view( create-foreground(light,          fnt(), txt()), create-background(dark-view,           img(null, null,  null)), create-border(dark-view,       view           ) ),
+    scroll-view:                       create-view( create-foreground(null,           fnt(), txt()), create-background(none,            null ), create-border(none,            view           ) ),
+    light-scroll-view:                 create-view( create-foreground(dark,           fnt(), txt()), create-background(light-view,      null ), create-border(light-view,      view           ) ),
+    dark-scroll-view:                  create-view( create-foreground(light,          fnt(), txt()), create-background(dark-view,       null ), create-border(dark-view,       view           ) ),
+    dropdown-view:                     create-view( create-foreground(light,          fnt(), txt()), create-background(dark-view,       null ), create-border(dark-view,       view           ) ),
     // component
-    component:                         create-view( create-foreground(null,           fnt(), txt()), create-background(none,                img(null, null,  null)), create-border(none,            component      ) ),
-    box-component:                     create-view( create-foreground(null,           fnt(), txt()), create-background(none,                img(null, null,  null)), create-border(none,            box-component  ) ),
-    light-box-component:               create-view( create-foreground(null,           fnt(), txt()), create-background(light-component,     img(null, null,  null)), create-border(light-component, box-component  ) ),
-    dark-box-component:                create-view( create-foreground(null,           fnt(), txt()), create-background(dark-component,      img(null, null,  null)), create-border(dark-component,  box-component  ) ),
-    image-component:                   create-view( create-foreground(null,           fnt(), txt()), create-background(none,                img(null, light, null)), create-border(none,            image-component) ),
-    light-image-component:             create-view( create-foreground(null,           fnt(), txt()), create-background(light-component,     img(null, dark,  null)), create-border(light-component, image-component) ),
-    dark-image-component:              create-view( create-foreground(null,           fnt(), txt()), create-background(dark-component,      img(null, light, null)), create-border(dark-component,  image-component) ),
+    component:                         create-view( create-foreground(null,           fnt(), txt()), create-background(none,            null ), create-border(none,            component      ) ),
+    box-component:                     create-view( create-foreground(null,           fnt(), txt()), create-background(none,            null ), create-border(none,            box-component  ) ),
+    light-box-component:               create-view( create-foreground(null,           fnt(), txt()), create-background(light-component, null ), create-border(light-component, box-component  ) ),
+    dark-box-component:                create-view( create-foreground(null,           fnt(), txt()), create-background(dark-component,  null ), create-border(dark-component,  box-component  ) ),
+    image-component:                   create-view( create-foreground(null,           fnt(), txt()), create-background(none,            light), create-border(none,            image-component) ),
+    light-image-component:             create-view( create-foreground(null,           fnt(), txt()), create-background(light-component, dark ), create-border(light-component, image-component) ),
+    dark-image-component:              create-view( create-foreground(null,           fnt(), txt()), create-background(dark-component,  light), create-border(dark-component,  image-component) ),
     // effect
-    hover-effect:                      create-view( create-foreground(null,           fnt(), txt()), create-background(hover-effect,        img(null, null,  null)), create-border(null,            null           ) ),
-    focus-effect:                      create-view( create-foreground(focus-effect,   fnt(), txt()), create-background(null,                img(null, null,  null)), create-border(focus-effect,    null           ) ),
-    focus-effect-without-foreground:   create-view( create-foreground(null,           fnt(), txt()), create-background(null,                img(null, null,  null)), create-border(focus-effect,    null           ) ),
-    invalid-effect:                    create-view( create-foreground(invalid-effect, fnt(), txt()), create-background(null,                img(null, null,  null)), create-border(invalid-effect,  null           ) ),
-    invalid-effect-without-foreground: create-view( create-foreground(null,           fnt(), txt()), create-background(null,                img(null, null,  null)), create-border(invalid-effect,  null           ) )
+    hover-effect:                      create-view( create-foreground(null,           fnt(), txt()), create-background(hover-effect,    null ), create-border(null,            null           ) ),
+    focus-effect:                      create-view( create-foreground(focus-effect,   fnt(), txt()), create-background(null,            null ), create-border(focus-effect,    null           ) ),
+    focus-effect-without-foreground:   create-view( create-foreground(null,           fnt(), txt()), create-background(null,            null ), create-border(focus-effect,    null           ) ),
+    invalid-effect:                    create-view( create-foreground(invalid-effect, fnt(), txt()), create-background(null,            null ), create-border(invalid-effect,  null           ) ),
+    invalid-effect-without-foreground: create-view( create-foreground(null,           fnt(), txt()), create-background(null,            null ), create-border(invalid-effect,  null           ) )
 }
 layouts = {
     // element
