@@ -58,34 +58,32 @@
     add-layout-box(null, null, null)
 
 // card
-// .unity-card
-// .unity-header
-// .unity-content
-// .unity-footer
+.unity-card
+    add-view(null)
+    add-layout(null)
+    .unity-header
+        add-view(null, font: fnt(null, 140%, bold))
+        add-layout(null)
+    .unity-content
+        add-view(null, font: fnt(null, 100%, normal))
+        add-layout(null)
+    .unity-footer
+        add-view(null, font: fnt(null, 130%, bold))
+        add-layout(null)
 
 // dialog-card
-// .unity-dialog-card
-//     .unity-header
-//     .unity-content
-//     .unity-footer
-
-// unity-info-dialog-card
-// .unity-info-dialog-card
-//     .unity-header
-//     .unity-content
-//     .unity-footer
-
-// unity-warning-dialog-card
-// .unity-warning-dialog-card
-//     .unity-header
-//     .unity-content
-//     .unity-footer
-
-// unity-error-dialog-card
-// .unity-error-dialog-card
-//     .unity-header
-//     .unity-content
-//     .unity-footer
+.unity-dialog-card, .unity-info-dialog-card, .unity-warning-dialog-card, .unity-error-dialog-card
+    add-view(null)
+    add-layout(null)
+    .unity-header
+        add-view(null)
+        add-layout(null)
+    .unity-content
+        add-view(null, font: fnt(null, 120%, bold))
+        add-layout(null)
+    .unity-footer
+        add-view(null)
+        add-layout(null)
 
 // scope
 // .unity-scope
@@ -109,7 +107,7 @@
 // MainWidgetView
 MainWidgetView
 	add-view-foreground(null, null, null)
-	add-view-background(null, img('project://database/Assets/Project.UI/Assets.Project.UI.MainScreen/Images/Background.png', null, stretch-to-fill))
+	add-view-background(null, img('project://database/Assets/Project.UI/Assets.Project.UI.MainScreen/Images/Background.png', null, scale-and-crop))
 	add-view-border(null, null)
 	add-layout-position(absolute)
 	add-layout-size(100%, 100%)

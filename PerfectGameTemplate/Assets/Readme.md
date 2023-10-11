@@ -88,3 +88,6 @@ The project encapsulates everything rarely viewed and changed (third party, libr
 - Build addressables asset bundles (Addressables Groups Window / Build / New Build / Default Build Script).
 - Prepare your project (Toolbar / Tools / Pre Build) (it generates sources, configures and analyzes project).
 - Build your project (Toolbar / Tools / Build).
+
+# Links
+https://u3d.as/39eY

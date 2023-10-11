@@ -9,9 +9,11 @@ namespace Project.Toolbar {
     using System.Text;
     using System.Text.RegularExpressions;
     using Project.Tools;
+    using Project.UI;
     using UnityEditor;
     using UnityEditor.SceneManagement;
     using UnityEngine;
+    using UnityEngine.Framework.UI;
     using UnityEngine.SceneManagement;
     using Object = UnityEngine.Object;
 
@@ -80,6 +82,40 @@ namespace Project.Toolbar {
         [MenuItem( "Project/Build Production", priority = 302 )]
         internal static void BuildProduction() {
             new ProjectBuilder2().BuildProduction();
+        }
+
+        // OpenDialog
+        [MenuItem( "Project/Open Dialog", priority = 500 )]
+        internal static void OpenDialog() {
+            if (Application.isPlaying) {
+                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
+                var widget = screen.Widget;
+                widget?.AttachChild( UIWidgetFactory.DialogWidget( "Dialog", "This is dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null ) );
+            }
+        }
+        [MenuItem( "Project/Open Info Dialog", priority = 501 )]
+        internal static void OpenInfoDialog() {
+            if (Application.isPlaying) {
+                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
+                var widget = screen.Widget;
+                widget?.AttachChild( UIWidgetFactory.InfoDialogWidget( "Info Dialog", "This is info dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null ) );
+            }
+        }
+        [MenuItem( "Project/Open Warning Dialog", priority = 502 )]
+        internal static void OpenWarningDialog() {
+            if (Application.isPlaying) {
+                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
+                var widget = screen.Widget;
+                widget?.AttachChild( UIWidgetFactory.WarningDialogWidget( "Warning Dialog", "This is warning dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null ) );
+            }
+        }
+        [MenuItem( "Project/Open Error Dialog", priority = 503 )]
+        internal static void OpenErrorDialog() {
+            if (Application.isPlaying) {
+                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
+                var widget = screen.Widget;
+                widget?.AttachChild( UIWidgetFactory.ErrorDialogWidget( "Error Dialog", "This is error dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null ) );
+            }
         }
 
         // OpenAssets

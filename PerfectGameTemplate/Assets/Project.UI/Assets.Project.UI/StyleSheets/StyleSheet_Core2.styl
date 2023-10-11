@@ -10,10 +10,10 @@ theme = {
         none:                          hsla(  0deg,   0%,   0%, 0.00),
         // card
         card:                          hsla(240deg,   5%,  25%, 0.75),
-        card-header:                   hsla( 60deg,   5%,  80%, 0.75),
-        card-header-info:              hsla(200deg,  80%,  60%, 0.75),
-        card-header-warning:           hsla( 40deg,  80%,  60%, 0.75),
-        card-header-error:             hsla( 10deg,  80%,  60%, 0.75),
+        card-header:                   hsla( 60deg,   5%,  65%, 0.75),
+        card-header-info:              hsla(220deg,  70%,  65%, 0.75),
+        card-header-warning:           hsla( 40deg,  70%,  65%, 0.75),
+        card-header-error:             hsla( 10deg,  70%,  65%, 0.75),
         card-content:                  hsla(  0deg,   0%,   0%, 0.00),
         card-footer:                   hsla(240deg,  10%,  10%, 0.75),
         // group
@@ -102,51 +102,51 @@ card()
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
 card-header()
-    add-view(card-header, font: fnt(null, 130%, bold))
+    add-view(card-header)
     add-layout(card-header)
     add-flex(0, 0, auto, auto)
     add-flex2(row, center, center)
 card-content()
-    add-view(card-content, font: fnt(null, 100%, normal))
+    add-view(card-content)
     add-layout(card-content)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
 card-footer()
-    add-view(card-footer, font: fnt(null, 130%, bold))
+    add-view(card-footer)
     add-layout(card-footer)
     add-flex(0, 0, auto, auto)
     add-flex2(row, space-around, center)
 
 // dialog-card
 dialog-card()
-    add-view(null)
-    add-layout(null)
+    add-view(card)
+    add-layout(card)
 dialog-card-header()
-    add-view(null)
-    add-layout(null)
+    add-view(card-header)
+    add-layout(card-header)
 dialog-card-content()
-    add-view(null, font: fnt(null, 120%, bold))
-    add-layout(null)
+    add-view(card-content)
+    add-layout(card-content)
     add-flex(null, null, null, null)
     add-flex2(null, center, center)
 dialog-card-footer()
-    add-view(null)
-    add-layout(null)
+    add-view(card-footer)
+    add-layout(card-footer)
 
 // info-dialog-card
 dialog-card-header-info()
     add-view(card-header-info)
-    add-layout(null)
+    add-layout(card-header)
 
 // warning-dialog-card
 dialog-card-header-warning()
     add-view(card-header-warning)
-    add-layout(null)
+    add-layout(card-header)
 
 // error-dialog-card
 dialog-card-header-error()
     add-view(card-header-error)
-    add-layout(null)
+    add-layout(card-header)
 
 // scope
 scope()
