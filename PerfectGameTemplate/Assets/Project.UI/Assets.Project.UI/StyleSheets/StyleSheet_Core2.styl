@@ -7,7 +7,6 @@ theme = {
         dark:                          hsla(  0deg,   0%,  10%, 1.00),
     },
     background-color: {
-        none:                          hsla(  0deg,   0%,   0%, 0.00),
         // card
         card:                          hsla(240deg,   5%,  25%, 0.75),
         card-header:                   hsla( 60deg,   5%,  65%, 0.75),
@@ -16,36 +15,44 @@ theme = {
         card-header-error:             hsla( 10deg,  70%,  65%, 0.75),
         card-content:                  hsla(  0deg,   0%,   0%, 0.00),
         card-footer:                   hsla(240deg,  10%,  10%, 0.75),
+        // scope
+        scope:                         hsla(  0deg,   0%,   0%, 0.00),
         // group
+        group:                         hsla(  0deg,   0%,   0%, 0.00),
         light-group:                   hsla( 30deg,   5%,  80%, 0.20),
         dark-group:                    hsla(200deg,   5%,  20%, 0.80),
-        // box 
+        // box
+        box:                           hsla(  0deg,   0%,   0%, 0.00), 
         light-box:                     hsla( 30deg,  15%,  80%, 0.20),
         dark-box:                      hsla(200deg,  15%,  20%, 0.80),
     },
     background-image: {
     },
     border-color: {
-        none:                          hsla(  0deg,   0%,   0%, 0.00),
         // card
         card:                          hsla( 35deg, 100%,  30%, 1.00),
         card-header:                   hsla( 35deg, 100%,  30%, 1.00),
         card-content:                  hsla(  0deg,   0%,   0%, 0.00),
         card-footer:                   hsla( 35deg, 100%,  30%, 1.00),
+        // scope
+        scope:                         hsla(  0deg,   0%,   0%, 0.00),
         // group
+        group:                         hsla(  0deg,   0%,   0%, 0.00),
         light-group:                   hsla( 35deg, 100%,  30%, 1.00),
         dark-group:                    hsla( 35deg, 100%,  30%, 1.00),
         // box
+        box:                           hsla(  0deg,   0%,   0%, 0.00),
         light-box:                     hsla( 45deg, 100%,  30%, 1.00),
         dark-box:                      hsla( 45deg, 100%,  30%, 1.00),
     },
     border-radius: {
-        none:                          0px,
         // card
         card:                          6px,
         card-header:                   6px 6px 0px 0px,
         card-content:                  6px,
         card-footer:                   0px 0px 6px 6px,
+        // scope
+        scope:                         0px,
         // group
         group:                         6px,
         // box
@@ -62,13 +69,13 @@ views = {
     card-content:                      create-view( create-foreground(dark,  fnt(), txt()), create-background(card-content,        null), create-border(card-content, card-content) ),
     card-footer:                       create-view( create-foreground(dark,  fnt(), txt()), create-background(card-footer,         null), create-border(card-footer,  card-footer ) ),
     // scope
-    scope:                             create-view( create-foreground(null,  fnt(), txt()), create-background(none,                null), create-border(none,         none        ) ),
+    scope:                             create-view( create-foreground(null,  fnt(), txt()), create-background(scope,               null), create-border(scope,        scope       ) ),
     // group
-    group:                             create-view( create-foreground(null,  fnt(), txt()), create-background(none,                null), create-border(none,         group       ) ),
+    group:                             create-view( create-foreground(null,  fnt(), txt()), create-background(group,               null), create-border(group,        group       ) ),
     light-group:                       create-view( create-foreground(dark,  fnt(), txt()), create-background(light-group,         null), create-border(light-group,  group       ) ),
     dark-group:                        create-view( create-foreground(light, fnt(), txt()), create-background(dark-group,          null), create-border(dark-group,   group       ) ),
     // box
-    box:                               create-view( create-foreground(null,  fnt(), txt()), create-background(none,                null), create-border(none,         box         ) ),
+    box:                               create-view( create-foreground(null,  fnt(), txt()), create-background(box,                 null), create-border(box,          box         ) ),
     light-box:                         create-view( create-foreground(dark,  fnt(), txt()), create-background(light-box,           null), create-border(light-box,    box         ) ),
     dark-box:                          create-view( create-foreground(light, fnt(), txt()), create-background(dark-box,            null), create-border(dark-box,     box         ) )
 }
