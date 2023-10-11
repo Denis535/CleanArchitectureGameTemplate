@@ -99,7 +99,7 @@ get-theme-background-color(key)
     null
 get-theme-background-image(key)
     if key != null
-        return get(theme, 'background-image',       key) or get(theme, 'color', key) or key
+        return get(theme, 'background-image',       key) or key
     null
 get-theme-border-color(key)
     if key != null
