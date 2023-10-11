@@ -61,6 +61,8 @@ namespace Project.Entities.GameScene {
         None,
         Running,
         RunningAndPaused,
+        //Finished,
+        //FinishedAndPaused,
     }
     // GameDesc
     public class GameDesc {

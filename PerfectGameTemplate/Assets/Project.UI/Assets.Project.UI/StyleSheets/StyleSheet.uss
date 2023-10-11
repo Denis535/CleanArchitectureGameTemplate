@@ -40,9 +40,9 @@
 }
 .left-widget-view {
   position: absolute;
-  left: 5%;
+  right: 60%;
   bottom: 10%;
-  width: 30%;
+  width: 600px;
   height: auto;
   margin-left: 0px;
   margin-right: 0px;
@@ -62,8 +62,8 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 60%;
-  height: 50%;
+  width: 1400px;
+  height: 700px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -82,8 +82,8 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 80%;
-  height: 70%;
+  width: 1600px;
+  height: 800px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -102,8 +102,8 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 90%;
-  height: 80%;
+  width: 1800px;
+  height: 900px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -122,8 +122,8 @@
   position: absolute;
   left: 50%;
   top: 49%;
-  width: 60%;
-  height: 50%;
+  width: 1000px;
+  height: 500px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
