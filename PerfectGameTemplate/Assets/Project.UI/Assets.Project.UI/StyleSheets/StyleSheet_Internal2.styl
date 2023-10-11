@@ -1,12 +1,10 @@
 // add-view
 add-view-object(view)
     add-view-objects get(view, 'foreground'), get(view, 'background'), get(view, 'border')
-// add-view
 add-view-objects(foreground, background, border)
     add-view-foreground get(foreground, 'color'), get(foreground, 'font'), get(foreground, 'text')
     add-view-background get(background, 'color'), get(background, 'image')
     add-view-border     get(border, 'color' ), get(border, 'radius')
-// add-view
 add-view-foreground(color, font, text)
     add-property 'color',           color
     add-property 'font',            get(font, 'url'    )
@@ -16,7 +14,6 @@ add-view-foreground(color, font, text)
     add-property 'text-align',      get(text, 'align'  )
     add-property 'text-outline',    get(text, 'outline')
     add-property 'text-shadow',     get(text, 'shadow' )
-// add-view
 add-view-background(background-color, background-image)
     add-property 'background-color',            background-color
     add-property 'background-image',            get(background-image, 'url'         )
@@ -27,7 +24,6 @@ add-view-background(background-color, background-image)
     add-property 'slice-top',                   get(background-image, 'slice-top'   )
     add-property 'slice-bottom',                get(background-image, 'slice-bottom')
     add-property 'slice-scale',                 get(background-image, 'slice-scale' )
-// add-view
 add-view-border(border-color, border-radius)
     add-property 'border-left-color',          border-color[0]                   
     add-property 'border-right-color',         border-color[1] or border-color[0]
@@ -41,19 +37,16 @@ add-view-border(border-color, border-radius)
 // add-layout
 add-layout-object(layout)
     add-layout-objects get(layout, 'position'), get(layout, 'size'), get(layout, 'box')
-// add-layout
 add-layout-objects(position, size, box)
     add-layout-position get(position, 'position'), get(position, 'left'), get(position, 'right'), get(position, 'top'), get(position, 'bottom')
     add-layout-size     get(size, 'width'), get(size, 'height')
     add-layout-box      get(box, 'margin'), get(box, 'border'), get(box, 'padding')
-// add-layout
 add-layout-position(position, left = null, right = null, top = null, bottom = null)
     add-property 'position', position
     add-property 'left',     left
     add-property 'right',    right
     add-property 'top',      top
     add-property 'bottom',   bottom
-// add-layout
 add-layout-size(width, height)
     add-property 'width',      width[0]
     add-property 'min-width',  width[1]
@@ -61,7 +54,6 @@ add-layout-size(width, height)
     add-property 'height',     height[0]
     add-property 'min-height', height[1]
     add-property 'max-height', height[2]
-// add-layout
 add-layout-box(margin, border, padding)
     add-property 'margin-left',         margin[0]
     add-property 'margin-right',        margin[1] or margin[0]
@@ -82,7 +74,6 @@ add-flex(flex-grow, flex-shrink, flex-basis, align-self)
     add-property 'flex-shrink', flex-shrink
     add-property 'flex-basis',  flex-basis
     add-property 'align-self',  align-self
-// add-flex
 add-flex2(flex-direction, justify-content, align-items)
     add-property 'flex-direction',  flex-direction
     add-property 'flex-wrap',       null
