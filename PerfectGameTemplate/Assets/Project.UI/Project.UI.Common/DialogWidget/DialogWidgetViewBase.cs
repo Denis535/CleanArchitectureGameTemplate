@@ -36,7 +36,7 @@ namespace Project.UI.Common {
 
         // OnSubmit
         public void OnSubmit(string text, Action? callback) {
-            var button = new Button().SetUp( "submit" ).Text( text );
+            var button = UIFactory.Button( text, "submit" );
             button.OnClick( evt => {
                 if (button.IsValid()) {
                     callback?.Invoke();
@@ -45,7 +45,7 @@ namespace Project.UI.Common {
             footer.Add( button );
         }
         public void OnCancel(string text, Action? callback) {
-            var button = new Button().SetUp( "cancel" ).Text( text );
+            var button = UIFactory.Button( text, "cancel" );
             button.OnClick( evt => {
                 if (button.IsValid()) {
                     callback?.Invoke();
@@ -62,19 +62,31 @@ namespace Project.UI.Common {
         public DialogWidgetView() {
             AddToClassList( "modal-widget-view" );
             AddToClassList( "dialog-widget-view" );
-            Add( card = new Card().SetUp( null, "unity-dialog-card" ).Children(
-                header = new Header().Apply( i => i.SetDisplayed( false ) ),
-                content = new Content().Apply( i => i.SetDisplayed( false ) ),
-                footer = new Footer().Apply( i => i.SetDisplayed( false ) )
-            ) );
-            header.Add( title = new Label( null ).SetUp( "title" ) );
-            content.Add( message = new Label( null ).SetUp( "message" ) );
+            Add( CreateCard( out card, out header, out content, out footer, out title, out message ) );
         }
         public override void Initialize() {
             base.Initialize();
         }
         public override void Dispose() {
             base.Dispose();
+        }
+
+        // Helpers
+        private static Card CreateCard(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            return card = UIFactory.Card(
+                i => i.SetUp( null, "unity-dialog-card" ),
+                header = UIFactory.Header(
+                    i => i.SetDisplayed( false ),
+                    title = UIFactory.Label( null, "title" )
+                ),
+                content = UIFactory.Content(
+                    i => i.SetDisplayed( false ),
+                    message = UIFactory.Label( null, "message" )
+                ),
+                footer = UIFactory.Footer(
+                    i => i.SetDisplayed( false )
+                )
+            );
         }
 
     }
@@ -85,19 +97,31 @@ namespace Project.UI.Common {
         public InfoDialogWidgetView() {
             AddToClassList( "modal-widget-view" );
             AddToClassList( "info-dialog-widget-view" );
-            Add( card = new Card().SetUp( null, "unity-info-dialog-card" ).Children(
-                header = new Header().Apply( i => i.SetDisplayed( false ) ),
-                content = new Content().Apply( i => i.SetDisplayed( false ) ),
-                footer = new Footer().Apply( i => i.SetDisplayed( false ) )
-            ) );
-            header.Add( title = new Label( null ).SetUp( "title" ) );
-            content.Add( message = new Label( null ).SetUp( "message" ) );
+            Add( CreateCard( out card, out header, out content, out footer, out title, out message ) );
         }
         public override void Initialize() {
             base.Initialize();
         }
         public override void Dispose() {
             base.Dispose();
+        }
+
+        // Helpers
+        private static Card CreateCard(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            return card = UIFactory.Card(
+                i => i.SetUp( null, "unity-info-dialog-card" ),
+                header = UIFactory.Header(
+                    i => i.SetDisplayed( false ),
+                    title = UIFactory.Label( null, "title" )
+                ),
+                content = UIFactory.Content(
+                    i => i.SetDisplayed( false ),
+                    message = UIFactory.Label( null, "message" )
+                ),
+                footer = UIFactory.Footer(
+                    i => i.SetDisplayed( false )
+                )
+            );
         }
 
     }
@@ -108,19 +132,31 @@ namespace Project.UI.Common {
         public WarningDialogWidgetView() {
             AddToClassList( "modal-widget-view" );
             AddToClassList( "warning-dialog-widget-view" );
-            Add( card = new Card().SetUp( null, "unity-warning-dialog-card" ).Children(
-                header = new Header().Apply( i => i.SetDisplayed( false ) ),
-                content = new Content().Apply( i => i.SetDisplayed( false ) ),
-                footer = new Footer().Apply( i => i.SetDisplayed( false ) )
-            ) );
-            header.Add( title = new Label( null ).SetUp( "title" ) );
-            content.Add( message = new Label( null ).SetUp( "message" ) );
+            Add( CreateCard( out card, out header, out content, out footer, out title, out message ) );
         }
         public override void Initialize() {
             base.Initialize();
         }
         public override void Dispose() {
             base.Dispose();
+        }
+
+        // Helpers
+        private static Card CreateCard(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            return card = UIFactory.Card(
+                i => i.SetUp( null, "unity-warning-dialog-card" ),
+                header = UIFactory.Header(
+                    i => i.SetDisplayed( false ),
+                    title = UIFactory.Label( null, "title" )
+                ),
+                content = UIFactory.Content(
+                    i => i.SetDisplayed( false ),
+                    message = UIFactory.Label( null, "message" )
+                ),
+                footer = UIFactory.Footer(
+                    i => i.SetDisplayed( false )
+                )
+            );
         }
 
     }
@@ -131,19 +167,31 @@ namespace Project.UI.Common {
         public ErrorDialogWidgetView() {
             AddToClassList( "modal-widget-view" );
             AddToClassList( "error-dialog-widget-view" );
-            Add( card = new Card().SetUp( null, "unity-error-dialog-card" ).Children(
-                header = new Header().Apply( i => i.SetDisplayed( false ) ),
-                content = new Content().Apply( i => i.SetDisplayed( false ) ),
-                footer = new Footer().Apply( i => i.SetDisplayed( false ) )
-            ) );
-            header.Add( title = new Label( null ).SetUp( "title" ) );
-            content.Add( message = new Label( null ).SetUp( "message" ) );
+            Add( CreateCard( out card, out header, out content, out footer, out title, out message ) );
         }
         public override void Initialize() {
             base.Initialize();
         }
         public override void Dispose() {
             base.Dispose();
+        }
+
+        // Helpers
+        private static Card CreateCard(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            return card = UIFactory.Card(
+                i => i.SetUp( null, "unity-error-dialog-card" ),
+                header = UIFactory.Header(
+                    i => i.SetDisplayed( false ),
+                    title = UIFactory.Label( null, "title" )
+                ),
+                content = UIFactory.Content(
+                    i => i.SetDisplayed( false ),
+                    message = UIFactory.Label( null, "message" )
+                ),
+                footer = UIFactory.Footer(
+                    i => i.SetDisplayed( false )
+                )
+            );
         }
 
     }

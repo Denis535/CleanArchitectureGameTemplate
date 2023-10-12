@@ -33,6 +33,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public SettingsWidgetView() {
+            AddToClassList( "middle-widget-view" );
+            Add( CreateCard() );
         }
         public override void Initialize() {
             base.Initialize();
@@ -60,6 +62,26 @@ namespace Project.UI.Common {
         }
         public override void Dispose() {
             base.Dispose();
+        }
+
+        // Helpers
+        private static Card CreateCard() {
+            return UIFactory.Card(
+                UIFactory.Header(
+                    UIFactory.Label( "Settings", "title" )
+                ),
+                UIFactory.Content(
+                    UIFactory.ColumnGroup(
+                        i => i.SetUp( null, ".dark2.large.grow-1" ),
+                        UIFactory.Button( "Player Profile", "player-profile", ".width-75.align-self-center" ),
+                        UIFactory.Button( "Video Settings", "video-settings", ".width-75.align-self-center" ),
+                        UIFactory.Button( "Audio Settings", "audio-settings", ".width-75.align-self-center" )
+                    )
+                ),
+                UIFactory.Footer(
+                    UIFactory.Button( "Back", "back" )
+                )
+            );
         }
 
     }

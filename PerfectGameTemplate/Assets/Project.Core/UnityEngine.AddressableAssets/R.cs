@@ -65,24 +65,6 @@ namespace UnityEngine.AddressableAssets {
                         public const string @Theme_3 = "Project.UI.GameScreen/Music/Theme 3 #Black Paper - Bottom Line.flac";
                     }
                 }
-                public static class @Common {
-                    public static class @SettingsWidget {
-                        public static class @Audio {
-                            public const string @AudioSettingsWidgetView = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml";
-                            public const string @AudioSettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.Audio/AudioSettingsWidgetView.uxml[inlineStyle]";
-                        }
-                        public static class @PlayerProfile {
-                            public const string @PlayerProfileWidgetView = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml";
-                            public const string @PlayerProfileWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.PlayerProfile/PlayerProfileWidgetView.uxml[inlineStyle]";
-                        }
-                        public const string @SettingsWidgetView = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml";
-                        public const string @SettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget/SettingsWidgetView.uxml[inlineStyle]";
-                        public static class @Video {
-                            public const string @VideoSettingsWidgetView = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml";
-                            public const string @VideoSettingsWidgetView__inlineStyle = "Project.UI.Common/SettingsWidget.Video/VideoSettingsWidgetView.uxml[inlineStyle]";
-                        }
-                    }
-                }
                 public static class @Fonts {
                     public static class @Inter {
                         public const string @Inter_Italic = "Project.UI/Fonts/Inter/Inter-Italic.ttf";
@@ -172,6 +154,7 @@ namespace UnityEngine.AddressableAssets {
                     public const string @StyleSheet_Core = "Project.UI/StyleSheets/StyleSheet_Core.uss";
                     public const string @StyleSheet_Core2 = "Project.UI/StyleSheets/StyleSheet_Core2.uss";
                     public const string @StyleSheet_Internal = "Project.UI/StyleSheets/StyleSheet_Internal.uss";
+                    public const string @StyleSheet_Internal2 = "Project.UI/StyleSheets/StyleSheet_Internal2.uss";
                     public const string @StyleSheet_Library = "Project.UI/StyleSheets/StyleSheet_Library.uss";
                 }
                 public static class @ThemeStyleSheets {

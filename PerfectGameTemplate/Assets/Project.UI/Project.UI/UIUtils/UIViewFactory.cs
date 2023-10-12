@@ -56,19 +56,19 @@ namespace Project.UI {
 
         // Settings
         public static SettingsWidgetView SettingsWidget() {
-            var view = Create<SettingsWidgetView>( R.Project.UI.Common.SettingsWidget.SettingsWidgetView );
+            var view = Create<SettingsWidgetView>();
             return view;
         }
         public static PlayerProfileWidgetView PlayerProfileWidget() {
-            var view = Create<PlayerProfileWidgetView>( R.Project.UI.Common.SettingsWidget.PlayerProfile.PlayerProfileWidgetView );
+            var view = Create<PlayerProfileWidgetView>();
             return view;
         }
         public static VideoSettingsWidgetView VideoSettingsWidget() {
-            var view = Create<VideoSettingsWidgetView>( R.Project.UI.Common.SettingsWidget.Video.VideoSettingsWidgetView );
+            var view = Create<VideoSettingsWidgetView>();
             return view;
         }
         public static AudioSettingsWidgetView AudioSettingsWidget() {
-            var view = Create<AudioSettingsWidgetView>( R.Project.UI.Common.SettingsWidget.Audio.AudioSettingsWidgetView );
+            var view = Create<AudioSettingsWidgetView>();
             return view;
         }
 

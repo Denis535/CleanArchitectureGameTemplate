@@ -6,7 +6,6 @@ namespace Project.App {
     using Project.Entities.GameScene;
     using UnityEngine;
     using UnityEngine.Framework.App;
-    using UnityEngine.Framework.Game;
 
     public class Application2 : ApplicationBase {
 

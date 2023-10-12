@@ -39,6 +39,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public AudioSettingsWidgetView() {
+            AddToClassList( "middle-widget-view" );
+            Add( CreateCard() );
         }
         public override void Initialize() {
             base.Initialize();
@@ -74,6 +76,28 @@ namespace Project.UI.Common {
         }
         public override void Dispose() {
             base.Dispose();
+        }
+
+        // Helpers
+        private static Card CreateCard() {
+            return UIFactory.Card(
+                UIFactory.Header(
+                    UIFactory.Label( "Audio Settings", "title" )
+                ),
+                UIFactory.Content(
+                    UIFactory.ColumnGroup(
+                        i => i.SetUp( null, ".dark2.large.grow-1" ),
+                        UIFactory.Slider( "Master Volume", 0, 1, "master-volume", "label-width-25" ),
+                        UIFactory.Slider( "Music Volume", 0, 1, "music-volume", "label-width-25" ),
+                        UIFactory.Slider( "Sfx Volume", 0, 1, "sfx-volume", "label-width-25" ),
+                        UIFactory.Slider( "Game Volume", 0, 1, "game-volume", "label-width-25" )
+                    )
+                ),
+                UIFactory.Footer(
+                    UIFactory.Button( "Ok", "okey" ),
+                    UIFactory.Button( "Back", "back" )
+                )
+            );
         }
 
     }

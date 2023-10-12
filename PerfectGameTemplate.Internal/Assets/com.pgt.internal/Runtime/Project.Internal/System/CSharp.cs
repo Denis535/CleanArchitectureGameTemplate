@@ -8,20 +8,20 @@ namespace System {
 
     public static partial class CSharp {
 
-        // Apply
+        // Pipe
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static T Apply<T>(this T value, Action<T> callback) {
+        public static T Pipe<T>(this T value, Action<T> callback) {
             callback( value );
             return value;
         }
-        // Apply/All
+        // Pipe/All
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static T[] ApplyAll<T>(this T[] values, Action<T> callback) {
+        public static T[] PipeAll<T>(this T[] values, Action<T> callback) {
             foreach (var value in values) callback( value );
             return values;
         }
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static List<T> ApplyAll<T>(this List<T> values, Action<T> callback) {
+        public static List<T> PipeAll<T>(this List<T> values, Action<T> callback) {
             foreach (var value in values) callback( value );
             return values;
         }

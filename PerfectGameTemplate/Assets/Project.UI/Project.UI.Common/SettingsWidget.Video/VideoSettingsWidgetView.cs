@@ -36,6 +36,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public VideoSettingsWidgetView() {
+            AddToClassList( "middle-widget-view" );
+            Add( CreateCard() );
         }
         public override void Initialize() {
             base.Initialize();
@@ -67,6 +69,27 @@ namespace Project.UI.Common {
         }
         public override void Dispose() {
             base.Dispose();
+        }
+
+        // Helpers
+        private static Card CreateCard() {
+            return UIFactory.Card(
+                UIFactory.Header(
+                    UIFactory.Label( "Video Settings", "title" )
+                ),
+                UIFactory.Content(
+                    UIFactory.ColumnGroup(
+                        i => i.SetUp( null, ".dark2.large.grow-1" ),
+                        UIFactory.Toggle( "Full Screen", "is-full-screen", "label-width-25" ),
+                        UIFactory.DropdownField( "Screen Resolution", "screen-resolution", "label-width-25" ),
+                        UIFactory.Toggle( "V-Sync", "is-v-sync", "label-width-25" )
+                    )
+                ),
+                UIFactory.Footer(
+                    UIFactory.Button( "Ok", "okey" ),
+                    UIFactory.Button( "Back", "back" )
+                )
+            );
         }
 
     }

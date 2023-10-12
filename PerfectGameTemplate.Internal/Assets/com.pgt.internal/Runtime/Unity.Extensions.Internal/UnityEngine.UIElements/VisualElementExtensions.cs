@@ -3,6 +3,7 @@ namespace UnityEngine.UIElements {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using UnityEngine;
 
     public static partial class VisualElementExtensions {
@@ -48,15 +49,17 @@ namespace UnityEngine.UIElements {
         }
 
         // SetUp
-        public static T SetUp<T>(this T element, string? name, params string[] classes) where T : VisualElement {
-            element.name = name;
-            foreach (var @class in classes) {
-                element.AddToClassList( @class );
-            }
+        public static T Text<T>(this T element, string? text) where T : TextElement {
+            element.text = text;
             return element;
         }
-        public static T Text<T>(this T element, string text) where T : TextElement {
-            element.text = text;
+        public static T SetUp<T>(this T element, string? name, string? classes = null) where T : VisualElement {
+            element.name = name;
+            if (classes != null) {
+                foreach (var @class in classes.Split( '.', StringSplitOptions.RemoveEmptyEntries ).Select( i => i.Trim() )) {
+                    element.AddToClassList( @class );
+                }
+            }
             return element;
         }
         public static T UserData<T>(this T element, object? userData) where T : VisualElement {

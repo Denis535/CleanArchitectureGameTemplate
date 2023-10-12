@@ -30,6 +30,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public PlayerProfileWidgetView() {
+            AddToClassList( "middle-widget-view" );
+            Add( CreateCard() );
         }
         public override void Initialize() {
             base.Initialize();
@@ -54,6 +56,25 @@ namespace Project.UI.Common {
         }
         public override void Dispose() {
             base.Dispose();
+        }
+
+        // Helpers
+        private static Card CreateCard() {
+            return UIFactory.Card(
+                UIFactory.Header(
+                    UIFactory.Label( "Player Profile", "title" )
+                ),
+                UIFactory.Content(
+                    UIFactory.ColumnGroup(
+                        i => i.SetUp( null, ".dark2.large.grow-1" ),
+                        UIFactory.TextField( "Name", 16, false, "name", "label-width-25" )
+                    )
+                ),
+                UIFactory.Footer(
+                    UIFactory.Button( "Ok", "okey" ),
+                    UIFactory.Button( "Back", "back" )
+                )
+            );
         }
 
     }
