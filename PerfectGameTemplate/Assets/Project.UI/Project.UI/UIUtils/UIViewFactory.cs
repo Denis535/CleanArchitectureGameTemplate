@@ -36,7 +36,7 @@ namespace Project.UI {
             return view;
         }
         public static JoinGameWidgetView2 JoinGameWidget2() {
-            var view = Create<JoinGameWidgetView2>( R.Project.UI.MainScreen.MainWidget.MainMenu.JoinGame2.JoinGameWidgetView2 );
+            var view = Create<JoinGameWidgetView2>();
             return view;
         }
         public static LoadingWidgetView LoadingWidget() {

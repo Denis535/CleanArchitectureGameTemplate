@@ -120,7 +120,7 @@ namespace Project.UI.MainScreen {
                     i => i.SetUp( null, "light5", "medium", "grow-1" ),
                     title = UIFactory.Label( "Game", "title", "title" ),
                     UIFactory.RowScope(
-                        gameName = UIFactory.TextField( "Name", 100, false, "game-name", "label-width-150px", "grow-1" )
+                        gameName = UIFactory.TextFieldReadOnly( "Name", 100, false, "game-name", "label-width-150px", "grow-1" )
                     ),
                     UIFactory.RowScope(
                         gameMode = UIFactory.DropdownField( "Mode", "game-mode", ".label-width-150px", "grow-1" ),

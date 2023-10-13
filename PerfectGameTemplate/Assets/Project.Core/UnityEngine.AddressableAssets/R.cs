@@ -18,14 +18,6 @@ namespace UnityEngine.AddressableAssets {
                         public const string @Background = "Project.UI.MainScreen/Images/Background.png";
                         public const string @Background__Background = "Project.UI.MainScreen/Images/Background.png[Background]";
                     }
-                    public static class @MainWidget {
-                        public static class @MainMenu {
-                            public static class @JoinGame2 {
-                                public const string @JoinGameWidgetView2 = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml";
-                                public const string @JoinGameWidgetView2__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml[inlineStyle]";
-                            }
-                        }
-                    }
                     public static class @Music {
                         public const string @Theme = "Project.UI.MainScreen/Music/Theme #Black Paper  - Pulse.flac";
                     }
