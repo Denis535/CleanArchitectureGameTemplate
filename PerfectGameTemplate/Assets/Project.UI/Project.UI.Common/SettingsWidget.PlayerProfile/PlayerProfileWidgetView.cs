@@ -59,7 +59,7 @@ namespace Project.UI.Common {
                 ),
                 UIFactory.Content(
                     UIFactory.ColumnGroup(
-                        i => i.Name( null, ".dark2.large.grow-1" ),
+                        i => i.SetUp( null, ".dark2.large.grow-1" ),
                         name = UIFactory.TextField( "Name", 16, false, "name", "label-width-25" )
                     )
                 ),

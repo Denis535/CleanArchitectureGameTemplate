@@ -70,7 +70,7 @@ namespace Project.UI.Common {
                 ),
                 UIFactory.Content(
                     UIFactory.ColumnGroup(
-                        i => i.Name( null, ".dark2.large.grow-1" ),
+                        i => i.SetUp( null, ".dark2.large.grow-1" ),
                         isFullScreen = UIFactory.Toggle( "Full Screen", "is-full-screen", "label-width-25" ),
                         screenResolution = UIFactory.DropdownField( "Screen Resolution", "screen-resolution", "label-width-25" ),
                         isVSync = UIFactory.Toggle( "V-Sync", "is-v-sync", "label-width-25" )

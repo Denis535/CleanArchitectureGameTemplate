@@ -66,26 +66,26 @@ namespace Project.UI {
         }
 
         // Misc
-        public static Label Label(string? text, string? name = null, string? classes = null) {
-            return new Label().Text( text ).Name( name, classes );
+        public static Label Label(string? text, string? name, params string[] classes) {
+            return new Label().Text( text ).SetUp( name, classes );
         }
-        public static Button Button(string? text, string? name = null, string? classes = null) {
-            return new Button().Text( text ).Name( name, classes );
+        public static Button Button(string? text, string? name, params string[] classes) {
+            return new Button().Text( text ).SetUp( name, classes );
         }
-        public static TextField TextField(string label, int maxLength, bool multiline, string? name = null, string? classes = null) {
-            return new TextField( label, maxLength, multiline, false, '*' ).Name( name, classes );
+        public static TextField TextField(string label, int maxLength, bool isMultiline, string? name, params string[] classes) {
+            return new TextField( label, maxLength, isMultiline, false, '*' ).SetUp( name, classes );
         }
-        public static Slider Slider(string label, float min, float max, string? name = null, string? classes = null) {
-            return new Slider( label, min, max ).Name( name, classes );
+        public static Slider Slider(string label, float min, float max, string? name, params string[] classes) {
+            return new Slider( label, min, max ).SetUp( name, classes );
         }
-        public static SliderInt SliderInt(string label, int min, int max, string? name = null, string? classes = null) {
-            return new SliderInt( label, min, max ).Name( name, classes );
+        public static SliderInt SliderInt(string label, int min, int max, string? name, params string[] classes) {
+            return new SliderInt( label, min, max ).SetUp( name, classes );
         }
-        public static Toggle Toggle(string label, string? name = null, string? classes = null) {
-            return new Toggle( label ).Name( name, classes );
+        public static Toggle Toggle(string label, string? name, params string[] classes) {
+            return new Toggle( label ).SetUp( name, classes );
         }
-        public static DropdownField2 DropdownField(string label, string? name = null, string? classes = null) {
-            return new DropdownField2( label ).Name( name, classes );
+        public static DropdownField2 DropdownField(string label, string? name, params string[] classes) {
+            return new DropdownField2( label ).SetUp( name, classes );
         }
 
     }

@@ -76,7 +76,7 @@ namespace Project.UI.Common {
                 ),
                 UIFactory.Content(
                     UIFactory.ColumnGroup(
-                        i => i.Name( null, ".dark2.large.grow-1" ),
+                        i => i.SetUp( null, ".dark2.large.grow-1" ),
                         masterVolume = UIFactory.Slider( "Master Volume", 0, 1, "master-volume", "label-width-25" ),
                         musicVolume = UIFactory.Slider( "Music Volume", 0, 1, "music-volume", "label-width-25" ),
                         sfxVolume = UIFactory.Slider( "Sfx Volume", 0, 1, "sfx-volume", "label-width-25" ),

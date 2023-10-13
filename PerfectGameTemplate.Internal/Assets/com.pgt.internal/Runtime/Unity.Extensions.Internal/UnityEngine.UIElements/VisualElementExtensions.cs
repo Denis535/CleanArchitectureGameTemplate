@@ -53,12 +53,10 @@ namespace UnityEngine.UIElements {
             element.text = text;
             return element;
         }
-        public static T Name<T>(this T element, string? name, string? classes = null) where T : VisualElement {
+        public static T SetUp<T>(this T element, string? name, params string[] classes) where T : VisualElement {
             element.name = name;
-            if (classes != null) {
-                foreach (var @class in classes.Split( '.', StringSplitOptions.RemoveEmptyEntries ).Select( i => i.Trim() )) {
-                    element.AddToClassList( @class );
-                }
+            foreach (var @class in classes.SelectMany( i => i.Split( '.' ) )) {
+                element.AddToClassList( @class.Trim() );
             }
             return element;
         }
