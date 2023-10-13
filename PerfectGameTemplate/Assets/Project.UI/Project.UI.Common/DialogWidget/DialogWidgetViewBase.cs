@@ -33,7 +33,7 @@ namespace Project.UI.Common {
 
         // OnSubmit
         public void OnSubmit(string text, Action? callback) {
-            var button = UIFactory.Button( text ).SetUp( "submit" );
+            var button = UIFactory.Button( text ).Name( "submit" );
             button.OnClick( evt => {
                 if (button.IsValid()) {
                     callback?.Invoke();
@@ -42,7 +42,7 @@ namespace Project.UI.Common {
             footer.Add( button );
         }
         public void OnCancel(string text, Action? callback) {
-            var button = UIFactory.Button( text ).SetUp( "cancel" );
+            var button = UIFactory.Button( text ).Name( "cancel" );
             button.OnClick( evt => {
                 if (button.IsValid()) {
                     callback?.Invoke();
@@ -69,14 +69,14 @@ namespace Project.UI.Common {
         // Helpers
         private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return card = UIFactory.Card(
-                i => i.SetUp( null, "unity-dialog-card" ),
+                i => i.Name( null ).Classes( "unity-dialog-card" ),
                 header = UIFactory.Header(
                     i => i.SetDisplayed( false ),
-                    title = UIFactory.Label( null ).SetUp( "title" )
+                    title = UIFactory.Label( null ).Name( "title" )
                 ),
                 content = UIFactory.Content(
                     i => i.SetDisplayed( false ),
-                    message = UIFactory.Label( null ).SetUp( "message" )
+                    message = UIFactory.Label( null ).Name( "message" )
                 ),
                 footer = UIFactory.Footer(
                     i => i.SetDisplayed( false )
@@ -102,14 +102,14 @@ namespace Project.UI.Common {
         // Helpers
         private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return card = UIFactory.Card(
-                i => i.SetUp( null, "unity-info-dialog-card" ),
+                i => i.Name( null ).Classes( "unity-info-dialog-card" ),
                 header = UIFactory.Header(
                     i => i.SetDisplayed( false ),
-                    title = UIFactory.Label( null ).SetUp( "title" )
+                    title = UIFactory.Label( null ).Name( "title" )
                 ),
                 content = UIFactory.Content(
                     i => i.SetDisplayed( false ),
-                    message = UIFactory.Label( null ).SetUp( "message" )
+                    message = UIFactory.Label( null ).Name( "message" )
                 ),
                 footer = UIFactory.Footer(
                     i => i.SetDisplayed( false )
@@ -135,14 +135,14 @@ namespace Project.UI.Common {
         // Helpers
         private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return card = UIFactory.Card(
-                i => i.SetUp( null, "unity-warning-dialog-card" ),
+                i => i.Name( null ).Classes( "unity-warning-dialog-card" ),
                 header = UIFactory.Header(
                     i => i.SetDisplayed( false ),
-                    title = UIFactory.Label( null ).SetUp( "title" )
+                    title = UIFactory.Label( null ).Name( "title" )
                 ),
                 content = UIFactory.Content(
                     i => i.SetDisplayed( false ),
-                    message = UIFactory.Label( null ).SetUp( "message" )
+                    message = UIFactory.Label( null ).Name( "message" )
                 ),
                 footer = UIFactory.Footer(
                     i => i.SetDisplayed( false )
@@ -168,14 +168,14 @@ namespace Project.UI.Common {
         // Helpers
         private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return card = UIFactory.Card(
-                i => i.SetUp( null, "unity-error-dialog-card" ),
+                i => i.Name( null ).Classes( "unity-error-dialog-card" ),
                 header = UIFactory.Header(
                     i => i.SetDisplayed( false ),
-                    title = UIFactory.Label( null ).SetUp( "title" )
+                    title = UIFactory.Label( null ).Name( "title" )
                 ),
                 content = UIFactory.Content(
                     i => i.SetDisplayed( false ),
-                    message = UIFactory.Label( null ).SetUp( "message" )
+                    message = UIFactory.Label( null ).Name( "message" )
                 ),
                 footer = UIFactory.Footer(
                     i => i.SetDisplayed( false )

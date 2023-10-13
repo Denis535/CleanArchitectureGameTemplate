@@ -52,17 +52,17 @@ namespace Project.UI.Common {
         private static Card GetContent(out Label title, out TextField name, out Button okey, out Button back) {
             return UIFactory.Card(
                 UIFactory.Header(
-                    title = UIFactory.Label( "Player Profile" ).SetUp( "title" )
+                    title = UIFactory.Label( "Player Profile" ).Name( "title" )
                 ),
                 UIFactory.Content(
                     UIFactory.ColumnGroup(
-                        i => i.SetUp( null, "dark2", "large", "grow-1" ),
-                        name = UIFactory.TextField( "Name", 16, false ).SetUp( "name", "label-width-25" )
+                        i => i.Name( null ).Classes( "dark2", "large", "grow-1" ),
+                        name = UIFactory.TextField( "Name", 16, false ).Name( "name" ).Classes( "label-width-25" )
                     )
                 ),
                 UIFactory.Footer(
-                    okey = UIFactory.Button( "Ok" ).SetUp( "okey" ),
-                    back = UIFactory.Button( "Back" ).SetUp( "back" )
+                    okey = UIFactory.Button( "Ok" ).Name( "okey" ),
+                    back = UIFactory.Button( "Back" ).Name( "back" )
                 )
             );
         }

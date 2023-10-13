@@ -51,12 +51,12 @@ namespace Project.UI.GameScreen {
         private static Card GetContent(out Label title, out Button resume, out Button settings, out Button back) {
             return UIFactory.Card(
                 UIFactory.Header(
-                    title = UIFactory.Label( "Game Menu" ).SetUp( "title" )
+                    title = UIFactory.Label( "Game Menu" ).Name( "title" )
                 ),
                 UIFactory.Content(
-                    resume = UIFactory.Button( "Resume" ).SetUp( "resume" ),
-                    settings = UIFactory.Button( "Settings" ).SetUp( "settings" ),
-                    back = UIFactory.Button( "Back To Main Menu" ).SetUp( "back" )
+                    resume = UIFactory.Button( "Resume" ).Name( "resume" ),
+                    settings = UIFactory.Button( "Settings" ).Name( "settings" ),
+                    back = UIFactory.Button( "Back To Main Menu" ).Name( "back" )
                 ),
                 null
             );

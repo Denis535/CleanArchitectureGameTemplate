@@ -69,20 +69,20 @@ namespace Project.UI.Common {
         private static Card GetContent(out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
             return UIFactory.Card(
                 UIFactory.Header(
-                    title = UIFactory.Label( "Audio Settings" ).SetUp( "title" )
+                    title = UIFactory.Label( "Audio Settings" ).Name( "title" )
                 ),
                 UIFactory.Content(
                     UIFactory.ColumnGroup(
-                        i => i.SetUp( null, "dark2", "large", "grow-1" ),
-                        masterVolume = UIFactory.Slider( "Master Volume", 0, 1 ).SetUp( "master-volume", "label-width-25" ),
-                        musicVolume = UIFactory.Slider( "Music Volume", 0, 1 ).SetUp( "music-volume", "label-width-25" ),
-                        sfxVolume = UIFactory.Slider( "Sfx Volume", 0, 1 ).SetUp( "sfx-volume", "label-width-25" ),
-                        gameVolume = UIFactory.Slider( "Game Volume", 0, 1 ).SetUp( "game-volume", "label-width-25" )
+                        i => i.Name( null ).Classes( "dark2", "large", "grow-1" ),
+                        masterVolume = UIFactory.Slider( "Master Volume", 0, 1 ).Name( "master-volume" ).Classes( "label-width-25" ),
+                        musicVolume = UIFactory.Slider( "Music Volume", 0, 1 ).Name( "music-volume" ).Classes( "label-width-25" ),
+                        sfxVolume = UIFactory.Slider( "Sfx Volume", 0, 1 ).Name( "sfx-volume" ).Classes( "label-width-25" ),
+                        gameVolume = UIFactory.Slider( "Game Volume", 0, 1 ).Name( "game-volume" ).Classes( "label-width-25" )
                     )
                 ),
                 UIFactory.Footer(
-                    okey = UIFactory.Button( "Ok" ).SetUp( "okey" ),
-                    back = UIFactory.Button( "Back" ).SetUp( "back" )
+                    okey = UIFactory.Button( "Ok" ).Name( "okey" ),
+                    back = UIFactory.Button( "Back" ).Name( "back" )
                 )
             );
         }

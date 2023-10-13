@@ -49,18 +49,18 @@ namespace Project.UI.MainScreen {
         private static Card GetContent(out Label title, out GameView game, out PlayerView player, out Button okey, out Button back) {
             return UIFactory.Card(
                 UIFactory.Header(
-                    title = UIFactory.Label( "Join Game" ).SetUp( "title" )
+                    title = UIFactory.Label( "Join Game" ).Name( "title" )
                 ),
                 UIFactory.Content(
                     UIFactory.RowScope(
-                        i => i.SetUp( null, "grow-0", "basis-40" ),
-                        game = new GameView().SetUp( null, "grow-1", "basis-0" ),
-                        player = new PlayerView().SetUp( null, "grow-1", "basis-0" )
+                        i => i.Name( null ).Classes( "grow-0", "basis-40" ),
+                        game = new GameView().Name( null ).Classes( "grow-1", "basis-0" ),
+                        player = new PlayerView().Name( null ).Classes( "grow-1", "basis-0" )
                     )
                 ),
                 UIFactory.Footer(
-                    okey = UIFactory.Button( "Ok" ).SetUp( "okey" ),
-                    back = UIFactory.Button( "Back" ).SetUp( "back" )
+                    okey = UIFactory.Button( "Ok" ).Name( "okey" ),
+                    back = UIFactory.Button( "Back" ).Name( "back" )
                 )
             );
         }
@@ -111,15 +111,15 @@ namespace Project.UI.MainScreen {
             // Helpers
             private static ColumnGroup GetContent(out Label title, out TextField gameName, out DropdownField2 gameMode, out DropdownField2 gameWorld, out Toggle isGamePrivate) {
                 return UIFactory.ColumnGroup(
-                    i => i.SetUp( null, "light5", "medium", "grow-1" ),
-                    title = UIFactory.Label( "Game" ).SetUp( "title", "title" ),
+                    i => i.Name( null ).Classes( "light5", "medium", "grow-1" ),
+                    title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
                     UIFactory.RowScope(
-                        gameName = UIFactory.TextFieldReadOnly( "Name", 100, false ).SetUp( "game-name", "label-width-150px", "grow-1" )
+                        gameName = UIFactory.TextFieldReadOnly( "Name", 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
                     ),
                     UIFactory.RowScope(
-                        gameMode = UIFactory.DropdownField( "Mode" ).SetUp( "game-mode", ".label-width-150px", "grow-1" ),
-                        gameWorld = UIFactory.DropdownField( "World" ).SetUp( "game-world", ".label-width-150px", "grow-1" ),
-                        isGamePrivate = UIFactory.Toggle( "Private" ).SetUp( "is-game-private", ".label-width-150px", "grow-0" )
+                        gameMode = UIFactory.DropdownField( "Mode" ).Name( "game-mode" ).Classes( ".label-width-150px", "grow-1" ),
+                        gameWorld = UIFactory.DropdownField( "World" ).Name( "game-world" ).Classes( ".label-width-150px", "grow-1" ),
+                        isGamePrivate = UIFactory.Toggle( "Private" ).Name( "is-game-private" ).Classes( ".label-width-150px", "grow-0" )
                     )
                 );
             }
@@ -157,13 +157,13 @@ namespace Project.UI.MainScreen {
             // Helpers
             private static ColumnGroup GetContent(out Label title, out TextField playerName, out DropdownField2 playerRole) {
                 return UIFactory.ColumnGroup(
-                    i => i.SetUp( null, "light5", "medium", "grow-1" ),
-                    title = UIFactory.Label( "Player" ).SetUp( "title", "title" ),
+                    i => i.Name( null ).Classes( "light5", "medium", "grow-1" ),
+                    title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
                     UIFactory.RowScope(
-                        playerName = UIFactory.TextFieldReadOnly( "Name", 100, false ).SetUp( "player-name", "label-width-150px", "grow-1" )
+                        playerName = UIFactory.TextFieldReadOnly( "Name", 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
                     ),
                     UIFactory.RowScope(
-                        playerRole = UIFactory.DropdownField( "Role" ).SetUp( "player-role", "label-width-150px", "grow-1" )
+                        playerRole = UIFactory.DropdownField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" )
                     )
                 );
             }
