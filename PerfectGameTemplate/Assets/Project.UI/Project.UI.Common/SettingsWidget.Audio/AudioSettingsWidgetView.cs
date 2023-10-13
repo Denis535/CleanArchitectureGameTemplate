@@ -21,13 +21,13 @@ namespace Project.UI.Common {
     public partial class AudioSettingsWidgetView : UIWidgetViewBase {
 
         // Content
-        private Label title = default!;
-        private Slider masterVolume = default!;
-        private Slider musicVolume = default!;
-        private Slider sfxVolume = default!;
-        private Slider gameVolume = default!;
-        private Button okey = default!;
-        private Button back = default!;
+        private readonly Label title;
+        private readonly Slider masterVolume;
+        private readonly Slider musicVolume;
+        private readonly Slider sfxVolume;
+        private readonly Slider gameVolume;
+        private readonly Button okey;
+        private readonly Button back;
         // Props
         public TextElementWrapper Title => title.Wrap();
         public SliderFieldWrapper<float> MasterVolume => masterVolume.Wrap();
@@ -40,18 +40,8 @@ namespace Project.UI.Common {
         // Constructor
         public AudioSettingsWidgetView() {
             AddToClassList( "middle-widget-view" );
-            Add( CreateCard() );
-        }
-        public override void Initialize() {
-            base.Initialize();
             // Content
-            title = this.RequireElement<Label>( "title" );
-            masterVolume = this.RequireElement<Slider>( "master-volume" );
-            musicVolume = this.RequireElement<Slider>( "music-volume" );
-            sfxVolume = this.RequireElement<Slider>( "sfx-volume" );
-            gameVolume = this.RequireElement<Slider>( "game-volume" );
-            okey = this.RequireElement<Button>( "okey" );
-            back = this.RequireElement<Button>( "back" );
+            Add( GetContent( out title, out masterVolume, out musicVolume, out sfxVolume, out gameVolume, out okey, out back ) );
             // OnEvent
             this.OnAttachToPanel( evt => {
             } );
@@ -74,28 +64,31 @@ namespace Project.UI.Common {
                 new BackCommand().Execute( this );
             } );
         }
+        public override void Initialize() {
+            base.Initialize();
+        }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static Card CreateCard() {
+        private static Card GetContent(out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
             return UIFactory.Card(
                 UIFactory.Header(
-                    UIFactory.Label( "Audio Settings", "title" )
+                    title = UIFactory.Label( "Audio Settings", "title" )
                 ),
                 UIFactory.Content(
                     UIFactory.ColumnGroup(
                         i => i.SetUp( null, ".dark2.large.grow-1" ),
-                        UIFactory.Slider( "Master Volume", 0, 1, "master-volume", "label-width-25" ),
-                        UIFactory.Slider( "Music Volume", 0, 1, "music-volume", "label-width-25" ),
-                        UIFactory.Slider( "Sfx Volume", 0, 1, "sfx-volume", "label-width-25" ),
-                        UIFactory.Slider( "Game Volume", 0, 1, "game-volume", "label-width-25" )
+                        masterVolume = UIFactory.Slider( "Master Volume", 0, 1, "master-volume", "label-width-25" ),
+                        musicVolume = UIFactory.Slider( "Music Volume", 0, 1, "music-volume", "label-width-25" ),
+                        sfxVolume = UIFactory.Slider( "Sfx Volume", 0, 1, "sfx-volume", "label-width-25" ),
+                        gameVolume = UIFactory.Slider( "Game Volume", 0, 1, "game-volume", "label-width-25" )
                     )
                 ),
                 UIFactory.Footer(
-                    UIFactory.Button( "Ok", "okey" ),
-                    UIFactory.Button( "Back", "back" )
+                    okey = UIFactory.Button( "Ok", "okey" ),
+                    back = UIFactory.Button( "Back", "back" )
                 )
             );
         }

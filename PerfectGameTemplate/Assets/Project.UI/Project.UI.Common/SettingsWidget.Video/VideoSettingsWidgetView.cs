@@ -20,12 +20,12 @@ namespace Project.UI.Common {
     public partial class VideoSettingsWidgetView : UIWidgetViewBase {
 
         // Content
-        private Label title = default!;
-        private Toggle isFullScreen = default!;
-        private DropdownField2 screenResolution = default!;
-        private Toggle isVSync = default!;
-        private Button okey = default!;
-        private Button back = default!;
+        private readonly Label title;
+        private readonly Toggle isFullScreen;
+        private readonly DropdownField2 screenResolution;
+        private readonly Toggle isVSync;
+        private readonly Button okey;
+        private readonly Button back;
         // Props
         public TextElementWrapper Title => title.Wrap();
         public FieldWrapper<bool> IsFullScreen => isFullScreen.Wrap();
@@ -37,17 +37,8 @@ namespace Project.UI.Common {
         // Constructor
         public VideoSettingsWidgetView() {
             AddToClassList( "middle-widget-view" );
-            Add( CreateCard() );
-        }
-        public override void Initialize() {
-            base.Initialize();
             // Content
-            title = this.RequireElement<Label>( "title" );
-            isFullScreen = this.RequireElement<Toggle>( "is-full-screen" );
-            screenResolution = this.RequireElement<DropdownField2>( "screen-resolution" );
-            isVSync = this.RequireElement<Toggle>( "is-v-sync" );
-            okey = this.RequireElement<Button>( "okey" );
-            back = this.RequireElement<Button>( "back" );
+            Add( GetContent( out title, out isFullScreen, out screenResolution, out isVSync, out okey, out back ) );
             // OnEvent
             this.OnAttachToPanel( evt => {
             } );
@@ -67,27 +58,30 @@ namespace Project.UI.Common {
                 new BackCommand().Execute( this );
             } );
         }
+        public override void Initialize() {
+            base.Initialize();
+        }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static Card CreateCard() {
+        private static Card GetContent(out Label title, out Toggle isFullScreen, out DropdownField2 screenResolution, out Toggle isVSync, out Button okey, out Button back) {
             return UIFactory.Card(
                 UIFactory.Header(
-                    UIFactory.Label( "Video Settings", "title" )
+                    title = UIFactory.Label( "Video Settings", "title" )
                 ),
                 UIFactory.Content(
                     UIFactory.ColumnGroup(
                         i => i.SetUp( null, ".dark2.large.grow-1" ),
-                        UIFactory.Toggle( "Full Screen", "is-full-screen", "label-width-25" ),
-                        UIFactory.DropdownField( "Screen Resolution", "screen-resolution", "label-width-25" ),
-                        UIFactory.Toggle( "V-Sync", "is-v-sync", "label-width-25" )
+                        isFullScreen = UIFactory.Toggle( "Full Screen", "is-full-screen", "label-width-25" ),
+                        screenResolution = UIFactory.DropdownField( "Screen Resolution", "screen-resolution", "label-width-25" ),
+                        isVSync = UIFactory.Toggle( "V-Sync", "is-v-sync", "label-width-25" )
                     )
                 ),
                 UIFactory.Footer(
-                    UIFactory.Button( "Ok", "okey" ),
-                    UIFactory.Button( "Back", "back" )
+                    okey = UIFactory.Button( "Ok", "okey" ),
+                    back = UIFactory.Button( "Back", "back" )
                 )
             );
         }

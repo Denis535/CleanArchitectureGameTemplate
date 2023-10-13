@@ -62,7 +62,8 @@ namespace Project.UI.Common {
         public DialogWidgetView() {
             AddToClassList( "modal-widget-view" );
             AddToClassList( "dialog-widget-view" );
-            Add( CreateCard( out card, out header, out content, out footer, out title, out message ) );
+            // Content
+            Add( GetContent( out card, out header, out content, out footer, out title, out message ) );
         }
         public override void Initialize() {
             base.Initialize();
@@ -72,7 +73,7 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static Card CreateCard(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+        private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return card = UIFactory.Card(
                 i => i.SetUp( null, "unity-dialog-card" ),
                 header = UIFactory.Header(
@@ -97,7 +98,8 @@ namespace Project.UI.Common {
         public InfoDialogWidgetView() {
             AddToClassList( "modal-widget-view" );
             AddToClassList( "info-dialog-widget-view" );
-            Add( CreateCard( out card, out header, out content, out footer, out title, out message ) );
+            // Content
+            Add( GetContent( out card, out header, out content, out footer, out title, out message ) );
         }
         public override void Initialize() {
             base.Initialize();
@@ -107,7 +109,7 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static Card CreateCard(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+        private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return card = UIFactory.Card(
                 i => i.SetUp( null, "unity-info-dialog-card" ),
                 header = UIFactory.Header(
@@ -132,7 +134,8 @@ namespace Project.UI.Common {
         public WarningDialogWidgetView() {
             AddToClassList( "modal-widget-view" );
             AddToClassList( "warning-dialog-widget-view" );
-            Add( CreateCard( out card, out header, out content, out footer, out title, out message ) );
+            // Content
+            Add( GetContent( out card, out header, out content, out footer, out title, out message ) );
         }
         public override void Initialize() {
             base.Initialize();
@@ -142,7 +145,7 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static Card CreateCard(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+        private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return card = UIFactory.Card(
                 i => i.SetUp( null, "unity-warning-dialog-card" ),
                 header = UIFactory.Header(
@@ -167,7 +170,8 @@ namespace Project.UI.Common {
         public ErrorDialogWidgetView() {
             AddToClassList( "modal-widget-view" );
             AddToClassList( "error-dialog-widget-view" );
-            Add( CreateCard( out card, out header, out content, out footer, out title, out message ) );
+            // Content
+            Add( GetContent( out card, out header, out content, out footer, out title, out message ) );
         }
         public override void Initialize() {
             base.Initialize();
@@ -177,7 +181,7 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static Card CreateCard(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+        private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return card = UIFactory.Card(
                 i => i.SetUp( null, "unity-error-dialog-card" ),
                 header = UIFactory.Header(

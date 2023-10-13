@@ -18,10 +18,10 @@ namespace Project.UI.Common {
     public partial class PlayerProfileWidgetView : UIWidgetViewBase {
 
         // Content
-        private Label title = default!;
-        private new TextField name = default!;
-        private Button okey = default!;
-        private Button back = default!;
+        private readonly Label title;
+        private readonly new TextField name;
+        private readonly Button okey;
+        private readonly Button back;
         // Props
         public TextElementWrapper Title => title.Wrap();
         public FieldWrapper<string> Name => name.Wrap();
@@ -31,15 +31,8 @@ namespace Project.UI.Common {
         // Constructor
         public PlayerProfileWidgetView() {
             AddToClassList( "middle-widget-view" );
-            Add( CreateCard() );
-        }
-        public override void Initialize() {
-            base.Initialize();
             // Content
-            title = this.RequireElement<Label>( "title" );
-            name = this.RequireElement<TextField>( "name" );
-            okey = this.RequireElement<Button>( "okey" );
-            back = this.RequireElement<Button>( "back" );
+            Add( GetContent( out title, out name, out okey, out back ) );
             // OnEvent
             this.OnAttachToPanel( evt => {
                 new NameEvent( Name.Value! ).Raise( this );
@@ -54,25 +47,28 @@ namespace Project.UI.Common {
                 new BackCommand().Execute( this );
             } );
         }
+        public override void Initialize() {
+            base.Initialize();
+        }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static Card CreateCard() {
+        private static Card GetContent(out Label title, out TextField name, out Button okey, out Button back) {
             return UIFactory.Card(
                 UIFactory.Header(
-                    UIFactory.Label( "Player Profile", "title" )
+                    title = UIFactory.Label( "Player Profile", "title" )
                 ),
                 UIFactory.Content(
                     UIFactory.ColumnGroup(
                         i => i.SetUp( null, ".dark2.large.grow-1" ),
-                        UIFactory.TextField( "Name", 16, false, "name", "label-width-25" )
+                        name = UIFactory.TextField( "Name", 16, false, "name", "label-width-25" )
                     )
                 ),
                 UIFactory.Footer(
-                    UIFactory.Button( "Ok", "okey" ),
-                    UIFactory.Button( "Back", "back" )
+                    okey = UIFactory.Button( "Ok", "okey" ),
+                    back = UIFactory.Button( "Back", "back" )
                 )
             );
         }

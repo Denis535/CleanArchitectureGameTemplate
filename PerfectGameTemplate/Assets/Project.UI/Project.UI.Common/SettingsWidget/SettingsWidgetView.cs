@@ -19,11 +19,11 @@ namespace Project.UI.Common {
     public partial class SettingsWidgetView : UIWidgetViewBase {
 
         // Content
-        private Label title = default!;
-        private Button playerProfile = default!;
-        private Button videoSettings = default!;
-        private Button audioSettings = default!;
-        private Button back = default!;
+        private readonly Label title;
+        private readonly Button playerProfile;
+        private readonly Button videoSettings;
+        private readonly Button audioSettings;
+        private readonly Button back;
         // Props
         public TextElementWrapper Title => title.Wrap();
         public TextElementWrapper PlayerProfile => playerProfile.Wrap();
@@ -34,16 +34,8 @@ namespace Project.UI.Common {
         // Constructor
         public SettingsWidgetView() {
             AddToClassList( "middle-widget-view" );
-            Add( CreateCard() );
-        }
-        public override void Initialize() {
-            base.Initialize();
             // Content
-            title = this.RequireElement<Label>( "title" );
-            playerProfile = this.RequireElement<Button>( "player-profile" );
-            videoSettings = this.RequireElement<Button>( "video-settings" );
-            audioSettings = this.RequireElement<Button>( "audio-settings" );
-            back = this.RequireElement<Button>( "back" );
+            Add( GetContent( out title, out playerProfile, out videoSettings, out audioSettings, out back ) );
             // OnEvent
             this.OnAttachToPanel( evt => {
             } );
@@ -60,26 +52,29 @@ namespace Project.UI.Common {
                 new BackCommand().Execute( this );
             } );
         }
+        public override void Initialize() {
+            base.Initialize();
+        }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static Card CreateCard() {
+        private static Card GetContent(out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
             return UIFactory.Card(
                 UIFactory.Header(
-                    UIFactory.Label( "Settings", "title" )
+                    title = UIFactory.Label( "Settings", "title" )
                 ),
                 UIFactory.Content(
                     UIFactory.ColumnGroup(
                         i => i.SetUp( null, ".dark2.large.grow-1" ),
-                        UIFactory.Button( "Player Profile", "player-profile", ".width-75.align-self-center" ),
-                        UIFactory.Button( "Video Settings", "video-settings", ".width-75.align-self-center" ),
-                        UIFactory.Button( "Audio Settings", "audio-settings", ".width-75.align-self-center" )
+                        playerProfile = UIFactory.Button( "Player Profile", "player-profile", ".width-75.align-self-center" ),
+                        videoSettings = UIFactory.Button( "Video Settings", "video-settings", ".width-75.align-self-center" ),
+                        audioSettings = UIFactory.Button( "Audio Settings", "audio-settings", ".width-75.align-self-center" )
                     )
                 ),
                 UIFactory.Footer(
-                    UIFactory.Button( "Back", "back" )
+                    back = UIFactory.Button( "Back", "back" )
                 )
             );
         }
