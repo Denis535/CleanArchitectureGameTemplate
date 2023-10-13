@@ -56,25 +56,38 @@ namespace Project {
 
         // Helpers
         private static string GetDisplayString(object? obj) {
-            if (obj is Resolution resolution) return GetDisplayString( resolution );
+            // GameDesc
             if (obj is GameMode gameMode) return GetDisplayString( gameMode );
             if (obj is GameWorld gameWorld) return GetDisplayString( gameWorld );
+            // PlayerDesc
             if (obj is PlayerRole playerRole) return GetDisplayString( playerRole );
+            // Misc
+            if (obj is Resolution resolution) return GetDisplayString( resolution );
             return obj?.ToString() ?? "Null";
         }
-        private static string GetDisplayString(Resolution value) {
-            return $"{value.width} x {value.height}";
-        }
+        // Helpers/GameDesc
         private static string GetDisplayString(GameMode value) {
             return value switch {
+                // 1x...
                 GameMode._1x1 => "1 x 1",
                 GameMode._1x2 => "1 x 2",
                 GameMode._1x3 => "1 x 3",
                 GameMode._1x4 => "1 x 4",
-                GameMode._1x5 => "1 x 5",
-                GameMode._1x6 => "1 x 6",
-                GameMode._1x7 => "1 x 7",
-                GameMode._1x8 => "1 x 8",
+                // 2x
+                GameMode._2x1 => "2 x 1",
+                GameMode._2x2 => "2 x 2",
+                GameMode._2x3 => "2 x 3",
+                GameMode._2x4 => "2 x 4",
+                // 3x
+                GameMode._3x1 => "3 x 1",
+                GameMode._3x2 => "3 x 2",
+                GameMode._3x3 => "3 x 3",
+                GameMode._3x4 => "3 x 4",
+                // 4x
+                GameMode._4x1 => "4 x 1",
+                GameMode._4x2 => "4 x 2",
+                GameMode._4x3 => "4 x 3",
+                GameMode._4x4 => "4 x 4",
                 _ => throw Exceptions.Internal.NotSupported( $"Value {value} not supported" ),
             };
         }
@@ -85,12 +98,17 @@ namespace Project {
                 _ => throw Exceptions.Internal.NotSupported( $"Value {value} not supported" ),
             };
         }
+        // Helpers/PlayerDesc
         private static string GetDisplayString(PlayerRole value) {
             return value switch {
-                PlayerRole.Master => "Master",
-                PlayerRole.Gamer => "Gamer",
+                PlayerRole.Human => "Human",
+                PlayerRole.Monster => "Monster",
                 _ => throw Exceptions.Internal.NotSupported( $"Value {value} not supported" ),
             };
+        }
+        // Helpers/Misc
+        private static string GetDisplayString(Resolution value) {
+            return $"{value.width} x {value.height}";
         }
 
     }

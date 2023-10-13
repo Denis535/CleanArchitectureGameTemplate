@@ -61,8 +61,8 @@ namespace Project.Entities.GameScene {
         None,
         Running,
         RunningAndPaused,
-        //Finished,
-        //FinishedAndPaused,
+        //Win
+        //Lose,
     }
     // GameDesc
     public class GameDesc {
@@ -85,14 +85,26 @@ namespace Project.Entities.GameScene {
 
     }
     public enum GameMode {
+        // 1 man against ... monsters
         _1x1,
         _1x2,
         _1x3,
         _1x4,
-        _1x5,
-        _1x6,
-        _1x7,
-        _1x8,
+        // 2 man against ... monsters
+        _2x1,
+        _2x2,
+        _2x3,
+        _2x4,
+        // 3 man against ... monsters
+        _3x1,
+        _3x2,
+        _3x3,
+        _3x4,
+        // 4 man against ... monsters
+        _4x1,
+        _4x2,
+        _4x3,
+        _4x4,
     }
     public enum GameWorld {
         TestWorld1,
@@ -115,7 +127,7 @@ namespace Project.Entities.GameScene {
 
     }
     public enum PlayerRole {
-        Master,
-        Gamer,
+        Human,
+        Monster,
     }
 }
