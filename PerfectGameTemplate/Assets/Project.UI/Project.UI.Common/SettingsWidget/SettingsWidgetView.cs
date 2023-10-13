@@ -60,18 +60,18 @@ namespace Project.UI.Common {
         private static Card GetContent(out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
             return UIFactory.Card(
                 UIFactory.Header(
-                    title = UIFactory.Label( "Settings", "title" )
+                    title = UIFactory.Label( "Settings" ).SetUp( "title" )
                 ),
                 UIFactory.Content(
                     UIFactory.ColumnGroup(
-                        i => i.SetUp( null, ".dark2.large.grow-1" ),
-                        playerProfile = UIFactory.Button( "Player Profile", "player-profile", ".width-75.align-self-center" ),
-                        videoSettings = UIFactory.Button( "Video Settings", "video-settings", ".width-75.align-self-center" ),
-                        audioSettings = UIFactory.Button( "Audio Settings", "audio-settings", ".width-75.align-self-center" )
+                        i => i.SetUp( null, ".dark2", ".large", ".grow-1" ),
+                        playerProfile = UIFactory.Button( "Player Profile" ).SetUp( "player-profile", "width-75", "align-self-center" ),
+                        videoSettings = UIFactory.Button( "Video Settings" ).SetUp( "video-settings", "width-75", "align-self-center" ),
+                        audioSettings = UIFactory.Button( "Audio Settings" ).SetUp( "audio-settings", "width-75", "align-self-center" )
                     )
                 ),
                 UIFactory.Footer(
-                    back = UIFactory.Button( "Back", "back" )
+                    back = UIFactory.Button( "Back" ).SetUp( "back" )
                 )
             );
         }

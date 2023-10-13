@@ -60,13 +60,13 @@ namespace Project.UI.MainScreen {
         private static Card GetContent(out Label title, out Button createGame, out Button joinGame, out Button settings, out Button quit) {
             return UIFactory.Card(
                 UIFactory.Header(
-                    title = UIFactory.Label( "Main Menu", "main-menu" )
+                    title = UIFactory.Label( "Main Menu" ).SetUp( "main-menu" )
                 ),
                 UIFactory.Content(
-                    createGame = UIFactory.Button( "Create Game", "create-game" ),
-                    joinGame = UIFactory.Button( "Join Game", "join-game" ),
-                    settings = UIFactory.Button( "Settings", "settings" ),
-                    quit = UIFactory.Button( "Quit", "quit" )
+                    createGame = UIFactory.Button( "Create Game" ).SetUp( "create-game" ),
+                    joinGame = UIFactory.Button( "Join Game" ).SetUp( "join-game" ),
+                    settings = UIFactory.Button( "Settings" ).SetUp( "settings" ),
+                    quit = UIFactory.Button( "Quit" ).SetUp( "quit" )
                 ),
                 null
             );

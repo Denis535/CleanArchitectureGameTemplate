@@ -39,7 +39,7 @@ namespace Project.UI.MainScreen {
         private static ColumnScope GetContent(out Label loading) {
             return UIFactory.ColumnScope(
                 i => i.SetUp( null, "padding-2", "grow-1", "justify-content-end", "align-items-center" ),
-                loading = UIFactory.Label( "Loading...", "loading", "color-light", "font-size-200", "font-style-bold" )
+                loading = UIFactory.Label( "Loading..." ).SetUp( "loading", "color-light", "font-size-200", "font-style-bold" )
             );
         }
         // Helpers

@@ -36,7 +36,7 @@ namespace Project.UI.Common {
 
         // OnSubmit
         public void OnSubmit(string text, Action? callback) {
-            var button = UIFactory.Button( text, "submit" );
+            var button = UIFactory.Button( text ).SetUp( "submit" );
             button.OnClick( evt => {
                 if (button.IsValid()) {
                     callback?.Invoke();
@@ -45,7 +45,7 @@ namespace Project.UI.Common {
             footer.Add( button );
         }
         public void OnCancel(string text, Action? callback) {
-            var button = UIFactory.Button( text, "cancel" );
+            var button = UIFactory.Button( text ).SetUp( "cancel" );
             button.OnClick( evt => {
                 if (button.IsValid()) {
                     callback?.Invoke();
@@ -78,11 +78,11 @@ namespace Project.UI.Common {
                 i => i.SetUp( null, "unity-dialog-card" ),
                 header = UIFactory.Header(
                     i => i.SetDisplayed( false ),
-                    title = UIFactory.Label( null, "title" )
+                    title = UIFactory.Label( null ).SetUp( "title" )
                 ),
                 content = UIFactory.Content(
                     i => i.SetDisplayed( false ),
-                    message = UIFactory.Label( null, "message" )
+                    message = UIFactory.Label( null ).SetUp( "message" )
                 ),
                 footer = UIFactory.Footer(
                     i => i.SetDisplayed( false )
@@ -114,11 +114,11 @@ namespace Project.UI.Common {
                 i => i.SetUp( null, "unity-info-dialog-card" ),
                 header = UIFactory.Header(
                     i => i.SetDisplayed( false ),
-                    title = UIFactory.Label( null, "title" )
+                    title = UIFactory.Label( null ).SetUp( "title" )
                 ),
                 content = UIFactory.Content(
                     i => i.SetDisplayed( false ),
-                    message = UIFactory.Label( null, "message" )
+                    message = UIFactory.Label( null ).SetUp( "message" )
                 ),
                 footer = UIFactory.Footer(
                     i => i.SetDisplayed( false )
@@ -150,11 +150,11 @@ namespace Project.UI.Common {
                 i => i.SetUp( null, "unity-warning-dialog-card" ),
                 header = UIFactory.Header(
                     i => i.SetDisplayed( false ),
-                    title = UIFactory.Label( null, "title" )
+                    title = UIFactory.Label( null ).SetUp( "title" )
                 ),
                 content = UIFactory.Content(
                     i => i.SetDisplayed( false ),
-                    message = UIFactory.Label( null, "message" )
+                    message = UIFactory.Label( null ).SetUp( "message" )
                 ),
                 footer = UIFactory.Footer(
                     i => i.SetDisplayed( false )
@@ -186,11 +186,11 @@ namespace Project.UI.Common {
                 i => i.SetUp( null, "unity-error-dialog-card" ),
                 header = UIFactory.Header(
                     i => i.SetDisplayed( false ),
-                    title = UIFactory.Label( null, "title" )
+                    title = UIFactory.Label( null ).SetUp( "title" )
                 ),
                 content = UIFactory.Content(
                     i => i.SetDisplayed( false ),
-                    message = UIFactory.Label( null, "message" )
+                    message = UIFactory.Label( null ).SetUp( "message" )
                 ),
                 footer = UIFactory.Footer(
                     i => i.SetDisplayed( false )

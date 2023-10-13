@@ -65,30 +65,39 @@ namespace Project.UI {
             return new RowGroup().Pipe( callback ).Children( children );
         }
 
+        // Box
+        public static Box Box(params VisualElement[] children) {
+            return new Box().Children( children );
+        }
+        // Box
+        public static Box Box(Action<Box> callback, params VisualElement[] children) {
+            return new Box().Pipe( callback ).Children( children );
+        }
+
         // Misc
-        public static Label Label(string? text, string? name, params string[] classes) {
-            return new Label().Text( text ).SetUp( name, classes );
+        public static Label Label(string? text) {
+            return new Label().Text( text );
         }
-        public static Button Button(string? text, string? name, params string[] classes) {
-            return new Button().Text( text ).SetUp( name, classes );
+        public static Button Button(string? text) {
+            return new Button().Text( text );
         }
-        public static TextField TextField(string label, int maxLength, bool isMultiline, string? name, params string[] classes) {
-            return new TextField( label, maxLength, isMultiline, false, '*' ).SetUp( name, classes );
+        public static TextField TextField(string label, int maxLength, bool isMultiline) {
+            return new TextField( label, maxLength, isMultiline, false, '*' );
         }
-        public static TextField TextFieldReadOnly(string label, int maxLength, bool isMultiline, string? name, params string[] classes) {
-            return new TextField( label, maxLength, isMultiline, false, '*' ).Pipe( i => i.isReadOnly = true ).SetUp( name, classes );
+        public static TextField TextFieldReadOnly(string label, int maxLength, bool isMultiline) {
+            return new TextField( label, maxLength, isMultiline, false, '*' ).Pipe( i => i.isReadOnly = true );
         }
-        public static Slider Slider(string label, float min, float max, string? name, params string[] classes) {
-            return new Slider( label, min, max ).SetUp( name, classes );
+        public static Slider Slider(string label, float min, float max) {
+            return new Slider( label, min, max );
         }
-        public static SliderInt SliderInt(string label, int min, int max, string? name, params string[] classes) {
-            return new SliderInt( label, min, max ).SetUp( name, classes );
+        public static SliderInt SliderInt(string label, int min, int max) {
+            return new SliderInt( label, min, max );
         }
-        public static Toggle Toggle(string label, string? name, params string[] classes) {
-            return new Toggle( label ).SetUp( name, classes );
+        public static Toggle Toggle(string label) {
+            return new Toggle( label );
         }
-        public static DropdownField2 DropdownField(string label, string? name, params string[] classes) {
-            return new DropdownField2( label ).SetUp( name, classes );
+        public static DropdownField2 DropdownField(string label) {
+            return new DropdownField2( label );
         }
 
     }

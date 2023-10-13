@@ -66,19 +66,19 @@ namespace Project.UI.Common {
         private static Card GetContent(out Label title, out Toggle isFullScreen, out DropdownField2 screenResolution, out Toggle isVSync, out Button okey, out Button back) {
             return UIFactory.Card(
                 UIFactory.Header(
-                    title = UIFactory.Label( "Video Settings", "title" )
+                    title = UIFactory.Label( "Video Settings" ).SetUp( "title" )
                 ),
                 UIFactory.Content(
                     UIFactory.ColumnGroup(
-                        i => i.SetUp( null, ".dark2.large.grow-1" ),
-                        isFullScreen = UIFactory.Toggle( "Full Screen", "is-full-screen", "label-width-25" ),
-                        screenResolution = UIFactory.DropdownField( "Screen Resolution", "screen-resolution", "label-width-25" ),
-                        isVSync = UIFactory.Toggle( "V-Sync", "is-v-sync", "label-width-25" )
+                        i => i.SetUp( null, "dark2", "large", "grow-1" ),
+                        isFullScreen = UIFactory.Toggle( "Full Screen" ).SetUp( "is-full-screen", "label-width-25" ),
+                        screenResolution = UIFactory.DropdownField( "Screen Resolution" ).SetUp( "screen-resolution", "label-width-25" ),
+                        isVSync = UIFactory.Toggle( "V-Sync" ).SetUp( "is-v-sync", "label-width-25" )
                     )
                 ),
                 UIFactory.Footer(
-                    okey = UIFactory.Button( "Ok", "okey" ),
-                    back = UIFactory.Button( "Back", "back" )
+                    okey = UIFactory.Button( "Ok" ).SetUp( "okey" ),
+                    back = UIFactory.Button( "Back" ).SetUp( "back" )
                 )
             );
         }
