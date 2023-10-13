@@ -24,7 +24,7 @@ namespace Project.UI {
             return view;
         }
         public static CreateGameWidgetView CreateGameWidget() {
-            var view = Create<CreateGameWidgetView>( R.Project.UI.MainScreen.MainWidget.MainMenu.CreateGame.CreateGameWidgetView );
+            var view = Create<CreateGameWidgetView>();
             return view;
         }
         public static CreateGameWidgetView2 CreateGameWidget2() {
