@@ -36,10 +36,6 @@ namespace UnityEngine.AddressableAssets {
                                 public const string @JoinGameWidgetView2 = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml";
                                 public const string @JoinGameWidgetView2__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml[inlineStyle]";
                             }
-                            public static class @Loading {
-                                public const string @LoadingWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.Loading/LoadingWidgetView.uxml";
-                                public const string @LoadingWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.Loading/LoadingWidgetView.uxml[inlineStyle]";
-                            }
                         }
                     }
                     public static class @Music {

@@ -115,17 +115,17 @@ add-style( '.padding-bottom-{key}',                  'padding-bottom',          
 add-style( '.padding-left-{key}',                    'padding-left',                i, i       ) for i in flatten(range(-100%,  100%), range(-200px,  200px))
 add-style( '.padding-right-{key}',                   'padding-right',               i, i       ) for i in flatten(range(-100%,  100%), range(-200px,  200px))
 
-/* flex */
-add-style( '.grow-{key}',                            'flex-grow',                   i, i       ) for i in range(0, 100)
-add-style( '.shrink-{key}',                          'flex-shrink',                 i, i       ) for i in range(0, 100)
-add-style( '.basis-{key}',                           'flex-basis',                  i, i       ) for i in flatten(auto, range(0%, 100%), range(0px, 200px))
-add-style( '.align-self-{key}',                      'align-self',                  i, i       ) for i in flex-start flex-end center stretch
 /* flex/container */
 add-style( '.{key}',                                 'flex-direction',              i, i       ) for i in column column-reverse row row-reverse
 add-style( '.{key}',                                 'flex-wrap',                   i, i       ) for i in nowrap wrap wrap-reverse
-add-style( '.justify-content-{key}',                 'justify-content',             i, i       ) for i in flex-start flex-end center space-between space-around
-add-style( '.align-items-{key}',                     'align-items',                 i, i       ) for i in flex-start flex-end center stretch
+add-style( '.justify-content-{key}',                 'justify-content',             i, i       ) for i in flex-start flex-end center space-between space-around // justify children along main-axis
+add-style( '.align-items-{key}',                     'align-items',                 i, i       ) for i in flex-start flex-end center stretch // align children on cross-axis
 add-style( '.align-content-{key}',                   'align-content',               i, i       ) for i in flex-start flex-end center stretch
+/* flex/self */
+add-style( '.grow-{key}',                            'flex-grow',                   i, i       ) for i in range(0, 100)
+add-style( '.shrink-{key}',                          'flex-shrink',                 i, i       ) for i in range(0, 100)
+add-style( '.basis-{key}',                           'flex-basis',                  i, i       ) for i in flatten(auto, range(0%, 100%), range(0px, 200px))
+add-style( '.align-self-{key}',                      'align-self',                  i, i       ) for i in flex-start flex-end center stretch // align-self on cross-axis
 
 /* transform */
 add-style( '.transform-origin-{key}',                'transform-origin',            i, i       ) for i in center (center top) (center bottom) (center left) (center right) (top left) (top right) (bottom left) (bottom right)

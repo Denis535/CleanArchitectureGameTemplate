@@ -121,19 +121,19 @@ padding-bottom
 padding-left
 padding-right
 
-## Flex
+## Flex/Container
+flex-direction
+flex-wrap
+justify-content - justify children along of main-axis (start/end)
+align-items - align children on cross-axis (around of main-axis) (left/right)
+align-content - align children on cross-axis (around of main-axis) (left/right)
+
+## Flex/Self
 flex
 flex-grow
 flex-shrink
 flex-basis
 align-self
-
-## Flex/Container
-flex-direction
-flex-wrap
-justify-content - justify content along of axis (start/end)
-align-items - align items around of axis (left/right)
-align-content - align content around of axis (left/right)
 
 ## Transform
 transform-origin

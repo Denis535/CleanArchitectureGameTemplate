@@ -6,37 +6,42 @@ namespace Project.UI.MainScreen {
     using System.Text;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.Scripting;
     using UnityEngine.UIElements;
     using UnityEngine.UIElements.Experimental;
 
     public partial class LoadingWidgetView {
-        [Preserve]
-        public new class UxmlFactory : UxmlFactory<LoadingWidgetView, UxmlTraits> { }
     }
     public partial class LoadingWidgetView : UIWidgetViewBase {
 
         // Content
-        private Label loading = default!;
+        private readonly Label loading;
         // Props
         public TextElementWrapper Loading => loading.Wrap();
 
         // Constructor
         public LoadingWidgetView() {
-        }
-        public override void Initialize() {
-            base.Initialize();
+            AddToClassList( "widget-view" );
             // Content
-            loading = this.RequireElement<Label>( null );
+            Add( GetContent( out loading ) );
             // OnEvent
             this.OnAttachToPanel( evt => {
                 PlayLoading( loading );
             } );
         }
+        public override void Initialize() {
+            base.Initialize();
+        }
         public override void Dispose() {
             base.Dispose();
         }
 
+        // Helpers
+        private static ColumnScope GetContent(out Label loading) {
+            return UIFactory.ColumnScope(
+                i => i.SetUp( null, "grow-1", "justify-content-end", "align-items-center" ),
+                loading = UIFactory.Label( "Loading...", "loading", "color-light", "font-size-200", "font-style-bold", "margin-2" )
+            );
+        }
         // Helpers
         private static void PlayLoading(Label label) {
             var animation = ValueAnimation<float>.Create( label, Mathf.Lerp );

@@ -40,7 +40,7 @@ namespace Project.UI {
             return view;
         }
         public static LoadingWidgetView LoadingWidget() {
-            var view = Create<LoadingWidgetView>( R.Project.UI.MainScreen.MainWidget.MainMenu.Loading.LoadingWidgetView );
+            var view = Create<LoadingWidgetView>();
             return view;
         }
 
