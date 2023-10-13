@@ -14,11 +14,11 @@ namespace Project.UI.MainScreen {
     public partial class CreateGameWidgetView2 : UIWidgetViewBase {
 
         // Content
-        private Label title = default!;
-        private GameView game = default!;
-        private PlayerView player = default!;
-        private Button okey = default!;
-        private Button back = default!;
+        private readonly Label title;
+        private readonly GameView game;
+        private readonly PlayerView player;
+        private readonly Button okey;
+        private readonly Button back;
         // Props
         public TextElementWrapper Title => title.Wrap();
         public GameView Game => game;
@@ -81,11 +81,11 @@ namespace Project.UI.MainScreen {
             public record IsGamePrivateEvent(bool IsGamePrivate) : UIEvent<GameView>;
 
             // Content
-            private Label title = default!;
-            private TextField gameName = default!;
-            private DropdownField2 gameMode = default!;
-            private DropdownField2 gameWorld = default!;
-            private Toggle isGamePrivate = default!;
+            private readonly Label title = default!;
+            private readonly TextField gameName = default!;
+            private readonly DropdownField2 gameMode = default!;
+            private readonly DropdownField2 gameWorld = default!;
+            private readonly Toggle isGamePrivate = default!;
             // Props
             public TextElementWrapper Title => title.Wrap();
             public FieldWrapper<string> GameName => gameName.Wrap();
@@ -140,9 +140,9 @@ namespace Project.UI.MainScreen {
             public record PlayerRoleEvent(object? PlayerRole) : UIEvent<PlayerView>;
 
             // Content
-            private Label title = default!;
-            private TextField playerName = default!;
-            private DropdownField2 playerRole = default!;
+            private readonly Label title = default!;
+            private readonly TextField playerName = default!;
+            private readonly DropdownField2 playerRole = default!;
             // Props
             public TextElementWrapper Title => title.Wrap();
             public FieldWrapper<string> PlayerName => playerName.Wrap();

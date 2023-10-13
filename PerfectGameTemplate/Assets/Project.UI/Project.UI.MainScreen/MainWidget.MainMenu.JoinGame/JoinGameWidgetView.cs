@@ -5,23 +5,20 @@ namespace Project.UI.MainScreen {
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.Scripting;
     using UnityEngine.UIElements;
 
     public partial class JoinGameWidgetView {
-        [Preserve]
-        public new class UxmlFactory : UxmlFactory<JoinGameWidgetView, UxmlTraits> { }
         public record OkeyCommand() : UICommand<JoinGameWidgetView>;
         public record BackCommand() : UICommand<JoinGameWidgetView>;
     }
     public partial class JoinGameWidgetView : UIWidgetViewBase {
 
         // Content
-        private Label title = default!;
-        private GameView game = default!;
-        private PlayerView player = default!;
-        private Button okey = default!;
-        private Button back = default!;
+        private readonly Label title;
+        private readonly GameView game;
+        private readonly PlayerView player;
+        private readonly Button okey;
+        private readonly Button back;
         // Props
         public TextElementWrapper Title => title.Wrap();
         public GameView Game => game;
@@ -31,15 +28,9 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public JoinGameWidgetView() {
-        }
-        public override void Initialize() {
-            base.Initialize();
+            AddToClassList( "large-widget-view" );
             // Content
-            title = this.RequireElement<Label>( "title" );
-            game = this.RequireElement<GameView>( null );
-            player = this.RequireElement<PlayerView>( null );
-            okey = this.RequireElement<Button>( "okey" );
-            back = this.RequireElement<Button>( "back" );
+            Add( GetContent( out title, out game, out player, out okey, out back ) );
             // OnEvent
             this.OnAttachToPanel( evt => {
             } );
@@ -50,26 +41,47 @@ namespace Project.UI.MainScreen {
                 new BackCommand().Execute( this );
             } );
         }
+        public override void Initialize() {
+            base.Initialize();
+        }
         public override void Dispose() {
             base.Dispose();
+        }
+
+        // Helpers
+        private static Card GetContent(out Label title, out GameView game, out PlayerView player, out Button okey, out Button back) {
+            return UIFactory.Card(
+                UIFactory.Header(
+                    title = UIFactory.Label( "Join Game", "title" )
+                ),
+                UIFactory.Content(
+                    UIFactory.RowScope(
+                        i => i.SetUp( null, "grow-0", "basis-40" ),
+                        game = new GameView().SetUp( null, "grow-1", "basis-0" ),
+                        player = new PlayerView().SetUp( null, "grow-1", "basis-0" )
+                    )
+                ),
+                UIFactory.Footer(
+                    okey = UIFactory.Button( "Ok", "okey" ),
+                    back = UIFactory.Button( "Back", "back" )
+                )
+            );
         }
 
     }
     public partial class JoinGameWidgetView : UIWidgetViewBase {
         public class GameView : UISubViewBase {
-            [Preserve]
-            public new class UxmlFactory : UxmlFactory<GameView, UxmlTraits> { }
             public record GameNameEvent(string GameName) : UIEvent<GameView>;
             public record GameModeEvent(object? GameMode) : UIEvent<GameView>;
             public record GameWorldEvent(object? GameWorld) : UIEvent<GameView>;
             public record IsGamePrivateEvent(bool IsGamePrivate) : UIEvent<GameView>;
 
             // Content
-            private Label title = default!;
-            private TextField gameName = default!;
-            private DropdownField2 gameMode = default!;
-            private DropdownField2 gameWorld = default!;
-            private Toggle isGamePrivate = default!;
+            private readonly Label title;
+            private readonly TextField gameName;
+            private readonly DropdownField2 gameMode;
+            private readonly DropdownField2 gameWorld;
+            private readonly Toggle isGamePrivate;
             // Props
             public TextElementWrapper Title => title.Wrap();
             public FieldWrapper<string> GameName => gameName.Wrap();
@@ -79,15 +91,8 @@ namespace Project.UI.MainScreen {
 
             // Constructor
             public GameView() {
-            }
-            public override void Initialize() {
-                base.Initialize();
                 // Content
-                title = this.RequireElement<Label>( null );
-                gameName = this.RequireElement<TextField>( "game-name" );
-                gameMode = this.RequireElement<DropdownField2>( "game-mode" );
-                gameWorld = this.RequireElement<DropdownField2>( "game-world" );
-                isGamePrivate = this.RequireElement<Toggle>( "is-game-private" );
+                Add( GetContent( out title, out gameName, out gameMode, out gameWorld, out isGamePrivate ) );
                 // OnEvent
                 gameName.OnChange( evt => {
                     new GameNameEvent( evt.newValue ).Raise( this );
@@ -102,21 +107,38 @@ namespace Project.UI.MainScreen {
                     new IsGamePrivateEvent( evt.newValue ).Raise( this );
                 } );
             }
+            public override void Initialize() {
+                base.Initialize();
+            }
             public override void Dispose() {
                 base.Dispose();
             }
 
+            // Helpers
+            private static ColumnGroup GetContent(out Label title, out TextField gameName, out DropdownField2 gameMode, out DropdownField2 gameWorld, out Toggle isGamePrivate) {
+                return UIFactory.ColumnGroup(
+                    i => i.SetUp( null, "light5", "medium", "grow-1" ),
+                    title = UIFactory.Label( "Game", "title", "title" ),
+                    UIFactory.RowScope(
+                        gameName = UIFactory.TextField( "Name", 100, false, "game-name", "label-width-150px", "grow-1" )
+                    ),
+                    UIFactory.RowScope(
+                        gameMode = UIFactory.DropdownField( "Mode", "game-mode", ".label-width-150px", "grow-1" ),
+                        gameWorld = UIFactory.DropdownField( "World", "game-world", ".label-width-150px", "grow-1" ),
+                        isGamePrivate = UIFactory.Toggle( "Private", "is-game-private", ".label-width-150px", "grow-0" )
+                    )
+                );
+            }
+
         }
         public class PlayerView : UISubViewBase {
-            [Preserve]
-            public new class UxmlFactory : UxmlFactory<PlayerView, UxmlTraits> { }
             public record PlayerNameEvent(string PlayerName) : UIEvent<PlayerView>;
             public record PlayerRoleEvent(object? PlayerRole) : UIEvent<PlayerView>;
 
             // Content
-            private Label title = default!;
-            private TextField playerName = default!;
-            private DropdownField2 playerRole = default!;
+            private readonly Label title;
+            private readonly TextField playerName;
+            private readonly DropdownField2 playerRole;
             // Props
             public TextElementWrapper Title => title.Wrap();
             public FieldWrapper<string> PlayerName => playerName.Wrap();
@@ -124,13 +146,8 @@ namespace Project.UI.MainScreen {
 
             // Constructor
             public PlayerView() {
-            }
-            public override void Initialize() {
-                base.Initialize();
                 // Content
-                title = this.RequireElement<Label>( null );
-                playerName = this.RequireElement<TextField>( "player-name" );
-                playerRole = this.RequireElement<DropdownField2>( "player-role" );
+                Add( GetContent( out title, out playerName, out playerRole ) );
                 // OnEvent
                 playerName.OnChange( evt => {
                     new PlayerNameEvent( evt.newValue ).Raise( this );
@@ -139,14 +156,27 @@ namespace Project.UI.MainScreen {
                     new PlayerRoleEvent( evt.newValue ).Raise( this );
                 } );
             }
+            public override void Initialize() {
+                base.Initialize();
+            }
             public override void Dispose() {
                 base.Dispose();
             }
 
-        }
-        public class RoomsView : UISubViewBase {
-            [Preserve]
-            public new class UxmlFactory : UxmlFactory<RoomsView, UxmlTraits> { }
+            // Helpers
+            private static ColumnGroup GetContent(out Label title, out TextField playerName, out DropdownField2 playerRole) {
+                return UIFactory.ColumnGroup(
+                    i => i.SetUp( null, "light5", "medium", "grow-1" ),
+                    title = UIFactory.Label( "Player", "title", "title" ),
+                    UIFactory.RowScope(
+                        playerName = UIFactory.TextFieldReadOnly( "Name", 100, false, "player-name", "label-width-150px", "grow-1" )
+                    ),
+                    UIFactory.RowScope(
+                        playerRole = UIFactory.DropdownField( "Role", "player-role", "label-width-150px", "grow-1" )
+                    )
+                );
+            }
+
         }
     }
 }

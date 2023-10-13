@@ -75,6 +75,9 @@ namespace Project.UI {
         public static TextField TextField(string label, int maxLength, bool isMultiline, string? name, params string[] classes) {
             return new TextField( label, maxLength, isMultiline, false, '*' ).SetUp( name, classes );
         }
+        public static TextField TextFieldReadOnly(string label, int maxLength, bool isMultiline, string? name, params string[] classes) {
+            return new TextField( label, maxLength, isMultiline, false, '*' ).Pipe( i => i.isReadOnly = true ).SetUp( name, classes );
+        }
         public static Slider Slider(string label, float min, float max, string? name, params string[] classes) {
             return new Slider( label, min, max ).SetUp( name, classes );
         }

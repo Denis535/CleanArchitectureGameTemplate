@@ -20,10 +20,6 @@ namespace UnityEngine.AddressableAssets {
                     }
                     public static class @MainWidget {
                         public static class @MainMenu {
-                            public static class @JoinGame {
-                                public const string @JoinGameWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame/JoinGameWidgetView.uxml";
-                                public const string @JoinGameWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame/JoinGameWidgetView.uxml[inlineStyle]";
-                            }
                             public static class @JoinGame2 {
                                 public const string @JoinGameWidgetView2 = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml";
                                 public const string @JoinGameWidgetView2__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.JoinGame2/JoinGameWidgetView2.uxml[inlineStyle]";
