@@ -46,11 +46,11 @@ namespace Project.UI {
 
         // Game
         public static GameWidgetView GameWidget() {
-            var view = Create<GameWidgetView>( R.Project.UI.GameScreen.GameWidget.GameWidgetView );
+            var view = Create<GameWidgetView>();
             return view;
         }
         public static GameMenuWidgetView GameMenuWidget() {
-            var view = Create<GameMenuWidgetView>( R.Project.UI.GameScreen.GameWidget.GameMenu.GameMenuWidgetView );
+            var view = Create<GameMenuWidgetView>();
             return view;
         }
 

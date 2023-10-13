@@ -41,7 +41,7 @@ namespace Project.UI.GameScreen {
             view.OnCommand( (GameMenuWidgetView.SettingsCommand cmd) => {
                 widget.AttachChild( UIWidgetFactory.SettingsWidget() );
             } );
-            view.OnCommand( (GameMenuWidgetView.MainMenuCommand cmd) => {
+            view.OnCommand( (GameMenuWidgetView.BackCommand cmd) => {
                 var dialog = UIWidgetFactory.DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => router.LoadMainSceneAsync( default ).Throw() ).OnCancel( "No", null );
                 widget.AttachChild( dialog );
             } );

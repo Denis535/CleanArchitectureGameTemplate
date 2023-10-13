@@ -5,12 +5,9 @@ namespace Project.UI.Common {
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.Scripting;
     using UnityEngine.UIElements;
 
     public partial class AudioSettingsWidgetView {
-        [Preserve]
-        public new class UxmlFactory : UxmlFactory<AudioSettingsWidgetView, UxmlTraits> { }
         public record MasterVolumeEvent(float MasterVolume) : UIEvent<AudioSettingsWidgetView>;
         public record MusicVolumeEvent(float MusicVolume) : UIEvent<AudioSettingsWidgetView>;
         public record SfxVolumeEvent(float SfxVolume) : UIEvent<AudioSettingsWidgetView>;
@@ -79,7 +76,7 @@ namespace Project.UI.Common {
                 ),
                 UIFactory.Content(
                     UIFactory.ColumnGroup(
-                        i => i.SetUp( null, ".dark2.large.grow-1" ),
+                        i => i.Name( null, ".dark2.large.grow-1" ),
                         masterVolume = UIFactory.Slider( "Master Volume", 0, 1, "master-volume", "label-width-25" ),
                         musicVolume = UIFactory.Slider( "Music Volume", 0, 1, "music-volume", "label-width-25" ),
                         sfxVolume = UIFactory.Slider( "Sfx Volume", 0, 1, "sfx-volume", "label-width-25" ),

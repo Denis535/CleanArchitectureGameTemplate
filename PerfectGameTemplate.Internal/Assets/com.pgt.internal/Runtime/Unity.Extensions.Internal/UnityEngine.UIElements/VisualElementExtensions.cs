@@ -53,7 +53,7 @@ namespace UnityEngine.UIElements {
             element.text = text;
             return element;
         }
-        public static T SetUp<T>(this T element, string? name, string? classes = null) where T : VisualElement {
+        public static T Name<T>(this T element, string? name, string? classes = null) where T : VisualElement {
             element.name = name;
             if (classes != null) {
                 foreach (var @class in classes.Split( '.', StringSplitOptions.RemoveEmptyEntries ).Select( i => i.Trim() )) {
@@ -66,9 +66,11 @@ namespace UnityEngine.UIElements {
             element.userData = userData;
             return element;
         }
-        public static T Children<T>(this T element, params VisualElement[] children) where T : VisualElement {
+        public static T Children<T>(this T element, params VisualElement?[] children) where T : VisualElement {
             foreach (var child in children) {
-                element.Add( child );
+                if (child != null) {
+                    element.Add( child );
+                }
             }
             return element;
         }

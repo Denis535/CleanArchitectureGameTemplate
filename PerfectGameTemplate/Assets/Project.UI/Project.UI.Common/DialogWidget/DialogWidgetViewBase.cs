@@ -75,7 +75,7 @@ namespace Project.UI.Common {
         // Helpers
         private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return card = UIFactory.Card(
-                i => i.SetUp( null, "unity-dialog-card" ),
+                i => i.Name( null, "unity-dialog-card" ),
                 header = UIFactory.Header(
                     i => i.SetDisplayed( false ),
                     title = UIFactory.Label( null, "title" )
@@ -111,7 +111,7 @@ namespace Project.UI.Common {
         // Helpers
         private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return card = UIFactory.Card(
-                i => i.SetUp( null, "unity-info-dialog-card" ),
+                i => i.Name( null, "unity-info-dialog-card" ),
                 header = UIFactory.Header(
                     i => i.SetDisplayed( false ),
                     title = UIFactory.Label( null, "title" )
@@ -147,7 +147,7 @@ namespace Project.UI.Common {
         // Helpers
         private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return card = UIFactory.Card(
-                i => i.SetUp( null, "unity-warning-dialog-card" ),
+                i => i.Name( null, "unity-warning-dialog-card" ),
                 header = UIFactory.Header(
                     i => i.SetDisplayed( false ),
                     title = UIFactory.Label( null, "title" )
@@ -183,7 +183,7 @@ namespace Project.UI.Common {
         // Helpers
         private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return card = UIFactory.Card(
-                i => i.SetUp( null, "unity-error-dialog-card" ),
+                i => i.Name( null, "unity-error-dialog-card" ),
                 header = UIFactory.Header(
                     i => i.SetDisplayed( false ),
                     title = UIFactory.Label( null, "title" )

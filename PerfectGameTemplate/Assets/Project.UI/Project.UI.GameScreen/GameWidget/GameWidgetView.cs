@@ -5,23 +5,21 @@ namespace Project.UI.GameScreen {
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.Scripting;
     using UnityEngine.UIElements;
 
     public partial class GameWidgetView {
-        [Preserve]
-        public new class UxmlFactory : UxmlFactory<GameWidgetView, UxmlTraits> { }
     }
     public partial class GameWidgetView : UIWidgetViewBase {
 
         // Constructor
         public GameWidgetView() {
-        }
-        public override void Initialize() {
-            base.Initialize();
+            AddToClassList( "widget-view" );
             // OnEvent
             this.OnAttachToPanel( evt => {
             } );
+        }
+        public override void Initialize() {
+            base.Initialize();
         }
         public override void Dispose() {
             base.Dispose();

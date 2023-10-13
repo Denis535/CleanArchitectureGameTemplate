@@ -5,12 +5,9 @@ namespace Project.UI.Common {
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.Scripting;
     using UnityEngine.UIElements;
 
     public partial class VideoSettingsWidgetView {
-        [Preserve]
-        public new class UxmlFactory : UxmlFactory<VideoSettingsWidgetView, UxmlTraits> { }
         public record IsFullScreenEvent(bool IsFullScreen) : UIEvent<VideoSettingsWidgetView>;
         public record ScreenResolutionEvent(object? ScreenResolution) : UIEvent<VideoSettingsWidgetView>;
         public record IsVSyncEvent(bool IsVSync) : UIEvent<VideoSettingsWidgetView>;
@@ -73,7 +70,7 @@ namespace Project.UI.Common {
                 ),
                 UIFactory.Content(
                     UIFactory.ColumnGroup(
-                        i => i.SetUp( null, ".dark2.large.grow-1" ),
+                        i => i.Name( null, ".dark2.large.grow-1" ),
                         isFullScreen = UIFactory.Toggle( "Full Screen", "is-full-screen", "label-width-25" ),
                         screenResolution = UIFactory.DropdownField( "Screen Resolution", "screen-resolution", "label-width-25" ),
                         isVSync = UIFactory.Toggle( "V-Sync", "is-v-sync", "label-width-25" )

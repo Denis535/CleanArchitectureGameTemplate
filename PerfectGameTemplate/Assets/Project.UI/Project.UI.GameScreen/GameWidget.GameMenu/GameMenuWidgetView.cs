@@ -5,15 +5,12 @@ namespace Project.UI.GameScreen {
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.Scripting;
     using UnityEngine.UIElements;
 
     public partial class GameMenuWidgetView {
-        [Preserve]
-        public new class UxmlFactory : UxmlFactory<GameMenuWidgetView, UxmlTraits> { }
         public record ResumeCommand() : UICommand<GameMenuWidgetView>;
         public record SettingsCommand() : UICommand<GameMenuWidgetView>;
-        public record MainMenuCommand() : UICommand<GameMenuWidgetView>;
+        public record BackCommand() : UICommand<GameMenuWidgetView>;
     }
     public partial class GameMenuWidgetView : UIWidgetViewBase {
 
@@ -21,23 +18,18 @@ namespace Project.UI.GameScreen {
         private Label title = default!;
         private Button resume = default!;
         private Button settings = default!;
-        private Button mainMenu = default!;
+        private Button back = default!;
         // Prop
         public TextElementWrapper Title => title.Wrap();
         public TextElementWrapper Resume => resume.Wrap();
         public TextElementWrapper Settings => settings.Wrap();
-        public TextElementWrapper MainMenu => mainMenu.Wrap();
+        public TextElementWrapper Back => back.Wrap();
 
         // Constructor
         public GameMenuWidgetView() {
-        }
-        public override void Initialize() {
-            base.Initialize();
+            AddToClassList( "left-widget-view" );
             // Content
-            title = this.RequireElement<Label>( "title" );
-            resume = this.RequireElement<Button>( "resume" );
-            settings = this.RequireElement<Button>( "settings" );
-            mainMenu = this.RequireElement<Button>( "main-menu" );
+            Add( GetContent( out title, out resume, out settings, out back ) );
             // OnEvent
             this.OnAttachToPanel( evt => {
             } );
@@ -47,12 +39,30 @@ namespace Project.UI.GameScreen {
             settings.OnClick( evt => {
                 new SettingsCommand().Execute( this );
             } );
-            mainMenu.OnClick( evt => {
-                new MainMenuCommand().Execute( this );
+            back.OnClick( evt => {
+                new BackCommand().Execute( this );
             } );
+        }
+        public override void Initialize() {
+            base.Initialize();
         }
         public override void Dispose() {
             base.Dispose();
+        }
+
+        // Helpers
+        private static Card GetContent(out Label title, out Button resume, out Button settings, out Button back) {
+            return UIFactory.Card(
+                UIFactory.Header(
+                    title = UIFactory.Label( "Game Menu", "title" )
+                ),
+                UIFactory.Content(
+                    resume = UIFactory.Button( "Resume", "resume" ),
+                    settings = UIFactory.Button( "Settings", "settings" ),
+                    back = UIFactory.Button( "Back To Main Menu", "back" )
+                ),
+                null
+            );
         }
 
     }

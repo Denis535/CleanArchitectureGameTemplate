@@ -51,14 +51,6 @@ namespace UnityEngine.AddressableAssets {
                     }
                 }
                 public static class @GameScreen {
-                    public static class @GameWidget {
-                        public static class @GameMenu {
-                            public const string @GameMenuWidgetView = "Project.UI.GameScreen/GameWidget.GameMenu/GameMenuWidgetView.uxml";
-                            public const string @GameMenuWidgetView__inlineStyle = "Project.UI.GameScreen/GameWidget.GameMenu/GameMenuWidgetView.uxml[inlineStyle]";
-                        }
-                        public const string @GameWidgetView = "Project.UI.GameScreen/GameWidget/GameWidgetView.uxml";
-                        public const string @GameWidgetView__inlineStyle = "Project.UI.GameScreen/GameWidget/GameWidgetView.uxml[inlineStyle]";
-                    }
                     public static class @Music {
                         public const string @Theme_1 = "Project.UI.GameScreen/Music/Theme 1 #Black Paper - Inside My Head.flac";
                         public const string @Theme_2 = "Project.UI.GameScreen/Music/Theme 2 #Black Paper - I'm with You.flac";

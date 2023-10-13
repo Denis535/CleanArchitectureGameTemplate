@@ -5,12 +5,9 @@ namespace Project.UI.Common {
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.Scripting;
     using UnityEngine.UIElements;
 
     public partial class SettingsWidgetView {
-        [Preserve]
-        public new class UxmlFactory : UxmlFactory<SettingsWidgetView, UxmlTraits> { }
         public record PlayerProfileCommand() : UICommand<SettingsWidgetView>;
         public record VideoSettingsCommand() : UICommand<SettingsWidgetView>;
         public record AudioSettingsCommand() : UICommand<SettingsWidgetView>;
@@ -67,7 +64,7 @@ namespace Project.UI.Common {
                 ),
                 UIFactory.Content(
                     UIFactory.ColumnGroup(
-                        i => i.SetUp( null, ".dark2.large.grow-1" ),
+                        i => i.Name( null, ".dark2.large.grow-1" ),
                         playerProfile = UIFactory.Button( "Player Profile", "player-profile", ".width-75.align-self-center" ),
                         videoSettings = UIFactory.Button( "Video Settings", "video-settings", ".width-75.align-self-center" ),
                         audioSettings = UIFactory.Button( "Audio Settings", "audio-settings", ".width-75.align-self-center" )

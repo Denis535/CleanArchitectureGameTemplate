@@ -28,12 +28,12 @@ namespace UnityEngine.Framework.UI {
 
         // Helpers/CreateViewsContainer
         protected static VisualElement CreateViewsContainer() {
-            var viewsContainer = new VisualElement().SetUp( "views-container", "views-container" );
+            var viewsContainer = new VisualElement().Name( "views-container", "views-container" );
             viewsContainer.pickingMode = PickingMode.Ignore;
             return viewsContainer;
         }
         protected static VisualElement CreateModalViewsContainer() {
-            var modalViewsContainer = new VisualElement().SetUp( "modal-views-container", "modal-views-container" );
+            var modalViewsContainer = new VisualElement().Name( "modal-views-container", "modal-views-container" );
             modalViewsContainer.pickingMode = PickingMode.Ignore;
             return modalViewsContainer;
         }
