@@ -76,7 +76,7 @@ namespace Project.UI.MainScreen {
         // OnDescendantAttach
         public override void OnBeforeDescendantAttach(UIWidgetBase descendant) {
             base.OnBeforeDescendantAttach( descendant );
-            View.SetBackgroundEffect( Descendants.Where( i => !i.IsModal() ).Where( i => i.IsViewable ).Count() );
+            View.SetEffect( Descendants.Where( i => !i.IsModal() ).Where( i => i.IsViewable ).Count() );
         }
         public override void OnAfterDescendantAttach(UIWidgetBase descendant) {
             base.OnAfterDescendantAttach( descendant );
@@ -85,7 +85,7 @@ namespace Project.UI.MainScreen {
             base.OnBeforeDescendantDetach( descendant );
         }
         public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
-            View.SetBackgroundEffect( Descendants.Where( i => !i.IsModal() ).Where( i => i.IsViewable ).Where( i => i != descendant ).Count() );
+            View.SetEffect( Descendants.Where( i => !i.IsModal() ).Where( i => i.IsViewable ).Where( i => i != descendant ).Count() );
             base.OnAfterDescendantDetach( descendant );
         }
 

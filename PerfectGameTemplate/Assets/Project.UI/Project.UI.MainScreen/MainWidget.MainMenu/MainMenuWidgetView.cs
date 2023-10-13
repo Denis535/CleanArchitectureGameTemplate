@@ -5,12 +5,9 @@ namespace Project.UI.MainScreen {
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.Scripting;
     using UnityEngine.UIElements;
 
     public partial class MainMenuWidgetView {
-        [Preserve]
-        public new class UxmlFactory : UxmlFactory<MainMenuWidgetView, UxmlTraits> { }
         public record CreateGameCommand() : UICommand<MainMenuWidgetView>;
         public record JoinGameCommand() : UICommand<MainMenuWidgetView>;
         public record SettingsCommand() : UICommand<MainMenuWidgetView>;
@@ -19,11 +16,11 @@ namespace Project.UI.MainScreen {
     public partial class MainMenuWidgetView : UIWidgetViewBase {
 
         // Content
-        private Label title = default!;
-        private Button createGame = default!;
-        private Button joinGame = default!;
-        private Button settings = default!;
-        private Button quit = default!;
+        private readonly Label title;
+        private readonly Button createGame;
+        private readonly Button joinGame;
+        private readonly Button settings;
+        private readonly Button quit;
         // Props
         public TextElementWrapper Title => title.Wrap();
         public TextElementWrapper CreateGame => createGame.Wrap();
@@ -33,15 +30,9 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public MainMenuWidgetView() {
-        }
-        public override void Initialize() {
-            base.Initialize();
+            AddToClassList( "left-widget-view" );
             // Content
-            title = this.RequireElement<Label>( "title" );
-            createGame = this.RequireElement<Button>( "create-game" );
-            joinGame = this.RequireElement<Button>( "join-game" );
-            settings = this.RequireElement<Button>( "settings" );
-            quit = this.RequireElement<Button>( "quit" );
+            Add( GetContent( out title, out createGame, out joinGame, out settings, out quit ) );
             // OnEvent
             this.OnAttachToPanel( evt => {
             } );
@@ -58,8 +49,27 @@ namespace Project.UI.MainScreen {
                 new QuitCommand().Execute( this );
             } );
         }
+        public override void Initialize() {
+            base.Initialize();
+        }
         public override void Dispose() {
             base.Dispose();
+        }
+
+        // Helpers
+        private static Card GetContent(out Label title, out Button createGame, out Button joinGame, out Button settings, out Button quit) {
+            return UIFactory.Card(
+                UIFactory.Header(
+                    title = UIFactory.Label( "Main Menu", "main-menu" )
+                ),
+                UIFactory.Content(
+                    createGame = UIFactory.Button( "Create Game", "create-game" ),
+                    joinGame = UIFactory.Button( "Join Game", "join-game" ),
+                    settings = UIFactory.Button( "Settings", "settings" ),
+                    quit = UIFactory.Button( "Quit", "quit" )
+                ),
+                null
+            );
         }
 
     }

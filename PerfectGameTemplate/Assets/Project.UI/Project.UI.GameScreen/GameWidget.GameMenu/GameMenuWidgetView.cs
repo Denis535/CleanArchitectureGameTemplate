@@ -15,10 +15,10 @@ namespace Project.UI.GameScreen {
     public partial class GameMenuWidgetView : UIWidgetViewBase {
 
         // Content
-        private Label title = default!;
-        private Button resume = default!;
-        private Button settings = default!;
-        private Button back = default!;
+        private readonly Label title;
+        private readonly Button resume;
+        private readonly Button settings;
+        private readonly Button back;
         // Prop
         public TextElementWrapper Title => title.Wrap();
         public TextElementWrapper Resume => resume.Wrap();

@@ -40,11 +40,7 @@ namespace UnityEngine.AddressableAssets {
                                 public const string @LoadingWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu.Loading/LoadingWidgetView.uxml";
                                 public const string @LoadingWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu.Loading/LoadingWidgetView.uxml[inlineStyle]";
                             }
-                            public const string @MainMenuWidgetView = "Project.UI.MainScreen/MainWidget.MainMenu/MainMenuWidgetView.uxml";
-                            public const string @MainMenuWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget.MainMenu/MainMenuWidgetView.uxml[inlineStyle]";
                         }
-                        public const string @MainWidgetView = "Project.UI.MainScreen/MainWidget/MainWidgetView.uxml";
-                        public const string @MainWidgetView__inlineStyle = "Project.UI.MainScreen/MainWidget/MainWidgetView.uxml[inlineStyle]";
                     }
                     public static class @Music {
                         public const string @Theme = "Project.UI.MainScreen/Music/Theme #Black Paper  - Pulse.flac";

@@ -16,11 +16,11 @@ namespace Project.UI {
 
         // Main
         public static MainWidgetView MainWidget() {
-            var view = Create<MainWidgetView>( R.Project.UI.MainScreen.MainWidget.MainWidgetView );
+            var view = Create<MainWidgetView>();
             return view;
         }
         public static MainMenuWidgetView MainMenuWidget() {
-            var view = Create<MainMenuWidgetView>( R.Project.UI.MainScreen.MainWidget.MainMenu.MainMenuWidgetView );
+            var view = Create<MainMenuWidgetView>();
             return view;
         }
         public static CreateGameWidgetView CreateGameWidget() {
