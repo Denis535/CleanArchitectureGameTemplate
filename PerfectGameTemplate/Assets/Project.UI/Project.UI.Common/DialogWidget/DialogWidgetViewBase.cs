@@ -27,9 +27,6 @@ namespace Project.UI.Common {
         // Constructor
         public DialogWidgetViewBase() {
         }
-        public override void Initialize() {
-            base.Initialize();
-        }
         public override void Dispose() {
             base.Dispose();
         }
@@ -65,9 +62,6 @@ namespace Project.UI.Common {
             // Content
             Add( GetContent( out card, out header, out content, out footer, out title, out message ) );
         }
-        public override void Initialize() {
-            base.Initialize();
-        }
         public override void Dispose() {
             base.Dispose();
         }
@@ -100,9 +94,6 @@ namespace Project.UI.Common {
             AddToClassList( "info-dialog-widget-view" );
             // Content
             Add( GetContent( out card, out header, out content, out footer, out title, out message ) );
-        }
-        public override void Initialize() {
-            base.Initialize();
         }
         public override void Dispose() {
             base.Dispose();
@@ -137,9 +128,6 @@ namespace Project.UI.Common {
             // Content
             Add( GetContent( out card, out header, out content, out footer, out title, out message ) );
         }
-        public override void Initialize() {
-            base.Initialize();
-        }
         public override void Dispose() {
             base.Dispose();
         }
@@ -172,9 +160,6 @@ namespace Project.UI.Common {
             AddToClassList( "error-dialog-widget-view" );
             // Content
             Add( GetContent( out card, out header, out content, out footer, out title, out message ) );
-        }
-        public override void Initialize() {
-            base.Initialize();
         }
         public override void Dispose() {
             base.Dispose();

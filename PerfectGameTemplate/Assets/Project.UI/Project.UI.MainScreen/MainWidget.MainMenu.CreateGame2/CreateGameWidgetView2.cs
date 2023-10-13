@@ -41,9 +41,6 @@ namespace Project.UI.MainScreen {
                 new BackCommand().Execute( this );
             } );
         }
-        public override void Initialize() {
-            base.Initialize();
-        }
         public override void Dispose() {
             base.Dispose();
         }
@@ -111,9 +108,6 @@ namespace Project.UI.MainScreen {
                     new IsGamePrivateEvent( evt.newValue ).Raise( this );
                 } );
             }
-            public override void Initialize() {
-                base.Initialize();
-            }
             public override void Dispose() {
                 base.Dispose();
             }
@@ -159,9 +153,6 @@ namespace Project.UI.MainScreen {
                 playerRole.OnChange( evt => {
                     new PlayerRoleEvent( evt.newValue ).Raise( this );
                 } );
-            }
-            public override void Initialize() {
-                base.Initialize();
             }
             public override void Dispose() {
                 base.Dispose();

@@ -18,9 +18,6 @@ namespace Project.UI.GameScreen {
             this.OnAttachToPanel( evt => {
             } );
         }
-        public override void Initialize() {
-            base.Initialize();
-        }
         public override void Dispose() {
             base.Dispose();
         }

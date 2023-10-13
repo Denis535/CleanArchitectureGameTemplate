@@ -49,9 +49,6 @@ namespace Project.UI.MainScreen {
                 new QuitCommand().Execute( this );
             } );
         }
-        public override void Initialize() {
-            base.Initialize();
-        }
         public override void Dispose() {
             base.Dispose();
         }

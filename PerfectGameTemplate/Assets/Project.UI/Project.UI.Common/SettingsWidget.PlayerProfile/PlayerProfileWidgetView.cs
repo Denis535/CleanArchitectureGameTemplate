@@ -44,9 +44,6 @@ namespace Project.UI.Common {
                 new BackCommand().Execute( this );
             } );
         }
-        public override void Initialize() {
-            base.Initialize();
-        }
         public override void Dispose() {
             base.Dispose();
         }

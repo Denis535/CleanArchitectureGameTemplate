@@ -36,9 +36,6 @@ namespace Project.UI {
         public UIScreenView() {
             Add( viewsContainer = CreateViewsContainer() );
             Add( modalViewsContainer = CreateModalViewsContainer() );
-        }
-        public override void Initialize() {
-            base.Initialize();
             Window = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window ).GetResult()!;
             InfoWindow = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window_Info ).GetResult()!;
             WarningWindow = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window_Warning ).GetResult()!;

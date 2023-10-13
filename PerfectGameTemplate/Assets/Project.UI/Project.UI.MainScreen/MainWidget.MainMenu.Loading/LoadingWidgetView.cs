@@ -28,9 +28,6 @@ namespace Project.UI.MainScreen {
                 PlayLoading( loading );
             } );
         }
-        public override void Initialize() {
-            base.Initialize();
-        }
         public override void Dispose() {
             base.Dispose();
         }
