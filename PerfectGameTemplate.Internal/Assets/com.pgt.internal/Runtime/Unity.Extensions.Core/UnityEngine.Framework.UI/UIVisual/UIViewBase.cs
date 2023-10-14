@@ -3,7 +3,6 @@ namespace UnityEngine.Framework.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
     using UnityEngine.UIElements;
@@ -17,27 +16,9 @@ namespace UnityEngine.Framework.UI {
         public bool IsDisposed { get; private set; }
         public Action<UIMessage>? OnMessageEvent { get; set; }
 
-        // Create
-        public static T Create<T>() where T : UIViewBase, new() {
-            var view = new T();
-            view.Initialize();
-            return view;
-        }
-        public static T Create<T>(VisualTreeAsset asset) where T : UIViewBase, new() {
-            var view = asset.Instantiate().Children().OfType<T>().FirstOrDefault();
-            Assert.Operation.Message( $"View {typeof( T )} ({asset.name}) could not be instantiated" ).Valid( view != null );
-            view.Initialize();
-            return view;
-        }
-
         // Constructor
         public UIViewBase() {
             AddToClassList( "view" );
-        }
-        public virtual void Initialize() {
-            foreach (var child in this.GetDescendants( i => i is not UIViewBase ).OfType<UIViewBase>()) {
-                child.Initialize();
-            }
         }
         public virtual void Dispose() {
             Assert.Object.Message( $"View {this} must be alive" ).Alive( !IsDisposed );

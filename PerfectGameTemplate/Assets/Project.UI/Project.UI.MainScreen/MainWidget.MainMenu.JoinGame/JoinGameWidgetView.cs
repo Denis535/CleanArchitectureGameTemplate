@@ -56,6 +56,10 @@ namespace Project.UI.MainScreen {
                         i => i.Name( null ).Classes( "grow-0", "basis-40" ),
                         game = new GameView().Name( null ).Classes( "grow-1", "basis-0" ),
                         player = new PlayerView().Name( null ).Classes( "grow-1", "basis-0" )
+                    ),
+                    UIFactory.ColumnGroup(
+                        i => i.Name( null ).Classes( "dark5", "medium", "grow-1" ),
+                        UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" )
                     )
                 ),
                 UIFactory.Footer(

@@ -15,9 +15,6 @@ namespace UnityEngine.Framework.UI {
         public UIScreenViewBase() {
             AddToClassList( "screen-view" );
         }
-        public override void Initialize() {
-            base.Initialize();
-        }
         public override void Dispose() {
             base.Dispose();
         }

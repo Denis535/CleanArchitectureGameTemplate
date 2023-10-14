@@ -14,9 +14,6 @@ namespace UnityEngine.Framework.UI {
         public UIWidgetViewBase() {
             AddToClassList( "widget-view" );
         }
-        public override void Initialize() {
-            base.Initialize();
-        }
         public override void Dispose() {
             base.Dispose();
         }

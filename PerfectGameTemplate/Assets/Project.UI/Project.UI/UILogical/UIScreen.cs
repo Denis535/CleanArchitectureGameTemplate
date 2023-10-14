@@ -25,7 +25,7 @@ namespace Project.UI {
         public new void Awake() {
             base.Awake();
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
-            View = UIViewBase.Create<UIScreenView>();
+            View = UIViewFactory.Screen();
         }
         public new void OnDestroy() {
             base.OnDestroy();

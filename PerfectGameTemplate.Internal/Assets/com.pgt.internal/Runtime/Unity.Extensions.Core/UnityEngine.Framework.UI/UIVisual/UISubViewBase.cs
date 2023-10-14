@@ -11,9 +11,6 @@ namespace UnityEngine.Framework.UI {
         public UISubViewBase() {
             AddToClassList( "sub-view" );
         }
-        public override void Initialize() {
-            base.Initialize();
-        }
         public override void Dispose() {
             base.Dispose();
         }
