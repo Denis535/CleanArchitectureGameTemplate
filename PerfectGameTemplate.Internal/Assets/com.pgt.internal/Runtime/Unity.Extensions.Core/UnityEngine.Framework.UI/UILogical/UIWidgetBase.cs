@@ -7,7 +7,6 @@ namespace UnityEngine.Framework.UI {
     using System.Linq;
     using System.Threading;
     using UnityEngine;
-    using UnityEngine.UIElements;
 
     public abstract class UIWidgetBase : IUILogicalElement, IUIObservable, IDisposable {
 
@@ -225,19 +224,9 @@ namespace UnityEngine.Framework.UI {
     }
     public abstract class UIWidgetBase<TView> : UIWidgetBase, IUIViewable where TView : notnull, UIWidgetViewBase {
 
-        private TView view = default!;
-
         // View
-        public new TView View {
-            get => view;
-            protected init {
-                view = value;
-                view.Widget = this;
-            }
-        }
+        public new TView View { get; protected init; } = default!;
         UIViewBase IUIViewable.View => View;
-        public bool IsEnabled { get => View.enabledSelf; set => View.SetEnabled( value ); }
-        public bool IsDisplayed { get => View.IsDisplayed(); set => View.SetDisplayed( value ); }
 
         // Constructor
         public UIWidgetBase() {

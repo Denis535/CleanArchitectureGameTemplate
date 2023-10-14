@@ -7,29 +7,24 @@ namespace UnityEngine.Framework.UI {
     using UnityEngine.AddressableAssets;
     using UnityEngine.UIElements;
 
-    public abstract class UIViewBase : VisualElement, IUIObservable, IDisposable {
-        public class UxmlFactory<T, TTraits> : UnityEngine.UIElements.UxmlFactory<T, TTraits> where T : UIViewBase, new() where TTraits : UxmlTraits, new() {
-            public override string uxmlQualifiedName => typeof( T ).IsNested ? base.uxmlQualifiedName.Replace( '+', '.' ) : base.uxmlQualifiedName;
-        }
+    public abstract class UIViewBase : IUIObservable, IDisposable {
 
         // System
         public bool IsDisposed { get; private set; }
         public Action<UIMessage>? OnMessageEvent { get; set; }
+        public IUIObservable? Observable { get; }
+        // VisualElement
+        public VisualElement VisualElement { get; protected init; } = default!;
 
         // Constructor
-        public UIViewBase() {
-            AddToClassList( "view" );
+        public UIViewBase(IUIObservable? observable) {
+            Observable = observable;
         }
         public virtual void Dispose() {
             Assert.Object.Message( $"View {this} must be alive" ).Alive( !IsDisposed );
-            Assert.Object.Message( $"View {this} must be non-attached" ).Valid( panel == null );
+            Assert.Object.Message( $"View {this} must be non-attached" ).Valid( VisualElement.panel == null );
             IsDisposed = true;
-            if (visualTreeAssetSource != null) Addressables2.Release( visualTreeAssetSource );
-        }
-
-        // Utils
-        public override string ToString() {
-            return GetType().ToString();
+            if (VisualElement.visualTreeAssetSource != null) Addressables2.Release( VisualElement.visualTreeAssetSource );
         }
 
     }

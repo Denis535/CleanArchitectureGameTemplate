@@ -4,7 +4,6 @@ namespace UnityEngine.Framework.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Text;
     using UnityEditor;
     using UnityEngine;
@@ -19,7 +18,7 @@ namespace UnityEngine.Framework.UI {
         public override void OnInspectorGUI() {
             base.OnInspectorGUI();
             if (EditorApplication.isPlaying) {
-                LabelField( "View", GetDisplayString( Target.View ) );
+                LabelField( "View", GetDisplayString( Target.View.VisualElement ) );
                 LabelField( "Widget", GetDisplayString( Target.Widget ) );
             }
         }
@@ -34,10 +33,10 @@ namespace UnityEngine.Framework.UI {
                 EditorGUI.SelectableLabel( GUILayoutUtility.GetRect( new GUIContent( text ), GUI.skin.textField ), text, GUI.skin.textField );
             }
         }
-        private static string? GetDisplayString(UIViewBase? view) {
-            if (view == null) return null;
+        // Helpers
+        private static string? GetDisplayString(VisualElement view) {
             var builder = new StringBuilder();
-            builder.AppendHierarchy( view, i => i.GetType().Name, i => i.GetDescendants( i => i is not UIViewBase ).OfType<UIViewBase>() );
+            builder.AppendHierarchy( view, i => view.name ?? i.GetType().Name, i => i.Children() );
             return builder.ToString();
         }
         private static string? GetDisplayString(UIWidgetBase? widget) {

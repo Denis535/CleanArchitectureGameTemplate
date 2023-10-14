@@ -66,14 +66,14 @@ namespace UnityEngine.Framework.UI {
         }
         private static void DispatchBubbleUp(this IUIObservable observable, UIMessage message) {
             if (!message.IsReceived) {
-                var owner = observable.GetOwner();
+                var owner = observable.GetObservable();
                 if (owner != null) {
                     owner.OnMessageEvent?.Invoke( message );
                     DispatchBubbleUp( owner, message );
                 }
             }
         }
-        private static IUIObservable? GetOwner(this IUIObservable observable) {
+        private static IUIObservable? GetObservable(this IUIObservable observable) {
             if (observable is UIScreenBase screen) {
                 return null;
             }
@@ -81,15 +81,7 @@ namespace UnityEngine.Framework.UI {
                 return (IUIObservable?) widget.Parent ?? widget.Screen;
             }
             if (observable is UIViewBase view) {
-                if (view is UIScreenViewBase screenView) {
-                    return screenView.Screen;
-                }
-                if (view is UIWidgetViewBase widgetView) {
-                    return widgetView.Widget;
-                }
-                if (view is UISubViewBase subView) {
-                    return subView.GetFirstAncestorOfType<UIViewBase>();
-                }
+                return view.Observable;
             }
             throw Exceptions.Internal.NotSupported( $"Observable {observable} not supported" );
         }

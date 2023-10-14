@@ -8,30 +8,28 @@ namespace UnityEngine.Framework.UI {
     public static class UIViewExtensions {
 
         // GetAudioSource
-        public static AudioSource? GetAudioSource(this UIViewBase view) {
+        public static AudioSource GetAudioSource(this UIViewBase view) {
             if (view is UIScreenViewBase screenView) {
-                return screenView.Screen?.AudioSource;
+                return screenView.Screen.AudioSource;
             }
             if (view is UIWidgetViewBase widgetView) {
-                return widgetView.Widget?.Screen?.AudioSource;
+                return widgetView.Widget.Screen!.AudioSource;
             }
             if (view is UISubViewBase subView) {
-                var ancestor = subView.GetFirstAncestorOfType<UIViewBase>();
-                if (ancestor != null) return GetAudioSource( ancestor );
-                return null;
+                return subView.View.Widget.Screen!.AudioSource;
             }
             throw Exceptions.Internal.NotSupported( $"View {view} not supported" );
         }
 
-        // IsAudioClipPlaying
-        public static bool IsAudioClipPlaying(this UIViewBase view, AudioClip clip) {
-            if (view.GetAudioSource()!.isPlaying && view.GetAudioSource()!.clip == clip) {
+        // IsClipPlaying
+        public static bool IsClipPlaying(this UIViewBase view, AudioClip clip) {
+            if (view.GetAudioSource().isPlaying && view.GetAudioSource().clip == clip) {
                 return true;
             }
             return false;
         }
-        public static bool IsAudioClipPlaying(this UIViewBase view, AudioClip clip, out float time) {
-            if (view.GetAudioSource()!.isPlaying && view.GetAudioSource()!.clip == clip) {
+        public static bool IsClipPlaying(this UIViewBase view, AudioClip clip, out float time) {
+            if (view.GetAudioSource().isPlaying && view.GetAudioSource().clip == clip) {
                 time = view.GetAudioSource()!.time;
                 return true;
             }
@@ -39,14 +37,14 @@ namespace UnityEngine.Framework.UI {
             return false;
         }
 
-        // PlayAudioClip
-        public static void PlayAudioClip(this UIViewBase view, AudioClip clip, float volume = 1) {
-            view.GetAudioSource()!.clip = clip;
-            view.GetAudioSource()!.volume = volume;
-            view.GetAudioSource()!.Play();
+        // PlayClip
+        public static void PlayClip(this UIViewBase view, AudioClip clip, float volume = 1) {
+            view.GetAudioSource().clip = clip;
+            view.GetAudioSource().volume = volume;
+            view.GetAudioSource().Play();
         }
-        public static void StopAudioClip(this UIViewBase view) {
-            view.GetAudioSource()!.Stop();
+        public static void StopClip(this UIViewBase view) {
+            view.GetAudioSource().Stop();
         }
 
     }

@@ -8,11 +8,11 @@ namespace UnityEngine.Framework.UI {
     public abstract class UIWidgetViewBase : UIViewBase {
 
         // Widget
-        internal UIWidgetBase? Widget { get; set; }
+        internal UIWidgetBase Widget { get; }
 
         // Constructor
-        public UIWidgetViewBase() {
-            AddToClassList( "widget-view" );
+        public UIWidgetViewBase(UIWidgetBase widget, IUIObservable? observable) : base( observable ) {
+            Widget = widget;
         }
         public override void Dispose() {
             base.Dispose();

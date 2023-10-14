@@ -9,8 +9,6 @@ namespace UnityEngine.Framework.UI {
 
     public abstract class UIScreenBase : MonoBehaviour, IUILogicalElement, IUIViewable, IUIObservable {
 
-        private UIScreenViewBase view = default!;
-
         // System
         private Lock Lock { get; } = new Lock();
         public Action<UIMessage>? OnMessageEvent { get; set; }
@@ -18,14 +16,7 @@ namespace UnityEngine.Framework.UI {
         protected internal UIDocument Document { get; set; } = default!;
         protected internal AudioSource AudioSource { get; set; } = default!;
         // View
-        public UIScreenViewBase View {
-            get => view;
-            protected set {
-                view = value;
-                view.Screen = this;
-                Document.rootVisualElement.Add( View );
-            }
-        }
+        public UIScreenViewBase View { get; protected set; } = default!;
         UIViewBase IUIViewable.View => View;
         // Widget
         public UIWidgetBase? Widget { get; private set; }
@@ -42,7 +33,7 @@ namespace UnityEngine.Framework.UI {
         }
         public void OnDestroy() {
             if (Widget != null) this.DetachWidget();
-            View.RemoveFromHierarchy();
+            View.VisualElement.RemoveFromHierarchy();
             View.Dispose();
         }
 
@@ -101,15 +92,15 @@ namespace UnityEngine.Framework.UI {
         }
 
         // Helpers
-        protected static void AddView(UIDocument document, UIScreenViewBase view) {
+        protected static void AddView(UIDocument document, VisualElement view) {
             document.rootVisualElement.Add( view );
         }
-        protected static void AddViewIfNeeded(UIDocument document, UIScreenViewBase view) {
+        protected static void AddViewIfNeeded(UIDocument document, VisualElement view) {
             if (!document.rootVisualElement.Contains( view )) {
                 document.rootVisualElement.Add( view );
             }
         }
-        protected static void RemoveView(UIDocument document, UIScreenViewBase view) {
+        protected static void RemoveView(UIDocument document, VisualElement view) {
             document.rootVisualElement.Remove( view );
         }
 
