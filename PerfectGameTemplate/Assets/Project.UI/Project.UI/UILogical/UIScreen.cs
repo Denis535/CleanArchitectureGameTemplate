@@ -12,7 +12,7 @@ namespace Project.UI {
 
     public class UIScreen : UIScreenBase<UIScreenView> {
 
-        private readonly Tracker<UIScreenState, UIScreen> stateTracker = new Tracker<UIScreenState, UIScreen>( i => i.State );
+        private readonly Tracker<UIScreenState> stateTracker = new Tracker<UIScreenState>();
 
         // Globals
         private Application2 Application { get; set; } = default!;
@@ -38,7 +38,7 @@ namespace Project.UI {
 #if UNITY_EDITOR
             AddViewIfNeeded( Document, View );
 #endif
-            if (stateTracker.IsChanged( this )) {
+            if (stateTracker.IsChanged( State )) {
                 if (IsMainScreen) {
                     Widget?.DetachSelf();
                     this.AttachWidget( UIWidgetFactory.MainWidget() );

@@ -14,6 +14,7 @@ namespace UnityEngine.Framework.UI {
         public AudioClip? Clip => AudioSource.clip;
         public bool IsPlaying { get; private set; }
         public bool IsPausing { get; private set; }
+        public bool IsUnPausing => !IsPausing;
         public float Time { get => AudioSource.time; set => AudioSource.time = value; }
         public float Volume { get => AudioSource.volume; set => AudioSource.volume = value; }
         public bool Mute { get => AudioSource.mute; set => AudioSource.mute = value; }
@@ -39,10 +40,12 @@ namespace UnityEngine.Framework.UI {
 
         // Pause
         public void Pause() {
+            if (IsPausing) return;
             IsPausing = true;
             AudioSource.Pause();
         }
         public void UnPause() {
+            if (!IsPausing) return;
             IsPausing = false;
             AudioSource.UnPause();
         }

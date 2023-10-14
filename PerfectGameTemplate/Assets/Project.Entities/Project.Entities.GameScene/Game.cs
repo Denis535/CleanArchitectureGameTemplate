@@ -11,7 +11,10 @@ namespace Project.Entities.GameScene {
         // State
         public GameState State { get; private set; } = GameState.None;
         public bool IsRunning => State == GameState.Running;
-        public bool IsRunningAndPaused => State == GameState.RunningAndPaused;
+        public bool IsFinished => State == GameState.Finished;
+        // IsPaused
+        public bool IsPaused { get; private set; }
+        public bool IsUnPaused => !IsPaused;
 
         // Awake
         public void Awake() {
@@ -33,25 +36,29 @@ namespace Project.Entities.GameScene {
                 Cursor.lockState = CursorLockMode.Locked;
             }
         }
-        public void PauseGame() {
+        public void StopGame() {
             Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is GameState.Running );
-            State = GameState.RunningAndPaused;
+            State = GameState.Finished;
             {
                 Cursor.lockState = CursorLockMode.None;
             }
         }
-        public void UnPauseGame() {
-            Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is GameState.RunningAndPaused );
-            State = GameState.Running;
+
+        // Pause
+        public void Pause() {
+            Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is GameState.Running );
+            Assert.Operation.Message( $"IsPaused {IsPaused} is invalid" ).Valid( IsUnPaused );
+            IsPaused = true;
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+        }
+        public void UnPause() {
+            Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is GameState.Running );
+            Assert.Operation.Message( $"IsPaused {IsPaused} is invalid" ).Valid( IsPaused );
+            IsPaused = false;
             {
                 Cursor.lockState = CursorLockMode.Locked;
-            }
-        }
-        public void StopGame() {
-            Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is GameState.Running or GameState.RunningAndPaused );
-            State = GameState.None;
-            {
-                Cursor.lockState = CursorLockMode.None;
             }
         }
 
@@ -60,9 +67,9 @@ namespace Project.Entities.GameScene {
     public enum GameState {
         None,
         Running,
-        RunningAndPaused,
-        //Win
+        //Win,
         //Lose,
+        Finished,
     }
     // GameDesc
     public class GameDesc {

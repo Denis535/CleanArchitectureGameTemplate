@@ -5,6 +5,48 @@ namespace UnityEngine {
     using System.Collections.Generic;
     using UnityEngine;
 
+    public class Tracker<T> {
+
+        private Option<T> Value { get; set; }
+
+        // Constructor
+        public Tracker() {
+            Value = default;
+        }
+
+        // IsChanged
+        public bool IsChanged(T value) {
+            if (!Value.Equals( value )) {
+                Value = new Option<T>( value );
+                return true;
+            } else {
+                return false;
+            }
+        }
+        public bool IsChanged(T value, out T newValue) {
+            if (!Value.Equals( value )) {
+                Value = new Option<T>( value );
+                newValue = Value.Value;
+                return true;
+            } else {
+                newValue = Value.Value;
+                return false;
+            }
+        }
+        public bool IsChanged(T value, out T newValue, out Option<T> prevValue) {
+            if (!Value.Equals( value )) {
+                prevValue = Value;
+                Value = new Option<T>( value );
+                newValue = Value.Value;
+                return true;
+            } else {
+                prevValue = Value;
+                newValue = Value.Value;
+                return false;
+            }
+        }
+
+    }
     public class Tracker<T, TObj> {
 
         private Func<TObj, T> ValueSelector { get; }
@@ -18,35 +60,35 @@ namespace UnityEngine {
 
         // IsChanged
         public bool IsChanged(TObj @object) {
-            var newValue = ValueSelector( @object );
-            if (!Value.Equals( newValue )) {
-                Value = new Option<T>( newValue );
+            var value = ValueSelector( @object );
+            if (!Value.Equals( value )) {
+                Value = new Option<T>( value );
                 return true;
             } else {
                 return false;
             }
         }
-        public bool IsChanged(TObj @object, out T value) {
-            var newValue = ValueSelector( @object );
-            if (!Value.Equals( newValue )) {
-                Value = new Option<T>( newValue );
-                value = Value.Value;
+        public bool IsChanged(TObj @object, out T newValue) {
+            var value = ValueSelector( @object );
+            if (!Value.Equals( value )) {
+                Value = new Option<T>( value );
+                newValue = Value.Value;
                 return true;
             } else {
-                value = Value.Value;
+                newValue = Value.Value;
                 return false;
             }
         }
-        public bool IsChanged(TObj @object, out T value, out Option<T> prevValue) {
-            var newValue = ValueSelector( @object );
-            if (!Value.Equals( newValue )) {
+        public bool IsChanged(TObj @object, out T newValue, out Option<T> prevValue) {
+            var value = ValueSelector( @object );
+            if (!Value.Equals( value )) {
                 prevValue = Value;
-                Value = new Option<T>( newValue );
-                value = Value.Value;
+                Value = new Option<T>( value );
+                newValue = Value.Value;
                 return true;
             } else {
                 prevValue = Value;
-                value = Value.Value;
+                newValue = Value.Value;
                 return false;
             }
         }

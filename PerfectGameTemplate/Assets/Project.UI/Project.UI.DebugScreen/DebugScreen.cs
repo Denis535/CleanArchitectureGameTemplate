@@ -35,6 +35,7 @@ namespace Project.UI.DebugScreen {
                 GUILayout.Label( "Screen: " + Screen.State );
                 GUILayout.Label( "App: " + Application.State );
                 GUILayout.Label( "Game: " + Application.Game?.State );
+                //GUILayout.Label( "IsPaused: " + Application.Game?.IsPaused );
                 //GUILayout.Label( "IsFocused: " + UnityEngine.Application.isFocused );
                 //GUILayout.Label( "Focused Element: " + GetFocusedElement()?.Convert( GetDisplayString ) );
             }

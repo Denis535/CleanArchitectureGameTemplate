@@ -21,7 +21,7 @@ namespace Project.UI {
             R.Project.UI.GameScreen.Music.Theme_3,
         } );
 
-        private readonly Tracker<UIThemeState, UITheme> stateTracker = new Tracker<UIThemeState, UITheme>( i => i.State );
+        private readonly Tracker<UIThemeState> stateTracker = new Tracker<UIThemeState>();
         private AsyncOperationHandle<AudioClip> themeOperationHandle;
 
         // Globals
@@ -48,7 +48,7 @@ namespace Project.UI {
         public void Start() {
         }
         public void Update() {
-            if (stateTracker.IsChanged( this )) {
+            if (stateTracker.IsChanged( State )) {
                 if (IsMainTheme) {
                     StopTheme();
                     (Themes, Index) = (MainThemes, 0);
@@ -62,7 +62,7 @@ namespace Project.UI {
                     (Themes, Index) = (null, 0);
                 }
             }
-            if (IsPlaying && !IsPausing && !AudioSource.isPlaying) {
+            if (IsPlaying && IsUnPausing && !AudioSource.isPlaying) {
                 StopTheme();
                 if (Themes != null) {
                     Index = (Index + 1) % Themes!.Length;
@@ -74,10 +74,10 @@ namespace Project.UI {
                     Volume = Mathf.MoveTowards( Volume, 0, Volume * 0.5f * UnityEngine.Time.deltaTime );
                 }
             } else if (IsGameTheme) {
-                if (Application.Game!.IsRunning) {
-                    if (IsPausing) UnPause();
-                } else if (Application.Game!.IsRunningAndPaused) {
-                    if (!IsPausing) Pause();
+                if (Application.Game!.IsPaused) {
+                    Pause();
+                } else if (Application.Game!.IsUnPaused) {
+                    UnPause();
                 }
             }
         }
