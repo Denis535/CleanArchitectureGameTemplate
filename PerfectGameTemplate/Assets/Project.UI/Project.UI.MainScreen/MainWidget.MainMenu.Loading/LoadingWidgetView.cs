@@ -34,7 +34,7 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static VisualElement CreateVisualElement(out Label loading) {
+        private static View CreateVisualElement(out Label loading) {
             return UIFactory.Widget(
                 i => i.Name( "loading-widget-view" ),
                 UIFactory.ColumnScope(

@@ -55,7 +55,7 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static VisualElement CreateVisualElement(out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
+        private static View CreateVisualElement(out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
             return UIFactory.MediumWidget(
                 i => i.Name( "settings-widget-view" ),
                 UIFactory.Card(

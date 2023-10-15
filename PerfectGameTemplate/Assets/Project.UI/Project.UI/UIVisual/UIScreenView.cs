@@ -4,7 +4,6 @@ namespace Project.UI {
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
-    using Project.UI.Common;
     using Project.UI.GameScreen;
     using Project.UI.MainScreen;
     using UnityEngine;
@@ -120,26 +119,26 @@ namespace Project.UI {
 
         // PlaySfx
         private void PlayAttach(AttachToPanelEvent evt) {
-            // todo:
-            //if (evt.target is GameMenuWidgetView) {
-            //    this.PlayClip( Select );
-            //} else
-            //if (evt.target is DialogWidgetView dialog) {
-            //    PlayDialogAnimation( dialog );
-            //    this.PlayClip( InfoWindow );
-            //} else
-            //if (evt.target is InfoDialogWidgetView infoDialog) {
-            //    PlayDialogAnimation( infoDialog );
-            //    this.PlayClip( InfoWindow );
-            //} else
-            //if (evt.target is WarningDialogWidgetView warningDialog) {
-            //    PlayDialogAnimation( warningDialog );
-            //    this.PlayClip( WarningWindow );
-            //} else
-            //if (evt.target is ErrorDialogWidgetView errorDialog) {
-            //    PlayDialogAnimation( errorDialog );
-            //    this.PlayClip( ErrorWindow );
-            //}
+            var target = (VisualElement) evt.target;
+            if (target.name == "game-menu-widget-view") {
+                this.PlayClip( Select );
+            } else
+            if (target.name == "dialog-widget-view") {
+                this.PlayClip( InfoWindow );
+                PlayDialogAnimation( target );
+            } else
+            if (target.name == "info-dialog-widget-view") {
+                this.PlayClip( InfoWindow );
+                PlayDialogAnimation( target );
+            } else
+            if (target.name == "warning-dialog-widget-view") {
+                this.PlayClip( WarningWindow );
+                PlayDialogAnimation( target );
+            } else
+            if (target.name == "error-dialog-widget-view") {
+                this.PlayClip( ErrorWindow );
+                PlayDialogAnimation( target );
+            }
         }
         private void PlayFocus(FocusEvent evt) {
             if (evt.direction != FocusChangeDirection.none && evt.direction != FocusChangeDirection.unspecified) {
@@ -205,8 +204,8 @@ namespace Project.UI {
         }
 
         // Helpers
-        private static void PlayDialogAnimation(DialogWidgetViewBase view) {
-            var animation = ValueAnimation<float>.Create( view.VisualElement, Mathf.LerpUnclamped );
+        private static void PlayDialogAnimation(VisualElement view) {
+            var animation = ValueAnimation<float>.Create( view, Mathf.LerpUnclamped );
             animation.valueUpdated = (view, t) => {
                 var tx = Easing.OutBack( Easing.InPower( t, 2 ), 4 );
                 var ty = Easing.OutBack( Easing.OutPower( t, 2 ), 4 );

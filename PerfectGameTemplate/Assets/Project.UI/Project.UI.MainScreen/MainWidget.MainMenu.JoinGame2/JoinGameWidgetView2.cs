@@ -31,7 +31,9 @@ namespace Project.UI.MainScreen {
         // Constructor
         public JoinGameWidgetView2(JoinGameWidget2 widget) : base( widget ) {
             // Props
-            visualElement = CreateVisualElement( out title, out okey, out back );
+            game = new GameView( this );
+            player = new PlayerView( this );
+            visualElement = CreateVisualElement( out title, game, player, out okey, out back );
             // OnEvent
             VisualElement.OnAttachToPanel( evt => {
             } );
@@ -43,11 +45,13 @@ namespace Project.UI.MainScreen {
             } );
         }
         public override void Dispose() {
+            game.Dispose();
+            player.Dispose();
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement(out Label title, out Button okey, out Button back) {
+        private static View CreateVisualElement(out Label title, GameView game, PlayerView player, out Button okey, out Button back) {
             return UIFactory.LargeWidget(
                 i => i.Name( "join-game-widget-view" ),
                 UIFactory.Card(
@@ -56,9 +60,9 @@ namespace Project.UI.MainScreen {
                     ),
                     UIFactory.Content(
                         UIFactory.RowScope(
-                            i => i.Name( null ).Classes( "grow-0", "basis-40" )
-                            //game = new GameView().Name( null ).Classes( "grow-1", "basis-0" ),
-                            //player = new PlayerView().Name( null ).Classes( "grow-1", "basis-0" )
+                            i => i.Name( null ).Classes( "grow-0", "basis-40" ),
+                            game.VisualElement,
+                            player.VisualElement
                         ),
                         UIFactory.ColumnGroup(
                             i => i.Name( null ).Classes( "dark5", "medium", "grow-1" ),

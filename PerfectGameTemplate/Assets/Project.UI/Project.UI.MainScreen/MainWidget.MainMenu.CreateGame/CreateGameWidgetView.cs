@@ -16,8 +16,8 @@ namespace Project.UI.MainScreen {
         // Props
         private readonly VisualElement visualElement;
         private readonly Label title;
-        private readonly GameView game = default!;
-        private readonly PlayerView player = default!;
+        private readonly GameView game;
+        private readonly PlayerView player;
         private readonly Button okey;
         private readonly Button back;
         // Props
@@ -31,7 +31,9 @@ namespace Project.UI.MainScreen {
         // Constructor
         public CreateGameWidgetView(CreateGameWidget widget) : base( widget ) {
             // Props
-            visualElement = CreateVisualElement( out title, out okey, out back );
+            game = new GameView( this );
+            player = new PlayerView( this );
+            visualElement = CreateVisualElement( out title, game, player, out okey, out back );
             // OnEvent
             VisualElement.OnAttachToPanel( evt => {
             } );
@@ -43,11 +45,13 @@ namespace Project.UI.MainScreen {
             } );
         }
         public override void Dispose() {
+            game.Dispose();
+            player.Dispose();
             base.Dispose();
         }
 
         // Helpers
-        private static VisualElement CreateVisualElement(out Label title, out Button okey, out Button back) {
+        private static View CreateVisualElement(out Label title, GameView game, PlayerView player, out Button okey, out Button back) {
             return UIFactory.LargeWidget(
                 i => i.Name( "create-game-widget-view" ),
                 UIFactory.Card(
@@ -56,9 +60,9 @@ namespace Project.UI.MainScreen {
                     ),
                     UIFactory.Content(
                         UIFactory.RowScope(
-                            i => i.Name( null ).Classes( "grow-0", "basis-40" )
-                            //gameView = new GameView( view ).Name( null ).Classes( "grow-1", "basis-0" ),
-                            //playerView = new PlayerView( view ).Name( null ).Classes( "grow-1", "basis-0" ),
+                            i => i.Name( null ).Classes( "grow-0", "basis-40" ),
+                            game.VisualElement.Classes( "grow-1", "basis-0" ),
+                            player.VisualElement.Classes( "grow-1", "basis-0" )
                         ),
                         UIFactory.ColumnGroup(
                             i => i.Name( null ).Classes( "dark5", "medium", "grow-1" ),

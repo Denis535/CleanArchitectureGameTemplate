@@ -49,7 +49,7 @@ namespace Project.UI.GameScreen {
         }
 
         // Helpers
-        private static VisualElement CreateVisualElement(out Label title, out Button resume, out Button settings, out Button back) {
+        private static View CreateVisualElement(out Label title, out Button resume, out Button settings, out Button back) {
             return UIFactory.LeftWidget(
                 i => i.Name( "game-menu-widget-view" ),
                 UIFactory.Card(

@@ -67,7 +67,7 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static VisualElement CreateVisualElement(out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
+        private static View CreateVisualElement(out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
             return UIFactory.MediumWidget(
                 i => i.Name( "audio-settings-widget-view" ),
                 UIFactory.Card(

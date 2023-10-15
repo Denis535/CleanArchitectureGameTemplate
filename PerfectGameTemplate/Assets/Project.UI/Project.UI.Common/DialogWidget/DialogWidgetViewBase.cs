@@ -67,7 +67,7 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static VisualElement CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+        private static View CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return UIFactory.ModalWidget(
                 i => i.Name( "dialog-widget-view" ).Classes( "dialog-widget-view" ),
                 card = UIFactory.Card(
@@ -101,7 +101,7 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static VisualElement CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+        private static View CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return UIFactory.ModalWidget(
                 i => i.Name( "info-dialog-widget-view" ).Classes( "info-dialog-widget-view" ),
                 card = UIFactory.Card(
@@ -135,7 +135,7 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static VisualElement CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+        private static View CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return UIFactory.ModalWidget(
                 i => i.Name( "warning-dialog-widget-view" ).Classes( "warning-dialog-widget-view" ),
                 card = UIFactory.Card(
@@ -169,7 +169,7 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static VisualElement CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+        private static View CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             return UIFactory.ModalWidget(
                 i => i.Name( "error-dialog-widget-view" ).Classes( "error-dialog-widget-view" ),
                 card = UIFactory.Card(

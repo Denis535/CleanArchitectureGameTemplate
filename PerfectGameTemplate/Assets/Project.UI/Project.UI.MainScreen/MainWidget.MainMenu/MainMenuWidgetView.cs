@@ -55,7 +55,7 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static VisualElement CreateVisualElement(out Label title, out Button createGame, out Button joinGame, out Button settings, out Button quit) {
+        private static View CreateVisualElement(out Label title, out Button createGame, out Button joinGame, out Button settings, out Button quit) {
             return UIFactory.LeftWidget(
                 i => i.Name( "main-menu-widget-view" ),
                 UIFactory.Card(

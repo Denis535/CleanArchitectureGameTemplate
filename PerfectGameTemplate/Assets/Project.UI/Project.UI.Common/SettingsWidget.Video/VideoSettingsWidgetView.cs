@@ -61,7 +61,7 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static VisualElement CreateVisualElement(out Label title, out Toggle isFullScreen, out DropdownField2 screenResolution, out Toggle isVSync, out Button okey, out Button back) {
+        private static View CreateVisualElement(out Label title, out Toggle isFullScreen, out DropdownField2 screenResolution, out Toggle isVSync, out Button okey, out Button back) {
             return UIFactory.MediumWidget(
                 i => i.Name( "video-settings-widget-view" ),
                 UIFactory.Card(
