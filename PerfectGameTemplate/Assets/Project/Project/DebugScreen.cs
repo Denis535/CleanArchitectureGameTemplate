@@ -1,10 +1,11 @@
 #if DEBUG
 #nullable enable
-namespace Project.UI.DebugScreen {
+namespace Project {
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using Project.App;
+    using Project.UI;
     using UnityEngine;
     using UnityEngine.EventSystems;
     using UnityEngine.Framework;

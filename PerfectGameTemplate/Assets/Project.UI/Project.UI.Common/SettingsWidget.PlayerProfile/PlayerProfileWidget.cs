@@ -12,6 +12,8 @@ namespace Project.UI.Common {
 
         // Globals
         private Globals.PlayerProfile PlayerProfile { get; }
+        // View
+        public override PlayerProfileWidgetView View { get; protected init; }
 
         // Constructor
         public PlayerProfileWidget() {

@@ -13,6 +13,8 @@ namespace Project.UI.Common {
 
         // Globals
         private Globals.VideoSettings VideoSettings { get; }
+        // VIew
+        public override VideoSettingsWidgetView View { get; protected init; }
 
         // Constructor
         public VideoSettingsWidget() {

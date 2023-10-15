@@ -12,6 +12,8 @@ namespace Project.UI.GameScreen {
 
         // Globals
         private UIRouter Router { get; }
+        // View
+        public override GameMenuWidgetView View { get; protected init; }
 
         // Constructor
         public GameMenuWidget() {

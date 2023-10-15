@@ -10,6 +10,8 @@ namespace Project.UI.Common {
 
     public abstract class DialogWidgetBase<TView> : UIWidgetBase<TView>, IUIModalWidget where TView : DialogWidgetViewBase {
 
+        // VIew
+        public override TView View { get; protected init; } = default!;
         // Props
         public string? Title {
             get => View.Title.Text;

@@ -12,6 +12,8 @@ namespace Project.UI.Common {
 
         // Globals
         private Globals.AudioSettings AudioSettings { get; }
+        // View
+        public override AudioSettingsWidgetView View { get; protected init; }
 
         // Constructor
         public AudioSettingsWidget() {

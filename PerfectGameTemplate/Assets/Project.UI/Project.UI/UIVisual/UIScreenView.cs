@@ -120,25 +120,26 @@ namespace Project.UI {
 
         // PlaySfx
         private void PlayAttach(AttachToPanelEvent evt) {
-            if (evt.target is GameMenuWidgetView) {
-                this.PlayClip( Select );
-            } else
-            if (evt.target is DialogWidgetView dialog) {
-                PlayDialogAnimation( dialog );
-                this.PlayClip( InfoWindow );
-            } else
-            if (evt.target is InfoDialogWidgetView infoDialog) {
-                PlayDialogAnimation( infoDialog );
-                this.PlayClip( InfoWindow );
-            } else
-            if (evt.target is WarningDialogWidgetView warningDialog) {
-                PlayDialogAnimation( warningDialog );
-                this.PlayClip( WarningWindow );
-            } else
-            if (evt.target is ErrorDialogWidgetView errorDialog) {
-                PlayDialogAnimation( errorDialog );
-                this.PlayClip( ErrorWindow );
-            }
+            // todo:
+            //if (evt.target is GameMenuWidgetView) {
+            //    this.PlayClip( Select );
+            //} else
+            //if (evt.target is DialogWidgetView dialog) {
+            //    PlayDialogAnimation( dialog );
+            //    this.PlayClip( InfoWindow );
+            //} else
+            //if (evt.target is InfoDialogWidgetView infoDialog) {
+            //    PlayDialogAnimation( infoDialog );
+            //    this.PlayClip( InfoWindow );
+            //} else
+            //if (evt.target is WarningDialogWidgetView warningDialog) {
+            //    PlayDialogAnimation( warningDialog );
+            //    this.PlayClip( WarningWindow );
+            //} else
+            //if (evt.target is ErrorDialogWidgetView errorDialog) {
+            //    PlayDialogAnimation( errorDialog );
+            //    this.PlayClip( ErrorWindow );
+            //}
         }
         private void PlayFocus(FocusEvent evt) {
             if (evt.direction != FocusChangeDirection.none && evt.direction != FocusChangeDirection.unspecified) {

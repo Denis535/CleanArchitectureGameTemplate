@@ -8,6 +8,9 @@ namespace Project.UI.MainScreen {
 
     public class LoadingWidget : UIWidgetBase<LoadingWidgetView> {
 
+        // View
+        public override LoadingWidgetView View { get; protected init; }
+
         // Constructor
         public LoadingWidget() {
             View = CreateView( this );

@@ -8,6 +8,9 @@ namespace Project.UI.Common {
 
     public class SettingsWidget : UIWidgetBase<SettingsWidgetView> {
 
+        // View
+        public override SettingsWidgetView View { get; protected init; }
+
         // Constructor
         public SettingsWidget() {
             View = CreateView( this );

@@ -17,6 +17,8 @@ namespace Project.UI.MainScreen {
         private Application2 Application { get; }
         private Globals.PlayerProfile PlayerProfile { get; }
         //private ILobbyService LobbyService { get; }
+        // VIew
+        public override JoinGameWidgetView View { get; protected init; }
 
         // Constructor
         public JoinGameWidget() {
