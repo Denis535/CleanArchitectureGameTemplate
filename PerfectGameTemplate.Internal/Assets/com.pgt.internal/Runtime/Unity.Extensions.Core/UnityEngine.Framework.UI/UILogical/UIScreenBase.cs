@@ -90,14 +90,26 @@ namespace UnityEngine.Framework.UI {
 
         // Helpers
         protected static void AddView(UIDocument document, UIScreenViewBase view) {
+            Assert.Argument.Message( $"Argument 'document' must be non-null" ).NotNull( document != null );
+            Assert.Argument.Message( $"Argument 'view' must be non-null" ).NotNull( view != null );
+            Assert.Object.Message( $"Document {document} must be awakened" ).Valid( document.didAwake );
+            Assert.Object.Message( $"Document {document} must be alive" ).Alive( document != null );
             document.rootVisualElement.Add( view.VisualElement );
         }
         protected static void AddViewIfNeeded(UIDocument document, UIScreenViewBase view) {
+            Assert.Argument.Message( $"Argument 'document' must be non-null" ).NotNull( document != null );
+            Assert.Argument.Message( $"Argument 'view' must be non-null" ).NotNull( view != null );
+            Assert.Object.Message( $"Document {document} must be awakened" ).Valid( document.didAwake );
+            Assert.Object.Message( $"Document {document} must be alive" ).Alive( document != null );
             if (!document.rootVisualElement.Contains( view.VisualElement )) {
                 document.rootVisualElement.Add( view.VisualElement );
             }
         }
         protected static void RemoveView(UIDocument document, UIScreenViewBase view) {
+            Assert.Argument.Message( $"Argument 'document' must be non-null" ).NotNull( document != null );
+            Assert.Argument.Message( $"Argument 'view' must be non-null" ).NotNull( view != null );
+            Assert.Object.Message( $"Document {document} must be awakened" ).Valid( document.didAwake );
+            Assert.Object.Message( $"Document {document} must be alive" ).Alive( document != null );
             document.rootVisualElement.Remove( view.VisualElement );
         }
 
