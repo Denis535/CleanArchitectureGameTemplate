@@ -38,8 +38,8 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static AudioSettingsWidgetView CreateView(UIWidgetBase widget, Globals.AudioSettings audioSettings) {
-            var view = UIViewFactory.AudioSettingsWidget();
+        private static AudioSettingsWidgetView CreateView(AudioSettingsWidget widget, Globals.AudioSettings audioSettings) {
+            var view = UIViewFactory.AudioSettingsWidget( widget );
             view.OnEvent( (AudioSettingsWidgetView.MasterVolumeEvent evt) => {
                 audioSettings.MasterVolume = evt.MasterVolume;
             } );

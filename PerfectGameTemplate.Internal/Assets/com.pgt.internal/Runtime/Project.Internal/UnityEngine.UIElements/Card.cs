@@ -11,7 +11,7 @@ namespace UnityEngine.UIElements {
         public new class UxmlFactory : UxmlFactory<Card, UxmlTraits> { }
 
         public Card() {
-            AddToClassList( "unity-card" );
+            AddToClassList( "card" );
         }
 
     }
@@ -21,7 +21,7 @@ namespace UnityEngine.UIElements {
         public new class UxmlFactory : UxmlFactory<Header, UxmlTraits> { }
 
         public Header() {
-            AddToClassList( "unity-header" );
+            AddToClassList( "header" );
         }
 
     }
@@ -31,7 +31,7 @@ namespace UnityEngine.UIElements {
         public new class UxmlFactory : UxmlFactory<Content, UxmlTraits> { }
 
         public Content() {
-            AddToClassList( "unity-content" );
+            AddToClassList( "content" );
         }
 
     }
@@ -41,7 +41,7 @@ namespace UnityEngine.UIElements {
         public new class UxmlFactory : UxmlFactory<Footer, UxmlTraits> { }
 
         public Footer() {
-            AddToClassList( "unity-footer" );
+            AddToClassList( "footer" );
         }
 
     }

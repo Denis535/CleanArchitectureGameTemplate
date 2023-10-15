@@ -15,7 +15,7 @@ namespace Project.UI.MainScreen {
     }
     public partial class MainMenuWidgetView : UIWidgetViewBase {
 
-        // Content
+        // VisualElement
         private readonly Label title;
         private readonly Button createGame;
         private readonly Button joinGame;
@@ -29,12 +29,11 @@ namespace Project.UI.MainScreen {
         public TextElementWrapper Quit => quit.Wrap();
 
         // Constructor
-        public MainMenuWidgetView() {
-            AddToClassList( "left-widget-view" );
-            // Content
-            Add( GetContent( out title, out createGame, out joinGame, out settings, out quit ) );
+        public MainMenuWidgetView(MainMenuWidget widget) : base( widget ) {
+            // VisualElement
+            VisualElement = CreateVisualElement( out title, out createGame, out joinGame, out settings, out quit );
             // OnEvent
-            this.OnAttachToPanel( evt => {
+            VisualElement.OnAttachToPanel( evt => {
             } );
             createGame.OnClick( evt => {
                 new CreateGameCommand().Execute( this );
@@ -54,18 +53,21 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static Card GetContent(out Label title, out Button createGame, out Button joinGame, out Button settings, out Button quit) {
-            return UIFactory.Card(
-                UIFactory.Header(
-                    title = UIFactory.Label( "Main Menu" ).Name( "main-menu" )
-                ),
-                UIFactory.Content(
-                    createGame = UIFactory.Button( "Create Game" ).Name( "create-game" ),
-                    joinGame = UIFactory.Button( "Join Game" ).Name( "join-game" ),
-                    settings = UIFactory.Button( "Settings" ).Name( "settings" ),
-                    quit = UIFactory.Button( "Quit" ).Name( "quit" )
-                ),
-                null
+        private static VisualElement CreateVisualElement(out Label title, out Button createGame, out Button joinGame, out Button settings, out Button quit) {
+            return UIFactory.LeftWidget(
+                i => i.Name( "main-menu-widget-view" ),
+                UIFactory.Card(
+                    UIFactory.Header(
+                        title = UIFactory.Label( "Main Menu" ).Name( "main-menu" )
+                    ),
+                    UIFactory.Content(
+                        createGame = UIFactory.Button( "Create Game" ).Name( "create-game" ),
+                        joinGame = UIFactory.Button( "Join Game" ).Name( "join-game" ),
+                        settings = UIFactory.Button( "Settings" ).Name( "settings" ),
+                        quit = UIFactory.Button( "Quit" ).Name( "quit" )
+                    ),
+                    null
+                )
             );
         }
 

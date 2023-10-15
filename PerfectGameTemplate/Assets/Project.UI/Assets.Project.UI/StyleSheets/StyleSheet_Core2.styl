@@ -102,6 +102,56 @@ layouts = {
     large-box:                         create-layout( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), (24px 24px 20px 20px)) )
 }
 
+// view
+view()
+    add-layout-position(null)
+    add-layout-size(null, null)
+    add-layout-box(null, null, null)
+
+// screen-view
+screen-view()
+    add-layout-position(absolute)
+    add-layout-size(100%, 100%)
+    add-layout-box(0px, 0px, 0px)
+
+// widget-view
+widget-view()
+    add-layout-position(absolute)
+    add-layout-size(100%, 100%)
+    add-layout-box(0px, 0px, 0px)
+    translate 0% 0%
+left-widget-view()
+    add-layout-position(absolute, right: 60%, bottom: 10%)
+    add-layout-size(600px, auto)
+    add-layout-box(0px, 0px, 0px)
+    translate 0% 0%
+small-widget-view()
+    add-layout-position(absolute, left: 50%, top: 50%)
+    add-layout-size(1400px, 700px)
+    add-layout-box(0px, 0px, 0px)
+    translate -50% -50%
+medium-widget-view()
+    add-layout-position(absolute, left: 50%, top: 50%)
+    add-layout-size(1600px, 800px)
+    add-layout-box(0px, 0px, 0px)
+    translate -50% -50%
+large-widget-view()
+    add-layout-position(absolute, left: 50%, top: 50%)
+    add-layout-size(1800px, 900px)
+    add-layout-box(0px, 0px, 0px)
+    translate -50% -50%
+modal-widget-view()
+    add-layout-position(absolute, left: 50%, top: 49%)
+    add-layout-size(1000px, 500px)
+    add-layout-box(0px, 0px, 0px)
+    translate -50% -50%
+
+// sub-view
+sub-view()
+    add-layout-position(null)
+    add-layout-size(null, null)
+    add-layout-box(null, null, null)
+
 // card
 card()
     add-view(card)
@@ -297,69 +347,97 @@ box()
         add-view(null)
         add-layout(large-box)
 
+// view
+.view
+    view()
+
+// screen-view
+.screen-view
+.views-container
+.modal-views-container
+    screen-view()
+
+// widget-view
+.widget-view
+    widget-view()
+.left-widget-view
+    left-widget-view()
+.small-widget-view
+    small-widget-view()
+.medium-widget-view
+    medium-widget-view()
+.large-widget-view
+    large-widget-view()
+.modal-widget-view
+    modal-widget-view()
+
+// sub-view
+.sub-view
+    sub-view()
+
 // card
-.unity-card
+.card
     card()
-.unity-header
+.header
     card-header()
-.unity-content
+.content
     card-content()
-.unity-footer
+.footer
     card-footer()
     *
         add-layout-size(25%, null)
 
 // dialog-card
-.unity-dialog-card
+.dialog-card
     dialog-card()
-    .unity-header
+    .header
         dialog-card-header()
-    .unity-content
+    .content
         dialog-card-content()
-    .unity-footer
+    .footer
         dialog-card-footer()
 
-// unity-info-dialog-card
-.unity-info-dialog-card
-    .unity-header
+// info-dialog-card
+.info-dialog-card
+    .header
         dialog-card-header-info()
-    .unity-content
+    .content
         dialog-card-content()
-    .unity-footer
+    .footer
         dialog-card-footer()
 
-// unity-warning-dialog-card
-.unity-warning-dialog-card
-    .unity-header
+// warning-dialog-card
+.warning-dialog-card
+    .header
         dialog-card-header-warning()
-    .unity-content
+    .content
         dialog-card-content()
-    .unity-footer
+    .footer
         dialog-card-footer()
 
-// unity-error-dialog-card
-.unity-error-dialog-card
-    .unity-header
+// error-dialog-card
+.error-dialog-card
+    .header
         dialog-card-header-error()
-    .unity-content
+    .content
         dialog-card-content()
-    .unity-footer
+    .footer
         dialog-card-footer()
 
 // scope
-.unity-scope
+.scope
     scope()
-.unity-column-scope
+.column-scope
     column-scope()
-.unity-row-scope
+.row-scope
     row-scope()
 
 // group
-.unity-group
+.group
     group()
-.unity-column-group
+.column-group
     column-group()
-.unity-row-group
+.row-group
     row-group()
 
 // box

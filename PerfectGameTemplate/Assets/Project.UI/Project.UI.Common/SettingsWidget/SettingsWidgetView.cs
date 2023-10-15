@@ -15,7 +15,7 @@ namespace Project.UI.Common {
     }
     public partial class SettingsWidgetView : UIWidgetViewBase {
 
-        // Content
+        // VisualElement
         private readonly Label title;
         private readonly Button playerProfile;
         private readonly Button videoSettings;
@@ -29,12 +29,11 @@ namespace Project.UI.Common {
         public TextElementWrapper Back => back.Wrap();
 
         // Constructor
-        public SettingsWidgetView() {
-            AddToClassList( "middle-widget-view" );
-            // Content
-            Add( GetContent( out title, out playerProfile, out videoSettings, out audioSettings, out back ) );
+        public SettingsWidgetView(SettingsWidget widget) : base( widget ) {
+            // VisualElement
+            VisualElement = CreateVisualElement( out title, out playerProfile, out videoSettings, out audioSettings, out back );
             // OnEvent
-            this.OnAttachToPanel( evt => {
+            VisualElement.OnAttachToPanel( evt => {
             } );
             playerProfile.OnClick( evt => {
                 new PlayerProfileCommand().Execute( this );
@@ -54,21 +53,24 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static Card GetContent(out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
-            return UIFactory.Card(
-                UIFactory.Header(
-                    title = UIFactory.Label( "Settings" ).Name( "title" )
-                ),
-                UIFactory.Content(
-                    UIFactory.ColumnGroup(
-                        i => i.Name( null ).Classes( ".dark2", ".large", ".grow-1" ),
-                        playerProfile = UIFactory.Button( "Player Profile" ).Name( "player-profile" ).Classes( "width-75", "align-self-center" ),
-                        videoSettings = UIFactory.Button( "Video Settings" ).Name( "video-settings" ).Classes( "width-75", "align-self-center" ),
-                        audioSettings = UIFactory.Button( "Audio Settings" ).Name( "audio-settings" ).Classes( "width-75", "align-self-center" )
+        private static VisualElement CreateVisualElement(out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
+            return UIFactory.MediumWidget(
+                i => i.Name( "settings-widget-view" ),
+                UIFactory.Card(
+                    UIFactory.Header(
+                        title = UIFactory.Label( "Settings" ).Name( "title" )
+                    ),
+                    UIFactory.Content(
+                        UIFactory.ColumnGroup(
+                            i => i.Name( null ).Classes( ".dark2", ".large", ".grow-1" ),
+                            playerProfile = UIFactory.Button( "Player Profile" ).Name( "player-profile" ).Classes( "width-75", "align-self-center" ),
+                            videoSettings = UIFactory.Button( "Video Settings" ).Name( "video-settings" ).Classes( "width-75", "align-self-center" ),
+                            audioSettings = UIFactory.Button( "Audio Settings" ).Name( "audio-settings" ).Classes( "width-75", "align-self-center" )
+                        )
+                    ),
+                    UIFactory.Footer(
+                        back = UIFactory.Button( "Back" ).Name( "back" )
                     )
-                ),
-                UIFactory.Footer(
-                    back = UIFactory.Button( "Back" ).Name( "back" )
                 )
             );
         }

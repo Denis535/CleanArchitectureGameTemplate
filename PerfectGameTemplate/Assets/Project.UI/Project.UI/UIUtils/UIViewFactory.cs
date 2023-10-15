@@ -11,83 +11,83 @@ namespace Project.UI {
     public static class UIViewFactory {
 
         // Screen
-        public static UIScreenView Screen() {
-            return new UIScreenView();
+        public static UIScreenView Screen(UIScreen screen) {
+            return new UIScreenView( screen );
         }
 
         // Main
-        public static MainWidgetView MainWidget() {
-            var view = new MainWidgetView();
+        public static MainWidgetView MainWidget(MainWidget widget) {
+            var view = new MainWidgetView( widget );
             return view;
         }
-        public static MainMenuWidgetView MainMenuWidget() {
-            var view = new MainMenuWidgetView();
+        public static MainMenuWidgetView MainMenuWidget(MainMenuWidget widget) {
+            var view = new MainMenuWidgetView( widget );
             return view;
         }
-        public static CreateGameWidgetView CreateGameWidget() {
-            var view = new CreateGameWidgetView();
+        public static CreateGameWidgetView CreateGameWidget(CreateGameWidget widget) {
+            var view = new CreateGameWidgetView( widget );
             return view;
         }
-        public static CreateGameWidgetView2 CreateGameWidget2() {
-            var view = new CreateGameWidgetView2();
+        public static CreateGameWidgetView2 CreateGameWidget2(CreateGameWidget2 widget) {
+            var view = new CreateGameWidgetView2( widget );
             return view;
         }
-        public static JoinGameWidgetView JoinGameWidget() {
-            var view = new JoinGameWidgetView();
+        public static JoinGameWidgetView JoinGameWidget(JoinGameWidget widget) {
+            var view = new JoinGameWidgetView( widget );
             return view;
         }
-        public static JoinGameWidgetView2 JoinGameWidget2() {
-            var view = new JoinGameWidgetView2();
+        public static JoinGameWidgetView2 JoinGameWidget2(JoinGameWidget2 widget) {
+            var view = new JoinGameWidgetView2( widget );
             return view;
         }
-        public static LoadingWidgetView LoadingWidget() {
-            var view = new LoadingWidgetView();
+        public static LoadingWidgetView LoadingWidget(LoadingWidget widget) {
+            var view = new LoadingWidgetView( widget );
             return view;
         }
 
         // Game
-        public static GameWidgetView GameWidget() {
-            var view = new GameWidgetView();
+        public static GameWidgetView GameWidget(GameWidget widget) {
+            var view = new GameWidgetView( widget );
             return view;
         }
-        public static GameMenuWidgetView GameMenuWidget() {
-            var view = new GameMenuWidgetView();
+        public static GameMenuWidgetView GameMenuWidget(GameMenuWidget widget) {
+            var view = new GameMenuWidgetView( widget );
             return view;
         }
 
         // Settings
-        public static SettingsWidgetView SettingsWidget() {
-            var view = new SettingsWidgetView();
+        public static SettingsWidgetView SettingsWidget(SettingsWidget widget) {
+            var view = new SettingsWidgetView( widget );
             return view;
         }
-        public static PlayerProfileWidgetView PlayerProfileWidget() {
-            var view = new PlayerProfileWidgetView();
+        public static PlayerProfileWidgetView PlayerProfileWidget(PlayerProfileWidget widget) {
+            var view = new PlayerProfileWidgetView( widget );
             return view;
         }
-        public static VideoSettingsWidgetView VideoSettingsWidget() {
-            var view = new VideoSettingsWidgetView();
+        public static VideoSettingsWidgetView VideoSettingsWidget(VideoSettingsWidget widget) {
+            var view = new VideoSettingsWidgetView( widget );
             return view;
         }
-        public static AudioSettingsWidgetView AudioSettingsWidget() {
-            var view = new AudioSettingsWidgetView();
+        public static AudioSettingsWidgetView AudioSettingsWidget(AudioSettingsWidget widget) {
+            var view = new AudioSettingsWidgetView( widget );
             return view;
         }
 
         // Dialog
-        public static DialogWidgetView DialogWidget() {
-            var view = new DialogWidgetView();
+        public static DialogWidgetView DialogWidget(DialogWidget widget) {
+            var view = new DialogWidgetView( widget );
             return view;
         }
-        public static InfoDialogWidgetView InfoDialogWidget() {
-            var view = new InfoDialogWidgetView();
+        public static InfoDialogWidgetView InfoDialogWidget(InfoDialogWidget widget) {
+            var view = new InfoDialogWidgetView( widget );
             return view;
         }
-        public static WarningDialogWidgetView WarningDialogWidget() {
-            var view = new WarningDialogWidgetView();
+        public static WarningDialogWidgetView WarningDialogWidget(WarningDialogWidget widget) {
+            var view = new WarningDialogWidgetView( widget );
             return view;
         }
-        public static ErrorDialogWidgetView ErrorDialogWidget() {
-            var view = new ErrorDialogWidgetView();
+        public static ErrorDialogWidgetView ErrorDialogWidget(ErrorDialogWidget widget) {
+            var view = new ErrorDialogWidgetView( widget );
             return view;
         }
 

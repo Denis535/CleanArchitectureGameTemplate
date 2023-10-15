@@ -14,7 +14,7 @@ namespace Project.UI.GameScreen {
     }
     public partial class GameMenuWidgetView : UIWidgetViewBase {
 
-        // Content
+        // VisualElement
         private readonly Label title;
         private readonly Button resume;
         private readonly Button settings;
@@ -26,12 +26,11 @@ namespace Project.UI.GameScreen {
         public TextElementWrapper Back => back.Wrap();
 
         // Constructor
-        public GameMenuWidgetView() {
-            AddToClassList( "left-widget-view" );
-            // Content
-            Add( GetContent( out title, out resume, out settings, out back ) );
+        public GameMenuWidgetView(GameMenuWidget widget) : base( widget ) {
+            // VisualElement
+            VisualElement = CreateVisualElement( out title, out resume, out settings, out back );
             // OnEvent
-            this.OnAttachToPanel( evt => {
+            VisualElement.OnAttachToPanel( evt => {
             } );
             resume.OnClick( evt => {
                 new ResumeCommand().Execute( this );
@@ -48,17 +47,20 @@ namespace Project.UI.GameScreen {
         }
 
         // Helpers
-        private static Card GetContent(out Label title, out Button resume, out Button settings, out Button back) {
-            return UIFactory.Card(
-                UIFactory.Header(
-                    title = UIFactory.Label( "Game Menu" ).Name( "title" )
-                ),
-                UIFactory.Content(
-                    resume = UIFactory.Button( "Resume" ).Name( "resume" ),
-                    settings = UIFactory.Button( "Settings" ).Name( "settings" ),
-                    back = UIFactory.Button( "Back To Main Menu" ).Name( "back" )
-                ),
-                null
+        private static VisualElement CreateVisualElement(out Label title, out Button resume, out Button settings, out Button back) {
+            return UIFactory.LeftWidget(
+                i => i.Name( "game-menu-widget-view" ),
+                UIFactory.Card(
+                    UIFactory.Header(
+                        title = UIFactory.Label( "Game Menu" ).Name( "title" )
+                    ),
+                    UIFactory.Content(
+                        resume = UIFactory.Button( "Resume" ).Name( "resume" ),
+                        settings = UIFactory.Button( "Settings" ).Name( "settings" ),
+                        back = UIFactory.Button( "Back To Main Menu" ).Name( "back" )
+                    ),
+                    null
+                )
             );
         }
 

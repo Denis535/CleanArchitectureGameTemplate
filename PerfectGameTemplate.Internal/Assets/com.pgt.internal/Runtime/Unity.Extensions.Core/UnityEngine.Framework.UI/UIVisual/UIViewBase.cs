@@ -12,7 +12,7 @@ namespace UnityEngine.Framework.UI {
         // System
         public bool IsDisposed { get; private set; }
         public Action<UIMessage>? OnMessageEvent { get; set; }
-        public IUIObservable? Observable { get; }
+        internal IUIObservable? Observable { get; }
         // VisualElement
         public VisualElement VisualElement { get; protected init; } = default!;
 

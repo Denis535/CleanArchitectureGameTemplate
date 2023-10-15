@@ -32,8 +32,8 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static MainMenuWidgetView CreateView(UIWidgetBase widget, UIRouter router) {
-            var view = UIViewFactory.MainMenuWidget();
+        private static MainMenuWidgetView CreateView(MainMenuWidget widget, UIRouter router) {
+            var view = UIViewFactory.MainMenuWidget( widget );
             view.OnCommand( (MainMenuWidgetView.CreateGameCommand cmd) => {
                 widget.AttachChild( UIWidgetFactory.CreateGameWidget() );
             } );

@@ -27,8 +27,8 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static SettingsWidgetView CreateView(UIWidgetBase widget) {
-            var view = UIViewFactory.SettingsWidget();
+        private static SettingsWidgetView CreateView(SettingsWidget widget) {
+            var view = UIViewFactory.SettingsWidget( widget );
             view.OnCommand( (SettingsWidgetView.PlayerProfileCommand cmd) => {
                 widget.AttachChild( UIWidgetFactory.PlayerProfileWidget() );
             } );

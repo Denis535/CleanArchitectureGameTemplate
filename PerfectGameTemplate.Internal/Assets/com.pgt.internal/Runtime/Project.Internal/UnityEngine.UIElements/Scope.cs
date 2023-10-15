@@ -11,8 +11,8 @@ namespace UnityEngine.UIElements {
         public new class UxmlFactory : UxmlFactory<ColumnScope, UxmlTraits> { }
 
         public ColumnScope() {
-            AddToClassList( "unity-scope" );
-            AddToClassList( "unity-column-scope" );
+            AddToClassList( "scope" );
+            AddToClassList( "column-scope" );
         }
 
     }
@@ -21,8 +21,8 @@ namespace UnityEngine.UIElements {
         public new class UxmlFactory : UxmlFactory<RowScope, UxmlTraits> { }
 
         public RowScope() {
-            AddToClassList( "unity-scope" );
-            AddToClassList( "unity-row-scope" );
+            AddToClassList( "scope" );
+            AddToClassList( "row-scope" );
         }
 
     }

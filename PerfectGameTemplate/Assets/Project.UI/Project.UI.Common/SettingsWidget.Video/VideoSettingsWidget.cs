@@ -38,8 +38,8 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static VideoSettingsWidgetView CreateView(UIWidgetBase widget, Globals.VideoSettings videoSettings) {
-            var view = UIViewFactory.VideoSettingsWidget();
+        private static VideoSettingsWidgetView CreateView(VideoSettingsWidget widget, Globals.VideoSettings videoSettings) {
+            var view = UIViewFactory.VideoSettingsWidget( widget );
             view.OnEvent( (VideoSettingsWidgetView.IsFullScreenEvent evt) => {
                 videoSettings.IsFullScreen = evt.IsFullScreen;
             } );

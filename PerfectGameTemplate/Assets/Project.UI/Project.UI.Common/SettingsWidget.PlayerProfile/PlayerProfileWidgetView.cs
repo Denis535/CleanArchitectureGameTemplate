@@ -14,9 +14,9 @@ namespace Project.UI.Common {
     }
     public partial class PlayerProfileWidgetView : UIWidgetViewBase {
 
-        // Content
+        // VisualElement
         private readonly Label title;
-        private readonly new TextField name;
+        private readonly TextField name;
         private readonly Button okey;
         private readonly Button back;
         // Props
@@ -26,12 +26,11 @@ namespace Project.UI.Common {
         public TextElementWrapper Back => back.Wrap();
 
         // Constructor
-        public PlayerProfileWidgetView() {
-            AddToClassList( "middle-widget-view" );
-            // Content
-            Add( GetContent( out title, out name, out okey, out back ) );
+        public PlayerProfileWidgetView(PlayerProfileWidget widget) : base( widget ) {
+            // VisualElement
+            VisualElement = CreateVisualElement( out title, out name, out okey, out back );
             // OnEvent
-            this.OnAttachToPanel( evt => {
+            VisualElement.OnAttachToPanel( evt => {
                 new NameEvent( Name.Value! ).Raise( this );
             } );
             name.OnChange( evt => {
@@ -49,20 +48,23 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static Card GetContent(out Label title, out TextField name, out Button okey, out Button back) {
-            return UIFactory.Card(
-                UIFactory.Header(
-                    title = UIFactory.Label( "Player Profile" ).Name( "title" )
-                ),
-                UIFactory.Content(
-                    UIFactory.ColumnGroup(
-                        i => i.Name( null ).Classes( "dark2", "large", "grow-1" ),
-                        name = UIFactory.TextField( "Name", 16, false ).Name( "name" ).Classes( "label-width-25" )
+        private static VisualElement CreateVisualElement(out Label title, out TextField name, out Button okey, out Button back) {
+            return UIFactory.MediumWidget(
+                i => i.Name( "player-profile-widget-view" ),
+                UIFactory.Card(
+                    UIFactory.Header(
+                        title = UIFactory.Label( "Player Profile" ).Name( "title" )
+                    ),
+                    UIFactory.Content(
+                        UIFactory.ColumnGroup(
+                            i => i.Name( null ).Classes( "dark2", "large", "grow-1" ),
+                            name = UIFactory.TextField( "Name", 16, false ).Name( "name" ).Classes( "label-width-25" )
+                        )
+                    ),
+                    UIFactory.Footer(
+                        okey = UIFactory.Button( "Ok" ).Name( "okey" ),
+                        back = UIFactory.Button( "Back" ).Name( "back" )
                     )
-                ),
-                UIFactory.Footer(
-                    okey = UIFactory.Button( "Ok" ).Name( "okey" ),
-                    back = UIFactory.Button( "Back" ).Name( "back" )
                 )
             );
         }

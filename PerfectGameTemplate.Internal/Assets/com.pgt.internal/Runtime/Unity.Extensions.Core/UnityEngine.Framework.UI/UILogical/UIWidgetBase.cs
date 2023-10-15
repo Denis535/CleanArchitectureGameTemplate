@@ -63,6 +63,11 @@ namespace UnityEngine.Framework.UI {
         public virtual void Dispose() {
             Assert.Object.Message( $"Widget {this} must be alive" ).Alive( !IsDisposed );
             Assert.Object.Message( $"Widget {this} must be non-attached" ).Valid( IsNonAttached );
+            foreach (var child in Children) {
+                if (child.DisposeAutomatically) {
+                    child.Dispose();
+                }
+            }
             IsDisposed = true;
             disposeCancellationTokenSource?.Cancel();
         }
@@ -159,9 +164,9 @@ namespace UnityEngine.Framework.UI {
             using (Lock.Enter()) {
                 child.Detach( this );
                 Children_.Remove( child );
-                if (child.DisposeAutomatically) {
-                    child.Dispose();
-                }
+            }
+            if (child.DisposeAutomatically) {
+                child.Dispose();
             }
         }
 

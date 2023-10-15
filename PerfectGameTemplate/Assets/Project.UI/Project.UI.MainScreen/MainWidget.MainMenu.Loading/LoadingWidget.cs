@@ -10,7 +10,7 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public LoadingWidget() {
-            View = CreateView();
+            View = CreateView( this );
         }
         public override void Dispose() {
             base.Dispose();
@@ -27,8 +27,8 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static LoadingWidgetView CreateView() {
-            var view = UIViewFactory.LoadingWidget();
+        private static LoadingWidgetView CreateView(LoadingWidget widget) {
+            var view = UIViewFactory.LoadingWidget( widget );
             return view;
         }
 

@@ -13,10 +13,11 @@ namespace Project.UI.MainScreen {
     public partial class MainWidgetView : UIWidgetViewBase {
 
         // Constructor
-        public MainWidgetView() {
-            AddToClassList( "widget-view" );
+        public MainWidgetView(MainWidget widget) : base( widget ) {
+            // VisualElement
+            VisualElement = CreateVisualElement();
             // OnEvent
-            this.OnAttachToPanel( evt => {
+            VisualElement.OnAttachToPanel( evt => {
             } );
         }
         public override void Dispose() {
@@ -26,8 +27,15 @@ namespace Project.UI.MainScreen {
         // SetEffect
         public void SetEffect(int value) {
             var t = Easing.OutPower( Mathf.InverseLerp( 1, 8, value ), 2 );
-            transform.scale = Vector3.LerpUnclamped( new Vector3( 1, 1, 1 ), new Vector3( 2, 2, 1 ), t );
-            style.unityBackgroundImageTintColor = Color.LerpUnclamped( new Color( 1, 1, 1, 1 ), new Color( 0, 0, 0, 1 ), t );
+            VisualElement.transform.scale = Vector3.LerpUnclamped( new Vector3( 1, 1, 1 ), new Vector3( 2, 2, 1 ), t );
+            VisualElement.style.unityBackgroundImageTintColor = Color.LerpUnclamped( new Color( 1, 1, 1, 1 ), new Color( 0, 0, 0, 1 ), t );
+        }
+
+        // Helpers
+        private static VisualElement CreateVisualElement() {
+            return UIFactory.Widget(
+                i => i.Name( "main-widget-view" )
+            );
         }
 
     }

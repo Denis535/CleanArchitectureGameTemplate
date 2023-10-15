@@ -175,17 +175,6 @@ namespace Project.Toolbar {
                 "Assets/Project.UI/Project.UI.Common/*View2.cs"
                 ) );
         }
-        [MenuItem( "Project/Open Assets (Pug)", priority = 1003 )]
-        internal static void OpenAssets_Pug() {
-            OpenAssets( GetPatterns(
-                // MainScreen
-                "Assets/Project.UI/Project.UI.MainScreen/*.pug",
-                // GameScreen
-                "Assets/Project.UI/Project.UI.GameScreen/*.pug",
-                // Common
-                "Assets/Project.UI/Project.UI.Common/*.pug"
-                ) );
-        }
 
         // Helpers
         private static void OpenAssets(params Regex[] patterns) {

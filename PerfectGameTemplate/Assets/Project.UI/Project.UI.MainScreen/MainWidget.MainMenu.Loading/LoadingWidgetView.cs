@@ -13,18 +13,17 @@ namespace Project.UI.MainScreen {
     }
     public partial class LoadingWidgetView : UIWidgetViewBase {
 
-        // Content
+        // VisualElement
         private readonly Label loading;
         // Props
         public TextElementWrapper Loading => loading.Wrap();
 
         // Constructor
-        public LoadingWidgetView() {
-            AddToClassList( "widget-view" );
-            // Content
-            Add( GetContent( out loading ) );
+        public LoadingWidgetView(LoadingWidget widget) : base( widget ) {
+            // VisualElement
+            VisualElement = CreateVisualElement( out loading );
             // OnEvent
-            this.OnAttachToPanel( evt => {
+            VisualElement.OnAttachToPanel( evt => {
                 PlayLoading( loading );
             } );
         }
@@ -33,10 +32,13 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static ColumnScope GetContent(out Label loading) {
-            return UIFactory.ColumnScope(
-                i => i.Name( null ).Classes( "padding-2", "grow-1", "justify-content-end", "align-items-center" ),
-                loading = UIFactory.Label( "Loading..." ).Name( "loading" ).Classes( "color-light", "font-size-200", "font-style-bold" )
+        private static VisualElement CreateVisualElement(out Label loading) {
+            return UIFactory.Widget(
+                i => i.Name( "loading-widget-view" ),
+                UIFactory.ColumnScope(
+                    i => i.Name( null ).Classes( "padding-2", "grow-1", "justify-content-end", "align-items-center" ),
+                    loading = UIFactory.Label( "Loading..." ).Name( "loading" ).Classes( "color-light", "font-size-200", "font-style-bold" )
+                )
             );
         }
         // Helpers

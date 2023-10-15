@@ -11,8 +11,8 @@ namespace UnityEngine.UIElements {
         public new class UxmlFactory : UxmlFactory<ColumnGroup, UxmlTraits> { }
 
         public ColumnGroup() {
-            AddToClassList( "unity-group" );
-            AddToClassList( "unity-column-group" );
+            AddToClassList( "group" );
+            AddToClassList( "column-group" );
         }
 
     }
@@ -21,8 +21,8 @@ namespace UnityEngine.UIElements {
         public new class UxmlFactory : UxmlFactory<RowGroup, UxmlTraits> { }
 
         public RowGroup() {
-            AddToClassList( "unity-group" );
-            AddToClassList( "unity-row-group" );
+            AddToClassList( "group" );
+            AddToClassList( "row-group" );
         }
 
     }

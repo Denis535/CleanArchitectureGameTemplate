@@ -8,6 +8,26 @@ namespace Project.UI {
 
     public static class UIFactory {
 
+        // Widget
+        public static View Widget(Action<View> callback, params VisualElement[] children) {
+            return new View().Name( "widget-view" ).Classes( "widget-view" ).Pipe( callback ).Children( children );
+        }
+        public static View LeftWidget(Action<View> callback, params VisualElement[] children) {
+            return new View().Name( "left-widget-view" ).Classes( "left-widget-view" ).Pipe( callback ).Children( children );
+        }
+        public static View SmallWidget(Action<View> callback, params VisualElement[] children) {
+            return new View().Name( "small-widget-view" ).Classes( "small-widget-view" ).Pipe( callback ).Children( children );
+        }
+        public static View MediumWidget(Action<View> callback, params VisualElement[] children) {
+            return new View().Name( "medium-widget-view" ).Classes( "medium-widget-view" ).Pipe( callback ).Children( children );
+        }
+        public static View LargeWidget(Action<View> callback, params VisualElement[] children) {
+            return new View().Name( "large-widget-view" ).Classes( "large-widget-view" ).Pipe( callback ).Children( children );
+        }
+        public static View ModalWidget(Action<View> callback, params VisualElement[] children) {
+            return new View().Name( "modal-widget-view" ).Classes( "modal-widget-view" ).Pipe( callback ).Children( children );
+        }
+
         // Card
         public static Card Card(Header? header, Content? content, Footer? footer) {
             return new Card().Children( header, content, footer );

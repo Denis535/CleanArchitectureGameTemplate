@@ -25,9 +25,13 @@ namespace Project.UI {
         public new void Awake() {
             base.Awake();
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
-            View = UIViewFactory.Screen();
+            View = UIViewFactory.Screen( this );
+            AddView( Document, View );
         }
         public new void OnDestroy() {
+            Widget?.DetachSelf();
+            RemoveView( Document, View );
+            View.Dispose();
             base.OnDestroy();
         }
 

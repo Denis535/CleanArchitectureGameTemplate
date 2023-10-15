@@ -16,7 +16,7 @@ namespace Project.UI.Common {
     }
     public partial class VideoSettingsWidgetView : UIWidgetViewBase {
 
-        // Content
+        // VisualElement
         private readonly Label title;
         private readonly Toggle isFullScreen;
         private readonly DropdownField2 screenResolution;
@@ -32,12 +32,11 @@ namespace Project.UI.Common {
         public TextElementWrapper Back => back.Wrap();
 
         // Constructor
-        public VideoSettingsWidgetView() {
-            AddToClassList( "middle-widget-view" );
-            // Content
-            Add( GetContent( out title, out isFullScreen, out screenResolution, out isVSync, out okey, out back ) );
+        public VideoSettingsWidgetView(VideoSettingsWidget widget) : base( widget ) {
+            // VisualElement
+            VisualElement = CreateVisualElement( out title, out isFullScreen, out screenResolution, out isVSync, out okey, out back );
             // OnEvent
-            this.OnAttachToPanel( evt => {
+            VisualElement.OnAttachToPanel( evt => {
             } );
             isFullScreen.OnChange( evt => {
                 new IsFullScreenEvent( evt.newValue ).Raise( this );
@@ -60,22 +59,25 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static Card GetContent(out Label title, out Toggle isFullScreen, out DropdownField2 screenResolution, out Toggle isVSync, out Button okey, out Button back) {
-            return UIFactory.Card(
-                UIFactory.Header(
-                    title = UIFactory.Label( "Video Settings" ).Name( "title" )
-                ),
-                UIFactory.Content(
-                    UIFactory.ColumnGroup(
-                        i => i.Name( null ).Classes( "dark2", "large", "grow-1" ),
-                        isFullScreen = UIFactory.Toggle( "Full Screen" ).Name( "is-full-screen" ).Classes( "label-width-25" ),
-                        screenResolution = UIFactory.DropdownField( "Screen Resolution" ).Name( "screen-resolution" ).Classes( "label-width-25" ),
-                        isVSync = UIFactory.Toggle( "V-Sync" ).Name( "is-v-sync" ).Classes( "label-width-25" )
+        private static VisualElement CreateVisualElement(out Label title, out Toggle isFullScreen, out DropdownField2 screenResolution, out Toggle isVSync, out Button okey, out Button back) {
+            return UIFactory.MediumWidget(
+                i => i.Name( "video-settings-widget-view" ),
+                UIFactory.Card(
+                    UIFactory.Header(
+                        title = UIFactory.Label( "Video Settings" ).Name( "title" )
+                    ),
+                    UIFactory.Content(
+                        UIFactory.ColumnGroup(
+                            i => i.Name( null ).Classes( "dark2", "large", "grow-1" ),
+                            isFullScreen = UIFactory.Toggle( "Full Screen" ).Name( "is-full-screen" ).Classes( "label-width-25" ),
+                            screenResolution = UIFactory.DropdownField( "Screen Resolution" ).Name( "screen-resolution" ).Classes( "label-width-25" ),
+                            isVSync = UIFactory.Toggle( "V-Sync" ).Name( "is-v-sync" ).Classes( "label-width-25" )
+                        )
+                    ),
+                    UIFactory.Footer(
+                        okey = UIFactory.Button( "Ok" ).Name( "okey" ),
+                        back = UIFactory.Button( "Back" ).Name( "back" )
                     )
-                ),
-                UIFactory.Footer(
-                    okey = UIFactory.Button( "Ok" ).Name( "okey" ),
-                    back = UIFactory.Button( "Back" ).Name( "back" )
                 )
             );
         }

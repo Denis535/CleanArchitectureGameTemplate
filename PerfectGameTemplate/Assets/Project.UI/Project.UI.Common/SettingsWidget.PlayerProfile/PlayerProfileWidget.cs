@@ -35,8 +35,8 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static PlayerProfileWidgetView CreateView(UIWidgetBase widget, Globals.PlayerProfile playerProfile) {
-            var view = UIViewFactory.PlayerProfileWidget();
+        private static PlayerProfileWidgetView CreateView(PlayerProfileWidget widget, Globals.PlayerProfile playerProfile) {
+            var view = UIViewFactory.PlayerProfileWidget( widget );
             view.OnEvent( (PlayerProfileWidgetView.NameEvent evt) => {
                 view.Name.IsValid = Globals.PlayerProfile.IsNameValid( evt.Name );
                 view.Okey.IsValid = view.Name.IsValid;

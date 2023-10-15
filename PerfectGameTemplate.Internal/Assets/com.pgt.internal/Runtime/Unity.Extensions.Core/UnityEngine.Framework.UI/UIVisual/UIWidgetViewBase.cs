@@ -11,7 +11,7 @@ namespace UnityEngine.Framework.UI {
         internal UIWidgetBase Widget { get; }
 
         // Constructor
-        public UIWidgetViewBase(UIWidgetBase widget, IUIObservable? observable) : base( observable ) {
+        public UIWidgetViewBase(UIWidgetBase widget) : base( widget ) {
             Widget = widget;
         }
         public override void Dispose() {

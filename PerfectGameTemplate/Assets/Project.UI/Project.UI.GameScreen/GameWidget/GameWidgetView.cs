@@ -12,14 +12,22 @@ namespace Project.UI.GameScreen {
     public partial class GameWidgetView : UIWidgetViewBase {
 
         // Constructor
-        public GameWidgetView() {
-            AddToClassList( "widget-view" );
+        public GameWidgetView(GameWidget widget) : base( widget ) {
+            // VisualElement
+            VisualElement = CreateVisualElement();
             // OnEvent
-            this.OnAttachToPanel( evt => {
+            VisualElement.OnAttachToPanel( evt => {
             } );
         }
         public override void Dispose() {
             base.Dispose();
+        }
+
+        // Helpers
+        private static VisualElement CreateVisualElement() {
+            return UIFactory.Widget(
+                i => i.Name( "game-widget-view" )
+            );
         }
 
     }

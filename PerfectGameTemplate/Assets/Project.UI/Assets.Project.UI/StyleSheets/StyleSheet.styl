@@ -6,97 +6,64 @@
 @import "StyleSheet_Internal2"
 
 // view
-.view
-    add-layout-position(null)
-    add-layout-size(null, null)
-    add-layout-box(null, null, null)
+// .view
 
 // screen-view
-.screen-view
-.views-container
-.modal-views-container
-    add-layout-position(absolute)
-    add-layout-size(100%, 100%)
-    add-layout-box(0px, 0px, 0px)
+// .screen-view
+// .views-container
+// .modal-views-container
 
 // widget-view
-.widget-view
-    add-layout-position(absolute)
-    add-layout-size(100%, 100%)
-    add-layout-box(0px, 0px, 0px)
-    translate 0% 0%
-.left-widget-view
-    add-layout-position(absolute, right: 60%, bottom: 10%)
-    add-layout-size(600px, auto)
-    add-layout-box(0px, 0px, 0px)
-    translate 0% 0%
-.small-widget-view
-    add-layout-position(absolute, left: 50%, top: 50%)
-    add-layout-size(1400px, 700px)
-    add-layout-box(0px, 0px, 0px)
-    translate -50% -50%
-.middle-widget-view
-    add-layout-position(absolute, left: 50%, top: 50%)
-    add-layout-size(1600px, 800px)
-    add-layout-box(0px, 0px, 0px)
-    translate -50% -50%
-.large-widget-view
-    add-layout-position(absolute, left: 50%, top: 50%)
-    add-layout-size(1800px, 900px)
-    add-layout-box(0px, 0px, 0px)
-    translate -50% -50%
-.modal-widget-view
-    add-layout-position(absolute, left: 50%, top: 49%)
-    add-layout-size(1000px, 500px)
-    add-layout-box(0px, 0px, 0px)
-    translate -50% -50%
+// .widget-view
+// .left-widget-view
+// .small-widget-view
+// .medium-widget-view
+// .large-widget-view
+// .modal-widget-view
 
 // sub-view
-.sub-view
-    add-layout-position(null)
-    add-layout-size(null, null)
-    add-layout-box(null, null, null)
+// .sub-view
 
 // card
-.unity-card
+.card
     add-view(null)
     add-layout(null)
-    .unity-header
+    .header
         add-view(null, font: fnt(null, 140%, bold))
         add-layout(null)
-    .unity-content
+    .content
         add-view(null, font: fnt(null, 100%, normal))
         add-layout(null)
-    .unity-footer
+    .footer
         add-view(null, font: fnt(null, 130%, bold))
         add-layout(null)
 
 // dialog-card
-.unity-dialog-card
-.unity-info-dialog-card
-.unity-warning-dialog-card
-.unity-error-dialog-card
+.dialog-card
+.info-dialog-card
+.warning-dialog-card
+.error-dialog-card
     add-view(null)
     add-layout(null)
-    .unity-header
+    .header
         add-view(null)
         add-layout(null)
-    .unity-content
+    .content
         add-view(null, font: fnt(null, 120%, bold))
         add-layout(null)
-    .unity-footer
+    .footer
         add-view(null)
         add-layout(null)
 
 // scope
-// .unity-scope
-// .unity-column-scope
-// .unity-row-scope
+// .scope
+// .column-scope
+// .row-scope
 
 // group
-// .unity-group
-// .unity-column-group
-// .unity-row-group
+// .group
+// .column-group
+// .row-group
 
 // box
 // .unity-box
@@ -107,8 +74,8 @@
     add-view-background(null, null)
     add-view-border(null, null)
 
-// MainWidgetView
-MainWidgetView
+// main-widget-view
+#main-widget-view
 	add-view-foreground(null, null, null)
 	add-view-background(null, img('project://database/Assets/Project.UI/Assets.Project.UI.MainScreen/Images/Background.png', null, scale-and-crop))
 	add-view-border(null, null)
@@ -119,5 +86,5 @@ MainWidgetView
 	transition-duration 3s
 	transition-timing-function ease
 
-// GameWidgetView
-// GameWidgetView
+// game-widget-view
+// #game-widget-view

@@ -32,9 +32,6 @@ namespace UnityEngine.Framework.UI {
             AudioSource = gameObject.RequireComponentInChildren<AudioSource>();
         }
         public void OnDestroy() {
-            if (Widget != null) this.DetachWidget();
-            View.VisualElement.RemoveFromHierarchy();
-            View.Dispose();
         }
 
         // AttachWidget
@@ -55,9 +52,9 @@ namespace UnityEngine.Framework.UI {
             using (Lock.Enter()) {
                 Widget.Detach( this );
                 Widget = null;
-                if (widget.DisposeAutomatically) {
-                    widget.Dispose();
-                }
+            }
+            if (widget.DisposeAutomatically) {
+                widget.Dispose();
             }
         }
 
@@ -92,16 +89,16 @@ namespace UnityEngine.Framework.UI {
         }
 
         // Helpers
-        protected static void AddView(UIDocument document, VisualElement view) {
-            document.rootVisualElement.Add( view );
+        protected static void AddView(UIDocument document, UIScreenViewBase view) {
+            document.rootVisualElement.Add( view.VisualElement );
         }
-        protected static void AddViewIfNeeded(UIDocument document, VisualElement view) {
-            if (!document.rootVisualElement.Contains( view )) {
-                document.rootVisualElement.Add( view );
+        protected static void AddViewIfNeeded(UIDocument document, UIScreenViewBase view) {
+            if (!document.rootVisualElement.Contains( view.VisualElement )) {
+                document.rootVisualElement.Add( view.VisualElement );
             }
         }
-        protected static void RemoveView(UIDocument document, VisualElement view) {
-            document.rootVisualElement.Remove( view );
+        protected static void RemoveView(UIDocument document, UIScreenViewBase view) {
+            document.rootVisualElement.Remove( view.VisualElement );
         }
 
     }

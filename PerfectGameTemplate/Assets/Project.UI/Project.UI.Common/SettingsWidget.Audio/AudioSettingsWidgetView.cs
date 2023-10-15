@@ -17,7 +17,7 @@ namespace Project.UI.Common {
     }
     public partial class AudioSettingsWidgetView : UIWidgetViewBase {
 
-        // Content
+        // VisualElement
         private readonly Label title;
         private readonly Slider masterVolume;
         private readonly Slider musicVolume;
@@ -35,12 +35,11 @@ namespace Project.UI.Common {
         public TextElementWrapper Back => back.Wrap();
 
         // Constructor
-        public AudioSettingsWidgetView() {
-            AddToClassList( "middle-widget-view" );
-            // Content
-            Add( GetContent( out title, out masterVolume, out musicVolume, out sfxVolume, out gameVolume, out okey, out back ) );
+        public AudioSettingsWidgetView(AudioSettingsWidget widget) : base( widget ) {
+            // VisualElement
+            VisualElement = CreateVisualElement( out title, out masterVolume, out musicVolume, out sfxVolume, out gameVolume, out okey, out back );
             // OnEvent
-            this.OnAttachToPanel( evt => {
+            VisualElement.OnAttachToPanel( evt => {
             } );
             masterVolume.OnChange( evt => {
                 new MasterVolumeEvent( evt.newValue ).Raise( this );
@@ -66,23 +65,26 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static Card GetContent(out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
-            return UIFactory.Card(
-                UIFactory.Header(
-                    title = UIFactory.Label( "Audio Settings" ).Name( "title" )
-                ),
-                UIFactory.Content(
-                    UIFactory.ColumnGroup(
-                        i => i.Name( null ).Classes( "dark2", "large", "grow-1" ),
-                        masterVolume = UIFactory.Slider( "Master Volume", 0, 1 ).Name( "master-volume" ).Classes( "label-width-25" ),
-                        musicVolume = UIFactory.Slider( "Music Volume", 0, 1 ).Name( "music-volume" ).Classes( "label-width-25" ),
-                        sfxVolume = UIFactory.Slider( "Sfx Volume", 0, 1 ).Name( "sfx-volume" ).Classes( "label-width-25" ),
-                        gameVolume = UIFactory.Slider( "Game Volume", 0, 1 ).Name( "game-volume" ).Classes( "label-width-25" )
+        private static VisualElement CreateVisualElement(out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
+            return UIFactory.MediumWidget(
+                i => i.Name( "audio-settings-widget-view" ),
+                UIFactory.Card(
+                    UIFactory.Header(
+                        title = UIFactory.Label( "Audio Settings" ).Name( "title" )
+                    ),
+                    UIFactory.Content(
+                        UIFactory.ColumnGroup(
+                            i => i.Name( null ).Classes( "dark2", "large", "grow-1" ),
+                            masterVolume = UIFactory.Slider( "Master Volume", 0, 1 ).Name( "master-volume" ).Classes( "label-width-25" ),
+                            musicVolume = UIFactory.Slider( "Music Volume", 0, 1 ).Name( "music-volume" ).Classes( "label-width-25" ),
+                            sfxVolume = UIFactory.Slider( "Sfx Volume", 0, 1 ).Name( "sfx-volume" ).Classes( "label-width-25" ),
+                            gameVolume = UIFactory.Slider( "Game Volume", 0, 1 ).Name( "game-volume" ).Classes( "label-width-25" )
+                        )
+                    ),
+                    UIFactory.Footer(
+                        okey = UIFactory.Button( "Ok" ).Name( "okey" ),
+                        back = UIFactory.Button( "Back" ).Name( "back" )
                     )
-                ),
-                UIFactory.Footer(
-                    okey = UIFactory.Button( "Ok" ).Name( "okey" ),
-                    back = UIFactory.Button( "Back" ).Name( "back" )
                 )
             );
         }

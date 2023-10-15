@@ -13,10 +13,10 @@ namespace Project.UI.MainScreen {
     }
     public partial class JoinGameWidgetView2 : UIWidgetViewBase {
 
-        // Content
+        // VisualElement
         private readonly Label title;
-        private readonly GameView game;
-        private readonly PlayerView player;
+        private readonly GameView game = default!;
+        private readonly PlayerView player = default!;
         private readonly Button okey;
         private readonly Button back;
         // Props
@@ -27,12 +27,11 @@ namespace Project.UI.MainScreen {
         public TextElementWrapper Back => back.Wrap();
 
         // Constructor
-        public JoinGameWidgetView2() {
-            AddToClassList( "large-widget-view" );
-            // Content
-            Add( GetContent( out title, out game, out player, out okey, out back ) );
+        public JoinGameWidgetView2(JoinGameWidget2 widget) : base( widget ) {
+            // VisualElement
+            VisualElement = CreateVisualElement( out title, out okey, out back );
             // OnEvent
-            this.OnAttachToPanel( evt => {
+            VisualElement.OnAttachToPanel( evt => {
             } );
             okey.OnClick( evt => {
                 new OkeyCommand().Execute( this );
@@ -46,25 +45,28 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static Card GetContent(out Label title, out GameView game, out PlayerView player, out Button okey, out Button back) {
-            return UIFactory.Card(
-                UIFactory.Header(
-                    title = UIFactory.Label( "Join Game" ).Name( "title" )
-                ),
-                UIFactory.Content(
-                    UIFactory.RowScope(
-                        i => i.Name( null ).Classes( "grow-0", "basis-40" ),
-                        game = new GameView().Name( null ).Classes( "grow-1", "basis-0" ),
-                        player = new PlayerView().Name( null ).Classes( "grow-1", "basis-0" )
+        private static View CreateVisualElement(out Label title, out Button okey, out Button back) {
+            return UIFactory.LargeWidget(
+                i => i.Name( "join-game-widget-view" ),
+                UIFactory.Card(
+                    UIFactory.Header(
+                        title = UIFactory.Label( "Join Game" ).Name( "title" )
                     ),
-                    UIFactory.ColumnGroup(
-                        i => i.Name( null ).Classes( "dark5", "medium", "grow-1" ),
-                        UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" )
+                    UIFactory.Content(
+                        UIFactory.RowScope(
+                            i => i.Name( null ).Classes( "grow-0", "basis-40" )
+                            //game = new GameView().Name( null ).Classes( "grow-1", "basis-0" ),
+                            //player = new PlayerView().Name( null ).Classes( "grow-1", "basis-0" )
+                        ),
+                        UIFactory.ColumnGroup(
+                            i => i.Name( null ).Classes( "dark5", "medium", "grow-1" ),
+                            UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" )
+                        )
+                    ),
+                    UIFactory.Footer(
+                        okey = UIFactory.Button( "Ok" ).Name( "okey" ),
+                        back = UIFactory.Button( "Back" ).Name( "back" )
                     )
-                ),
-                UIFactory.Footer(
-                    okey = UIFactory.Button( "Ok" ).Name( "okey" ),
-                    back = UIFactory.Button( "Back" ).Name( "back" )
                 )
             );
         }
@@ -77,7 +79,7 @@ namespace Project.UI.MainScreen {
             public record GameWorldEvent(object? GameWorld) : UIEvent<GameView>;
             public record IsGamePrivateEvent(bool IsGamePrivate) : UIEvent<GameView>;
 
-            // Content
+            // VisualElement
             private readonly Label title;
             private readonly TextField gameName;
             private readonly DropdownField2 gameMode;
@@ -91,9 +93,9 @@ namespace Project.UI.MainScreen {
             public FieldWrapper<bool> IsGamePrivate => isGamePrivate.Wrap();
 
             // Constructor
-            public GameView() {
-                // Content
-                Add( GetContent( out title, out gameName, out gameMode, out gameWorld, out isGamePrivate ) );
+            public GameView(JoinGameWidgetView2 view) : base( view ) {
+                // VisualElement
+                VisualElement = CreateVisualElement( out title, out gameName, out gameMode, out gameWorld, out isGamePrivate );
                 // OnEvent
                 gameName.OnChange( evt => {
                     new GameNameEvent( evt.newValue ).Raise( this );
@@ -113,7 +115,7 @@ namespace Project.UI.MainScreen {
             }
 
             // Helpers
-            private static ColumnGroup GetContent(out Label title, out TextField gameName, out DropdownField2 gameMode, out DropdownField2 gameWorld, out Toggle isGamePrivate) {
+            private static ColumnGroup CreateVisualElement(out Label title, out TextField gameName, out DropdownField2 gameMode, out DropdownField2 gameWorld, out Toggle isGamePrivate) {
                 return UIFactory.ColumnGroup(
                     i => i.Name( null ).Classes( "light5", "medium", "grow-1" ),
                     title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
@@ -133,7 +135,7 @@ namespace Project.UI.MainScreen {
             public record PlayerNameEvent(string PlayerName) : UIEvent<PlayerView>;
             public record PlayerRoleEvent(object? PlayerRole) : UIEvent<PlayerView>;
 
-            // Content
+            // VisualElement
             private readonly Label title;
             private readonly TextField playerName;
             private readonly DropdownField2 playerRole;
@@ -143,9 +145,9 @@ namespace Project.UI.MainScreen {
             public PopupFieldWrapper<object> PlayerRole => playerRole.Wrap();
 
             // Constructor
-            public PlayerView() {
-                // Content
-                Add( GetContent( out title, out playerName, out playerRole ) );
+            public PlayerView(JoinGameWidgetView2 view) : base( view ) {
+                // VisualElement
+                VisualElement = CreateVisualElement( out title, out playerName, out playerRole );
                 // OnEvent
                 playerName.OnChange( evt => {
                     new PlayerNameEvent( evt.newValue ).Raise( this );
@@ -159,7 +161,7 @@ namespace Project.UI.MainScreen {
             }
 
             // Helpers
-            private static ColumnGroup GetContent(out Label title, out TextField playerName, out DropdownField2 playerRole) {
+            private static VisualElement CreateVisualElement(out Label title, out TextField playerName, out DropdownField2 playerRole) {
                 return UIFactory.ColumnGroup(
                     i => i.Name( null ).Classes( "light5", "medium", "grow-1" ),
                     title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),

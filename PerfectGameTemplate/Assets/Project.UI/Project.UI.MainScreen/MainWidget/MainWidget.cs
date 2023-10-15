@@ -25,7 +25,7 @@ namespace Project.UI.MainScreen {
             Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
             Globals = this.GetDependencyContainer().Resolve<Globals>( null );
-            View = CreateView();
+            View = CreateView( this );
         }
         public override void Dispose() {
             base.Dispose();
@@ -94,8 +94,8 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static MainWidgetView CreateView() {
-            var view = UIViewFactory.MainWidget();
+        private static MainWidgetView CreateView(MainWidget widget) {
+            var view = UIViewFactory.MainWidget( widget );
             return view;
         }
 

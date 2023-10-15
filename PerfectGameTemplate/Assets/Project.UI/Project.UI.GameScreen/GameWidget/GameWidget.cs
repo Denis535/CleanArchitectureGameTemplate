@@ -20,7 +20,7 @@ namespace Project.UI.GameScreen {
         public GameWidget() {
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
             Actions = new InputActions();
-            View = CreateView();
+            View = CreateView( this );
         }
         public override void Dispose() {
             Actions.Dispose();
@@ -69,8 +69,8 @@ namespace Project.UI.GameScreen {
         }
 
         // Helpers
-        private static GameWidgetView CreateView() {
-            var view = UIViewFactory.GameWidget();
+        private static GameWidgetView CreateView(GameWidget widget) {
+            var view = UIViewFactory.GameWidget( widget );
             return view;
         }
 

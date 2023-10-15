@@ -69,8 +69,8 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static JoinGameWidgetView CreateView(UIWidgetBase widget) {
-            var view = UIViewFactory.JoinGameWidget();
+        private static JoinGameWidgetView CreateView(JoinGameWidget widget) {
+            var view = UIViewFactory.JoinGameWidget( widget );
             view.Game.OnEvent( (JoinGameWidgetView.GameView.GameNameEvent evt) => {
             } );
             view.Game.OnEvent( (JoinGameWidgetView.GameView.GameModeEvent evt) => {

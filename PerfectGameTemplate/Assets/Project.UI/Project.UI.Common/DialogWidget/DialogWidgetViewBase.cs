@@ -9,7 +9,7 @@ namespace Project.UI.Common {
 
     public abstract class DialogWidgetViewBase : UIWidgetViewBase, IUIModalWidgetView {
 
-        // Content
+        // VisualElement
         protected Card card = default!;
         protected Header header = default!;
         protected Content content = default!;
@@ -25,7 +25,7 @@ namespace Project.UI.Common {
         public TextElementWrapper Message => message.Wrap();
 
         // Constructor
-        public DialogWidgetViewBase() {
+        public DialogWidgetViewBase(UIWidgetBase widget) : base( widget ) {
         }
         public override void Dispose() {
             base.Dispose();
@@ -56,30 +56,31 @@ namespace Project.UI.Common {
     public class DialogWidgetView : DialogWidgetViewBase {
 
         // Constructor
-        public DialogWidgetView() {
-            AddToClassList( "modal-widget-view" );
-            AddToClassList( "dialog-widget-view" );
-            // Content
-            Add( GetContent( out card, out header, out content, out footer, out title, out message ) );
+        public DialogWidgetView(DialogWidget widget) : base( widget ) {
+            // VisualElement
+            VisualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return card = UIFactory.Card(
-                i => i.Name( null ).Classes( "unity-dialog-card" ),
-                header = UIFactory.Header(
-                    i => i.SetDisplayed( false ),
-                    title = UIFactory.Label( null ).Name( "title" )
-                ),
-                content = UIFactory.Content(
-                    i => i.SetDisplayed( false ),
-                    message = UIFactory.Label( null ).Name( "message" )
-                ),
-                footer = UIFactory.Footer(
-                    i => i.SetDisplayed( false )
+        private static VisualElement CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            return UIFactory.ModalWidget(
+                i => i.Name( "dialog-widget-view" ).Classes( "dialog-widget-view" ),
+                card = UIFactory.Card(
+                    i => i.Name( null ).Classes( "dialog-card" ),
+                    header = UIFactory.Header(
+                        i => i.SetDisplayed( false ),
+                        title = UIFactory.Label( null ).Name( "title" )
+                    ),
+                    content = UIFactory.Content(
+                        i => i.SetDisplayed( false ),
+                        message = UIFactory.Label( null ).Name( "message" )
+                    ),
+                    footer = UIFactory.Footer(
+                        i => i.SetDisplayed( false )
+                    )
                 )
             );
         }
@@ -89,30 +90,31 @@ namespace Project.UI.Common {
     public class InfoDialogWidgetView : DialogWidgetViewBase {
 
         // Constructor
-        public InfoDialogWidgetView() {
-            AddToClassList( "modal-widget-view" );
-            AddToClassList( "info-dialog-widget-view" );
-            // Content
-            Add( GetContent( out card, out header, out content, out footer, out title, out message ) );
+        public InfoDialogWidgetView(InfoDialogWidget widget) : base( widget ) {
+            // VisualElement
+            VisualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return card = UIFactory.Card(
-                i => i.Name( null ).Classes( "unity-info-dialog-card" ),
-                header = UIFactory.Header(
-                    i => i.SetDisplayed( false ),
-                    title = UIFactory.Label( null ).Name( "title" )
-                ),
-                content = UIFactory.Content(
-                    i => i.SetDisplayed( false ),
-                    message = UIFactory.Label( null ).Name( "message" )
-                ),
-                footer = UIFactory.Footer(
-                    i => i.SetDisplayed( false )
+        private static VisualElement CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            return UIFactory.ModalWidget(
+                i => i.Name( "info-dialog-widget-view" ).Classes( "info-dialog-widget-view" ),
+                card = UIFactory.Card(
+                    i => i.Name( null ).Classes( "info-dialog-card" ),
+                    header = UIFactory.Header(
+                        i => i.SetDisplayed( false ),
+                        title = UIFactory.Label( null ).Name( "title" )
+                    ),
+                    content = UIFactory.Content(
+                        i => i.SetDisplayed( false ),
+                        message = UIFactory.Label( null ).Name( "message" )
+                    ),
+                    footer = UIFactory.Footer(
+                        i => i.SetDisplayed( false )
+                    )
                 )
             );
         }
@@ -122,30 +124,31 @@ namespace Project.UI.Common {
     public class WarningDialogWidgetView : DialogWidgetViewBase {
 
         // Constructor
-        public WarningDialogWidgetView() {
-            AddToClassList( "modal-widget-view" );
-            AddToClassList( "warning-dialog-widget-view" );
-            // Content
-            Add( GetContent( out card, out header, out content, out footer, out title, out message ) );
+        public WarningDialogWidgetView(WarningDialogWidget widget) : base( widget ) {
+            // VisualElement
+            VisualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return card = UIFactory.Card(
-                i => i.Name( null ).Classes( "unity-warning-dialog-card" ),
-                header = UIFactory.Header(
-                    i => i.SetDisplayed( false ),
-                    title = UIFactory.Label( null ).Name( "title" )
-                ),
-                content = UIFactory.Content(
-                    i => i.SetDisplayed( false ),
-                    message = UIFactory.Label( null ).Name( "message" )
-                ),
-                footer = UIFactory.Footer(
-                    i => i.SetDisplayed( false )
+        private static VisualElement CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            return UIFactory.ModalWidget(
+                i => i.Name( "warning-dialog-widget-view" ).Classes( "warning-dialog-widget-view" ),
+                card = UIFactory.Card(
+                    i => i.Name( null ).Classes( "warning-dialog-card" ),
+                    header = UIFactory.Header(
+                        i => i.SetDisplayed( false ),
+                        title = UIFactory.Label( null ).Name( "title" )
+                    ),
+                    content = UIFactory.Content(
+                        i => i.SetDisplayed( false ),
+                        message = UIFactory.Label( null ).Name( "message" )
+                    ),
+                    footer = UIFactory.Footer(
+                        i => i.SetDisplayed( false )
+                    )
                 )
             );
         }
@@ -155,30 +158,31 @@ namespace Project.UI.Common {
     public class ErrorDialogWidgetView : DialogWidgetViewBase {
 
         // Constructor
-        public ErrorDialogWidgetView() {
-            AddToClassList( "modal-widget-view" );
-            AddToClassList( "error-dialog-widget-view" );
-            // Content
-            Add( GetContent( out card, out header, out content, out footer, out title, out message ) );
+        public ErrorDialogWidgetView(ErrorDialogWidget widget) : base( widget ) {
+            // VisualElement
+            VisualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static Card GetContent(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return card = UIFactory.Card(
-                i => i.Name( null ).Classes( "unity-error-dialog-card" ),
-                header = UIFactory.Header(
-                    i => i.SetDisplayed( false ),
-                    title = UIFactory.Label( null ).Name( "title" )
-                ),
-                content = UIFactory.Content(
-                    i => i.SetDisplayed( false ),
-                    message = UIFactory.Label( null ).Name( "message" )
-                ),
-                footer = UIFactory.Footer(
-                    i => i.SetDisplayed( false )
+        private static VisualElement CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            return UIFactory.ModalWidget(
+                i => i.Name( "error-dialog-widget-view" ).Classes( "error-dialog-widget-view" ),
+                card = UIFactory.Card(
+                    i => i.Name( null ).Classes( "error-dialog-card" ),
+                    header = UIFactory.Header(
+                        i => i.SetDisplayed( false ),
+                        title = UIFactory.Label( null ).Name( "title" )
+                    ),
+                    content = UIFactory.Content(
+                        i => i.SetDisplayed( false ),
+                        message = UIFactory.Label( null ).Name( "message" )
+                    ),
+                    footer = UIFactory.Footer(
+                        i => i.SetDisplayed( false )
+                    )
                 )
             );
         }

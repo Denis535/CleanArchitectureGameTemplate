@@ -33,8 +33,8 @@ namespace Project.UI.GameScreen {
         }
 
         // Helpers
-        private static GameMenuWidgetView CreateView(UIWidgetBase widget, UIRouter router) {
-            var view = UIViewFactory.GameMenuWidget();
+        private static GameMenuWidgetView CreateView(GameMenuWidget widget, UIRouter router) {
+            var view = UIViewFactory.GameMenuWidget( widget );
             view.OnCommand( (GameMenuWidgetView.ResumeCommand cmd) => {
                 widget.DetachSelf();
             } );
