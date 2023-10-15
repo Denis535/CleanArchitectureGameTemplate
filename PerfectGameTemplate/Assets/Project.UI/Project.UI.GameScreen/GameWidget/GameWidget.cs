@@ -16,7 +16,7 @@ namespace Project.UI.GameScreen {
         // Actions
         private InputActions Actions { get; }
         // View
-        public override GameWidgetView View { get; protected init; }
+        public override GameWidgetView View { get; }
 
         // Constructor
         public GameWidget() {

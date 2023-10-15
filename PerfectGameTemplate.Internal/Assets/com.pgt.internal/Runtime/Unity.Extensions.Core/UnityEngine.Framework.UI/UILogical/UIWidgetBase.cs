@@ -230,7 +230,7 @@ namespace UnityEngine.Framework.UI {
     public abstract class UIWidgetBase<TView> : UIWidgetBase, IUIViewable where TView : notnull, UIWidgetViewBase {
 
         // View
-        public abstract new TView View { get; protected init; }
+        public abstract new TView View { get; }
         UIViewBase IUIViewable.View => View;
 
         // Constructor

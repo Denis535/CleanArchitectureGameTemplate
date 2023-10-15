@@ -30,7 +30,7 @@ namespace Project.UI {
         }
         public new void OnDestroy() {
             Widget?.DetachSelf();
-            RemoveView( Document, View );
+            //RemoveView( Document, View );
             View.Dispose();
             base.OnDestroy();
         }

@@ -20,7 +20,7 @@ namespace Project.UI.MainScreen {
         private Globals Globals { get; set; } = default!;
         private IAuthenticationService AuthenticationService => Unity.Services.Authentication.AuthenticationService.Instance;
         // View
-        public override MainWidgetView View { get; protected init; }
+        public override MainWidgetView View { get; }
 
         // Constructor
         public MainWidget() {

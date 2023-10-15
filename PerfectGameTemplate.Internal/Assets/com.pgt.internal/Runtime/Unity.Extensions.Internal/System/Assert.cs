@@ -16,9 +16,6 @@ namespace System {
         public static class Object {
             public static Assertions.Message<Assertions.Object> Message(FormattableString text) => new( text );
         }
-        public static class Internal {
-            public static Assertions.Message<Assertions.Internal> Message(FormattableString text) => new( text );
-        }
     }
     // Assertions
     public static class Assertions {
@@ -36,8 +33,6 @@ namespace System {
         public abstract class Operation {
         }
         public abstract class Object {
-        }
-        public abstract class Internal {
         }
 
         // Argument

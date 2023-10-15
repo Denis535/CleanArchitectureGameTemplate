@@ -9,7 +9,7 @@ namespace Project.UI.MainScreen {
     public class LoadingWidget : UIWidgetBase<LoadingWidgetView> {
 
         // View
-        public override LoadingWidgetView View { get; protected init; }
+        public override LoadingWidgetView View { get; }
 
         // Constructor
         public LoadingWidget() {

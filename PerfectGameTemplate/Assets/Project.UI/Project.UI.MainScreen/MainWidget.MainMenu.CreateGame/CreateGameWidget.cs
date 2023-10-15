@@ -18,7 +18,7 @@ namespace Project.UI.MainScreen {
         private Globals.PlayerProfile PlayerProfile { get; }
         //private ILobbyService LobbyService { get; }
         // View
-        public override CreateGameWidgetView View { get; protected init; }
+        public override CreateGameWidgetView View { get; }
 
         // Constructor
         public CreateGameWidget() {

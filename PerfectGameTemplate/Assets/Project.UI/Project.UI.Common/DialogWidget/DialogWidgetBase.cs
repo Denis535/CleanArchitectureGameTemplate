@@ -11,7 +11,7 @@ namespace Project.UI.Common {
     public abstract class DialogWidgetBase<TView> : UIWidgetBase<TView>, IUIModalWidget where TView : DialogWidgetViewBase {
 
         // View
-        public override TView View { get; protected init; } = default!;
+        public override TView View { get; } = default!;
         // Props
         public string? Title {
             get => View.Title.Text;
@@ -101,6 +101,9 @@ namespace Project.UI.Common {
     // Dialog
     public class DialogWidget : DialogWidgetBase<DialogWidgetView> {
 
+        // View
+        public override DialogWidgetView View { get; }
+
         // Constructor
         public DialogWidget(string? title, string? message) {
             View = UIViewFactory.DialogWidget( this );
@@ -130,6 +133,9 @@ namespace Project.UI.Common {
     }
     // InfoDialog
     public class InfoDialogWidget : DialogWidgetBase<InfoDialogWidgetView> {
+
+        // View
+        public override InfoDialogWidgetView View { get; }
 
         // Constructor
         public InfoDialogWidget(string? title, string? message) {
@@ -161,6 +167,9 @@ namespace Project.UI.Common {
     // WarningDialog
     public class WarningDialogWidget : DialogWidgetBase<WarningDialogWidgetView> {
 
+        // View
+        public override WarningDialogWidgetView View { get; }
+
         // Constructor
         public WarningDialogWidget(string? title, string? message) {
             View = UIViewFactory.WarningDialogWidget( this );
@@ -190,6 +199,9 @@ namespace Project.UI.Common {
     }
     // ErrorDialog
     public class ErrorDialogWidget : DialogWidgetBase<ErrorDialogWidgetView> {
+
+        // View
+        public override ErrorDialogWidgetView View { get; }
 
         // Constructor
         public ErrorDialogWidget(string? title, string? message) {
