@@ -13,13 +13,15 @@ namespace Project.UI.MainScreen {
     }
     public partial class JoinGameWidgetView : UIWidgetViewBase {
 
-        // VisualElement
+        // Props
+        private readonly VisualElement visualElement;
         private readonly Label title;
         private readonly GameView game = default!;
         private readonly PlayerView player = default!;
         private readonly Button okey;
         private readonly Button back;
         // Props
+        public override VisualElement VisualElement => visualElement;
         public TextElementWrapper Title => title.Wrap();
         public GameView Game => game;
         public PlayerView Player => player;
@@ -28,8 +30,8 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public JoinGameWidgetView(JoinGameWidget widget) : base( widget ) {
-            // VisualElement
-            VisualElement = CreateVisualElement( out title, out okey, out back );
+            // Props
+            visualElement = CreateVisualElement( out title, out okey, out back );
             // OnEvent
             VisualElement.OnAttachToPanel( evt => {
             } );
@@ -79,13 +81,15 @@ namespace Project.UI.MainScreen {
             public record GameWorldEvent(object? GameWorld) : UIEvent<GameView>;
             public record IsGamePrivateEvent(bool IsGamePrivate) : UIEvent<GameView>;
 
-            // VisualElement
+            // Props
+            private readonly VisualElement visualElement;
             private readonly Label title;
             private readonly TextField gameName;
             private readonly DropdownField2 gameMode;
             private readonly DropdownField2 gameWorld;
             private readonly Toggle isGamePrivate;
             // Props
+            public override VisualElement VisualElement => visualElement;
             public TextElementWrapper Title => title.Wrap();
             public FieldWrapper<string> GameName => gameName.Wrap();
             public PopupFieldWrapper<object> GameMode => gameMode.Wrap();
@@ -94,8 +98,8 @@ namespace Project.UI.MainScreen {
 
             // Constructor
             public GameView(JoinGameWidgetView view) : base( view ) {
-                // VisualElement
-                VisualElement = CreateVisualElement( out title, out gameName, out gameMode, out gameWorld, out isGamePrivate );
+                // Props
+                visualElement = CreateVisualElement( out title, out gameName, out gameMode, out gameWorld, out isGamePrivate );
                 // OnEvent
                 gameName.OnChange( evt => {
                     new GameNameEvent( evt.newValue ).Raise( this );
@@ -135,19 +139,21 @@ namespace Project.UI.MainScreen {
             public record PlayerNameEvent(string PlayerName) : UIEvent<PlayerView>;
             public record PlayerRoleEvent(object? PlayerRole) : UIEvent<PlayerView>;
 
-            // VisualElement
+            // Props
+            private readonly VisualElement visualElement;
             private readonly Label title;
             private readonly TextField playerName;
             private readonly DropdownField2 playerRole;
             // Props
+            public override VisualElement VisualElement => visualElement;
             public TextElementWrapper Title => title.Wrap();
             public FieldWrapper<string> PlayerName => playerName.Wrap();
             public PopupFieldWrapper<object> PlayerRole => playerRole.Wrap();
 
             // Constructor
             public PlayerView(JoinGameWidgetView view) : base( view ) {
-                // VisualElement
-                VisualElement = CreateVisualElement( out title, out playerName, out playerRole );
+                // Props
+                visualElement = CreateVisualElement( out title, out playerName, out playerRole );
                 // OnEvent
                 playerName.OnChange( evt => {
                     new PlayerNameEvent( evt.newValue ).Raise( this );

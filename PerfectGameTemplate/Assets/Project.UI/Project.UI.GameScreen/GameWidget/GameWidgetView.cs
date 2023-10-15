@@ -11,10 +11,15 @@ namespace Project.UI.GameScreen {
     }
     public partial class GameWidgetView : UIWidgetViewBase {
 
+        // Props
+        private readonly VisualElement visualElement;
+        // Props
+        public override VisualElement VisualElement => visualElement;
+
         // Constructor
         public GameWidgetView(GameWidget widget) : base( widget ) {
-            // VisualElement
-            VisualElement = CreateVisualElement();
+            // Props
+            visualElement = CreateVisualElement();
             // OnEvent
             VisualElement.OnAttachToPanel( evt => {
             } );

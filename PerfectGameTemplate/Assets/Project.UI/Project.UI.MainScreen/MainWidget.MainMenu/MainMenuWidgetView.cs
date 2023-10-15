@@ -15,13 +15,15 @@ namespace Project.UI.MainScreen {
     }
     public partial class MainMenuWidgetView : UIWidgetViewBase {
 
-        // VisualElement
+        // Props
+        private readonly VisualElement visualElement;
         private readonly Label title;
         private readonly Button createGame;
         private readonly Button joinGame;
         private readonly Button settings;
         private readonly Button quit;
         // Props
+        public override VisualElement VisualElement => visualElement;
         public TextElementWrapper Title => title.Wrap();
         public TextElementWrapper CreateGame => createGame.Wrap();
         public TextElementWrapper JoinGame => joinGame.Wrap();
@@ -30,8 +32,8 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public MainMenuWidgetView(MainMenuWidget widget) : base( widget ) {
-            // VisualElement
-            VisualElement = CreateVisualElement( out title, out createGame, out joinGame, out settings, out quit );
+            // Props
+            visualElement = CreateVisualElement( out title, out createGame, out joinGame, out settings, out quit );
             // OnEvent
             VisualElement.OnAttachToPanel( evt => {
             } );

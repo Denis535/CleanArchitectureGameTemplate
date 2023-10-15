@@ -16,9 +16,12 @@ namespace Project.UI {
 
     public class UIScreenView : UIScreenViewBase {
 
-        // VisualElement
-        private VisualElement viewsContainer = default!;
-        private VisualElement modalViewsContainer = default!;
+        // Props
+        private readonly VisualElement visualElement;
+        private readonly VisualElement viewsContainer = default!;
+        private readonly VisualElement modalViewsContainer = default!;
+        // Props
+        public override VisualElement VisualElement => visualElement;
         // Assets
         private AudioClip Window = default!;
         private AudioClip InfoWindow = default!;
@@ -34,8 +37,8 @@ namespace Project.UI {
 
         // Constructor
         public UIScreenView(UIScreen screen) : base( screen ) {
-            // VisualElement
-            VisualElement = CreateVisualElement( out viewsContainer, out modalViewsContainer );
+            // Props
+            visualElement = CreateVisualElement( out viewsContainer, out modalViewsContainer );
             // Assets
             Window = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window ).GetResult();
             InfoWindow = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window_Info ).GetResult();
@@ -99,26 +102,16 @@ namespace Project.UI {
             }
             if (!view.IsModal()) {
                 AddView( viewsContainer, view, shadowed );
-                //shadowed?.VisualElement.SetEnabled( false );
-                //shadowed?.VisualElement.SetDisplayed( false );
-                //viewsContainer.Add( view.VisualElement );
             } else {
                 AddModalView( modalViewsContainer, view, shadowed );
-                //shadowed?.VisualElement.SetEnabled( false );
-                //modalViewsContainer.Add( view.VisualElement );
             }
             SetFocus( view );
         }
         private void HideView(UIWidgetViewBase view, UIWidgetViewBase? unshadowed) {
             if (!view.IsModal()) {
                 RemoveView( viewsContainer, view, unshadowed );
-                //viewsContainer.Remove( view.VisualElement );
-                //unshadowed?.VisualElement.SetDisplayed( true );
-                //unshadowed?.VisualElement.SetEnabled( true );
             } else {
                 RemoveModalView( modalViewsContainer, view, unshadowed );
-                //modalViewsContainer.Remove( view.VisualElement );
-                //unshadowed?.VisualElement.SetEnabled( true );
             }
             if (unshadowed != null) {
                 LoadFocus( unshadowed );

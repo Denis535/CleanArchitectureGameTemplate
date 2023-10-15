@@ -9,7 +9,8 @@ namespace Project.UI.Common {
 
     public abstract class DialogWidgetViewBase : UIWidgetViewBase, IUIModalWidgetView {
 
-        // VisualElement
+        // Props
+        protected VisualElement visualElement = default!;
         protected Card card = default!;
         protected Header header = default!;
         protected Content content = default!;
@@ -17,6 +18,7 @@ namespace Project.UI.Common {
         protected Label title = default!;
         protected Label message = default!;
         // Props
+        public override VisualElement VisualElement => visualElement;
         public ElementWrapper Card => card.Wrap();
         public ElementWrapper Header => header.Wrap();
         public ElementWrapper Content => content.Wrap();
@@ -57,8 +59,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public DialogWidgetView(DialogWidget widget) : base( widget ) {
-            // VisualElement
-            VisualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
+            // Props
+            visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
         }
         public override void Dispose() {
             base.Dispose();
@@ -91,8 +93,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public InfoDialogWidgetView(InfoDialogWidget widget) : base( widget ) {
-            // VisualElement
-            VisualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
+            // Props
+            visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
         }
         public override void Dispose() {
             base.Dispose();
@@ -125,8 +127,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public WarningDialogWidgetView(WarningDialogWidget widget) : base( widget ) {
-            // VisualElement
-            VisualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
+            // Props
+            visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
         }
         public override void Dispose() {
             base.Dispose();
@@ -159,8 +161,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public ErrorDialogWidgetView(ErrorDialogWidget widget) : base( widget ) {
-            // VisualElement
-            VisualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
+            // Props
+            visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
         }
         public override void Dispose() {
             base.Dispose();

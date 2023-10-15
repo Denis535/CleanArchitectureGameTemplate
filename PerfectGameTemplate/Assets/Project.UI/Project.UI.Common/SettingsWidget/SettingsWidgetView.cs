@@ -15,13 +15,15 @@ namespace Project.UI.Common {
     }
     public partial class SettingsWidgetView : UIWidgetViewBase {
 
-        // VisualElement
+        // Props
+        private readonly VisualElement visualElement;
         private readonly Label title;
         private readonly Button playerProfile;
         private readonly Button videoSettings;
         private readonly Button audioSettings;
         private readonly Button back;
         // Props
+        public override VisualElement VisualElement => visualElement;
         public TextElementWrapper Title => title.Wrap();
         public TextElementWrapper PlayerProfile => playerProfile.Wrap();
         public TextElementWrapper VideoSettings => videoSettings.Wrap();
@@ -30,8 +32,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public SettingsWidgetView(SettingsWidget widget) : base( widget ) {
-            // VisualElement
-            VisualElement = CreateVisualElement( out title, out playerProfile, out videoSettings, out audioSettings, out back );
+            // Props
+            visualElement = CreateVisualElement( out title, out playerProfile, out videoSettings, out audioSettings, out back );
             // OnEvent
             VisualElement.OnAttachToPanel( evt => {
             } );

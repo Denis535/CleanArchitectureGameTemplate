@@ -12,10 +12,15 @@ namespace Project.UI.MainScreen {
     }
     public partial class MainWidgetView : UIWidgetViewBase {
 
+        // Props
+        private readonly VisualElement visualElement;
+        // Props
+        public override VisualElement VisualElement => visualElement;
+
         // Constructor
         public MainWidgetView(MainWidget widget) : base( widget ) {
-            // VisualElement
-            VisualElement = CreateVisualElement();
+            // Props
+            visualElement = CreateVisualElement();
             // OnEvent
             VisualElement.OnAttachToPanel( evt => {
             } );

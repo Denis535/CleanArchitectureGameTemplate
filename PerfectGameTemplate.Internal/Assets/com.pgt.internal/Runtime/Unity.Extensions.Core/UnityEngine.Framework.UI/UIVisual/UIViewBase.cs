@@ -14,7 +14,7 @@ namespace UnityEngine.Framework.UI {
         public Action<UIMessage>? OnMessageEvent { get; set; }
         internal IUIObservable? Observable { get; }
         // VisualElement
-        public VisualElement VisualElement { get; protected init; } = default!;
+        public abstract VisualElement VisualElement { get; }
 
         // Constructor
         public UIViewBase(IUIObservable? observable) {

@@ -14,12 +14,14 @@ namespace Project.UI.Common {
     }
     public partial class PlayerProfileWidgetView : UIWidgetViewBase {
 
-        // VisualElement
+        // Props
+        private readonly VisualElement visualElement;
         private readonly Label title;
         private readonly TextField name;
         private readonly Button okey;
         private readonly Button back;
         // Props
+        public override VisualElement VisualElement => visualElement;
         public TextElementWrapper Title => title.Wrap();
         public FieldWrapper<string> Name => name.Wrap();
         public TextElementWrapper Okey => okey.Wrap();
@@ -27,8 +29,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public PlayerProfileWidgetView(PlayerProfileWidget widget) : base( widget ) {
-            // VisualElement
-            VisualElement = CreateVisualElement( out title, out name, out okey, out back );
+            // Props
+            visualElement = CreateVisualElement( out title, out name, out okey, out back );
             // OnEvent
             VisualElement.OnAttachToPanel( evt => {
                 new NameEvent( Name.Value! ).Raise( this );

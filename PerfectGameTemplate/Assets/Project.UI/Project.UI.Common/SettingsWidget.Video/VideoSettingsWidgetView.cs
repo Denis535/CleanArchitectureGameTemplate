@@ -16,7 +16,8 @@ namespace Project.UI.Common {
     }
     public partial class VideoSettingsWidgetView : UIWidgetViewBase {
 
-        // VisualElement
+        // Props
+        private readonly VisualElement visualElement;
         private readonly Label title;
         private readonly Toggle isFullScreen;
         private readonly DropdownField2 screenResolution;
@@ -24,6 +25,7 @@ namespace Project.UI.Common {
         private readonly Button okey;
         private readonly Button back;
         // Props
+        public override VisualElement VisualElement => visualElement;
         public TextElementWrapper Title => title.Wrap();
         public FieldWrapper<bool> IsFullScreen => isFullScreen.Wrap();
         public PopupFieldWrapper<object> ScreenResolution => screenResolution.Wrap();
@@ -33,8 +35,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public VideoSettingsWidgetView(VideoSettingsWidget widget) : base( widget ) {
-            // VisualElement
-            VisualElement = CreateVisualElement( out title, out isFullScreen, out screenResolution, out isVSync, out okey, out back );
+            // Props
+            visualElement = CreateVisualElement( out title, out isFullScreen, out screenResolution, out isVSync, out okey, out back );
             // OnEvent
             VisualElement.OnAttachToPanel( evt => {
             } );
