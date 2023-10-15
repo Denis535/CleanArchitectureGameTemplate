@@ -6,7 +6,7 @@ namespace System {
     using System.Linq;
     using System.Runtime.CompilerServices;
 
-    public static partial class CSharp {
+    public static class CSharp {
 
         // Pipe
         [MethodImpl( MethodImplOptions.AggressiveInlining )]

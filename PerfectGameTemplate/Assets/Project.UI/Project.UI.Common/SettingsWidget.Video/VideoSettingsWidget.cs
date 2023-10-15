@@ -7,7 +7,6 @@ namespace Project.UI.Common {
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
-    using UnityEngine.UIElements;
 
     public class VideoSettingsWidget : UIWidgetBase<VideoSettingsWidgetView> {
 

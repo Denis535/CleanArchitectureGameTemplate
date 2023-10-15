@@ -1,9 +1,10 @@
 #nullable enable
-namespace UnityEngine.UIElements {
+namespace UnityEngine.Framework.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+    using UnityEngine.UIElements;
 
     public abstract class VisualElementWrapper<T> where T : VisualElement {
 

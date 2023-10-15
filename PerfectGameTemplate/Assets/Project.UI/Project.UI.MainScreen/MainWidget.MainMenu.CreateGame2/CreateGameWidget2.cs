@@ -9,7 +9,6 @@ namespace Project.UI.MainScreen {
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
-    using UnityEngine.UIElements;
 
     public class CreateGameWidget2 : UIWidgetBase<CreateGameWidgetView2> {
 
