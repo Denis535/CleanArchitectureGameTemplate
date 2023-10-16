@@ -16,24 +16,28 @@ namespace Project.UI.MainScreen {
         // Props
         private readonly VisualElement visualElement;
         private readonly Label title;
-        private readonly GameView game;
-        private readonly PlayerView player;
+        private readonly ColumnScope gameSlot;
+        private readonly ColumnScope playerSlot;
         private readonly Button okey;
         private readonly Button back;
         // Props
         public override VisualElement VisualElement => visualElement;
         public TextElementWrapper Title => title.Wrap();
-        public GameView Game => game;
-        public PlayerView Player => player;
         public TextElementWrapper Okey => okey.Wrap();
         public TextElementWrapper Back => back.Wrap();
+        // Props
+        public GameView Game { get; }
+        public PlayerView Player { get; }
 
         // Constructor
         public CreateGameWidgetView(CreateGameWidget widget) : base( widget ) {
             // Props
-            game = new GameView( this );
-            player = new PlayerView( this );
-            visualElement = CreateVisualElement( out title, game, player, out okey, out back );
+            visualElement = CreateVisualElement( out title, out gameSlot, out playerSlot, out okey, out back );
+            // Props
+            Game = new GameView( this );
+            Player = new PlayerView( this );
+            gameSlot.Add( Game.VisualElement );
+            playerSlot.Add( Player.VisualElement );
             // OnEvent
             VisualElement.OnAttachToPanel( evt => {
             } );
@@ -45,13 +49,13 @@ namespace Project.UI.MainScreen {
             } );
         }
         public override void Dispose() {
-            game.Dispose();
-            player.Dispose();
+            Game.Dispose();
+            Player.Dispose();
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement(out Label title, GameView game, PlayerView player, out Button okey, out Button back) {
+        private static View CreateVisualElement(out Label title, out ColumnScope gameSlot, out ColumnScope playerSlot, out Button okey, out Button back) {
             return UIFactory.LargeWidget(
                 i => i.Name( "create-game-widget-view" ),
                 UIFactory.Card(
@@ -61,8 +65,8 @@ namespace Project.UI.MainScreen {
                     UIFactory.Content(
                         UIFactory.RowScope(
                             i => i.Name( null ).Classes( "grow-0", "basis-40" ),
-                            game.VisualElement.Classes( "grow-1", "basis-0" ),
-                            player.VisualElement.Classes( "grow-1", "basis-0" )
+                            gameSlot = UIFactory.ColumnScope().Classes( "grow-1", "basis-0" ),
+                            playerSlot = UIFactory.ColumnScope().Classes( "grow-1", "basis-0" )
                         ),
                         UIFactory.ColumnGroup(
                             i => i.Name( null ).Classes( "dark5", "medium", "grow-1" ),
