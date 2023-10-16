@@ -6,6 +6,7 @@ namespace UnityEngine.Framework.UI {
     using System.Linq;
     using UnityEngine.UIElements;
 
+    // todo: when compiler will be updated then make all wrappers readonly structures
     public interface IVisualElementWrapper<T> where T : VisualElement {
 
         public T VisualElement { get; }
@@ -43,7 +44,7 @@ namespace UnityEngine.Framework.UI {
 
     }
     // Element
-    public struct ElementWrapper : IVisualElementWrapper<VisualElement> {
+    public class ElementWrapper : IVisualElementWrapper<VisualElement> {
 
         public VisualElement VisualElement { get; }
 
@@ -66,7 +67,7 @@ namespace UnityEngine.Framework.UI {
 
     }
     // Text
-    public struct TextWrapper : IVisualElementWrapper<TextElement> {
+    public class TextWrapper : IVisualElementWrapper<TextElement> {
 
         public TextElement VisualElement { get; }
 
@@ -94,7 +95,7 @@ namespace UnityEngine.Framework.UI {
 
     }
     // Field
-    public struct FieldWrapper<T> : IVisualElementWrapper<BaseField<T?>> where T : notnull {
+    public class FieldWrapper<T> : IVisualElementWrapper<BaseField<T?>> where T : notnull {
 
         public BaseField<T?> VisualElement { get; }
 
@@ -122,7 +123,7 @@ namespace UnityEngine.Framework.UI {
 
     }
     // Slider
-    public struct SliderWrapper<T> : IVisualElementWrapper<BaseSlider<T>> where T : struct, IComparable<T> {
+    public class SliderWrapper<T> : IVisualElementWrapper<BaseSlider<T>> where T : struct, IComparable<T> {
 
         public BaseSlider<T> VisualElement { get; }
 
@@ -162,7 +163,7 @@ namespace UnityEngine.Framework.UI {
 
     }
     // Popup
-    public struct PopupWrapper<T> : IVisualElementWrapper<PopupField<T?>> where T : notnull {
+    public class PopupWrapper<T> : IVisualElementWrapper<PopupField<T?>> where T : notnull {
 
         public PopupField<T?> VisualElement { get; }
 
@@ -198,7 +199,7 @@ namespace UnityEngine.Framework.UI {
 
     }
     // Popup
-    public struct PopupWrapper2<T> : IVisualElementWrapper<PopupField<object?>> {
+    public class PopupWrapper2<T> : IVisualElementWrapper<PopupField<object?>> {
 
         public PopupField<object?> VisualElement { get; }
 
@@ -234,7 +235,7 @@ namespace UnityEngine.Framework.UI {
 
     }
     // Slot
-    public struct SlotWrapper : IVisualElementWrapper<VisualElement> {
+    public class SlotWrapper : IVisualElementWrapper<VisualElement> {
 
         public VisualElement VisualElement { get; }
 
