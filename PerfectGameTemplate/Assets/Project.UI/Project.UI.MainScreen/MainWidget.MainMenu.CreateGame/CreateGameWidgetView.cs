@@ -13,14 +13,14 @@ namespace Project.UI.MainScreen {
     }
     public partial class CreateGameWidgetView : UIWidgetViewBase {
 
-        // Props
+        // View
         private readonly VisualElement visualElement;
         private readonly Label title;
         private readonly Slot gameSlot;
         private readonly Slot playerSlot;
         private readonly Button okey;
         private readonly Button back;
-        // Props
+        // View
         public override VisualElement VisualElement => visualElement;
         public TextWrapper Title => title.Wrap();
         public SlotWrapper GameSlot => gameSlot.Wrap();
@@ -30,10 +30,9 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public CreateGameWidgetView(CreateGameWidget widget) : base( widget ) {
-            // Props
             visualElement = CreateVisualElement( out title, out gameSlot, out playerSlot, out okey, out back );
-            // OnEvent
-            VisualElement.OnAttachToPanel( evt => {
+            // View
+            visualElement.OnAttachToPanel( evt => {
             } );
             okey.OnClick( evt => {
                 new OkeyCommand().Execute( this );
@@ -79,14 +78,14 @@ namespace Project.UI.MainScreen {
             public record GameWorldEvent(object? GameWorld) : UIEvent<GameView_>;
             public record IsGamePrivateEvent(bool IsGamePrivate) : UIEvent<GameView_>;
 
-            // Props
+            // View
             private readonly VisualElement visualElement;
             private readonly Label title;
             private readonly TextField gameName;
             private readonly DropdownField2<object?> gameMode;
             private readonly DropdownField2<object?> gameWorld;
             private readonly Toggle isGamePrivate;
-            // Props
+            // View
             public override VisualElement VisualElement => visualElement;
             public TextWrapper Title => title.Wrap();
             public FieldWrapper<string> GameName => gameName.Wrap();
@@ -96,9 +95,8 @@ namespace Project.UI.MainScreen {
 
             // Constructor
             public GameView_(CreateGameWidget widget) : base( widget ) {
-                // Props
                 visualElement = CreateVisualElement( out title, out gameName, out gameMode, out gameWorld, out isGamePrivate );
-                // OnEvent
+                // View
                 gameName.OnChange( evt => {
                     new GameNameEvent( evt.newValue ).Raise( this );
                 } );
@@ -137,12 +135,12 @@ namespace Project.UI.MainScreen {
             public record PlayerNameEvent(string PlayerName) : UIEvent<PlayerView_>;
             public record PlayerRoleEvent(object? PlayerRole) : UIEvent<PlayerView_>;
 
-            // Props
+            // View
             private readonly VisualElement visualElement;
             private readonly Label title;
             private readonly TextField playerName;
             private readonly DropdownField2<object?> playerRole;
-            // Props
+            // View
             public override VisualElement VisualElement => visualElement;
             public TextWrapper Title => title.Wrap();
             public FieldWrapper<string> PlayerName => playerName.Wrap();
@@ -150,9 +148,8 @@ namespace Project.UI.MainScreen {
 
             // Constructor
             public PlayerView_(CreateGameWidget widget) : base( widget ) {
-                // Props
                 visualElement = CreateVisualElement( out title, out playerName, out playerRole );
-                // OnEvent
+                // View
                 playerName.OnChange( evt => {
                     new PlayerNameEvent( evt.newValue ).Raise( this );
                 } );

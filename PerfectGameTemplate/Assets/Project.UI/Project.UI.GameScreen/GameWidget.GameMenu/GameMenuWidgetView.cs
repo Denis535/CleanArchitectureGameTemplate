@@ -14,13 +14,13 @@ namespace Project.UI.GameScreen {
     }
     public partial class GameMenuWidgetView : UIWidgetViewBase {
 
-        // Props
+        // View
         private readonly VisualElement visualElement;
         private readonly Label title;
         private readonly Button resume;
         private readonly Button settings;
         private readonly Button back;
-        // Prop
+        // View
         public override VisualElement VisualElement => visualElement;
         public TextWrapper Title => title.Wrap();
         public TextWrapper Resume => resume.Wrap();
@@ -29,10 +29,9 @@ namespace Project.UI.GameScreen {
 
         // Constructor
         public GameMenuWidgetView(GameMenuWidget widget) : base( widget ) {
-            // Props
             visualElement = CreateVisualElement( out title, out resume, out settings, out back );
-            // OnEvent
-            VisualElement.OnAttachToPanel( evt => {
+            // View
+            visualElement.OnAttachToPanel( evt => {
             } );
             resume.OnClick( evt => {
                 new ResumeCommand().Execute( this );

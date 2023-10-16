@@ -13,19 +13,18 @@ namespace Project.UI.MainScreen {
     }
     public partial class LoadingWidgetView : UIWidgetViewBase {
 
-        // Props
+        // View
         private readonly VisualElement visualElement;
         private readonly Label loading;
-        // Props
+        // View
         public override VisualElement VisualElement => visualElement;
         public TextWrapper Loading => loading.Wrap();
 
         // Constructor
         public LoadingWidgetView(LoadingWidget widget) : base( widget ) {
-            // Props
             visualElement = CreateVisualElement( out loading );
-            // OnEvent
-            VisualElement.OnAttachToPanel( evt => {
+            // View
+            visualElement.OnAttachToPanel( evt => {
                 PlayLoading( loading );
             } );
         }

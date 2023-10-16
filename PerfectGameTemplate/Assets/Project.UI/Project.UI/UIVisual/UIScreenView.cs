@@ -15,11 +15,11 @@ namespace Project.UI {
 
     public class UIScreenView : UIScreenViewBase {
 
-        // Props
+        // View
         private readonly VisualElement visualElement;
         private readonly VisualElement viewsContainer = default!;
         private readonly VisualElement modalViewsContainer = default!;
-        // Props
+        // View
         public override VisualElement VisualElement => visualElement;
         // Assets
         private AudioClip Window = default!;
@@ -36,7 +36,6 @@ namespace Project.UI {
 
         // Constructor
         public UIScreenView(UIScreen screen) : base( screen ) {
-            // Props
             visualElement = CreateVisualElement( out viewsContainer, out modalViewsContainer );
             // Assets
             Window = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window ).GetResult();

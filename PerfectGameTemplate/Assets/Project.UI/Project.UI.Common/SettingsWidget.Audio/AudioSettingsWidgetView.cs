@@ -17,7 +17,7 @@ namespace Project.UI.Common {
     }
     public partial class AudioSettingsWidgetView : UIWidgetViewBase {
 
-        // Props
+        // View
         private readonly VisualElement visualElement;
         private readonly Label title;
         private readonly Slider masterVolume;
@@ -26,7 +26,7 @@ namespace Project.UI.Common {
         private readonly Slider gameVolume;
         private readonly Button okey;
         private readonly Button back;
-        // Props
+        // View
         public override VisualElement VisualElement => visualElement;
         public TextWrapper Title => title.Wrap();
         public SliderWrapper<float> MasterVolume => masterVolume.Wrap();
@@ -38,10 +38,9 @@ namespace Project.UI.Common {
 
         // Constructor
         public AudioSettingsWidgetView(AudioSettingsWidget widget) : base( widget ) {
-            // Props
             visualElement = CreateVisualElement( out title, out masterVolume, out musicVolume, out sfxVolume, out gameVolume, out okey, out back );
-            // OnEvent
-            VisualElement.OnAttachToPanel( evt => {
+            // View
+            visualElement.OnAttachToPanel( evt => {
             } );
             masterVolume.OnChange( evt => {
                 new MasterVolumeEvent( evt.newValue ).Raise( this );

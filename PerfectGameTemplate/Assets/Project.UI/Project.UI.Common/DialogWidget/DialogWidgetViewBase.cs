@@ -9,7 +9,7 @@ namespace Project.UI.Common {
 
     public abstract class DialogWidgetViewBase : UIWidgetViewBase, IUIModalWidgetView {
 
-        // Props
+        // View
         protected VisualElement visualElement = default!;
         protected Card card = default!;
         protected Header header = default!;
@@ -17,7 +17,7 @@ namespace Project.UI.Common {
         protected Footer footer = default!;
         protected Label title = default!;
         protected Label message = default!;
-        // Props
+        // View
         public override VisualElement VisualElement => visualElement;
         public ElementWrapper Card => card.Wrap();
         public ElementWrapper Header => header.Wrap();
@@ -59,7 +59,6 @@ namespace Project.UI.Common {
 
         // Constructor
         public DialogWidgetView(DialogWidget widget) : base( widget ) {
-            // Props
             visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
             header.SetDisplayed( false );
             content.SetDisplayed( false );
@@ -90,7 +89,6 @@ namespace Project.UI.Common {
 
         // Constructor
         public InfoDialogWidgetView(InfoDialogWidget widget) : base( widget ) {
-            // Props
             visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
             header.SetDisplayed( false );
             content.SetDisplayed( false );
@@ -121,7 +119,6 @@ namespace Project.UI.Common {
 
         // Constructor
         public WarningDialogWidgetView(WarningDialogWidget widget) : base( widget ) {
-            // Props
             visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
             header.SetDisplayed( false );
             content.SetDisplayed( false );
@@ -152,7 +149,6 @@ namespace Project.UI.Common {
 
         // Constructor
         public ErrorDialogWidgetView(ErrorDialogWidget widget) : base( widget ) {
-            // Props
             visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
             header.SetDisplayed( false );
             content.SetDisplayed( false );

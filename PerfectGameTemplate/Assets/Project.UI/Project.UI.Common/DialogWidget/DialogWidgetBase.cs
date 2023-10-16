@@ -11,8 +11,6 @@ namespace Project.UI.Common {
     public abstract class DialogWidgetBase<TView> : UIWidgetBase<TView>, IUIModalWidget where TView : DialogWidgetViewBase {
 
         // View
-        public override TView View { get; } = default!;
-        // Props
         public string? Title {
             get => View.Title.Text;
             set {
@@ -72,11 +70,13 @@ namespace Project.UI.Common {
                 this.DetachSelf();
             } );
             View.Footer.IsDisplayed = true;
-            var cancellationTokenRegistration = default( CancellationTokenRegistration );
-            cancellationTokenRegistration = cancellationToken.Register( () => {
-                tcs.TrySetCanceled( cancellationToken );
-                cancellationTokenRegistration.Dispose();
-            } );
+            {
+                var cancellationTokenRegistration = default( CancellationTokenRegistration );
+                cancellationTokenRegistration = cancellationToken.Register( () => {
+                    tcs.TrySetCanceled( cancellationToken );
+                    cancellationTokenRegistration.Dispose();
+                } );
+            }
             task = tcs.Task;
             return this;
         }
@@ -88,11 +88,13 @@ namespace Project.UI.Common {
                 this.DetachSelf();
             } );
             View.Footer.IsDisplayed = true;
-            var cancellationTokenRegistration = default( CancellationTokenRegistration );
-            cancellationTokenRegistration = cancellationToken.Register( () => {
-                tcs.TrySetCanceled( cancellationToken );
-                cancellationTokenRegistration.Dispose();
-            } );
+            {
+                var cancellationTokenRegistration = default( CancellationTokenRegistration );
+                cancellationTokenRegistration = cancellationToken.Register( () => {
+                    tcs.TrySetCanceled( cancellationToken );
+                    cancellationTokenRegistration.Dispose();
+                } );
+            }
             task = tcs.Task;
             return this;
         }

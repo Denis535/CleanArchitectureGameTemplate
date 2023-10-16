@@ -16,7 +16,7 @@ namespace Project.UI.Common {
     }
     public partial class VideoSettingsWidgetView : UIWidgetViewBase {
 
-        // Props
+        // View
         private readonly VisualElement visualElement;
         private readonly Label title;
         private readonly Toggle isFullScreen;
@@ -24,7 +24,7 @@ namespace Project.UI.Common {
         private readonly Toggle isVSync;
         private readonly Button okey;
         private readonly Button back;
-        // Props
+        // View
         public override VisualElement VisualElement => visualElement;
         public TextWrapper Title => title.Wrap();
         public FieldWrapper<bool> IsFullScreen => isFullScreen.Wrap();
@@ -35,10 +35,9 @@ namespace Project.UI.Common {
 
         // Constructor
         public VideoSettingsWidgetView(VideoSettingsWidget widget) : base( widget ) {
-            // Props
             visualElement = CreateVisualElement( out title, out isFullScreen, out screenResolution, out isVSync, out okey, out back );
-            // OnEvent
-            VisualElement.OnAttachToPanel( evt => {
+            // View
+            visualElement.OnAttachToPanel( evt => {
             } );
             isFullScreen.OnChange( evt => {
                 new IsFullScreenEvent( evt.newValue ).Raise( this );
