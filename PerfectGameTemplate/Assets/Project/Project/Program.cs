@@ -25,7 +25,14 @@ namespace Project {
             //    Screen.fullScreen = false;
             //    Screen.SetResolution( 1280, 720, false );
             //}
-            DropdownField2.Formatter = GetDisplayString;
+            DropdownField2<object?>.Formatter = GetDisplayString;
+            // GameDesc
+            DropdownField2<GameMode>.Formatter = GetDisplayString;
+            DropdownField2<GameWorld>.Formatter = GetDisplayString;
+            // PlayerDesc
+            DropdownField2<PlayerRole>.Formatter = GetDisplayString;
+            // Resolution
+            DropdownField2<Resolution>.Formatter = GetDisplayString;
         }
 
         // OnLog

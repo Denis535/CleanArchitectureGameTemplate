@@ -30,8 +30,8 @@ namespace Project.UI {
         public static Toggle Toggle(string? label) {
             return new Toggle( label );
         }
-        public static DropdownField2 DropdownField(string? label) {
-            return new DropdownField2( label );
+        public static DropdownField2<object?> DropdownField(string? label) {
+            return new DropdownField2<object?>( label );
         }
 
         // Widget

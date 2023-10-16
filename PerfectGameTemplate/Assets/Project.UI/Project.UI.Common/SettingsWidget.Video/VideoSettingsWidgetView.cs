@@ -20,7 +20,7 @@ namespace Project.UI.Common {
         private readonly VisualElement visualElement;
         private readonly Label title;
         private readonly Toggle isFullScreen;
-        private readonly DropdownField2 screenResolution;
+        private readonly DropdownField2<object?> screenResolution;
         private readonly Toggle isVSync;
         private readonly Button okey;
         private readonly Button back;
@@ -61,7 +61,7 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static View CreateVisualElement(out Label title, out Toggle isFullScreen, out DropdownField2 screenResolution, out Toggle isVSync, out Button okey, out Button back) {
+        private static View CreateVisualElement(out Label title, out Toggle isFullScreen, out DropdownField2<object?> screenResolution, out Toggle isVSync, out Button okey, out Button back) {
             return UIFactory.MediumWidget( "video-settings-widget-view" ).Children(
                 UIFactory.Card().Children(
                     UIFactory.Header().Children(

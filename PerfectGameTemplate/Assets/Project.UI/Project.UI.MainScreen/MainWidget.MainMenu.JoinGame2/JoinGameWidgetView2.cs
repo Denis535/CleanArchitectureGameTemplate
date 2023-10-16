@@ -83,8 +83,8 @@ namespace Project.UI.MainScreen {
             private readonly VisualElement visualElement;
             private readonly Label title;
             private readonly TextField gameName;
-            private readonly DropdownField2 gameMode;
-            private readonly DropdownField2 gameWorld;
+            private readonly DropdownField2<object?> gameMode;
+            private readonly DropdownField2<object?> gameWorld;
             private readonly Toggle isGamePrivate;
             // Props
             public override VisualElement VisualElement => visualElement;
@@ -117,7 +117,7 @@ namespace Project.UI.MainScreen {
             }
 
             // Helpers
-            private static ColumnGroup CreateVisualElement(out Label title, out TextField gameName, out DropdownField2 gameMode, out DropdownField2 gameWorld, out Toggle isGamePrivate) {
+            private static ColumnGroup CreateVisualElement(out Label title, out TextField gameName, out DropdownField2<object?> gameMode, out DropdownField2<object?> gameWorld, out Toggle isGamePrivate) {
                 return UIFactory.ColumnGroup().Classes( "light5", "medium", "grow-1" ).Children(
                     title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
                     UIFactory.RowScope().Children(
@@ -141,7 +141,7 @@ namespace Project.UI.MainScreen {
             private readonly VisualElement visualElement;
             private readonly Label title;
             private readonly TextField playerName;
-            private readonly DropdownField2 playerRole;
+            private readonly DropdownField2<object?> playerRole;
             // Props
             public override VisualElement VisualElement => visualElement;
             public TextWrapper Title => title.Wrap();
@@ -165,7 +165,7 @@ namespace Project.UI.MainScreen {
             }
 
             // Helpers
-            private static VisualElement CreateVisualElement(out Label title, out TextField playerName, out DropdownField2 playerRole) {
+            private static VisualElement CreateVisualElement(out Label title, out TextField playerName, out DropdownField2<object?> playerRole) {
                 return UIFactory.ColumnGroup().Classes( "light5", "medium", "grow-1" ).Children(
                     title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
                     UIFactory.RowScope().Children(
