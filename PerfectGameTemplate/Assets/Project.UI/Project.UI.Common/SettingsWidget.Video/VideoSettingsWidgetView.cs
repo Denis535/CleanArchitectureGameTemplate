@@ -26,12 +26,12 @@ namespace Project.UI.Common {
         private readonly Button back;
         // Props
         public override VisualElement VisualElement => visualElement;
-        public TextElementWrapper Title => title.Wrap();
+        public TextWrapper Title => title.Wrap();
         public FieldWrapper<bool> IsFullScreen => isFullScreen.Wrap();
-        public PopupFieldWrapper<object> ScreenResolution => screenResolution.Wrap();
+        public PopupWrapper<object> ScreenResolution => screenResolution.Wrap();
         public FieldWrapper<bool> IsVSync => isVSync.Wrap();
-        public TextElementWrapper Okey => okey.Wrap();
-        public TextElementWrapper Back => back.Wrap();
+        public TextWrapper Okey => okey.Wrap();
+        public TextWrapper Back => back.Wrap();
 
         // Constructor
         public VideoSettingsWidgetView(VideoSettingsWidget widget) : base( widget ) {

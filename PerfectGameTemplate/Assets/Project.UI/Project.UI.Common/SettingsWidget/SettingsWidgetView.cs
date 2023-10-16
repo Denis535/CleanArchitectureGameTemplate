@@ -24,11 +24,11 @@ namespace Project.UI.Common {
         private readonly Button back;
         // Props
         public override VisualElement VisualElement => visualElement;
-        public TextElementWrapper Title => title.Wrap();
-        public TextElementWrapper PlayerProfile => playerProfile.Wrap();
-        public TextElementWrapper VideoSettings => videoSettings.Wrap();
-        public TextElementWrapper AudioSettings => audioSettings.Wrap();
-        public TextElementWrapper Back => back.Wrap();
+        public TextWrapper Title => title.Wrap();
+        public TextWrapper PlayerProfile => playerProfile.Wrap();
+        public TextWrapper VideoSettings => videoSettings.Wrap();
+        public TextWrapper AudioSettings => audioSettings.Wrap();
+        public TextWrapper Back => back.Wrap();
 
         // Constructor
         public SettingsWidgetView(SettingsWidget widget) : base( widget ) {

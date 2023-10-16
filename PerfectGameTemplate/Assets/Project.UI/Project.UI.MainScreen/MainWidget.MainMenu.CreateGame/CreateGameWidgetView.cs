@@ -22,9 +22,11 @@ namespace Project.UI.MainScreen {
         private readonly Button back;
         // Props
         public override VisualElement VisualElement => visualElement;
-        public TextElementWrapper Title => title.Wrap();
-        public TextElementWrapper Okey => okey.Wrap();
-        public TextElementWrapper Back => back.Wrap();
+        public TextWrapper Title => title.Wrap();
+        public SlotWrapper GameSlot => gameSlot.Wrap();
+        public SlotWrapper PlayerSlot => playerSlot.Wrap();
+        public TextWrapper Okey => okey.Wrap();
+        public TextWrapper Back => back.Wrap();
         // Props
         public GameView_ GameView { get; }
         public PlayerView_ PlayerView { get; }
@@ -98,10 +100,10 @@ namespace Project.UI.MainScreen {
             private readonly Toggle isGamePrivate;
             // Props
             public override VisualElement VisualElement => visualElement;
-            public TextElementWrapper Title => title.Wrap();
+            public TextWrapper Title => title.Wrap();
             public FieldWrapper<string> GameName => gameName.Wrap();
-            public PopupFieldWrapper<object> GameMode => gameMode.Wrap();
-            public PopupFieldWrapper<object> GameWorld => gameWorld.Wrap();
+            public PopupWrapper<object> GameMode => gameMode.Wrap();
+            public PopupWrapper<object> GameWorld => gameWorld.Wrap();
             public FieldWrapper<bool> IsGamePrivate => isGamePrivate.Wrap();
 
             // Constructor
@@ -154,9 +156,9 @@ namespace Project.UI.MainScreen {
             private readonly DropdownField2 playerRole;
             // Props
             public override VisualElement VisualElement => visualElement;
-            public TextElementWrapper Title => title.Wrap();
+            public TextWrapper Title => title.Wrap();
             public FieldWrapper<string> PlayerName => playerName.Wrap();
-            public PopupFieldWrapper<object> PlayerRole => playerRole.Wrap();
+            public PopupWrapper<object> PlayerRole => playerRole.Wrap();
 
             // Constructor
             public PlayerView_(CreateGameWidget widget) : base( widget ) {

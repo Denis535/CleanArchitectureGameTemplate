@@ -24,11 +24,11 @@ namespace Project.UI.MainScreen {
         private readonly Button quit;
         // Props
         public override VisualElement VisualElement => visualElement;
-        public TextElementWrapper Title => title.Wrap();
-        public TextElementWrapper CreateGame => createGame.Wrap();
-        public TextElementWrapper JoinGame => joinGame.Wrap();
-        public TextElementWrapper Settings => settings.Wrap();
-        public TextElementWrapper Quit => quit.Wrap();
+        public TextWrapper Title => title.Wrap();
+        public TextWrapper CreateGame => createGame.Wrap();
+        public TextWrapper JoinGame => joinGame.Wrap();
+        public TextWrapper Settings => settings.Wrap();
+        public TextWrapper Quit => quit.Wrap();
 
         // Constructor
         public MainMenuWidgetView(MainMenuWidget widget) : base( widget ) {

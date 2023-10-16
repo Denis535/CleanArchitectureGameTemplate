@@ -34,25 +34,25 @@ namespace UnityEngine.Framework.UI {
         public static ElementWrapper Wrap(this VisualElement target) {
             return new ElementWrapper( target );
         }
-        public static TextElementWrapper Wrap(this TextElement target) {
-            return new TextElementWrapper( target );
+        public static TextWrapper Wrap(this TextElement target) {
+            return new TextWrapper( target );
         }
         public static FieldWrapper<T> Wrap<T>(this BaseField<T?> target) where T : notnull {
             return new FieldWrapper<T>( target );
         }
-        public static SliderFieldWrapper<T> Wrap<T>(this BaseSlider<T?> target) where T : notnull, IComparable<T?> {
-            return new SliderFieldWrapper<T>( target );
+        public static SliderWrapper<T> Wrap<T>(this BaseSlider<T?> target) where T : notnull, IComparable<T?> {
+            return new SliderWrapper<T>( target );
         }
-        public static PopupFieldWrapper<T> Wrap<T>(this PopupField<T?> target) where T : notnull {
-            return new PopupFieldWrapper<T>( target );
+        public static PopupWrapper<T> Wrap<T>(this PopupField<T?> target) where T : notnull {
+            return new PopupWrapper<T>( target );
         }
-        public static PopupFieldWrapper2<T> Wrap<T>(this PopupField<object?> target) where T : notnull {
-            return new PopupFieldWrapper2<T>( target );
+        public static SlotWrapper Wrap(this Slot target) {
+            return new SlotWrapper( target );
         }
 
         // As
-        public static PopupFieldWrapper2<T> As<T>(this PopupFieldWrapper<object> wrapper) where T : notnull {
-            return new PopupFieldWrapper2<T>( wrapper.target );
+        public static PopupWrapper2<T> As<T>(this PopupWrapper<object> wrapper) where T : notnull {
+            return new PopupWrapper2<T>( wrapper.target );
         }
 
     }
@@ -62,24 +62,16 @@ namespace UnityEngine.Framework.UI {
         public ElementWrapper(VisualElement target) : base( target ) {
         }
 
-        public override string ToString() {
-            return "{0}".Format( GetType().Name );
-        }
-
     }
-    // TextElement
-    public class TextElementWrapper : VisualElementWrapper<TextElement> {
+    // Text
+    public class TextWrapper : VisualElementWrapper<TextElement> {
 
         public string? Text {
             get => target.text;
             set => target.text = value;
         }
 
-        public TextElementWrapper(TextElement target) : base( target ) {
-        }
-
-        public override string ToString() {
-            return "{0}: { Text={1} }".Format( GetType().Name, target.text?.ToString() ?? "Null" );
+        public TextWrapper(TextElement target) : base( target ) {
         }
 
     }
@@ -94,13 +86,9 @@ namespace UnityEngine.Framework.UI {
         public FieldWrapper(BaseField<T?> target) : base( target ) {
         }
 
-        public override string ToString() {
-            return "{0}: { Value={1} }".Format( GetType().Name, target.value?.ToString() ?? "Null" );
-        }
-
     }
-    // SliderField
-    public class SliderFieldWrapper<T> : VisualElementWrapper<BaseSlider<T?>> where T : notnull, IComparable<T?> {
+    // Slider
+    public class SliderWrapper<T> : VisualElementWrapper<BaseSlider<T?>> where T : notnull, IComparable<T?> {
 
         public T? Value {
             get => target.value;
@@ -119,16 +107,12 @@ namespace UnityEngine.Framework.UI {
             set => (target.value, target.lowValue, target.highValue) = (value.Value, value.Min, value.Max);
         }
 
-        public SliderFieldWrapper(BaseSlider<T?> target) : base( target ) {
-        }
-
-        public override string ToString() {
-            return "{0}: { Value={1} }".Format( GetType().Name, target.value?.ToString() ?? "Null" );
+        public SliderWrapper(BaseSlider<T?> target) : base( target ) {
         }
 
     }
-    // PopupField
-    public class PopupFieldWrapper<T> : VisualElementWrapper<PopupField<T?>> where T : notnull {
+    // Popup
+    public class PopupWrapper<T> : VisualElementWrapper<PopupField<T?>> where T : notnull {
 
         public T? Value {
             get => target.value;
@@ -143,16 +127,12 @@ namespace UnityEngine.Framework.UI {
             set => (target.value, target.choices) = (value.Value, value.Choices.ToList());
         }
 
-        public PopupFieldWrapper(PopupField<T?> target) : base( target ) {
-        }
-
-        public override string ToString() {
-            return "{0}: { Value={1} }".Format( GetType().Name, target.value?.ToString() ?? "Null" );
+        public PopupWrapper(PopupField<T?> target) : base( target ) {
         }
 
     }
-    // PopupField
-    public class PopupFieldWrapper2<T> : VisualElementWrapper<PopupField<object?>> where T : notnull {
+    // Popup
+    public class PopupWrapper2<T> : VisualElementWrapper<PopupField<object?>> where T : notnull {
 
         public T? Value {
             get => (T?) target.value;
@@ -167,11 +147,26 @@ namespace UnityEngine.Framework.UI {
             set => (Value, Choices) = (value.Value, value.Choices);
         }
 
-        internal PopupFieldWrapper2(PopupField<object?> target) : base( target ) {
+        internal PopupWrapper2(PopupField<object?> target) : base( target ) {
         }
 
-        public override string ToString() {
-            return "{0}: { Value={1} }".Format( GetType().Name, target.value?.ToString() ?? "Null" );
+    }
+    // Slot
+    public class SlotWrapper : VisualElementWrapper<VisualElement> {
+
+        public IReadOnlyList<VisualElement> Elements => (IReadOnlyList<VisualElement>) target.Children();
+
+        public SlotWrapper(VisualElement target) : base( target ) {
+        }
+
+        public void Add(VisualElement element) {
+            target.Add( element );
+        }
+        public void Remove(VisualElement element) {
+            target.Remove( element );
+        }
+        public bool Contains(VisualElement element) {
+            return target.Contains( element );
         }
 
     }
