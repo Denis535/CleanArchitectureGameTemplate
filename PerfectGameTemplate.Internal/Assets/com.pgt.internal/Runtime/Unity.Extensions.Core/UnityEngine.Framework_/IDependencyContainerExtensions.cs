@@ -8,7 +8,12 @@ namespace UnityEngine.Framework {
     using UnityEngine.Framework.Game;
     using UnityEngine.Framework.UI;
 
-    public static class IDependencyContainerExceptions {
+    public static class IDependencyContainerExtensions {
+
+        // Base
+        public static IDependencyContainer GetDependencyContainer(this MonoBehaviour monoBehaviour) {
+            return IDependencyContainer.Instance;
+        }
 
         // Program
         public static IDependencyContainer GetDependencyContainer(this ProgramBase program) {
@@ -54,11 +59,6 @@ namespace UnityEngine.Framework {
             return IDependencyContainer.Instance;
         }
         public static IDependencyContainer GetDependencyContainer(this EntityBodyBase entityBody) {
-            return IDependencyContainer.Instance;
-        }
-
-        // Misc
-        public static IDependencyContainer GetDependencyContainer(this MonoBehaviour monoBehaviour) {
             return IDependencyContainer.Instance;
         }
 
