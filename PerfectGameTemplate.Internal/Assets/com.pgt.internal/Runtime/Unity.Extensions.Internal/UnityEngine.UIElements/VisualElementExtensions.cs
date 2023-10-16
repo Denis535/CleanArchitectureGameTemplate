@@ -67,11 +67,9 @@ namespace UnityEngine.UIElements {
             element.userData = userData;
             return element;
         }
-        public static T Children<T>(this T element, params VisualElement?[] children) where T : VisualElement {
+        public static T Children<T>(this T element, params VisualElement[] children) where T : VisualElement {
             foreach (var child in children) {
-                if (child != null) {
-                    element.Add( child );
-                }
+                element.Add( child );
             }
             return element;
         }

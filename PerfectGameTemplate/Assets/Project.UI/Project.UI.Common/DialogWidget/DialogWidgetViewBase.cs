@@ -61,6 +61,9 @@ namespace Project.UI.Common {
         public DialogWidgetView(DialogWidget widget) : base( widget ) {
             // Props
             visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
+            header.SetDisplayed( false );
+            content.SetDisplayed( false );
+            footer.SetDisplayed( false );
         }
         public override void Dispose() {
             base.Dispose();
@@ -68,21 +71,15 @@ namespace Project.UI.Common {
 
         // Helpers
         private static View CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return UIFactory.ModalWidget(
-                i => i.Name( "dialog-widget-view" ).Classes( "dialog-widget-view" ),
-                card = UIFactory.Card(
-                    i => i.Name( null ).Classes( "dialog-card" ),
-                    header = UIFactory.Header(
-                        i => i.SetDisplayed( false ),
+            return UIFactory.ModalWidget( "dialog-widget-view" ).Classes( "dialog-widget-view" ).Children(
+                card = UIFactory.DialogCard().Children(
+                    header = UIFactory.Header().Children(
                         title = UIFactory.Label( null ).Name( "title" )
                     ),
-                    content = UIFactory.Content(
-                        i => i.SetDisplayed( false ),
+                    content = UIFactory.Content().Children(
                         message = UIFactory.Label( null ).Name( "message" )
                     ),
-                    footer = UIFactory.Footer(
-                        i => i.SetDisplayed( false )
-                    )
+                    footer = UIFactory.Footer()
                 )
             );
         }
@@ -95,6 +92,9 @@ namespace Project.UI.Common {
         public InfoDialogWidgetView(InfoDialogWidget widget) : base( widget ) {
             // Props
             visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
+            header.SetDisplayed( false );
+            content.SetDisplayed( false );
+            footer.SetDisplayed( false );
         }
         public override void Dispose() {
             base.Dispose();
@@ -102,21 +102,15 @@ namespace Project.UI.Common {
 
         // Helpers
         private static View CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return UIFactory.ModalWidget(
-                i => i.Name( "info-dialog-widget-view" ).Classes( "info-dialog-widget-view" ),
-                card = UIFactory.Card(
-                    i => i.Name( null ).Classes( "info-dialog-card" ),
-                    header = UIFactory.Header(
-                        i => i.SetDisplayed( false ),
+            return UIFactory.ModalWidget( "info-dialog-widget-view" ).Classes( "info-dialog-widget-view" ).Children(
+                card = UIFactory.InfoDialogCard().Children(
+                    header = UIFactory.Header().Children(
                         title = UIFactory.Label( null ).Name( "title" )
                     ),
-                    content = UIFactory.Content(
-                        i => i.SetDisplayed( false ),
+                    content = UIFactory.Content().Children(
                         message = UIFactory.Label( null ).Name( "message" )
                     ),
-                    footer = UIFactory.Footer(
-                        i => i.SetDisplayed( false )
-                    )
+                    footer = UIFactory.Footer()
                 )
             );
         }
@@ -129,6 +123,9 @@ namespace Project.UI.Common {
         public WarningDialogWidgetView(WarningDialogWidget widget) : base( widget ) {
             // Props
             visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
+            header.SetDisplayed( false );
+            content.SetDisplayed( false );
+            footer.SetDisplayed( false );
         }
         public override void Dispose() {
             base.Dispose();
@@ -136,21 +133,15 @@ namespace Project.UI.Common {
 
         // Helpers
         private static View CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return UIFactory.ModalWidget(
-                i => i.Name( "warning-dialog-widget-view" ).Classes( "warning-dialog-widget-view" ),
-                card = UIFactory.Card(
-                    i => i.Name( null ).Classes( "warning-dialog-card" ),
-                    header = UIFactory.Header(
-                        i => i.SetDisplayed( false ),
+            return UIFactory.ModalWidget( "warning-dialog-widget-view" ).Classes( "warning-dialog-widget-view" ).Children(
+                card = UIFactory.WarningDialogCard().Children(
+                    header = UIFactory.Header().Children(
                         title = UIFactory.Label( null ).Name( "title" )
                     ),
-                    content = UIFactory.Content(
-                        i => i.SetDisplayed( false ),
+                    content = UIFactory.Content().Children(
                         message = UIFactory.Label( null ).Name( "message" )
                     ),
-                    footer = UIFactory.Footer(
-                        i => i.SetDisplayed( false )
-                    )
+                    footer = UIFactory.Footer()
                 )
             );
         }
@@ -163,6 +154,9 @@ namespace Project.UI.Common {
         public ErrorDialogWidgetView(ErrorDialogWidget widget) : base( widget ) {
             // Props
             visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
+            header.SetDisplayed( false );
+            content.SetDisplayed( false );
+            footer.SetDisplayed( false );
         }
         public override void Dispose() {
             base.Dispose();
@@ -170,21 +164,15 @@ namespace Project.UI.Common {
 
         // Helpers
         private static View CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return UIFactory.ModalWidget(
-                i => i.Name( "error-dialog-widget-view" ).Classes( "error-dialog-widget-view" ),
-                card = UIFactory.Card(
-                    i => i.Name( null ).Classes( "error-dialog-card" ),
-                    header = UIFactory.Header(
-                        i => i.SetDisplayed( false ),
+            return UIFactory.ModalWidget( "error-dialog-widget-view" ).Classes( "error-dialog-widget-view" ).Children(
+                card = UIFactory.ErrorDialogCard().Children(
+                    header = UIFactory.Header().Children(
                         title = UIFactory.Label( null ).Name( "title" )
                     ),
-                    content = UIFactory.Content(
-                        i => i.SetDisplayed( false ),
+                    content = UIFactory.Content().Children(
                         message = UIFactory.Label( null ).Name( "message" )
                     ),
-                    footer = UIFactory.Footer(
-                        i => i.SetDisplayed( false )
-                    )
+                    footer = UIFactory.Footer()
                 )
             );
         }

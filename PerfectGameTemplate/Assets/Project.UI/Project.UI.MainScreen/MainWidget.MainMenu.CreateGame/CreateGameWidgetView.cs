@@ -48,24 +48,21 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static View CreateVisualElement(out Label title, out Slot gameSlot, out Slot playerSlot, out Button okey, out Button back) {
-            return UIFactory.LargeWidget(
-                i => i.Name( "create-game-widget-view" ),
-                UIFactory.Card(
-                    UIFactory.Header(
+            return UIFactory.LargeWidget( "create-game-widget-view" ).Children(
+                UIFactory.Card().Children(
+                    UIFactory.Header().Children(
                         title = UIFactory.Label( "Create Game" ).Name( "title" )
                     ),
-                    UIFactory.Content(
-                        UIFactory.RowScope(
-                            i => i.Name( null ).Classes( "grow-0", "basis-40" ),
+                    UIFactory.Content().Children(
+                        UIFactory.RowScope().Classes( "grow-0", "basis-40" ).Children(
                             gameSlot = UIFactory.Slot().Classes( "grow-1", "basis-0" ),
                             playerSlot = UIFactory.Slot().Classes( "grow-1", "basis-0" )
                         ),
-                        UIFactory.ColumnGroup(
-                            i => i.Name( null ).Classes( "dark5", "medium", "grow-1" ),
+                        UIFactory.ColumnGroup().Classes( "dark5", "medium", "grow-1" ).Children(
                             UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" )
                         )
                     ),
-                    UIFactory.Footer(
+                    UIFactory.Footer().Children(
                         okey = UIFactory.Button( "Ok" ).Name( "okey" ),
                         back = UIFactory.Button( "Back" ).Name( "back" )
                     )
@@ -121,13 +118,12 @@ namespace Project.UI.MainScreen {
 
             // Helpers
             private static VisualElement CreateVisualElement(out Label title, out TextField gameName, out DropdownField2 gameMode, out DropdownField2 gameWorld, out Toggle isGamePrivate) {
-                return UIFactory.ColumnGroup(
-                    i => i.Name( null ).Classes( "light5", "medium", "grow-1" ),
+                return UIFactory.ColumnGroup().Classes( "light5", "medium", "grow-1" ).Children(
                     title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
-                    UIFactory.RowScope(
+                    UIFactory.RowScope().Children(
                         gameName = UIFactory.TextField( "Name", 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
                     ),
-                    UIFactory.RowScope(
+                    UIFactory.RowScope().Children(
                         gameMode = UIFactory.DropdownField( "Mode" ).Name( "game-mode" ).Classes( "label-width-150px", "grow-1" ),
                         gameWorld = UIFactory.DropdownField( "World" ).Name( "game-world" ).Classes( "label-width-150px", "grow-1" ),
                         isGamePrivate = UIFactory.Toggle( "Private" ).Name( "is-game-private" ).Classes( "label-width-150px", "grow-0" )
@@ -170,13 +166,12 @@ namespace Project.UI.MainScreen {
 
             // Helpers
             private static ColumnGroup CreateVisualElement(out Label title, out TextField playerName, out DropdownField2 playerRole) {
-                return UIFactory.ColumnGroup(
-                    i => i.Name( null ).Classes( "light5", "medium", "grow-1" ),
+                return UIFactory.ColumnGroup().Classes( "light5", "medium", "grow-1" ).Children(
                     title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
-                    UIFactory.RowScope(
+                    UIFactory.RowScope().Children(
                         playerName = UIFactory.TextField( "Name", 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
                     ),
-                    UIFactory.RowScope(
+                    UIFactory.RowScope().Children(
                         playerRole = UIFactory.DropdownField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" )
                     )
                 );

@@ -62,21 +62,19 @@ namespace Project.UI.Common {
 
         // Helpers
         private static View CreateVisualElement(out Label title, out Toggle isFullScreen, out DropdownField2 screenResolution, out Toggle isVSync, out Button okey, out Button back) {
-            return UIFactory.MediumWidget(
-                i => i.Name( "video-settings-widget-view" ),
-                UIFactory.Card(
-                    UIFactory.Header(
+            return UIFactory.MediumWidget( "video-settings-widget-view" ).Children(
+                UIFactory.Card().Children(
+                    UIFactory.Header().Children(
                         title = UIFactory.Label( "Video Settings" ).Name( "title" )
                     ),
-                    UIFactory.Content(
-                        UIFactory.ColumnGroup(
-                            i => i.Name( null ).Classes( "dark2", "large", "grow-1" ),
+                    UIFactory.Content().Children(
+                        UIFactory.ColumnGroup().Classes( "dark2", "large", "grow-1" ).Children(
                             isFullScreen = UIFactory.Toggle( "Full Screen" ).Name( "is-full-screen" ).Classes( "label-width-25" ),
                             screenResolution = UIFactory.DropdownField( "Screen Resolution" ).Name( "screen-resolution" ).Classes( "label-width-25" ),
                             isVSync = UIFactory.Toggle( "V-Sync" ).Name( "is-v-sync" ).Classes( "label-width-25" )
                         )
                     ),
-                    UIFactory.Footer(
+                    UIFactory.Footer().Children(
                         okey = UIFactory.Button( "Ok" ).Name( "okey" ),
                         back = UIFactory.Button( "Back" ).Name( "back" )
                     )

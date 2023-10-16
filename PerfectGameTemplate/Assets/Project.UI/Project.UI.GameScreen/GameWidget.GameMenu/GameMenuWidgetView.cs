@@ -50,18 +50,16 @@ namespace Project.UI.GameScreen {
 
         // Helpers
         private static View CreateVisualElement(out Label title, out Button resume, out Button settings, out Button back) {
-            return UIFactory.LeftWidget(
-                i => i.Name( "game-menu-widget-view" ),
-                UIFactory.Card(
-                    UIFactory.Header(
+            return UIFactory.LeftWidget( "game-menu-widget-view" ).Children(
+                UIFactory.Card().Children(
+                    UIFactory.Header().Children(
                         title = UIFactory.Label( "Game Menu" ).Name( "title" )
                     ),
-                    UIFactory.Content(
+                    UIFactory.Content().Children(
                         resume = UIFactory.Button( "Resume" ).Name( "resume" ),
                         settings = UIFactory.Button( "Settings" ).Name( "settings" ),
                         back = UIFactory.Button( "Back To Main Menu" ).Name( "back" )
-                    ),
-                    null
+                    )
                 )
             );
         }

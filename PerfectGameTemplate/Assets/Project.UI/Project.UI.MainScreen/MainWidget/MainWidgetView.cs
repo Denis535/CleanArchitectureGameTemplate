@@ -38,9 +38,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static View CreateVisualElement() {
-            return UIFactory.Widget(
-                i => i.Name( "main-widget-view" )
-            );
+            return UIFactory.Widget( "main-widget-view" );
         }
 
     }
