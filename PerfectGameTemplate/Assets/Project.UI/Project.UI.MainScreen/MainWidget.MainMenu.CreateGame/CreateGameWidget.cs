@@ -8,7 +8,6 @@ namespace Project.UI.MainScreen {
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
-    using UnityEngine.UIElements;
 
     public class CreateGameWidget : UIWidgetBase<CreateGameWidgetView> {
 
@@ -19,6 +18,8 @@ namespace Project.UI.MainScreen {
         //private ILobbyService LobbyService { get; }
         // View
         public override CreateGameWidgetView View { get; }
+        public CreateGameWidgetView.GameView_ GameView { get; }
+        public CreateGameWidgetView.PlayerView_ PlayerView { get; }
 
         // Constructor
         public CreateGameWidget() {
@@ -27,19 +28,25 @@ namespace Project.UI.MainScreen {
             PlayerProfile = this.GetDependencyContainer().Resolve<Globals.PlayerProfile>( null );
             //LobbyService = this.GetDependencyContainer().Resolve<ILobbyService>( null );
             View = CreateView( this );
+            GameView = CreateGameView( this );
+            PlayerView = CreatePlayerView( this );
+            View.GameSlot.Add( GameView.VisualElement );
+            View.PlayerSlot.Add( PlayerView.VisualElement );
         }
         public override void Dispose() {
+            GameView.Dispose();
+            PlayerView.Dispose();
             base.Dispose();
         }
 
         // OnAttach
         public override void OnBeforeAttach() {
-            View.GameView.GameName.Value = "Anonymous";
-            View.GameView.GameMode.As<GameMode>().ValueChoices = (GameMode._1x4, Enum2.GetValues<GameMode>());
-            View.GameView.GameWorld.As<GameWorld>().ValueChoices = (GameWorld.TestWorld1, Enum2.GetValues<GameWorld>());
-            View.GameView.IsGamePrivate.Value = true;
-            View.PlayerView.PlayerName.Value = PlayerProfile.PlayerName;
-            View.PlayerView.PlayerRole.As<PlayerRole>().ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>());
+            GameView.GameName.Value = "Anonymous";
+            GameView.GameMode.As<GameMode>().ValueChoices = (GameMode._1x4, Enum2.GetValues<GameMode>());
+            GameView.GameWorld.As<GameWorld>().ValueChoices = (GameWorld.TestWorld1, Enum2.GetValues<GameWorld>());
+            GameView.IsGamePrivate.Value = true;
+            PlayerView.PlayerName.Value = PlayerProfile.PlayerName;
+            PlayerView.PlayerRole.As<PlayerRole>().ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>());
         }
         public override void OnAttach() {
         }
@@ -60,12 +67,12 @@ namespace Project.UI.MainScreen {
         }
         public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
             if (descendant is CreateGameWidget2 createGameWidget) {
-                View.GameView.GameName.Value = createGameWidget.View.GameView.GameName.Value;
-                View.GameView.GameMode.As<GameMode>().ValueChoices = createGameWidget.View.GameView.GameMode.As<GameMode>().ValueChoices;
-                View.GameView.GameWorld.As<GameWorld>().ValueChoices = createGameWidget.View.GameView.GameWorld.As<GameWorld>().ValueChoices;
-                View.GameView.IsGamePrivate.Value = createGameWidget.View.GameView.IsGamePrivate.Value;
-                View.PlayerView.PlayerName.Value = createGameWidget.View.PlayerView.PlayerName.Value;
-                View.PlayerView.PlayerRole.Value = createGameWidget.View.PlayerView.PlayerRole.Value;
+                GameView.GameName.Value = createGameWidget.GameView.GameName.Value;
+                GameView.GameMode.As<GameMode>().ValueChoices = createGameWidget.GameView.GameMode.As<GameMode>().ValueChoices;
+                GameView.GameWorld.As<GameWorld>().ValueChoices = createGameWidget.GameView.GameWorld.As<GameWorld>().ValueChoices;
+                GameView.IsGamePrivate.Value = createGameWidget.GameView.IsGamePrivate.Value;
+                PlayerView.PlayerName.Value = createGameWidget.PlayerView.PlayerName.Value;
+                PlayerView.PlayerRole.Value = createGameWidget.PlayerView.PlayerRole.Value;
             }
             base.OnAfterDescendantDetach( descendant );
         }
@@ -73,23 +80,31 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static CreateGameWidgetView CreateView(CreateGameWidget widget) {
             var view = UIViewFactory.CreateGameWidget( widget );
-            view.GameView.OnEvent( (CreateGameWidgetView.GameView_.GameNameEvent evt) => {
-            } );
-            view.GameView.OnEvent( (CreateGameWidgetView.GameView_.GameModeEvent evt) => {
-            } );
-            view.GameView.OnEvent( (CreateGameWidgetView.GameView_.GameWorldEvent evt) => {
-            } );
-            view.GameView.OnEvent( (CreateGameWidgetView.GameView_.IsGamePrivateEvent evt) => {
-            } );
-            view.PlayerView.OnEvent( (CreateGameWidgetView.PlayerView_.PlayerNameEvent evt) => {
-            } );
-            view.PlayerView.OnEvent( (CreateGameWidgetView.PlayerView_.PlayerRoleEvent evt) => {
-            } );
             view.OnCommand( (CreateGameWidgetView.OkeyCommand cmd) => {
                 widget.AttachChild( UIWidgetFactory.CreateGameWidget2() );
             } );
             view.OnCommand( (CreateGameWidgetView.BackCommand cmd) => {
                 widget.DetachSelf();
+            } );
+            return view;
+        }
+        private static CreateGameWidgetView.GameView_ CreateGameView(CreateGameWidget widget) {
+            var view = new CreateGameWidgetView.GameView_( widget );
+            view.OnEvent( (CreateGameWidgetView.GameView_.GameNameEvent evt) => {
+            } );
+            view.OnEvent( (CreateGameWidgetView.GameView_.GameModeEvent evt) => {
+            } );
+            view.OnEvent( (CreateGameWidgetView.GameView_.GameWorldEvent evt) => {
+            } );
+            view.OnEvent( (CreateGameWidgetView.GameView_.IsGamePrivateEvent evt) => {
+            } );
+            return view;
+        }
+        private static CreateGameWidgetView.PlayerView_ CreatePlayerView(CreateGameWidget widget) {
+            var view = new CreateGameWidgetView.PlayerView_( widget );
+            view.OnEvent( (CreateGameWidgetView.PlayerView_.PlayerNameEvent evt) => {
+            } );
+            view.OnEvent( (CreateGameWidgetView.PlayerView_.PlayerRoleEvent evt) => {
             } );
             return view;
         }

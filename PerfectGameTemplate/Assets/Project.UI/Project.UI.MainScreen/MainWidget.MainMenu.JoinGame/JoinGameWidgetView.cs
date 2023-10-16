@@ -27,19 +27,11 @@ namespace Project.UI.MainScreen {
         public SlotWrapper PlayerSlot => playerSlot.Wrap();
         public TextWrapper Okey => okey.Wrap();
         public TextWrapper Back => back.Wrap();
-        // Props
-        public GameView_ GameView { get; }
-        public PlayerView_ PlayerView { get; }
 
         // Constructor
         public JoinGameWidgetView(JoinGameWidget widget) : base( widget ) {
             // Props
             visualElement = CreateVisualElement( out title, out gameSlot, out playerSlot, out okey, out back );
-            // Props
-            GameView = new GameView_( widget );
-            PlayerView = new PlayerView_( widget );
-            gameSlot.Add( GameView.VisualElement );
-            playerSlot.Add( PlayerView.VisualElement );
             // OnEvent
             VisualElement.OnAttachToPanel( evt => {
             } );
@@ -51,8 +43,6 @@ namespace Project.UI.MainScreen {
             } );
         }
         public override void Dispose() {
-            GameView.Dispose();
-            PlayerView.Dispose();
             base.Dispose();
         }
 
@@ -85,6 +75,7 @@ namespace Project.UI.MainScreen {
 
     }
     public partial class JoinGameWidgetView : UIWidgetViewBase {
+        // GameView
         public class GameView_ : UISubViewBase {
             public record GameNameEvent(string GameName) : UIEvent<GameView_>;
             public record GameModeEvent(object? GameMode) : UIEvent<GameView_>;
@@ -145,6 +136,7 @@ namespace Project.UI.MainScreen {
             }
 
         }
+        // PlayerView
         public class PlayerView_ : UISubViewBase {
             public record PlayerNameEvent(string PlayerName) : UIEvent<PlayerView_>;
             public record PlayerRoleEvent(object? PlayerRole) : UIEvent<PlayerView_>;

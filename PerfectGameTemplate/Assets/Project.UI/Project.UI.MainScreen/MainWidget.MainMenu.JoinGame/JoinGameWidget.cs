@@ -18,6 +18,8 @@ namespace Project.UI.MainScreen {
         //private ILobbyService LobbyService { get; }
         // VIew
         public override JoinGameWidgetView View { get; }
+        public JoinGameWidgetView.GameView_ GameView { get; }
+        public JoinGameWidgetView.PlayerView_ PlayerView { get; }
 
         // Constructor
         public JoinGameWidget() {
@@ -26,19 +28,25 @@ namespace Project.UI.MainScreen {
             PlayerProfile = this.GetDependencyContainer().Resolve<Globals.PlayerProfile>( null );
             //LobbyService = this.GetDependencyContainer().Resolve<ILobbyService>();
             View = CreateView( this );
+            GameView = CreateGameView( this );
+            PlayerView = CreatePlayerView( this );
+            View.GameSlot.Add( GameView.VisualElement );
+            View.PlayerSlot.Add( PlayerView.VisualElement );
         }
         public override void Dispose() {
+            GameView.Dispose();
+            PlayerView.Dispose();
             base.Dispose();
         }
 
         // OnAttach
         public override void OnBeforeAttach() {
-            View.GameView.GameName.Value = "Anonymous";
-            View.GameView.GameMode.As<GameMode>().ValueChoices = (GameMode._1x4, Enum2.GetValues<GameMode>());
-            View.GameView.GameWorld.As<GameWorld>().ValueChoices = (GameWorld.TestWorld1, Enum2.GetValues<GameWorld>());
-            View.GameView.IsGamePrivate.Value = true;
-            View.PlayerView.PlayerName.Value = PlayerProfile.PlayerName;
-            View.PlayerView.PlayerRole.As<PlayerRole>().ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>());
+            GameView.GameName.Value = "Anonymous";
+            GameView.GameMode.As<GameMode>().ValueChoices = (GameMode._1x4, Enum2.GetValues<GameMode>());
+            GameView.GameWorld.As<GameWorld>().ValueChoices = (GameWorld.TestWorld1, Enum2.GetValues<GameWorld>());
+            GameView.IsGamePrivate.Value = true;
+            PlayerView.PlayerName.Value = PlayerProfile.PlayerName;
+            PlayerView.PlayerRole.As<PlayerRole>().ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>());
         }
         public override void OnAttach() {
         }
@@ -59,12 +67,12 @@ namespace Project.UI.MainScreen {
         }
         public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
             if (descendant is JoinGameWidget2 joinGameWidget) {
-                View.GameView.GameName.Value = joinGameWidget.View.GameView.GameName.Value;
-                View.GameView.GameMode.As<GameMode>().ValueChoices = joinGameWidget.View.GameView.GameMode.As<GameMode>().ValueChoices;
-                View.GameView.GameWorld.As<GameWorld>().ValueChoices = joinGameWidget.View.GameView.GameWorld.As<GameWorld>().ValueChoices;
-                View.GameView.IsGamePrivate.Value = joinGameWidget.View.GameView.IsGamePrivate.Value;
-                View.PlayerView.PlayerName.Value = joinGameWidget.View.PlayerView.PlayerName.Value;
-                View.PlayerView.PlayerRole.Value = joinGameWidget.View.PlayerView.PlayerRole.Value;
+                GameView.GameName.Value = joinGameWidget.GameView.GameName.Value;
+                GameView.GameMode.As<GameMode>().ValueChoices = joinGameWidget.GameView.GameMode.As<GameMode>().ValueChoices;
+                GameView.GameWorld.As<GameWorld>().ValueChoices = joinGameWidget.GameView.GameWorld.As<GameWorld>().ValueChoices;
+                GameView.IsGamePrivate.Value = joinGameWidget.GameView.IsGamePrivate.Value;
+                PlayerView.PlayerName.Value = joinGameWidget.PlayerView.PlayerName.Value;
+                PlayerView.PlayerRole.Value = joinGameWidget.PlayerView.PlayerRole.Value;
             }
             base.OnAfterDescendantDetach( descendant );
         }
@@ -72,23 +80,31 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static JoinGameWidgetView CreateView(JoinGameWidget widget) {
             var view = UIViewFactory.JoinGameWidget( widget );
-            view.GameView.OnEvent( (JoinGameWidgetView.GameView_.GameNameEvent evt) => {
-            } );
-            view.GameView.OnEvent( (JoinGameWidgetView.GameView_.GameModeEvent evt) => {
-            } );
-            view.GameView.OnEvent( (JoinGameWidgetView.GameView_.GameWorldEvent evt) => {
-            } );
-            view.GameView.OnEvent( (JoinGameWidgetView.GameView_.IsGamePrivateEvent evt) => {
-            } );
-            view.PlayerView.OnEvent( (JoinGameWidgetView.PlayerView_.PlayerNameEvent evt) => {
-            } );
-            view.PlayerView.OnEvent( (JoinGameWidgetView.PlayerView_.PlayerRoleEvent evt) => {
-            } );
             view.OnCommand( (JoinGameWidgetView.OkeyCommand cmd) => {
                 widget.AttachChild( UIWidgetFactory.JoinGameWidget2() );
             } );
             view.OnCommand( (JoinGameWidgetView.BackCommand cmd) => {
                 widget.DetachSelf();
+            } );
+            return view;
+        }
+        private static JoinGameWidgetView.GameView_ CreateGameView(JoinGameWidget widget) {
+            var view = new JoinGameWidgetView.GameView_( widget );
+            view.OnEvent( (JoinGameWidgetView.GameView_.GameNameEvent evt) => {
+            } );
+            view.OnEvent( (JoinGameWidgetView.GameView_.GameModeEvent evt) => {
+            } );
+            view.OnEvent( (JoinGameWidgetView.GameView_.GameWorldEvent evt) => {
+            } );
+            view.OnEvent( (JoinGameWidgetView.GameView_.IsGamePrivateEvent evt) => {
+            } );
+            return view;
+        }
+        private static JoinGameWidgetView.PlayerView_ CreatePlayerView(JoinGameWidget widget) {
+            var view = new JoinGameWidgetView.PlayerView_( widget );
+            view.OnEvent( (JoinGameWidgetView.PlayerView_.PlayerNameEvent evt) => {
+            } );
+            view.OnEvent( (JoinGameWidgetView.PlayerView_.PlayerRoleEvent evt) => {
             } );
             return view;
         }
