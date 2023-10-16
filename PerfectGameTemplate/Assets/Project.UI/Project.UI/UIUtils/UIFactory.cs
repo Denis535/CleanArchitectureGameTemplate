@@ -94,6 +94,14 @@ namespace Project.UI {
             return new Box().Pipe( callback ).Children( children );
         }
 
+        // Slot
+        public static Slot Slot() {
+            return new Slot();
+        }
+        public static Slot Slot(Action<Slot> callback) {
+            return new Slot().Pipe( callback );
+        }
+
         // Misc
         public static Label Label(string? text) {
             return new Label().Text( text );

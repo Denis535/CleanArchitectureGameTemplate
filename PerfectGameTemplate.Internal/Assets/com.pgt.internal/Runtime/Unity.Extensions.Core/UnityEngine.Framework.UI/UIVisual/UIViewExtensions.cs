@@ -16,9 +16,9 @@ namespace UnityEngine.Framework.UI {
                 return widgetView.Widget.Screen!.AudioSource;
             }
             if (view is UISubViewBase subView) {
-                return subView.View.Widget.Screen!.AudioSource;
+                return subView.Widget.Screen!.AudioSource;
             }
-            throw Exceptions.Internal.NotSupported( $"View {view} not supported" );
+            throw Exceptions.Internal.NotSupported( $"View {view} is not supported" );
         }
 
         // IsClipPlaying

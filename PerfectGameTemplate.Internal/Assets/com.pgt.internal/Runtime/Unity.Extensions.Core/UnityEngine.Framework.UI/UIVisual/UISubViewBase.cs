@@ -7,12 +7,12 @@ namespace UnityEngine.Framework.UI {
 
     public abstract class UISubViewBase : UIViewBase {
 
-        // View
-        internal UIWidgetViewBase View { get; }
+        // Widget
+        internal UIWidgetBase Widget { get; }
 
         // Constructor
-        public UISubViewBase(UIWidgetViewBase view) : base( view ) {
-            View = view;
+        public UISubViewBase(UIWidgetBase widget) : base( widget ) {
+            Widget = widget;
         }
         public override void Dispose() {
             base.Dispose();

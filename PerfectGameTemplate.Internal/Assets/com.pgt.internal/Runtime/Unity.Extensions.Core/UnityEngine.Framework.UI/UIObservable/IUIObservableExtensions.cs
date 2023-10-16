@@ -83,7 +83,7 @@ namespace UnityEngine.Framework.UI {
             if (observable is UIViewBase view) {
                 return view.Observable;
             }
-            throw Exceptions.Internal.NotSupported( $"Observable {observable} not supported" );
+            throw Exceptions.Internal.NotSupported( $"Observable {observable} is not supported" );
         }
 
     }

@@ -16,8 +16,8 @@ namespace Project.UI.MainScreen {
         // Props
         private readonly VisualElement visualElement;
         private readonly Label title;
-        private readonly ColumnScope gameSlot;
-        private readonly ColumnScope playerSlot;
+        private readonly Slot gameSlot;
+        private readonly Slot playerSlot;
         private readonly Button okey;
         private readonly Button back;
         // Props
@@ -26,18 +26,18 @@ namespace Project.UI.MainScreen {
         public TextElementWrapper Okey => okey.Wrap();
         public TextElementWrapper Back => back.Wrap();
         // Props
-        public GameView Game { get; }
-        public PlayerView Player { get; }
+        public GameView_ GameView { get; }
+        public PlayerView_ PlayerView { get; }
 
         // Constructor
         public JoinGameWidgetView(JoinGameWidget widget) : base( widget ) {
             // Props
             visualElement = CreateVisualElement( out title, out gameSlot, out playerSlot, out okey, out back );
             // Props
-            Game = new GameView( this );
-            Player = new PlayerView( this );
-            gameSlot.Add( Game.VisualElement );
-            playerSlot.Add( Player.VisualElement );
+            GameView = new GameView_( widget );
+            PlayerView = new PlayerView_( widget );
+            gameSlot.Add( GameView.VisualElement );
+            playerSlot.Add( PlayerView.VisualElement );
             // OnEvent
             VisualElement.OnAttachToPanel( evt => {
             } );
@@ -49,13 +49,13 @@ namespace Project.UI.MainScreen {
             } );
         }
         public override void Dispose() {
-            Game.Dispose();
-            Player.Dispose();
+            GameView.Dispose();
+            PlayerView.Dispose();
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement(out Label title, out ColumnScope gameSlot, out ColumnScope playerSlot, out Button okey, out Button back) {
+        private static View CreateVisualElement(out Label title, out Slot gameSlot, out Slot playerSlot, out Button okey, out Button back) {
             return UIFactory.LargeWidget(
                 i => i.Name( "join-game-widget-view" ),
                 UIFactory.Card(
@@ -65,8 +65,8 @@ namespace Project.UI.MainScreen {
                     UIFactory.Content(
                         UIFactory.RowScope(
                             i => i.Name( null ).Classes( "grow-0", "basis-40" ),
-                            gameSlot = UIFactory.ColumnScope().Classes( "grow-1", "basis-0" ),
-                            playerSlot = UIFactory.ColumnScope().Classes( "grow-1", "basis-0" )
+                            gameSlot = UIFactory.Slot().Classes( "grow-1", "basis-0" ),
+                            playerSlot = UIFactory.Slot().Classes( "grow-1", "basis-0" )
                         ),
                         UIFactory.ColumnGroup(
                             i => i.Name( null ).Classes( "dark5", "medium", "grow-1" ),
@@ -83,11 +83,11 @@ namespace Project.UI.MainScreen {
 
     }
     public partial class JoinGameWidgetView : UIWidgetViewBase {
-        public class GameView : UISubViewBase {
-            public record GameNameEvent(string GameName) : UIEvent<GameView>;
-            public record GameModeEvent(object? GameMode) : UIEvent<GameView>;
-            public record GameWorldEvent(object? GameWorld) : UIEvent<GameView>;
-            public record IsGamePrivateEvent(bool IsGamePrivate) : UIEvent<GameView>;
+        public class GameView_ : UISubViewBase {
+            public record GameNameEvent(string GameName) : UIEvent<GameView_>;
+            public record GameModeEvent(object? GameMode) : UIEvent<GameView_>;
+            public record GameWorldEvent(object? GameWorld) : UIEvent<GameView_>;
+            public record IsGamePrivateEvent(bool IsGamePrivate) : UIEvent<GameView_>;
 
             // Props
             private readonly VisualElement visualElement;
@@ -105,7 +105,7 @@ namespace Project.UI.MainScreen {
             public FieldWrapper<bool> IsGamePrivate => isGamePrivate.Wrap();
 
             // Constructor
-            public GameView(JoinGameWidgetView view) : base( view ) {
+            public GameView_(JoinGameWidget widget) : base( widget ) {
                 // Props
                 visualElement = CreateVisualElement( out title, out gameName, out gameMode, out gameWorld, out isGamePrivate );
                 // OnEvent
@@ -143,9 +143,9 @@ namespace Project.UI.MainScreen {
             }
 
         }
-        public class PlayerView : UISubViewBase {
-            public record PlayerNameEvent(string PlayerName) : UIEvent<PlayerView>;
-            public record PlayerRoleEvent(object? PlayerRole) : UIEvent<PlayerView>;
+        public class PlayerView_ : UISubViewBase {
+            public record PlayerNameEvent(string PlayerName) : UIEvent<PlayerView_>;
+            public record PlayerRoleEvent(object? PlayerRole) : UIEvent<PlayerView_>;
 
             // Props
             private readonly VisualElement visualElement;
@@ -159,7 +159,7 @@ namespace Project.UI.MainScreen {
             public PopupFieldWrapper<object> PlayerRole => playerRole.Wrap();
 
             // Constructor
-            public PlayerView(JoinGameWidgetView view) : base( view ) {
+            public PlayerView_(JoinGameWidget widget) : base( widget ) {
                 // Props
                 visualElement = CreateVisualElement( out title, out playerName, out playerRole );
                 // OnEvent

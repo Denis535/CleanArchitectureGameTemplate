@@ -35,12 +35,12 @@ namespace Project.UI.MainScreen {
         // OnAttach
         public override void OnBeforeAttach() {
             var parent = (JoinGameWidget?) Parent;
-            View.Game.GameName.Value = parent!.View.Game.GameName.Value;
-            View.Game.GameMode.As<GameMode>().ValueChoices = parent!.View.Game.GameMode.As<GameMode>().ValueChoices;
-            View.Game.GameWorld.As<GameWorld>().ValueChoices = parent!.View.Game.GameWorld.As<GameWorld>().ValueChoices;
-            View.Game.IsGamePrivate.Value = parent!.View.Game.IsGamePrivate.Value;
-            View.Player.PlayerName.Value = parent!.View.Player.PlayerName.Value;
-            View.Player.PlayerRole.As<PlayerRole>().ValueChoices = parent!.View.Player.PlayerRole.As<PlayerRole>().ValueChoices;
+            View.GameView.GameName.Value = parent!.View.GameView.GameName.Value;
+            View.GameView.GameMode.As<GameMode>().ValueChoices = parent!.View.GameView.GameMode.As<GameMode>().ValueChoices;
+            View.GameView.GameWorld.As<GameWorld>().ValueChoices = parent!.View.GameView.GameWorld.As<GameWorld>().ValueChoices;
+            View.GameView.IsGamePrivate.Value = parent!.View.GameView.IsGamePrivate.Value;
+            View.PlayerView.PlayerName.Value = parent!.View.PlayerView.PlayerName.Value;
+            View.PlayerView.PlayerRole.As<PlayerRole>().ValueChoices = parent!.View.PlayerView.PlayerRole.As<PlayerRole>().ValueChoices;
         }
         public override void OnAttach() {
         }
@@ -66,26 +66,26 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static JoinGameWidgetView2 CreateView(JoinGameWidget2 widget, UIRouter router) {
             var view = UIViewFactory.JoinGameWidget2( widget );
-            view.Game.OnEvent( (JoinGameWidgetView2.GameView.GameNameEvent evt) => {
+            view.GameView.OnEvent( (JoinGameWidgetView2.GameView_.GameNameEvent evt) => {
             } );
-            view.Game.OnEvent( (JoinGameWidgetView2.GameView.GameModeEvent evt) => {
+            view.GameView.OnEvent( (JoinGameWidgetView2.GameView_.GameModeEvent evt) => {
             } );
-            view.Game.OnEvent( (JoinGameWidgetView2.GameView.GameWorldEvent evt) => {
+            view.GameView.OnEvent( (JoinGameWidgetView2.GameView_.GameWorldEvent evt) => {
             } );
-            view.Game.OnEvent( (JoinGameWidgetView2.GameView.IsGamePrivateEvent evt) => {
+            view.GameView.OnEvent( (JoinGameWidgetView2.GameView_.IsGamePrivateEvent evt) => {
             } );
-            view.Player.OnEvent( (JoinGameWidgetView2.PlayerView.PlayerNameEvent evt) => {
+            view.PlayerView.OnEvent( (JoinGameWidgetView2.PlayerView_.PlayerNameEvent evt) => {
             } );
-            view.Player.OnEvent( (JoinGameWidgetView2.PlayerView.PlayerRoleEvent evt) => {
+            view.PlayerView.OnEvent( (JoinGameWidgetView2.PlayerView_.PlayerRoleEvent evt) => {
             } );
             view.OnCommand( (JoinGameWidgetView2.OkeyCommand cmd) => {
-                var gameName = view.Game.GameName.Value!;
-                var gameMode = view.Game.GameMode.As<GameMode>().Value;
-                var gameWorld = view.Game.GameWorld.As<GameWorld>().Value;
-                var isGamePrivate = view.Game.IsGamePrivate.Value;
+                var gameName = view.GameView.GameName.Value!;
+                var gameMode = view.GameView.GameMode.As<GameMode>().Value;
+                var gameWorld = view.GameView.GameWorld.As<GameWorld>().Value;
+                var isGamePrivate = view.GameView.IsGamePrivate.Value;
                 var gameDesc = new GameDesc( gameName, gameMode, gameWorld, isGamePrivate );
-                var playerName = view.Player.PlayerName.Value!;
-                var playerRole = view.Player.PlayerRole.As<PlayerRole>().Value;
+                var playerName = view.PlayerView.PlayerName.Value!;
+                var playerRole = view.PlayerView.PlayerRole.As<PlayerRole>().Value;
                 var playerDesc = new PlayerDesc( playerName, playerRole );
                 router.LoadGameSceneAsync( gameDesc, playerDesc, default ).Throw();
                 widget.AttachChild( UIWidgetFactory.LoadingWidget() );
