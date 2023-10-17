@@ -252,7 +252,9 @@ namespace UnityEngine.Framework.UI {
             set => VisualElement.SetValid( value );
         }
 
-        public IReadOnlyList<VisualElement> Elements => (IReadOnlyList<VisualElement>) VisualElement.Children();
+        public IReadOnlyList<VisualElement> Elements {
+            get => (IReadOnlyList<VisualElement>) VisualElement.Children();
+        }
 
         public SlotWrapper(VisualElement visualElement) {
             VisualElement = visualElement;

@@ -82,8 +82,8 @@ namespace Project.UI.MainScreen {
             private readonly VisualElement visualElement;
             private readonly Label title;
             private readonly TextField gameName;
-            private readonly DropdownField2<object?> gameMode;
-            private readonly DropdownField2<object?> gameWorld;
+            private readonly PopupField<object?> gameMode;
+            private readonly PopupField<object?> gameWorld;
             private readonly Toggle isGamePrivate;
             // View
             public override VisualElement VisualElement => visualElement;
@@ -115,15 +115,15 @@ namespace Project.UI.MainScreen {
             }
 
             // Helpers
-            private static ColumnGroup CreateVisualElement(out Label title, out TextField gameName, out DropdownField2<object?> gameMode, out DropdownField2<object?> gameWorld, out Toggle isGamePrivate) {
+            private static ColumnGroup CreateVisualElement(out Label title, out TextField gameName, out PopupField<object?> gameMode, out PopupField<object?> gameWorld, out Toggle isGamePrivate) {
                 return UIFactory.ColumnGroup().Classes( "light5", "medium", "grow-1" ).Children(
                     title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
                     UIFactory.RowScope().Children(
                         gameName = UIFactory.TextFieldReadOnly( "Name", 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
                     ),
                     UIFactory.RowScope().Children(
-                        gameMode = UIFactory.DropdownField( "Mode" ).Name( "game-mode" ).Classes( ".label-width-150px", "grow-1" ),
-                        gameWorld = UIFactory.DropdownField( "World" ).Name( "game-world" ).Classes( ".label-width-150px", "grow-1" ),
+                        gameMode = UIFactory.PopupField( "Mode" ).Name( "game-mode" ).Classes( ".label-width-150px", "grow-1" ),
+                        gameWorld = UIFactory.PopupField( "World" ).Name( "game-world" ).Classes( ".label-width-150px", "grow-1" ),
                         isGamePrivate = UIFactory.Toggle( "Private" ).Name( "is-game-private" ).Classes( ".label-width-150px", "grow-0" )
                     )
                 );
@@ -139,7 +139,7 @@ namespace Project.UI.MainScreen {
             private readonly VisualElement visualElement;
             private readonly Label title;
             private readonly TextField playerName;
-            private readonly DropdownField2<object?> playerRole;
+            private readonly PopupField<object?> playerRole;
             // View
             public override VisualElement VisualElement => visualElement;
             public TextWrapper Title => title.Wrap();
@@ -162,14 +162,14 @@ namespace Project.UI.MainScreen {
             }
 
             // Helpers
-            private static VisualElement CreateVisualElement(out Label title, out TextField playerName, out DropdownField2<object?> playerRole) {
+            private static VisualElement CreateVisualElement(out Label title, out TextField playerName, out PopupField<object?> playerRole) {
                 return UIFactory.ColumnGroup().Classes( "light5", "medium", "grow-1" ).Children(
                     title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
                     UIFactory.RowScope().Children(
                         playerName = UIFactory.TextFieldReadOnly( "Name", 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
                     ),
                     UIFactory.RowScope().Children(
-                        playerRole = UIFactory.DropdownField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" )
+                        playerRole = UIFactory.PopupField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" )
                     )
                 );
             }
