@@ -22,6 +22,7 @@ namespace Project.UI.GameScreen {
         private readonly Button back;
         // View
         public override VisualElement VisualElement => visualElement;
+        public ElementWrapper View => visualElement.Wrap();
         public LabelWrapper Title => title.Wrap();
         public ButtonWrapper Resume => resume.Wrap();
         public ButtonWrapper Settings => settings.Wrap();
@@ -30,9 +31,6 @@ namespace Project.UI.GameScreen {
         // Constructor
         public GameMenuWidgetView(GameMenuWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out title, out resume, out settings, out back );
-            // View
-            visualElement.OnAttachToPanel( evt => {
-            } );
             resume.OnClick( evt => {
                 new ResumeCommand().Execute( this );
             } );

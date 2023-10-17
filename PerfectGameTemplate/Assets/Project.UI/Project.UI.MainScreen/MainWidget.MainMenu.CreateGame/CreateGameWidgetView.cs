@@ -23,6 +23,7 @@ namespace Project.UI.MainScreen {
         private readonly Button back;
         // View
         public override VisualElement VisualElement => visualElement;
+        public ElementWrapper View => visualElement.Wrap();
         public LabelWrapper Title => title.Wrap();
         public SlotWrapper GameSlot => gameSlot.Wrap();
         public SlotWrapper PlayerSlot => playerSlot.Wrap();
@@ -32,9 +33,6 @@ namespace Project.UI.MainScreen {
         // Constructor
         public CreateGameWidgetView(CreateGameWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out title, out gameSlot, out playerSlot, out okey, out back );
-            // View
-            visualElement.OnAttachToPanel( evt => {
-            } );
             okey.OnClick( evt => {
                 new OkeyCommand().Execute( this );
             } );

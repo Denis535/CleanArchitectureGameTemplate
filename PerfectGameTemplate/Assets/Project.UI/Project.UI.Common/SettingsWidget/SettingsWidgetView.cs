@@ -24,6 +24,7 @@ namespace Project.UI.Common {
         private readonly Button back;
         // View
         public override VisualElement VisualElement => visualElement;
+        public ElementWrapper View => visualElement.Wrap();
         public LabelWrapper Title => title.Wrap();
         public ButtonWrapper PlayerProfile => playerProfile.Wrap();
         public ButtonWrapper VideoSettings => videoSettings.Wrap();
@@ -33,9 +34,6 @@ namespace Project.UI.Common {
         // Constructor
         public SettingsWidgetView(SettingsWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out title, out playerProfile, out videoSettings, out audioSettings, out back );
-            // View
-            visualElement.OnAttachToPanel( evt => {
-            } );
             playerProfile.OnClick( evt => {
                 new PlayerProfileCommand().Execute( this );
             } );

@@ -20,6 +20,7 @@ namespace Project.UI.Common {
         protected Label message = default!;
         // View
         public override VisualElement VisualElement => visualElement;
+        public ElementWrapper View => visualElement.Wrap();
         public ElementWrapper Card => card.Wrap();
         public ElementWrapper Header => header.Wrap();
         public ElementWrapper Content => content.Wrap();
@@ -77,12 +78,12 @@ namespace Project.UI.Common {
         // Constructor
         public DialogWidgetView(DialogWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
-            header.SetDisplayed( false );
-            content.SetDisplayed( false );
-            footer.SetDisplayed( false );
             visualElement.OnAttachToPanel( evt => {
                 PlayAppearanceAnimation( visualElement );
             } );
+            header.SetDisplayed( false );
+            content.SetDisplayed( false );
+            footer.SetDisplayed( false );
         }
         public override void Dispose() {
             base.Dispose();
@@ -110,12 +111,12 @@ namespace Project.UI.Common {
         // Constructor
         public InfoDialogWidgetView(InfoDialogWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
-            header.SetDisplayed( false );
-            content.SetDisplayed( false );
-            footer.SetDisplayed( false );
             visualElement.OnAttachToPanel( evt => {
                 PlayAppearanceAnimation( visualElement );
             } );
+            header.SetDisplayed( false );
+            content.SetDisplayed( false );
+            footer.SetDisplayed( false );
         }
         public override void Dispose() {
             base.Dispose();
@@ -143,12 +144,12 @@ namespace Project.UI.Common {
         // Constructor
         public WarningDialogWidgetView(WarningDialogWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
-            header.SetDisplayed( false );
-            content.SetDisplayed( false );
-            footer.SetDisplayed( false );
             visualElement.OnAttachToPanel( evt => {
                 PlayAppearanceAnimation( visualElement );
             } );
+            header.SetDisplayed( false );
+            content.SetDisplayed( false );
+            footer.SetDisplayed( false );
         }
         public override void Dispose() {
             base.Dispose();
@@ -176,12 +177,12 @@ namespace Project.UI.Common {
         // Constructor
         public ErrorDialogWidgetView(ErrorDialogWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
-            header.SetDisplayed( false );
-            content.SetDisplayed( false );
-            footer.SetDisplayed( false );
             visualElement.OnAttachToPanel( evt => {
                 PlayAppearanceAnimation( visualElement );
             } );
+            header.SetDisplayed( false );
+            content.SetDisplayed( false );
+            footer.SetDisplayed( false );
         }
         public override void Dispose() {
             base.Dispose();

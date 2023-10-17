@@ -28,6 +28,7 @@ namespace Project.UI.Common {
         private readonly Button back;
         // View
         public override VisualElement VisualElement => visualElement;
+        public ElementWrapper View => visualElement.Wrap();
         public LabelWrapper Title => title.Wrap();
         public SliderWrapper<float> MasterVolume => masterVolume.Wrap();
         public SliderWrapper<float> MusicVolume => musicVolume.Wrap();
@@ -39,9 +40,6 @@ namespace Project.UI.Common {
         // Constructor
         public AudioSettingsWidgetView(AudioSettingsWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out title, out masterVolume, out musicVolume, out sfxVolume, out gameVolume, out okey, out back );
-            // View
-            visualElement.OnAttachToPanel( evt => {
-            } );
             masterVolume.OnChange( evt => {
                 new MasterVolumeEvent( evt.newValue ).Raise( this );
             } );

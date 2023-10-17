@@ -15,13 +15,11 @@ namespace Project.UI.GameScreen {
         private readonly VisualElement visualElement;
         // View
         public override VisualElement VisualElement => visualElement;
+        public ElementWrapper View => visualElement.Wrap();
 
         // Constructor
         public GameWidgetView(GameWidget widget) : base( widget ) {
             visualElement = CreateVisualElement();
-            // View
-            visualElement.OnAttachToPanel( evt => {
-            } );
         }
         public override void Dispose() {
             base.Dispose();

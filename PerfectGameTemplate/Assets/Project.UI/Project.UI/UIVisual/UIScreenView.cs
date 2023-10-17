@@ -16,22 +16,22 @@ namespace Project.UI {
 
         // View
         private readonly VisualElement visualElement;
-        private readonly VisualElement viewsContainer = default!;
-        private readonly VisualElement modalViewsContainer = default!;
+        private readonly VisualElement viewsContainer;
+        private readonly VisualElement modalViewsContainer;
         // View
         public override VisualElement VisualElement => visualElement;
         // Assets
-        private AudioClip Window = default!;
-        private AudioClip InfoWindow = default!;
-        private AudioClip WarningWindow = default!;
-        private AudioClip ErrorWindow = default!;
-        private AudioClip Focus = default!;
-        private AudioClip Click = default!;
-        private AudioClip Select = default!;
-        private AudioClip ConfirmSelect = default!;
-        private AudioClip CancelSelect = default!;
-        private AudioClip InvalidSelect = default!;
-        private AudioClip Tik = default!;
+        private readonly AudioClip Window;
+        private readonly AudioClip InfoWindow;
+        private readonly AudioClip WarningWindow;
+        private readonly AudioClip ErrorWindow;
+        private readonly AudioClip Focus;
+        private readonly AudioClip Click;
+        private readonly AudioClip Select;
+        private readonly AudioClip ConfirmSelect;
+        private readonly AudioClip CancelSelect;
+        private readonly AudioClip InvalidSelect;
+        private readonly AudioClip Tik;
 
         // Constructor
         public UIScreenView(UIScreen screen) : base( screen ) {

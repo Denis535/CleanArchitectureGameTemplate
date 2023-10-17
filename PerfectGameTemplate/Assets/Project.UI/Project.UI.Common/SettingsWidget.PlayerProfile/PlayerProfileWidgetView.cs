@@ -22,6 +22,7 @@ namespace Project.UI.Common {
         private readonly Button back;
         // View
         public override VisualElement VisualElement => visualElement;
+        public ElementWrapper View => visualElement.Wrap();
         public LabelWrapper Title => title.Wrap();
         public FieldWrapper<string> Name => name.Wrap();
         public ButtonWrapper Okey => okey.Wrap();
@@ -30,9 +31,6 @@ namespace Project.UI.Common {
         // Constructor
         public PlayerProfileWidgetView(PlayerProfileWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out title, out name, out okey, out back );
-            // View
-            visualElement.OnAttachToPanel( evt => {
-            } );
             name.OnChange( evt => {
                 new NameEvent( evt.newValue ).Raise( this );
             } );

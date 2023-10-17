@@ -16,13 +16,11 @@ namespace Project.UI.MainScreen {
         private readonly VisualElement visualElement;
         // View
         public override VisualElement VisualElement => visualElement;
+        public ElementWrapper View => visualElement.Wrap();
 
         // Constructor
         public MainWidgetView(MainWidget widget) : base( widget ) {
             visualElement = CreateVisualElement();
-            // View
-            visualElement.OnAttachToPanel( evt => {
-            } );
         }
         public override void Dispose() {
             base.Dispose();

@@ -26,6 +26,7 @@ namespace Project.UI.Common {
         private readonly Button back;
         // View
         public override VisualElement VisualElement => visualElement;
+        public ElementWrapper View => visualElement.Wrap();
         public LabelWrapper Title => title.Wrap();
         public ToggleWrapper<bool> IsFullScreen => isFullScreen.Wrap();
         public PopupWrapper<Resolution> ScreenResolution => screenResolution.Wrap();
@@ -36,9 +37,6 @@ namespace Project.UI.Common {
         // Constructor
         public VideoSettingsWidgetView(VideoSettingsWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out title, out isFullScreen, out screenResolution, out isVSync, out okey, out back );
-            // View
-            visualElement.OnAttachToPanel( evt => {
-            } );
             isFullScreen.OnChange( evt => {
                 new IsFullScreenEvent( evt.newValue ).Raise( this );
             } );

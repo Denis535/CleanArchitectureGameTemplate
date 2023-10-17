@@ -24,6 +24,7 @@ namespace Project.UI.MainScreen {
         private readonly Button quit;
         // View
         public override VisualElement VisualElement => visualElement;
+        public ElementWrapper View => visualElement.Wrap();
         public LabelWrapper Title => title.Wrap();
         public ButtonWrapper CreateGame => createGame.Wrap();
         public ButtonWrapper JoinGame => joinGame.Wrap();
@@ -33,9 +34,6 @@ namespace Project.UI.MainScreen {
         // Constructor
         public MainMenuWidgetView(MainMenuWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out title, out createGame, out joinGame, out settings, out quit );
-            // View
-            visualElement.OnAttachToPanel( evt => {
-            } );
             createGame.OnClick( evt => {
                 new CreateGameCommand().Execute( this );
             } );

@@ -18,12 +18,12 @@ namespace Project.UI.MainScreen {
         private readonly Label loading;
         // View
         public override VisualElement VisualElement => visualElement;
+        public ElementWrapper View => visualElement.Wrap();
         public LabelWrapper Loading => loading.Wrap();
 
         // Constructor
         public LoadingWidgetView(LoadingWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out loading );
-            // View
             visualElement.OnAttachToPanel( evt => {
                 PlayLoadingAnimation( loading );
             } );
