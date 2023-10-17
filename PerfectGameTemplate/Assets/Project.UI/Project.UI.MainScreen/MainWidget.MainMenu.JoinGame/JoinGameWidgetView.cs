@@ -92,7 +92,7 @@ namespace Project.UI.MainScreen {
             public FieldWrapper<string> GameName => gameName.Wrap();
             public PopupWrapper<GameMode> GameMode => gameMode.Wrap();
             public PopupWrapper<GameWorld> GameWorld => gameWorld.Wrap();
-            public FieldWrapper<bool> IsGamePrivate => isGamePrivate.Wrap();
+            public ToggleWrapper<bool> IsGamePrivate => isGamePrivate.Wrap();
 
             // Constructor
             public GameView_(JoinGameWidget widget) : base( widget ) {

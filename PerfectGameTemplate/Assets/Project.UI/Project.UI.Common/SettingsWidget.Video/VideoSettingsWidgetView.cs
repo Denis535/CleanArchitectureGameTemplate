@@ -27,9 +27,9 @@ namespace Project.UI.Common {
         // View
         public override VisualElement VisualElement => visualElement;
         public LabelWrapper Title => title.Wrap();
-        public FieldWrapper<bool> IsFullScreen => isFullScreen.Wrap();
+        public ToggleWrapper<bool> IsFullScreen => isFullScreen.Wrap();
         public PopupWrapper<Resolution> ScreenResolution => screenResolution.Wrap();
-        public FieldWrapper<bool> IsVSync => isVSync.Wrap();
+        public ToggleWrapper<bool> IsVSync => isVSync.Wrap();
         public ButtonWrapper Okey => okey.Wrap();
         public ButtonWrapper Back => back.Wrap();
 
