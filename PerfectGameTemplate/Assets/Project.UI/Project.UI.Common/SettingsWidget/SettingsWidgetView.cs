@@ -13,7 +13,7 @@ namespace Project.UI.Common {
         public record AudioSettingsCommand() : UICommand<SettingsWidgetView>;
         public record BackCommand() : UICommand<SettingsWidgetView>;
     }
-    public partial class SettingsWidgetView : UIWidgetViewBase {
+    public partial class SettingsWidgetView : UIObservableWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;

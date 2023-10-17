@@ -13,7 +13,7 @@ namespace Project.UI.MainScreen {
         public record SettingsCommand() : UICommand<MainMenuWidgetView>;
         public record QuitCommand() : UICommand<MainMenuWidgetView>;
     }
-    public partial class MainMenuWidgetView : UIWidgetViewBase {
+    public partial class MainMenuWidgetView : UIObservableWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;

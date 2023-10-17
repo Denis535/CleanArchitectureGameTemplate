@@ -12,7 +12,7 @@ namespace Project.UI.Common {
         public record OkeyCommand(bool IsValid) : UICommand<PlayerProfileWidgetView>;
         public record BackCommand() : UICommand<PlayerProfileWidgetView>;
     }
-    public partial class PlayerProfileWidgetView : UIWidgetViewBase {
+    public partial class PlayerProfileWidgetView : UIObservableWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;

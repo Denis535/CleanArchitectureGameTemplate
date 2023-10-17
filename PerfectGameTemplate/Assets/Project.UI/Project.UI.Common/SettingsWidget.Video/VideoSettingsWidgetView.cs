@@ -14,7 +14,7 @@ namespace Project.UI.Common {
         public record OkeyCommand() : UICommand<VideoSettingsWidgetView>;
         public record BackCommand() : UICommand<VideoSettingsWidgetView>;
     }
-    public partial class VideoSettingsWidgetView : UIWidgetViewBase {
+    public partial class VideoSettingsWidgetView : UIObservableWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;

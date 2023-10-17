@@ -12,7 +12,7 @@ namespace Project.UI.MainScreen {
         public record OkeyCommand() : UICommand<CreateGameWidgetView>;
         public record BackCommand() : UICommand<CreateGameWidgetView>;
     }
-    public partial class CreateGameWidgetView : UIWidgetViewBase {
+    public partial class CreateGameWidgetView : UIObservableWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;
@@ -71,9 +71,9 @@ namespace Project.UI.MainScreen {
         }
 
     }
-    public partial class CreateGameWidgetView : UIWidgetViewBase {
+    public partial class CreateGameWidgetView {
         // GameView
-        public class GameView_ : UISubViewBase {
+        public class GameView_ : UIObservableSubViewBase {
             public record GameNameEvent(string GameName) : UIEvent<GameView_>;
             public record GameModeEvent(GameMode GameMode) : UIEvent<GameView_>;
             public record GameWorldEvent(GameWorld GameWorld) : UIEvent<GameView_>;
@@ -132,7 +132,7 @@ namespace Project.UI.MainScreen {
 
         }
         // PlayerView
-        public class PlayerView_ : UISubViewBase {
+        public class PlayerView_ : UIObservableSubViewBase {
             public record PlayerNameEvent(string PlayerName) : UIEvent<PlayerView_>;
             public record PlayerRoleEvent(PlayerRole PlayerRole) : UIEvent<PlayerView_>;
 

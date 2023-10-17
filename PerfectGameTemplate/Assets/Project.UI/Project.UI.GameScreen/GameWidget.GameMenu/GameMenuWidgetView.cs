@@ -12,7 +12,7 @@ namespace Project.UI.GameScreen {
         public record SettingsCommand() : UICommand<GameMenuWidgetView>;
         public record BackCommand() : UICommand<GameMenuWidgetView>;
     }
-    public partial class GameMenuWidgetView : UIWidgetViewBase {
+    public partial class GameMenuWidgetView : UIObservableWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;

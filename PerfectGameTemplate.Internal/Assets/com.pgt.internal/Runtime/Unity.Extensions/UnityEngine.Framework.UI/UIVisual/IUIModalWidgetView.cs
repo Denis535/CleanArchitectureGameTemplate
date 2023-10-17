@@ -9,9 +9,8 @@ namespace UnityEngine.Framework.UI {
     }
     public static class IUIModalWidgetViewExtensions {
 
-        // IsModal
-        public static bool IsModal(this UIWidgetBase widget) {
-            return widget is IUIModalWidget;
+        public static bool IsModal(this UIWidgetViewBase view) {
+            return view is IUIModalWidgetView;
         }
 
     }
