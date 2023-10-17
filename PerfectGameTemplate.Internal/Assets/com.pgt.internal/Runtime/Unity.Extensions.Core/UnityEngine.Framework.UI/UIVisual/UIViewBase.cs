@@ -7,18 +7,15 @@ namespace UnityEngine.Framework.UI {
     using UnityEngine.AddressableAssets;
     using UnityEngine.UIElements;
 
-    public abstract class UIViewBase : IUIObservable, IDisposable {
+    public abstract class UIViewBase : IDisposable {
 
         // System
         public bool IsDisposed { get; private set; }
-        public Action<UIMessage>? OnMessageEvent { get; set; }
-        internal IUIObservable? Observable { get; }
         // VisualElement
         public abstract VisualElement VisualElement { get; }
 
         // Constructor
-        public UIViewBase(IUIObservable? observable) {
-            Observable = observable;
+        public UIViewBase() {
         }
         public virtual void Dispose() {
             Assert.Object.Message( $"View {this} must be alive" ).Alive( !IsDisposed );

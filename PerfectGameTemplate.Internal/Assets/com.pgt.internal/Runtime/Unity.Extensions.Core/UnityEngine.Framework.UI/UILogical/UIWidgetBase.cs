@@ -8,7 +8,7 @@ namespace UnityEngine.Framework.UI {
     using System.Threading;
     using UnityEngine;
 
-    public abstract class UIWidgetBase : IUILogicalElement, IUIObservable, IDisposable {
+    public abstract class UIWidgetBase : IUILogicalElement, IDisposable {
 
         private CancellationTokenSource? disposeCancellationTokenSource;
 
@@ -22,7 +22,6 @@ namespace UnityEngine.Framework.UI {
             }
         }
         public virtual bool DisposeAutomatically => true;
-        public Action<UIMessage>? OnMessageEvent { get; set; }
         // View
         [MemberNotNullWhen( true, "View" )] public bool IsViewable => this is IUIViewable;
         public UIWidgetViewBase? View => (UIWidgetViewBase?) (this as IUIViewable)?.View;

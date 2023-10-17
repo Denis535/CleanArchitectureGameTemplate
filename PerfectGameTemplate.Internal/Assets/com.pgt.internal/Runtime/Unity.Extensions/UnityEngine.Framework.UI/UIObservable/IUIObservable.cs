@@ -8,6 +8,7 @@ namespace UnityEngine.Framework.UI {
     public interface IUIObservable {
 
         Action<UIMessage>? OnMessageEvent { get; set; }
+        IUIObservable? Observable { get; set; }
 
     }
 }

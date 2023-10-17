@@ -74,16 +74,7 @@ namespace UnityEngine.Framework.UI {
             }
         }
         private static IUIObservable? GetObservable(this IUIObservable observable) {
-            if (observable is UIScreenBase screen) {
-                return null;
-            }
-            if (observable is UIWidgetBase widget) {
-                return (IUIObservable?) widget.Parent ?? widget.Screen;
-            }
-            if (observable is UIViewBase view) {
-                return view.Observable;
-            }
-            throw Exceptions.Internal.NotSupported( $"Observable {observable} is not supported" );
+            return observable.Observable;
         }
 
     }

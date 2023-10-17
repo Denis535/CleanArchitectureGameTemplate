@@ -7,11 +7,10 @@ namespace UnityEngine.Framework.UI {
     using UnityEngine;
     using UnityEngine.UIElements;
 
-    public abstract class UIScreenBase : MonoBehaviour, IUILogicalElement, IUIViewable, IUIObservable {
+    public abstract class UIScreenBase : MonoBehaviour, IUILogicalElement, IUIViewable {
 
         // System
         private Lock Lock { get; } = new Lock();
-        public Action<UIMessage>? OnMessageEvent { get; set; }
         // Globals
         protected internal UIDocument Document { get; set; } = default!;
         protected internal AudioSource AudioSource { get; set; } = default!;

@@ -12,7 +12,7 @@ namespace UnityEngine.Framework.UI {
         internal UIScreenBase Screen { get; }
 
         // Constructor
-        public UIScreenViewBase(UIScreenBase screen) : base( screen ) {
+        public UIScreenViewBase(UIScreenBase screen) {
             Screen = screen;
         }
         public override void Dispose() {
