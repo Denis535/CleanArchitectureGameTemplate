@@ -32,7 +32,6 @@ namespace Project.UI.Common {
             visualElement = CreateVisualElement( out title, out name, out okey, out back );
             // View
             visualElement.OnAttachToPanel( evt => {
-                new NameEvent( Name.Value! ).Raise( this );
             } );
             name.OnChange( evt => {
                 new NameEvent( evt.newValue ).Raise( this );

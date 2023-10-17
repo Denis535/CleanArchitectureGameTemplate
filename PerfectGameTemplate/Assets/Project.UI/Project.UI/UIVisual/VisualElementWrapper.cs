@@ -7,7 +7,6 @@ namespace Project.UI {
     using UnityEngine;
     using UnityEngine.UIElements;
 
-    // todo: when compiler will be updated then make all wrappers readonly structures
     public abstract class VisualElementWrapper<T> where T : VisualElement {
 
         protected T VisualElement { get; }

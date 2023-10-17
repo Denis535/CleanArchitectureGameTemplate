@@ -27,6 +27,8 @@ namespace Project.UI.Common {
         // OnAttach
         public override void OnBeforeAttach() {
             View.Name.Value = PlayerProfile.PlayerName;
+            View.Name.IsValid = Globals.PlayerProfile.IsNameValid( View.Name.Value );
+            View.Okey.IsValid = Globals.PlayerProfile.IsNameValid( View.Name.Value );
         }
         public override void OnAttach() {
         }
@@ -41,7 +43,7 @@ namespace Project.UI.Common {
             var view = UIViewFactory.PlayerProfileWidget( widget );
             view.OnEvent( (PlayerProfileWidgetView.NameEvent evt) => {
                 view.Name.IsValid = Globals.PlayerProfile.IsNameValid( evt.Name );
-                view.Okey.IsValid = view.Name.IsValid;
+                view.Okey.IsValid = Globals.PlayerProfile.IsNameValid( evt.Name );
             } );
             view.OnCommand( (PlayerProfileWidgetView.OkeyCommand cmd) => {
                 if (!cmd.IsValid) {
