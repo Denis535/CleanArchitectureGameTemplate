@@ -25,7 +25,7 @@ namespace Project.UI.MainScreen {
             visualElement = CreateVisualElement( out loading );
             // View
             visualElement.OnAttachToPanel( evt => {
-                PlayLoading( loading );
+                PlayLoadingAnimation( loading );
             } );
         }
         public override void Dispose() {
@@ -41,7 +41,7 @@ namespace Project.UI.MainScreen {
             );
         }
         // Helpers
-        private static void PlayLoading(Label label) {
+        private static void PlayLoadingAnimation(Label label) {
             var animation = ValueAnimation<float>.Create( label, Mathf.Lerp );
             animation.easingCurve = Easing.Linear;
             animation.valueUpdated = (label, t) => ((Label) label).text = GetLoadingText( t );

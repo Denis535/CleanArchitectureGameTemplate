@@ -6,6 +6,7 @@ namespace Project.UI.Common {
     using UnityEngine;
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
+    using UnityEngine.UIElements.Experimental;
 
     public abstract class DialogWidgetViewBase : UIWidgetViewBase, IUIModalWidgetView {
 
@@ -53,6 +54,22 @@ namespace Project.UI.Common {
             footer.Add( button );
         }
 
+        // Heleprs
+        protected static void PlayAppearanceAnimation(VisualElement view) {
+            var animation = ValueAnimation<float>.Create( view, Mathf.LerpUnclamped );
+            animation.valueUpdated = (view, t) => {
+                var tx = Easing.OutBack( Easing.InPower( t, 2 ), 4 );
+                var ty = Easing.OutBack( Easing.OutPower( t, 2 ), 4 );
+                var x = Mathf.LerpUnclamped( 0.8f, 1f, tx );
+                var y = Mathf.LerpUnclamped( 0.8f, 1f, ty );
+                view.transform.scale = new Vector3( x, y, 1 );
+            };
+            animation.from = 0;
+            animation.to = 1;
+            animation.durationMs = 500;
+            animation.Start();
+        }
+
     }
     // Dialog
     public class DialogWidgetView : DialogWidgetViewBase {
@@ -63,6 +80,9 @@ namespace Project.UI.Common {
             header.SetDisplayed( false );
             content.SetDisplayed( false );
             footer.SetDisplayed( false );
+            visualElement.OnAttachToPanel( evt => {
+                PlayAppearanceAnimation( visualElement );
+            } );
         }
         public override void Dispose() {
             base.Dispose();
@@ -93,6 +113,9 @@ namespace Project.UI.Common {
             header.SetDisplayed( false );
             content.SetDisplayed( false );
             footer.SetDisplayed( false );
+            visualElement.OnAttachToPanel( evt => {
+                PlayAppearanceAnimation( visualElement );
+            } );
         }
         public override void Dispose() {
             base.Dispose();
@@ -123,6 +146,9 @@ namespace Project.UI.Common {
             header.SetDisplayed( false );
             content.SetDisplayed( false );
             footer.SetDisplayed( false );
+            visualElement.OnAttachToPanel( evt => {
+                PlayAppearanceAnimation( visualElement );
+            } );
         }
         public override void Dispose() {
             base.Dispose();
@@ -153,6 +179,9 @@ namespace Project.UI.Common {
             header.SetDisplayed( false );
             content.SetDisplayed( false );
             footer.SetDisplayed( false );
+            visualElement.OnAttachToPanel( evt => {
+                PlayAppearanceAnimation( visualElement );
+            } );
         }
         public override void Dispose() {
             base.Dispose();

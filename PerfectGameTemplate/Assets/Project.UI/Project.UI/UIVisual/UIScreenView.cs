@@ -11,7 +11,6 @@ namespace Project.UI {
     using UnityEngine.Framework.UI;
     using UnityEngine.ResourceManagement.AsyncOperations;
     using UnityEngine.UIElements;
-    using UnityEngine.UIElements.Experimental;
 
     public class UIScreenView : UIScreenViewBase {
 
@@ -124,19 +123,15 @@ namespace Project.UI {
             } else
             if (target.name == "dialog-widget-view") {
                 this.PlayClip( InfoWindow );
-                PlayDialogAnimation( target );
             } else
             if (target.name == "info-dialog-widget-view") {
                 this.PlayClip( InfoWindow );
-                PlayDialogAnimation( target );
             } else
             if (target.name == "warning-dialog-widget-view") {
                 this.PlayClip( WarningWindow );
-                PlayDialogAnimation( target );
             } else
             if (target.name == "error-dialog-widget-view") {
                 this.PlayClip( ErrorWindow );
-                PlayDialogAnimation( target );
             }
         }
         private void PlayFocus(FocusEvent evt) {
@@ -200,22 +195,6 @@ namespace Project.UI {
                 }
                 evt.StopPropagation();
             }
-        }
-
-        // Helpers
-        private static void PlayDialogAnimation(VisualElement view) {
-            var animation = ValueAnimation<float>.Create( view, Mathf.LerpUnclamped );
-            animation.valueUpdated = (view, t) => {
-                var tx = Easing.OutBack( Easing.InPower( t, 2 ), 4 );
-                var ty = Easing.OutBack( Easing.OutPower( t, 2 ), 4 );
-                var x = Mathf.LerpUnclamped( 0.8f, 1f, tx );
-                var y = Mathf.LerpUnclamped( 0.8f, 1f, ty );
-                view.transform.scale = new Vector3( x, y, 1 );
-            };
-            animation.from = 0;
-            animation.to = 1;
-            animation.durationMs = 500;
-            animation.Start();
         }
 
     }

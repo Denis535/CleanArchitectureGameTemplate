@@ -10,7 +10,7 @@ namespace Project.UI {
     // todo: when compiler will be updated then make all wrappers readonly structures
     public abstract class VisualElementWrapper<T> where T : VisualElement {
 
-        public T VisualElement { get; }
+        protected T VisualElement { get; }
 
         public bool IsEnabled {
             get => VisualElement.enabledSelf;
