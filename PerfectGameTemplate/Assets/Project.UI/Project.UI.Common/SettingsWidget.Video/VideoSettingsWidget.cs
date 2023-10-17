@@ -12,7 +12,7 @@ namespace Project.UI.Common {
 
         // Globals
         private Globals.VideoSettings VideoSettings { get; }
-        // VIew
+        // View
         public override VideoSettingsWidgetView View { get; }
 
         // Constructor
@@ -45,7 +45,7 @@ namespace Project.UI.Common {
                 videoSettings.IsFullScreen = evt.IsFullScreen;
             } );
             view.OnEvent( (VideoSettingsWidgetView.ScreenResolutionEvent evt) => {
-                videoSettings.ScreenResolution = (Resolution) evt.ScreenResolution!;
+                videoSettings.ScreenResolution = evt.ScreenResolution;
             } );
             view.OnEvent( (VideoSettingsWidgetView.IsVSyncEvent evt) => {
                 videoSettings.IsVSync = evt.IsVSync;

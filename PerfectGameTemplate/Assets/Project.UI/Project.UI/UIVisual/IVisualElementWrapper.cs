@@ -1,9 +1,10 @@
 #nullable enable
-namespace UnityEngine.Framework.UI {
+namespace Project.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+    using UnityEngine;
     using UnityEngine.UIElements;
 
     // todo: when compiler will be updated then make all wrappers readonly structures

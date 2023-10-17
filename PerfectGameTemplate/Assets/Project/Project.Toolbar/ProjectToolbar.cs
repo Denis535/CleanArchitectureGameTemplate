@@ -126,6 +126,7 @@ namespace Project.Toolbar {
         [MenuItem( "Project/Open Assets (UIAudioTheme)", priority = 1000 )]
         internal static void OpenAssets_UIAudioTheme() {
             OpenAssets( GetPatterns(
+                "Assets/Project.UI/Project.UI/*Theme.cs",
                 // MainScreen
                 "Assets/Project.UI/Project.UI.MainScreen/*Theme.cs",
                 // GameScreen
@@ -135,6 +136,7 @@ namespace Project.Toolbar {
         [MenuItem( "Project/Open Assets (UIScreen)", priority = 1001 )]
         internal static void OpenAssets_UIScreen() {
             OpenAssets( GetPatterns(
+                "Assets/Project.UI/Project.UI/*Screen.cs",
                 // MainScreen
                 "Assets/Project.UI/Project.UI.MainScreen/*Screen.cs",
                 // GameScreen
@@ -144,6 +146,13 @@ namespace Project.Toolbar {
         [MenuItem( "Project/Open Assets (UIWidget)", priority = 1002 )]
         internal static void OpenAssets_UIWidget() {
             OpenAssets( GetPatterns(
+                "Assets/Project.UI/Project.UI/*WidgetBase.cs",
+                "Assets/Project.UI/Project.UI/*Widget.cs",
+                "Assets/Project.UI/Project.UI/*Widget2.cs",
+                // Common
+                "Assets/Project.UI/Project.UI.Common/*WidgetBase.cs",
+                "Assets/Project.UI/Project.UI.Common/*Widget.cs",
+                "Assets/Project.UI/Project.UI.Common/*Widget2.cs",
                 // MainScreen
                 "Assets/Project.UI/Project.UI.MainScreen/*WidgetBase.cs",
                 "Assets/Project.UI/Project.UI.MainScreen/*Widget.cs",
@@ -151,16 +160,19 @@ namespace Project.Toolbar {
                 // GameScreen
                 "Assets/Project.UI/Project.UI.GameScreen/*WidgetBase.cs",
                 "Assets/Project.UI/Project.UI.GameScreen/*Widget.cs",
-                "Assets/Project.UI/Project.UI.GameScreen/*Widget2.cs",
-                // Common
-                "Assets/Project.UI/Project.UI.Common/*WidgetBase.cs",
-                "Assets/Project.UI/Project.UI.Common/*Widget.cs",
-                "Assets/Project.UI/Project.UI.Common/*Widget2.cs"
+                "Assets/Project.UI/Project.UI.GameScreen/*Widget2.cs"
                 ) );
         }
         [MenuItem( "Project/Open Assets (UIView)", priority = 1003 )]
         internal static void OpenAssets_UIView() {
             OpenAssets( GetPatterns(
+                "Assets/Project.UI/Project.UI/*ViewBase.cs",
+                "Assets/Project.UI/Project.UI/*View.cs",
+                "Assets/Project.UI/Project.UI/*View2.cs",
+                // Common
+                "Assets/Project.UI/Project.UI.Common/*ViewBase.cs",
+                "Assets/Project.UI/Project.UI.Common/*View.cs",
+                "Assets/Project.UI/Project.UI.Common/*View2.cs",
                 // MainScreen
                 "Assets/Project.UI/Project.UI.MainScreen/*ViewBase.cs",
                 "Assets/Project.UI/Project.UI.MainScreen/*View.cs",
@@ -168,19 +180,18 @@ namespace Project.Toolbar {
                 // GameScreen
                 "Assets/Project.UI/Project.UI.GameScreen/*ViewBase.cs",
                 "Assets/Project.UI/Project.UI.GameScreen/*View.cs",
-                "Assets/Project.UI/Project.UI.GameScreen/*View2.cs",
-                // Common
-                "Assets/Project.UI/Project.UI.Common/*ViewBase.cs",
-                "Assets/Project.UI/Project.UI.Common/*View.cs",
-                "Assets/Project.UI/Project.UI.Common/*View2.cs"
+                "Assets/Project.UI/Project.UI.GameScreen/*View2.cs"
                 ) );
         }
 
         // Helpers
         private static void OpenAssets(params Regex[] patterns) {
-            foreach (var path in GetPaths().Reverse()) {
-                if (patterns.Any( i => i.IsMatch( path ) )) {
-                    AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
+            var paths = GetPaths();
+            foreach (var pattern in patterns.Reverse()) {
+                foreach (var path in paths.Reverse()) {
+                    if (pattern.IsMatch( path )) {
+                        AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
+                    }
                 }
             }
         }
