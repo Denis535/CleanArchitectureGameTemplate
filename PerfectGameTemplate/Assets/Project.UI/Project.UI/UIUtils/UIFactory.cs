@@ -31,8 +31,8 @@ namespace Project.UI {
         public static Toggle Toggle(string? label) {
             return new Toggle( label );
         }
-        public static PopupField<object?> PopupField(string? label) {
-            return new PopupField<object?>( label ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
+        public static PopupField<T> PopupField<T>(string? label) {
+            return new PopupField<T>( label ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
         }
 
         // Widget
@@ -108,7 +108,7 @@ namespace Project.UI {
         }
 
         // Helpers/GetDisplayString
-        private static string GetDisplayString(object? obj) {
+        private static string GetDisplayString<T>(T obj) {
             // GameDesc
             if (obj is GameMode gameMode) return GetDisplayString( gameMode );
             if (obj is GameWorld gameWorld) return GetDisplayString( gameWorld );

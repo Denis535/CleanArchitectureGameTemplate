@@ -44,11 +44,11 @@ namespace Project.UI.MainScreen {
         public override void OnBeforeAttach() {
             var parent = (JoinGameWidget) Parent!;
             GameView.GameName.Value = parent.GameView.GameName.Value;
-            GameView.GameMode.As<GameMode>().ValueChoices = parent.GameView.GameMode.As<GameMode>().ValueChoices;
-            GameView.GameWorld.As<GameWorld>().ValueChoices = parent.GameView.GameWorld.As<GameWorld>().ValueChoices;
+            GameView.GameMode.ValueChoices = parent.GameView.GameMode.ValueChoices;
+            GameView.GameWorld.ValueChoices = parent.GameView.GameWorld.ValueChoices;
             GameView.IsGamePrivate.Value = parent.GameView.IsGamePrivate.Value;
             PlayerView.PlayerName.Value = parent.PlayerView.PlayerName.Value;
-            PlayerView.PlayerRole.As<PlayerRole>().ValueChoices = parent.PlayerView.PlayerRole.As<PlayerRole>().ValueChoices;
+            PlayerView.PlayerRole.ValueChoices = parent.PlayerView.PlayerRole.ValueChoices;
         }
         public override void OnAttach() {
         }
@@ -76,11 +76,11 @@ namespace Project.UI.MainScreen {
             var view = UIViewFactory.JoinGameWidget2( widget );
             view.OnCommand( (JoinGameWidgetView2.OkeyCommand cmd) => {
                 var gameName = widget.GameView.GameName.Value!;
-                var gameMode = widget.GameView.GameMode.As<GameMode>().Value;
-                var gameWorld = widget.GameView.GameWorld.As<GameWorld>().Value;
+                var gameMode = widget.GameView.GameMode.Value;
+                var gameWorld = widget.GameView.GameWorld.Value;
                 var isGamePrivate = widget.GameView.IsGamePrivate.Value;
                 var playerName = widget.PlayerView.PlayerName.Value!;
-                var playerRole = widget.PlayerView.PlayerRole.As<PlayerRole>().Value;
+                var playerRole = widget.PlayerView.PlayerRole.Value;
                 {
                     var gameDesc = new GameDesc( gameName, gameMode, gameWorld, isGamePrivate );
                     var playerDesc = new PlayerDesc( playerName, playerRole );

@@ -42,11 +42,11 @@ namespace Project.UI.MainScreen {
         // OnAttach
         public override void OnBeforeAttach() {
             GameView.GameName.Value = "Anonymous";
-            GameView.GameMode.As<GameMode>().ValueChoices = (GameMode._1x4, Enum2.GetValues<GameMode>());
-            GameView.GameWorld.As<GameWorld>().ValueChoices = (GameWorld.TestWorld1, Enum2.GetValues<GameWorld>());
+            GameView.GameMode.ValueChoices = (GameMode._1x4, Enum2.GetValues<GameMode>());
+            GameView.GameWorld.ValueChoices = (GameWorld.TestWorld1, Enum2.GetValues<GameWorld>());
             GameView.IsGamePrivate.Value = true;
             PlayerView.PlayerName.Value = PlayerProfile.PlayerName;
-            PlayerView.PlayerRole.As<PlayerRole>().ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>());
+            PlayerView.PlayerRole.ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>());
         }
         public override void OnAttach() {
         }
@@ -68,8 +68,8 @@ namespace Project.UI.MainScreen {
         public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
             if (descendant is JoinGameWidget2 joinGameWidget) {
                 GameView.GameName.Value = joinGameWidget.GameView.GameName.Value;
-                GameView.GameMode.As<GameMode>().ValueChoices = joinGameWidget.GameView.GameMode.As<GameMode>().ValueChoices;
-                GameView.GameWorld.As<GameWorld>().ValueChoices = joinGameWidget.GameView.GameWorld.As<GameWorld>().ValueChoices;
+                GameView.GameMode.ValueChoices = joinGameWidget.GameView.GameMode.ValueChoices;
+                GameView.GameWorld.ValueChoices = joinGameWidget.GameView.GameWorld.ValueChoices;
                 GameView.IsGamePrivate.Value = joinGameWidget.GameView.IsGamePrivate.Value;
                 PlayerView.PlayerName.Value = joinGameWidget.PlayerView.PlayerName.Value;
                 PlayerView.PlayerRole.Value = joinGameWidget.PlayerView.PlayerRole.Value;

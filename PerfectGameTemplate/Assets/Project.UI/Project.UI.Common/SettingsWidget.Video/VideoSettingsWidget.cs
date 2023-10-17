@@ -27,7 +27,7 @@ namespace Project.UI.Common {
         // OnAttach
         public override void OnBeforeAttach() {
             View.IsFullScreen.Value = VideoSettings.IsFullScreen;
-            View.ScreenResolution.As<Resolution>().ValueChoices = (VideoSettings.ScreenResolution, VideoSettings.ScreenResolutions);
+            View.ScreenResolution.ValueChoices = (VideoSettings.ScreenResolution, VideoSettings.ScreenResolutions);
             View.IsVSync.Value = VideoSettings.IsVSync;
         }
         public override void OnAttach() {
@@ -52,7 +52,7 @@ namespace Project.UI.Common {
             } );
             view.OnCommand( (VideoSettingsWidgetView.OkeyCommand cmd) => {
                 videoSettings.IsFullScreen = cmd.Sender.IsFullScreen.Value;
-                videoSettings.ScreenResolution = cmd.Sender.ScreenResolution.As<Resolution>().Value;
+                videoSettings.ScreenResolution = cmd.Sender.ScreenResolution.Value;
                 videoSettings.IsVSync = cmd.Sender.IsVSync.Value;
                 videoSettings.Save();
                 widget.DetachSelf();
