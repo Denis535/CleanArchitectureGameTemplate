@@ -18,7 +18,7 @@ namespace Project.UI.MainScreen {
         private readonly Label loading;
         // View
         public override VisualElement VisualElement => visualElement;
-        public TextWrapper Loading => loading.Wrap();
+        public LabelWrapper Loading => loading.Wrap();
 
         // Constructor
         public LoadingWidgetView(LoadingWidget widget) : base( widget ) {

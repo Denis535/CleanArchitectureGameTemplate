@@ -28,13 +28,13 @@ namespace Project.UI.Common {
         private readonly Button back;
         // View
         public override VisualElement VisualElement => visualElement;
-        public TextWrapper Title => title.Wrap();
+        public LabelWrapper Title => title.Wrap();
         public SliderWrapper<float> MasterVolume => masterVolume.Wrap();
         public SliderWrapper<float> MusicVolume => musicVolume.Wrap();
         public SliderWrapper<float> SfxVolume => sfxVolume.Wrap();
         public SliderWrapper<float> GameVolume => gameVolume.Wrap();
-        public TextWrapper Okey => okey.Wrap();
-        public TextWrapper Back => back.Wrap();
+        public ButtonWrapper Okey => okey.Wrap();
+        public ButtonWrapper Back => back.Wrap();
 
         // Constructor
         public AudioSettingsWidgetView(AudioSettingsWidget widget) : base( widget ) {

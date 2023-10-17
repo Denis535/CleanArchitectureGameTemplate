@@ -22,10 +22,10 @@ namespace Project.UI.Common {
         private readonly Button back;
         // View
         public override VisualElement VisualElement => visualElement;
-        public TextWrapper Title => title.Wrap();
+        public LabelWrapper Title => title.Wrap();
         public FieldWrapper<string> Name => name.Wrap();
-        public TextWrapper Okey => okey.Wrap();
-        public TextWrapper Back => back.Wrap();
+        public ButtonWrapper Okey => okey.Wrap();
+        public ButtonWrapper Back => back.Wrap();
 
         // Constructor
         public PlayerProfileWidgetView(PlayerProfileWidget widget) : base( widget ) {

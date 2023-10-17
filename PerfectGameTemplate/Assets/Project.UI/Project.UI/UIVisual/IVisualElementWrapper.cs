@@ -22,8 +22,11 @@ namespace Project.UI {
         public static ElementWrapper Wrap(this VisualElement visualElement) {
             return new ElementWrapper( visualElement );
         }
-        public static TextWrapper Wrap(this TextElement visualElement) {
-            return new TextWrapper( visualElement );
+        public static LabelWrapper Wrap(this Label visualElement) {
+            return new LabelWrapper( visualElement );
+        }
+        public static ButtonWrapper Wrap(this Button visualElement) {
+            return new ButtonWrapper( visualElement );
         }
         public static FieldWrapper<T> Wrap<T>(this BaseField<T?> visualElement) where T : notnull {
             return new FieldWrapper<T>( visualElement );
@@ -67,8 +70,8 @@ namespace Project.UI {
         }
 
     }
-    // Text
-    public class TextWrapper : IVisualElementWrapper<TextElement> {
+    // Label
+    public class LabelWrapper : IVisualElementWrapper<TextElement> {
 
         public TextElement VisualElement { get; }
 
@@ -90,7 +93,35 @@ namespace Project.UI {
             set => VisualElement.text = value;
         }
 
-        public TextWrapper(TextElement visualElement) {
+        public LabelWrapper(TextElement visualElement) {
+            VisualElement = visualElement;
+        }
+
+    }
+    // Button
+    public class ButtonWrapper : IVisualElementWrapper<Button> {
+
+        public Button VisualElement { get; }
+
+        public bool IsEnabled {
+            get => VisualElement.enabledSelf;
+            set => VisualElement.SetEnabled( value );
+        }
+        public bool IsDisplayed {
+            get => VisualElement.IsDisplayed();
+            set => VisualElement.SetDisplayed( value );
+        }
+        public bool IsValid {
+            get => VisualElement.IsValid();
+            set => VisualElement.SetValid( value );
+        }
+
+        public string? Text {
+            get => VisualElement.text;
+            set => VisualElement.text = value;
+        }
+
+        public ButtonWrapper(Button visualElement) {
             VisualElement = visualElement;
         }
 

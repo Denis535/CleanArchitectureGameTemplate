@@ -3,6 +3,7 @@ namespace Project.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using Project.Entities.GameScene;
     using UnityEngine;
     using UnityEngine.UIElements;
@@ -22,6 +23,9 @@ namespace Project.UI {
         public static TextField TextFieldReadOnly(string? label, int maxLength, bool isMultiline) {
             return new TextField( label, maxLength, isMultiline, false, '*' ).Pipe( i => i.isReadOnly = true );
         }
+        public static PopupField<T> PopupField<T>(string? label, params T[] choices) {
+            return new PopupField<T>( label ).Pipe( i => i.choices = choices.ToList() ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
+        }
         public static Slider Slider(string? label, float min, float max) {
             return new Slider( label, min, max );
         }
@@ -30,9 +34,6 @@ namespace Project.UI {
         }
         public static Toggle Toggle(string? label) {
             return new Toggle( label );
-        }
-        public static PopupField<T> PopupField<T>(string? label) {
-            return new PopupField<T>( label ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
         }
 
         // Widget

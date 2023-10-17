@@ -23,8 +23,8 @@ namespace Project.UI.Common {
         public ElementWrapper Header => header.Wrap();
         public ElementWrapper Content => content.Wrap();
         public ElementWrapper Footer => footer.Wrap();
-        public TextWrapper Title => title.Wrap();
-        public TextWrapper Message => message.Wrap();
+        public LabelWrapper Title => title.Wrap();
+        public LabelWrapper Message => message.Wrap();
 
         // Constructor
         public DialogWidgetViewBase(UIWidgetBase widget) : base( widget ) {

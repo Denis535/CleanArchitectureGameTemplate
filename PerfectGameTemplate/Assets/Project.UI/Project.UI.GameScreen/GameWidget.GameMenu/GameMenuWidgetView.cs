@@ -22,10 +22,10 @@ namespace Project.UI.GameScreen {
         private readonly Button back;
         // View
         public override VisualElement VisualElement => visualElement;
-        public TextWrapper Title => title.Wrap();
-        public TextWrapper Resume => resume.Wrap();
-        public TextWrapper Settings => settings.Wrap();
-        public TextWrapper Back => back.Wrap();
+        public LabelWrapper Title => title.Wrap();
+        public ButtonWrapper Resume => resume.Wrap();
+        public ButtonWrapper Settings => settings.Wrap();
+        public ButtonWrapper Back => back.Wrap();
 
         // Constructor
         public GameMenuWidgetView(GameMenuWidget widget) : base( widget ) {

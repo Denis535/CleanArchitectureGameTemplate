@@ -23,11 +23,11 @@ namespace Project.UI.MainScreen {
         private readonly Button back;
         // View
         public override VisualElement VisualElement => visualElement;
-        public TextWrapper Title => title.Wrap();
+        public LabelWrapper Title => title.Wrap();
         public SlotWrapper GameSlot => gameSlot.Wrap();
         public SlotWrapper PlayerSlot => playerSlot.Wrap();
-        public TextWrapper Okey => okey.Wrap();
-        public TextWrapper Back => back.Wrap();
+        public ButtonWrapper Okey => okey.Wrap();
+        public ButtonWrapper Back => back.Wrap();
 
         // Constructor
         public CreateGameWidgetView(CreateGameWidget widget) : base( widget ) {
@@ -88,7 +88,7 @@ namespace Project.UI.MainScreen {
             private readonly Toggle isGamePrivate;
             // View
             public override VisualElement VisualElement => visualElement;
-            public TextWrapper Title => title.Wrap();
+            public LabelWrapper Title => title.Wrap();
             public FieldWrapper<string> GameName => gameName.Wrap();
             public PopupWrapper<GameMode> GameMode => gameMode.Wrap();
             public PopupWrapper<GameWorld> GameWorld => gameWorld.Wrap();
@@ -143,7 +143,7 @@ namespace Project.UI.MainScreen {
             private readonly PopupField<PlayerRole> playerRole;
             // View
             public override VisualElement VisualElement => visualElement;
-            public TextWrapper Title => title.Wrap();
+            public LabelWrapper Title => title.Wrap();
             public FieldWrapper<string> PlayerName => playerName.Wrap();
             public PopupWrapper<PlayerRole> PlayerRole => playerRole.Wrap();
 
