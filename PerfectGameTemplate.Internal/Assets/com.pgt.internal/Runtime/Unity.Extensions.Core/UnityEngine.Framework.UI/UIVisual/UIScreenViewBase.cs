@@ -40,27 +40,27 @@ namespace UnityEngine.Framework.UI {
             return visualElement;
         }
         // Helpers/AddView
-        protected static void AddView(VisualElement container, UIViewBase view, UIViewBase? shadowed) {
+        protected static void AddView(VisualElement container, UIWidgetViewBase view, UIWidgetViewBase? shadowed) {
             shadowed?.VisualElement.SetDisplayed( false );
             shadowed?.VisualElement.SetEnabled( false );
             container.Add( view.VisualElement );
         }
-        protected static void RemoveView(VisualElement container, UIViewBase view, UIViewBase? unshadowed) {
+        protected static void RemoveView(VisualElement container, UIWidgetViewBase view, UIWidgetViewBase? unshadowed) {
             container.Remove( view.VisualElement );
             unshadowed?.VisualElement.SetEnabled( true );
             unshadowed?.VisualElement.SetDisplayed( true );
         }
         // Helpers/AddModalView
-        protected static void AddModalView(VisualElement container, UIViewBase view, UIViewBase? shadowed) {
+        protected static void AddModalView(VisualElement container, UIWidgetViewBase view, UIWidgetViewBase? shadowed) {
             shadowed?.VisualElement.SetEnabled( false );
             container.Add( view.VisualElement );
         }
-        protected static void RemoveModalView(VisualElement container, UIViewBase view, UIViewBase? unshadowed) {
+        protected static void RemoveModalView(VisualElement container, UIWidgetViewBase view, UIWidgetViewBase? unshadowed) {
             container.Remove( view.VisualElement );
             unshadowed?.VisualElement.SetEnabled( true );
         }
         // Helpers/SetFocus
-        protected static void SetFocus(UIViewBase view) {
+        protected static void SetFocus(UIWidgetViewBase view) {
             Assert.Object.Message( $"View {view} must be attached" ).Valid( view.VisualElement.panel != null );
             if (view.VisualElement.focusable) {
                 view.VisualElement.Focus();
@@ -72,14 +72,14 @@ namespace UnityEngine.Framework.UI {
                 view.VisualElement.focusable = false;
             }
         }
-        protected static void LoadFocus(UIViewBase view) {
+        protected static void LoadFocus(UIWidgetViewBase view) {
             Assert.Object.Message( $"View {view} must be attached" ).Valid( view.VisualElement.panel != null );
             var focusedElement = (VisualElement?) view.VisualElement.userData;
             if (focusedElement != null) {
                 focusedElement.Focus();
             }
         }
-        protected static void SaveFocus(UIViewBase view) {
+        protected static void SaveFocus(UIWidgetViewBase view) {
             Assert.Object.Message( $"View {view} must be attached" ).Valid( view.VisualElement.panel != null );
             var focusController = view.VisualElement.focusController;
             var focusedElement = (VisualElement?) focusController.focusedElement;

@@ -16,6 +16,7 @@ namespace Project.UI.MainScreen {
         private readonly VisualElement visualElement;
         // View
         public override VisualElement VisualElement => visualElement;
+        // View
         public ElementWrapper View => visualElement.Wrap();
 
         // Constructor

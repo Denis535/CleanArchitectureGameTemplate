@@ -15,6 +15,7 @@ namespace Project.UI.GameScreen {
         private readonly VisualElement visualElement;
         // View
         public override VisualElement VisualElement => visualElement;
+        // View
         public ElementWrapper View => visualElement.Wrap();
 
         // Constructor

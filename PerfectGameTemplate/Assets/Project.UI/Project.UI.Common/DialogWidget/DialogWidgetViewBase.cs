@@ -20,6 +20,7 @@ namespace Project.UI.Common {
         protected Label message = default!;
         // View
         public override VisualElement VisualElement => visualElement;
+        // View
         public ElementWrapper View => visualElement.Wrap();
         public ElementWrapper Card => card.Wrap();
         public ElementWrapper Header => header.Wrap();

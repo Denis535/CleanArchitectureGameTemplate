@@ -24,6 +24,7 @@ namespace Project.UI.Common {
         private readonly Button back;
         // View
         public override VisualElement VisualElement => visualElement;
+        // View
         public ElementWrapper View => visualElement.Wrap();
         public LabelWrapper Title => title.Wrap();
         public ButtonWrapper PlayerProfile => playerProfile.Wrap();

@@ -14,53 +14,58 @@ namespace Project.UI {
 
     public class UIScreenView : UIScreenViewBase {
 
+        // Assets
+        private readonly AudioClip window;
+        private readonly AudioClip infoWindow;
+        private readonly AudioClip warningWindow;
+        private readonly AudioClip errorWindow;
+        private readonly AudioClip focus;
+        private readonly AudioClip click;
+        private readonly AudioClip select;
+        private readonly AudioClip confirmSelect;
+        private readonly AudioClip cancelSelect;
+        private readonly AudioClip invalidSelect;
+        private readonly AudioClip tik;
         // View
         private readonly VisualElement visualElement;
         private readonly VisualElement viewsContainer;
         private readonly VisualElement modalViewsContainer;
         // View
         public override VisualElement VisualElement => visualElement;
-        // Assets
-        private readonly AudioClip Window;
-        private readonly AudioClip InfoWindow;
-        private readonly AudioClip WarningWindow;
-        private readonly AudioClip ErrorWindow;
-        private readonly AudioClip Focus;
-        private readonly AudioClip Click;
-        private readonly AudioClip Select;
-        private readonly AudioClip ConfirmSelect;
-        private readonly AudioClip CancelSelect;
-        private readonly AudioClip InvalidSelect;
-        private readonly AudioClip Tik;
+        // View
+        public ElementWrapper View => visualElement.Wrap();
+        public ElementWrapper ViewsContainer => viewsContainer.Wrap();
+        public ElementWrapper ModalViewsContainer => modalViewsContainer.Wrap();
 
         // Constructor
         public UIScreenView(UIScreen screen) : base( screen ) {
-            visualElement = CreateVisualElement( out viewsContainer, out modalViewsContainer );
             // Assets
-            Window = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window ).GetResult();
-            InfoWindow = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window_Info ).GetResult();
-            WarningWindow = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window_Warning ).GetResult();
-            ErrorWindow = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window_Error ).GetResult();
-            Focus = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Focus ).GetResult();
-            Click = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Click ).GetResult();
-            Select = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select ).GetResult();
-            ConfirmSelect = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select_Confirm ).GetResult();
-            CancelSelect = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select_Cancel ).GetResult();
-            InvalidSelect = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select_Invalid ).GetResult();
-            Tik = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Tick ).GetResult();
+            window = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window ).GetResult();
+            infoWindow = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window_Info ).GetResult();
+            warningWindow = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window_Warning ).GetResult();
+            errorWindow = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window_Error ).GetResult();
+            focus = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Focus ).GetResult();
+            click = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Click ).GetResult();
+            select = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select ).GetResult();
+            confirmSelect = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select_Confirm ).GetResult();
+            cancelSelect = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select_Cancel ).GetResult();
+            invalidSelect = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select_Invalid ).GetResult();
+            tik = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Tick ).GetResult();
+            // View
+            visualElement = CreateVisualElement( out viewsContainer, out modalViewsContainer );
         }
         public override void Dispose() {
-            Addressables2.Release( Window );
-            Addressables2.Release( InfoWindow );
-            Addressables2.Release( WarningWindow );
-            Addressables2.Release( ErrorWindow );
-            Addressables2.Release( Focus );
-            Addressables2.Release( Click );
-            Addressables2.Release( Select );
-            Addressables2.Release( ConfirmSelect );
-            Addressables2.Release( CancelSelect );
-            Addressables2.Release( InvalidSelect );
-            Addressables2.Release( Tik );
+            Addressables2.Release( window );
+            Addressables2.Release( infoWindow );
+            Addressables2.Release( warningWindow );
+            Addressables2.Release( errorWindow );
+            Addressables2.Release( focus );
+            Addressables2.Release( click );
+            Addressables2.Release( select );
+            Addressables2.Release( confirmSelect );
+            Addressables2.Release( cancelSelect );
+            Addressables2.Release( invalidSelect );
+            Addressables2.Release( tik );
             base.Dispose();
         }
 
@@ -119,38 +124,38 @@ namespace Project.UI {
         private void PlayAttach(AttachToPanelEvent evt) {
             var target = (VisualElement) evt.target;
             if (target.name == "game-menu-widget-view") {
-                this.PlayClip( Select );
+                this.PlayClip( select );
             } else
             if (target.name == "dialog-widget-view") {
-                this.PlayClip( InfoWindow );
+                this.PlayClip( infoWindow );
             } else
             if (target.name == "info-dialog-widget-view") {
-                this.PlayClip( InfoWindow );
+                this.PlayClip( infoWindow );
             } else
             if (target.name == "warning-dialog-widget-view") {
-                this.PlayClip( WarningWindow );
+                this.PlayClip( warningWindow );
             } else
             if (target.name == "error-dialog-widget-view") {
-                this.PlayClip( ErrorWindow );
+                this.PlayClip( errorWindow );
             }
         }
         private void PlayFocus(FocusEvent evt) {
             if (evt.direction != FocusChangeDirection.none && evt.direction != FocusChangeDirection.unspecified) {
-                this.PlayClip( Focus );
+                this.PlayClip( focus );
             }
         }
         private void PlayClick(ClickEvent evt) {
             if (evt.target is Button button) {
                 if (!button.IsValid()) {
-                    this.PlayClip( InvalidSelect );
+                    this.PlayClip( invalidSelect );
                 } else
                 if (button.IsSubmit()) {
-                    this.PlayClip( ConfirmSelect );
+                    this.PlayClip( confirmSelect );
                 } else
                 if (button.IsCancel()) {
-                    this.PlayClip( CancelSelect );
+                    this.PlayClip( cancelSelect );
                 } else {
-                    this.PlayClip( Select );
+                    this.PlayClip( select );
                 }
             }
         }
@@ -158,19 +163,19 @@ namespace Project.UI {
             if (evt.target is BaseField<T> && evt.target.GetType().Name != "ScrollerSlider") {
                 if (evt is ChangeEvent<int> evt_int) {
                     if (evt_int.newValue != evt_int.previousValue) {
-                        if (!this.IsClipPlaying( Tik, out var time ) || time > 0.025f) {
-                            this.PlayClip( Tik );
+                        if (!this.IsClipPlaying( tik, out var time ) || time > 0.025f) {
+                            this.PlayClip( tik );
                         }
                     }
                 } else
                 if (evt is ChangeEvent<float> evt_float) {
                     if (Mathf.RoundToInt( evt_float.newValue * 200 ) != Mathf.RoundToInt( evt_float.previousValue * 200 )) {
-                        if (!this.IsClipPlaying( Tik, out var time ) || time > 0.025f) {
-                            this.PlayClip( Tik );
+                        if (!this.IsClipPlaying( tik, out var time ) || time > 0.025f) {
+                            this.PlayClip( tik );
                         }
                     }
                 } else {
-                    this.PlayClip( Tik );
+                    this.PlayClip( tik );
                 }
             }
         }

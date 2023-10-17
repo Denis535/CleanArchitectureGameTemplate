@@ -22,6 +22,7 @@ namespace Project.UI.GameScreen {
         private readonly Button back;
         // View
         public override VisualElement VisualElement => visualElement;
+        // View
         public ElementWrapper View => visualElement.Wrap();
         public LabelWrapper Title => title.Wrap();
         public ButtonWrapper Resume => resume.Wrap();

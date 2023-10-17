@@ -24,6 +24,7 @@ namespace Project.UI.MainScreen {
         private readonly Button quit;
         // View
         public override VisualElement VisualElement => visualElement;
+        // View
         public ElementWrapper View => visualElement.Wrap();
         public LabelWrapper Title => title.Wrap();
         public ButtonWrapper CreateGame => createGame.Wrap();
