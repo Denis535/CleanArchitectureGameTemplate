@@ -10,23 +10,21 @@ namespace Project.UI.GameScreen {
     public class GameWidgetView : UIWidgetViewBase {
 
         // View
-        private readonly VisualElement visualElement;
-        // View
-        public override VisualElement VisualElement => visualElement;
-        // View
-        public ElementWrapper View => visualElement.Wrap();
+        public override VisualElement VisualElement { get; }
+        public ElementWrapper View { get; }
 
         // Constructor
         public GameWidgetView(GameWidget widget) : base( widget ) {
-            visualElement = CreateVisualElement();
+            VisualElement = CreateVisualElement( out var view );
+            View = view.Wrap();
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement() {
-            return UIFactory.Widget( "game-widget-view" );
+        private static View CreateVisualElement(out View view) {
+            return view = UIFactory.Widget( "game-widget-view" );
         }
 
     }

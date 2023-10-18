@@ -10,37 +10,35 @@ namespace Project.UI.Common {
     public class AudioSettingsWidgetView : UIWidgetViewBase {
 
         // View
-        private readonly VisualElement visualElement;
-        private readonly Label title;
-        private readonly Slider masterVolume;
-        private readonly Slider musicVolume;
-        private readonly Slider sfxVolume;
-        private readonly Slider gameVolume;
-        private readonly Button okey;
-        private readonly Button back;
-        // View
-        public override VisualElement VisualElement => visualElement;
-        // View
-        public ElementWrapper View => visualElement.Wrap();
-        public LabelWrapper Title => title.Wrap();
-        public SliderWrapper<float> MasterVolume => masterVolume.Wrap();
-        public SliderWrapper<float> MusicVolume => musicVolume.Wrap();
-        public SliderWrapper<float> SfxVolume => sfxVolume.Wrap();
-        public SliderWrapper<float> GameVolume => gameVolume.Wrap();
-        public ButtonWrapper Okey => okey.Wrap();
-        public ButtonWrapper Back => back.Wrap();
+        public override VisualElement VisualElement { get; }
+        public ElementWrapper View { get; }
+        public LabelWrapper Title { get; }
+        public SliderWrapper<float> MasterVolume { get; }
+        public SliderWrapper<float> MusicVolume { get; }
+        public SliderWrapper<float> SfxVolume { get; }
+        public SliderWrapper<float> GameVolume { get; }
+        public ButtonWrapper Okey { get; }
+        public ButtonWrapper Back { get; }
 
         // Constructor
         public AudioSettingsWidgetView(AudioSettingsWidget widget) : base( widget ) {
-            visualElement = CreateVisualElement( out title, out masterVolume, out musicVolume, out sfxVolume, out gameVolume, out okey, out back );
+            VisualElement = CreateVisualElement( out var view, out var title, out var masterVolume, out var musicVolume, out var sfxVolume, out var gameVolume, out var okey, out var back );
+            View = view.Wrap();
+            Title = title.Wrap();
+            MasterVolume = masterVolume.Wrap();
+            MusicVolume = musicVolume.Wrap();
+            SfxVolume = sfxVolume.Wrap();
+            GameVolume = gameVolume.Wrap();
+            Okey = okey.Wrap();
+            Back = back.Wrap();
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement(out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
-            return UIFactory.MediumWidget( "audio-settings-widget-view" ).Children(
+        private static View CreateVisualElement(out View view, out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
+            return view = UIFactory.MediumWidget( "audio-settings-widget-view" ).Children(
                 UIFactory.Card().Children(
                     UIFactory.Header().Children(
                         title = UIFactory.Label( "Audio Settings" ).Name( "title" )

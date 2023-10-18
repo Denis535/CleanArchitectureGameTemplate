@@ -10,35 +10,33 @@ namespace Project.UI.Common {
     public class VideoSettingsWidgetView : UIWidgetViewBase {
 
         // View
-        private readonly VisualElement visualElement;
-        private readonly Label title;
-        private readonly Toggle isFullScreen;
-        private readonly PopupField<Resolution> screenResolution;
-        private readonly Toggle isVSync;
-        private readonly Button okey;
-        private readonly Button back;
-        // View
-        public override VisualElement VisualElement => visualElement;
-        // View
-        public ElementWrapper View => visualElement.Wrap();
-        public LabelWrapper Title => title.Wrap();
-        public ToggleWrapper<bool> IsFullScreen => isFullScreen.Wrap();
-        public PopupWrapper<Resolution> ScreenResolution => screenResolution.Wrap();
-        public ToggleWrapper<bool> IsVSync => isVSync.Wrap();
-        public ButtonWrapper Okey => okey.Wrap();
-        public ButtonWrapper Back => back.Wrap();
+        public override VisualElement VisualElement { get; }
+        public ElementWrapper View { get; }
+        public LabelWrapper Title { get; }
+        public ToggleWrapper<bool> IsFullScreen { get; }
+        public PopupWrapper<Resolution> ScreenResolution { get; }
+        public ToggleWrapper<bool> IsVSync { get; }
+        public ButtonWrapper Okey { get; }
+        public ButtonWrapper Back { get; }
 
         // Constructor
         public VideoSettingsWidgetView(VideoSettingsWidget widget) : base( widget ) {
-            visualElement = CreateVisualElement( out title, out isFullScreen, out screenResolution, out isVSync, out okey, out back );
+            VisualElement = CreateVisualElement( out var view, out var title, out var isFullScreen, out var screenResolution, out var isVSync, out var okey, out var back );
+            View = view.Wrap();
+            Title = title.Wrap();
+            IsFullScreen = isFullScreen.Wrap();
+            ScreenResolution = screenResolution.Wrap();
+            IsVSync = isVSync.Wrap();
+            Okey = okey.Wrap();
+            Back = back.Wrap();
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement(out Label title, out Toggle isFullScreen, out PopupField<Resolution> screenResolution, out Toggle isVSync, out Button okey, out Button back) {
-            return UIFactory.MediumWidget( "video-settings-widget-view" ).Children(
+        private static View CreateVisualElement(out View view, out Label title, out Toggle isFullScreen, out PopupField<Resolution> screenResolution, out Toggle isVSync, out Button okey, out Button back) {
+            return view = UIFactory.MediumWidget( "video-settings-widget-view" ).Children(
                 UIFactory.Card().Children(
                     UIFactory.Header().Children(
                         title = UIFactory.Label( "Video Settings" ).Name( "title" )

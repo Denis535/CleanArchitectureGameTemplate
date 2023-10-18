@@ -11,15 +11,13 @@ namespace Project.UI.MainScreen {
     public class MainWidgetView : UIWidgetViewBase {
 
         // View
-        private readonly VisualElement visualElement;
-        // View
-        public override VisualElement VisualElement => visualElement;
-        // View
-        public ElementWrapper View => visualElement.Wrap();
+        public override VisualElement VisualElement { get; }
+        public ElementWrapper View { get; }
 
         // Constructor
         public MainWidgetView(MainWidget widget) : base( widget ) {
-            visualElement = CreateVisualElement();
+            VisualElement = CreateVisualElement( out var view );
+            View = view.Wrap();
         }
         public override void Dispose() {
             base.Dispose();
@@ -33,8 +31,8 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static View CreateVisualElement() {
-            return UIFactory.Widget( "main-widget-view" );
+        private static View CreateVisualElement(out View view) {
+            return view = UIFactory.Widget( "main-widget-view" );
         }
 
     }

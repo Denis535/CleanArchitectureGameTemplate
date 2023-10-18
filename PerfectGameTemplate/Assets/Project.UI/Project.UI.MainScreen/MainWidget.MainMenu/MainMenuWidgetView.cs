@@ -10,33 +10,31 @@ namespace Project.UI.MainScreen {
     public class MainMenuWidgetView : UIWidgetViewBase {
 
         // View
-        private readonly VisualElement visualElement;
-        private readonly Label title;
-        private readonly Button createGame;
-        private readonly Button joinGame;
-        private readonly Button settings;
-        private readonly Button quit;
-        // View
-        public override VisualElement VisualElement => visualElement;
-        // View
-        public ElementWrapper View => visualElement.Wrap();
-        public LabelWrapper Title => title.Wrap();
-        public ButtonWrapper CreateGame => createGame.Wrap();
-        public ButtonWrapper JoinGame => joinGame.Wrap();
-        public ButtonWrapper Settings => settings.Wrap();
-        public ButtonWrapper Quit => quit.Wrap();
+        public override VisualElement VisualElement { get; }
+        public ElementWrapper View { get; }
+        public LabelWrapper Title { get; }
+        public ButtonWrapper CreateGame { get; }
+        public ButtonWrapper JoinGame { get; }
+        public ButtonWrapper Settings { get; }
+        public ButtonWrapper Quit { get; }
 
         // Constructor
         public MainMenuWidgetView(MainMenuWidget widget) : base( widget ) {
-            visualElement = CreateVisualElement( out title, out createGame, out joinGame, out settings, out quit );
+            VisualElement = CreateVisualElement( out var view, out var title, out var createGame, out var joinGame, out var settings, out var quit );
+            View = view.Wrap();
+            Title = title.Wrap();
+            CreateGame = createGame.Wrap();
+            JoinGame = joinGame.Wrap();
+            Settings = settings.Wrap();
+            Quit = quit.Wrap();
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement(out Label title, out Button createGame, out Button joinGame, out Button settings, out Button quit) {
-            return UIFactory.LeftWidget( "main-menu-widget-view" ).Children(
+        private static View CreateVisualElement(out View view, out Label title, out Button createGame, out Button joinGame, out Button settings, out Button quit) {
+            return view = UIFactory.LeftWidget( "main-menu-widget-view" ).Children(
                 UIFactory.Card().Children(
                     UIFactory.Header().Children(
                         title = UIFactory.Label( "Main Menu" ).Name( "main-menu" )

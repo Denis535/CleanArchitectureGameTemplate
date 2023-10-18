@@ -10,31 +10,29 @@ namespace Project.UI.GameScreen {
     public class GameMenuWidgetView : UIWidgetViewBase {
 
         // View
-        private readonly VisualElement visualElement;
-        private readonly Label title;
-        private readonly Button resume;
-        private readonly Button settings;
-        private readonly Button back;
-        // View
-        public override VisualElement VisualElement => visualElement;
-        // View
-        public ElementWrapper View => visualElement.Wrap();
-        public LabelWrapper Title => title.Wrap();
-        public ButtonWrapper Resume => resume.Wrap();
-        public ButtonWrapper Settings => settings.Wrap();
-        public ButtonWrapper Back => back.Wrap();
+        public override VisualElement VisualElement { get; }
+        public ElementWrapper View { get; }
+        public LabelWrapper Title { get; }
+        public ButtonWrapper Resume { get; }
+        public ButtonWrapper Settings { get; }
+        public ButtonWrapper Back { get; }
 
         // Constructor
         public GameMenuWidgetView(GameMenuWidget widget) : base( widget ) {
-            visualElement = CreateVisualElement( out title, out resume, out settings, out back );
+            VisualElement = CreateVisualElement( out var view, out var title, out var resume, out var settings, out var back );
+            View = view.Wrap();
+            Title = title.Wrap();
+            Resume = resume.Wrap();
+            Settings = settings.Wrap();
+            Back = back.Wrap();
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement(out Label title, out Button resume, out Button settings, out Button back) {
-            return UIFactory.LeftWidget( "game-menu-widget-view" ).Children(
+        private static View CreateVisualElement(out View view, out Label title, out Button resume, out Button settings, out Button back) {
+            return view = UIFactory.LeftWidget( "game-menu-widget-view" ).Children(
                 UIFactory.Card().Children(
                     UIFactory.Header().Children(
                         title = UIFactory.Label( "Game Menu" ).Name( "title" )

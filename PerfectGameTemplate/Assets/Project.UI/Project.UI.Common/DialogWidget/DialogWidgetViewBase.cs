@@ -11,26 +11,28 @@ namespace Project.UI.Common {
     public abstract class DialogWidgetViewBase : UIWidgetViewBase, IUIModalWidgetView {
 
         // View
-        protected VisualElement visualElement = default!;
-        protected Card card = default!;
-        protected Header header = default!;
-        protected Content content = default!;
-        protected Footer footer = default!;
-        protected Label title = default!;
-        protected Label message = default!;
-        // View
-        public override VisualElement VisualElement => visualElement;
-        // View
-        public ElementWrapper View => visualElement.Wrap();
-        public ElementWrapper Card => card.Wrap();
-        public ElementWrapper Header => header.Wrap();
-        public ElementWrapper Content => content.Wrap();
-        public ElementWrapper Footer => footer.Wrap();
-        public LabelWrapper Title => title.Wrap();
-        public LabelWrapper Message => message.Wrap();
+        public override VisualElement VisualElement { get; }
+        public ElementWrapper View { get; }
+        public ElementWrapper Card { get; }
+        public ElementWrapper Header { get; }
+        public ElementWrapper Content { get; }
+        public ElementWrapper Footer { get; }
+        public LabelWrapper Title { get; }
+        public LabelWrapper Message { get; }
 
         // Constructor
         public DialogWidgetViewBase(UIWidgetBase widget) : base( widget ) {
+            VisualElement = CreateVisualElement( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
+            View = view.Wrap();
+            View.OnAttachToPanel( evt => {
+                PlayAppearanceAnimation( View.VisualElement );
+            } );
+            Card = card.Wrap();
+            Header = header.Wrap().Pipe( i => i.IsDisplayed = false );
+            Content = content.Wrap().Pipe( i => i.IsDisplayed = false );
+            Footer = footer.Wrap().Pipe( i => i.IsDisplayed = false );
+            Title = title.Wrap();
+            Message = message.Wrap();
         }
         public override void Dispose() {
             base.Dispose();
@@ -44,7 +46,7 @@ namespace Project.UI.Common {
                     callback?.Invoke();
                 }
             } );
-            footer.Add( button );
+            Footer.VisualElement.Add( button );
         }
         public void OnCancel(string text, Action? callback) {
             var button = UIFactory.Button( text ).Name( "cancel" );
@@ -53,11 +55,12 @@ namespace Project.UI.Common {
                     callback?.Invoke();
                 }
             } );
-            footer.Add( button );
+            Footer.VisualElement.Add( button );
         }
 
         // Heleprs
-        protected static void PlayAppearanceAnimation(VisualElement view) {
+        protected abstract View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message);
+        private static void PlayAppearanceAnimation(VisualElement view) {
             var animation = ValueAnimation<float>.Create( view, Mathf.LerpUnclamped );
             animation.valueUpdated = (view, t) => {
                 var tx = Easing.OutBack( Easing.InPower( t, 2 ), 4 );
@@ -78,21 +81,14 @@ namespace Project.UI.Common {
 
         // Constructor
         public DialogWidgetView(DialogWidget widget) : base( widget ) {
-            visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
-            visualElement.OnAttachToPanel( evt => {
-                PlayAppearanceAnimation( visualElement );
-            } );
-            header.SetDisplayed( false );
-            content.SetDisplayed( false );
-            footer.SetDisplayed( false );
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return UIFactory.ModalWidget( "dialog-widget-view" ).Classes( "dialog-widget-view" ).Children(
+        protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            return view = UIFactory.ModalWidget( "dialog-widget-view" ).Classes( "dialog-widget-view" ).Children(
                 card = UIFactory.DialogCard().Children(
                     header = UIFactory.Header().Children(
                         title = UIFactory.Label( null ).Name( "title" )
@@ -111,21 +107,14 @@ namespace Project.UI.Common {
 
         // Constructor
         public InfoDialogWidgetView(InfoDialogWidget widget) : base( widget ) {
-            visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
-            visualElement.OnAttachToPanel( evt => {
-                PlayAppearanceAnimation( visualElement );
-            } );
-            header.SetDisplayed( false );
-            content.SetDisplayed( false );
-            footer.SetDisplayed( false );
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return UIFactory.ModalWidget( "info-dialog-widget-view" ).Classes( "info-dialog-widget-view" ).Children(
+        protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            return view = UIFactory.ModalWidget( "info-dialog-widget-view" ).Classes( "info-dialog-widget-view" ).Children(
                 card = UIFactory.InfoDialogCard().Children(
                     header = UIFactory.Header().Children(
                         title = UIFactory.Label( null ).Name( "title" )
@@ -144,21 +133,14 @@ namespace Project.UI.Common {
 
         // Constructor
         public WarningDialogWidgetView(WarningDialogWidget widget) : base( widget ) {
-            visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
-            visualElement.OnAttachToPanel( evt => {
-                PlayAppearanceAnimation( visualElement );
-            } );
-            header.SetDisplayed( false );
-            content.SetDisplayed( false );
-            footer.SetDisplayed( false );
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return UIFactory.ModalWidget( "warning-dialog-widget-view" ).Classes( "warning-dialog-widget-view" ).Children(
+        protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            return view = UIFactory.ModalWidget( "warning-dialog-widget-view" ).Classes( "warning-dialog-widget-view" ).Children(
                 card = UIFactory.WarningDialogCard().Children(
                     header = UIFactory.Header().Children(
                         title = UIFactory.Label( null ).Name( "title" )
@@ -177,21 +159,14 @@ namespace Project.UI.Common {
 
         // Constructor
         public ErrorDialogWidgetView(ErrorDialogWidget widget) : base( widget ) {
-            visualElement = CreateVisualElement( out card, out header, out content, out footer, out title, out message );
-            visualElement.OnAttachToPanel( evt => {
-                PlayAppearanceAnimation( visualElement );
-            } );
-            header.SetDisplayed( false );
-            content.SetDisplayed( false );
-            footer.SetDisplayed( false );
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement(out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return UIFactory.ModalWidget( "error-dialog-widget-view" ).Classes( "error-dialog-widget-view" ).Children(
+        protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            return view = UIFactory.ModalWidget( "error-dialog-widget-view" ).Classes( "error-dialog-widget-view" ).Children(
                 card = UIFactory.ErrorDialogCard().Children(
                     header = UIFactory.Header().Children(
                         title = UIFactory.Label( null ).Name( "title" )

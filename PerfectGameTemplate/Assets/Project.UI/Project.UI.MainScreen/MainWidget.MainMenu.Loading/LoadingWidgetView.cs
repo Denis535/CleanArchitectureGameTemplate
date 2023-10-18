@@ -12,28 +12,24 @@ namespace Project.UI.MainScreen {
     public class LoadingWidgetView : UIWidgetViewBase {
 
         // View
-        private readonly VisualElement visualElement;
-        private readonly Label loading;
-        // View
-        public override VisualElement VisualElement => visualElement;
-        // View
-        public ElementWrapper View => visualElement.Wrap();
-        public LabelWrapper Loading => loading.Wrap();
+        public override VisualElement VisualElement { get; }
+        public ElementWrapper View { get; }
+        public LabelWrapper Loading { get; }
 
         // Constructor
         public LoadingWidgetView(LoadingWidget widget) : base( widget ) {
-            visualElement = CreateVisualElement( out loading );
-            visualElement.OnAttachToPanel( evt => {
-                PlayLoadingAnimation( loading );
-            } );
+            VisualElement = CreateVisualElement( out var view, out var loading );
+            VisualElement.OnAttachToPanel( evt => PlayLoadingAnimation( loading ) );
+            View = view.Wrap();
+            Loading = loading.Wrap();
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement(out Label loading) {
-            return UIFactory.Widget( "loading-widget-view" ).Children(
+        private static View CreateVisualElement(out View view, out Label loading) {
+            return view = UIFactory.Widget( "loading-widget-view" ).Children(
                 UIFactory.ColumnScope().Classes( "padding-2", "grow-1", "justify-content-end", "align-items-center" ).Children(
                     loading = UIFactory.Label( "Loading..." ).Name( "loading" ).Classes( "color-light", "font-size-200", "font-style-bold" )
                 )

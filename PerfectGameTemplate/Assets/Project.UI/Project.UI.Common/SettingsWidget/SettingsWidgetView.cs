@@ -10,33 +10,31 @@ namespace Project.UI.Common {
     public class SettingsWidgetView : UIWidgetViewBase {
 
         // View
-        private readonly VisualElement visualElement;
-        private readonly Label title;
-        private readonly Button playerProfile;
-        private readonly Button videoSettings;
-        private readonly Button audioSettings;
-        private readonly Button back;
-        // View
-        public override VisualElement VisualElement => visualElement;
-        // View
-        public ElementWrapper View => visualElement.Wrap();
-        public LabelWrapper Title => title.Wrap();
-        public ButtonWrapper PlayerProfile => playerProfile.Wrap();
-        public ButtonWrapper VideoSettings => videoSettings.Wrap();
-        public ButtonWrapper AudioSettings => audioSettings.Wrap();
-        public ButtonWrapper Back => back.Wrap();
+        public override VisualElement VisualElement { get; }
+        public ElementWrapper View { get; }
+        public LabelWrapper Title { get; }
+        public ButtonWrapper PlayerProfile { get; }
+        public ButtonWrapper VideoSettings { get; }
+        public ButtonWrapper AudioSettings { get; }
+        public ButtonWrapper Back { get; }
 
         // Constructor
         public SettingsWidgetView(SettingsWidget widget) : base( widget ) {
-            visualElement = CreateVisualElement( out title, out playerProfile, out videoSettings, out audioSettings, out back );
+            VisualElement = CreateVisualElement( out var view, out var title, out var playerProfile, out var videoSettings, out var audioSettings, out var back );
+            View = view.Wrap();
+            Title = title.Wrap();
+            PlayerProfile = playerProfile.Wrap();
+            VideoSettings = videoSettings.Wrap();
+            AudioSettings = audioSettings.Wrap();
+            Back = back.Wrap();
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement(out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
-            return UIFactory.MediumWidget( "settings-widget-view" ).Children(
+        private static View CreateVisualElement(out View view, out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
+            return view = UIFactory.MediumWidget( "settings-widget-view" ).Children(
                 UIFactory.Card().Children(
                     UIFactory.Header().Children(
                         title = UIFactory.Label( "Settings" ).Name( "title" )

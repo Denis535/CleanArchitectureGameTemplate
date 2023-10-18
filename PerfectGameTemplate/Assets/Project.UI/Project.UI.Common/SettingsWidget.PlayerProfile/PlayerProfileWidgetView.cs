@@ -10,31 +10,29 @@ namespace Project.UI.Common {
     public class PlayerProfileWidgetView : UIWidgetViewBase {
 
         // View
-        private readonly VisualElement visualElement;
-        private readonly Label title;
-        private readonly TextField name;
-        private readonly Button okey;
-        private readonly Button back;
-        // View
-        public override VisualElement VisualElement => visualElement;
-        // View
-        public ElementWrapper View => visualElement.Wrap();
-        public LabelWrapper Title => title.Wrap();
-        public FieldWrapper<string> Name => name.Wrap();
-        public ButtonWrapper Okey => okey.Wrap();
-        public ButtonWrapper Back => back.Wrap();
+        public override VisualElement VisualElement { get; }
+        public ElementWrapper View { get; }
+        public LabelWrapper Title { get; }
+        public FieldWrapper<string> Name { get; }
+        public ButtonWrapper Okey { get; }
+        public ButtonWrapper Back { get; }
 
         // Constructor
         public PlayerProfileWidgetView(PlayerProfileWidget widget) : base( widget ) {
-            visualElement = CreateVisualElement( out title, out name, out okey, out back );
+            VisualElement = CreateVisualElement( out var view, out var title, out var name, out var okey, out var back );
+            View = view.Wrap();
+            Title = title.Wrap();
+            Name = name.Wrap();
+            Okey = okey.Wrap();
+            Back = back.Wrap();
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static View CreateVisualElement(out Label title, out TextField name, out Button okey, out Button back) {
-            return UIFactory.MediumWidget( "player-profile-widget-view" ).Children(
+        private static View CreateVisualElement(out View view, out Label title, out TextField name, out Button okey, out Button back) {
+            return view = UIFactory.MediumWidget( "player-profile-widget-view" ).Children(
                 UIFactory.Card().Children(
                     UIFactory.Header().Children(
                         title = UIFactory.Label( "Player Profile" ).Name( "title" )

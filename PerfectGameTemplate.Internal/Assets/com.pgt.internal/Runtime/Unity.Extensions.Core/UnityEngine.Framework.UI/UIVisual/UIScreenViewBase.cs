@@ -24,8 +24,8 @@ namespace UnityEngine.Framework.UI {
         public abstract void HideView(UIWidgetViewBase view, UIWidgetViewBase[] unshadowed);
 
         // Helpers/CreateVisualElement
-        protected static VisualElement CreateVisualElement(out VisualElement viewsContainer, out VisualElement modalViewsContainer) {
-            var visualElement = new VisualElement().Name( "screen-view" ).Classes( "screen-view" );
+        protected static VisualElement CreateVisualElement(out VisualElement view, out VisualElement viewsContainer, out VisualElement modalViewsContainer) {
+            var visualElement = view = new VisualElement().Name( "screen-view" ).Classes( "screen-view" );
             visualElement.pickingMode = PickingMode.Ignore;
             {
                 viewsContainer = new VisualElement().Name( "views-container" ).Classes( "views-container" );
