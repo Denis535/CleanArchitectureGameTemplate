@@ -30,8 +30,8 @@ namespace Project.UI.MainScreen {
             View = CreateView( this );
             GameView = CreateGameView( this );
             PlayerView = CreatePlayerView( this );
-            View.GameSlot.Add( GameView.VisualElement );
-            View.PlayerSlot.Add( PlayerView.VisualElement );
+            View.GameViewSlot.Add( GameView.VisualElement );
+            View.PlayerViewSlot.Add( PlayerView.VisualElement );
         }
         public override void Dispose() {
             GameView.Dispose();

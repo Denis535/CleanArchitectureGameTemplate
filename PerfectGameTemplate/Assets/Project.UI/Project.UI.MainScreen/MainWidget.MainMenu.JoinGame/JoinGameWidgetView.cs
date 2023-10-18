@@ -14,18 +14,18 @@ namespace Project.UI.MainScreen {
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
         public LabelWrapper Title { get; }
-        public SlotWrapper GameSlot { get; }
-        public SlotWrapper PlayerSlot { get; }
+        public SlotWrapper GameViewSlot { get; }
+        public SlotWrapper PlayerViewSlot { get; }
         public ButtonWrapper Okey { get; }
         public ButtonWrapper Back { get; }
 
         // Constructor
         public JoinGameWidgetView(JoinGameWidget widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view, out var title, out var gameSlot, out var playerSlot, out var okey, out var back );
+            VisualElement = CreateVisualElement( out var view, out var title, out var gameViewSlot, out var playerViewSlot, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
-            GameSlot = gameSlot.Wrap();
-            PlayerSlot = playerSlot.Wrap();
+            GameViewSlot = gameViewSlot.Wrap();
+            PlayerViewSlot = playerViewSlot.Wrap();
             Okey = okey.Wrap();
             Back = back.Wrap();
         }
@@ -34,7 +34,7 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static View CreateVisualElement(out View view, out Label title, out Slot gameSlot, out Slot playerSlot, out Button okey, out Button back) {
+        private static View CreateVisualElement(out View view, out Label title, out Slot gameViewSlot, out Slot playerViewSlot, out Button okey, out Button back) {
             return view = UIFactory.LargeWidget( "join-game-widget-view" ).Children(
                 UIFactory.Card().Children(
                     UIFactory.Header().Children(
@@ -42,8 +42,8 @@ namespace Project.UI.MainScreen {
                     ),
                     UIFactory.Content().Children(
                         UIFactory.RowScope().Classes( "grow-0", "basis-40" ).Children(
-                            gameSlot = UIFactory.Slot().Classes( "grow-1", "basis-0" ),
-                            playerSlot = UIFactory.Slot().Classes( "grow-1", "basis-0" )
+                            gameViewSlot = UIFactory.Slot( "game-view-slot" ).Classes( "grow-1", "basis-0" ),
+                            playerViewSlot = UIFactory.Slot( "player-view-slot" ).Classes( "grow-1", "basis-0" )
                         ),
                         UIFactory.ColumnGroup().Classes( "dark5", "medium", "grow-1" ).Children(
                             UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" )

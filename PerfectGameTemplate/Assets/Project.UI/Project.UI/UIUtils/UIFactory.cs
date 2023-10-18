@@ -85,30 +85,30 @@ namespace Project.UI {
             return new Footer().Name( "footer" );
         }
 
-        // Scope
-        public static ColumnScope ColumnScope() {
-            return new ColumnScope();
+        // Slot
+        public static Slot Slot(string? name = null) {
+            return new Slot().Name( name );
         }
-        public static RowScope RowScope() {
-            return new RowScope();
+
+        // Scope
+        public static ColumnScope ColumnScope(string? name = null) {
+            return new ColumnScope().Name( name );
+        }
+        public static RowScope RowScope(string? name = null) {
+            return new RowScope().Name( name );
         }
 
         // Group
-        public static ColumnGroup ColumnGroup() {
-            return new ColumnGroup();
+        public static ColumnGroup ColumnGroup(string? name = null) {
+            return new ColumnGroup().Name( name );
         }
-        public static RowGroup RowGroup() {
-            return new RowGroup();
+        public static RowGroup RowGroup(string? name = null) {
+            return new RowGroup().Name( name );
         }
 
         // Box
-        public static Box Box() {
-            return new Box();
-        }
-
-        // Slot
-        public static Slot Slot() {
-            return new Slot();
+        public static Box Box(string? name = null) {
+            return new Box().Name( name );
         }
 
         // Helpers/GetDisplayString
