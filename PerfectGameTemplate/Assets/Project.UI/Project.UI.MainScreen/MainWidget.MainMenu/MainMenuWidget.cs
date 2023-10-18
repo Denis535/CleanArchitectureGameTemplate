@@ -36,16 +36,16 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static MainMenuWidgetView CreateView(MainMenuWidget widget, UIRouter router) {
             var view = UIViewFactory.MainMenuWidget( widget );
-            view.OnCommand( (MainMenuWidgetView.CreateGameCommand cmd) => {
+            view.CreateGame.OnClick( i => {
                 widget.AttachChild( UIWidgetFactory.CreateGameWidget() );
             } );
-            view.OnCommand( (MainMenuWidgetView.JoinGameCommand cmd) => {
+            view.JoinGame.OnClick( i => {
                 widget.AttachChild( UIWidgetFactory.JoinGameWidget() );
             } );
-            view.OnCommand( (MainMenuWidgetView.SettingsCommand cmd) => {
+            view.Settings.OnClick( i => {
                 widget.AttachChild( UIWidgetFactory.SettingsWidget() );
             } );
-            view.OnCommand( (MainMenuWidgetView.QuitCommand cmd) => {
+            view.Quit.OnClick( i => {
                 var dialog = UIWidgetFactory.DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => router.Quit() ).OnCancel( "No", null );
                 widget.AttachChild( dialog );
             } );

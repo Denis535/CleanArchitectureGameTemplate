@@ -74,7 +74,7 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static CreateGameWidgetView2 CreateView(CreateGameWidget2 widget, UIRouter router) {
             var view = UIViewFactory.CreateGameWidget2( widget );
-            view.OnCommand( (CreateGameWidgetView2.OkeyCommand cmd) => {
+            view.Okey.OnClick( i => {
                 var gameName = widget.GameView.GameName.Value!;
                 var gameMode = widget.GameView.GameMode.Value;
                 var gameWorld = widget.GameView.GameWorld.Value;
@@ -88,29 +88,17 @@ namespace Project.UI.MainScreen {
                     widget.AttachChild( UIWidgetFactory.LoadingWidget() );
                 }
             } );
-            view.OnCommand( (CreateGameWidgetView2.BackCommand cmd) => {
+            view.Back.OnClick( i => {
                 widget.DetachSelf();
             } );
             return view;
         }
         private static CreateGameWidgetView2.GameView_ CreateGameView(CreateGameWidget2 widget) {
             var view = new CreateGameWidgetView2.GameView_( widget );
-            view.OnEvent( (CreateGameWidgetView2.GameView_.GameNameEvent evt) => {
-            } );
-            view.OnEvent( (CreateGameWidgetView2.GameView_.GameModeEvent evt) => {
-            } );
-            view.OnEvent( (CreateGameWidgetView2.GameView_.GameWorldEvent evt) => {
-            } );
-            view.OnEvent( (CreateGameWidgetView2.GameView_.IsGamePrivateEvent evt) => {
-            } );
             return view;
         }
         private static CreateGameWidgetView2.PlayerView_ CreatePlayerView(CreateGameWidget2 widget) {
             var view = new CreateGameWidgetView2.PlayerView_( widget );
-            view.OnEvent( (CreateGameWidgetView2.PlayerView_.PlayerNameEvent evt) => {
-            } );
-            view.OnEvent( (CreateGameWidgetView2.PlayerView_.PlayerRoleEvent evt) => {
-            } );
             return view;
         }
 

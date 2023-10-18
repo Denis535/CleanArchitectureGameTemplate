@@ -46,20 +46,19 @@ namespace Project.UI.Common {
                 view.Okey.IsValid = Globals.PlayerProfile.IsNameValid( name! );
             } );
             view.Okey.OnClick( i => {
-                if (!i.IsValid) {
+                if (i.IsValid) {
+                    playerProfile.PlayerName = view.Name.Value!;
+                    playerProfile.Save();
+                    widget.DetachSelf();
+                } else {
                     if (string.IsNullOrWhiteSpace( view.Name.Value )) {
                         var dialog = UIWidgetFactory.WarningDialogWidget( "Warning", $"Name is empty" ).OnSubmit( "Ok", null );
                         widget.AttachChild( dialog );
-                        return;
                     } else {
                         var dialog = UIWidgetFactory.WarningDialogWidget( "Warning", $"Name \"{view.Name.Value}\" is invalid" ).OnSubmit( "Ok", null );
                         widget.AttachChild( dialog );
-                        return;
                     }
                 }
-                playerProfile.PlayerName = view.Name.Value!;
-                playerProfile.Save();
-                widget.DetachSelf();
             } );
             view.Back.OnClick( i => {
                 widget.DetachSelf();

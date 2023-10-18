@@ -9,9 +9,7 @@ namespace Project.UI.MainScreen {
     using UnityEngine.UIElements;
     using UnityEngine.UIElements.Experimental;
 
-    public partial class LoadingWidgetView {
-    }
-    public partial class LoadingWidgetView : UIWidgetViewBase {
+    public class LoadingWidgetView : UIWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;

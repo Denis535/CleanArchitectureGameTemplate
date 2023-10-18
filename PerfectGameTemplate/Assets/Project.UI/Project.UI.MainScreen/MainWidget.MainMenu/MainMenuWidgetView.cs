@@ -7,13 +7,7 @@ namespace Project.UI.MainScreen {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public partial class MainMenuWidgetView {
-        public record CreateGameCommand() : UICommand<MainMenuWidgetView>;
-        public record JoinGameCommand() : UICommand<MainMenuWidgetView>;
-        public record SettingsCommand() : UICommand<MainMenuWidgetView>;
-        public record QuitCommand() : UICommand<MainMenuWidgetView>;
-    }
-    public partial class MainMenuWidgetView : UIObservableWidgetViewBase {
+    public class MainMenuWidgetView : UIWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;
@@ -35,18 +29,6 @@ namespace Project.UI.MainScreen {
         // Constructor
         public MainMenuWidgetView(MainMenuWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out title, out createGame, out joinGame, out settings, out quit );
-            createGame.OnClick( evt => {
-                new CreateGameCommand().Execute( this );
-            } );
-            joinGame.OnClick( evt => {
-                new JoinGameCommand().Execute( this );
-            } );
-            settings.OnClick( evt => {
-                new SettingsCommand().Execute( this );
-            } );
-            quit.OnClick( evt => {
-                new QuitCommand().Execute( this );
-            } );
         }
         public override void Dispose() {
             base.Dispose();

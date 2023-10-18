@@ -9,7 +9,7 @@ namespace Project.UI {
 
     public abstract class VisualElementWrapper {
 
-        protected internal VisualElement VisualElement { get; }
+        public VisualElement VisualElement { get; }
 
         public bool IsEnabled {
             get => VisualElement.enabledSelf;
@@ -32,7 +32,7 @@ namespace Project.UI {
     }
     public abstract class VisualElementWrapper<T> : VisualElementWrapper where T : VisualElement {
 
-        protected internal new T VisualElement => (T) base.VisualElement;
+        public new T VisualElement => (T) base.VisualElement;
 
         // Constructor
         public VisualElementWrapper(T visualElement) : base( visualElement ) {

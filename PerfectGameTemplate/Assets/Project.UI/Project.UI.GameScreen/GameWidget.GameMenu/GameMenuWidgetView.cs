@@ -7,12 +7,7 @@ namespace Project.UI.GameScreen {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public partial class GameMenuWidgetView {
-        public record ResumeCommand() : UICommand<GameMenuWidgetView>;
-        public record SettingsCommand() : UICommand<GameMenuWidgetView>;
-        public record BackCommand() : UICommand<GameMenuWidgetView>;
-    }
-    public partial class GameMenuWidgetView : UIObservableWidgetViewBase {
+    public class GameMenuWidgetView : UIWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;
@@ -32,15 +27,6 @@ namespace Project.UI.GameScreen {
         // Constructor
         public GameMenuWidgetView(GameMenuWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out title, out resume, out settings, out back );
-            resume.OnClick( evt => {
-                new ResumeCommand().Execute( this );
-            } );
-            settings.OnClick( evt => {
-                new SettingsCommand().Execute( this );
-            } );
-            back.OnClick( evt => {
-                new BackCommand().Execute( this );
-            } );
         }
         public override void Dispose() {
             base.Dispose();

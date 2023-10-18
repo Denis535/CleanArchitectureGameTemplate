@@ -7,9 +7,7 @@ namespace Project.UI.GameScreen {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public partial class GameWidgetView {
-    }
-    public partial class GameWidgetView : UIWidgetViewBase {
+    public class GameWidgetView : UIWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;

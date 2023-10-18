@@ -7,7 +7,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class VideoSettingsWidgetView : UIObservableWidgetViewBase {
+    public class VideoSettingsWidgetView : UIWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;

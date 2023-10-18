@@ -80,32 +80,20 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static CreateGameWidgetView CreateView(CreateGameWidget widget) {
             var view = UIViewFactory.CreateGameWidget( widget );
-            view.OnCommand( (CreateGameWidgetView.OkeyCommand cmd) => {
+            view.Okey.OnClick( i => {
                 widget.AttachChild( UIWidgetFactory.CreateGameWidget2() );
             } );
-            view.OnCommand( (CreateGameWidgetView.BackCommand cmd) => {
+            view.Back.OnClick( i => {
                 widget.DetachSelf();
             } );
             return view;
         }
         private static CreateGameWidgetView.GameView_ CreateGameView(CreateGameWidget widget) {
             var view = new CreateGameWidgetView.GameView_( widget );
-            view.OnEvent( (CreateGameWidgetView.GameView_.GameNameEvent evt) => {
-            } );
-            view.OnEvent( (CreateGameWidgetView.GameView_.GameModeEvent evt) => {
-            } );
-            view.OnEvent( (CreateGameWidgetView.GameView_.GameWorldEvent evt) => {
-            } );
-            view.OnEvent( (CreateGameWidgetView.GameView_.IsGamePrivateEvent evt) => {
-            } );
             return view;
         }
         private static CreateGameWidgetView.PlayerView_ CreatePlayerView(CreateGameWidget widget) {
             var view = new CreateGameWidgetView.PlayerView_( widget );
-            view.OnEvent( (CreateGameWidgetView.PlayerView_.PlayerNameEvent evt) => {
-            } );
-            view.OnEvent( (CreateGameWidgetView.PlayerView_.PlayerRoleEvent evt) => {
-            } );
             return view;
         }
 

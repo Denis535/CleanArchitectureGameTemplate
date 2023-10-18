@@ -8,9 +8,7 @@ namespace Project.UI.MainScreen {
     using UnityEngine.UIElements;
     using UnityEngine.UIElements.Experimental;
 
-    public partial class MainWidgetView {
-    }
-    public partial class MainWidgetView : UIWidgetViewBase {
+    public class MainWidgetView : UIWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;

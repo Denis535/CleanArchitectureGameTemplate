@@ -7,7 +7,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class AudioSettingsWidgetView : UIObservableWidgetViewBase {
+    public class AudioSettingsWidgetView : UIWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;

@@ -8,11 +8,7 @@ namespace Project.UI.MainScreen {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public partial class JoinGameWidgetView2 {
-        public record OkeyCommand() : UICommand<JoinGameWidgetView2>;
-        public record BackCommand() : UICommand<JoinGameWidgetView2>;
-    }
-    public partial class JoinGameWidgetView2 : UIObservableWidgetViewBase {
+    public class JoinGameWidgetView2 : UIWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;
@@ -34,12 +30,6 @@ namespace Project.UI.MainScreen {
         // Constructor
         public JoinGameWidgetView2(JoinGameWidget2 widget) : base( widget ) {
             visualElement = CreateVisualElement( out title, out gameSlot, out playerSlot, out okey, out back );
-            okey.OnClick( evt => {
-                new OkeyCommand().Execute( this );
-            } );
-            back.OnClick( evt => {
-                new BackCommand().Execute( this );
-            } );
         }
         public override void Dispose() {
             base.Dispose();
@@ -69,14 +59,8 @@ namespace Project.UI.MainScreen {
             );
         }
 
-    }
-    public partial class JoinGameWidgetView2 {
         // GameView
-        public class GameView_ : UIObservableSubViewBase {
-            public record GameNameEvent(string GameName) : UIEvent<GameView_>;
-            public record GameModeEvent(GameMode GameMode) : UIEvent<GameView_>;
-            public record GameWorldEvent(GameWorld GameWorld) : UIEvent<GameView_>;
-            public record IsGamePrivateEvent(bool IsGamePrivate) : UIEvent<GameView_>;
+        public class GameView_ : UISubViewBase {
 
             // View
             private readonly VisualElement visualElement;
@@ -96,19 +80,6 @@ namespace Project.UI.MainScreen {
             // Constructor
             public GameView_(JoinGameWidget2 widget) : base( widget ) {
                 visualElement = CreateVisualElement( out title, out gameName, out gameMode, out gameWorld, out isGamePrivate );
-                // View
-                gameName.OnChange( evt => {
-                    new GameNameEvent( evt.newValue ).Raise( this );
-                } );
-                gameMode.OnChange( evt => {
-                    new GameModeEvent( evt.newValue ).Raise( this );
-                } );
-                gameWorld.OnChange( evt => {
-                    new GameWorldEvent( evt.newValue ).Raise( this );
-                } );
-                isGamePrivate.OnChange( evt => {
-                    new IsGamePrivateEvent( evt.newValue ).Raise( this );
-                } );
             }
             public override void Dispose() {
                 base.Dispose();
@@ -131,9 +102,7 @@ namespace Project.UI.MainScreen {
 
         }
         // PlayerView
-        public class PlayerView_ : UIObservableSubViewBase {
-            public record PlayerNameEvent(string PlayerName) : UIEvent<PlayerView_>;
-            public record PlayerRoleEvent(PlayerRole PlayerRole) : UIEvent<PlayerView_>;
+        public class PlayerView_ : UISubViewBase {
 
             // View
             private readonly VisualElement visualElement;
@@ -149,13 +118,6 @@ namespace Project.UI.MainScreen {
             // Constructor
             public PlayerView_(JoinGameWidget2 widget) : base( widget ) {
                 visualElement = CreateVisualElement( out title, out playerName, out playerRole );
-                // View
-                playerName.OnChange( evt => {
-                    new PlayerNameEvent( evt.newValue ).Raise( this );
-                } );
-                playerRole.OnChange( evt => {
-                    new PlayerRoleEvent( evt.newValue ).Raise( this );
-                } );
             }
             public override void Dispose() {
                 base.Dispose();
