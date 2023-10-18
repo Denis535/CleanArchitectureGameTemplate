@@ -41,23 +41,23 @@ namespace Project.UI.Common {
         // Helpers
         private static VideoSettingsWidgetView CreateView(VideoSettingsWidget widget, Globals.VideoSettings videoSettings) {
             var view = UIViewFactory.VideoSettingsWidget( widget );
-            view.OnEvent( (VideoSettingsWidgetView.IsFullScreenEvent evt) => {
-                videoSettings.IsFullScreen = evt.IsFullScreen;
+            view.IsFullScreen.OnChange( (i, isFullScreen) => {
+                videoSettings.IsFullScreen = isFullScreen;
             } );
-            view.OnEvent( (VideoSettingsWidgetView.ScreenResolutionEvent evt) => {
-                videoSettings.ScreenResolution = evt.ScreenResolution;
+            view.ScreenResolution.OnChange( (i, screenResolution) => {
+                videoSettings.ScreenResolution = screenResolution;
             } );
-            view.OnEvent( (VideoSettingsWidgetView.IsVSyncEvent evt) => {
-                videoSettings.IsVSync = evt.IsVSync;
+            view.IsVSync.OnChange( (i, isVSync) => {
+                videoSettings.IsVSync = isVSync;
             } );
-            view.OnCommand( (VideoSettingsWidgetView.OkeyCommand cmd) => {
-                videoSettings.IsFullScreen = cmd.Sender.IsFullScreen.Value;
-                videoSettings.ScreenResolution = cmd.Sender.ScreenResolution.Value;
-                videoSettings.IsVSync = cmd.Sender.IsVSync.Value;
+            view.Okey.OnClick( i => {
+                videoSettings.IsFullScreen = view.IsFullScreen.Value;
+                videoSettings.ScreenResolution = view.ScreenResolution.Value;
+                videoSettings.IsVSync = view.IsVSync.Value;
                 videoSettings.Save();
                 widget.DetachSelf();
             } );
-            view.OnCommand( (VideoSettingsWidgetView.BackCommand cmd) => {
+            view.Back.OnClick( i => {
                 widget.DetachSelf();
             } );
             return view;

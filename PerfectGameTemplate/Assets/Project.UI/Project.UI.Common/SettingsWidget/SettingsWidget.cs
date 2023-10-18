@@ -32,16 +32,16 @@ namespace Project.UI.Common {
         // Helpers
         private static SettingsWidgetView CreateView(SettingsWidget widget) {
             var view = UIViewFactory.SettingsWidget( widget );
-            view.OnCommand( (SettingsWidgetView.PlayerProfileCommand cmd) => {
+            view.PlayerProfile.OnClick( i => {
                 widget.AttachChild( UIWidgetFactory.PlayerProfileWidget() );
             } );
-            view.OnCommand( (SettingsWidgetView.VideoSettingsCommand cmd) => {
+            view.VideoSettings.OnClick( i => {
                 widget.AttachChild( UIWidgetFactory.VideoSettingsWidget() );
             } );
-            view.OnCommand( (SettingsWidgetView.AudioSettingsCommand cmd) => {
+            view.AudioSettings.OnClick( i => {
                 widget.AttachChild( UIWidgetFactory.AudioSettingsWidget() );
             } );
-            view.OnCommand( (SettingsWidgetView.BackCommand cmd) => {
+            view.Back.OnClick( i => {
                 widget.DetachSelf();
             } );
             return view;

@@ -7,9 +7,9 @@ namespace Project.UI {
     using UnityEngine;
     using UnityEngine.UIElements;
 
-    public abstract class VisualElementWrapper<T> where T : VisualElement {
+    public abstract class VisualElementWrapper {
 
-        protected internal T VisualElement { get; }
+        protected internal VisualElement VisualElement { get; }
 
         public bool IsEnabled {
             get => VisualElement.enabledSelf;
@@ -25,88 +25,97 @@ namespace Project.UI {
         }
 
         // Constructor
-        public VisualElementWrapper(T visualElement) {
+        public VisualElementWrapper(VisualElement visualElement) {
             VisualElement = visualElement;
+        }
+
+    }
+    public abstract class VisualElementWrapper<T> : VisualElementWrapper where T : VisualElement {
+
+        protected internal new T VisualElement => (T) base.VisualElement;
+
+        // Constructor
+        public VisualElementWrapper(T visualElement) : base( visualElement ) {
         }
 
     }
     public static partial class VisualElementWrapperExtensions {
 
         // Element
-        public static ElementWrapper Wrap(this VisualElement element) {
-            return new ElementWrapper( element );
+        public static ElementWrapper Wrap(this VisualElement visualElement) {
+            return new ElementWrapper( visualElement );
         }
         // Text
-        public static LabelWrapper Wrap(this Label label) {
-            return new LabelWrapper( label );
+        public static LabelWrapper Wrap(this Label visualElement) {
+            return new LabelWrapper( visualElement );
         }
-        public static ButtonWrapper Wrap(this Button button) {
-            return new ButtonWrapper( button );
+        public static ButtonWrapper Wrap(this Button visualElement) {
+            return new ButtonWrapper( visualElement );
         }
         // Field
-        public static FieldWrapper<T> Wrap<T>(this BaseField<T?> field) where T : notnull {
-            return new FieldWrapper<T>( field );
+        public static FieldWrapper<T> Wrap<T>(this BaseField<T?> visualElement) where T : notnull {
+            return new FieldWrapper<T>( visualElement );
         }
-        public static PopupWrapper<T> Wrap<T>(this PopupField<T?> popup) where T : notnull {
-            return new PopupWrapper<T>( popup );
+        public static PopupWrapper<T> Wrap<T>(this PopupField<T?> visualElement) where T : notnull {
+            return new PopupWrapper<T>( visualElement );
         }
-        public static SliderWrapper<T> Wrap<T>(this BaseSlider<T> slider) where T : struct, IComparable<T> {
-            return new SliderWrapper<T>( slider );
+        public static SliderWrapper<T> Wrap<T>(this BaseSlider<T> visualElement) where T : struct, IComparable<T> {
+            return new SliderWrapper<T>( visualElement );
         }
-        public static ToggleWrapper<bool> Wrap(this Toggle toggle) {
-            return new ToggleWrapper<bool>( toggle );
+        public static ToggleWrapper<bool> Wrap(this Toggle visualElement) {
+            return new ToggleWrapper<bool>( visualElement );
         }
         // Slot
-        public static SlotWrapper Wrap(this Slot slot) {
-            return new SlotWrapper( slot );
+        public static SlotWrapper Wrap(this Slot visualElement) {
+            return new SlotWrapper( visualElement );
         }
 
     }
     public static partial class VisualElementWrapperExtensions {
 
         // OnAttachToPanel
-        public static void OnAttachToPanel<T>(this VisualElementWrapper<T> wrapper, Action? callback) where T : VisualElement {
-            wrapper.VisualElement.OnAttachToPanel( evt => callback?.Invoke() );
+        public static void OnAttachToPanel<T>(this VisualElementWrapper<T> wrapper, Action<VisualElementWrapper>? callback) where T : VisualElement {
+            wrapper.VisualElement.OnAttachToPanel( evt => callback?.Invoke( wrapper ) );
         }
-        public static void OnDetachFromPanel<T>(this VisualElementWrapper<T> wrapper, Action? callback) where T : VisualElement {
-            wrapper.VisualElement.OnDetachFromPanel( evt => callback?.Invoke() );
+        public static void OnDetachFromPanel<T>(this VisualElementWrapper<T> wrapper, Action<VisualElementWrapper>? callback) where T : VisualElement {
+            wrapper.VisualElement.OnDetachFromPanel( evt => callback?.Invoke( wrapper ) );
         }
 
         // OnClick
-        public static void OnClick(this ButtonWrapper wrapper, Action? callback) {
-            wrapper.VisualElement.OnClick( evt => callback?.Invoke() );
+        public static void OnClick(this ButtonWrapper wrapper, Action<VisualElementWrapper>? callback) {
+            wrapper.VisualElement.OnClick( evt => callback?.Invoke( wrapper ) );
         }
 
         // OnChange
-        public static void OnChange<T>(this FieldWrapper<T> wrapper, Action<T?>? callback) where T : notnull {
-            wrapper.VisualElement.OnChange( evt => callback?.Invoke( evt.newValue ) );
+        public static void OnChange<T>(this FieldWrapper<T> wrapper, Action<VisualElementWrapper, T?>? callback) where T : notnull {
+            wrapper.VisualElement.OnChange( evt => callback?.Invoke( wrapper, evt.newValue ) );
         }
-        public static void OnChange<T>(this FieldWrapper<T> wrapper, Action<T?, T?>? callback) where T : notnull {
-            wrapper.VisualElement.OnChange( evt => callback?.Invoke( evt.newValue, evt.previousValue ) );
-        }
-
-        // OnChange
-        public static void OnChange<T>(this PopupWrapper<T> wrapper, Action<T?>? callback) where T : notnull {
-            wrapper.VisualElement.OnChange( evt => callback?.Invoke( evt.newValue ) );
-        }
-        public static void OnChange<T>(this PopupWrapper<T> wrapper, Action<T?, T?>? callback) where T : notnull {
-            wrapper.VisualElement.OnChange( evt => callback?.Invoke( evt.newValue, evt.previousValue ) );
+        public static void OnChange<T>(this FieldWrapper<T> wrapper, Action<VisualElementWrapper, T?, T?>? callback) where T : notnull {
+            wrapper.VisualElement.OnChange( evt => callback?.Invoke( wrapper, evt.newValue, evt.previousValue ) );
         }
 
         // OnChange
-        public static void OnChange<T>(this SliderWrapper<T> wrapper, Action<T?>? callback) where T : struct, IComparable<T> {
-            wrapper.VisualElement.OnChange( evt => callback?.Invoke( evt.newValue ) );
+        public static void OnChange<T>(this PopupWrapper<T> wrapper, Action<VisualElementWrapper, T?>? callback) where T : notnull {
+            wrapper.VisualElement.OnChange( evt => callback?.Invoke( wrapper, evt.newValue ) );
         }
-        public static void OnChange<T>(this SliderWrapper<T> wrapper, Action<T?, T?>? callback) where T : struct, IComparable<T> {
-            wrapper.VisualElement.OnChange( evt => callback?.Invoke( evt.newValue, evt.previousValue ) );
+        public static void OnChange<T>(this PopupWrapper<T> wrapper, Action<VisualElementWrapper, T?, T?>? callback) where T : notnull {
+            wrapper.VisualElement.OnChange( evt => callback?.Invoke( wrapper, evt.newValue, evt.previousValue ) );
         }
 
         // OnChange
-        public static void OnChange<T>(this ToggleWrapper<T> wrapper, Action<bool>? callback) where T : struct, IComparable<T> {
-            wrapper.VisualElement.OnChange( evt => callback?.Invoke( evt.newValue ) );
+        public static void OnChange<T>(this SliderWrapper<T> wrapper, Action<VisualElementWrapper, T>? callback) where T : struct, IComparable<T> {
+            wrapper.VisualElement.OnChange( evt => callback?.Invoke( wrapper, evt.newValue ) );
         }
-        public static void OnChange<T>(this ToggleWrapper<T> wrapper, Action<bool, bool>? callback) where T : struct, IComparable<T> {
-            wrapper.VisualElement.OnChange( evt => callback?.Invoke( evt.newValue, evt.previousValue ) );
+        public static void OnChange<T>(this SliderWrapper<T> wrapper, Action<VisualElementWrapper, T, T>? callback) where T : struct, IComparable<T> {
+            wrapper.VisualElement.OnChange( evt => callback?.Invoke( wrapper, evt.newValue, evt.previousValue ) );
+        }
+
+        // OnChange
+        public static void OnChange<T>(this ToggleWrapper<T> wrapper, Action<VisualElementWrapper, bool>? callback) where T : struct, IComparable<T> {
+            wrapper.VisualElement.OnChange( evt => callback?.Invoke( wrapper, evt.newValue ) );
+        }
+        public static void OnChange<T>(this ToggleWrapper<T> wrapper, Action<VisualElementWrapper, bool, bool>? callback) where T : struct, IComparable<T> {
+            wrapper.VisualElement.OnChange( evt => callback?.Invoke( wrapper, evt.newValue, evt.previousValue ) );
         }
 
     }

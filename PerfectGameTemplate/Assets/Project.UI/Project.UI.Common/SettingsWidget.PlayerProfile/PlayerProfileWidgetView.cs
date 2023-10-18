@@ -7,12 +7,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public partial class PlayerProfileWidgetView {
-        public record NameEvent(string Name) : UIEvent<PlayerProfileWidgetView>;
-        public record OkeyCommand(bool IsValid) : UICommand<PlayerProfileWidgetView>;
-        public record BackCommand() : UICommand<PlayerProfileWidgetView>;
-    }
-    public partial class PlayerProfileWidgetView : UIObservableWidgetViewBase {
+    public class PlayerProfileWidgetView : UIWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;
@@ -32,15 +27,6 @@ namespace Project.UI.Common {
         // Constructor
         public PlayerProfileWidgetView(PlayerProfileWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out title, out name, out okey, out back );
-            name.OnChange( evt => {
-                new NameEvent( evt.newValue ).Raise( this );
-            } );
-            okey.OnClick( evt => {
-                new OkeyCommand( okey.IsValid() ).Execute( this );
-            } );
-            back.OnClick( evt => {
-                new BackCommand().Execute( this );
-            } );
         }
         public override void Dispose() {
             base.Dispose();

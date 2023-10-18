@@ -7,14 +7,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public partial class VideoSettingsWidgetView {
-        public record IsFullScreenEvent(bool IsFullScreen) : UIEvent<VideoSettingsWidgetView>;
-        public record ScreenResolutionEvent(Resolution ScreenResolution) : UIEvent<VideoSettingsWidgetView>;
-        public record IsVSyncEvent(bool IsVSync) : UIEvent<VideoSettingsWidgetView>;
-        public record OkeyCommand() : UICommand<VideoSettingsWidgetView>;
-        public record BackCommand() : UICommand<VideoSettingsWidgetView>;
-    }
-    public partial class VideoSettingsWidgetView : UIObservableWidgetViewBase {
+    public class VideoSettingsWidgetView : UIObservableWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;
@@ -38,21 +31,6 @@ namespace Project.UI.Common {
         // Constructor
         public VideoSettingsWidgetView(VideoSettingsWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out title, out isFullScreen, out screenResolution, out isVSync, out okey, out back );
-            isFullScreen.OnChange( evt => {
-                new IsFullScreenEvent( evt.newValue ).Raise( this );
-            } );
-            screenResolution.OnChange( evt => {
-                new ScreenResolutionEvent( evt.newValue ).Raise( this );
-            } );
-            isVSync.OnChange( evt => {
-                new IsVSyncEvent( evt.newValue ).Raise( this );
-            } );
-            okey.OnClick( evt => {
-                new OkeyCommand().Execute( this );
-            } );
-            back.OnClick( evt => {
-                new BackCommand().Execute( this );
-            } );
         }
         public override void Dispose() {
             base.Dispose();

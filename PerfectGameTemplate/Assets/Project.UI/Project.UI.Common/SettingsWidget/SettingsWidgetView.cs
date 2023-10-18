@@ -7,13 +7,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public partial class SettingsWidgetView {
-        public record PlayerProfileCommand() : UICommand<SettingsWidgetView>;
-        public record VideoSettingsCommand() : UICommand<SettingsWidgetView>;
-        public record AudioSettingsCommand() : UICommand<SettingsWidgetView>;
-        public record BackCommand() : UICommand<SettingsWidgetView>;
-    }
-    public partial class SettingsWidgetView : UIObservableWidgetViewBase {
+    public class SettingsWidgetView : UIWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;
@@ -35,18 +29,6 @@ namespace Project.UI.Common {
         // Constructor
         public SettingsWidgetView(SettingsWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out title, out playerProfile, out videoSettings, out audioSettings, out back );
-            playerProfile.OnClick( evt => {
-                new PlayerProfileCommand().Execute( this );
-            } );
-            videoSettings.OnClick( evt => {
-                new VideoSettingsCommand().Execute( this );
-            } );
-            audioSettings.OnClick( evt => {
-                new AudioSettingsCommand().Execute( this );
-            } );
-            back.OnClick( evt => {
-                new BackCommand().Execute( this );
-            } );
         }
         public override void Dispose() {
             base.Dispose();

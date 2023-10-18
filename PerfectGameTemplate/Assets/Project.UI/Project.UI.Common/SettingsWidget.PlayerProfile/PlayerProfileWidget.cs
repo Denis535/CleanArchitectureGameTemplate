@@ -41,27 +41,27 @@ namespace Project.UI.Common {
         // Helpers
         private static PlayerProfileWidgetView CreateView(PlayerProfileWidget widget, Globals.PlayerProfile playerProfile) {
             var view = UIViewFactory.PlayerProfileWidget( widget );
-            view.OnEvent( (PlayerProfileWidgetView.NameEvent evt) => {
-                view.Name.IsValid = Globals.PlayerProfile.IsNameValid( evt.Name );
-                view.Okey.IsValid = Globals.PlayerProfile.IsNameValid( evt.Name );
+            view.Name.OnChange( (i, name) => {
+                view.Name.IsValid = Globals.PlayerProfile.IsNameValid( name! );
+                view.Okey.IsValid = Globals.PlayerProfile.IsNameValid( name! );
             } );
-            view.OnCommand( (PlayerProfileWidgetView.OkeyCommand cmd) => {
-                if (!cmd.IsValid) {
-                    if (string.IsNullOrWhiteSpace( cmd.Sender.Name.Value )) {
+            view.Okey.OnClick( i => {
+                if (!i.IsValid) {
+                    if (string.IsNullOrWhiteSpace( view.Name.Value )) {
                         var dialog = UIWidgetFactory.WarningDialogWidget( "Warning", $"Name is empty" ).OnSubmit( "Ok", null );
                         widget.AttachChild( dialog );
                         return;
                     } else {
-                        var dialog = UIWidgetFactory.WarningDialogWidget( "Warning", $"Name \"{cmd.Sender.Name.Value}\" is invalid" ).OnSubmit( "Ok", null );
+                        var dialog = UIWidgetFactory.WarningDialogWidget( "Warning", $"Name \"{view.Name.Value}\" is invalid" ).OnSubmit( "Ok", null );
                         widget.AttachChild( dialog );
                         return;
                     }
                 }
-                playerProfile.PlayerName = cmd.Sender.Name.Value!;
+                playerProfile.PlayerName = view.Name.Value!;
                 playerProfile.Save();
                 widget.DetachSelf();
             } );
-            view.OnCommand( (PlayerProfileWidgetView.BackCommand cmd) => {
+            view.Back.OnClick( i => {
                 widget.DetachSelf();
             } );
             return view;

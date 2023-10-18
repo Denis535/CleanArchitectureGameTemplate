@@ -7,15 +7,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public partial class AudioSettingsWidgetView {
-        public record MasterVolumeEvent(float MasterVolume) : UIEvent<AudioSettingsWidgetView>;
-        public record MusicVolumeEvent(float MusicVolume) : UIEvent<AudioSettingsWidgetView>;
-        public record SfxVolumeEvent(float SfxVolume) : UIEvent<AudioSettingsWidgetView>;
-        public record GameVolumeEvent(float GameVolume) : UIEvent<AudioSettingsWidgetView>;
-        public record OkeyCommand() : UICommand<AudioSettingsWidgetView>;
-        public record BackCommand() : UICommand<AudioSettingsWidgetView>;
-    }
-    public partial class AudioSettingsWidgetView : UIObservableWidgetViewBase {
+    public class AudioSettingsWidgetView : UIObservableWidgetViewBase {
 
         // View
         private readonly VisualElement visualElement;
@@ -41,24 +33,6 @@ namespace Project.UI.Common {
         // Constructor
         public AudioSettingsWidgetView(AudioSettingsWidget widget) : base( widget ) {
             visualElement = CreateVisualElement( out title, out masterVolume, out musicVolume, out sfxVolume, out gameVolume, out okey, out back );
-            masterVolume.OnChange( evt => {
-                new MasterVolumeEvent( evt.newValue ).Raise( this );
-            } );
-            musicVolume.OnChange( evt => {
-                new MusicVolumeEvent( evt.newValue ).Raise( this );
-            } );
-            sfxVolume.OnChange( evt => {
-                new SfxVolumeEvent( evt.newValue ).Raise( this );
-            } );
-            gameVolume.OnChange( evt => {
-                new GameVolumeEvent( evt.newValue ).Raise( this );
-            } );
-            okey.OnClick( evt => {
-                new OkeyCommand().Execute( this );
-            } );
-            back.OnClick( evt => {
-                new BackCommand().Execute( this );
-            } );
         }
         public override void Dispose() {
             base.Dispose();

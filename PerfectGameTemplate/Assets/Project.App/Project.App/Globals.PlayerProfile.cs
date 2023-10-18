@@ -17,7 +17,7 @@ namespace Project.App {
             public string PlayerName {
                 get => playerName;
                 set {
-                    Debug.Assert( IsNameValid( value ), $"Name '{value}' is invalid" );
+                    Assert.Argument.Message( $"Argument 'value' ({value}) is invalid" ).Valid( IsNameValid( value ) );
                     playerName = value;
 #if DEBUG
                     //SetWindowText( $"{Application.productName} ({value})" );
@@ -38,13 +38,13 @@ namespace Project.App {
                 Save( "PlayerProfile.PlayerName", PlayerName );
             }
 
-            // Helpers
+            // Utils
             public static bool IsNameValid(string value) {
                 return
-                    value.Length >= 1 &&
+                    value.Length >= 3 &&
                     char.IsLetterOrDigit( value.First() ) &&
                     char.IsLetterOrDigit( value.Last() ) &&
-                    value.All( i => char.IsLetterOrDigit( i ) || (i is ' ' or '-') );
+                    value.All( i => char.IsLetterOrDigit( i ) || (i is ' ' or '_' or '-') );
             }
 #if DEBUG
             // Helpers

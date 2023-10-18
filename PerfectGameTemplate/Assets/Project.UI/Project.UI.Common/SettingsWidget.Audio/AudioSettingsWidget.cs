@@ -42,27 +42,27 @@ namespace Project.UI.Common {
         // Helpers
         private static AudioSettingsWidgetView CreateView(AudioSettingsWidget widget, Globals.AudioSettings audioSettings) {
             var view = UIViewFactory.AudioSettingsWidget( widget );
-            view.OnEvent( (AudioSettingsWidgetView.MasterVolumeEvent evt) => {
-                audioSettings.MasterVolume = evt.MasterVolume;
+            view.MasterVolume.OnChange( (i, masterVolume) => {
+                audioSettings.MasterVolume = masterVolume;
             } );
-            view.OnEvent( (AudioSettingsWidgetView.MusicVolumeEvent evt) => {
-                audioSettings.MusicVolume = evt.MusicVolume;
+            view.MusicVolume.OnChange( (i, musicVolume) => {
+                audioSettings.MusicVolume = musicVolume;
             } );
-            view.OnEvent( (AudioSettingsWidgetView.SfxVolumeEvent evt) => {
-                audioSettings.SfxVolume = evt.SfxVolume;
+            view.SfxVolume.OnChange( (i, sfxVolume) => {
+                audioSettings.SfxVolume = sfxVolume;
             } );
-            view.OnEvent( (AudioSettingsWidgetView.GameVolumeEvent evt) => {
-                audioSettings.GameVolume = evt.GameVolume;
+            view.GameVolume.OnChange( (i, gameVolume) => {
+                audioSettings.GameVolume = gameVolume;
             } );
-            view.OnCommand( (AudioSettingsWidgetView.OkeyCommand cmd) => {
-                audioSettings.MasterVolume = cmd.Sender.MasterVolume.Value;
-                audioSettings.MusicVolume = cmd.Sender.MusicVolume.Value;
-                audioSettings.SfxVolume = cmd.Sender.SfxVolume.Value;
-                audioSettings.GameVolume = cmd.Sender.GameVolume.Value;
+            view.Okey.OnClick( i => {
+                audioSettings.MasterVolume = view.MasterVolume.Value;
+                audioSettings.MusicVolume = view.MusicVolume.Value;
+                audioSettings.SfxVolume = view.SfxVolume.Value;
+                audioSettings.GameVolume = view.GameVolume.Value;
                 audioSettings.Save();
                 widget.DetachSelf();
             } );
-            view.OnCommand( (AudioSettingsWidgetView.BackCommand cmd) => {
+            view.Back.OnClick( i => {
                 widget.DetachSelf();
             } );
             return view;
