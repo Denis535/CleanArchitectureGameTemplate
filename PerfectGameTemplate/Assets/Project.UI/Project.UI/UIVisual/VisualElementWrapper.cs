@@ -24,7 +24,6 @@ namespace Project.UI {
             set => VisualElement.SetValid( value );
         }
 
-        // Constructor
         public VisualElementWrapper(VisualElement visualElement) {
             VisualElement = visualElement;
         }
@@ -34,14 +33,145 @@ namespace Project.UI {
 
         public new T VisualElement => (T) base.VisualElement;
 
-        // Constructor
         public VisualElementWrapper(T visualElement) : base( visualElement ) {
         }
 
     }
+    // ElementWrapper
+    public class ElementWrapper : VisualElementWrapper<VisualElement> {
+
+        public IReadOnlyList<VisualElement> Elements {
+            get => (IReadOnlyList<VisualElement>) VisualElement.Children();
+        }
+
+        public ElementWrapper(VisualElement visualElement) : base( visualElement ) {
+        }
+
+        public void Add(VisualElement element) {
+            VisualElement.Add( element );
+        }
+        public void Remove(VisualElement element) {
+            VisualElement.Remove( element );
+        }
+        public bool Contains(VisualElement element) {
+            return VisualElement.Contains( element );
+        }
+
+    }
+    public class LabelWrapper : VisualElementWrapper<Label> {
+
+        public string? Text {
+            get => VisualElement.text;
+            set => VisualElement.text = value;
+        }
+
+        public LabelWrapper(Label visualElement) : base( visualElement ) {
+        }
+
+    }
+    public class ButtonWrapper : VisualElementWrapper<Button> {
+
+        public string? Text {
+            get => VisualElement.text;
+            set => VisualElement.text = value;
+        }
+
+        public ButtonWrapper(Button visualElement) : base( visualElement ) {
+        }
+
+    }
+    // FieldWrapper
+    public class TextWrapper<T> : VisualElementWrapper<BaseField<string?>> where T : notnull {
+
+        public string? Value {
+            get => VisualElement.value;
+            set => VisualElement.value = value;
+        }
+
+        public TextWrapper(BaseField<string?> visualElement) : base( visualElement ) {
+            Assert.Object.Message( $"TextWrapper {this} is invalid" ).Valid( this is TextWrapper<string> );
+        }
+
+    }
+    public class PopupWrapper<T> : VisualElementWrapper<PopupField<T?>> where T : notnull {
+
+        public T? Value {
+            get => VisualElement.value;
+            set => VisualElement.value = value;
+        }
+        public T?[] Choices {
+            get => VisualElement.choices.ToArray();
+            set => VisualElement.choices = value.ToList();
+        }
+        public (T? Value, T?[] Choices) ValueChoices {
+            get => (VisualElement.value, VisualElement.choices.ToArray());
+            set => (VisualElement.value, VisualElement.choices) = (value.Value, value.Choices.ToList());
+        }
+
+        public PopupWrapper(PopupField<T?> visualElement) : base( visualElement ) {
+        }
+
+    }
+    public class SliderWrapper<T> : VisualElementWrapper<BaseSlider<T>> where T : struct, IComparable<T> {
+
+        public T Value {
+            get => VisualElement.value;
+            set => VisualElement.value = value;
+        }
+        public T Min {
+            get => VisualElement.lowValue;
+            set => VisualElement.lowValue = value;
+        }
+        public T Max {
+            get => VisualElement.highValue;
+            set => VisualElement.highValue = value;
+        }
+        public (T Value, T Min, T Max) ValueMinMax {
+            get => (VisualElement.value, VisualElement.lowValue, VisualElement.highValue);
+            set => (VisualElement.value, VisualElement.lowValue, VisualElement.highValue) = (value.Value, value.Min, value.Max);
+        }
+
+        public SliderWrapper(BaseSlider<T> visualElement) : base( visualElement ) {
+        }
+
+    }
+    public class ToggleWrapper<T> : VisualElementWrapper<Toggle> where T : struct, IComparable<T> {
+
+        public bool Value {
+            get => VisualElement.value;
+            set => VisualElement.value = value;
+        }
+
+        public ToggleWrapper(Toggle visualElement) : base( visualElement ) {
+            Assert.Object.Message( $"ToggleWrapper {this} is invalid" ).Valid( this is ToggleWrapper<bool> );
+        }
+
+    }
+    // SlotWrapper
+    public class SlotWrapper : VisualElementWrapper<Slot> {
+
+        public IReadOnlyList<VisualElement> Elements {
+            get => (IReadOnlyList<VisualElement>) VisualElement.Children();
+        }
+
+        public SlotWrapper(Slot visualElement) : base( visualElement ) {
+        }
+
+        public void Add(VisualElement element) {
+            VisualElement.Add( element );
+        }
+        public void Remove(VisualElement element) {
+            VisualElement.Remove( element );
+        }
+        public bool Contains(VisualElement element) {
+            return VisualElement.Contains( element );
+        }
+
+    }
+    // VisualElementWrapperExtensions
     public static partial class VisualElementWrapperExtensions {
 
-        // Element
+        // ElementWrapper
         public static ElementWrapper Wrap(this VisualElement visualElement) {
             return new ElementWrapper( visualElement );
         }
@@ -51,7 +181,7 @@ namespace Project.UI {
         public static ButtonWrapper Wrap(this Button visualElement) {
             return new ButtonWrapper( visualElement );
         }
-        // Field
+        // FieldWrapper
         public static TextWrapper<string> Wrap(this BaseField<string?> visualElement) {
             return new TextWrapper<string>( visualElement );
         }
@@ -64,7 +194,7 @@ namespace Project.UI {
         public static ToggleWrapper<bool> Wrap(this Toggle visualElement) {
             return new ToggleWrapper<bool>( visualElement );
         }
-        // Slot
+        // SlotWrapper
         public static SlotWrapper Wrap(this Slot visualElement) {
             return new SlotWrapper( visualElement );
         }
@@ -115,123 +245,6 @@ namespace Project.UI {
         }
         public static void OnChange(this ToggleWrapper<bool> wrapper, Action<VisualElementWrapper, bool, bool>? callback) {
             wrapper.VisualElement.OnChange( evt => callback?.Invoke( wrapper, evt.newValue, evt.previousValue ) );
-        }
-
-    }
-    // Element
-    public class ElementWrapper : VisualElementWrapper<VisualElement> {
-
-        public ElementWrapper(VisualElement element) : base( element ) {
-        }
-
-    }
-    public class LabelWrapper : VisualElementWrapper<Label> {
-
-        public string? Text {
-            get => VisualElement.text;
-            set => VisualElement.text = value;
-        }
-
-        public LabelWrapper(Label label) : base( label ) {
-        }
-
-    }
-    public class ButtonWrapper : VisualElementWrapper<Button> {
-
-        public string? Text {
-            get => VisualElement.text;
-            set => VisualElement.text = value;
-        }
-
-        public ButtonWrapper(Button button) : base( button ) {
-        }
-
-    }
-    // Field
-    public class TextWrapper<T> : VisualElementWrapper<BaseField<string?>> where T : notnull {
-
-        public string? Value {
-            get => VisualElement.value;
-            set => VisualElement.value = value;
-        }
-
-        public TextWrapper(BaseField<string?> field) : base( field ) {
-            Assert.Object.Message( $"TextWrapper {this} is invalid" ).Valid( this is TextWrapper<string> );
-        }
-
-    }
-    public class PopupWrapper<T> : VisualElementWrapper<PopupField<T?>> where T : notnull {
-
-        public T? Value {
-            get => VisualElement.value;
-            set => VisualElement.value = value;
-        }
-        public T?[] Choices {
-            get => VisualElement.choices.ToArray();
-            set => VisualElement.choices = value.ToList();
-        }
-        public (T? Value, T?[] Choices) ValueChoices {
-            get => (VisualElement.value, VisualElement.choices.ToArray());
-            set => (VisualElement.value, VisualElement.choices) = (value.Value, value.Choices.ToList());
-        }
-
-        public PopupWrapper(PopupField<T?> popup) : base( popup ) {
-        }
-
-    }
-    public class SliderWrapper<T> : VisualElementWrapper<BaseSlider<T>> where T : struct, IComparable<T> {
-
-        public T Value {
-            get => VisualElement.value;
-            set => VisualElement.value = value;
-        }
-        public T Min {
-            get => VisualElement.lowValue;
-            set => VisualElement.lowValue = value;
-        }
-        public T Max {
-            get => VisualElement.highValue;
-            set => VisualElement.highValue = value;
-        }
-        public (T Value, T Min, T Max) ValueMinMax {
-            get => (VisualElement.value, VisualElement.lowValue, VisualElement.highValue);
-            set => (VisualElement.value, VisualElement.lowValue, VisualElement.highValue) = (value.Value, value.Min, value.Max);
-        }
-
-        public SliderWrapper(BaseSlider<T> slider) : base( slider ) {
-        }
-
-    }
-    public class ToggleWrapper<T> : VisualElementWrapper<Toggle> where T : struct, IComparable<T> {
-
-        public bool Value {
-            get => VisualElement.value;
-            set => VisualElement.value = value;
-        }
-
-        public ToggleWrapper(Toggle toggle) : base( toggle ) {
-            Assert.Object.Message( $"ToggleWrapper {this} is invalid" ).Valid( this is ToggleWrapper<bool> );
-        }
-
-    }
-    // Slot
-    public class SlotWrapper : VisualElementWrapper<Slot> {
-
-        public IReadOnlyList<VisualElement> Elements {
-            get => (IReadOnlyList<VisualElement>) VisualElement.Children();
-        }
-
-        public SlotWrapper(Slot slot) : base( slot ) {
-        }
-
-        public void Add(VisualElement element) {
-            VisualElement.Add( element );
-        }
-        public void Remove(VisualElement element) {
-            VisualElement.Remove( element );
-        }
-        public bool Contains(VisualElement element) {
-            return VisualElement.Contains( element );
         }
 
     }
