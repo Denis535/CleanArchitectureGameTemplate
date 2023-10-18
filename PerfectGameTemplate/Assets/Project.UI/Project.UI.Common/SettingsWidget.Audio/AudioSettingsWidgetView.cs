@@ -45,10 +45,10 @@ namespace Project.UI.Common {
                     ),
                     UIFactory.Content().Children(
                         UIFactory.ColumnGroup().Classes( "dark2", "large", "grow-1" ).Children(
-                            masterVolume = UIFactory.Slider( "Master Volume", 0, 1 ).Name( "master-volume" ).Classes( "label-width-25" ),
-                            musicVolume = UIFactory.Slider( "Music Volume", 0, 1 ).Name( "music-volume" ).Classes( "label-width-25" ),
-                            sfxVolume = UIFactory.Slider( "Sfx Volume", 0, 1 ).Name( "sfx-volume" ).Classes( "label-width-25" ),
-                            gameVolume = UIFactory.Slider( "Game Volume", 0, 1 ).Name( "game-volume" ).Classes( "label-width-25" )
+                            masterVolume = UIFactory.Slider( "Master Volume" ).Name( "master-volume" ).Classes( "label-width-25" ),
+                            musicVolume = UIFactory.Slider( "Music Volume" ).Name( "music-volume" ).Classes( "label-width-25" ),
+                            sfxVolume = UIFactory.Slider( "Sfx Volume" ).Name( "sfx-volume" ).Classes( "label-width-25" ),
+                            gameVolume = UIFactory.Slider( "Game Volume" ).Name( "game-volume" ).Classes( "label-width-25" )
                         )
                     ),
                     UIFactory.Footer().Children(

@@ -23,17 +23,17 @@ namespace Project.UI {
         public static TextField TextFieldReadOnly(string? label, int maxLength, bool isMultiline) {
             return new TextField( label, maxLength, isMultiline, false, '*' ).Pipe( i => i.isReadOnly = true );
         }
-        public static PopupField<object?> PopupField(string? label, params object?[] choices) {
-            return new PopupField<object?>( label ).Pipe( i => i.choices = choices.ToList() ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
+        public static PopupField<object?> PopupField(string? label) {
+            return new PopupField<object?>( label ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
         }
-        public static PopupField<T> PopupField<T>(string? label, params T[] choices) {
-            return new PopupField<T>( label ).Pipe( i => i.choices = choices.ToList() ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
+        public static PopupField<T> PopupField<T>(string? label) {
+            return new PopupField<T>( label ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
         }
-        public static Slider Slider(string? label, float min, float max) {
-            return new Slider( label, min, max );
+        public static Slider Slider(string? label) {
+            return new Slider( label );
         }
-        public static SliderInt SliderInt(string? label, int min, int max) {
-            return new SliderInt( label, min, max );
+        public static SliderInt SliderInt(string? label) {
+            return new SliderInt( label );
         }
         public static Toggle Toggle(string? label) {
             return new Toggle( label );
