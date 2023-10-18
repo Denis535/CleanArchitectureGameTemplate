@@ -189,8 +189,8 @@ namespace Project.UI {
             }
         }
         private void OnCancel(NavigationCancelEvent evt) {
-            var view = (UIWidgetViewBase) evt.currentTarget;
-            var button = view.VisualElement.Query<Button>().Where( i => i.IsCancel() || i.IsQuit() || i.name == "resume" ).First();
+            var view = (VisualElement) evt.currentTarget;
+            var button = view.Query<Button>().Where( i => i.IsCancel() || i.IsQuit() || i.name == "resume" ).First();
             if (button != null) {
                 using (var click = ClickEvent.GetPooled()) {
                     click.target = button;

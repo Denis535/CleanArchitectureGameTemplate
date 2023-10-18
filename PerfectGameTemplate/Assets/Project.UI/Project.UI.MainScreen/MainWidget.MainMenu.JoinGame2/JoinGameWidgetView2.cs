@@ -64,7 +64,7 @@ namespace Project.UI.MainScreen {
             public override VisualElement VisualElement { get; }
             public ElementWrapper View { get; }
             public LabelWrapper Title { get; }
-            public FieldWrapper<string> GameName { get; }
+            public TextWrapper<string> GameName { get; }
             public PopupWrapper<GameMode> GameMode { get; }
             public PopupWrapper<GameWorld> GameWorld { get; }
             public ToggleWrapper<bool> IsGamePrivate { get; }
@@ -106,7 +106,7 @@ namespace Project.UI.MainScreen {
             public override VisualElement VisualElement { get; }
             public ElementWrapper View { get; }
             public LabelWrapper Title { get; }
-            public FieldWrapper<string> PlayerName { get; }
+            public TextWrapper<string> PlayerName { get; }
             public PopupWrapper<PlayerRole> PlayerRole { get; }
 
             // Constructor

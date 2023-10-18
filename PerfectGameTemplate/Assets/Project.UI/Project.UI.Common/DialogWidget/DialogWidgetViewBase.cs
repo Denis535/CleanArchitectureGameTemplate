@@ -24,9 +24,7 @@ namespace Project.UI.Common {
         public DialogWidgetViewBase(UIWidgetBase widget) : base( widget ) {
             VisualElement = CreateVisualElement( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
             View = view.Wrap();
-            View.OnAttachToPanel( evt => {
-                PlayAppearanceAnimation( View.VisualElement );
-            } );
+            View.OnAttachToPanel( i => PlayAppearanceAnimation( i.VisualElement ) );
             Card = card.Wrap();
             Header = header.Wrap().Pipe( i => i.IsDisplayed = false );
             Content = content.Wrap().Pipe( i => i.IsDisplayed = false );

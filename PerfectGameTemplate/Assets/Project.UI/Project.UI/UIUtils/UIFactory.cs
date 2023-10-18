@@ -23,6 +23,9 @@ namespace Project.UI {
         public static TextField TextFieldReadOnly(string? label, int maxLength, bool isMultiline) {
             return new TextField( label, maxLength, isMultiline, false, '*' ).Pipe( i => i.isReadOnly = true );
         }
+        public static PopupField<object?> PopupField(string? label, params object?[] choices) {
+            return new PopupField<object?>( label ).Pipe( i => i.choices = choices.ToList() ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
+        }
         public static PopupField<T> PopupField<T>(string? label, params T[] choices) {
             return new PopupField<T>( label ).Pipe( i => i.choices = choices.ToList() ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
         }
@@ -109,15 +112,15 @@ namespace Project.UI {
         }
 
         // Helpers/GetDisplayString
-        private static string GetDisplayString<T>(T obj) {
+        private static string GetDisplayString<T>(T value) {
             // GameDesc
-            if (obj is GameMode gameMode) return GetDisplayString( gameMode );
-            if (obj is GameWorld gameWorld) return GetDisplayString( gameWorld );
+            if (value is GameMode gameMode) return GetDisplayString( gameMode );
+            if (value is GameWorld gameWorld) return GetDisplayString( gameWorld );
             // PlayerDesc
-            if (obj is PlayerRole playerRole) return GetDisplayString( playerRole );
+            if (value is PlayerRole playerRole) return GetDisplayString( playerRole );
             // Misc
-            if (obj is Resolution resolution) return GetDisplayString( resolution );
-            return obj?.ToString() ?? "Null";
+            if (value is Resolution resolution) return GetDisplayString( resolution );
+            return value?.ToString() ?? "Null";
         }
         // Helpers/GetDisplayString/GameDesc
         private static string GetDisplayString(GameMode value) {

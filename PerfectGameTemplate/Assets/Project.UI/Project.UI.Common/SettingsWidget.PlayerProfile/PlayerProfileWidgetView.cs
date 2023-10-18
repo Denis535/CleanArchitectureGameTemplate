@@ -13,7 +13,7 @@ namespace Project.UI.Common {
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
         public LabelWrapper Title { get; }
-        public FieldWrapper<string> Name { get; }
+        public TextWrapper<string> Name { get; }
         public ButtonWrapper Okey { get; }
         public ButtonWrapper Back { get; }
 

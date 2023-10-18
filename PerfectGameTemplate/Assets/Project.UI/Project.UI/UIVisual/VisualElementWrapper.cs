@@ -45,7 +45,6 @@ namespace Project.UI {
         public static ElementWrapper Wrap(this VisualElement visualElement) {
             return new ElementWrapper( visualElement );
         }
-        // Text
         public static LabelWrapper Wrap(this Label visualElement) {
             return new LabelWrapper( visualElement );
         }
@@ -53,8 +52,8 @@ namespace Project.UI {
             return new ButtonWrapper( visualElement );
         }
         // Field
-        public static FieldWrapper<T> Wrap<T>(this BaseField<T?> visualElement) where T : notnull {
-            return new FieldWrapper<T>( visualElement );
+        public static TextWrapper<string> Wrap(this BaseField<string?> visualElement) {
+            return new TextWrapper<string>( visualElement );
         }
         public static PopupWrapper<T> Wrap<T>(this PopupField<T?> visualElement) where T : notnull {
             return new PopupWrapper<T>( visualElement );
@@ -87,10 +86,10 @@ namespace Project.UI {
         }
 
         // OnChange
-        public static void OnChange<T>(this FieldWrapper<T> wrapper, Action<VisualElementWrapper, T?>? callback) where T : notnull {
+        public static void OnChange(this TextWrapper<string> wrapper, Action<VisualElementWrapper, string?>? callback) {
             wrapper.VisualElement.OnChange( evt => callback?.Invoke( wrapper, evt.newValue ) );
         }
-        public static void OnChange<T>(this FieldWrapper<T> wrapper, Action<VisualElementWrapper, T?, T?>? callback) where T : notnull {
+        public static void OnChange(this TextWrapper<string> wrapper, Action<VisualElementWrapper, string?, string?>? callback) {
             wrapper.VisualElement.OnChange( evt => callback?.Invoke( wrapper, evt.newValue, evt.previousValue ) );
         }
 
@@ -111,10 +110,10 @@ namespace Project.UI {
         }
 
         // OnChange
-        public static void OnChange<T>(this ToggleWrapper<T> wrapper, Action<VisualElementWrapper, bool>? callback) where T : struct, IComparable<T> {
+        public static void OnChange(this ToggleWrapper<bool> wrapper, Action<VisualElementWrapper, bool>? callback) {
             wrapper.VisualElement.OnChange( evt => callback?.Invoke( wrapper, evt.newValue ) );
         }
-        public static void OnChange<T>(this ToggleWrapper<T> wrapper, Action<VisualElementWrapper, bool, bool>? callback) where T : struct, IComparable<T> {
+        public static void OnChange(this ToggleWrapper<bool> wrapper, Action<VisualElementWrapper, bool, bool>? callback) {
             wrapper.VisualElement.OnChange( evt => callback?.Invoke( wrapper, evt.newValue, evt.previousValue ) );
         }
 
@@ -126,7 +125,6 @@ namespace Project.UI {
         }
 
     }
-    // Text
     public class LabelWrapper : VisualElementWrapper<Label> {
 
         public string? Text {
@@ -150,14 +148,15 @@ namespace Project.UI {
 
     }
     // Field
-    public class FieldWrapper<T> : VisualElementWrapper<BaseField<T?>> where T : notnull {
+    public class TextWrapper<T> : VisualElementWrapper<BaseField<string?>> where T : notnull {
 
-        public T? Value {
+        public string? Value {
             get => VisualElement.value;
             set => VisualElement.value = value;
         }
 
-        public FieldWrapper(BaseField<T?> field) : base( field ) {
+        public TextWrapper(BaseField<string?> field) : base( field ) {
+            Assert.Object.Message( $"TextWrapper {this} is invalid" ).Valid( this is TextWrapper<string> );
         }
 
     }
