@@ -5,6 +5,7 @@ namespace Project.UI {
     using System.Collections.Generic;
     using System.Linq;
     using UnityEngine;
+    using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
     public abstract class VisualElementWrapper {
@@ -55,6 +56,16 @@ namespace Project.UI {
         }
         public bool Contains(VisualElement element) {
             return VisualElement.Contains( element );
+        }
+
+        public void Add(UISubViewBase view) {
+            VisualElement.Add( view.VisualElement );
+        }
+        public void Remove(UISubViewBase view) {
+            VisualElement.Remove( view.VisualElement );
+        }
+        public bool Contains(UISubViewBase view) {
+            return VisualElement.Contains( view.VisualElement );
         }
 
     }
@@ -165,6 +176,16 @@ namespace Project.UI {
         }
         public bool Contains(VisualElement element) {
             return VisualElement.Contains( element );
+        }
+
+        public void Add(UISubViewBase view) {
+            VisualElement.Add( view.VisualElement );
+        }
+        public void Remove(UISubViewBase view) {
+            VisualElement.Remove( view.VisualElement );
+        }
+        public bool Contains(UISubViewBase view) {
+            return VisualElement.Contains( view.VisualElement );
         }
 
     }

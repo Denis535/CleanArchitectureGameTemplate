@@ -28,10 +28,6 @@ namespace Project.UI {
             var view = new CreateGameWidgetView( widget );
             return view;
         }
-        public static CreateGameWidgetView2 CreateGameWidget2(CreateGameWidget2 widget) {
-            var view = new CreateGameWidgetView2( widget );
-            return view;
-        }
         public static JoinGameWidgetView JoinGameWidget(JoinGameWidget widget) {
             var view = new JoinGameWidgetView( widget );
             return view;

@@ -20,9 +20,6 @@ namespace Project.UI {
         public static CreateGameWidget CreateGameWidget() {
             return new CreateGameWidget();
         }
-        public static CreateGameWidget2 CreateGameWidget2() {
-            return new CreateGameWidget2();
-        }
         public static JoinGameWidget JoinGameWidget() {
             return new JoinGameWidget();
         }
