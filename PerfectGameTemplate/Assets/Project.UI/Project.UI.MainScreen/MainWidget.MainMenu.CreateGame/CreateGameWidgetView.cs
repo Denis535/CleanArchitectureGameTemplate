@@ -48,7 +48,7 @@ namespace Project.UI.MainScreen {
                             gameViewSlot = UIFactory.Slot( "game-view-slot" ).Classes( "grow-1", "basis-0" ),
                             playerViewSlot = UIFactory.Slot( "player-view-slot" ).Classes( "grow-1", "basis-0" )
                         ),
-                        UIFactory.RowScope().Classes( "medium", "grow-1" ).Children(
+                        UIFactory.RowScope().Classes( "grow-1" ).Children(
                             lobbyViewSlot = UIFactory.Slot( "lobby-view-slot" ).Classes( "grow-1", "basis-0" ),
                             chatViewSlot = UIFactory.Slot( "chat-view-slot" ).Classes( "grow-1", "basis-0" )
                         )
@@ -159,7 +159,7 @@ namespace Project.UI.MainScreen {
 
             // Helpers
             private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
-                return view = UIFactory.ColumnGroup().Classes( "light-5", "medium", "grow-1" ).Children(
+                return view = UIFactory.ColumnGroup().Classes( "dark-5", "medium", "grow-1" ).Children(
                     title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" )
                 );
             }
@@ -185,7 +185,7 @@ namespace Project.UI.MainScreen {
 
             // Helpers
             private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
-                return view = UIFactory.ColumnGroup().Classes( "light-5", "medium", "grow-1" ).Children(
+                return view = UIFactory.ColumnGroup().Classes( "dark-5", "medium", "grow-1" ).Children(
                     title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title" )
                 );
             }

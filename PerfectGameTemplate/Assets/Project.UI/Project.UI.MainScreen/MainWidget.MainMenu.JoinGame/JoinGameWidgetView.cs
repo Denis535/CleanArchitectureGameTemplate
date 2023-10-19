@@ -15,16 +15,20 @@ namespace Project.UI.MainScreen {
         public LabelWrapper Title { get; }
         public SlotWrapper GameViewSlot { get; }
         public SlotWrapper PlayerViewSlot { get; }
+        public SlotWrapper LobbyViewSlot { get; }
+        public SlotWrapper ChatViewSlot { get; }
         public ButtonWrapper Okey { get; }
         public ButtonWrapper Back { get; }
 
         // Constructor
         public JoinGameWidgetView(JoinGameWidget widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view, out var title, out var gameViewSlot, out var playerViewSlot, out var okey, out var back );
+            VisualElement = CreateVisualElement( out var view, out var title, out var gameViewSlot, out var playerViewSlot, out var lobbyViewSlot, out var chatViewSlot, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             GameViewSlot = gameViewSlot.Wrap();
             PlayerViewSlot = playerViewSlot.Wrap();
+            LobbyViewSlot = lobbyViewSlot.Wrap();
+            ChatViewSlot = chatViewSlot.Wrap();
             Okey = okey.Wrap();
             Back = back.Wrap();
         }
@@ -33,7 +37,7 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static View CreateVisualElement(out View view, out Label title, out Slot gameViewSlot, out Slot playerViewSlot, out Button okey, out Button back) {
+        private static View CreateVisualElement(out View view, out Label title, out Slot gameViewSlot, out Slot playerViewSlot, out Slot lobbyViewSlot, out Slot chatViewSlot, out Button okey, out Button back) {
             return view = UIFactory.LargeWidget( "join-game-widget-view" ).Children(
                 UIFactory.Card().Children(
                     UIFactory.Header().Children(
@@ -44,8 +48,9 @@ namespace Project.UI.MainScreen {
                             gameViewSlot = UIFactory.Slot( "game-view-slot" ).Classes( "grow-1", "basis-0" ),
                             playerViewSlot = UIFactory.Slot( "player-view-slot" ).Classes( "grow-1", "basis-0" )
                         ),
-                        UIFactory.ColumnGroup().Classes( "dark-5", "medium", "grow-1" ).Children(
-                            UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" )
+                        UIFactory.RowScope().Classes( "grow-1" ).Children(
+                            lobbyViewSlot = UIFactory.Slot( "lobby-view-slot" ).Classes( "grow-1", "basis-0" ),
+                            chatViewSlot = UIFactory.Slot( "chat-view-slot" ).Classes( "grow-1", "basis-0" )
                         )
                     ),
                     UIFactory.Footer().Children(
@@ -130,6 +135,58 @@ namespace Project.UI.MainScreen {
                     UIFactory.RowScope().Children(
                         playerRole = UIFactory.PopupField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" )
                     )
+                );
+            }
+
+        }
+        // LobbyView
+        public class LobbyView_ : UISubViewBase {
+
+            // View
+            public override VisualElement VisualElement { get; }
+            public ElementWrapper View { get; }
+            public LabelWrapper Title { get; }
+
+            // Constructor
+            public LobbyView_(JoinGameWidget widget) : base( widget ) {
+                VisualElement = CreateVisualElement( out var view, out var title );
+                View = view.Wrap();
+                Title = title.Wrap();
+            }
+            public override void Dispose() {
+                base.Dispose();
+            }
+
+            // Helpers
+            private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
+                return view = UIFactory.ColumnGroup().Classes( "dark-5", "medium", "grow-1" ).Children(
+                    title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" )
+                );
+            }
+
+        }
+        // ChatView
+        public class ChatView_ : UISubViewBase {
+
+            // View
+            public override VisualElement VisualElement { get; }
+            public ElementWrapper View { get; }
+            public LabelWrapper Title { get; }
+
+            // Constructor
+            public ChatView_(JoinGameWidget widget) : base( widget ) {
+                VisualElement = CreateVisualElement( out var view, out var title );
+                View = view.Wrap();
+                Title = title.Wrap();
+            }
+            public override void Dispose() {
+                base.Dispose();
+            }
+
+            // Helpers
+            private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
+                return view = UIFactory.ColumnGroup().Classes( "dark-5", "medium", "grow-1" ).Children(
+                    title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title" )
                 );
             }
 

@@ -32,10 +32,6 @@ namespace Project.UI {
             var view = new JoinGameWidgetView( widget );
             return view;
         }
-        public static JoinGameWidgetView2 JoinGameWidget2(JoinGameWidget2 widget) {
-            var view = new JoinGameWidgetView2( widget );
-            return view;
-        }
         public static LoadingWidgetView LoadingWidget(LoadingWidget widget) {
             var view = new LoadingWidgetView( widget );
             return view;
