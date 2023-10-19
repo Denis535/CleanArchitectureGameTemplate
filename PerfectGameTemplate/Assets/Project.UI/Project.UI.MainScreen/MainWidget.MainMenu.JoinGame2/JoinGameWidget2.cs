@@ -76,11 +76,11 @@ namespace Project.UI.MainScreen {
             var view = UIViewFactory.JoinGameWidget2( widget );
             view.Okey.OnClick( i => {
                 var gameName = widget.GameView.GameName.Value!;
-                var gameMode = widget.GameView.GameMode.Value;
-                var gameWorld = widget.GameView.GameWorld.Value;
+                var gameMode = (GameMode) widget.GameView.GameMode.Value!;
+                var gameWorld = (GameWorld) widget.GameView.GameWorld.Value!;
                 var isGamePrivate = widget.GameView.IsGamePrivate.Value;
                 var playerName = widget.PlayerView.PlayerName.Value!;
-                var playerRole = widget.PlayerView.PlayerRole.Value;
+                var playerRole = (PlayerRole) widget.PlayerView.PlayerRole.Value!;
                 {
                     var gameDesc = new GameDesc( gameName, gameMode, gameWorld, isGamePrivate );
                     var playerDesc = new PlayerDesc( playerName, playerRole );

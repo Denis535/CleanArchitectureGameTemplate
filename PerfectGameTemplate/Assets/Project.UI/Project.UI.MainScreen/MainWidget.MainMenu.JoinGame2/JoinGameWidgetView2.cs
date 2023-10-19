@@ -3,7 +3,6 @@ namespace Project.UI.MainScreen {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using Project.Entities.GameScene;
     using UnityEngine;
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
@@ -65,8 +64,8 @@ namespace Project.UI.MainScreen {
             public ElementWrapper View { get; }
             public LabelWrapper Title { get; }
             public TextWrapper<string> GameName { get; }
-            public PopupWrapper<GameMode> GameMode { get; }
-            public PopupWrapper<GameWorld> GameWorld { get; }
+            public PopupWrapper<object> GameMode { get; }
+            public PopupWrapper<object> GameWorld { get; }
             public ToggleWrapper<bool> IsGamePrivate { get; }
 
             // Constructor
@@ -84,15 +83,15 @@ namespace Project.UI.MainScreen {
             }
 
             // Helpers
-            private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField gameName, out PopupField<GameMode> gameMode, out PopupField<GameWorld> gameWorld, out Toggle isGamePrivate) {
+            private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField gameName, out PopupField<object?> gameMode, out PopupField<object?> gameWorld, out Toggle isGamePrivate) {
                 return view = UIFactory.ColumnGroup().Classes( "light5", "medium", "grow-1" ).Children(
                     title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
                     UIFactory.RowScope().Children(
                         gameName = UIFactory.TextFieldReadOnly( "Name", 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
                     ),
                     UIFactory.RowScope().Children(
-                        gameMode = UIFactory.PopupField<GameMode>( "Mode" ).Name( "game-mode" ).Classes( ".label-width-150px", "grow-1" ),
-                        gameWorld = UIFactory.PopupField<GameWorld>( "World" ).Name( "game-world" ).Classes( ".label-width-150px", "grow-1" ),
+                        gameMode = UIFactory.PopupField( "Mode" ).Name( "game-mode" ).Classes( ".label-width-150px", "grow-1" ),
+                        gameWorld = UIFactory.PopupField( "World" ).Name( "game-world" ).Classes( ".label-width-150px", "grow-1" ),
                         isGamePrivate = UIFactory.Toggle( "Private" ).Name( "is-game-private" ).Classes( ".label-width-150px", "grow-0" )
                     )
                 );
@@ -107,7 +106,7 @@ namespace Project.UI.MainScreen {
             public ElementWrapper View { get; }
             public LabelWrapper Title { get; }
             public TextWrapper<string> PlayerName { get; }
-            public PopupWrapper<PlayerRole> PlayerRole { get; }
+            public PopupWrapper<object> PlayerRole { get; }
 
             // Constructor
             public PlayerView_(JoinGameWidget2 widget) : base( widget ) {
@@ -122,14 +121,14 @@ namespace Project.UI.MainScreen {
             }
 
             // Helpers
-            private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField playerName, out PopupField<PlayerRole> playerRole) {
+            private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField playerName, out PopupField<object?> playerRole) {
                 return view = UIFactory.ColumnGroup().Classes( "light5", "medium", "grow-1" ).Children(
                     title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
                     UIFactory.RowScope().Children(
                         playerName = UIFactory.TextFieldReadOnly( "Name", 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
                     ),
                     UIFactory.RowScope().Children(
-                        playerRole = UIFactory.PopupField<PlayerRole>( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" )
+                        playerRole = UIFactory.PopupField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" )
                     )
                 );
             }

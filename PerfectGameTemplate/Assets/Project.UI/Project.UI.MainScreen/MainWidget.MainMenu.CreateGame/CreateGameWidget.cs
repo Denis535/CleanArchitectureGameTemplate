@@ -3,6 +3,7 @@ namespace Project.UI.MainScreen {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using Project.App;
     using Project.Entities.GameScene;
     using UnityEngine;
@@ -42,11 +43,11 @@ namespace Project.UI.MainScreen {
         // OnAttach
         public override void OnBeforeAttach() {
             GameView.GameName.Value = "Anonymous";
-            GameView.GameMode.ValueChoices = (GameMode._1x4, Enum2.GetValues<GameMode>());
-            GameView.GameWorld.ValueChoices = (GameWorld.TestWorld1, Enum2.GetValues<GameWorld>());
+            GameView.GameMode.ValueChoices = (GameMode._1x4, Enum2.GetValues<GameMode>().Cast<object?>().ToArray());
+            GameView.GameWorld.ValueChoices = (GameWorld.TestWorld1, Enum2.GetValues<GameWorld>().Cast<object?>().ToArray());
             GameView.IsGamePrivate.Value = true;
             PlayerView.PlayerName.Value = PlayerProfile.PlayerName;
-            PlayerView.PlayerRole.ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>());
+            PlayerView.PlayerRole.ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>().Cast<object?>().ToArray());
         }
         public override void OnAttach() {
         }

@@ -3,6 +3,7 @@ namespace Project.UI.Common {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using Project.App;
     using UnityEngine;
     using UnityEngine.Framework;
@@ -27,7 +28,7 @@ namespace Project.UI.Common {
         // OnAttach
         public override void OnBeforeAttach() {
             View.IsFullScreen.Value = VideoSettings.IsFullScreen;
-            View.ScreenResolution.ValueChoices = (VideoSettings.ScreenResolution, VideoSettings.ScreenResolutions);
+            View.ScreenResolution.ValueChoices = (VideoSettings.ScreenResolution, VideoSettings.ScreenResolutions.Cast<object?>().ToArray());
             View.IsVSync.Value = VideoSettings.IsVSync;
         }
         public override void OnAttach() {
@@ -45,14 +46,14 @@ namespace Project.UI.Common {
                 videoSettings.IsFullScreen = isFullScreen;
             } );
             view.ScreenResolution.OnChange( (i, screenResolution) => {
-                videoSettings.ScreenResolution = screenResolution;
+                videoSettings.ScreenResolution = (Resolution) screenResolution!;
             } );
             view.IsVSync.OnChange( (i, isVSync) => {
                 videoSettings.IsVSync = isVSync;
             } );
             view.Okey.OnClick( i => {
                 videoSettings.IsFullScreen = view.IsFullScreen.Value;
-                videoSettings.ScreenResolution = view.ScreenResolution.Value;
+                videoSettings.ScreenResolution = (Resolution) view.ScreenResolution.Value!;
                 videoSettings.IsVSync = view.IsVSync.Value;
                 videoSettings.Save();
                 widget.DetachSelf();

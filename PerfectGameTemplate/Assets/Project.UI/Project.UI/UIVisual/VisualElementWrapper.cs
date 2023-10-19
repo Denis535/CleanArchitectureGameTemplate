@@ -40,7 +40,7 @@ namespace Project.UI {
     // ElementWrapper
     public class ElementWrapper : VisualElementWrapper<VisualElement> {
 
-        public IReadOnlyList<VisualElement> Elements {
+        public IReadOnlyList<VisualElement> Children {
             get => (IReadOnlyList<VisualElement>) VisualElement.Children();
         }
 
@@ -150,7 +150,7 @@ namespace Project.UI {
     // SlotWrapper
     public class SlotWrapper : VisualElementWrapper<Slot> {
 
-        public IReadOnlyList<VisualElement> Elements {
+        public IReadOnlyList<VisualElement> Children {
             get => (IReadOnlyList<VisualElement>) VisualElement.Children();
         }
 

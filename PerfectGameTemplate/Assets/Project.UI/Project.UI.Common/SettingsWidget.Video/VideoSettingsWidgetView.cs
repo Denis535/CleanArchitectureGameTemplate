@@ -14,7 +14,7 @@ namespace Project.UI.Common {
         public ElementWrapper View { get; }
         public LabelWrapper Title { get; }
         public ToggleWrapper<bool> IsFullScreen { get; }
-        public PopupWrapper<Resolution> ScreenResolution { get; }
+        public PopupWrapper<object> ScreenResolution { get; }
         public ToggleWrapper<bool> IsVSync { get; }
         public ButtonWrapper Okey { get; }
         public ButtonWrapper Back { get; }
@@ -35,7 +35,7 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static View CreateVisualElement(out View view, out Label title, out Toggle isFullScreen, out PopupField<Resolution> screenResolution, out Toggle isVSync, out Button okey, out Button back) {
+        private static View CreateVisualElement(out View view, out Label title, out Toggle isFullScreen, out PopupField<object?> screenResolution, out Toggle isVSync, out Button okey, out Button back) {
             return view = UIFactory.MediumWidget( "video-settings-widget-view" ).Children(
                 UIFactory.Card().Children(
                     UIFactory.Header().Children(
@@ -44,7 +44,7 @@ namespace Project.UI.Common {
                     UIFactory.Content().Children(
                         UIFactory.ColumnGroup().Classes( "dark2", "large", "grow-1" ).Children(
                             isFullScreen = UIFactory.Toggle( "Full Screen" ).Name( "is-full-screen" ).Classes( "label-width-25" ),
-                            screenResolution = UIFactory.PopupField<Resolution>( "Screen Resolution" ).Name( "screen-resolution" ).Classes( "label-width-25" ),
+                            screenResolution = UIFactory.PopupField( "Screen Resolution" ).Name( "screen-resolution" ).Classes( "label-width-25" ),
                             isVSync = UIFactory.Toggle( "V-Sync" ).Name( "is-v-sync" ).Classes( "label-width-25" )
                         )
                     ),
