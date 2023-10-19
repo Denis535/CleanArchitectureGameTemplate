@@ -81,9 +81,9 @@ views = {
     // effect
     hover-effect:                      create-view( create-foreground(null,           fnt(), txt()), create-background(hover-effect,    null       ), create-border(null,            null           ) ),
     focus-effect:                      create-view( create-foreground(focus-effect,   fnt(), txt()), create-background(null,            null       ), create-border(focus-effect,    null           ) ),
-    focus-effect-without-foreground:   create-view( create-foreground(null,           fnt(), txt()), create-background(null,            null       ), create-border(focus-effect,    null           ) ),
+    focus-effect--without-foreground:  create-view( create-foreground(null,           fnt(), txt()), create-background(null,            null       ), create-border(focus-effect,    null           ) ),
     invalid-effect:                    create-view( create-foreground(invalid-effect, fnt(), txt()), create-background(null,            null       ), create-border(invalid-effect,  null           ) ),
-    invalid-effect-without-foreground: create-view( create-foreground(null,           fnt(), txt()), create-background(null,            null       ), create-border(invalid-effect,  null           ) )
+    invalid-effect--without-foreground:create-view( create-foreground(null,           fnt(), txt()), create-background(null,            null       ), create-border(invalid-effect,  null           ) )
 }
 layouts = {
     // element
@@ -379,9 +379,9 @@ dropdown-view--scroll-view--item-text()
     &__input
         field-input()
         :focus > &
-            add-view(focus-effect-without-foreground)
+            add-view(focus-effect--without-foreground)
         .invalid > &
-            add-view(invalid-effect-without-foreground)
+            add-view(invalid-effect--without-foreground)
 
 // text-field
 .unity-base-text-field
