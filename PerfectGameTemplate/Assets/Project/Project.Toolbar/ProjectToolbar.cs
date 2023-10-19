@@ -8,6 +8,7 @@ namespace Project.Toolbar {
     using System.Linq;
     using System.Text;
     using System.Text.RegularExpressions;
+    using System.Threading;
     using Project.Tools;
     using Project.UI;
     using UnityEditor;
@@ -125,27 +126,27 @@ namespace Project.Toolbar {
         // OpenAssets
         [MenuItem( "Project/Open Assets (UIAudioTheme)", priority = 1000 )]
         internal static void OpenAssets_UIAudioTheme() {
-            OpenAssets( GetPatterns(
+            OpenAssetsReverse(
                 "Assets/Project.UI/Project.UI/*Theme.cs",
                 // MainScreen
                 "Assets/Project.UI/Project.UI.MainScreen/*Theme.cs",
                 // GameScreen
                 "Assets/Project.UI/Project.UI.GameScreen/*Theme.cs"
-                ) );
+                );
         }
         [MenuItem( "Project/Open Assets (UIScreen)", priority = 1001 )]
         internal static void OpenAssets_UIScreen() {
-            OpenAssets( GetPatterns(
+            OpenAssetsReverse(
                 "Assets/Project.UI/Project.UI/*Screen.cs",
                 // MainScreen
                 "Assets/Project.UI/Project.UI.MainScreen/*Screen.cs",
                 // GameScreen
                 "Assets/Project.UI/Project.UI.GameScreen/*Screen.cs"
-                ) );
+                );
         }
         [MenuItem( "Project/Open Assets (UIWidget)", priority = 1002 )]
         internal static void OpenAssets_UIWidget() {
-            OpenAssets( GetPatterns(
+            OpenAssetsReverse(
                 "Assets/Project.UI/Project.UI/*(WidgetBase.cs|Widget.cs|Widget2.cs)",
                 // Common
                 "Assets/Project.UI/Project.UI.Common/*(WidgetBase.cs|Widget.cs|Widget2.cs)",
@@ -153,11 +154,11 @@ namespace Project.Toolbar {
                 "Assets/Project.UI/Project.UI.MainScreen/*(WidgetBase.cs|Widget.cs|Widget2.cs)",
                 // GameScreen
                 "Assets/Project.UI/Project.UI.GameScreen/*(WidgetBase.cs|Widget.cs|Widget2.cs)"
-                ) );
+                );
         }
         [MenuItem( "Project/Open Assets (UIView)", priority = 1003 )]
         internal static void OpenAssets_UIView() {
-            OpenAssets( GetPatterns(
+            OpenAssetsReverse(
                 "Assets/Project.UI/Project.UI/*(ViewBase.cs|View.cs|View2.cs)",
                 // Common
                 "Assets/Project.UI/Project.UI.Common/*(ViewBase.cs|View.cs|View2.cs)",
@@ -165,26 +166,32 @@ namespace Project.Toolbar {
                 "Assets/Project.UI/Project.UI.MainScreen/*(ViewBase.cs|View.cs|View2.cs)",
                 // GameScreen
                 "Assets/Project.UI/Project.UI.GameScreen/*(ViewBase.cs|View.cs|View2.cs)"
-                ) );
+                );
+        }
+        [MenuItem( "Project/Open Assets (StyleSheet)", priority = 1004 )]
+        internal static void OpenAssets_StyleSheet() {
+            OpenAssets(
+                "Assets/Project.UI/Assets.Project.UI/*.styl"
+                );
         }
 
         // Helpers
-        private static void OpenAssets(params Regex[] patterns) {
-            var paths = GetPaths();
-            foreach (var pattern in patterns.Reverse()) {
-                foreach (var path in paths.Reverse()) {
-                    if (pattern.IsMatch( path )) {
-                        AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
-                    }
-                }
+        private static void OpenAssets(params string[] patterns) {
+            foreach (var path in GetPaths( patterns )) {
+                AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
+                Thread.Sleep( 500 );
             }
         }
-        private static Regex[] GetPatterns(params string[] patterns) {
-            return patterns.Select( GetPattern ).ToArray();
+        private static void OpenAssetsReverse(params string[] patterns) {
+            foreach (var path in GetPaths( patterns ).Reverse()) {
+                AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
+                Thread.Sleep( 500 );
+            }
         }
-        private static Regex GetPattern(string pattern) {
-            pattern = "^" + pattern.Replace( "*", "(.*?)" ) + "$";
-            return new Regex( pattern, RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace );
+        // Helpers
+        private static string[] GetPaths(string[] patterns) {
+            var patterns_ = GetPatterns( patterns );
+            return GetPaths().Where( path => patterns_.Any( pattern => pattern.IsMatch( path ) ) ).ToArray();
         }
         private static string[] GetPaths() {
             var path = Directory.GetCurrentDirectory();
@@ -201,6 +208,14 @@ namespace Project.Toolbar {
                 yield return dir;
                 foreach (var i in GetPaths( dir )) yield return i;
             }
+        }
+        // Helpers
+        private static Regex[] GetPatterns(params string[] patterns) {
+            return patterns.Select( GetPattern ).ToArray();
+        }
+        private static Regex GetPattern(string pattern) {
+            pattern = "^" + pattern.Replace( "*", "(.*?)" ) + "$";
+            return new Regex( pattern, RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace );
         }
 
     }

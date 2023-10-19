@@ -44,7 +44,7 @@ namespace Project.UI.MainScreen {
                             gameViewSlot = UIFactory.Slot( "game-view-slot" ).Classes( "grow-1", "basis-0" ),
                             playerViewSlot = UIFactory.Slot( "player-view-slot" ).Classes( "grow-1", "basis-0" )
                         ),
-                        UIFactory.ColumnGroup().Classes( "dark5", "medium", "grow-1" ).Children(
+                        UIFactory.ColumnGroup().Classes( "dark-5", "medium", "grow-1" ).Children(
                             UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" )
                         )
                     ),
@@ -84,15 +84,15 @@ namespace Project.UI.MainScreen {
 
             // Helpers
             private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField gameName, out PopupField<object?> gameMode, out PopupField<object?> gameWorld, out Toggle isGamePrivate) {
-                return view = UIFactory.ColumnGroup().Classes( "light5", "medium", "grow-1" ).Children(
+                return view = UIFactory.ColumnGroup().Classes( "light-5", "medium", "grow-1" ).Children(
                     title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
                     UIFactory.RowScope().Children(
                         gameName = UIFactory.TextFieldReadOnly( "Name", 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
                     ),
                     UIFactory.RowScope().Children(
-                        gameMode = UIFactory.PopupField( "Mode" ).Name( "game-mode" ).Classes( ".label-width-150px", "grow-1" ),
-                        gameWorld = UIFactory.PopupField( "World" ).Name( "game-world" ).Classes( ".label-width-150px", "grow-1" ),
-                        isGamePrivate = UIFactory.Toggle( "Private" ).Name( "is-game-private" ).Classes( ".label-width-150px", "grow-0" )
+                        gameMode = UIFactory.PopupField( "Mode" ).Name( "game-mode" ).Classes( "label-width-150px", "grow-1" ),
+                        gameWorld = UIFactory.PopupField( "World" ).Name( "game-world" ).Classes( "label-width-150px", "grow-1" ),
+                        isGamePrivate = UIFactory.Toggle( "Private" ).Name( "is-game-private" ).Classes( "label-width-150px", "grow-0" )
                     )
                 );
             }
@@ -122,7 +122,7 @@ namespace Project.UI.MainScreen {
 
             // Helpers
             private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField playerName, out PopupField<object?> playerRole) {
-                return view = UIFactory.ColumnGroup().Classes( "light5", "medium", "grow-1" ).Children(
+                return view = UIFactory.ColumnGroup().Classes( "light-5", "medium", "grow-1" ).Children(
                     title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
                     UIFactory.RowScope().Children(
                         playerName = UIFactory.TextFieldReadOnly( "Name", 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
