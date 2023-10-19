@@ -272,7 +272,7 @@
 }
 .dialog-card {
   color: #1a1a1a;
-  background-color: rgba(61,61,67,0.75);
+  background-color: rgba(97,97,107,0.95);
   border-left-color: #995900;
   border-right-color: #995900;
   border-top-color: #995900;
@@ -376,6 +376,32 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
+.info-dialog-card {
+  color: #1a1a1a;
+  background-color: rgba(97,97,107,0.95);
+  border-left-color: #995900;
+  border-right-color: #995900;
+  border-top-color: #995900;
+  border-bottom-color: #995900;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
 .info-dialog-card .header {
   color: #1a1a1a;
   background-color: rgba(103,145,228,0.75);
@@ -456,6 +482,32 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
+.warning-dialog-card {
+  color: #1a1a1a;
+  background-color: rgba(97,97,107,0.95);
+  border-left-color: #995900;
+  border-right-color: #995900;
+  border-top-color: #995900;
+  border-bottom-color: #995900;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
 .warning-dialog-card .header {
   color: #1a1a1a;
   background-color: rgba(228,187,103,0.75);
@@ -535,6 +587,32 @@
   padding-right: 24px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+.error-dialog-card {
+  color: #1a1a1a;
+  background-color: rgba(97,97,107,0.95);
+  border-left-color: #995900;
+  border-right-color: #995900;
+  border-top-color: #995900;
+  border-bottom-color: #995900;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .error-dialog-card .header {
   color: #1a1a1a;
