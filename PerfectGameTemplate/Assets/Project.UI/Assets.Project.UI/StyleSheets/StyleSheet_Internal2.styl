@@ -1,10 +1,52 @@
 // add-view
-add-view-object(view)
-    add-view-objects get(view, 'foreground'), get(view, 'background'), get(view, 'border')
-add-view-objects(foreground, background, border)
-    add-view-foreground get(foreground, 'color'), get(foreground, 'font'), get(foreground, 'text')
-    add-view-background get(background, 'color'), get(background, 'image')
-    add-view-border     get(border, 'color' ), get(border, 'radius')
+add-view(view, color = null, font = null, text = null, bg-color = null, bg-image = null, bd-color = null, bd-radius = null, alpha = 1, alpha2 = (alpha+3)/4) // todo: saturate, light, alpha
+    if (view != null)
+        view = get(views, view) or error('Views has no view: ' + get-string(view))
+        view = clone(view)
+        view.background.color = alpha(view.background.color, alpha(view.background.color) * alpha ) if view.background.color != null
+        view.border.color     = alpha(view.border.color,     alpha(view.border.color)     * alpha2) if view.border.color     != null
+        add-view-skin view
+    add-view-foreground color, font, text
+    add-view-background bg-color, bg-image
+    add-view-border     bd-color, bd-radius
+// add-view
+add-view-skin(view)
+    color     = view.foreground['color']
+    font      = view.foreground['font' ]
+    text      = view.foreground['text' ]
+    bg-color  = view.background['color']
+    bg-image  = view.background['image']
+    bd-color  = view.border['color' ]
+    bd-radius = view.border['radius']
+    add-view-foreground color, font, text
+    add-view-background bg-color, bg-image
+    add-view-border     bd-color, bd-radius
+
+// add-layout
+add-layout(layout, position = null, width = null, height = null, margin = null, border = null, padding = null)
+    if (layout != null)
+        layout = get(layouts, layout) or error('Layouts has no layout: ' + get-string(layout))
+        add-layout-skin layout
+    add-layout-position position[0], position[1], position[2], position[3], position[4]
+    add-layout-size     width, height
+    add-layout-box      margin, border, padding
+// add-layout
+add-layout-skin(layout)
+    pos     = layout.position['position']
+    left    = layout.position['left'    ]
+    right   = layout.position['right'   ]
+    top     = layout.position['top'     ]
+    bottom  = layout.position['bottom'  ]
+    width   = layout.size['width' ]
+    height  = layout.size['height']
+    margin  = layout.box['margin']
+    border  = layout.box['border']
+    padding = layout.box['padding']
+    add-layout-position pos, left, right, top, bottom
+    add-layout-size     width, height
+    add-layout-box      margin, border, padding
+
+// add-view
 add-view-foreground(color, font, text)
     add-property 'color',           color
     add-property 'font',            get(font, 'url'    )
@@ -35,12 +77,6 @@ add-view-border(border-color, border-radius)
     add-property 'border-bottom-right-radius', border-radius[3] or border-radius[0]
 
 // add-layout
-add-layout-object(layout)
-    add-layout-objects get(layout, 'position'), get(layout, 'size'), get(layout, 'box')
-add-layout-objects(position, size, box)
-    add-layout-position get(position, 'position'), get(position, 'left'), get(position, 'right'), get(position, 'top'), get(position, 'bottom')
-    add-layout-size     get(size, 'width'), get(size, 'height')
-    add-layout-box      get(box, 'margin'), get(box, 'border'), get(box, 'padding')
 add-layout-position(position, left = null, right = null, top = null, bottom = null)
     add-property 'position', position
     add-property 'left',     left
@@ -118,12 +154,5 @@ get-url-value(url)
     null
 
 // get
-get(obj, keys...)
-    result = obj
-    for key in keys
-        result = result[get-string(key)]
-    result
-
-// invoke
-invoke(func, args...)
-    func(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9], args[10], args[11], args[12], args[13], args[14], args[15])
+get(obj, key)
+    obj[get-string(key)]

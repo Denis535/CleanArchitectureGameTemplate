@@ -1,4 +1,4 @@
-// create-view
+// create-skin
 create-view(foreground, background, border)
     return {
         foreground: foreground,
@@ -45,7 +45,7 @@ img(url = null, color = null, scale-mode = null, slice-left = null, slice-right 
         slice-scale:  slice-scale
     }
 
-// create-layout
+// create-skin
 create-layout(position, size, box)
     return {
         position: position,
@@ -72,54 +72,24 @@ create-box(margin, border, padding)
         padding: padding
     }
 
-// add-view
-add-view(skin, color = null, font = null, text = null, bg-color = null, bg-image = null, bd-color = null, bd-radius = null, alpha = 1, alpha2 = (alpha+3)/4)
-    if (skin != null)
-        view = get-view(skin)
-        view.background.color = alpha(view.background.color, alpha(view.background.color) * alpha ) if view.background.color != null
-        view.border.color     = alpha(view.border.color,     alpha(view.border.color)     * alpha2) if view.border.color     != null
-        add-view-object view
-    add-view-objects create-foreground(color, font, text), create-background(bg-color, bg-image), create-border(bd-color, bd-radius)
-
-// add-layout
-add-layout(skin, position = null, width = null, height = null, margin = null, border = null, padding = null)
-    if (skin != null)
-        layout = get-layout(skin)
-        add-layout-object layout
-    add-layout-objects create-position(position), create-size(width, height), create-box(margin, border, padding)
-
 // get-theme
 get-theme-color(key)
     if key != null
-        return get(theme, 'color',                  key) or key
+        return theme.color[get-string(key)]            or key
     null
 get-theme-background-color(key)
     if key != null
-        return get(theme, 'background-color',       key) or get(theme, 'color', key) or key
+        return theme.background-color[get-string(key)] or theme.color[get-string(key)] or key
     null
 get-theme-background-image(key)
     if key != null
-        return get(theme, 'background-image',       key) or key
+        return theme.background-image[get-string(key)] or key
     null
 get-theme-border-color(key)
     if key != null
-        return get(theme, 'border-color',           key) or get(theme, 'color', key) or key
+        return theme.border-color[get-string(key)]     or theme.color[get-string(key)] or key
     null
 get-theme-border-radius(key)
     if key != null
-        return get(theme, 'border-radius',          key) or key
-    null
-
-// get-view
-get-view(key)
-    if key != null
-        result = get(views, key) or error('Views has no view: ' + get-string(key))
-        return clone(result)
-    null
-
-// get-layout
-get-layout(key)
-    if key != null
-        result = get(layouts, key) or error('Layouts has no layout: ' + get-string(key))
-        return clone(result)
+        return theme.border-radius[get-string(key)]    or key
     null

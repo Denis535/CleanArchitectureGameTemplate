@@ -10,7 +10,6 @@ theme = {
         invalid-effect:                hsla( 10deg,  80%,  40%, 1.00),
     },
     background-color: {
-        none:                          hsla(  0deg,   0%,   0%, 0.00),
         // element
         light-element:                 hsla( 30deg,  30%,  90%, 0.50),
         dark-element:                  hsla(200deg,  30%,  10%, 0.50),
@@ -35,7 +34,6 @@ theme = {
         dark-icon:                     img(null, hsla(200deg,  30%,  10%, 1.00), null),
     },
     border-color: {
-        none:                          hsla(  0deg,   0%,   0%, 0.00),
         // element
         light-element:                 hsla( 45deg, 100%,  15%, 1.00),
         dark-element:                  hsla( 45deg, 100%,  30%, 1.00),
@@ -62,13 +60,13 @@ theme = {
 }
 views = {
     // element
-    label:                             create-view( create-foreground(null,           fnt(), txt()), create-background(none,            null       ), create-border(none,            element        ) ),
+    label:                             create-view( create-foreground(null,           fnt(), txt()), create-background(null,            null       ), create-border(null,            element        ) ),
     button:                            create-view( create-foreground(dark,           fnt(), txt()), create-background(light-element,   null       ), create-border(light-element,   element        ) ),
-    field:                             create-view( create-foreground(null,           fnt(), txt()), create-background(none,            null       ), create-border(none,            element        ) ),
+    field:                             create-view( create-foreground(null,           fnt(), txt()), create-background(null,            null       ), create-border(null,            element        ) ),
     field-label:                       create-view( create-foreground(dark,           fnt(), txt()), create-background(light-element,   null       ), create-border(light-element,   element        ) ),
     field-input:                       create-view( create-foreground(light,          fnt(), txt()), create-background(dark-element,    null       ), create-border(dark-element,    element        ) ),
     // view
-    scroll-view:                       create-view( create-foreground(null,           fnt(), txt()), create-background(none,            null       ), create-border(none,            view           ) ),
+    scroll-view:                       create-view( create-foreground(null,           fnt(), txt()), create-background(null,            null       ), create-border(null,            view           ) ),
     light-scroll-view:                 create-view( create-foreground(dark,           fnt(), txt()), create-background(light-view,      null       ), create-border(light-view,      view           ) ),
     dark-scroll-view:                  create-view( create-foreground(light,          fnt(), txt()), create-background(dark-view,       null       ), create-border(dark-view,       view           ) ),
     dropdown-view:                     create-view( create-foreground(light,          fnt(), txt()), create-background(dark-view,       null       ), create-border(dark-view,       view           ) ),
@@ -248,6 +246,7 @@ horizontal-scroller--low-button()
 horizontal-scroller--high-button()
     add-view(light-icon, bg-image: img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png'), alpha: 0.50)
     add-layout(icon, (absolute auto 0px auto auto), 24px, 24px)
+// horizontal-scroller--slider-field
 horizontal-scroller--slider-field()
     add-view(component)
     add-layout(component, null, auto, auto, 0px, 0px, 0px)
@@ -284,6 +283,7 @@ vertical-scroller--low-button()
 vertical-scroller--high-button()
     add-view(light-icon, bg-image: img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png'), alpha: 0.50)
     add-layout(icon, (absolute auto auto auto 0px), 24px, 24px)
+// vertical-scroller--slider-field
 vertical-scroller--slider-field()
     add-view(component)
     add-layout(component, null, auto, auto, 0px, 0px, 0px)
@@ -436,6 +436,8 @@ dropdown-view--scroll-view--item-text()
         horizontal-scroller--low-button()
     #unity-high-button
         horizontal-scroller--high-button()
+// scroller--horizontal--slider-field
+.scroller--horizontal--slider-field
     .unity-base-slider
         horizontal-scroller--slider-field()
         .unity-base-slider__input
@@ -457,6 +459,8 @@ dropdown-view--scroll-view--item-text()
         vertical-scroller--low-button()
     #unity-high-button
         vertical-scroller--high-button()
+// scroller--vertical--slider-field
+.scroller--vertical--slider-field
     .unity-base-slider
         vertical-scroller--slider-field()
         .unity-base-slider__input
