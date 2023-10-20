@@ -20,10 +20,10 @@ namespace Project.UI.MainScreen {
         //private ILobbyService LobbyService { get; }
         // View
         public override CreateGameWidgetView View { get; }
-        public CreateGameWidgetView.GameView_ GameView { get; }
-        public CreateGameWidgetView.PlayerView_ PlayerView { get; }
-        public CreateGameWidgetView.LobbyView_ LobbyView { get; }
-        public CreateGameWidgetView.ChatView_ ChatView_ { get; }
+        public GameView GameView { get; }
+        public PlayerView PlayerView { get; }
+        public LobbyView LobbyView { get; }
+        public ChatView ChatView { get; }
 
         // Constructor
         public CreateGameWidget() {
@@ -35,11 +35,13 @@ namespace Project.UI.MainScreen {
             View.GameViewSlot.Add( GameView = CreateGameView( this ) );
             View.PlayerViewSlot.Add( PlayerView = CreatePlayerView( this ) );
             View.LobbyViewSlot.Add( LobbyView = CreateLobbyView( this ) );
-            View.ChatViewSlot.Add( ChatView_ = CreateChatView( this ) );
+            View.ChatViewSlot.Add( ChatView = CreateChatView( this ) );
         }
         public override void Dispose() {
             GameView.Dispose();
             PlayerView.Dispose();
+            LobbyView.Dispose();
+            ChatView.Dispose();
             base.Dispose();
         }
 
@@ -95,20 +97,20 @@ namespace Project.UI.MainScreen {
             } );
             return view;
         }
-        private static CreateGameWidgetView.GameView_ CreateGameView(CreateGameWidget widget) {
-            var view = new CreateGameWidgetView.GameView_( widget );
+        private static GameView CreateGameView(CreateGameWidget widget) {
+            var view = new GameView( widget );
             return view;
         }
-        private static CreateGameWidgetView.PlayerView_ CreatePlayerView(CreateGameWidget widget) {
-            var view = new CreateGameWidgetView.PlayerView_( widget );
+        private static PlayerView CreatePlayerView(CreateGameWidget widget) {
+            var view = new PlayerView( widget );
             return view;
         }
-        private static CreateGameWidgetView.LobbyView_ CreateLobbyView(CreateGameWidget widget) {
-            var view = new CreateGameWidgetView.LobbyView_( widget );
+        private static LobbyView CreateLobbyView(CreateGameWidget widget) {
+            var view = new LobbyView( widget );
             return view;
         }
-        private static CreateGameWidgetView.ChatView_ CreateChatView(CreateGameWidget widget) {
-            var view = new CreateGameWidgetView.ChatView_( widget );
+        private static ChatView CreateChatView(CreateGameWidget widget) {
+            var view = new ChatView( widget );
             return view;
         }
 

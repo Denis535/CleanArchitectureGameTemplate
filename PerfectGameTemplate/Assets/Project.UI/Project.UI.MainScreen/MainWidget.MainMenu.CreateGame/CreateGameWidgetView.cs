@@ -60,136 +60,136 @@ namespace Project.UI.MainScreen {
                 )
             );
         }
+    }
 
-        // GameView
-        public class GameView_ : UISubViewBase {
+    // GameView
+    public class GameView : UISubViewBase {
 
-            // View
-            public override VisualElement VisualElement { get; }
-            public ElementWrapper View { get; }
-            public LabelWrapper Title { get; }
-            public TextWrapper<string> GameName { get; }
-            public PopupWrapper<object> GameMode { get; }
-            public PopupWrapper<object> GameWorld { get; }
-            public ToggleWrapper<bool> IsGamePrivate { get; }
+        // View
+        public override VisualElement VisualElement { get; }
+        public ElementWrapper View { get; }
+        public LabelWrapper Title { get; }
+        public TextWrapper<string> GameName { get; }
+        public PopupWrapper<object> GameMode { get; }
+        public PopupWrapper<object> GameWorld { get; }
+        public ToggleWrapper<bool> IsGamePrivate { get; }
 
-            // Constructor
-            public GameView_(CreateGameWidget widget) : base( widget ) {
-                VisualElement = CreateVisualElement( out var view, out var title, out var gameName, out var gameMode, out var gameWorld, out var isGamePrivate );
-                View = view.Wrap();
-                Title = title.Wrap();
-                GameName = gameName.Wrap();
-                GameMode = gameMode.Wrap();
-                GameWorld = gameWorld.Wrap();
-                IsGamePrivate = isGamePrivate.Wrap();
-            }
-            public override void Dispose() {
-                base.Dispose();
-            }
-
-            // Helpers
-            private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField gameName, out PopupField<object?> gameMode, out PopupField<object?> gameWorld, out Toggle isGamePrivate) {
-                return view = UIFactory.ColumnGroup().Classes( "light-5", "medium", "grow-1" ).Children(
-                    title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
-                    UIFactory.RowScope().Children(
-                        gameName = UIFactory.TextField( "Name", 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
-                    ),
-                    UIFactory.RowScope().Children(
-                        gameMode = UIFactory.PopupField( "Mode" ).Name( "game-mode" ).Classes( "label-width-150px", "grow-1" ),
-                        gameWorld = UIFactory.PopupField( "World" ).Name( "game-world" ).Classes( "label-width-150px", "grow-1" ),
-                        isGamePrivate = UIFactory.Toggle( "Private" ).Name( "is-game-private" ).Classes( "label-width-150px", "grow-0" )
-                    )
-                );
-            }
-
+        // Constructor
+        public GameView(UIWidgetBase widget) : base( widget ) {
+            VisualElement = CreateVisualElement( out var view, out var title, out var gameName, out var gameMode, out var gameWorld, out var isGamePrivate );
+            View = view.Wrap();
+            Title = title.Wrap();
+            GameName = gameName.Wrap();
+            GameMode = gameMode.Wrap();
+            GameWorld = gameWorld.Wrap();
+            IsGamePrivate = isGamePrivate.Wrap();
         }
-        // PlayerView
-        public class PlayerView_ : UISubViewBase {
-
-            // View
-            public override VisualElement VisualElement { get; }
-            public ElementWrapper View { get; }
-            public LabelWrapper Title { get; }
-            public TextWrapper<string> PlayerName { get; }
-            public PopupWrapper<object> PlayerRole { get; }
-
-            // Constructor
-            public PlayerView_(CreateGameWidget widget) : base( widget ) {
-                VisualElement = CreateVisualElement( out var view, out var title, out var playerName, out var playerRole );
-                View = view.Wrap();
-                Title = title.Wrap();
-                PlayerName = playerName.Wrap();
-                PlayerRole = playerRole.Wrap();
-            }
-            public override void Dispose() {
-                base.Dispose();
-            }
-
-            // Helpers
-            private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField playerName, out PopupField<object?> playerRole) {
-                return view = UIFactory.ColumnGroup().Classes( "light-5", "medium", "grow-1" ).Children(
-                    title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
-                    UIFactory.RowScope().Children(
-                        playerName = UIFactory.TextField( "Name", 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
-                    ),
-                    UIFactory.RowScope().Children(
-                        playerRole = UIFactory.PopupField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" )
-                    )
-                );
-            }
-
+        public override void Dispose() {
+            base.Dispose();
         }
-        // LobbyView
-        public class LobbyView_ : UISubViewBase {
 
-            // View
-            public override VisualElement VisualElement { get; }
-            public ElementWrapper View { get; }
-            public LabelWrapper Title { get; }
-
-            // Constructor
-            public LobbyView_(CreateGameWidget widget) : base( widget ) {
-                VisualElement = CreateVisualElement( out var view, out var title );
-                View = view.Wrap();
-                Title = title.Wrap();
-            }
-            public override void Dispose() {
-                base.Dispose();
-            }
-
-            // Helpers
-            private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
-                return view = UIFactory.ColumnGroup().Classes( "dark-5", "medium", "grow-1" ).Children(
-                    title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" )
-                );
-            }
-
+        // Helpers
+        private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField gameName, out PopupField<object?> gameMode, out PopupField<object?> gameWorld, out Toggle isGamePrivate) {
+            return view = UIFactory.ColumnGroup().Classes( "light-5", "medium", "grow-1" ).Children(
+                title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
+                UIFactory.RowScope().Children(
+                    gameName = UIFactory.TextField( "Name", 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
+                ),
+                UIFactory.RowScope().Children(
+                    gameMode = UIFactory.PopupField( "Mode" ).Name( "game-mode" ).Classes( "label-width-150px", "grow-1" ),
+                    gameWorld = UIFactory.PopupField( "World" ).Name( "game-world" ).Classes( "label-width-150px", "grow-1" ),
+                    isGamePrivate = UIFactory.Toggle( "Private" ).Name( "is-game-private" ).Classes( "label-width-150px", "grow-0" )
+                )
+            );
         }
-        // ChatView
-        public class ChatView_ : UISubViewBase {
 
-            // View
-            public override VisualElement VisualElement { get; }
-            public ElementWrapper View { get; }
-            public LabelWrapper Title { get; }
+    }
+    // PlayerView
+    public class PlayerView : UISubViewBase {
 
-            // Constructor
-            public ChatView_(CreateGameWidget widget) : base( widget ) {
-                VisualElement = CreateVisualElement( out var view, out var title );
-                View = view.Wrap();
-                Title = title.Wrap();
-            }
-            public override void Dispose() {
-                base.Dispose();
-            }
+        // View
+        public override VisualElement VisualElement { get; }
+        public ElementWrapper View { get; }
+        public LabelWrapper Title { get; }
+        public TextWrapper<string> PlayerName { get; }
+        public PopupWrapper<object> PlayerRole { get; }
 
-            // Helpers
-            private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
-                return view = UIFactory.ColumnGroup().Classes( "dark-5", "medium", "grow-1" ).Children(
-                    title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title" )
-                );
-            }
-
+        // Constructor
+        public PlayerView(UIWidgetBase widget) : base( widget ) {
+            VisualElement = CreateVisualElement( out var view, out var title, out var playerName, out var playerRole );
+            View = view.Wrap();
+            Title = title.Wrap();
+            PlayerName = playerName.Wrap();
+            PlayerRole = playerRole.Wrap();
         }
+        public override void Dispose() {
+            base.Dispose();
+        }
+
+        // Helpers
+        private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField playerName, out PopupField<object?> playerRole) {
+            return view = UIFactory.ColumnGroup().Classes( "light-5", "medium", "grow-1" ).Children(
+                title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
+                UIFactory.RowScope().Children(
+                    playerName = UIFactory.TextField( "Name", 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
+                ),
+                UIFactory.RowScope().Children(
+                    playerRole = UIFactory.PopupField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" )
+                )
+            );
+        }
+
+    }
+    // LobbyView
+    public class LobbyView : UISubViewBase {
+
+        // View
+        public override VisualElement VisualElement { get; }
+        public ElementWrapper View { get; }
+        public LabelWrapper Title { get; }
+
+        // Constructor
+        public LobbyView(UIWidgetBase widget) : base( widget ) {
+            VisualElement = CreateVisualElement( out var view, out var title );
+            View = view.Wrap();
+            Title = title.Wrap();
+        }
+        public override void Dispose() {
+            base.Dispose();
+        }
+
+        // Helpers
+        private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
+            return view = UIFactory.ColumnGroup().Classes( "dark-5", "medium", "grow-1" ).Children(
+                title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" )
+            );
+        }
+
+    }
+    // ChatView
+    public class ChatView : UISubViewBase {
+
+        // View
+        public override VisualElement VisualElement { get; }
+        public ElementWrapper View { get; }
+        public LabelWrapper Title { get; }
+
+        // Constructor
+        public ChatView(UIWidgetBase widget) : base( widget ) {
+            VisualElement = CreateVisualElement( out var view, out var title );
+            View = view.Wrap();
+            Title = title.Wrap();
+        }
+        public override void Dispose() {
+            base.Dispose();
+        }
+
+        // Helpers
+        private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
+            return view = UIFactory.ColumnGroup().Classes( "dark-5", "medium", "grow-1" ).Children(
+                title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title" )
+            );
+        }
+
     }
 }
