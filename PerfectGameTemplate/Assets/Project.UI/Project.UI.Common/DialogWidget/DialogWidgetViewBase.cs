@@ -14,9 +14,9 @@ namespace Project.UI.Common {
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
         public ElementWrapper Card { get; }
-        public ElementWrapper Header { get; }
-        public ElementWrapper Content { get; }
-        public ElementWrapper Footer { get; }
+        public SlotWrapper Header { get; }
+        public SlotWrapper Content { get; }
+        public SlotWrapper Footer { get; }
         public LabelWrapper Title { get; }
         public LabelWrapper Message { get; }
 
@@ -26,9 +26,9 @@ namespace Project.UI.Common {
             View = view.Wrap();
             View.OnAttachToPanel( i => PlayAppearanceAnimation( i.VisualElement ) );
             Card = card.Wrap();
-            Header = header.Wrap().Pipe( i => i.IsDisplayed = false );
-            Content = content.Wrap().Pipe( i => i.IsDisplayed = false );
-            Footer = footer.Wrap().Pipe( i => i.IsDisplayed = false );
+            Header = new SlotWrapper( header ).Pipe( i => i.IsDisplayed = false );
+            Content = new SlotWrapper( content ).Pipe( i => i.IsDisplayed = false );
+            Footer = new SlotWrapper( footer ).Pipe( i => i.IsDisplayed = false );
             Title = title.Wrap();
             Message = message.Wrap();
         }
@@ -44,7 +44,7 @@ namespace Project.UI.Common {
                     callback?.Invoke();
                 }
             } );
-            Footer.VisualElement.Add( button );
+            Footer.Add( button );
         }
         public void OnCancel(string text, Action? callback) {
             var button = UIFactory.Button( text ).Name( "cancel" );
@@ -53,7 +53,7 @@ namespace Project.UI.Common {
                     callback?.Invoke();
                 }
             } );
-            Footer.VisualElement.Add( button );
+            Footer.Add( button );
         }
 
         // Heleprs

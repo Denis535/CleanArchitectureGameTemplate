@@ -41,31 +41,7 @@ namespace Project.UI {
     // ElementWrapper
     public class ElementWrapper : VisualElementWrapper<VisualElement> {
 
-        public IReadOnlyList<VisualElement> Children {
-            get => (IReadOnlyList<VisualElement>) VisualElement.Children();
-        }
-
         public ElementWrapper(VisualElement visualElement) : base( visualElement ) {
-        }
-
-        public void Add(VisualElement element) {
-            VisualElement.Add( element );
-        }
-        public void Remove(VisualElement element) {
-            VisualElement.Remove( element );
-        }
-        public bool Contains(VisualElement element) {
-            return VisualElement.Contains( element );
-        }
-
-        public void Add(UISubViewBase view) {
-            VisualElement.Add( view.VisualElement );
-        }
-        public void Remove(UISubViewBase view) {
-            VisualElement.Remove( view.VisualElement );
-        }
-        public bool Contains(UISubViewBase view) {
-            return VisualElement.Contains( view.VisualElement );
         }
 
     }
@@ -159,13 +135,13 @@ namespace Project.UI {
 
     }
     // SlotWrapper
-    public class SlotWrapper : VisualElementWrapper<Slot> {
+    public class SlotWrapper : VisualElementWrapper<VisualElement> {
 
         public IReadOnlyList<VisualElement> Children {
             get => (IReadOnlyList<VisualElement>) VisualElement.Children();
         }
 
-        public SlotWrapper(Slot visualElement) : base( visualElement ) {
+        public SlotWrapper(VisualElement visualElement) : base( visualElement ) {
         }
 
         public void Add(VisualElement element) {
