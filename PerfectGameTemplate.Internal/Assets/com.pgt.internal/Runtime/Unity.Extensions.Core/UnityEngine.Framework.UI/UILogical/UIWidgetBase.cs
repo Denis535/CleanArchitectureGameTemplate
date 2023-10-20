@@ -17,7 +17,10 @@ namespace UnityEngine.Framework.UI {
         public bool IsDisposed { get; private set; }
         public CancellationToken DisposeCancellationToken {
             get {
-                disposeCancellationTokenSource ??= new CancellationTokenSource();
+                if (disposeCancellationTokenSource == null) {
+                    disposeCancellationTokenSource = new CancellationTokenSource();
+                    if (IsDisposed) disposeCancellationTokenSource.Cancel();
+                }
                 return disposeCancellationTokenSource.Token;
             }
         }
