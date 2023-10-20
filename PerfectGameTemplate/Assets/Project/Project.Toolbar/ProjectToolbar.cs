@@ -11,6 +11,7 @@ namespace Project.Toolbar {
     using System.Threading;
     using Project.Tools;
     using Project.UI;
+    using Project.UI.Common;
     using UnityEditor;
     using UnityEditor.SceneManagement;
     using UnityEngine;
@@ -91,7 +92,7 @@ namespace Project.Toolbar {
             if (Application.isPlaying) {
                 var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
                 var widget = screen.Widget;
-                var dialog = UIWidgetFactory.DialogWidget( "Dialog", "This is dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
+                var dialog = new DialogWidget( "Dialog", "This is dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
                 widget?.AttachChild( dialog );
             }
         }
@@ -100,7 +101,7 @@ namespace Project.Toolbar {
             if (Application.isPlaying) {
                 var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
                 var widget = screen.Widget;
-                var dialog = UIWidgetFactory.InfoDialogWidget( "Info Dialog", "This is info dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
+                var dialog = new InfoDialogWidget( "Info Dialog", "This is info dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
                 widget?.AttachChild( dialog );
             }
         }
@@ -109,7 +110,7 @@ namespace Project.Toolbar {
             if (Application.isPlaying) {
                 var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
                 var widget = screen.Widget;
-                var dialog = UIWidgetFactory.WarningDialogWidget( "Warning Dialog", "This is warning dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
+                var dialog = new WarningDialogWidget( "Warning Dialog", "This is warning dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
                 widget?.AttachChild( dialog );
             }
         }
@@ -118,7 +119,7 @@ namespace Project.Toolbar {
             if (Application.isPlaying) {
                 var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
                 var widget = screen.Widget;
-                var dialog = UIWidgetFactory.ErrorDialogWidget( "Error Dialog", "This is error dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
+                var dialog = new ErrorDialogWidget( "Error Dialog", "This is error dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
                 widget?.AttachChild( dialog );
             }
         }

@@ -41,7 +41,7 @@ namespace Project.UI.Common {
 
         // Helpers
         private static VideoSettingsWidgetView CreateView(VideoSettingsWidget widget, Globals.VideoSettings videoSettings) {
-            var view = UIViewFactory.VideoSettingsWidget( widget );
+            var view = new VideoSettingsWidgetView( widget );
             view.IsFullScreen.OnChange( (i, isFullScreen) => {
                 videoSettings.IsFullScreen = isFullScreen;
             } );

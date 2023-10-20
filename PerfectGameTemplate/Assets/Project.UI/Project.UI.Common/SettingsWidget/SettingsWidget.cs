@@ -31,15 +31,15 @@ namespace Project.UI.Common {
 
         // Helpers
         private static SettingsWidgetView CreateView(SettingsWidget widget) {
-            var view = UIViewFactory.SettingsWidget( widget );
+            var view = new SettingsWidgetView( widget );
             view.PlayerProfile.OnClick( i => {
-                widget.AttachChild( UIWidgetFactory.PlayerProfileWidget() );
+                widget.AttachChild( new PlayerProfileWidget() );
             } );
             view.VideoSettings.OnClick( i => {
-                widget.AttachChild( UIWidgetFactory.VideoSettingsWidget() );
+                widget.AttachChild( new VideoSettingsWidget() );
             } );
             view.AudioSettings.OnClick( i => {
-                widget.AttachChild( UIWidgetFactory.AudioSettingsWidget() );
+                widget.AttachChild( new AudioSettingsWidget() );
             } );
             view.Back.OnClick( i => {
                 widget.DetachSelf();

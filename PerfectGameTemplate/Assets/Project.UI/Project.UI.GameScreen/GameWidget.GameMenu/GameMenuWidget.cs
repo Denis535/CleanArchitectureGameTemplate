@@ -4,6 +4,7 @@ namespace Project.UI.GameScreen {
     using System.Collections;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using Project.UI.Common;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
@@ -36,15 +37,15 @@ namespace Project.UI.GameScreen {
 
         // Helpers
         private static GameMenuWidgetView CreateView(GameMenuWidget widget, UIRouter router) {
-            var view = UIViewFactory.GameMenuWidget( widget );
+            var view = new GameMenuWidgetView( widget );
             view.Resume.OnClick( i => {
                 widget.DetachSelf();
             } );
             view.Settings.OnClick( i => {
-                widget.AttachChild( UIWidgetFactory.SettingsWidget() );
+                widget.AttachChild( new SettingsWidget() );
             } );
             view.Back.OnClick( i => {
-                var dialog = UIWidgetFactory.DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => router.LoadMainSceneAsync( default ).Throw() ).OnCancel( "No", null );
+                var dialog = new DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => router.LoadMainSceneAsync( default ).Throw() ).OnCancel( "No", null );
                 widget.AttachChild( dialog );
             } );
             return view;

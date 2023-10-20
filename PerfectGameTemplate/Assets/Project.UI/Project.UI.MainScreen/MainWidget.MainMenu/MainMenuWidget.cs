@@ -3,6 +3,7 @@ namespace Project.UI.MainScreen {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using Project.UI.Common;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
@@ -35,18 +36,18 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static MainMenuWidgetView CreateView(MainMenuWidget widget, UIRouter router) {
-            var view = UIViewFactory.MainMenuWidget( widget );
+            var view = new MainMenuWidgetView( widget );
             view.CreateGame.OnClick( i => {
-                widget.AttachChild( UIWidgetFactory.CreateGameWidget() );
+                widget.AttachChild( new CreateGameWidget() );
             } );
             view.JoinGame.OnClick( i => {
-                widget.AttachChild( UIWidgetFactory.JoinGameWidget() );
+                widget.AttachChild( new JoinGameWidget() );
             } );
             view.Settings.OnClick( i => {
-                widget.AttachChild( UIWidgetFactory.SettingsWidget() );
+                widget.AttachChild( new SettingsWidget() );
             } );
             view.Quit.OnClick( i => {
-                var dialog = UIWidgetFactory.DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => router.Quit() ).OnCancel( "No", null );
+                var dialog = new DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => router.Quit() ).OnCancel( "No", null );
                 widget.AttachChild( dialog );
             } );
             return view;

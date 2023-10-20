@@ -108,7 +108,7 @@ namespace Project.UI.Common {
 
         // Constructor
         public DialogWidget(string? title, string? message) {
-            View = UIViewFactory.DialogWidget( this );
+            View = new DialogWidgetView( this );
             Title = title;
             Message = message;
         }
@@ -141,7 +141,7 @@ namespace Project.UI.Common {
 
         // Constructor
         public InfoDialogWidget(string? title, string? message) {
-            View = UIViewFactory.InfoDialogWidget( this );
+            View = new InfoDialogWidgetView( this );
             Title = title;
             Message = message;
         }
@@ -174,7 +174,7 @@ namespace Project.UI.Common {
 
         // Constructor
         public WarningDialogWidget(string? title, string? message) {
-            View = UIViewFactory.WarningDialogWidget( this );
+            View = new WarningDialogWidgetView( this );
             Title = title;
             Message = message;
         }
@@ -207,7 +207,7 @@ namespace Project.UI.Common {
 
         // Constructor
         public ErrorDialogWidget(string? title, string? message) {
-            View = UIViewFactory.ErrorDialogWidget( this );
+            View = new ErrorDialogWidgetView( this );
             Title = title;
             Message = message;
         }

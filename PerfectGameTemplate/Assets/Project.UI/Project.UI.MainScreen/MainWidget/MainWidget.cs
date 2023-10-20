@@ -6,6 +6,7 @@ namespace Project.UI.MainScreen {
     using System.Linq;
     using System.Threading.Tasks;
     using Project.App;
+    using Project.UI.Common;
     using Unity.Services.Authentication;
     using Unity.Services.Core;
     using UnityEngine;
@@ -50,7 +51,7 @@ namespace Project.UI.MainScreen {
                     if (Globals.Profile != null) options.SetProfile( Globals.Profile );
                     await UnityServices.InitializeAsync( options );
                 } catch (Exception ex) {
-                    var dialog = UIWidgetFactory.ErrorDialogWidget( "Error", ex.Message ).OnSubmit( "Ok", () => Router.Quit() );
+                    var dialog = new ErrorDialogWidget( "Error", ex.Message ).OnSubmit( "Ok", () => Router.Quit() );
                     this.AttachChild( dialog );
                     return;
                 }
@@ -62,13 +63,13 @@ namespace Project.UI.MainScreen {
                     options.CreateAccount = true;
                     await AuthenticationService.SignInAnonymouslyAsync( options );
                 } catch (Exception ex) {
-                    var dialog = UIWidgetFactory.ErrorDialogWidget( "Error", ex.Message ).OnSubmit( "Ok", () => Router.Quit() );
+                    var dialog = new ErrorDialogWidget( "Error", ex.Message ).OnSubmit( "Ok", () => Router.Quit() );
                     this.AttachChild( dialog );
                     return;
                 }
             }
             // MainMenuWidget
-            this.AttachChild( UIWidgetFactory.MainMenuWidget() );
+            this.AttachChild( new MainMenuWidget() );
         }
         public override void OnDetach() {
         }
@@ -97,7 +98,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static MainWidgetView CreateView(MainWidget widget) {
-            var view = UIViewFactory.MainWidget( widget );
+            var view = new MainWidgetView( widget );
             return view;
         }
 

@@ -40,7 +40,7 @@ namespace Project.UI.Common {
 
         // Helpers
         private static PlayerProfileWidgetView CreateView(PlayerProfileWidget widget, Globals.PlayerProfile playerProfile) {
-            var view = UIViewFactory.PlayerProfileWidget( widget );
+            var view = new PlayerProfileWidgetView( widget );
             view.Name.OnChange( (i, name) => {
                 view.Name.IsValid = Globals.PlayerProfile.IsNameValid( name! );
                 view.Okey.IsValid = Globals.PlayerProfile.IsNameValid( name! );
@@ -52,10 +52,10 @@ namespace Project.UI.Common {
                     widget.DetachSelf();
                 } else {
                     if (string.IsNullOrWhiteSpace( view.Name.Value )) {
-                        var dialog = UIWidgetFactory.WarningDialogWidget( "Warning", $"Name is empty" ).OnSubmit( "Ok", null );
+                        var dialog = new WarningDialogWidget( "Warning", $"Name is empty" ).OnSubmit( "Ok", null );
                         widget.AttachChild( dialog );
                     } else {
-                        var dialog = UIWidgetFactory.WarningDialogWidget( "Warning", $"Name \"{view.Name.Value}\" is invalid" ).OnSubmit( "Ok", null );
+                        var dialog = new WarningDialogWidget( "Warning", $"Name \"{view.Name.Value}\" is invalid" ).OnSubmit( "Ok", null );
                         widget.AttachChild( dialog );
                     }
                 }

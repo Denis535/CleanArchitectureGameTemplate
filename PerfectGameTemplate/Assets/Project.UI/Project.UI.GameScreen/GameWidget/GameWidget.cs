@@ -66,13 +66,13 @@ namespace Project.UI.GameScreen {
         // Update
         public void Update() {
             if (Actions.UI.Cancel.WasPressedThisFrame()) {
-                this.AttachChild( UIWidgetFactory.GameMenuWidget() );
+                this.AttachChild( new GameMenuWidget() );
             }
         }
 
         // Helpers
         private static GameWidgetView CreateView(GameWidget widget) {
-            var view = UIViewFactory.GameWidget( widget );
+            var view = new GameWidgetView( widget );
             return view;
         }
 

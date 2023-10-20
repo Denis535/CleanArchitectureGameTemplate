@@ -41,7 +41,7 @@ namespace Project.UI.Common {
 
         // Helpers
         private static AudioSettingsWidgetView CreateView(AudioSettingsWidget widget, Globals.AudioSettings audioSettings) {
-            var view = UIViewFactory.AudioSettingsWidget( widget );
+            var view = new AudioSettingsWidgetView( widget );
             view.MasterVolume.OnChange( (i, masterVolume) => {
                 audioSettings.MasterVolume = masterVolume;
             } );

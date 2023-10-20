@@ -75,7 +75,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static JoinGameWidgetView CreateView(JoinGameWidget widget, UIRouter router) {
-            var view = UIViewFactory.JoinGameWidget( widget );
+            var view = new JoinGameWidgetView( widget );
             view.Okey.OnClick( i => {
                 var gameName = widget.GameView.GameName.Value!;
                 var gameMode = (GameMode) widget.GameView.GameMode.Value!;
@@ -87,7 +87,7 @@ namespace Project.UI.MainScreen {
                     var gameDesc = new GameDesc( gameName, gameMode, gameWorld, isGamePrivate );
                     var playerDesc = new PlayerDesc( playerName, playerRole );
                     router.LoadGameSceneAsync( gameDesc, playerDesc, default ).Throw();
-                    widget.AttachChild( UIWidgetFactory.LoadingWidget() );
+                    widget.AttachChild( new LoadingWidget() );
                 }
             } );
             view.Back.OnClick( i => {

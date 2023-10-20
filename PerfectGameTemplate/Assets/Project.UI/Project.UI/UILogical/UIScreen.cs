@@ -25,7 +25,7 @@ namespace Project.UI {
         public new void Awake() {
             base.Awake();
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
-            View = UIViewFactory.Screen( this );
+            View = new UIScreenView( this );
             AddView( Document, View );
         }
         public new void OnDestroy() {
@@ -45,10 +45,10 @@ namespace Project.UI {
             if (stateTracker.IsChanged( State )) {
                 if (IsMainScreen) {
                     Widget?.DetachSelf();
-                    this.AttachWidget( UIWidgetFactory.MainWidget() );
+                    this.AttachWidget( new MainWidget() );
                 } else if (IsGameScreen) {
                     Widget?.DetachSelf();
-                    this.AttachWidget( UIWidgetFactory.GameWidget() );
+                    this.AttachWidget( new GameWidget() );
                 } else {
                     Widget?.DetachSelf();
                 }
