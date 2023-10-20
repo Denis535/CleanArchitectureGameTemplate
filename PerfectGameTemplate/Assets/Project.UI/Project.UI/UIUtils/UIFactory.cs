@@ -25,9 +25,6 @@ namespace Project.UI {
         public static PopupField<object?> PopupField(string? label) {
             return new PopupField<object?>( label ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
         }
-        //public static PopupField<T> PopupField<T>(string? label) {
-        //    return new PopupField<T>( label ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
-        //}
         public static DropdownField DropdownField(string? label) {
             return new DropdownField( label ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
         }
@@ -39,6 +36,11 @@ namespace Project.UI {
         }
         public static Toggle Toggle(string? label) {
             return new Toggle( label );
+        }
+
+        // View
+        public static ScrollView ScrollView() {
+            return new ScrollView();
         }
 
         // Widget

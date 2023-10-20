@@ -47,12 +47,13 @@ namespace Project.UI.MainScreen {
 
         // OnAttach
         public override void OnBeforeAttach() {
-            GameView.GameName.Value = "Anonymous";
-            GameView.GameMode.ValueChoices = (GameMode._1x4, Enum2.GetValues<GameMode>().Cast<object?>().ToArray());
-            GameView.GameWorld.ValueChoices = (GameWorld.TestWorld1, Enum2.GetValues<GameWorld>().Cast<object?>().ToArray());
-            GameView.IsGamePrivate.Value = true;
-            PlayerView.PlayerName.Value = PlayerProfile.PlayerName;
-            PlayerView.PlayerRole.ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>().Cast<object?>().ToArray());
+            GameView.Name.Value = "Anonymous";
+            GameView.Mode.ValueChoices = (GameMode._1x4, Enum2.GetValues<GameMode>().Cast<object?>().ToArray());
+            GameView.World.ValueChoices = (GameWorld.TestWorld1, Enum2.GetValues<GameWorld>().Cast<object?>().ToArray());
+            GameView.IsPrivate.Value = true;
+            PlayerView.Name.Value = PlayerProfile.PlayerName;
+            PlayerView.Role.ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>().Cast<object?>().ToArray());
+            PlayerView.IsReady.Value = false;
         }
         public override void OnAttach() {
         }
@@ -79,14 +80,15 @@ namespace Project.UI.MainScreen {
         private static JoinGameWidgetView CreateView(JoinGameWidget widget, UIRouter router) {
             var view = new JoinGameWidgetView( widget );
             view.Okey.OnClick( i => {
-                var gameName = widget.GameView.GameName.Value!;
-                var gameMode = (GameMode) widget.GameView.GameMode.Value!;
-                var gameWorld = (GameWorld) widget.GameView.GameWorld.Value!;
-                var isGamePrivate = widget.GameView.IsGamePrivate.Value;
-                var playerName = widget.PlayerView.PlayerName.Value!;
-                var playerRole = (PlayerRole) widget.PlayerView.PlayerRole.Value!;
+                var gameName = widget.GameView.Name.Value!;
+                var gameMode = (GameMode) widget.GameView.Mode.Value!;
+                var gameWorld = (GameWorld) widget.GameView.World.Value!;
+                var isGamePrivate = widget.GameView.IsPrivate.Value;
+                var playerName = widget.PlayerView.Name.Value!;
+                var playerRole = (PlayerRole) widget.PlayerView.Role.Value!;
+                var isPlayerReady = widget.PlayerView.IsReady;
                 {
-                    var gameDesc = new GameDesc( gameName, gameMode, gameWorld, isGamePrivate );
+                    var gameDesc = new GameDesc( gameName, gameMode, gameWorld );
                     var playerDesc = new PlayerDesc( playerName, playerRole );
                     router.LoadGameSceneAsync( gameDesc, playerDesc, default ).Throw();
                     widget.AttachChild( new LoadingWidget() );

@@ -29,6 +29,25 @@ namespace Project.UI {
             VisualElement = visualElement;
         }
 
+        public void AddClass(string @class) {
+            VisualElement.AddToClassList( @class );
+        }
+        public void RemoveClass(string @class) {
+            VisualElement.RemoveFromClassList( @class );
+        }
+        public void ToggleClass(string @class) {
+            VisualElement.ToggleInClassList( @class );
+        }
+        public void EnableClass(string @class, bool isEnabled) {
+            VisualElement.EnableInClassList( @class, isEnabled );
+        }
+        public bool ContainsClass(string @class) {
+            return VisualElement.ClassListContains( @class );
+        }
+        public void ClearClasses() {
+            VisualElement.ClearClassList();
+        }
+
     }
     public abstract class VisualElementWrapper<T> : VisualElementWrapper where T : VisualElement {
 

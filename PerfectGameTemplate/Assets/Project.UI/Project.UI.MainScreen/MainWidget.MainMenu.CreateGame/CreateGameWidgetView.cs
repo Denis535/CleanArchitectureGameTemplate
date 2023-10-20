@@ -69,36 +69,36 @@ namespace Project.UI.MainScreen {
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
         public LabelWrapper Title { get; }
-        public TextWrapper<string> GameName { get; }
-        public PopupWrapper<object> GameMode { get; }
-        public PopupWrapper<object> GameWorld { get; }
-        public ToggleWrapper<bool> IsGamePrivate { get; }
+        public TextWrapper<string> Name { get; }
+        public PopupWrapper<object> Mode { get; }
+        public PopupWrapper<object> World { get; }
+        public ToggleWrapper<bool> IsPrivate { get; }
 
         // Constructor
         public GameView(UIWidgetBase widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view, out var title, out var gameName, out var gameMode, out var gameWorld, out var isGamePrivate );
+            VisualElement = CreateVisualElement( out var view, out var title, out var name, out var mode, out var world, out var isPrivate );
             View = view.Wrap();
             Title = title.Wrap();
-            GameName = gameName.Wrap();
-            GameMode = gameMode.Wrap();
-            GameWorld = gameWorld.Wrap();
-            IsGamePrivate = isGamePrivate.Wrap();
+            Name = name.Wrap();
+            Mode = mode.Wrap();
+            World = world.Wrap();
+            IsPrivate = isPrivate.Wrap();
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField gameName, out PopupField<object?> gameMode, out PopupField<object?> gameWorld, out Toggle isGamePrivate) {
+        private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> mode, out PopupField<object?> world, out Toggle isPrivate) {
             return view = UIFactory.ColumnGroup().Classes( "light-5", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
                 UIFactory.RowScope().Children(
-                    gameName = UIFactory.TextField( "Name", 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
+                    name = UIFactory.TextField( null, 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
                 ),
                 UIFactory.RowScope().Children(
-                    gameMode = UIFactory.PopupField( "Mode" ).Name( "game-mode" ).Classes( "label-width-150px", "grow-1" ),
-                    gameWorld = UIFactory.PopupField( "World" ).Name( "game-world" ).Classes( "label-width-150px", "grow-1" ),
-                    isGamePrivate = UIFactory.Toggle( "Private" ).Name( "is-game-private" ).Classes( "label-width-150px", "grow-0" )
+                    mode = UIFactory.PopupField( "Mode" ).Name( "game-mode" ).Classes( "label-width-150px", "grow-1" ),
+                    world = UIFactory.PopupField( "World" ).Name( "game-world" ).Classes( "label-width-150px", "grow-1" ),
+                    isPrivate = UIFactory.Toggle( "Private" ).Name( "is-game-private" ).Classes( "label-width-150px", "grow-0" )
                 )
             );
         }
@@ -111,30 +111,33 @@ namespace Project.UI.MainScreen {
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
         public LabelWrapper Title { get; }
-        public TextWrapper<string> PlayerName { get; }
-        public PopupWrapper<object> PlayerRole { get; }
+        public TextWrapper<string> Name { get; }
+        public PopupWrapper<object> Role { get; }
+        public ToggleWrapper<bool> IsReady { get; }
 
         // Constructor
         public PlayerView(UIWidgetBase widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view, out var title, out var playerName, out var playerRole );
+            VisualElement = CreateVisualElement( out var view, out var title, out var name, out var role, out var isReady );
             View = view.Wrap();
             Title = title.Wrap();
-            PlayerName = playerName.Wrap();
-            PlayerRole = playerRole.Wrap();
+            Name = name.Wrap();
+            Role = role.Wrap();
+            IsReady = isReady.Wrap();
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField playerName, out PopupField<object?> playerRole) {
+        private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> role, out Toggle isReady) {
             return view = UIFactory.ColumnGroup().Classes( "light-5", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
                 UIFactory.RowScope().Children(
-                    playerName = UIFactory.TextField( "Name", 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
+                    name = UIFactory.TextField( null, 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
                 ),
                 UIFactory.RowScope().Children(
-                    playerRole = UIFactory.PopupField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" )
+                    role = UIFactory.PopupField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" ),
+                    isReady = UIFactory.Toggle( "Ready" ).Name( "is-ready" ).Classes( "label-width-150px", "grow-1" )
                 )
             );
         }
@@ -162,8 +165,52 @@ namespace Project.UI.MainScreen {
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
             return view = UIFactory.ColumnGroup().Classes( "dark-5", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" )
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 0" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 1" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 2" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 3" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 4" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 5" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 6" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 7" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 8" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 9" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 10" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 11" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 12" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 13" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 14" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 15" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 16" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 17" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 18" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 19" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 20" ) ),
+                //UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 21" ) )
             );
         }
+
+        //public class LobbyItemView : UISubViewBase {
+
+        //    // View
+        //    public override VisualElement VisualElement { get; }
+        //    public ElementWrapper View { get; }
+
+        //    // Constructor
+        //    public LobbyItemView(UIWidgetBase widget) : base( widget ) {
+        //        VisualElement = CreateVisualElement( out var view );
+        //        View = view.Wrap();
+        //    }
+        //    public override void Dispose() {
+        //        base.Dispose();
+        //    }
+
+        //    // Helpers
+        //    private static Box CreateVisualElement(out Box view) {
+        //        return view = UIFactory.Box().Classes( "light-5", "small", "grow-1" );
+        //    }
+
+        //}
 
     }
     // ChatView

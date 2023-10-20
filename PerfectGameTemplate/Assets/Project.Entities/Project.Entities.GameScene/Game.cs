@@ -77,17 +77,15 @@ namespace Project.Entities.GameScene {
         public string Name { get; set; }
         public GameMode Mode { get; set; }
         public GameWorld World { get; set; }
-        public bool IsPrivate { get; set; }
 
-        public GameDesc(string name, GameMode mode, GameWorld world, bool isPrivate) {
+        public GameDesc(string name, GameMode mode, GameWorld world) {
             Name = name;
             Mode = mode;
             World = world;
-            IsPrivate = isPrivate;
         }
 
         public override string ToString() {
-            return "GameDesc: Name={0}, Mode={1}, World={2}, IsPrivate={3}".Format( Name, Mode, World, IsPrivate );
+            return "GameDesc: Name={0}, Mode={1}, World={2}".Format( Name, Mode, World );
         }
 
     }
