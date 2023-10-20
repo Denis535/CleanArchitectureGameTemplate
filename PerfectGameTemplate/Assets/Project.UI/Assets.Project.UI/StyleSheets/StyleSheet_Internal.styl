@@ -1,95 +1,163 @@
-// create-skin
-create-view(foreground, background, border)
-    return {
-        foreground: foreground,
-        background: background,
-        border:     border
-    }
-create-foreground(color, font, text)
-    return {
-        color: get-theme-color(color),
-        font:  font,
-        text:  text
-    }
-create-background(color, image)
-    return {
-        color: get-theme-background-color(color),
-        image: get-theme-background-image(image)
-    }
-create-border(color, radius)
-    return {
-        color:  get-theme-border-color(color),
-        radius: get-theme-border-radius(radius)
-    }
-fnt(url = null, size = null, style = null)
-    return {
-        url:   url,
-        size:  size,
-        style: style
-    }
-txt(align = null, outline = null, shadow = null)
-    return {
-        align:   align,
-        outline: outline,
-        shadow:  shadow
-    }
-img(url = null, color = null, scale-mode = null, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
-    return {
-        url:          url,
-        color:        color,
-        scale-mode:   scale-mode,
-        slice-left:   slice-left,
-        slice-right:  slice-right,
-        slice-top:    slice-top,
-        slice-bottom: slice-bottom,
-        slice-scale:  slice-scale
-    }
+// add-view
+add-view(view, color = null, font = null, text = null, bg-color = null, bg-image = null, bd-color = null, bd-radius = null, alpha = 1, alpha2 = (alpha+3)/4) // todo: saturate, light, alpha
+    if (view != null)
+        view = get(views, view) or error('Views has no view: ' + get-string(view))
+        add-view-skin view, alpha, alpha2
+    add-view-foreground color, font, text
+    add-view-background bg-color, bg-image
+    add-view-border     bd-color, bd-radius
+// add-view
+add-view-skin(view, alpha = 1, alpha2 = (alpha+3)/4)
+    color     = view.foreground['color']
+    font      = view.foreground['font' ]
+    text      = view.foreground['text' ]
+    //
+    bg-color  = view.background['color']
+    bg-color  = alpha(bg-color, alpha(bg-color) * alpha) if bg-color != null
+    bg-image  = view.background['image']
+    //
+    bd-color  = view.border['color' ]
+    bd-color  = alpha(bd-color, alpha(bd-color) * alpha2) if bd-color != null
+    bd-radius = view.border['radius']
+    //
+    add-view-foreground color, font, text
+    add-view-background bg-color, bg-image
+    add-view-border     bd-color, bd-radius
 
-// create-skin
-create-layout(position, size, box)
-    return {
-        position: position,
-        size:     size,
-        box:      box
-    }
-create-position(position, left = null, right = null, top = null, bottom = null)
-    return {
-        position: position[0],
-        left:     left   or position[1],
-        right:    right  or position[2],
-        top:      top    or position[3],
-        bottom:   bottom or position[4]
-    }
-create-size(width, height)
-    return {
-        width:  width,
-        height: height
-    }
-create-box(margin, border, padding)
-    return {
-        margin:  margin,
-        border:  border,
-        padding: padding
-    }
+// add-layout
+add-layout(layout, position = null, width = null, height = null, margin = null, border = null, padding = null)
+    if (layout != null)
+        layout = get(layouts, layout) or error('Layouts has no layout: ' + get-string(layout))
+        add-layout-skin layout
+    add-layout-position position[0], position[1], position[2], position[3], position[4]
+    add-layout-size     width, height
+    add-layout-box      margin, border, padding
+// add-layout
+add-layout-skin(layout)
+    pos     = layout.position['position']
+    left    = layout.position['left'    ]
+    right   = layout.position['right'   ]
+    top     = layout.position['top'     ]
+    bottom  = layout.position['bottom'  ]
+    //
+    width   = layout.size['width' ]
+    height  = layout.size['height']
+    //
+    margin  = layout.box['margin']
+    border  = layout.box['border']
+    padding = layout.box['padding']
+    //
+    add-layout-position pos, left, right, top, bottom
+    add-layout-size     width, height
+    add-layout-box      margin, border, padding
 
-// get-theme
-get-theme-color(key)
-    if key != null
-        return theme.color[get-string(key)]            or key
+// add-view
+add-view-foreground(color, font, text)
+    add-property 'color',           color
+    add-property 'font',            get(font, 'url'    )
+    add-property 'font-definition', get(font, 'url'    )
+    add-property 'font-size',       get(font, 'size'   )
+    add-property 'font-style',      get(font, 'style'  )
+    add-property 'text-align',      get(text, 'align'  )
+    add-property 'text-outline',    get(text, 'outline')
+    add-property 'text-shadow',     get(text, 'shadow' )
+add-view-background(background-color, background-image)
+    add-property 'background-color',            background-color
+    add-property 'background-image',            get(background-image, 'url'         )
+    add-property 'background-image-tint-color', get(background-image, 'color'       )
+    add-property 'background-scale-mode',       get(background-image, 'scale-mode'  )
+    add-property 'slice-left',                  get(background-image, 'slice-left'  )
+    add-property 'slice-right',                 get(background-image, 'slice-right' )
+    add-property 'slice-top',                   get(background-image, 'slice-top'   )
+    add-property 'slice-bottom',                get(background-image, 'slice-bottom')
+    add-property 'slice-scale',                 get(background-image, 'slice-scale' )
+add-view-border(border-color, border-radius)
+    add-property 'border-left-color',          border-color[0]                   
+    add-property 'border-right-color',         border-color[1] or border-color[0]
+    add-property 'border-top-color',           border-color[2] or border-color[0]
+    add-property 'border-bottom-color',        border-color[3] or border-color[0]
+    add-property 'border-top-left-radius',     border-radius[0]                    
+    add-property 'border-top-right-radius',    border-radius[1] or border-radius[0]
+    add-property 'border-bottom-left-radius',  border-radius[2] or border-radius[0]
+    add-property 'border-bottom-right-radius', border-radius[3] or border-radius[0]
+
+// add-layout
+add-layout-position(position, left = null, right = null, top = null, bottom = null)
+    add-property 'position', position
+    add-property 'left',     left
+    add-property 'right',    right
+    add-property 'top',      top
+    add-property 'bottom',   bottom
+add-layout-size(width, height)
+    add-property 'width',      width[0]
+    add-property 'min-width',  width[1]
+    add-property 'max-width',  width[2]
+    add-property 'height',     height[0]
+    add-property 'min-height', height[1]
+    add-property 'max-height', height[2]
+add-layout-box(margin, border, padding)
+    add-property 'margin-left',         margin[0]
+    add-property 'margin-right',        margin[1] or margin[0]
+    add-property 'margin-top',          margin[2] or margin[0]
+    add-property 'margin-bottom',       margin[3] or margin[0]
+    add-property 'border-left-width',   border[0]
+    add-property 'border-right-width',  border[1] or border[0]
+    add-property 'border-top-width',    border[2] or border[0]
+    add-property 'border-bottom-width', border[3] or border[0]
+    add-property 'padding-left',        padding[0]
+    add-property 'padding-right',       padding[1] or padding[0]
+    add-property 'padding-top',         padding[2] or padding[0]
+    add-property 'padding-bottom',      padding[3] or padding[0]
+
+// add-flex
+add-flex(flex-grow, flex-shrink, flex-basis, align-self)
+    add-property 'flex-grow',   flex-grow
+    add-property 'flex-shrink', flex-shrink
+    add-property 'flex-basis',  flex-basis
+    add-property 'align-self',  align-self
+add-flex2(flex-direction, justify-content, align-items)
+    add-property 'flex-direction',  flex-direction
+    add-property 'flex-wrap',       null
+    add-property 'justify-content', justify-content
+    add-property 'align-items',     align-items
+    add-property 'align-content',   null
+
+// add-property
+add-property(property, value)
+    property = get-unity-property(property) if property == 'overflow-clip-box'
+    property = get-unity-property(property) if property == 'font'
+    property = get-unity-property(property) if property == 'font-definition'
+    property = get-unity-property(property) if property == 'font-style'
+    property = get-unity-property(property) if property == 'text-align'
+    property = get-unity-property(property) if property == 'text-outline'
+    property = get-unity-property(property) if property == 'text-outline-width'
+    property = get-unity-property(property) if property == 'text-outline-color'
+    property = get-unity-property(property) if property == 'text-overflow-position'
+    property = get-unity-property(property) if property == 'paragraph-spacing'
+    property = get-unity-property(property) if property == 'background-image-tint-color'
+    property = get-unity-property(property) if property == 'background-scale-mode'
+    property = get-unity-property(property) if property == 'slice-left'
+    property = get-unity-property(property) if property == 'slice-right'
+    property = get-unity-property(property) if property == 'slice-top'
+    property = get-unity-property(property) if property == 'slice-bottom'
+    property = get-unity-property(property) if property == 'slice-scale'
+    value = get-url-value(value) if property == '-unity-font'
+    value = get-url-value(value) if property == '-unity-font-definition'
+    value = get-url-value(value) if property == 'background-image'
+    if value != null
+        {property} value
+get-unity-property(property)
+    if property != null
+        property = get-string(property)
+        return s("-unity-%s", property)
     null
-get-theme-background-color(key)
-    if key != null
-        return theme.background-color[get-string(key)] or theme.color[get-string(key)] or key
+get-url-value(url)
+    // todo: does this support addressables?
+    if url != null
+        url = get-string(url)
+        return s("url('%s')", url)
     null
-get-theme-background-image(key)
-    if key != null
-        return theme.background-image[get-string(key)] or key
-    null
-get-theme-border-color(key)
-    if key != null
-        return theme.border-color[get-string(key)]     or theme.color[get-string(key)] or key
-    null
-get-theme-border-radius(key)
-    if key != null
-        return theme.border-radius[get-string(key)]    or key
-    null
+
+// get
+get(obj, key)
+    obj[get-string(key)]
