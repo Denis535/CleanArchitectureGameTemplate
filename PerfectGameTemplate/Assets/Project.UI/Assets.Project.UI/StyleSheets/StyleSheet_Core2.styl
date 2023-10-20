@@ -32,6 +32,29 @@ theme = {
         dark-box:                      hsla(200deg,  15%,  20%, 0.80),
     },
     background-image: {
+        // card
+        card:                          img(null, null, null),
+        card-header:                   img(null, null, null),
+        card-content:                  img(null, null, null),
+        card-footer:                   img(null, null, null),
+        // dialog-card
+        dialog-card:                   img(null, null, null),
+        dialog-card-header:            img(null, null, null),
+        dialog-card-header--info:      img(null, null, null),
+        dialog-card-header--warning:   img(null, null, null),
+        dialog-card-header--error:     img(null, null, null),
+        dialog-card-content:           img(null, null, null),
+        dialog-card-footer:            img(null, null, null),
+        // scope
+        scope:                         img(null, null, null),
+        // group
+        group:                         img(null, null, null),
+        light-group:                   img(null, null, null),
+        dark-group:                    img(null, null, null),
+        // box
+        box:                           img(null, null, null), 
+        light-box:                     img(null, null, null),
+        dark-box:                      img(null, null, null),
     },
     border-color: {
         // card
@@ -67,7 +90,7 @@ theme = {
         dialog-card-content:           6px,
         dialog-card-footer:            0px 0px 6px 6px,
         // scope
-        scope:                         0px,
+        scope:                         6px,
         // group
         group:                         6px,
         // box
@@ -76,50 +99,50 @@ theme = {
 }
 views = {
     // card
-    card:                              create-view( create-foreground(dark,  fnt(), txt()), create-background(card,                        null), create-border(card,                card               ) ),
-    card-header:                       create-view( create-foreground(dark,  fnt(), txt()), create-background(card-header,                 null), create-border(card-header,         card-header        ) ),
-    card-content:                      create-view( create-foreground(dark,  fnt(), txt()), create-background(card-content,                null), create-border(card-content,        card-content       ) ),
-    card-footer:                       create-view( create-foreground(dark,  fnt(), txt()), create-background(card-footer,                 null), create-border(card-footer,         card-footer        ) ),
+    card:                              create-view( create-foreground(dark,  null, null), create-background(card,                        card                       ), create-border(card,                card               ) ),
+    card-header:                       create-view( create-foreground(dark,  null, null), create-background(card-header,                 card-header                ), create-border(card-header,         card-header        ) ),
+    card-content:                      create-view( create-foreground(dark,  null, null), create-background(card-content,                card-content               ), create-border(card-content,        card-content       ) ),
+    card-footer:                       create-view( create-foreground(dark,  null, null), create-background(card-footer,                 card-footer                ), create-border(card-footer,         card-footer        ) ),
     // dialog-card
-    dialog-card:                       create-view( create-foreground(dark,  fnt(), txt()), create-background(dialog-card,                 null), create-border(dialog-card,         dialog-card        ) ),
-    dialog-card-header:                create-view( create-foreground(dark,  fnt(), txt()), create-background(dialog-card-header,          null), create-border(dialog-card-header,  dialog-card-header ) ),
-    dialog-card-header--info:          create-view( create-foreground(dark,  fnt(), txt()), create-background(dialog-card-header--info,    null), create-border(dialog-card-header,  dialog-card-header ) ),
-    dialog-card-header--warning:       create-view( create-foreground(dark,  fnt(), txt()), create-background(dialog-card-header--warning, null), create-border(dialog-card-header,  dialog-card-header ) ),
-    dialog-card-header--error:         create-view( create-foreground(dark,  fnt(), txt()), create-background(dialog-card-header--error,   null), create-border(dialog-card-header,  dialog-card-header ) ),
-    dialog-card-content:               create-view( create-foreground(dark,  fnt(), txt()), create-background(dialog-card-content,         null), create-border(dialog-card-content, dialog-card-content) ),
-    dialog-card-footer:                create-view( create-foreground(dark,  fnt(), txt()), create-background(dialog-card-footer,          null), create-border(dialog-card-footer,  dialog-card-footer ) ),
+    dialog-card:                       create-view( create-foreground(dark,  null, null), create-background(dialog-card,                 dialog-card                ), create-border(dialog-card,         dialog-card        ) ),
+    dialog-card-header:                create-view( create-foreground(dark,  null, null), create-background(dialog-card-header,          dialog-card-header         ), create-border(dialog-card-header,  dialog-card-header ) ),
+    dialog-card-header--info:          create-view( create-foreground(dark,  null, null), create-background(dialog-card-header--info,    dialog-card-header--info   ), create-border(dialog-card-header,  dialog-card-header ) ),
+    dialog-card-header--warning:       create-view( create-foreground(dark,  null, null), create-background(dialog-card-header--warning, dialog-card-header--warning), create-border(dialog-card-header,  dialog-card-header ) ),
+    dialog-card-header--error:         create-view( create-foreground(dark,  null, null), create-background(dialog-card-header--error,   dialog-card-header--error  ), create-border(dialog-card-header,  dialog-card-header ) ),
+    dialog-card-content:               create-view( create-foreground(dark,  null, null), create-background(dialog-card-content,         dialog-card-content        ), create-border(dialog-card-content, dialog-card-content) ),
+    dialog-card-footer:                create-view( create-foreground(dark,  null, null), create-background(dialog-card-footer,          dialog-card-footer         ), create-border(dialog-card-footer,  dialog-card-footer ) ),
     // scope
-    scope:                             create-view( create-foreground(null,  fnt(), txt()), create-background(scope,                       null), create-border(scope,               scope              ) ),
+    scope:                             create-view( create-foreground(null,  null, null), create-background(scope,                       scope                      ), create-border(scope,               scope              ) ),
     // group
-    group:                             create-view( create-foreground(null,  fnt(), txt()), create-background(group,                       null), create-border(group,               group              ) ),
-    light-group:                       create-view( create-foreground(dark,  fnt(), txt()), create-background(light-group,                 null), create-border(light-group,         group              ) ),
-    dark-group:                        create-view( create-foreground(light, fnt(), txt()), create-background(dark-group,                  null), create-border(dark-group,          group              ) ),
+    group:                             create-view( create-foreground(null,  null, null), create-background(group,                       group                      ), create-border(group,               group              ) ),
+    light-group:                       create-view( create-foreground(dark,  null, null), create-background(light-group,                 light-group                ), create-border(light-group,         group              ) ),
+    dark-group:                        create-view( create-foreground(light, null, null), create-background(dark-group,                  dark-group                 ), create-border(dark-group,          group              ) ),
     // box
-    box:                               create-view( create-foreground(null,  fnt(), txt()), create-background(box,                         null), create-border(box,                 box                ) ),
-    light-box:                         create-view( create-foreground(dark,  fnt(), txt()), create-background(light-box,                   null), create-border(light-box,           box                ) ),
-    dark-box:                          create-view( create-foreground(light, fnt(), txt()), create-background(dark-box,                    null), create-border(dark-box,            box                ) )
+    box:                               create-view( create-foreground(null,  null, null), create-background(box,                         box                        ), create-border(box,                 box                ) ),
+    light-box:                         create-view( create-foreground(dark,  null, null), create-background(light-box,                   light-box                  ), create-border(light-box,           box                ) ),
+    dark-box:                          create-view( create-foreground(light, null, null), create-background(dark-box,                    dark-box                   ), create-border(dark-box,            box                ) )
 }
 layouts = {
     // card
-    card:                              create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) ),
-    card-header:                       create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (0px 0px 0px 1px), (12px 12px 10px 10px)) ),
-    card-content:                      create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (0px            ), (24px 24px 20px 20px)) ),
-    card-footer:                       create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (0px 0px 1px 0px), (24px 24px 20px 20px)) ),
+    card:                              create-layout( create-position(null), create-size(auto, auto), create-box((0px), (1px            ), (0px                )) ),
+    card-header:                       create-layout( create-position(null), create-size(auto, auto), create-box((0px), (0px 0px 0px 1px), (12px 12px 10px 10px)) ),
+    card-content:                      create-layout( create-position(null), create-size(auto, auto), create-box((0px), (0px            ), (24px 24px 20px 20px)) ),
+    card-footer:                       create-layout( create-position(null), create-size(auto, auto), create-box((0px), (0px 0px 1px 0px), (24px 24px 20px 20px)) ),
     // scope
-    scope:                             create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (0px            ), ( 0px  0px  0px  0px)) ),
-    small-scope:                       create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (0px            ), ( 6px  6px  5px  5px)) ),
-    medium-scope:                      create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (0px            ), (12px 12px 10px 10px)) ),
-    large-scope:                       create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (0px            ), (24px 24px 20px 20px)) ),
+    scope:                             create-layout( create-position(null), create-size(auto, auto), create-box((0px), (0px            ), ( 0px  0px  0px  0px)) ),
+    small-scope:                       create-layout( create-position(null), create-size(auto, auto), create-box((0px), (0px            ), ( 6px  6px  5px  5px)) ),
+    medium-scope:                      create-layout( create-position(null), create-size(auto, auto), create-box((0px), (0px            ), (12px 12px 10px 10px)) ),
+    large-scope:                       create-layout( create-position(null), create-size(auto, auto), create-box((0px), (0px            ), (24px 24px 20px 20px)) ),
     // group
-    group:                             create-layout( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), ( 0px  0px  0px  0px)) ),
-    small-group:                       create-layout( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), ( 6px  6px  5px  5px)) ),
-    medium-group:                      create-layout( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), (12px 12px 10px 10px)) ),
-    large-group:                       create-layout( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), (24px 24px 20px 20px)) ),
+    group:                             create-layout( create-position(null), create-size(auto, auto), create-box((4px), (1px            ), ( 0px  0px  0px  0px)) ),
+    small-group:                       create-layout( create-position(null), create-size(auto, auto), create-box((4px), (1px            ), ( 6px  6px  5px  5px)) ),
+    medium-group:                      create-layout( create-position(null), create-size(auto, auto), create-box((4px), (1px            ), (12px 12px 10px 10px)) ),
+    large-group:                       create-layout( create-position(null), create-size(auto, auto), create-box((4px), (1px            ), (24px 24px 20px 20px)) ),
     // box
-    box:                               create-layout( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), ( 0px  0px  0px  0px)) ),
-    small-box:                         create-layout( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), ( 6px  6px  5px  5px)) ),
-    medium-box:                        create-layout( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), (12px 12px 10px 10px)) ),
-    large-box:                         create-layout( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), (24px 24px 20px 20px)) )
+    box:                               create-layout( create-position(null), create-size(auto, auto), create-box((4px), (1px            ), ( 0px  0px  0px  0px)) ),
+    small-box:                         create-layout( create-position(null), create-size(auto, auto), create-box((4px), (1px            ), ( 6px  6px  5px  5px)) ),
+    medium-box:                        create-layout( create-position(null), create-size(auto, auto), create-box((4px), (1px            ), (12px 12px 10px 10px)) ),
+    large-box:                         create-layout( create-position(null), create-size(auto, auto), create-box((4px), (1px            ), (24px 24px 20px 20px)) )
 }
 
 // view

@@ -700,10 +700,10 @@
   border-right-color: rgba(0,0,0,0);
   border-top-color: rgba(0,0,0,0);
   border-bottom-color: rgba(0,0,0,0);
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
   width: auto;
   height: auto;
   margin-left: 0px;
