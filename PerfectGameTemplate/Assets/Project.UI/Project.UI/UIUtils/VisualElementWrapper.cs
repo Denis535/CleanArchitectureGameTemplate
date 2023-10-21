@@ -4,6 +4,7 @@ namespace Project.UI {
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+    using UnityEditor.Experimental.GraphView;
     using UnityEngine;
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
@@ -23,6 +24,10 @@ namespace Project.UI {
         public bool IsValid {
             get => VisualElement.IsValid();
             set => VisualElement.SetValid( value );
+        }
+
+        public IReadOnlyList<string> Classes {
+            get => (IReadOnlyList<string>) VisualElement.GetClasses();
         }
 
         public VisualElementWrapper(VisualElement visualElement) {
@@ -64,6 +69,7 @@ namespace Project.UI {
         }
 
     }
+    // LabelWrapper
     public class LabelWrapper : VisualElementWrapper<Label> {
 
         public string? Text {
@@ -75,6 +81,7 @@ namespace Project.UI {
         }
 
     }
+    // ButtonWrapper
     public class ButtonWrapper : VisualElementWrapper<Button> {
 
         public string? Text {
@@ -86,7 +93,7 @@ namespace Project.UI {
         }
 
     }
-    // FieldWrapper
+    // TextWrapper
     public class TextWrapper<T> : VisualElementWrapper<BaseField<string?>> where T : notnull {
 
         public string? Value {
@@ -99,6 +106,7 @@ namespace Project.UI {
         }
 
     }
+    // PopupWrapper
     public class PopupWrapper<T> : VisualElementWrapper<PopupField<T?>> where T : notnull {
 
         public T? Value {
@@ -118,6 +126,7 @@ namespace Project.UI {
         }
 
     }
+    // SliderWrapper
     public class SliderWrapper<T> : VisualElementWrapper<BaseSlider<T>> where T : struct, IComparable<T> {
 
         public T Value {
@@ -141,6 +150,7 @@ namespace Project.UI {
         }
 
     }
+    // ToggleWrapper
     public class ToggleWrapper<T> : VisualElementWrapper<Toggle> where T : struct, IComparable<T> {
 
         public bool Value {
@@ -185,9 +195,9 @@ namespace Project.UI {
 
     }
     // VisualElementWrapperExtensions
-    public static partial class VisualElementWrapperExtensions {
+    public static class VisualElementWrapperExtensions {
 
-        // ElementWrapper
+        // Wrap
         public static ElementWrapper Wrap(this VisualElement visualElement) {
             return new ElementWrapper( visualElement );
         }
@@ -197,7 +207,6 @@ namespace Project.UI {
         public static ButtonWrapper Wrap(this Button visualElement) {
             return new ButtonWrapper( visualElement );
         }
-        // FieldWrapper
         public static TextWrapper<string> Wrap(this BaseField<string?> visualElement) {
             return new TextWrapper<string>( visualElement );
         }
@@ -210,13 +219,35 @@ namespace Project.UI {
         public static ToggleWrapper<bool> Wrap(this Toggle visualElement) {
             return new ToggleWrapper<bool>( visualElement );
         }
-        // SlotWrapper
-        public static SlotWrapper Wrap(this Slot visualElement) {
+        public static SlotWrapper Wrap(this ScrollView visualElement) {
             return new SlotWrapper( visualElement );
         }
 
-    }
-    public static partial class VisualElementWrapperExtensions {
+        // Wrap
+        public static SlotWrapper Wrap(this Card visualElement) {
+            return new SlotWrapper( visualElement );
+        }
+        public static SlotWrapper Wrap(this Header visualElement) {
+            return new SlotWrapper( visualElement );
+        }
+        public static SlotWrapper Wrap(this Content visualElement) {
+            return new SlotWrapper( visualElement );
+        }
+        public static SlotWrapper Wrap(this Footer visualElement) {
+            return new SlotWrapper( visualElement );
+        }
+        public static SlotWrapper Wrap(this Slot visualElement) {
+            return new SlotWrapper( visualElement );
+        }
+        public static SlotWrapper Wrap(this Scope visualElement) {
+            return new SlotWrapper( visualElement );
+        }
+        public static SlotWrapper Wrap(this Group visualElement) {
+            return new SlotWrapper( visualElement );
+        }
+        public static SlotWrapper Wrap(this Box visualElement) {
+            return new SlotWrapper( visualElement );
+        }
 
         // OnAttachToPanel
         public static void OnAttachToPanel<T>(this VisualElementWrapper<T> wrapper, Action<VisualElementWrapper>? callback) where T : VisualElement {

@@ -13,7 +13,7 @@ namespace Project.UI.Common {
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
-        public ElementWrapper Card { get; }
+        public SlotWrapper Card { get; }
         public SlotWrapper Header { get; }
         public SlotWrapper Content { get; }
         public SlotWrapper Footer { get; }
@@ -26,9 +26,9 @@ namespace Project.UI.Common {
             View = view.Wrap();
             View.OnAttachToPanel( i => PlayAppearanceAnimation( i.VisualElement ) );
             Card = card.Wrap();
-            Header = new SlotWrapper( header ).Pipe( i => i.IsDisplayed = false );
-            Content = new SlotWrapper( content ).Pipe( i => i.IsDisplayed = false );
-            Footer = new SlotWrapper( footer ).Pipe( i => i.IsDisplayed = false );
+            Header = header.Wrap().Pipe( i => i.IsDisplayed = false );
+            Content = content.Wrap().Pipe( i => i.IsDisplayed = false );
+            Footer = footer.Wrap().Pipe( i => i.IsDisplayed = false );
             Title = title.Wrap();
             Message = message.Wrap();
         }
