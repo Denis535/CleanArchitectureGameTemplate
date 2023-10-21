@@ -115,248 +115,281 @@ layouts = {
     // component
     component:                         create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (0px            ), (0px                )) ),
     // image
-    image:                             create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) ),
+    image:                             create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) )
 }
 
 // label
 label()
-    add-view(label, text: txt(upper-left))
-    add-layout(label)
+    add-skin(label)
+    add-skin2(label)
+    add-view(text: txt(upper-left))
+    add-layout()
     add-flex(0, 1, auto, auto)
 
 // button
 button()
-    add-view(button, font: fnt(null, null, bold), text: txt(middle-center))
-    add-layout(button)
+    add-skin(button)
+    add-skin2(button)
+    add-view(font: fnt(null, null, bold), text: txt(middle-center))
+    add-layout()
     add-flex(0, 1, auto, auto)
 
 // field
 field()
-    add-view(field)
-    add-layout(field)
+    add-skin(field)
+    add-skin2(field)
+    add-view()
+    add-layout()
     add-flex(0, 1, auto, auto)
     add-flex2(row, flex-start, stretch)
 field-label()
-    add-view(field-label, font: fnt(null, null, bold), text: txt(middle-left))
-    add-layout(field-label)
+    add-skin(field-label)
+    add-skin2(field-label)
+    add-view(font: fnt(null, null, bold), text: txt(middle-left))
+    add-layout()
     add-flex(0, 1, auto, auto)
 field-input()
-    add-view(field-input, text: txt(middle-left))
-    add-layout(field-input)
+    add-skin(field-input)
+    add-skin2(field-input)
+    add-view(text: txt(middle-left))
+    add-layout()
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-end, center)
 
 // text-field
 text-field-input()
 text-field-input--text()
-    add-view(component)
-    add-layout(component)
+    add-skin(component)
+    add-skin2(component)
     add-flex(1, 1, auto, auto)
 
 // popup-field
 popup-field-input()
 popup-field-input--text()
-    add-view(component)
-    add-layout(component)
+    add-skin(component)
+    add-skin2(component)
     add-flex(1, 1, auto, auto)
 popup-field-input--arrow()
-    add-view(dropdown-arrow-image)
-    add-layout(image, null, 12px, 12px, 2px)
+    add-skin(dropdown-arrow-image)
+    add-skin2(image)
+    add-view()
+    add-layout(null, 12px, 12px, 2px, null, null)
 
 // slider-field
 slider-field-input()
 slider-field-input--container()
-    add-view(component)
-    add-layout(component)
+    add-skin(component)
+    add-skin2(component)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
 slider-field-input--tracker()
-    add-view(light-image, alpha: 0.50)
-    add-layout(image, null, auto, 8px)
+    add-skin(light-image, alpha: 0.50)
+    add-skin2(image)
+    add-view()
+    add-layout(null, auto, 8px)
     add-flex(1, 1, auto, auto)
 slider-field-input--dragger()
-    add-view(light-image)
-    add-layout(image, absolute, 8px, 24px)
+    add-skin(light-image)
+    add-skin2(image)
+    add-view()
+    add-layout(absolute, 8px, 24px)
     add-flex(0, 1, auto, auto)
 
 // toggle-field
 toggle-field-input()
 toggle-field-input--checkmark(value)
-    add-view(light-image)
-    add-view(dark-check-image) if value
-    add-layout(image, null, 16px, 16px)
+    add-skin(light-image)
+    add-skin(dark-check-image) if value
+    add-skin2(image)
+    add-view()
+    add-layout(null, 16px, 16px)
 
 // scroll-view
 scroll-view()
-    add-view(scroll-view)
-    add-layout(scroll-view)
+    add-skin(scroll-view)
+    add-skin2(scroll-view)
+    add-view()
+    add-layout()
     add-flex(0, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
     &.light, &.light-0
-        add-view(light-scroll-view, alpha: 0.00)
+        add-skin(light-scroll-view, alpha: 0.00)
     &.light-1
-        add-view(light-scroll-view, alpha: 0.10)
+        add-skin(light-scroll-view, alpha: 0.10)
     &.light-2
-        add-view(light-scroll-view, alpha: 0.20)
+        add-skin(light-scroll-view, alpha: 0.20)
     &.light-3
-        add-view(light-scroll-view, alpha: 0.30)
+        add-skin(light-scroll-view, alpha: 0.30)
     &.light-4
-        add-view(light-scroll-view, alpha: 0.40)
+        add-skin(light-scroll-view, alpha: 0.40)
     &.light-5
-        add-view(light-scroll-view, alpha: 0.50)
+        add-skin(light-scroll-view, alpha: 0.50)
     &.light-6
-        add-view(light-scroll-view, alpha: 0.60)
+        add-skin(light-scroll-view, alpha: 0.60)
     &.light-7
-        add-view(light-scroll-view, alpha: 0.70)
+        add-skin(light-scroll-view, alpha: 0.70)
     &.light-8
-        add-view(light-scroll-view, alpha: 0.80)
+        add-skin(light-scroll-view, alpha: 0.80)
     &.light-9
-        add-view(light-scroll-view, alpha: 0.90)
+        add-skin(light-scroll-view, alpha: 0.90)
     &.light-10
-        add-view(light-scroll-view, alpha: 1.00)
+        add-skin(light-scroll-view, alpha: 1.00)
     &.dark, &.dark-0
-        add-view(dark-scroll-view, alpha: 0.00)
+        add-skin(dark-scroll-view, alpha: 0.00)
     &.dark-1
-        add-view(dark-scroll-view, alpha: 0.10)
+        add-skin(dark-scroll-view, alpha: 0.10)
     &.dark-2
-        add-view(dark-scroll-view, alpha: 0.20)
+        add-skin(dark-scroll-view, alpha: 0.20)
     &.dark-3
-        add-view(dark-scroll-view, alpha: 0.30)
+        add-skin(dark-scroll-view, alpha: 0.30)
     &.dark-4
-        add-view(dark-scroll-view, alpha: 0.40)
+        add-skin(dark-scroll-view, alpha: 0.40)
     &.dark-5
-        add-view(dark-scroll-view, alpha: 0.50)
+        add-skin(dark-scroll-view, alpha: 0.50)
     &.dark-6
-        add-view(dark-scroll-view, alpha: 0.60)
+        add-skin(dark-scroll-view, alpha: 0.60)
     &.dark-7
-        add-view(dark-scroll-view, alpha: 0.70)
+        add-skin(dark-scroll-view, alpha: 0.70)
     &.dark-8
-        add-view(dark-scroll-view, alpha: 0.80)
+        add-skin(dark-scroll-view, alpha: 0.80)
     &.dark-9
-        add-view(dark-scroll-view, alpha: 0.90)
+        add-skin(dark-scroll-view, alpha: 0.90)
     &.dark-10
-        add-view(dark-scroll-view, alpha: 1.00)
+        add-skin(dark-scroll-view, alpha: 1.00)
 scroll-view--container()
-    add-view(component)
-    add-layout(component)
+    add-skin(component)
+    add-skin2(component)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, stretch)
 scroll-view--viewport()
     overflow hidden
-    add-view(component)
-    add-layout(component)
+    add-skin(component)
+    add-skin2(component)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
 scroll-view--content()
     overflow scroll
-    add-view(component)
-    add-layout(component, null, null, null, null, null, (12px 12px 10px 10px))
+    add-skin(component)
+    add-skin2(component)
+    add-layout(null, null, null, null, null, (12px 12px 10px 10px))
     add-flex(0, 0, auto, auto)
     add-flex2(column, flex-start, stretch)
 
 // horizontal-scroller
 horizontal-scroller()
-    add-view(component)
-    add-layout(component)
+    add-skin(component)
+    add-skin2(component)
     add-flex(0, 0, auto, auto)
     add-flex2(row, flex-start, stretch)
 horizontal-scroller--low-button()
-    add-view(light-image, alpha: 0.50)
-    add-view(left-arrow-image)
-    add-layout(image, (absolute 0px auto auto auto), 24px, 24px)
+    add-skin(light-image, alpha: 0.50)
+    add-skin(left-arrow-image)
+    add-skin2(image)
+    add-layout((absolute 0px auto auto auto), 24px, 24px)
 horizontal-scroller--high-button()
-    add-view(light-image, alpha: 0.50)
-    add-view(right-arrow-image)
-    add-layout(image, (absolute auto 0px auto auto), 24px, 24px)
+    add-skin(light-image, alpha: 0.50)
+    add-skin(right-arrow-image)
+    add-skin2(image)
+    add-layout((absolute auto 0px auto auto), 24px, 24px)
 // horizontal-scroller--slider-field
 horizontal-scroller--slider-field()
-    add-view(component)
-    add-layout(component, null, auto, auto, 0px, 0px, 0px)
+    add-skin(component)
+    add-skin2(component)
+    add-layout(null, auto, auto, 0px, 0px, 0px)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
 horizontal-scroller--slider-field-input()
-    add-view(component)
-    add-layout(component, null, auto, 24px, (24px 24px 0px 0px), 0px, 0px)
+    add-skin(component)
+    add-skin2(component)
+    add-layout(null, auto, 24px, (24px 24px 0px 0px), 0px, 0px)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
 horizontal-scroller--slider-field-input--container()
-    add-view(component)
-    add-layout(component)
+    add-skin(component)
+    add-skin2(component)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
 horizontal-scroller--slider-field-input--tracker()
-    add-view(dark-image)
-    add-layout(image, null, auto, 24px)
+    add-skin(dark-image)
+    add-skin2(image)
+    add-layout(null, auto, 24px)
     add-flex(1, 1, auto, auto)
 horizontal-scroller--slider-field-input--dragger()
-    add-view(light-image, alpha: 0.50)
-    add-layout(image, absolute, auto, 24px)
+    add-skin(light-image, alpha: 0.50)
+    add-skin2(image)
+    add-layout(absolute, auto, 24px)
     add-flex(0, 1, auto, auto)
 
 // vertical-scroller
 vertical-scroller()
-    add-view(component)
-    add-layout(component)
+    add-skin(component)
+    add-skin2(component)
     add-flex(0, 0, auto, auto)
     add-flex2(column, flex-start, stretch)
 vertical-scroller--low-button()
-    add-view(light-image, alpha: 0.50)
-    add-view(up-arrow-image)
-    add-layout(image, (absolute auto auto 0px auto), 24px, 24px)
+    add-skin(light-image, alpha: 0.50)
+    add-skin(up-arrow-image)
+    add-skin2(image)
+    add-layout((absolute auto auto 0px auto), 24px, 24px)
 vertical-scroller--high-button()
-    add-view(light-image, alpha: 0.50)
-    add-view(down-arrow-image)
-    add-layout(image, (absolute auto auto auto 0px), 24px, 24px)
+    add-skin(light-image, alpha: 0.50)
+    add-skin(down-arrow-image)
+    add-skin2(image)
+    add-layout((absolute auto auto auto 0px), 24px, 24px)
 // vertical-scroller--slider-field
 vertical-scroller--slider-field()
-    add-view(component)
-    add-layout(component, null, auto, auto, 0px, 0px, 0px)
+    add-skin(component)
+    add-skin2(component)
+    add-layout(null, auto, auto, 0px, 0px, 0px)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, center)
 vertical-scroller--slider-field-input()
-    add-view(component)
-    add-layout(component, null, 24px, auto, (0px 0px 24px 24px), 0px, 0px)
+    add-skin(component)
+    add-skin2(component)
+    add-layout(null, 24px, auto, (0px 0px 24px 24px), 0px, 0px)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, center)
 vertical-scroller--slider-field-input--container()
-    add-view(component)
-    add-layout(component)
+    add-skin(component)
+    add-skin2(component)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, center)
 vertical-scroller--slider-field-input--tracker()
-    add-view(dark-image)
-    add-layout(image, null, 24px, auto)
+    add-skin(dark-image)
+    add-skin2(image)
+    add-layout(null, 24px, auto)
     add-flex(1, 1, auto, auto)
 vertical-scroller--slider-field-input--dragger()
-    add-view(light-image, alpha: 0.50)
-    add-layout(image, absolute, 24px, auto)
+    add-skin(light-image, alpha: 0.50)
+    add-skin2(image)
+    add-layout(absolute, 24px, auto)
     add-flex(0, 1, auto, auto)
 
 // dropdown-view
 dropdown-view()
-    add-view(null)
-    add-layout(null)
-    add-flex(0, 1, auto, auto)
-    add-flex2(column, flex-start, stretch)
+    add-skin(null)
+    add-skin2(null)
 dropdown-view--scroll-view()
-    add-view(dropdown-view)
-    add-layout(dropdown-view)
+    add-skin(dropdown-view)
+    add-skin2(dropdown-view)
 dropdown-view--scroll-view--container()
 dropdown-view--scroll-view--viewport()
 dropdown-view--scroll-view--content()
     add-layout-box(0px, 0px, 0px)
 dropdown-view--scroll-view--item()
-    add-view(component)
-    add-layout(component, null, null, null, null, null, (12px 12px 10px 10px))
+    add-skin(component)
+    add-skin2(component)
+    add-layout(null, null, null, null, null, (12px 12px 10px 10px))
     add-flex(0, 1, auto, auto)
     add-flex2(row, flex-start, center)
 dropdown-view--scroll-view--item-checkmark(value)
-    add-view(light-check-image) if value
-    add-layout(image, null, 16px, 16px, (0px 12px 0px 0px))
+    add-skin(light-check-image) if value
+    add-skin2(image)
+    add-layout(null, 16px, 16px, (0px 12px 0px 0px))
     add-flex(0, 1, auto, auto)
 dropdown-view--scroll-view--item-text()
-    add-view(component)
-    add-layout(component)
+    add-skin(component)
+    add-skin2(component)
     add-flex(1, 1, auto, auto)
 
 // PanelSettings
@@ -371,25 +404,25 @@ dropdown-view--scroll-view--item-text()
 .unity-label
     label()
     &:focus
-        add-view(focus-effect)
+        add-skin(focus-effect)
     &.invalid
-        add-view(invalid-effect)
+        add-skin(invalid-effect)
 
 // button
 .unity-button
     button()
     &:focus
-        add-view(focus-effect)
+        add-skin(focus-effect)
     &.invalid
-        add-view(invalid-effect)
+        add-skin(invalid-effect)
 
 // repeat-button
 .unity-repeat-button
     button()
     &:focus
-        add-view(focus-effect)
+        add-skin(focus-effect)
     &.invalid
-        add-view(invalid-effect)
+        add-skin(invalid-effect)
 
 // field
 .unity-base-field
@@ -397,15 +430,15 @@ dropdown-view--scroll-view--item-text()
     &__label
         field-label()
         :focus > &
-            add-view(focus-effect)
+            add-skin(focus-effect)
         .invalid > &
-            add-view(invalid-effect)
+            add-skin(invalid-effect)
     &__input
         field-input()
         :focus > &
-            add-view(focus-effect--without-foreground)
+            add-skin(focus-effect--without-foreground)
         .invalid > &
-            add-view(invalid-effect--without-foreground)
+            add-skin(invalid-effect--without-foreground)
 
 // text-field
 .unity-base-text-field
@@ -474,7 +507,7 @@ dropdown-view--scroll-view--item-text()
             horizontal-scroller--slider-field-input--dragger()
     .unity-base-slider:focus
         #unity-dragger
-            add-view(focus-effect)
+            add-skin(focus-effect)
 
 // scroller--vertical
 .unity-scroller--vertical
@@ -497,7 +530,7 @@ dropdown-view--scroll-view--item-text()
             vertical-scroller--slider-field-input--dragger()
     .unity-base-slider:focus
         #unity-dragger
-            add-view(focus-effect)
+            add-skin(focus-effect)
 
 // dropdown
 .unity-base-dropdown
@@ -516,7 +549,7 @@ dropdown-view--scroll-view--item-text()
     &__item
         dropdown-view--scroll-view--item()
     &__item:hover
-        add-view(hover-effect)
+        add-skin(hover-effect)
     &__item &__checkmark
         dropdown-view--scroll-view--item-checkmark(false)
     &__item:checked &__checkmark

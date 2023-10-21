@@ -1,57 +1,50 @@
+// add-skin
+add-skin(view, alpha = 1, alpha2 = (alpha+3)/4)
+    if view != null
+        view      = get(views, view) or error('Views has no view: ' + get-string(view))
+        //
+        color     = view.foreground['color']
+        font      = view.foreground['font' ]
+        text      = view.foreground['text' ]
+        //
+        bg-color  = view.background['color']
+        bg-color  = alpha(bg-color, alpha(bg-color) * alpha) if bg-color != null
+        bg-image  = view.background['image']
+        //
+        bd-color  = view.border['color' ]
+        bd-color  = alpha(bd-color, alpha(bd-color) * alpha2) if bd-color != null
+        bd-radius = view.border['radius']
+        //
+        add-view-foreground color, font, text
+        add-view-background bg-color, bg-image
+        add-view-border     bd-color, bd-radius
+// add-skin2
+add-skin2(layout)
+    if layout != null
+        layout  = get(layouts, layout) or error('Layouts has no layout: ' + get-string(layout))
+        //
+        pos     = layout.position['position']
+        left    = layout.position['left'    ]
+        right   = layout.position['right'   ]
+        top     = layout.position['top'     ]
+        bottom  = layout.position['bottom'  ]
+        //
+        width   = layout.size['width' ]
+        height  = layout.size['height']
+        //
+        margin  = layout.box['margin' ]
+        border  = layout.box['border' ]
+        padding = layout.box['padding']
+        //
+        add-layout-position pos, left, right, top, bottom
+        add-layout-size     width, height
+        add-layout-box      margin, border, padding
+
 // add-view
-add-view(view, color = null, font = null, text = null, bg-color = null, bg-image = null, bd-color = null, bd-radius = null, alpha = 1, alpha2 = (alpha+3)/4) // todo: saturate, light, alpha
-    if (view != null)
-        view = get(views, view) or error('Views has no view: ' + get-string(view))
-        add-view-skin view, alpha, alpha2
+add-view(color = null, font = null, text = null, bg-color = null, bg-image = null, bd-color = null, bd-radius = null)
     add-view-foreground color, font, text
     add-view-background bg-color, bg-image
     add-view-border     bd-color, bd-radius
-// add-view
-add-view-skin(view, alpha = 1, alpha2 = (alpha+3)/4)
-    color     = view.foreground['color']
-    font      = view.foreground['font' ]
-    text      = view.foreground['text' ]
-    //
-    bg-color  = view.background['color']
-    bg-color  = alpha(bg-color, alpha(bg-color) * alpha) if bg-color != null
-    bg-image  = view.background['image']
-    //
-    bd-color  = view.border['color' ]
-    bd-color  = alpha(bd-color, alpha(bd-color) * alpha2) if bd-color != null
-    bd-radius = view.border['radius']
-    //
-    add-view-foreground color, font, text
-    add-view-background bg-color, bg-image
-    add-view-border     bd-color, bd-radius
-
-// add-layout
-add-layout(layout, position = null, width = null, height = null, margin = null, border = null, padding = null)
-    if (layout != null)
-        layout = get(layouts, layout) or error('Layouts has no layout: ' + get-string(layout))
-        add-layout-skin layout
-    add-layout-position position[0], position[1], position[2], position[3], position[4]
-    add-layout-size     width, height
-    add-layout-box      margin, border, padding
-// add-layout
-add-layout-skin(layout)
-    pos     = layout.position['position']
-    left    = layout.position['left'    ]
-    right   = layout.position['right'   ]
-    top     = layout.position['top'     ]
-    bottom  = layout.position['bottom'  ]
-    //
-    width   = layout.size['width' ]
-    height  = layout.size['height']
-    //
-    margin  = layout.box['margin']
-    border  = layout.box['border']
-    padding = layout.box['padding']
-    //
-    add-layout-position pos, left, right, top, bottom
-    add-layout-size     width, height
-    add-layout-box      margin, border, padding
-
-// add-view
 add-view-foreground(color, font, text)
     add-property 'color',           color
     add-property 'font',            get(font, 'url'    )
@@ -82,6 +75,10 @@ add-view-border(border-color, border-radius)
     add-property 'border-bottom-right-radius', border-radius[3] or border-radius[0]
 
 // add-layout
+add-layout(position = null, width = null, height = null, margin = null, border = null, padding = null)
+    add-layout-position position[0], position[1], position[2], position[3], position[4]
+    add-layout-size     width, height
+    add-layout-box      margin, border, padding
 add-layout-position(position, left = null, right = null, top = null, bottom = null)
     add-property 'position', position
     add-property 'left',     left

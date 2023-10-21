@@ -72,6 +72,23 @@ create-box(margin, border, padding)
         padding: padding
     }
 
+// // get-skin
+// get-view(view, alpha = 1, alpha2 = (alpha+3)/4) // todo: saturate, light, alpha
+//     if (view != null)
+//         view = get(views, view) or error('Views has no view: ' + get-string(view))
+//         view = clone(view)
+//         view.background.color = alpha(view.background.color, alpha(view.background.color) * alpha ) if view.background.color != null
+//         view.border.color     = alpha(view.border.color,     alpha(view.border.color)     * alpha2) if view.border.color     != null
+//         return view
+//     null
+
+// // get-skin
+// get-layout(layout)
+//     if (layout != null)
+//         layout = get(layouts, layout) or error('Layouts has no layout: ' + get-string(layout))
+//         return layout
+//     null
+
 // get-theme
 get-theme-color(key)
     if key != null

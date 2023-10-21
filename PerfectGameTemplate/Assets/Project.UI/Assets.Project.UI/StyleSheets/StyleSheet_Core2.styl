@@ -205,105 +205,105 @@ sub-view()
 
 // card
 card()
-    add-view(card)
-    add-layout(card)
+    add-skin(card)
+    add-skin2(card)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
 card-header()
-    add-view(card-header)
-    add-layout(card-header)
+    add-skin(card-header)
+    add-skin2(card-header)
     add-flex(0, 0, auto, auto)
     add-flex2(row, center, center)
 card-content()
-    add-view(card-content)
-    add-layout(card-content)
+    add-skin(card-content)
+    add-skin2(card-content)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
 card-footer()
-    add-view(card-footer)
-    add-layout(card-footer)
+    add-skin(card-footer)
+    add-skin2(card-footer)
     add-flex(0, 0, auto, auto)
     add-flex2(row, space-around, center)
 
 // dialog-card
 dialog-card()
-    add-view(dialog-card)
-    add-layout(card)
+    add-skin(dialog-card)
+    add-skin2(card)
 dialog-card-header()
-    add-view(dialog-card-header)
-    add-layout(card-header)
+    add-skin(dialog-card-header)
+    add-skin2(card-header)
 dialog-card-header--info()
-    add-view(dialog-card-header--info)
-    add-layout(card-header)
+    add-skin(dialog-card-header--info)
+    add-skin2(card-header)
 dialog-card-header--warning()
-    add-view(dialog-card-header--warning)
-    add-layout(card-header)
+    add-skin(dialog-card-header--warning)
+    add-skin2(card-header)
 dialog-card-header--error()
-    add-view(dialog-card-header--error)
-    add-layout(card-header)
+    add-skin(dialog-card-header--error)
+    add-skin2(card-header)
 dialog-card-content()
-    add-view(dialog-card-content)
-    add-layout(card-content)
+    add-skin(dialog-card-content)
+    add-skin2(card-content)
     add-flex(null, null, null, null)
     add-flex2(null, center, center)
 dialog-card-footer()
-    add-view(dialog-card-footer)
-    add-layout(card-footer)
+    add-skin(dialog-card-footer)
+    add-skin2(card-footer)
 
 // scope
 scope()
-    add-view(scope)
-    add-layout(scope)
+    add-skin(scope)
+    add-skin2(scope)
     &.light, &.light-0
-        add-view(light-scope, alpha: 0.00)
+        add-skin(light-scope, alpha: 0.00)
     &.light-1
-        add-view(light-scope, alpha: 0.10)
+        add-skin(light-scope, alpha: 0.10)
     &.light-2
-        add-view(light-scope, alpha: 0.20)
+        add-skin(light-scope, alpha: 0.20)
     &.light-3
-        add-view(light-scope, alpha: 0.30)
+        add-skin(light-scope, alpha: 0.30)
     &.light-4
-        add-view(light-scope, alpha: 0.40)
+        add-skin(light-scope, alpha: 0.40)
     &.light-5
-        add-view(light-scope, alpha: 0.50)
+        add-skin(light-scope, alpha: 0.50)
     &.light-6
-        add-view(light-scope, alpha: 0.60)
+        add-skin(light-scope, alpha: 0.60)
     &.light-7
-        add-view(light-scope, alpha: 0.70)
+        add-skin(light-scope, alpha: 0.70)
     &.light-8
-        add-view(light-scope, alpha: 0.80)
+        add-skin(light-scope, alpha: 0.80)
     &.light-9
-        add-view(light-scope, alpha: 0.90)
+        add-skin(light-scope, alpha: 0.90)
     &.light-10
-        add-view(light-scope, alpha: 1.00)
+        add-skin(light-scope, alpha: 1.00)
     &.dark, &.dark-0
-        add-view(dark-scope, alpha: 0.00)
+        add-skin(dark-scope, alpha: 0.00)
     &.dark-1
-        add-view(dark-scope, alpha: 0.10)
+        add-skin(dark-scope, alpha: 0.10)
     &.dark-2
-        add-view(dark-scope, alpha: 0.20)
+        add-skin(dark-scope, alpha: 0.20)
     &.dark-3
-        add-view(dark-scope, alpha: 0.30)
+        add-skin(dark-scope, alpha: 0.30)
     &.dark-4
-        add-view(dark-scope, alpha: 0.40)
+        add-skin(dark-scope, alpha: 0.40)
     &.dark-5
-        add-view(dark-scope, alpha: 0.50)
+        add-skin(dark-scope, alpha: 0.50)
     &.dark-6
-        add-view(dark-scope, alpha: 0.60)
+        add-skin(dark-scope, alpha: 0.60)
     &.dark-7
-        add-view(dark-scope, alpha: 0.70)
+        add-skin(dark-scope, alpha: 0.70)
     &.dark-8
-        add-view(dark-scope, alpha: 0.80)
+        add-skin(dark-scope, alpha: 0.80)
     &.dark-9
-        add-view(dark-scope, alpha: 0.90)
+        add-skin(dark-scope, alpha: 0.90)
     &.dark-10
-        add-view(dark-scope, alpha: 1.00)
+        add-skin(dark-scope, alpha: 1.00)
     &.small
-        add-layout(small-scope)
+        add-skin2(small-scope)
     &.medium
-        add-layout(medium-scope)
+        add-skin2(medium-scope)
     &.large
-        add-layout(large-scope)
+        add-skin2(large-scope)
 column-scope()
     add-flex(0, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
@@ -313,58 +313,58 @@ row-scope()
 
 // group
 group()
-    add-view(group)
-    add-layout(group)
+    add-skin(group)
+    add-skin2(group)
     &.light, &.light-0
-        add-view(light-group, alpha: 0.00)
+        add-skin(light-group, alpha: 0.00)
     &.light-1
-        add-view(light-group, alpha: 0.10)
+        add-skin(light-group, alpha: 0.10)
     &.light-2
-        add-view(light-group, alpha: 0.20)
+        add-skin(light-group, alpha: 0.20)
     &.light-3
-        add-view(light-group, alpha: 0.30)
+        add-skin(light-group, alpha: 0.30)
     &.light-4
-        add-view(light-group, alpha: 0.40)
+        add-skin(light-group, alpha: 0.40)
     &.light-5
-        add-view(light-group, alpha: 0.50)
+        add-skin(light-group, alpha: 0.50)
     &.light-6
-        add-view(light-group, alpha: 0.60)
+        add-skin(light-group, alpha: 0.60)
     &.light-7
-        add-view(light-group, alpha: 0.70)
+        add-skin(light-group, alpha: 0.70)
     &.light-8
-        add-view(light-group, alpha: 0.80)
+        add-skin(light-group, alpha: 0.80)
     &.light-9
-        add-view(light-group, alpha: 0.90)
+        add-skin(light-group, alpha: 0.90)
     &.light-10
-        add-view(light-group, alpha: 1.00)
+        add-skin(light-group, alpha: 1.00)
     &.dark, &.dark-0
-        add-view(dark-group, alpha: 0.00)
+        add-skin(dark-group, alpha: 0.00)
     &.dark-1
-        add-view(dark-group, alpha: 0.10)
+        add-skin(dark-group, alpha: 0.10)
     &.dark-2
-        add-view(dark-group, alpha: 0.20)
+        add-skin(dark-group, alpha: 0.20)
     &.dark-3
-        add-view(dark-group, alpha: 0.30)
+        add-skin(dark-group, alpha: 0.30)
     &.dark-4
-        add-view(dark-group, alpha: 0.40)
+        add-skin(dark-group, alpha: 0.40)
     &.dark-5
-        add-view(dark-group, alpha: 0.50)
+        add-skin(dark-group, alpha: 0.50)
     &.dark-6
-        add-view(dark-group, alpha: 0.60)
+        add-skin(dark-group, alpha: 0.60)
     &.dark-7
-        add-view(dark-group, alpha: 0.70)
+        add-skin(dark-group, alpha: 0.70)
     &.dark-8
-        add-view(dark-group, alpha: 0.80)
+        add-skin(dark-group, alpha: 0.80)
     &.dark-9
-        add-view(dark-group, alpha: 0.90)
+        add-skin(dark-group, alpha: 0.90)
     &.dark-10
-        add-view(dark-group, alpha: 1.00)
+        add-skin(dark-group, alpha: 1.00)
     &.small
-        add-layout(small-group)
+        add-skin2(small-group)
     &.medium
-        add-layout(medium-group)
+        add-skin2(medium-group)
     &.large
-        add-layout(large-group)
+        add-skin2(large-group)
 column-group()
     add-flex(0, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
@@ -374,58 +374,58 @@ row-group()
 
 // box
 box()
-    add-view(box)
-    add-layout(box)
+    add-skin(box)
+    add-skin2(box)
     &.light, &.light-0
-        add-view(light-box, alpha: 0.00)
+        add-skin(light-box, alpha: 0.00)
     &.light-1
-        add-view(light-box, alpha: 0.10)
+        add-skin(light-box, alpha: 0.10)
     &.light-2
-        add-view(light-box, alpha: 0.20)
+        add-skin(light-box, alpha: 0.20)
     &.light-3
-        add-view(light-box, alpha: 0.30)
+        add-skin(light-box, alpha: 0.30)
     &.light-4
-        add-view(light-box, alpha: 0.40)
+        add-skin(light-box, alpha: 0.40)
     &.light-5
-        add-view(light-box, alpha: 0.50)
+        add-skin(light-box, alpha: 0.50)
     &.light-6
-        add-view(light-box, alpha: 0.60)
+        add-skin(light-box, alpha: 0.60)
     &.light-7
-        add-view(light-box, alpha: 0.70)
+        add-skin(light-box, alpha: 0.70)
     &.light-8
-        add-view(light-box, alpha: 0.80)
+        add-skin(light-box, alpha: 0.80)
     &.light-9
-        add-view(light-box, alpha: 0.90)
+        add-skin(light-box, alpha: 0.90)
     &.light-10
-        add-view(light-box, alpha: 1.00)
+        add-skin(light-box, alpha: 1.00)
     &.dark, &.dark-0
-        add-view(dark-box, alpha: 0.00)
+        add-skin(dark-box, alpha: 0.00)
     &.dark-1
-        add-view(dark-box, alpha: 0.10)
+        add-skin(dark-box, alpha: 0.10)
     &.dark-2
-        add-view(dark-box, alpha: 0.20)
+        add-skin(dark-box, alpha: 0.20)
     &.dark-3
-        add-view(dark-box, alpha: 0.30)
+        add-skin(dark-box, alpha: 0.30)
     &.dark-4
-        add-view(dark-box, alpha: 0.40)
+        add-skin(dark-box, alpha: 0.40)
     &.dark-5
-        add-view(dark-box, alpha: 0.50)
+        add-skin(dark-box, alpha: 0.50)
     &.dark-6
-        add-view(dark-box, alpha: 0.60)
+        add-skin(dark-box, alpha: 0.60)
     &.dark-7
-        add-view(dark-box, alpha: 0.70)
+        add-skin(dark-box, alpha: 0.70)
     &.dark-8
-        add-view(dark-box, alpha: 0.80)
+        add-skin(dark-box, alpha: 0.80)
     &.dark-9
-        add-view(dark-box, alpha: 0.90)
+        add-skin(dark-box, alpha: 0.90)
     &.dark-10
-        add-view(dark-box, alpha: 1.00)
+        add-skin(dark-box, alpha: 1.00)
     &.small
-        add-layout(small-box)
+        add-skin2(small-box)
     &.medium
-        add-layout(medium-box)
+        add-skin2(medium-box)
     &.large
-        add-layout(large-box)
+        add-skin2(large-box)
 
 // view
 .view
