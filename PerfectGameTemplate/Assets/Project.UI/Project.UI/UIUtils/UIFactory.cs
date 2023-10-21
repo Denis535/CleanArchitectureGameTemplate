@@ -38,11 +38,6 @@ namespace Project.UI {
             return new Toggle( label );
         }
 
-        // View
-        public static ScrollView ScrollView() {
-            return new ScrollView();
-        }
-
         // Widget
         public static View Widget(string name) {
             return new View().Name( name ).Classes( "widget-view" );
@@ -108,6 +103,11 @@ namespace Project.UI {
         }
         public static RowGroup RowGroup(string? name = null) {
             return new RowGroup().Name( name );
+        }
+
+        // ScrollView
+        public static ScrollView ScrollView(string? name = null) {
+            return new ScrollView();
         }
 
         // Box

@@ -161,6 +161,8 @@ text-field-input()
 text-field-input--text()
     add-skin(component)
     add-skin2(component)
+    add-view()
+    add-layout()
     add-flex(1, 1, auto, auto)
 
 // popup-field
@@ -168,6 +170,8 @@ popup-field-input()
 popup-field-input--text()
     add-skin(component)
     add-skin2(component)
+    add-view()
+    add-layout()
     add-flex(1, 1, auto, auto)
 popup-field-input--arrow()
     add-skin(dropdown-arrow-image)
@@ -285,12 +289,12 @@ horizontal-scroller--low-button()
     add-skin(light-image, alpha: 0.50)
     add-skin(left-arrow-image)
     add-skin2(image)
-    add-layout((absolute 0px auto auto auto), 24px, 24px)
+    add-layout(absolute 0px auto auto auto, 24px, 24px)
 horizontal-scroller--high-button()
     add-skin(light-image, alpha: 0.50)
     add-skin(right-arrow-image)
     add-skin2(image)
-    add-layout((absolute auto 0px auto auto), 24px, 24px)
+    add-layout(absolute auto 0px auto auto, 24px, 24px)
 // horizontal-scroller--slider-field
 horizontal-scroller--slider-field()
     add-skin(component)
@@ -330,12 +334,12 @@ vertical-scroller--low-button()
     add-skin(light-image, alpha: 0.50)
     add-skin(up-arrow-image)
     add-skin2(image)
-    add-layout((absolute auto auto 0px auto), 24px, 24px)
+    add-layout(absolute auto auto 0px auto, 24px, 24px)
 vertical-scroller--high-button()
     add-skin(light-image, alpha: 0.50)
     add-skin(down-arrow-image)
     add-skin2(image)
-    add-layout((absolute auto auto auto 0px), 24px, 24px)
+    add-layout(absolute auto auto auto 0px, 24px, 24px)
 // vertical-scroller--slider-field
 vertical-scroller--slider-field()
     add-skin(component)
@@ -369,27 +373,37 @@ vertical-scroller--slider-field-input--dragger()
 dropdown-view()
     add-skin(null)
     add-skin2(null)
+    add-view()
+    add-layout()
 dropdown-view--scroll-view()
     add-skin(dropdown-view)
     add-skin2(dropdown-view)
+    add-view()
+    add-layout()
 dropdown-view--scroll-view--container()
 dropdown-view--scroll-view--viewport()
 dropdown-view--scroll-view--content()
-    add-layout-box(0px, 0px, 0px)
+    add-view()
+    add-layout(null, null, null, 0px, 0px, 0px)
 dropdown-view--scroll-view--item()
     add-skin(component)
     add-skin2(component)
+    add-view()
     add-layout(null, null, null, null, null, (12px 12px 10px 10px))
     add-flex(0, 1, auto, auto)
     add-flex2(row, flex-start, center)
 dropdown-view--scroll-view--item-checkmark(value)
     add-skin(light-check-image) if value
     add-skin2(image)
+    add-view()
+    add-layout()
     add-layout(null, 16px, 16px, (0px 12px 0px 0px))
     add-flex(0, 1, auto, auto)
 dropdown-view--scroll-view--item-text()
     add-skin(component)
     add-skin2(component)
+    add-view()
+    add-layout()
     add-flex(1, 1, auto, auto)
 
 // PanelSettings
@@ -493,10 +507,10 @@ dropdown-view--scroll-view--item-text()
         horizontal-scroller--low-button()
     #unity-high-button
         horizontal-scroller--high-button()
-// scroller--horizontal--slider-field
-.scroller--horizontal--slider-field
+    // scroller--horizontal/slider-field
     .unity-base-slider
         horizontal-scroller--slider-field()
+        // scroller--vertical/slider-field-input
         .unity-base-slider__input
             horizontal-scroller--slider-field-input()
         #unity-drag-container
@@ -516,10 +530,10 @@ dropdown-view--scroll-view--item-text()
         vertical-scroller--low-button()
     #unity-high-button
         vertical-scroller--high-button()
-// scroller--vertical--slider-field
-.scroller--vertical--slider-field
+    // scroller--vertical/slider-field
     .unity-base-slider
         vertical-scroller--slider-field()
+        // scroller--vertical/slider-field-input
         .unity-base-slider__input
             vertical-scroller--slider-field-input()
         #unity-drag-container
