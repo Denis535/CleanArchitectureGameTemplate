@@ -1,7 +1,7 @@
 // add-skin
 add-skin(view, alpha = 1, alpha2 = (alpha+3)/4)
     if view != null
-        view      = get(views, view) or error('Views has no view: ' + get-string(view))
+        view      = views[get-string(view)] or error('Views has no view: ' + get-string(view))
         //
         color     = view.foreground['color']
         font      = view.foreground['font' ]
@@ -21,7 +21,7 @@ add-skin(view, alpha = 1, alpha2 = (alpha+3)/4)
 // add-skin2
 add-skin2(layout)
     if layout != null
-        layout  = get(layouts, layout) or error('Layouts has no layout: ' + get-string(layout))
+        layout  = layouts[get-string(layout)] or error('Layouts has no layout: ' + get-string(layout))
         //
         pos     = layout.position['position']
         left    = layout.position['left'    ]
@@ -47,23 +47,23 @@ add-view(color = null, font = null, text = null, bg-color = null, bg-image = nul
     add-view-border     bd-color, bd-radius
 add-view-foreground(color, font, text)
     add-property 'color',           color
-    add-property 'font',            get(font, 'url'    )
-    add-property 'font-definition', get(font, 'url'    )
-    add-property 'font-size',       get(font, 'size'   )
-    add-property 'font-style',      get(font, 'style'  )
-    add-property 'text-align',      get(text, 'align'  )
-    add-property 'text-outline',    get(text, 'outline')
-    add-property 'text-shadow',     get(text, 'shadow' )
+    add-property 'font',            font.url     if font != null
+    add-property 'font-definition', font.url     if font != null
+    add-property 'font-size',       font.size    if font != null
+    add-property 'font-style',      font.style   if font != null
+    add-property 'text-align',      text.align   if text != null
+    add-property 'text-outline',    text.outline if text != null
+    add-property 'text-shadow',     text.shadow  if text != null
 add-view-background(background-color, background-image)
     add-property 'background-color',            background-color
-    add-property 'background-image',            get(background-image, 'url'         )
-    add-property 'background-image-tint-color', get(background-image, 'color'       )
-    add-property 'background-scale-mode',       get(background-image, 'scale-mode'  )
-    add-property 'slice-left',                  get(background-image, 'slice-left'  )
-    add-property 'slice-right',                 get(background-image, 'slice-right' )
-    add-property 'slice-top',                   get(background-image, 'slice-top'   )
-    add-property 'slice-bottom',                get(background-image, 'slice-bottom')
-    add-property 'slice-scale',                 get(background-image, 'slice-scale' )
+    add-property 'background-image',            background-image.url          if background-image != null
+    add-property 'background-image-tint-color', background-image.color        if background-image != null
+    add-property 'background-scale-mode',       background-image.scale-mode   if background-image != null
+    add-property 'slice-left',                  background-image.slice-left   if background-image != null
+    add-property 'slice-right',                 background-image.slice-right  if background-image != null
+    add-property 'slice-top',                   background-image.slice-top    if background-image != null
+    add-property 'slice-bottom',                background-image.slice-bottom if background-image != null
+    add-property 'slice-scale',                 background-image.slice-scale  if background-image != null
 add-view-border(border-color, border-radius)
     add-property 'border-left-color',          border-color[0]                   
     add-property 'border-right-color',         border-color[1] or border-color[0]
@@ -154,7 +154,3 @@ get-url-value(url)
         url = get-string(url)
         return s("url('%s')", url)
     null
-
-// get
-get(obj, key)
-    obj[get-string(key)]

@@ -18,8 +18,6 @@ theme = {
         view:                          hsla(  0deg,   0%,   0%, 0.00),
         light-view:                    hsla( 30deg,   5%,  90%, 0.20),
         dark-view:                     hsla(200deg,   5%,  10%, 0.80),
-        // component
-        component:                     hsla(  0deg,   0%,   0%, 0.00),
         // image
         light-image:                   hsla( 30deg,  30%,  90%, 0.80),
         dark-image:                    hsla(200deg,  30%,  10%, 0.80),
@@ -33,8 +31,6 @@ theme = {
         view:                          img(null, null, null),
         light-view:                    img(null, null, null),
         dark-view:                     img(null, null, null),
-        // component
-        component:                     img(null, null, null),
         // image
         left-arrow-image:              img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla( 30deg,  30%,  90%, 1.00), null),
         right-arrow-image:             img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla( 30deg,  30%,  90%, 1.00), null),
@@ -53,8 +49,6 @@ theme = {
         view:                          hsla(  0deg,   0%,   0%, 0.00),
         light-view:                    hsla( 45deg, 100%,  30%, 1.00),
         dark-view:                     hsla( 45deg, 100%,  30%, 1.00),
-        // component
-        component:                     hsla(  0deg,   0%,   0%, 0.00),
         // image
         light-image:                   hsla( 45deg, 100%,  30%, 1.00),
         dark-image:                    hsla( 45deg, 100%,  30%, 1.00),
@@ -64,8 +58,6 @@ theme = {
         element:                       4px,
         // view
         view:                          4px,
-        // component
-        component:                     4px,
         // image
         image:                         2px,
     }
@@ -82,8 +74,6 @@ views = {
     light-scroll-view:                 create-view( create-foreground(dark,           null, null), create-background(light-view,    light-view                 ), create-border(light-view,      view           ) ),
     dark-scroll-view:                  create-view( create-foreground(light,          null, null), create-background(dark-view,     dark-view                  ), create-border(dark-view,       view           ) ),
     dropdown-view:                     create-view( create-foreground(light,          null, null), create-background(dark-view,     dark-view                  ), create-border(dark-view,       view           ) ),
-    // component
-    component:                         create-view( create-foreground(null,           null, null), create-background(component,     component                  ), create-border(component,       component      ) ),
     // image
     light-image:                       create-view( create-foreground(null,           null, null), create-background(light-image,   null                       ), create-border(light-image,     image          ) ),
     dark-image:                        create-view( create-foreground(null,           null, null), create-background(dark-image,    null                       ), create-border(dark-image,      image          ) ),
@@ -112,8 +102,6 @@ layouts = {
     // view
     scroll-view:                       create-layout( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), (0px                )) ),
     dropdown-view:                     create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) ),
-    // component
-    component:                         create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (0px            ), (0px                )) ),
     // image
     image:                             create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) )
 }
@@ -159,8 +147,8 @@ field-input()
 // text-field
 text-field-input()
 text-field-input--text()
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-view()
     add-layout()
     add-flex(1, 1, auto, auto)
@@ -168,8 +156,8 @@ text-field-input--text()
 // popup-field
 popup-field-input()
 popup-field-input--text()
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-view()
     add-layout()
     add-flex(1, 1, auto, auto)
@@ -182,8 +170,8 @@ popup-field-input--arrow()
 // slider-field
 slider-field-input()
 slider-field-input--container()
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
 slider-field-input--tracker()
@@ -261,28 +249,28 @@ scroll-view()
     &.dark-10
         add-skin(dark-scroll-view, alpha: 1.00)
 scroll-view--container()
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, stretch)
 scroll-view--viewport()
     overflow hidden
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
 scroll-view--content()
     overflow scroll
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-layout(null, null, null, null, null, (12px 12px 10px 10px))
     add-flex(0, 0, auto, auto)
     add-flex2(column, flex-start, stretch)
 
 // horizontal-scroller
 horizontal-scroller()
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-flex(0, 0, auto, auto)
     add-flex2(row, flex-start, stretch)
 horizontal-scroller--low-button()
@@ -297,20 +285,21 @@ horizontal-scroller--high-button()
     add-layout(absolute auto 0px auto auto, 24px, 24px)
 // horizontal-scroller--slider-field
 horizontal-scroller--slider-field()
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-layout(null, auto, auto, 0px, 0px, 0px)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
+// horizontal-scroller/slider-field-input
 horizontal-scroller--slider-field-input()
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-layout(null, auto, 24px, (24px 24px 0px 0px), 0px, 0px)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
 horizontal-scroller--slider-field-input--container()
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
 horizontal-scroller--slider-field-input--tracker()
@@ -326,8 +315,8 @@ horizontal-scroller--slider-field-input--dragger()
 
 // vertical-scroller
 vertical-scroller()
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-flex(0, 0, auto, auto)
     add-flex2(column, flex-start, stretch)
 vertical-scroller--low-button()
@@ -340,22 +329,23 @@ vertical-scroller--high-button()
     add-skin(down-arrow-image)
     add-skin2(image)
     add-layout(absolute auto auto auto 0px, 24px, 24px)
-// vertical-scroller--slider-field
+// vertical-scroller/slider-field
 vertical-scroller--slider-field()
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-layout(null, auto, auto, 0px, 0px, 0px)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, center)
+// vertical-scroller/slider-field-input
 vertical-scroller--slider-field-input()
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-layout(null, 24px, auto, (0px 0px 24px 24px), 0px, 0px)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, center)
 vertical-scroller--slider-field-input--container()
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, center)
 vertical-scroller--slider-field-input--tracker()
@@ -386,8 +376,8 @@ dropdown-view--scroll-view--content()
     add-view()
     add-layout(null, null, null, 0px, 0px, 0px)
 dropdown-view--scroll-view--item()
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-view()
     add-layout(null, null, null, null, null, (12px 12px 10px 10px))
     add-flex(0, 1, auto, auto)
@@ -400,8 +390,8 @@ dropdown-view--scroll-view--item-checkmark(value)
     add-layout(null, 16px, 16px, (0px 12px 0px 0px))
     add-flex(0, 1, auto, auto)
 dropdown-view--scroll-view--item-text()
-    add-skin(component)
-    add-skin2(component)
+    add-skin(null)
+    add-skin2(null)
     add-view()
     add-layout()
     add-flex(1, 1, auto, auto)
