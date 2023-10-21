@@ -22,6 +22,8 @@ theme = {
         dialog-card-footer:            hsla(240deg,  10%,  10%, 0.75),
         // scope
         scope:                         hsla(  0deg,   0%,   0%, 0.00),
+        light-scope:                   hsla( 30deg,   5%,  80%, 0.20),
+        dark-scope:                    hsla(200deg,   5%,  20%, 0.80),
         // group
         group:                         hsla(  0deg,   0%,   0%, 0.00),
         light-group:                   hsla( 30deg,   5%,  80%, 0.20),
@@ -47,6 +49,8 @@ theme = {
         dialog-card-footer:            img(null, null, null),
         // scope
         scope:                         img(null, null, null),
+        light-scope:                   img(null, null, null),
+        dark-scope:                    img(null, null, null),
         // group
         group:                         img(null, null, null),
         light-group:                   img(null, null, null),
@@ -69,6 +73,8 @@ theme = {
         dialog-card-footer:            hsla( 35deg, 100%,  30%, 1.00),
         // scope
         scope:                         hsla(  0deg,   0%,   0%, 0.00),
+        light-scope:                   hsla( 35deg, 100%,  30%, 1.00),
+        dark-scope:                    hsla( 35deg, 100%,  30%, 1.00),
         // group
         group:                         hsla(  0deg,   0%,   0%, 0.00),
         light-group:                   hsla( 35deg, 100%,  30%, 1.00),
@@ -90,9 +96,9 @@ theme = {
         dialog-card-content:           6px,
         dialog-card-footer:            0px 0px 6px 6px,
         // scope
-        scope:                         6px,
+        scope:                         4px,
         // group
-        group:                         6px,
+        group:                         4px,
         // box
         box:                           4px,
     }
@@ -113,6 +119,8 @@ views = {
     dialog-card-footer:                create-view( create-foreground(dark,  null, null), create-background(dialog-card-footer,          dialog-card-footer         ), create-border(dialog-card-footer,  dialog-card-footer ) ),
     // scope
     scope:                             create-view( create-foreground(null,  null, null), create-background(scope,                       scope                      ), create-border(scope,               scope              ) ),
+    light-scope:                       create-view( create-foreground(dark,  null, null), create-background(light-scope,                 light-scope                ), create-border(light-scope,         scope              ) ),
+    dark-scope:                        create-view( create-foreground(light, null, null), create-background(dark-scope,                  dark-scope                 ), create-border(dark-scope,          scope              ) ),
     // group
     group:                             create-view( create-foreground(null,  null, null), create-background(group,                       group                      ), create-border(group,               group              ) ),
     light-group:                       create-view( create-foreground(dark,  null, null), create-background(light-group,                 light-group                ), create-border(light-group,         group              ) ),
@@ -246,6 +254,50 @@ dialog-card-footer()
 scope()
     add-view(scope)
     add-layout(scope)
+    &.light, &.light-0
+        add-view(light-scope, alpha: 0.00)
+    &.light-1
+        add-view(light-scope, alpha: 0.10)
+    &.light-2
+        add-view(light-scope, alpha: 0.20)
+    &.light-3
+        add-view(light-scope, alpha: 0.30)
+    &.light-4
+        add-view(light-scope, alpha: 0.40)
+    &.light-5
+        add-view(light-scope, alpha: 0.50)
+    &.light-6
+        add-view(light-scope, alpha: 0.60)
+    &.light-7
+        add-view(light-scope, alpha: 0.70)
+    &.light-8
+        add-view(light-scope, alpha: 0.80)
+    &.light-9
+        add-view(light-scope, alpha: 0.90)
+    &.light-10
+        add-view(light-scope, alpha: 1.00)
+    &.dark, &.dark-0
+        add-view(dark-scope, alpha: 0.00)
+    &.dark-1
+        add-view(dark-scope, alpha: 0.10)
+    &.dark-2
+        add-view(dark-scope, alpha: 0.20)
+    &.dark-3
+        add-view(dark-scope, alpha: 0.30)
+    &.dark-4
+        add-view(dark-scope, alpha: 0.40)
+    &.dark-5
+        add-view(dark-scope, alpha: 0.50)
+    &.dark-6
+        add-view(dark-scope, alpha: 0.60)
+    &.dark-7
+        add-view(dark-scope, alpha: 0.70)
+    &.dark-8
+        add-view(dark-scope, alpha: 0.80)
+    &.dark-9
+        add-view(dark-scope, alpha: 0.90)
+    &.dark-10
+        add-view(dark-scope, alpha: 1.00)
     &.small
         add-layout(small-scope)
     &.medium
@@ -263,7 +315,7 @@ row-scope()
 group()
     add-view(group)
     add-layout(group)
-    &.light
+    &.light, &.light-0
         add-view(light-group, alpha: 0.00)
     &.light-1
         add-view(light-group, alpha: 0.10)
@@ -285,7 +337,7 @@ group()
         add-view(light-group, alpha: 0.90)
     &.light-10
         add-view(light-group, alpha: 1.00)
-    &.dark
+    &.dark, &.dark-0
         add-view(dark-group, alpha: 0.00)
     &.dark-1
         add-view(dark-group, alpha: 0.10)
@@ -324,7 +376,7 @@ row-group()
 box()
     add-view(box)
     add-layout(box)
-    &.light
+    &.light, &.light-0
         add-view(light-box, alpha: 0.00)
     &.light-1
         add-view(light-box, alpha: 0.10)
@@ -346,7 +398,7 @@ box()
         add-view(light-box, alpha: 0.90)
     &.light-10
         add-view(light-box, alpha: 1.00)
-    &.dark
+    &.dark, &.dark-0
         add-view(dark-box, alpha: 0.00)
     &.dark-1
         add-view(dark-box, alpha: 0.10)

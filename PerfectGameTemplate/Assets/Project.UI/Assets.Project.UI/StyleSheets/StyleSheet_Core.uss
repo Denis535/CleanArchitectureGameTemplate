@@ -328,17 +328,8 @@
   align-self: auto;
 }
 .unity-base-popup-field__input .unity-base-popup-field__arrow {
-  background-color: rgba(0,0,0,0);
-  -unity-background-image-tint-color: #ede6de;
-  border-left-color: rgba(0,0,0,0);
-  border-right-color: rgba(0,0,0,0);
-  border-top-color: rgba(0,0,0,0);
-  border-bottom-color: rgba(0,0,0,0);
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png');
+  -unity-background-image-tint-color: #ede6de;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -394,7 +385,6 @@
 }
 .unity-base-slider__input #unity-tracker {
   background-color: rgba(237,230,222,0.4);
-  -unity-background-image-tint-color: #121c21;
   border-left-color: rgba(153,115,0,0.875);
   border-right-color: rgba(153,115,0,0.875);
   border-top-color: rgba(153,115,0,0.875);
@@ -426,7 +416,6 @@
 }
 .unity-base-slider__input #unity-dragger {
   background-color: rgba(237,230,222,0.8);
-  -unity-background-image-tint-color: #121c21;
   border-left-color: #997300;
   border-right-color: #997300;
   border-top-color: #997300;
@@ -459,7 +448,6 @@
 }
 .unity-toggle__input #unity-checkmark {
   background-color: rgba(237,230,222,0.8);
-  -unity-background-image-tint-color: #121c21;
   border-left-color: #997300;
   border-right-color: #997300;
   border-top-color: #997300;
@@ -487,7 +475,6 @@
 }
 .unity-toggle__input:checked #unity-checkmark {
   background-color: rgba(237,230,222,0.8);
-  -unity-background-image-tint-color: #121c21;
   border-left-color: #997300;
   border-right-color: #997300;
   border-top-color: #997300;
@@ -497,6 +484,7 @@
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
+  -unity-background-image-tint-color: #121c21;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -546,7 +534,8 @@
   justify-content: flex-start;
   align-items: stretch;
 }
-.unity-scroll-view.light {
+.unity-scroll-view.light,
+.unity-scroll-view.light-0 {
   color: #1a1a1a;
   background-color: rgba(231,230,228,0);
   border-left-color: rgba(153,115,0,0.75);
@@ -678,7 +667,8 @@
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-.unity-scroll-view.dark {
+.unity-scroll-view.dark,
+.unity-scroll-view.dark-0 {
   color: #e6e6e6;
   background-color: rgba(24,26,27,0);
   border-left-color: rgba(153,115,0,0.75);
@@ -946,7 +936,6 @@
 }
 .unity-scroller--horizontal #unity-low-button {
   background-color: rgba(237,230,222,0.4);
-  -unity-background-image-tint-color: #121c21;
   border-left-color: rgba(153,115,0,0.875);
   border-right-color: rgba(153,115,0,0.875);
   border-top-color: rgba(153,115,0,0.875);
@@ -956,6 +945,7 @@
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png');
+  -unity-background-image-tint-color: #ede6de;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -980,7 +970,6 @@
 }
 .unity-scroller--horizontal #unity-high-button {
   background-color: rgba(237,230,222,0.4);
-  -unity-background-image-tint-color: #121c21;
   border-left-color: rgba(153,115,0,0.875);
   border-right-color: rgba(153,115,0,0.875);
   border-top-color: rgba(153,115,0,0.875);
@@ -990,6 +979,7 @@
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png');
+  -unity-background-image-tint-color: #ede6de;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -1138,7 +1128,6 @@
 }
 .scroller--horizontal--slider-field .unity-base-slider #unity-tracker {
   background-color: rgba(18,28,33,0.8);
-  -unity-background-image-tint-color: #ede6de;
   border-left-color: #997300;
   border-right-color: #997300;
   border-top-color: #997300;
@@ -1170,7 +1159,6 @@
 }
 .scroller--horizontal--slider-field .unity-base-slider #unity-dragger {
   background-color: rgba(237,230,222,0.4);
-  -unity-background-image-tint-color: #121c21;
   border-left-color: rgba(153,115,0,0.875);
   border-right-color: rgba(153,115,0,0.875);
   border-top-color: rgba(153,115,0,0.875);
@@ -1242,7 +1230,6 @@
 }
 .unity-scroller--vertical #unity-low-button {
   background-color: rgba(237,230,222,0.4);
-  -unity-background-image-tint-color: #121c21;
   border-left-color: rgba(153,115,0,0.875);
   border-right-color: rgba(153,115,0,0.875);
   border-top-color: rgba(153,115,0,0.875);
@@ -1252,6 +1239,7 @@
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png');
+  -unity-background-image-tint-color: #ede6de;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -1276,7 +1264,6 @@
 }
 .unity-scroller--vertical #unity-high-button {
   background-color: rgba(237,230,222,0.4);
-  -unity-background-image-tint-color: #121c21;
   border-left-color: rgba(153,115,0,0.875);
   border-right-color: rgba(153,115,0,0.875);
   border-top-color: rgba(153,115,0,0.875);
@@ -1286,6 +1273,7 @@
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png');
+  -unity-background-image-tint-color: #ede6de;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -1434,7 +1422,6 @@
 }
 .scroller--vertical--slider-field .unity-base-slider #unity-tracker {
   background-color: rgba(18,28,33,0.8);
-  -unity-background-image-tint-color: #ede6de;
   border-left-color: #997300;
   border-right-color: #997300;
   border-top-color: #997300;
@@ -1466,7 +1453,6 @@
 }
 .scroller--vertical--slider-field .unity-base-slider #unity-dragger {
   background-color: rgba(237,230,222,0.4);
-  -unity-background-image-tint-color: #121c21;
   border-left-color: rgba(153,115,0,0.875);
   border-right-color: rgba(153,115,0,0.875);
   border-top-color: rgba(153,115,0,0.875);
@@ -1597,16 +1583,6 @@
   background-color: #a37a29;
 }
 .unity-base-dropdown__item .unity-base-dropdown__checkmark {
-  background-color: rgba(0,0,0,0);
-  -unity-background-image-tint-color: #ede6de;
-  border-left-color: rgba(0,0,0,0);
-  border-right-color: rgba(0,0,0,0);
-  border-top-color: rgba(0,0,0,0);
-  border-bottom-color: rgba(0,0,0,0);
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -1633,17 +1609,8 @@
   align-self: auto;
 }
 .unity-base-dropdown__item:checked .unity-base-dropdown__checkmark {
-  background-color: rgba(0,0,0,0);
-  -unity-background-image-tint-color: #ede6de;
-  border-left-color: rgba(0,0,0,0);
-  border-right-color: rgba(0,0,0,0);
-  border-top-color: rgba(0,0,0,0);
-  border-bottom-color: rgba(0,0,0,0);
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
+  -unity-background-image-tint-color: #ede6de;
   width: auto;
   height: auto;
   margin-left: 0px;

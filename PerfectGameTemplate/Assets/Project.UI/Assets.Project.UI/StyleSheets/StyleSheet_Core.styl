@@ -20,10 +20,9 @@ theme = {
         dark-view:                     hsla(200deg,   5%,  10%, 0.80),
         // component
         component:                     hsla(  0deg,   0%,   0%, 0.00),
-        light-image:                   hsla(  0deg,   0%,   0%, 0.00),
-        dark-image:                    hsla(  0deg,   0%,   0%, 0.00),
-        light-icon:                    hsla( 30deg,  30%,  90%, 0.80),
-        dark-icon:                     hsla(200deg,  30%,  10%, 0.80),
+        // image
+        light-image:                   hsla( 30deg,  30%,  90%, 0.80),
+        dark-image:                    hsla(200deg,  30%,  10%, 0.80),
     },
     background-image: {
         // element
@@ -36,10 +35,14 @@ theme = {
         dark-view:                     img(null, null, null),
         // component
         component:                     img(null, null, null),
-        light-image:                   img(null, hsla( 30deg,  30%,  90%, 1.00), null),
-        dark-image:                    img(null, hsla(200deg,  30%,  10%, 1.00), null),
-        light-icon:                    img(null, hsla( 30deg,  30%,  90%, 1.00), null),
-        dark-icon:                     img(null, hsla(200deg,  30%,  10%, 1.00), null),
+        // image
+        left-arrow-image:              img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla( 30deg,  30%,  90%, 1.00), null),
+        right-arrow-image:             img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla( 30deg,  30%,  90%, 1.00), null),
+        up-arrow-image:                img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla( 30deg,  30%,  90%, 1.00), null),
+        down-arrow-image:              img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla( 30deg,  30%,  90%, 1.00), null),
+        dropdown-arrow-image:          img('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png', hsla( 30deg,  30%,  90%, 1.00), null),
+        light-check-image:             img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla( 30deg,  30%,  90%, 1.00), null),
+        dark-check-image:              img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla(200deg,  30%,  10%, 1.00), null),
     },
     border-color: {
         // element
@@ -52,10 +55,9 @@ theme = {
         dark-view:                     hsla( 45deg, 100%,  30%, 1.00),
         // component
         component:                     hsla(  0deg,   0%,   0%, 0.00),
-        light-image:                   hsla(  0deg,   0%,   0%, 0.00),
-        dark-image:                    hsla(  0deg,   0%,   0%, 0.00),
-        light-icon:                    hsla( 45deg, 100%,  30%, 1.00),
-        dark-icon:                     hsla( 45deg, 100%,  30%, 1.00),
+        // image
+        light-image:                   hsla( 45deg, 100%,  30%, 1.00),
+        dark-image:                    hsla( 45deg, 100%,  30%, 1.00),
     },
     border-radius: {
         // element
@@ -64,36 +66,41 @@ theme = {
         view:                          4px,
         // component
         component:                     4px,
+        // image
         image:                         2px,
-        icon:                          2px,
     }
 }
 views = {
     // element
-    label:                             create-view( create-foreground(null,           null, null), create-background(element,       element      ), create-border(element,         element        ) ),
-    button:                            create-view( create-foreground(dark,           null, null), create-background(light-element, light-element), create-border(light-element,   element        ) ),
-    // element
-    field:                             create-view( create-foreground(null,           null, null), create-background(element,       element      ), create-border(element,         element        ) ),
-    field-label:                       create-view( create-foreground(dark,           null, null), create-background(light-element, light-element), create-border(light-element,   element        ) ),
-    field-input:                       create-view( create-foreground(light,          null, null), create-background(dark-element,  dark-element ), create-border(dark-element,    element        ) ),
+    label:                             create-view( create-foreground(null,           null, null), create-background(element,       element                    ), create-border(element,         element        ) ),
+    button:                            create-view( create-foreground(dark,           null, null), create-background(light-element, light-element              ), create-border(light-element,   element        ) ),
+    field:                             create-view( create-foreground(null,           null, null), create-background(element,       element                    ), create-border(element,         element        ) ),
+    field-label:                       create-view( create-foreground(dark,           null, null), create-background(light-element, light-element              ), create-border(light-element,   element        ) ),
+    field-input:                       create-view( create-foreground(light,          null, null), create-background(dark-element,  dark-element               ), create-border(dark-element,    element        ) ),
     // view
-    scroll-view:                       create-view( create-foreground(null,           null, null), create-background(view,          view         ), create-border(view,            view           ) ),
-    light-scroll-view:                 create-view( create-foreground(dark,           null, null), create-background(light-view,    light-view   ), create-border(light-view,      view           ) ),
-    dark-scroll-view:                  create-view( create-foreground(light,          null, null), create-background(dark-view,     dark-view    ), create-border(dark-view,       view           ) ),
-    // view
-    dropdown-view:                     create-view( create-foreground(light,          null, null), create-background(dark-view,     dark-view    ), create-border(dark-view,       view           ) ),
+    scroll-view:                       create-view( create-foreground(null,           null, null), create-background(view,          view                       ), create-border(view,            view           ) ),
+    light-scroll-view:                 create-view( create-foreground(dark,           null, null), create-background(light-view,    light-view                 ), create-border(light-view,      view           ) ),
+    dark-scroll-view:                  create-view( create-foreground(light,          null, null), create-background(dark-view,     dark-view                  ), create-border(dark-view,       view           ) ),
+    dropdown-view:                     create-view( create-foreground(light,          null, null), create-background(dark-view,     dark-view                  ), create-border(dark-view,       view           ) ),
     // component
-    component:                         create-view( create-foreground(null,           null, null), create-background(component,     component    ), create-border(component,       component      ) ),
-    light-image:                       create-view( create-foreground(null,           null, null), create-background(light-image,   light-image  ), create-border(light-image,     image          ) ),
-    dark-image:                        create-view( create-foreground(null,           null, null), create-background(dark-image,    dark-image   ), create-border(dark-image,      image          ) ),
-    light-icon:                        create-view( create-foreground(null,           null, null), create-background(light-icon,    dark-icon    ), create-border(light-icon,      icon           ) ),
-    dark-icon:                         create-view( create-foreground(null,           null, null), create-background(dark-icon,     light-icon   ), create-border(dark-icon,       icon           ) ),
+    component:                         create-view( create-foreground(null,           null, null), create-background(component,     component                  ), create-border(component,       component      ) ),
+    // image
+    light-image:                       create-view( create-foreground(null,           null, null), create-background(light-image,   null                       ), create-border(light-image,     image          ) ),
+    dark-image:                        create-view( create-foreground(null,           null, null), create-background(dark-image,    null                       ), create-border(dark-image,      image          ) ),
+    // image
+    dropdown-arrow-image:              create-view( create-foreground(null,           null, null), create-background(null,          dropdown-arrow-image       ), create-border(null,            null           ) ),
+    left-arrow-image:                  create-view( create-foreground(null,           null, null), create-background(null,          left-arrow-image           ), create-border(null,            null           ) ),
+    right-arrow-image:                 create-view( create-foreground(null,           null, null), create-background(null,          right-arrow-image          ), create-border(null,            null           ) ),
+    up-arrow-image:                    create-view( create-foreground(null,           null, null), create-background(null,          up-arrow-image             ), create-border(null,            null           ) ),
+    down-arrow-image:                  create-view( create-foreground(null,           null, null), create-background(null,          down-arrow-image           ), create-border(null,            null           ) ),
+    light-check-image:                 create-view( create-foreground(null,           null, null), create-background(null,          light-check-image          ), create-border(null,            null           ) ),
+    dark-check-image:                  create-view( create-foreground(null,           null, null), create-background(null,          dark-check-image           ), create-border(null,            null           ) ),
     // effect
-    hover-effect:                      create-view( create-foreground(null,           null, null), create-background(hover-effect,  null         ), create-border(null,            null           ) ),
-    focus-effect:                      create-view( create-foreground(focus-effect,   null, null), create-background(null,          null         ), create-border(focus-effect,    null           ) ),
-    focus-effect--without-foreground:  create-view( create-foreground(null,           null, null), create-background(null,          null         ), create-border(focus-effect,    null           ) ),
-    invalid-effect:                    create-view( create-foreground(invalid-effect, null, null), create-background(null,          null         ), create-border(invalid-effect,  null           ) ),
-    invalid-effect--without-foreground:create-view( create-foreground(null,           null, null), create-background(null,          null         ), create-border(invalid-effect,  null           ) )
+    hover-effect:                      create-view( create-foreground(null,           null, null), create-background(hover-effect,  null                       ), create-border(null,            null           ) ),
+    focus-effect:                      create-view( create-foreground(focus-effect,   null, null), create-background(null,          null                       ), create-border(focus-effect,    null           ) ),
+    focus-effect--without-foreground:  create-view( create-foreground(null,           null, null), create-background(null,          null                       ), create-border(focus-effect,    null           ) ),
+    invalid-effect:                    create-view( create-foreground(invalid-effect, null, null), create-background(null,          null                       ), create-border(invalid-effect,  null           ) ),
+    invalid-effect--without-foreground:create-view( create-foreground(null,           null, null), create-background(null,          null                       ), create-border(invalid-effect,  null           ) )
 }
 layouts = {
     // element
@@ -107,8 +114,8 @@ layouts = {
     dropdown-view:                     create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) ),
     // component
     component:                         create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (0px            ), (0px                )) ),
-    image:                             create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) )
-    icon:                              create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) ),
+    // image
+    image:                             create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) ),
 }
 
 // label
@@ -153,7 +160,7 @@ popup-field-input--text()
     add-layout(component)
     add-flex(1, 1, auto, auto)
 popup-field-input--arrow()
-    add-view(light-image, bg-image: img('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png'))
+    add-view(dropdown-arrow-image)
     add-layout(image, null, 12px, 12px, 2px)
 
 // slider-field
@@ -164,19 +171,20 @@ slider-field-input--container()
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
 slider-field-input--tracker()
-    add-view(light-icon, alpha: 0.50)
-    add-layout(icon, null, auto, 8px)
+    add-view(light-image, alpha: 0.50)
+    add-layout(image, null, auto, 8px)
     add-flex(1, 1, auto, auto)
 slider-field-input--dragger()
-    add-view(light-icon)
-    add-layout(icon, absolute, 8px, 24px)
+    add-view(light-image)
+    add-layout(image, absolute, 8px, 24px)
     add-flex(0, 1, auto, auto)
 
 // toggle-field
 toggle-field-input()
 toggle-field-input--checkmark(value)
-    add-view(light-icon, bg-image: img(value ? 'project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png' : null))
-    add-layout(icon, null, 16px, 16px)
+    add-view(light-image)
+    add-view(dark-check-image) if value
+    add-layout(image, null, 16px, 16px)
 
 // scroll-view
 scroll-view()
@@ -184,7 +192,7 @@ scroll-view()
     add-layout(scroll-view)
     add-flex(0, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
-    &.light
+    &.light, &.light-0
         add-view(light-scroll-view, alpha: 0.00)
     &.light-1
         add-view(light-scroll-view, alpha: 0.10)
@@ -206,7 +214,7 @@ scroll-view()
         add-view(light-scroll-view, alpha: 0.90)
     &.light-10
         add-view(light-scroll-view, alpha: 1.00)
-    &.dark
+    &.dark, &.dark-0
         add-view(dark-scroll-view, alpha: 0.00)
     &.dark-1
         add-view(dark-scroll-view, alpha: 0.10)
@@ -253,11 +261,13 @@ horizontal-scroller()
     add-flex(0, 0, auto, auto)
     add-flex2(row, flex-start, stretch)
 horizontal-scroller--low-button()
-    add-view(light-icon, bg-image: img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png'), alpha: 0.50)
-    add-layout(icon, (absolute 0px auto auto auto), 24px, 24px)
+    add-view(light-image, alpha: 0.50)
+    add-view(left-arrow-image)
+    add-layout(image, (absolute 0px auto auto auto), 24px, 24px)
 horizontal-scroller--high-button()
-    add-view(light-icon, bg-image: img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png'), alpha: 0.50)
-    add-layout(icon, (absolute auto 0px auto auto), 24px, 24px)
+    add-view(light-image, alpha: 0.50)
+    add-view(right-arrow-image)
+    add-layout(image, (absolute auto 0px auto auto), 24px, 24px)
 // horizontal-scroller--slider-field
 horizontal-scroller--slider-field()
     add-view(component)
@@ -275,12 +285,12 @@ horizontal-scroller--slider-field-input--container()
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
 horizontal-scroller--slider-field-input--tracker()
-    add-view(dark-icon)
-    add-layout(icon, null, auto, 24px)
+    add-view(dark-image)
+    add-layout(image, null, auto, 24px)
     add-flex(1, 1, auto, auto)
 horizontal-scroller--slider-field-input--dragger()
-    add-view(light-icon, alpha: 0.50)
-    add-layout(icon, absolute, auto, 24px)
+    add-view(light-image, alpha: 0.50)
+    add-layout(image, absolute, auto, 24px)
     add-flex(0, 1, auto, auto)
 
 // vertical-scroller
@@ -290,11 +300,13 @@ vertical-scroller()
     add-flex(0, 0, auto, auto)
     add-flex2(column, flex-start, stretch)
 vertical-scroller--low-button()
-    add-view(light-icon, bg-image: img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png'), alpha: 0.50)
-    add-layout(icon, (absolute auto auto 0px auto), 24px, 24px)
+    add-view(light-image, alpha: 0.50)
+    add-view(up-arrow-image)
+    add-layout(image, (absolute auto auto 0px auto), 24px, 24px)
 vertical-scroller--high-button()
-    add-view(light-icon, bg-image: img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png'), alpha: 0.50)
-    add-layout(icon, (absolute auto auto auto 0px), 24px, 24px)
+    add-view(light-image, alpha: 0.50)
+    add-view(down-arrow-image)
+    add-layout(image, (absolute auto auto auto 0px), 24px, 24px)
 // vertical-scroller--slider-field
 vertical-scroller--slider-field()
     add-view(component)
@@ -312,12 +324,12 @@ vertical-scroller--slider-field-input--container()
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, center)
 vertical-scroller--slider-field-input--tracker()
-    add-view(dark-icon)
-    add-layout(icon, null, 24px, auto)
+    add-view(dark-image)
+    add-layout(image, null, 24px, auto)
     add-flex(1, 1, auto, auto)
 vertical-scroller--slider-field-input--dragger()
-    add-view(light-icon, alpha: 0.50)
-    add-layout(icon, absolute, 24px, auto)
+    add-view(light-image, alpha: 0.50)
+    add-layout(image, absolute, 24px, auto)
     add-flex(0, 1, auto, auto)
 
 // dropdown-view
@@ -339,7 +351,7 @@ dropdown-view--scroll-view--item()
     add-flex(0, 1, auto, auto)
     add-flex2(row, flex-start, center)
 dropdown-view--scroll-view--item-checkmark(value)
-    add-view(light-image, bg-image: img(value ? 'project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png' : null))
+    add-view(light-check-image) if value
     add-layout(image, null, 16px, 16px, (0px 12px 0px 0px))
     add-flex(0, 1, auto, auto)
 dropdown-view--scroll-view--item-text()
