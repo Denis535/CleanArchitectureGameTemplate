@@ -1,6 +1,5 @@
 @import url("StyleSheet_Core.uss");
 @import url("StyleSheet_Core2.uss");
-@import url("StyleSheet_Library.uss");
 .card .header {
   font-size: 140%;
   -unity-font-style: bold;

@@ -1,3 +1,11 @@
+// flatten
+flatten()
+  result = ()
+  for arg in arguments
+    for i in arg
+      push(result, i)
+  result
+
 // add-style
 add-style(selector, property, key, values)
   key = get-style-key(key)
@@ -42,14 +50,6 @@ add-property(property, values)
   property = s("-unity-%s", get-string(property)) if property == 'slice-bottom'
   if values != null
     {property} values
-
-// utils
-flatten()
-  result = ()
-  for arg in arguments
-    for i in arg
-      push(result, i)
-  result
 
 /* view */
 add-style( '.display-{key}',                         'display',                     i, i       ) for i in flex none

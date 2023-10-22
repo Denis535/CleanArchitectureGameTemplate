@@ -34,45 +34,49 @@ namespace UnityEditor {
             }
         }
 
-        // OnAsset
+        // OnAssetImported
         private static void OnAssetImported(string path) {
-            if (Path.GetExtension( path ) == ".pug") {
+            if (IsPug( path ) && IsSupported( path )) {
                 CompilePug( path, Path.ChangeExtension( path, ".uxml" ) );
                 AssetDatabase.ImportAsset( Path.ChangeExtension( path, ".uxml" ) );
             }
-            if (Path.GetExtension( path ) == ".css") {
+            if (IsCss( path ) && IsSupported( path )) {
                 CompilePostCss( path, Path.ChangeExtension( path, ".uss" ) );
                 AssetDatabase.ImportAsset( Path.ChangeExtension( path, ".uss" ) );
             }
-            if (Path.GetExtension( path ) == ".styl") {
+            if (IsStylus( path ) && IsSupported( path )) {
                 CompileStylus( path, Path.ChangeExtension( path, ".uss" ) );
                 AssetDatabase.ImportAsset( Path.ChangeExtension( path, ".uss" ) );
             }
         }
+
+        // OnAssetDeleted
         private static void OnAssetDeleted(string path) {
-            if (Path.GetExtension( path ) == ".pug") {
+            if (IsPug( path )) {
                 AssetDatabase.DeleteAsset( Path.ChangeExtension( path, ".uxml" ) );
             }
-            if (Path.GetExtension( path ) == ".css") {
+            if (IsCss( path )) {
                 AssetDatabase.DeleteAsset( Path.ChangeExtension( path, ".uss" ) );
             }
-            if (Path.GetExtension( path ) == ".styl") {
+            if (IsStylus( path )) {
                 AssetDatabase.DeleteAsset( Path.ChangeExtension( path, ".uss" ) );
             }
         }
+
+        // OnAssetMoved
         private static void OnAssetMoved(string newPath, string oldPath) {
-            if (Path.GetExtension( newPath ) == ".pug") {
+            if (IsPug( oldPath )) {
                 AssetDatabase.MoveAsset( Path.ChangeExtension( oldPath, ".uxml" ), Path.ChangeExtension( newPath, ".uxml" ) );
             }
-            if (Path.GetExtension( newPath ) == ".css") {
+            if (IsCss( oldPath )) {
                 AssetDatabase.MoveAsset( Path.ChangeExtension( oldPath, ".uss" ), Path.ChangeExtension( newPath, ".uss" ) );
             }
-            if (Path.GetExtension( newPath ) == ".styl") {
+            if (IsStylus( oldPath )) {
                 AssetDatabase.MoveAsset( Path.ChangeExtension( oldPath, ".uss" ), Path.ChangeExtension( newPath, ".uss" ) );
             }
         }
 
-        // Compile
+        // CompilePug
         private static void CompilePug(string src, string dist) {
             EvaluateJavaScript( $@"
             const FS = require('fs');
@@ -105,6 +109,8 @@ namespace UnityEditor {
             }}
             " );
         }
+
+        // CompilePostCss
         private static void CompilePostCss(string src, string dist) {
             EvaluateJavaScript( $@"
             const FS = require('fs');
@@ -139,6 +145,8 @@ namespace UnityEditor {
             }}
             " );
         }
+
+        // CompileStylus
         private static void CompileStylus(string src, string dist) {
             EvaluateJavaScript( $@"
             const FS = require('fs');
@@ -222,6 +230,20 @@ namespace UnityEditor {
                 process.StandardError.Close();
             }
             process.WaitForExit( 10_000 );
+        }
+        // Helpers
+        private static bool IsPug(string path) {
+            return Path.GetExtension( path ) == ".pug";
+        }
+        private static bool IsCss(string path) {
+            return Path.GetExtension( path ) == ".css";
+        }
+        private static bool IsStylus(string path) {
+            return Path.GetExtension( path ) == ".styl";
+        }
+        private static bool IsSupported(string path) {
+            var name = Path.GetFileName( path );
+            return !name.Contains( "__" ) && !name.Contains( "internal", StringComparison.CurrentCultureIgnoreCase );
         }
 
     }

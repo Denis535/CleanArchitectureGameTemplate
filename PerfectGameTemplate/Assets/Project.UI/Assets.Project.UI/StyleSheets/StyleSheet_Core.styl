@@ -19,23 +19,27 @@ theme = {
         light-view:                    hsla( 30deg,   5%,  90%, 0.20),
         dark-view:                     hsla(200deg,   5%,  10%, 0.80),
         // image
+        image:                         null,
         light-image:                   hsla( 30deg,  30%,  90%, 0.80),
         dark-image:                    hsla(200deg,  30%,  10%, 0.80),
     },
     background-image: {
         // element
-        element:                       img(null, null, null),
-        light-element:                 img(null, null, null),
-        dark-element:                  img(null, null, null),
+        element:                       null,
+        light-element:                 null,
+        dark-element:                  null,
         // view
-        view:                          img(null, null, null),
-        light-view:                    img(null, null, null),
-        dark-view:                     img(null, null, null),
+        view:                          null,
+        light-view:                    null,
+        dark-view:                     null,
         // image
-        left-arrow-image:              img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla( 30deg,  30%,  90%, 1.00), null),
-        right-arrow-image:             img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla( 30deg,  30%,  90%, 1.00), null),
-        up-arrow-image:                img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla( 30deg,  30%,  90%, 1.00), null),
-        down-arrow-image:              img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla( 30deg,  30%,  90%, 1.00), null),
+        image:                         null,
+        light-image:                   null,
+        dark-image:                    null,
+        arrow-image--left:             img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla( 30deg,  30%,  90%, 1.00), null),
+        arrow-image--right:            img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla( 30deg,  30%,  90%, 1.00), null),
+        arrow-image--up:               img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla( 30deg,  30%,  90%, 1.00), null),
+        arrow-image--down:             img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla( 30deg,  30%,  90%, 1.00), null),
         dropdown-arrow-image:          img('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png', hsla( 30deg,  30%,  90%, 1.00), null),
         light-check-image:             img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla( 30deg,  30%,  90%, 1.00), null),
         dark-check-image:              img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla(200deg,  30%,  10%, 1.00), null),
@@ -50,6 +54,7 @@ theme = {
         light-view:                    hsla( 45deg, 100%,  30%, 1.00),
         dark-view:                     hsla( 45deg, 100%,  30%, 1.00),
         // image
+        image:                         hsla(  0deg,   0%,   0%, 0.00),
         light-image:                   hsla( 45deg, 100%,  30%, 1.00),
         dark-image:                    hsla( 45deg, 100%,  30%, 1.00),
     },
@@ -75,22 +80,23 @@ views = {
     dark-scroll-view:                  create-view( create-foreground(light,          null, null), create-background(dark-view,     dark-view                  ), create-border(dark-view,       view           ) ),
     dropdown-view:                     create-view( create-foreground(light,          null, null), create-background(dark-view,     dark-view                  ), create-border(dark-view,       view           ) ),
     // image
-    light-image:                       create-view( create-foreground(null,           null, null), create-background(light-image,   null                       ), create-border(light-image,     image          ) ),
-    dark-image:                        create-view( create-foreground(null,           null, null), create-background(dark-image,    null                       ), create-border(dark-image,      image          ) ),
+    image:                             create-view( create-foreground(null,           null, null), create-background(image,         image                      ), create-border(image,           image          ) ),
+    light-image:                       create-view( create-foreground(null,           null, null), create-background(light-image,   light-image                ), create-border(light-image,     image          ) ),
+    dark-image:                        create-view( create-foreground(null,           null, null), create-background(dark-image,    dark-image                 ), create-border(dark-image,      image          ) ),
     // image
-    dropdown-arrow-image:              create-view( create-foreground(null,           null, null), create-background(null,          dropdown-arrow-image       ), create-border(null,            null           ) ),
-    left-arrow-image:                  create-view( create-foreground(null,           null, null), create-background(null,          left-arrow-image           ), create-border(null,            null           ) ),
-    right-arrow-image:                 create-view( create-foreground(null,           null, null), create-background(null,          right-arrow-image          ), create-border(null,            null           ) ),
-    up-arrow-image:                    create-view( create-foreground(null,           null, null), create-background(null,          up-arrow-image             ), create-border(null,            null           ) ),
-    down-arrow-image:                  create-view( create-foreground(null,           null, null), create-background(null,          down-arrow-image           ), create-border(null,            null           ) ),
-    light-check-image:                 create-view( create-foreground(null,           null, null), create-background(null,          light-check-image          ), create-border(null,            null           ) ),
-    dark-check-image:                  create-view( create-foreground(null,           null, null), create-background(null,          dark-check-image           ), create-border(null,            null           ) ),
+    arrow-image--left:                 create-view( create-foreground(null,           null, null), create-background(image,         arrow-image--left          ), create-border(image,           image          ) ),
+    arrow-image--right:                create-view( create-foreground(null,           null, null), create-background(image,         arrow-image--right         ), create-border(image,           image          ) ),
+    arrow-image--up:                   create-view( create-foreground(null,           null, null), create-background(image,         arrow-image--up            ), create-border(image,           image          ) ),
+    arrow-image--down:                 create-view( create-foreground(null,           null, null), create-background(image,         arrow-image--down          ), create-border(image,           image          ) ),
+    dropdown-arrow-image:              create-view( create-foreground(null,           null, null), create-background(image,         dropdown-arrow-image       ), create-border(image,           image          ) ),
+    light-check-image:                 create-view( create-foreground(null,           null, null), create-background(image,         light-check-image          ), create-border(image,           image          ) ),
+    dark-check-image:                  create-view( create-foreground(null,           null, null), create-background(image,         dark-check-image           ), create-border(image,           image          ) ),
     // effect
     hover-effect:                      create-view( create-foreground(null,           null, null), create-background(hover-effect,  null                       ), create-border(null,            null           ) ),
     focus-effect:                      create-view( create-foreground(focus-effect,   null, null), create-background(null,          null                       ), create-border(focus-effect,    null           ) ),
     focus-effect--without-foreground:  create-view( create-foreground(null,           null, null), create-background(null,          null                       ), create-border(focus-effect,    null           ) ),
     invalid-effect:                    create-view( create-foreground(invalid-effect, null, null), create-background(null,          null                       ), create-border(invalid-effect,  null           ) ),
-    invalid-effect--without-foreground:create-view( create-foreground(null,           null, null), create-background(null,          null                       ), create-border(invalid-effect,  null           ) )
+    invalid-effect--without-foreground:create-view( create-foreground(null,           null, null), create-background(null,          null                       ), create-border(invalid-effect,  null           ) ),
 }
 layouts = {
     // element
@@ -103,7 +109,7 @@ layouts = {
     scroll-view:                       create-layout( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), (0px                )) ),
     dropdown-view:                     create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) ),
     // image
-    image:                             create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) )
+    image:                             create-layout( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) ),
 }
 
 // label
@@ -275,12 +281,12 @@ horizontal-scroller()
     add-flex2(row, flex-start, stretch)
 horizontal-scroller--low-button()
     add-skin(light-image, alpha: 0.50)
-    add-skin(left-arrow-image)
+    add-skin(arrow-image--left)
     add-skin2(image)
     add-layout(absolute 0px auto auto auto, 24px, 24px)
 horizontal-scroller--high-button()
     add-skin(light-image, alpha: 0.50)
-    add-skin(right-arrow-image)
+    add-skin(arrow-image--right)
     add-skin2(image)
     add-layout(absolute auto 0px auto auto, 24px, 24px)
 // horizontal-scroller--slider-field
@@ -321,12 +327,12 @@ vertical-scroller()
     add-flex2(column, flex-start, stretch)
 vertical-scroller--low-button()
     add-skin(light-image, alpha: 0.50)
-    add-skin(up-arrow-image)
+    add-skin(arrow-image--up)
     add-skin2(image)
     add-layout(absolute auto auto 0px auto, 24px, 24px)
 vertical-scroller--high-button()
     add-skin(light-image, alpha: 0.50)
-    add-skin(down-arrow-image)
+    add-skin(arrow-image--down)
     add-skin2(image)
     add-layout(absolute auto auto auto 0px, 24px, 24px)
 // vertical-scroller/slider-field
@@ -386,14 +392,13 @@ dropdown-view--scroll-view--item-checkmark(value)
     add-skin(light-check-image) if value
     add-skin2(image)
     add-view()
-    add-layout()
-    add-layout(null, 16px, 16px, (0px 12px 0px 0px))
+    add-layout(null, 16px, 16px, (0px 12px 0px 0px), null, null)
     add-flex(0, 1, auto, auto)
 dropdown-view--scroll-view--item-text()
     add-skin(null)
     add-skin2(null)
     add-view()
-    add-layout()
+    add-layout(null, auto, auto, 0px, 0px, 0px)
     add-flex(1, 1, auto, auto)
 
 // PanelSettings

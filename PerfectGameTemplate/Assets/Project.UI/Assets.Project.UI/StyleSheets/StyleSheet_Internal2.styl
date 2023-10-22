@@ -1,4 +1,4 @@
-// create-skin
+// create-view
 create-view(foreground, background, border)
     return {
         foreground: foreground,
@@ -11,10 +11,10 @@ create-foreground(color, font, text)
         font:  font,
         text:  text
     }
-create-background(color, image)
+create-background(color, image_)
     return {
         color: get-theme-background-color(color),
-        image: get-theme-background-image(image)
+        image: get-theme-background-image(image_)
     }
 create-border(color, radius)
     return {
@@ -45,7 +45,7 @@ img(url = null, color = null, scale-mode = null, slice-left = null, slice-right 
         slice-scale:  slice-scale
     }
 
-// create-skin
+// create-layout
 create-layout(position, size, box)
     return {
         position: position,
@@ -72,41 +72,39 @@ create-box(margin, border, padding)
         padding: padding
     }
 
-// // get-skin
-// get-view(view, alpha = 1, alpha2 = (alpha+3)/4) // todo: saturate, light, alpha
-//     if (view != null)
-//         view = views[get-string(view)] or error('Views has no view: ' + get-string(view))
-//         view = clone(view)
-//         view.background.color = alpha(view.background.color, alpha(view.background.color) * alpha ) if view.background.color != null
-//         view.border.color     = alpha(view.border.color,     alpha(view.border.color)     * alpha2) if view.border.color     != null
-//         return view
-//     null
-
-// // get-skin
-// get-layout(layout)
-//     if (layout != null)
-//         layout = layouts[get-string(layout)] or error('Layouts has no layout: ' + get-string(layout))
-//         return layout
-//     null
-
 // get-theme
 get-theme-color(key)
     if key != null
-        return theme.color[get-string(key)]            or key
+        return get(theme.color, key) if contains(theme.color, key)
+        error('Theme has no color: ' + key)
     null
+// get-theme/background
 get-theme-background-color(key)
     if key != null
-        return theme.background-color[get-string(key)] or theme.color[get-string(key)] or key
+        return get(theme.background-color, key) if contains(theme.background-color, key)
+        return get(theme.color,            key) if contains(theme.color,            key)
+        error('Theme has no background-color: ' + key)
     null
 get-theme-background-image(key)
     if key != null
-        return theme.background-image[get-string(key)] or key
+        return get(theme.background-image, key) if contains(theme.background-image, key)                              
+        error('Theme has no background-image: ' + key)
     null
+// get-theme/border
 get-theme-border-color(key)
     if key != null
-        return theme.border-color[get-string(key)]     or theme.color[get-string(key)] or key
+        return get(theme.border-color, key) if contains(theme.border-color, key)
+        return get(theme.color,        key) if contains(theme.color,        key)
+        error('Theme has no border-color: ' + key)
     null
 get-theme-border-radius(key)
     if key != null
-        return theme.border-radius[get-string(key)]    or key
+        return get(theme.border-radius, key) if contains(theme.border-radius, key)                              
+        error('Theme has no border-radius: ' + key)
     null
+
+// helpers
+contains(obj, key)
+    get-string(key) in obj
+get(obj, key)
+    obj[get-string(key)]

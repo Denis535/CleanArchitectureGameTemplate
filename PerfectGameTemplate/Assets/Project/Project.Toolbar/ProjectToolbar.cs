@@ -172,6 +172,7 @@ namespace Project.Toolbar {
         [MenuItem( "Project/Open Assets (StyleSheet)", priority = 1004 )]
         internal static void OpenAssets_StyleSheet() {
             OpenAssets(
+                "Assets/Project.UI/Assets.Project.UI/*.tss",
                 "Assets/Project.UI/Assets.Project.UI/*.styl"
                 );
         }
@@ -191,8 +192,8 @@ namespace Project.Toolbar {
         }
         // Helpers
         private static string[] GetPaths(string[] patterns) {
-            var patterns_ = GetPatterns( patterns );
-            return GetPaths().Where( path => patterns_.Any( pattern => pattern.IsMatch( path ) ) ).ToArray();
+            var paths = GetPaths();
+            return patterns.Select( GetRegex ).SelectMany( regex => paths.Where( path => regex.IsMatch( path ) ) ).ToArray();
         }
         private static string[] GetPaths() {
             var path = Directory.GetCurrentDirectory();
@@ -211,10 +212,7 @@ namespace Project.Toolbar {
             }
         }
         // Helpers
-        private static Regex[] GetPatterns(params string[] patterns) {
-            return patterns.Select( GetPattern ).ToArray();
-        }
-        private static Regex GetPattern(string pattern) {
+        private static Regex GetRegex(string pattern) {
             pattern = "^" + pattern.Replace( "*", "(.*?)" ) + "$";
             return new Regex( pattern, RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace );
         }
