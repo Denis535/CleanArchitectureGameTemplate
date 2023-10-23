@@ -2,7 +2,7 @@
   background-color: rgba(0,0,0,0.25);
   position: absolute;
 }
-.unity-base-dropdown .unity-scroll-view {
+.unity-base-dropdown__container-outer {
   color: #e6e6e6;
   background-color: rgba(24,26,27,0.8);
   border-left-color: #997300;
@@ -23,6 +23,27 @@
   border-right-width: 1px;
   border-top-width: 1px;
   border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.unity-base-dropdown .unity-scroll-view {
+  background-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
   padding-left: 0px;
   padding-right: 0px;
   padding-top: 0px;

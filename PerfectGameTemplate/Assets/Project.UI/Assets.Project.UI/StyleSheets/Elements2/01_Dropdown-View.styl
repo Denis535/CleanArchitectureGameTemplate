@@ -2,40 +2,44 @@
 
 // dropdown-view
 dropdown-view()
-    add-skin(null)
-    add-skin2(null)
-    add-view()
-    add-layout()
-dropdown-view--scroll-view()
     add-skin(dropdown-view)
     add-skin2(dropdown-view)
     add-view()
     add-layout()
-dropdown-view--scroll-view--container()
-dropdown-view--scroll-view--viewport()
-dropdown-view--scroll-view--content()
-    add-view()
-    add-layout(null, null, null, 0px, 0px, 0px)
-dropdown-view--scroll-view--item()
+dropdown-view--item()
     add-skin(null)
     add-skin2(null)
     add-view()
     add-layout(null, null, null, null, null, (12px 12px 10px 10px))
     add-flex(0, 1, auto, auto)
     add-flex2(row, flex-start, center)
-dropdown-view--scroll-view--item-checkmark(value)
+dropdown-view--item-checkmark(value)
     add-skin(null)
     add-skin(light-checkmark-icon) if value
     add-skin2(image)
     add-view()
     add-layout(null, 16px, 16px, (0px 12px 0px 0px), null, null)
     add-flex(0, 1, auto, auto)
-dropdown-view--scroll-view--item-text()
+dropdown-view--item-text()
     add-skin(null)
     add-skin2(null)
     add-view()
     add-layout(null, auto, auto, 0px, 0px, 0px)
     add-flex(1, 1, auto, auto)
+
+// scroll-view
+scroll-view()
+    add-view(null, null, null, transparent, null, transparent, null)
+    add-layout(null, auto, auto, 0px, 0px, 0px)
+scroll-view--content-and-vertical-scroller-container()
+    add-view()
+    add-layout()
+scroll-view--viewport()
+    add-view()
+    add-layout()
+scroll-view--content()
+    add-view()
+    add-layout(null, null, null, 0px, 0px, 0px)
 
 // dropdown-view
 .unity-base-dropdown
@@ -44,20 +48,20 @@ dropdown-view--scroll-view--item-text()
     &__container-outer
         dropdown-view()
     .unity-scroll-view
-        dropdown-view--scroll-view()
+        scroll-view()
     #unity-content-and-vertical-scroll-container
-        dropdown-view--scroll-view--container()
+        scroll-view--content-and-vertical-scroller-container()
     #unity-content-viewport
-        dropdown-view--scroll-view--viewport()
+        scroll-view--viewport()
     #unity-content-container
-        dropdown-view--scroll-view--content()
+        scroll-view--content()
     &__item
-        dropdown-view--scroll-view--item()
+        dropdown-view--item()
     &__item:hover
         add-skin(hover-effect)
     &__item &__checkmark
-        dropdown-view--scroll-view--item-checkmark(false)
+        dropdown-view--item-checkmark(false)
     &__item:checked &__checkmark
-        dropdown-view--scroll-view--item-checkmark(true)
+        dropdown-view--item-checkmark(true)
     &__item &__label
-        dropdown-view--scroll-view--item-text()
+        dropdown-view--item-text()
