@@ -9,6 +9,8 @@ dropdown-view--item()
     add-skin2(null, padding: (12px 12px 10px 10px))
     add-flex(0, 1, auto, auto)
     add-flex2(row, flex-start, center)
+    &:hover
+        add-skin(hover-effect)
 dropdown-view--item-checkmark(value)
     add-skin(null)
     add-skin(light-checkmark-icon) if value
@@ -23,13 +25,13 @@ dropdown-view--item-text()
 scroll-view()
     add-view(bg-color: transparent, bd-color: transparent)
     add-layout(width: auto, height: auto, margin: 0px, border: 0px, padding: 0px)
-scroll-view--content-and-vertical-scroller-container()
+scroll-view--container()
     add-view()
     add-layout()
-scroll-view--viewport()
+scroll-view--content-viewport()
     add-view()
     add-layout()
-scroll-view--content()
+scroll-view--content-container()
     add-view()
     add-layout(margin: 0px, border: 0px, padding: 0px)
 
@@ -42,15 +44,13 @@ scroll-view--content()
     .unity-scroll-view
         scroll-view()
     #unity-content-and-vertical-scroll-container
-        scroll-view--content-and-vertical-scroller-container()
+        scroll-view--container()
     #unity-content-viewport
-        scroll-view--viewport()
+        scroll-view--content-viewport()
     #unity-content-container
-        scroll-view--content()
+        scroll-view--content-container()
     &__item
         dropdown-view--item()
-    &__item:hover
-        add-skin(hover-effect)
     &__item &__checkmark
         dropdown-view--item-checkmark(false)
     &__item:checked &__checkmark

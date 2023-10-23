@@ -329,6 +329,9 @@
   justify-content: flex-start;
   align-items: stretch;
 }
+.unity-scroll-view.reverse #unity-content-viewport {
+  flex-direction: column-reverse;
+}
 .unity-scroller--horizontal {
   flex-grow: 0;
   flex-shrink: 0;

@@ -90,7 +90,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> mode, out PopupField<object?> world, out Toggle isPrivate) {
-            return view = UIFactory.ColumnGroup().Classes( "light-5", "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup( "game-view" ).Classes( "light-5", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
                 UIFactory.RowScope().Children(
                     name = UIFactory.TextField( null, 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
@@ -130,7 +130,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> role, out Toggle isReady) {
-            return view = UIFactory.ColumnGroup().Classes( "light-5", "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup( "players-view" ).Classes( "light-5", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
                 UIFactory.RowScope().Children(
                     name = UIFactory.TextField( null, 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
@@ -163,66 +163,44 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
-            return view = UIFactory.ColumnGroup().Classes( "dark-5", "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup( "lobby-view" ).Classes( "dark-5", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" ),
-                UIFactory.ScrollView( "players-scroll-view" ).Classes( "dark-5", "grow-1" ).Children(
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 1" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 2" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 3" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 4" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 5" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 6" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 7" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 8" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 9" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 10" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 11" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 12" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 13" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 14" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 15" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 16" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 17" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 18" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 19" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 20" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 21" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 22" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 23" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 24" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 25" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 26" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 27" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 28" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 29" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 30" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 31" ) ),
-                    UIFactory.Box().Classes( "light-5", "small", "grow-1" ).Children( UIFactory.Label( "Player 32" ) )
+                UIFactory.ScrollView( "players-view" ).Classes( "dark-5", "grow-1" ).Children(
+                    UIFactory.Box().Name( "player-1" ).Classes( "light-10", "small", "grow-1" ).Pipe( i => i.style.width = 2000 ).Children( UIFactory.Label( "Player 1" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-2" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 2" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-3" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 3" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-4" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 4" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-5" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 5" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-6" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 6" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-7" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 7" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-8" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 8" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-9" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 9" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-10" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 10" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-11" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 11" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-12" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 12" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-13" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 13" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-14" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 14" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-15" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 15" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-16" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 16" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-17" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 17" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-18" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 18" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-19" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 19" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-20" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 20" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-21" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 21" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-22" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 22" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-23" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 23" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-24" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 24" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-25" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 25" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-26" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 26" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-27" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 27" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-28" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 28" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-29" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 29" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-30" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 30" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-31" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 31" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "player-32" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Player 32" ).Classes( "margin-0" ) )
                 )
             );
         }
-
-        //public class LobbyItemView : UISubViewBase {
-
-        //    // View
-        //    public override VisualElement VisualElement { get; }
-        //    public ElementWrapper View { get; }
-
-        //    // Constructor
-        //    public LobbyItemView(UIWidgetBase widget) : base( widget ) {
-        //        VisualElement = CreateVisualElement( out var view );
-        //        View = view.Wrap();
-        //    }
-        //    public override void Dispose() {
-        //        base.Dispose();
-        //    }
-
-        //    // Helpers
-        //    private static Box CreateVisualElement(out Box view) {
-        //        return view = UIFactory.Box().Classes( "light-5", "small", "grow-1" );
-        //    }
-
-        //}
 
     }
     // ChatView
@@ -245,8 +223,17 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
-            return view = UIFactory.ColumnGroup().Classes( "dark-5", "medium", "grow-1" ).Children(
-                title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title" )
+            return view = UIFactory.ColumnGroup( "chat-view" ).Classes( "dark-5", "medium", "grow-1" ).Children(
+                title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title" ),
+                UIFactory.ScrollView( "messages-view" ).Classes( "dark-5", "grow-1", "reverse" ).Children(
+                    UIFactory.Box().Name( "message-1" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Message 1" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "message-2" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Message 2" ).Classes( "margin-0" ) ),
+                    UIFactory.Box().Name( "message-3" ).Classes( "light-10", "small", "grow-1" ).Children( UIFactory.Label( "Message 3" ).Classes( "margin-0" ) )
+                ),
+                UIFactory.RowScope().Children(
+                    UIFactory.TextField( null, 128, false ).Name( "message" ).Classes( "grow-1" ),
+                    UIFactory.Button( "Ok" ).Name( "send" )
+                )
             );
         }
 
