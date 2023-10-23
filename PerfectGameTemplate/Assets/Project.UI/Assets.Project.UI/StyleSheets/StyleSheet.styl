@@ -1,15 +1,30 @@
 // @import url("unity-theme://default")
-@import "StyleSheet_Internal"
-@import "StyleSheet_Internal2"
-    
-@import url("StyleSheet_Core.uss")
-@import url("StyleSheet_Core2.uss")
+@import "StyleSheet__Theme"
 
-@import url("StyleSheet_View.uss")
-@import url("StyleSheet_Card.uss")
-@import url("StyleSheet_Scope.uss")
-@import url("StyleSheet_Group.uss")
-@import url("StyleSheet_Box.uss")
+@import url("Elements/00_Label.uss")
+@import url("Elements/01_Button.uss")
+@import url("Elements/02_Field.uss")
+@import url("Elements/03_Text-Field.uss")
+@import url("Elements/04_Popup-Field.uss")
+@import url("Elements/05_Slider-Field.uss")
+@import url("Elements/06_Toggle-Field.uss")
+
+@import url("Elements2/00_Scroll-View.uss")
+@import url("Elements2/01_Dropdown-View.uss")
+
+@import url("Elements3/00_View.uss")
+@import url("Elements3/01_Card.uss")
+@import url("Elements3/02_Scope.uss")
+@import url("Elements3/03_Group.uss")
+@import url("Elements3/04_Box.uss")
+
+// PanelSettings
+#PanelSettings
+    add-view(theme.color.dark, font: fnt('project://database/Assets/Project.UI/Assets.Project.UI/Fonts/NotInter/NotInter-Regular.ttf', 14px, normal), null)
+
+// ui-document
+.unity-ui-document__root
+    add-layout(null, 100%, 100%, null, null, null)
 
 // view
 // .view

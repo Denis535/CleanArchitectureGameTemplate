@@ -1,0 +1,19 @@
+@import "../StyleSheet__Theme"
+
+// toggle-field
+toggle-field-input()
+toggle-field-input--checkmark(value)
+    add-skin(light-image)
+    add-skin(dark-checkmark-icon) if value
+    add-skin2(image)
+    add-view()
+    add-layout(null, 16px, 16px)
+
+// toggle-field
+.unity-toggle
+    &__input
+        toggle-field-input()
+    &__input #unity-checkmark
+        toggle-field-input--checkmark(false)
+    &__input:checked #unity-checkmark
+        toggle-field-input--checkmark(true)

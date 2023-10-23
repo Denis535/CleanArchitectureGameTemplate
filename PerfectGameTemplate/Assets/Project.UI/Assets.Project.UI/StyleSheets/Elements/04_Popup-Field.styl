@@ -1,0 +1,24 @@
+@import "../StyleSheet__Theme"
+
+// popup-field
+popup-field-input()
+popup-field-input--text()
+    add-skin(null)
+    add-skin2(null)
+    add-view()
+    add-layout()
+    add-flex(1, 1, auto, auto)
+popup-field-input--arrow()
+    add-skin(light-dropdown-arrow-icon)
+    add-skin2(image)
+    add-view()
+    add-layout(null, 12px, 12px, 2px, null, null)
+
+// popup-field
+.unity-base-popup-field
+    &__input
+        popup-field-input()
+    &__input .unity-text-element
+        popup-field-input--text()
+    &__input &__arrow
+        popup-field-input--arrow()

@@ -1,0 +1,25 @@
+@import "../StyleSheet__Theme"
+
+// button
+button()
+    add-skin(button)
+    add-skin2(button)
+    add-view(font: fnt(null, null, bold), text: txt(middle-center))
+    add-layout()
+    add-flex(0, 1, auto, auto)
+
+// button
+.unity-button
+    button()
+    &:focus
+        add-skin(focus-effect)
+    &.invalid
+        add-skin(invalid-effect)
+
+// repeat-button
+.unity-repeat-button
+    button()
+    &:focus
+        add-skin(focus-effect)
+    &.invalid
+        add-skin(invalid-effect)

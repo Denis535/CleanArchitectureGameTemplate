@@ -1,10 +1,28 @@
-@import url("StyleSheet_Core.uss");
-@import url("StyleSheet_Core2.uss");
-@import url("StyleSheet_View.uss");
-@import url("StyleSheet_Card.uss");
-@import url("StyleSheet_Scope.uss");
-@import url("StyleSheet_Group.uss");
-@import url("StyleSheet_Box.uss");
+@import url("Elements/00_Label.uss");
+@import url("Elements/01_Button.uss");
+@import url("Elements/02_Field.uss");
+@import url("Elements/03_Text-Field.uss");
+@import url("Elements/04_Popup-Field.uss");
+@import url("Elements/05_Slider-Field.uss");
+@import url("Elements/06_Toggle-Field.uss");
+@import url("Elements2/00_Scroll-View.uss");
+@import url("Elements2/01_Dropdown-View.uss");
+@import url("Elements3/00_View.uss");
+@import url("Elements3/01_Card.uss");
+@import url("Elements3/02_Scope.uss");
+@import url("Elements3/03_Group.uss");
+@import url("Elements3/04_Box.uss");
+#PanelSettings {
+  color: #1a1a1a;
+  -unity-font: url('project://database/Assets/Project.UI/Assets.Project.UI/Fonts/NotInter/NotInter-Regular.ttf');
+  -unity-font-definition: url('project://database/Assets/Project.UI/Assets.Project.UI/Fonts/NotInter/NotInter-Regular.ttf');
+  font-size: 14px;
+  -unity-font-style: normal;
+}
+.unity-ui-document__root {
+  width: 100%;
+  height: 100%;
+}
 .card .header {
   font-size: 140%;
   -unity-font-style: bold;

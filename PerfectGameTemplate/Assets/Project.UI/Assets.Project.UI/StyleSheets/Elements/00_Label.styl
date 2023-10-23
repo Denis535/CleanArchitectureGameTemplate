@@ -1,0 +1,17 @@
+@import "../StyleSheet__Theme"
+
+// label
+label()
+    add-skin(label)
+    add-skin2(label)
+    add-view(text: txt(upper-left))
+    add-layout()
+    add-flex(0, 1, auto, auto)
+
+// label
+.unity-label
+    label()
+    &:focus
+        add-skin(focus-effect)
+    &.invalid
+        add-skin(invalid-effect)

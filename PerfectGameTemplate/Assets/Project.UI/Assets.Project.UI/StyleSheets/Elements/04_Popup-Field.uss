@@ -1,0 +1,30 @@
+.unity-base-popup-field__input .unity-text-element {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+}
+.unity-base-popup-field__input .unity-base-popup-field__arrow {
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png');
+  -unity-background-image-tint-color: #ede6de;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  width: 12px;
+  height: 12px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}

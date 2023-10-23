@@ -243,7 +243,7 @@ namespace UnityEditor {
         }
         private static bool IsSupported(string path) {
             var name = Path.GetFileName( path );
-            return !name.Contains( "__" ) && !name.Contains( "internal", StringComparison.CurrentCultureIgnoreCase );
+            return !name.Contains( "__" );
         }
 
     }

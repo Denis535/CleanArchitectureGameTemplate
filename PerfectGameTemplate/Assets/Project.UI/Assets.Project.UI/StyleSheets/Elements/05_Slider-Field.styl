@@ -1,0 +1,32 @@
+@import "../StyleSheet__Theme"
+
+// slider-field
+slider-field-input()
+slider-field-input--container()
+    add-skin(null)
+    add-skin2(null)
+    add-flex(1, 1, auto, auto)
+    add-flex2(row, flex-start, center)
+slider-field-input--tracker()
+    add-skin(light-image, alpha: 0.50)
+    add-skin2(image)
+    add-view()
+    add-layout(null, auto, 8px)
+    add-flex(1, 1, auto, auto)
+slider-field-input--dragger()
+    add-skin(light-image)
+    add-skin2(image)
+    add-view()
+    add-layout(absolute, 8px, 24px)
+    add-flex(0, 1, auto, auto)
+
+// slider-field
+.unity-base-slider
+    &__input
+        slider-field-input()
+    &__input #unity-drag-container
+        slider-field-input--container()
+    &__input #unity-tracker
+        slider-field-input--tracker()
+    &__input #unity-dragger
+        slider-field-input--dragger()
