@@ -73,46 +73,54 @@ create-box(margin, border, padding)
     }
 
 // add-skin
-add-skin(view, alpha = 1, alpha2 = (alpha+3)/4)
+add-skin(view, color = null, font = null, text = null, bg-color = null, bg-image = null, bd-color = null, bd-radius = null, alpha = 1)
     if view != null
-        view      = views[get-string(view)] or error('Views has no view: ' + get-string(view))
+        view           = views[get-string(view)] or error('Views has no view: ' + get-string(view))
         //
-        color     = view.foreground['color']
-        font      = view.foreground['font' ]
-        text      = view.foreground['text' ]
+        view-color     = view.foreground['color']
+        view-font      = view.foreground['font' ]
+        view-text      = view.foreground['text' ]
         //
-        bg-color  = view.background['color']
-        bg-color  = alpha(bg-color, alpha(bg-color) * alpha) if bg-color != null
-        bg-image  = view.background['image']
+        view-bg-color  = view.background['color']
+        view-bg-color  = alpha(view-bg-color, alpha(view-bg-color) * alpha) if view-bg-color != null
+        view-bg-image  = view.background['image']
         //
-        bd-color  = view.border['color' ]
-        bd-color  = alpha(bd-color, alpha(bd-color) * alpha2) if bd-color != null
-        bd-radius = view.border['radius']
+        view-bd-color  = view.border['color' ]
+        view-bd-color  = alpha(view-bd-color, alpha(view-bd-color) * (alpha+3)/4) if view-bd-color != null
+        view-bd-radius = view.border['radius']
         //
-        add-view-foreground color, font, text
-        add-view-background bg-color, bg-image
-        add-view-border     bd-color, bd-radius
+        add-view-foreground view-color, view-font, view-text
+        add-view-background view-bg-color, view-bg-image
+        add-view-border     view-bd-color, view-bd-radius
+    //
+    add-view-foreground color, font, text
+    add-view-background bg-color, bg-image
+    add-view-border     bd-color, bd-radius
 // add-skin2
-add-skin2(layout)
+add-skin2(layout, position = null, width = null, height = null, margin = null, border = null, padding = null)
     if layout != null
-        layout  = layouts[get-string(layout)] or error('Layouts has no layout: ' + get-string(layout))
+        layout          = layouts[get-string(layout)] or error('Layouts has no layout: ' + get-string(layout))
         //
-        pos     = layout.position['position']
-        left    = layout.position['left'    ]
-        right   = layout.position['right'   ]
-        top     = layout.position['top'     ]
-        bottom  = layout.position['bottom'  ]
+        layout-position = layout.position['position']
+        layout-left     = layout.position['left'    ]
+        layout-right    = layout.position['right'   ]
+        layout-top      = layout.position['top'     ]
+        layout-bottom   = layout.position['bottom'  ]
         //
-        width   = layout.size['width' ]
-        height  = layout.size['height']
+        layout-width    = layout.size['width' ]
+        layout-height   = layout.size['height']
         //
-        margin  = layout.box['margin' ]
-        border  = layout.box['border' ]
-        padding = layout.box['padding']
+        layout-margin   = layout.box['margin' ]
+        layout-border   = layout.box['border' ]
+        layout-padding  = layout.box['padding']
         //
-        add-layout-position pos, left, right, top, bottom
-        add-layout-size     width, height
-        add-layout-box      margin, border, padding
+        add-layout-position layout-position, layout-left, layout-right, layout-top, layout-bottom
+        add-layout-size     layout-width, layout-height
+        add-layout-box      layout-margin, layout-border, layout-padding
+    //
+    add-layout-position position[0], position[1], position[2], position[3], position[4]
+    add-layout-size     width, height
+    add-layout-box      margin, border, padding
 
 // add-view
 add-view(color = null, font = null, text = null, bg-color = null, bg-image = null, bd-color = null, bd-radius = null)
