@@ -67,7 +67,7 @@ scroll-view--content-container()
     add-skin2(null, padding: (12px 12px 10px 10px))
     add-flex(0, 0, auto, auto)
     add-flex2(column, flex-start, stretch)
- 
+
 // horizontal-scroller
 horizontal-scroller()
     add-skin(null)
@@ -79,17 +79,17 @@ horizontal-low-button()
     add-skin(dark-arrow-icon--left)
     add-skin2(button, position: (absolute 0px auto auto auto), width: 24px, height: 24px, margin: 0px)
     &:hover
-        add-skin--hover-effect(button)
+        add-skin-with-hover-effect(button)
     &:active
-        add-skin--active-effect(button)
+        add-skin-with-active-effect(button)
 horizontal-high-button()
     add-skin(button)
     add-skin(dark-arrow-icon--right)
     add-skin2(button, position: (absolute auto 0px auto auto), width: 24px, height: 24px, margin: 0px)
     &:hover
-        add-skin--hover-effect(button)
+        add-skin-with-hover-effect(button)
     &:active
-        add-skin--active-effect(button)
+        add-skin-with-active-effect(button)
 // horizontal-slider-field
 horizontal-slider-field()
     add-skin(null)
@@ -115,9 +115,9 @@ horizontal-slider-field-input--dragger()
     add-skin2(button, position: absolute, width: auto, height: 24px, margin: 0px)
     add-flex(0, 1, auto, auto)
     &:hover
-        add-skin--hover-effect(button)
+        add-skin-with-hover-effect(button)
     &:active
-        add-skin--active-effect(button)
+        add-skin-with-active-effect(button)
 
 // vertical-scroller
 vertical-scroller()
@@ -130,17 +130,17 @@ vertical-low-button()
     add-skin(dark-arrow-icon--up)
     add-skin2(button, position: (absolute auto auto 0px auto), width: 24px, height: 24px, margin: 0px)
     &:hover
-        add-skin--hover-effect(button)
+        add-skin-with-hover-effect(button)
     &:active
-        add-skin--active-effect(button)
+        add-skin-with-active-effect(button)
 vertical-high-button()
     add-skin(button)
     add-skin(dark-arrow-icon--down)
     add-skin2(button, position: (absolute auto auto auto 0px), width: 24px, height: 24px, margin: 0px)
     &:hover
-        add-skin--hover-effect(button)
+        add-skin-with-hover-effect(button)
     &:active
-        add-skin--active-effect(button)
+        add-skin-with-active-effect(button)
 // vertical-slider-field
 vertical-slider-field()
     add-skin(null)
@@ -166,9 +166,9 @@ vertical-slider-field-input--dragger()
     add-skin2(button, position: absolute, width: 24px, height: auto, margin: 0px)
     add-flex(0, 1, auto, auto)
     &:hover
-        add-skin--hover-effect(button)
+        add-skin-with-hover-effect(button)
     &:active
-        add-skin--active-effect(button)
+        add-skin-with-active-effect(button)
 
 // scroll-view
 .unity-scroll-view

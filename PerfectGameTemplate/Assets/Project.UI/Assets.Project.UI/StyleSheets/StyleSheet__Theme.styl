@@ -107,9 +107,9 @@ add-skin(view, color = null, font = null, text = null, bg-color = null, bg-image
     add-view-border     bd-color, bd-radius
 
 // add-skin
-add-skin--hover-effect(view)
+add-skin-with-hover-effect(view)
     add-skin(button, saturation: 1.0, lightness: 2.0)
-add-skin--active-effect(view)
+add-skin-with-active-effect(view)
     add-skin(button, saturation: 0.0, lightness: 0.9)
 
 // add-skin2
@@ -138,16 +138,30 @@ add-skin2(layout, position = null, width = null, height = null, margin = null, b
     add-layout-size     width, height
     add-layout-box      margin, border, padding
 
-// add-theme
-add-theme(color = null, font = null, text = null, bg-color = null, bg-image = null, bd-color = null, bd-radius = null, saturation = 1, lightness = 1, alpha = 1)
-    color     = get-theme-color(color)
-    bg-color  = get-theme-background-color(bg-color)
-    bg-image  = get-theme-background-image(bg-image)
-    bd-color  = get-theme-background-color(bd-color)
-    bd-radius = get-theme-background-image(bd-radius)
-    add-view-foreground color, font, text
-    add-view-background bg-color, bg-image
-    add-view-border     bd-color, bd-radius
+// // add-theme
+// add-theme(color, font, text, bg-color, bg-image, bd-color, bd-radius, saturation = 1, lightness = 1, alpha = 1)
+//     color     = get-theme-color(           color    )
+//     font      = font
+//     text      = text
+//     bg-color  = get-theme-background-color(bg-color )
+//     bg-image  = get-theme-background-image(bg-image )
+//     bd-color  = get-theme-border-color(    bd-color )
+//     bd-radius = get-theme-border-radius(   bd-radius)
+//     if bg-color != null
+//         bg-color = saturation(bg-color, saturation(bg-color) * saturation)
+//         bg-color = lightness( bg-color, lightness( bg-color) * lightness )
+//         bg-color = alpha(     bg-color, alpha(     bg-color) * alpha     )
+//     if bd-color != null
+//         bd-color = alpha(     bd-color, alpha(     bd-color) * (alpha+3)/4)
+//     add-view-foreground color, font, text
+//     add-view-background bg-color, bg-image
+//     add-view-border     bd-color, bd-radius
+
+// // add-theme
+// add-theme-with-hover-effect(color, font, text, bg-color, bg-image, bd-color, bd-radius)
+//     add-theme(color, font, text, bg-color, bg-image, bd-color, bd-radius, saturation: 1.0, lightness: 2.0)
+// add-theme-with-active-effect(color, font, text, bg-color, bg-image, bd-color, bd-radius)
+//     add-theme(color, font, text, bg-color, bg-image, bd-color, bd-radius, saturation: 0.0, lightness: 0.9)
 
 // get-theme-value
 get-theme-color(key)
