@@ -2,8 +2,7 @@
 
 // slider-field
 slider-field()
-    add-skin(null)
-    add-skin2(null)
+slider-field-label()
 slider-field-input()
     add-skin(null)
     add-skin2(null)
@@ -22,6 +21,8 @@ slider-field-input--dragger()
 // slider-field
 .unity-base-slider
     slider-field()
+    &__label
+        slider-field-label()
     &__input
         slider-field-input()
     &__input #unity-drag-container

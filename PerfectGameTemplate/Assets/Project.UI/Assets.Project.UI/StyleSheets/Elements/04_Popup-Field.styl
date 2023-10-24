@@ -2,8 +2,7 @@
 
 // popup-field
 popup-field()
-    add-skin(null)
-    add-skin2(null)
+popup-field-label()
 popup-field-input()
     add-skin(null)
     add-skin2(null)
@@ -17,6 +16,8 @@ popup-field-input--arrow()
 // popup-field
 .unity-base-popup-field
     popup-field()
+    &__label
+        popup-field-label()
     &__input
         popup-field-input()
     &__input .unity-text-element

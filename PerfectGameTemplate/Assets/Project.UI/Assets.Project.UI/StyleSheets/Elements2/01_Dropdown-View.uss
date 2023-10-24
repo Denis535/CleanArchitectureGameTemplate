@@ -92,10 +92,6 @@
   border-right-width: 1px;
   border-top-width: 1px;
   border-bottom-width: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
@@ -112,10 +108,6 @@
   border-right-width: 1px;
   border-top-width: 1px;
   border-bottom-width: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
   -unity-background-image-tint-color: #ede6de;
   width: 16px;
@@ -128,10 +120,6 @@
   border-right-width: 1px;
   border-top-width: 1px;
   border-bottom-width: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;

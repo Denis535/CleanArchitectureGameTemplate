@@ -2,8 +2,7 @@
 
 // toggle-field
 toggle-field()
-    add-skin(null)
-    add-skin2(null)
+toggle-field-label()
 toggle-field-input()
     add-skin(null)
     add-skin2(null)
@@ -14,6 +13,8 @@ toggle-field-input--checkmark(value)
 // toggle-field
 .unity-toggle
     toggle-field()
+    &__label
+        toggle-field-label()
     &__input
         toggle-field-input()
     &__input #unity-checkmark
