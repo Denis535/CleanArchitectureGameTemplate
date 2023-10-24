@@ -25,7 +25,7 @@ dropdown-view--item-text()
 scroll-view()
     add-view(bg-color: transparent, bd-color: transparent)
     add-layout(width: auto, height: auto, margin: 0px, border: 0px, padding: 0px)
-scroll-view--container()
+scroll-view--content-viewport-and-vertical-scroller()
     add-view()
     add-layout()
 scroll-view--content-viewport()
@@ -44,7 +44,7 @@ scroll-view--content-container()
     .unity-scroll-view
         scroll-view()
     #unity-content-and-vertical-scroll-container
-        scroll-view--container()
+        scroll-view--content-viewport-and-vertical-scroller()
     #unity-content-viewport
         scroll-view--content-viewport()
     #unity-content-container

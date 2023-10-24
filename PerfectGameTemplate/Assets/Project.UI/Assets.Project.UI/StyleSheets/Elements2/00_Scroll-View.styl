@@ -50,7 +50,7 @@ scroll-view()
         add-skin(dark-scroll-view, alpha: 0.90)
     &.dark-10
         add-skin(dark-scroll-view, alpha: 1.00)
-scroll-view--container()
+scroll-view--content-viewport-and-vertical-scroller()
     add-skin(null)
     add-skin2(null)
     add-flex(1, 1, auto, auto)
@@ -67,7 +67,7 @@ scroll-view--content-container()
     add-skin2(null, padding: (12px 12px 10px 10px))
     add-flex(0, 0, auto, auto)
     add-flex2(column, flex-start, stretch)
-
+ 
 // horizontal-scroller
 horizontal-scroller()
     add-skin(null)
@@ -75,13 +75,21 @@ horizontal-scroller()
     add-flex(0, 0, auto, auto)
     add-flex2(row, flex-start, stretch)
 horizontal-low-button()
-    add-skin(light-image)
+    add-skin(button)
     add-skin(dark-arrow-icon--left)
-    add-skin2(image, position: (absolute 0px auto auto auto), width: 24px, height: 24px)
+    add-skin2(button, position: (absolute 0px auto auto auto), width: 24px, height: 24px, margin: 0px)
+    &:hover
+        add-skin--hover-effect(button)
+    &:active
+        add-skin--active-effect(button)
 horizontal-high-button()
-    add-skin(light-image)
+    add-skin(button)
     add-skin(dark-arrow-icon--right)
-    add-skin2(image, position: (absolute auto 0px auto auto), width: 24px, height: 24px)
+    add-skin2(button, position: (absolute auto 0px auto auto), width: 24px, height: 24px, margin: 0px)
+    &:hover
+        add-skin--hover-effect(button)
+    &:active
+        add-skin--active-effect(button)
 // horizontal-slider-field
 horizontal-slider-field()
     add-skin(null)
@@ -103,9 +111,13 @@ horizontal-slider-field-input--tracker()
     add-skin2(image, width: auto, height: 24px)
     add-flex(1, 1, auto, auto)
 horizontal-slider-field-input--dragger()
-    add-skin(light-image)
-    add-skin2(image, position: absolute, width: auto, height: 24px)
+    add-skin(button)
+    add-skin2(button, position: absolute, width: auto, height: 24px, margin: 0px)
     add-flex(0, 1, auto, auto)
+    &:hover
+        add-skin--hover-effect(button)
+    &:active
+        add-skin--active-effect(button)
 
 // vertical-scroller
 vertical-scroller()
@@ -114,13 +126,21 @@ vertical-scroller()
     add-flex(0, 0, auto, auto)
     add-flex2(column, flex-start, stretch)
 vertical-low-button()
-    add-skin(light-image)
+    add-skin(button)
     add-skin(dark-arrow-icon--up)
-    add-skin2(image, position: (absolute auto auto 0px auto), width: 24px, height: 24px)
+    add-skin2(button, position: (absolute auto auto 0px auto), width: 24px, height: 24px, margin: 0px)
+    &:hover
+        add-skin--hover-effect(button)
+    &:active
+        add-skin--active-effect(button)
 vertical-high-button()
-    add-skin(light-image)
+    add-skin(button)
     add-skin(dark-arrow-icon--down)
-    add-skin2(image, position: (absolute auto auto auto 0px), width: 24px, height: 24px)
+    add-skin2(button, position: (absolute auto auto auto 0px), width: 24px, height: 24px, margin: 0px)
+    &:hover
+        add-skin--hover-effect(button)
+    &:active
+        add-skin--active-effect(button)
 // vertical-slider-field
 vertical-slider-field()
     add-skin(null)
@@ -142,22 +162,26 @@ vertical-slider-field-input--tracker()
     add-skin2(image, width: 24px, height: auto)
     add-flex(1, 1, auto, auto)
 vertical-slider-field-input--dragger()
-    add-skin(light-image)
-    add-skin2(image, position: absolute, width: 24px, height: auto)
+    add-skin(button)
+    add-skin2(button, position: absolute, width: 24px, height: auto, margin: 0px)
     add-flex(0, 1, auto, auto)
+    &:hover
+        add-skin--hover-effect(button)
+    &:active
+        add-skin--active-effect(button)
 
 // scroll-view
 .unity-scroll-view
     scroll-view()
     #unity-content-and-vertical-scroll-container
-        scroll-view--container()
+        scroll-view--content-viewport-and-vertical-scroller()
     #unity-content-viewport
         scroll-view--content-viewport()
     #unity-content-container
         scroll-view--content-container()
 .unity-scroll-view.reverse
     #unity-content-viewport
-        flex-direction column-reverse
+        add-flex2(column-reverse, null, null)
 
 // scroller--horizontal
 .unity-scroller--horizontal

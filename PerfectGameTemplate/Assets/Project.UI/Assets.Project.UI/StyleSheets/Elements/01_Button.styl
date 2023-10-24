@@ -6,6 +6,10 @@ button()
     add-skin(button, font: fnt(null, null, bold), text: txt(middle-center))
     add-skin2(button)
     add-flex(0, 1, auto, auto)
+    &:hover
+        add-skin--hover-effect(button)
+    &:active
+        add-skin--active-effect(button)
 
 // button
 .unity-button

@@ -1,5 +1,6 @@
 @import "StyleSheet__Internal"
 
+// theme
 theme = {
     color: {
         light:                         hsla(  0deg,   0%,  90%, 1.00),
@@ -161,6 +162,8 @@ theme = {
         image:                         2px,
     }
 }
+
+// views
 views = {
     // card
     card:                              create-skin( create-foreground(dark,           null, null), create-background(card,                        card                       ), create-border(card,                card               ) ),
@@ -223,6 +226,8 @@ views = {
     invalid-effect:                    create-skin( create-foreground(invalid-effect, null, null), create-background(null,                        null                       ), create-border(invalid-effect,      null               ) ),
     invalid-effect--without-foreground:create-skin( create-foreground(null,           null, null), create-background(null,                        null                       ), create-border(invalid-effect,      null               ) ),
 }
+
+// layouts
 layouts = {
     // card
     card:                              create-skin2( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) ),
@@ -256,3 +261,9 @@ layouts = {
     // image
     image:                             create-skin2( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) ),
 }
+
+// add-skin
+add-skin--hover-effect(view)
+    add-skin(button, saturation: 1.0, lightness: 2.0)
+add-skin--active-effect(view)
+    add-skin(button, saturation: 0.0, lightness: 0.9)

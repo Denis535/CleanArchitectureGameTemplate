@@ -73,7 +73,7 @@ create-box(margin, border, padding)
     }
 
 // add-skin
-add-skin(view, color = null, font = null, text = null, bg-color = null, bg-image = null, bd-color = null, bd-radius = null, alpha = 1)
+add-skin(view, color = null, font = null, text = null, bg-color = null, bg-image = null, bd-color = null, bd-radius = null, saturation = 1, lightness = 1, alpha = 1)
     if view != null
         view           = views[get-string(view)] or error('Views has no view: ' + get-string(view))
         //
@@ -82,12 +82,19 @@ add-skin(view, color = null, font = null, text = null, bg-color = null, bg-image
         view-text      = view.foreground['text' ]
         //
         view-bg-color  = view.background['color']
-        view-bg-color  = alpha(view-bg-color, alpha(view-bg-color) * alpha) if view-bg-color != null
         view-bg-image  = view.background['image']
         //
         view-bd-color  = view.border['color' ]
-        view-bd-color  = alpha(view-bd-color, alpha(view-bd-color) * (alpha+3)/4) if view-bd-color != null
         view-bd-radius = view.border['radius']
+        //
+        if view-bg-color != null
+            view-bg-color = saturation(view-bg-color, saturation(view-bg-color) * saturation)
+            view-bg-color = lightness( view-bg-color, lightness( view-bg-color) * lightness )
+            view-bg-color = alpha(     view-bg-color, alpha(     view-bg-color) * alpha     )
+        if view-bd-color != null
+            view-bd-color = saturation(view-bd-color, saturation(view-bd-color) * saturation )
+            view-bd-color = lightness( view-bd-color, lightness( view-bd-color) * lightness  )
+            view-bd-color = alpha(     view-bd-color, alpha(     view-bd-color) * (alpha+3)/4)
         //
         add-view-foreground view-color, view-font, view-text
         add-view-background view-bg-color, view-bg-image
@@ -96,6 +103,7 @@ add-skin(view, color = null, font = null, text = null, bg-color = null, bg-image
     add-view-foreground color, font, text
     add-view-background bg-color, bg-image
     add-view-border     bd-color, bd-radius
+
 // add-skin2
 add-skin2(layout, position = null, width = null, height = null, margin = null, border = null, padding = null)
     if layout != null
