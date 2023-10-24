@@ -105,12 +105,10 @@ add-skin(view, color = null, font = null, text = null, bg-color = null, bg-image
     add-view-foreground color, font, text
     add-view-background bg-color, bg-image
     add-view-border     bd-color, bd-radius
-
-// add-skin
 add-skin-with-hover-effect(view)
-    add-skin(button, saturation: 1.0, lightness: 2.0)
+    add-skin(view, saturation: 1.0, lightness: 2.0)
 add-skin-with-active-effect(view)
-    add-skin(button, saturation: 0.0, lightness: 0.9)
+    add-skin(view, saturation: 0.9, lightness: 0.9)
 
 // add-skin2
 add-skin2(layout, position = null, width = null, height = null, margin = null, border = null, padding = null)
@@ -137,6 +135,22 @@ add-skin2(layout, position = null, width = null, height = null, margin = null, b
     add-layout-position position[0], position[1], position[2], position[3], position[4]
     add-layout-size     width, height
     add-layout-box      margin, border, padding
+
+// add-image
+add-image(view, position, size, box, saturation = 1, lightness = 1, alpha = 1)
+    position = position
+    width    = size[0]
+    height   = size[1]
+    margin   = box[0]
+    border   = box[1] or 1px
+    padding  = box[2]
+    add-skin(view[0], saturation: saturation, lightness: lightness, alpha: alpha)
+    add-skin(view[1], saturation: saturation, lightness: lightness, alpha: alpha)
+    add-skin2(null, position, width, height, margin, border, padding)
+add-image-with-hover-effect(view)
+    add-skin(view, saturation: 1.0, lightness: 2.0)
+add-image-with-active-effect(view)
+    add-skin(view, saturation: 0.9, lightness: 0.9)
 
 // // add-theme
 // add-theme(color, font, text, bg-color, bg-image, bd-color, bd-radius, saturation = 1, lightness = 1, alpha = 1)
@@ -202,6 +216,7 @@ theme = {
         invalid-effect:                hsla( 10deg,  80%,  40%, 1.00),
     },
     background-color: {
+        none:                          transparent,
         // card
         card:                          hsla(240deg,   5%,  25%, 0.75),
         card-header:                   hsla( 60deg,   5%,  65%, 0.75),
@@ -241,6 +256,7 @@ theme = {
         dark-image:                    hsla(200deg,  30%,  10%, 0.80),
     },
     background-image: {
+        none:                          img(null, null, null),
         // card
         card:                          img(null, null, null),
         card-header:                   img(null, null, null),
@@ -294,6 +310,7 @@ theme = {
         light-checkmark-icon:          img('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla( 30deg,  30%,  90%, 1.00), null),
     },
     border-color: {
+        none:                          transparent,
         // card
         card:                          hsla( 35deg, 100%,  30%, 1.00),
         card-header:                   hsla( 35deg, 100%,  30%, 1.00),
@@ -330,6 +347,7 @@ theme = {
         dark-image:                    hsla( 45deg, 100%,  30%, 1.00),
     },
     border-radius: {
+        none:                          0px,
         // card
         card:                          6px,
         card-header:                   6px 6px 0px 0px,
@@ -357,6 +375,7 @@ theme = {
 
 // views
 views = {
+    default:                           create-skin( create-foreground(null,           null, null), create-background(none,                        none                       ), create-border(none,                none               ) ),
     // card
     card:                              create-skin( create-foreground(dark,           null, null), create-background(card,                        card                       ), create-border(card,                card               ) ),
     card-header:                       create-skin( create-foreground(dark,           null, null), create-background(card-header,                 card-header                ), create-border(card-header,         card-header        ) ),
@@ -421,6 +440,7 @@ views = {
 
 // layouts
 layouts = {
+    default:                           create-skin2( create-position(null), create-size(auto, auto), create-box((0px            ), (0px            ), (0px                )) ),
     // card
     card:                              create-skin2( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) ),
     card-header:                       create-skin2( create-position(null), create-size(auto, auto), create-box((0px            ), (0px 0px 0px 1px), (12px 12px 10px 10px)) ),

@@ -1,14 +1,19 @@
 @import "../StyleSheet__Theme"
 
 // toggle-field
+toggle-field()
+    add-skin(null)
+    add-skin2(null)
 toggle-field-input()
+    add-skin(null)
+    add-skin2(null)
 toggle-field-input--checkmark(value)
-    add-skin(light-image)
-    add-skin(dark-checkmark-icon) if value
-    add-skin2(image, width: 16px, height: 16px)
+    add-image(light-image,                     null, 16px 16px, null)
+    add-image(light-image dark-checkmark-icon, null, 16px 16px, null) if value
 
 // toggle-field
 .unity-toggle
+    toggle-field()
     &__input
         toggle-field-input()
     &__input #unity-checkmark

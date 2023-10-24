@@ -62,6 +62,18 @@
   flex-basis: auto;
   align-self: auto;
 }
+.unity-base-field__label:hover {
+  color: #1a1a1a;
+  background-color: rgba(255,255,255,0.5);
+  border-left-color: #997300;
+  border-right-color: #997300;
+  border-top-color: #997300;
+  border-bottom-color: #997300;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
 :focus > .unity-base-field__label {
   color: #1481b8;
   border-left-color: #1481b8;

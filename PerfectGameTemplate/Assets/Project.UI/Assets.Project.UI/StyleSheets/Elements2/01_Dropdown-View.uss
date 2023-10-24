@@ -50,6 +50,8 @@
   padding-bottom: 0px;
 }
 .unity-base-dropdown #unity-content-container {
+  width: auto;
+  height: auto;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -80,10 +82,10 @@
   background-color: #a37a29;
 }
 .unity-base-dropdown__item .unity-base-dropdown__checkmark {
-  width: auto;
-  height: auto;
+  width: 16px;
+  height: 16px;
   margin-left: 0px;
-  margin-right: 0px;
+  margin-right: 12px;
   margin-top: 0px;
   margin-bottom: 0px;
   border-left-width: 1px;
@@ -94,24 +96,16 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  width: 16px;
-  height: 16px;
-  margin-left: 0px;
-  margin-right: 12px;
-  margin-top: 0px;
-  margin-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
   align-self: auto;
 }
 .unity-base-dropdown__item:checked .unity-base-dropdown__checkmark {
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
-  -unity-background-image-tint-color: #ede6de;
-  width: auto;
-  height: auto;
+  width: 16px;
+  height: 16px;
   margin-left: 0px;
-  margin-right: 0px;
+  margin-right: 12px;
   margin-top: 0px;
   margin-bottom: 0px;
   border-left-width: 1px;
@@ -122,12 +116,22 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
+  -unity-background-image-tint-color: #ede6de;
   width: 16px;
   height: 16px;
   margin-left: 0px;
   margin-right: 12px;
   margin-top: 0px;
   margin-bottom: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;

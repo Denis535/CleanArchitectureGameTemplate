@@ -1,23 +1,27 @@
 @import "../StyleSheet__Theme"
 
 // slider-field
+slider-field()
+    add-skin(null)
+    add-skin2(null)
 slider-field-input()
+    add-skin(null)
+    add-skin2(null)
 slider-field-input--container()
     add-skin(null)
     add-skin2(null)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
 slider-field-input--tracker()
-    add-skin(light-image, alpha: 0.50)
-    add-skin2(image, width: auto, height: 8px)
+    add-image(light-image, null,     auto 8px, null)
     add-flex(1, 1, auto, auto)
 slider-field-input--dragger()
-    add-skin(light-image)
-    add-skin2(image, position: absolute, width: 8px, height: 24px)
+    add-image(light-image, absolute, 8px 24px, null)
     add-flex(0, 1, auto, auto)
 
 // slider-field
 .unity-base-slider
+    slider-field()
     &__input
         slider-field-input()
     &__input #unity-drag-container

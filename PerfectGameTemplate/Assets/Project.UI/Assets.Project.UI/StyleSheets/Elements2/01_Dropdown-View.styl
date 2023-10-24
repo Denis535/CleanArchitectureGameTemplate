@@ -4,27 +4,11 @@
 dropdown-view()
     add-skin(dropdown-view)
     add-skin2(dropdown-view)
-dropdown-view--item()
-    add-skin(null)
-    add-skin2(null, padding: (12px 12px 10px 10px))
-    add-flex(0, 1, auto, auto)
-    add-flex2(row, flex-start, center)
-    &:hover
-        add-skin(hover-effect)
-dropdown-view--item-checkmark(value)
-    add-skin(null)
-    add-skin(light-checkmark-icon) if value
-    add-skin2(image, width: 16px, height: 16px, margin: (0px 12px 0px 0px))
-    add-flex(0, 1, auto, auto)
-dropdown-view--item-text()
-    add-skin(null)
-    add-skin2(null, width: auto, height: auto, margin: 0px, border: 0px, padding: 0px)
-    add-flex(1, 1, auto, auto)
 
 // scroll-view
 scroll-view()
-    add-view(bg-color: transparent, bd-color: transparent)
-    add-layout(width: auto, height: auto, margin: 0px, border: 0px, padding: 0px)
+    add-view(null, null, null, transparent, null, transparent, null)
+    add-layout(null, auto, auto, 0px, 0px, 0px)
 scroll-view--content-viewport-and-vertical-scroller()
     add-view()
     add-layout()
@@ -33,7 +17,24 @@ scroll-view--content-viewport()
     add-layout()
 scroll-view--content-container()
     add-view()
-    add-layout(margin: 0px, border: 0px, padding: 0px)
+    add-layout(null, auto, auto, 0px, 0px, 0px)
+
+// dropdown-item
+dropdown-item()
+    add-skin(null)
+    add-skin2(null, padding: (12px 12px 10px 10px))
+    add-flex(0, 1, auto, auto)
+    add-flex2(row, flex-start, center)
+    &:hover
+        add-skin(hover-effect)
+dropdown-item--checkmark(value)
+    add-image(null,                      null, 16px 16px, (0px 12px 0px 0px) 1px 0px)
+    add-image(null light-checkmark-icon, null, 16px 16px, (0px 12px 0px 0px) 1px 0px) if value
+    add-flex(0, 1, auto, auto)
+dropdown-item--text()
+    add-skin(null)
+    add-skin2(null, width: auto, height: auto, margin: 0px, border: 0px, padding: 0px)
+    add-flex(1, 1, auto, auto)
 
 // dropdown-view
 .unity-base-dropdown
@@ -50,10 +51,10 @@ scroll-view--content-container()
     #unity-content-container
         scroll-view--content-container()
     &__item
-        dropdown-view--item()
+        dropdown-item()
     &__item &__checkmark
-        dropdown-view--item-checkmark(false)
+        dropdown-item--checkmark(false)
     &__item:checked &__checkmark
-        dropdown-view--item-checkmark(true)
+        dropdown-item--checkmark(true)
     &__item &__label
-        dropdown-view--item-text()
+        dropdown-item--text()

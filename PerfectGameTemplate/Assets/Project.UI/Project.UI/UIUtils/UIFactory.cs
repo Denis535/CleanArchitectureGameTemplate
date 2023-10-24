@@ -107,7 +107,10 @@ namespace Project.UI {
 
         // ScrollView
         public static ScrollView ScrollView(string? name = null) {
-            return new ScrollView();
+            var view = new ScrollView().Name( name );
+            view.horizontalScroller.highButton.BringToFront();
+            view.verticalScroller.highButton.BringToFront();
+            return view;
         }
 
         // Box

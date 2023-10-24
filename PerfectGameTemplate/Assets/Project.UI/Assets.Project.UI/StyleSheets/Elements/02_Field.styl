@@ -10,6 +10,8 @@ field-label()
     add-skin(field-label, font: fnt(null, null, bold), text: txt(middle-left))
     add-skin2(field-label)
     add-flex(0, 1, auto, auto)
+    &:hover
+        add-skin-with-hover-effect(field-label)
 field-input()
     // cursor text
     add-skin(field-input, text: txt(middle-left))
