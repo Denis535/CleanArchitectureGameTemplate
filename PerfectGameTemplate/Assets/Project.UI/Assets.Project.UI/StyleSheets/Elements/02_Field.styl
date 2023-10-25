@@ -2,35 +2,35 @@
 
 // field
 field()
-    add-skin(field)
+    add-element(field)
     add-skin2(field)
     add-flex(0, 1, auto, auto)
     add-flex2(row, flex-start, stretch)
-field-label()
-    add-skin(field-label, font: fnt(null, null, bold), text: txt(middle-left))
-    add-skin2(field-label)
-    add-flex(0, 1, auto, auto)
-    &:hover
-        add-skin-with-hover-effect(field-label)
-field-input()
+field-label(effect)
+    add-element(field-label, font: fnt(null, null, bold), text: txt(middle-left), effect: effect)
+    add-skin2(field-label)     if effect == null
+    add-flex(0, 1, auto, auto) if effect == null
+field-input(effect)
     // cursor text
-    add-skin(field-input, text: txt(middle-left))
-    add-skin2(field-input)
-    add-flex(1, 1, auto, auto)
-    add-flex2(row, flex-end, center)
+    add-element(field-input, text: txt(middle-left), effect: effect)
+    add-skin2(field-input)           if effect == null
+    add-flex(1, 1, auto, auto)       if effect == null
+    add-flex2(row, flex-end, center) if effect == null
 
 // field
 .unity-base-field
     field()
     &__label
-        field-label()
-        :focus > &
-            add-skin(focus-effect)
-        .invalid > &
-            add-skin(invalid-effect)
+        field-label(null)
+    &__label:hover
+        field-label(hover)
+    &__label:focus
+        field-label(focus)
+    &__label.invalid
+        field-label(invalid)
     &__input
-        field-input()
-        :focus > &
-            add-skin(focus-effect--without-foreground)
-        .invalid > &
-            add-skin(invalid-effect--without-foreground)
+        field-input(null)
+    &__input:focus
+        field-input(focus-without-foreground)
+    &__input.invalid
+        field-input(invalid-without-foreground)

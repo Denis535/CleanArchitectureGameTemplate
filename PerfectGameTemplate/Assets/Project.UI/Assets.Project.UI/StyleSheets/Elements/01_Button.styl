@@ -1,28 +1,32 @@
 @import "../StyleSheet__Theme"
 
 // button
-button()
+button(effect)
     // cursor link
-    add-skin(button, font: fnt(null, null, bold), text: txt(middle-center))
-    add-skin2(button)
-    add-flex(0, 1, auto, auto)
-    &:hover
-        add-skin-with-hover-effect(button)
-    &:active
-        add-skin-with-active-effect(button)
+    add-element(button, font: fnt(null, null, bold), text: txt(middle-center), effect: effect)
+    add-skin2(button)          if effect == null
+    add-flex(0, 1, auto, auto) if effect == null
 
 // button
 .unity-button
-    button()
+    button(null)
+    &:hover
+        button(hover)
+    &:active
+        button(active)
     &:focus
-        add-skin(focus-effect)
+        button(focus)
     &.invalid
-        add-skin(invalid-effect)
+        button(invalid)
 
 // repeat-button
 .unity-repeat-button
-    button()
+    button(null)
+    &:hover
+        button(hover)
+    &:active
+        button(active)
     &:focus
-        add-skin(focus-effect)
+        button(focus)
     &.invalid
-        add-skin(invalid-effect)
+        button(invalid)

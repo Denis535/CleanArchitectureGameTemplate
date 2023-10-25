@@ -379,62 +379,6 @@
   justify-content: flex-start;
   align-items: center;
 }
-.unity-scroller--horizontal #unity-low-button {
-  color: #1a1a1a;
-  background-color: rgba(237,230,222,0.5);
-  border-left-color: #4d3900;
-  border-right-color: #4d3900;
-  border-top-color: #4d3900;
-  border-bottom-color: #4d3900;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png');
-  -unity-background-image-tint-color: #121c21;
-  width: 24px;
-  height: 24px;
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: auto;
-  align-self: auto;
-}
-.unity-scroller--horizontal #unity-low-button:hover {
-  color: #1a1a1a;
-  background-color: rgba(255,255,255,0.5);
-  border-left-color: #997300;
-  border-right-color: #997300;
-  border-top-color: #997300;
-  border-bottom-color: #997300;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-.unity-scroller--horizontal #unity-low-button:active {
-  color: #1a1a1a;
-  background-color: rgba(220,207,193,0.5);
-  border-left-color: #413203;
-  border-right-color: #413203;
-  border-top-color: #413203;
-  border-bottom-color: #413203;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
 .unity-scroller--horizontal .unity-base-slider {
   background-color: rgba(0,0,0,0);
   border-left-color: rgba(0,0,0,0);
@@ -591,7 +535,50 @@
   flex-basis: auto;
   align-self: auto;
 }
-.unity-scroller--horizontal .unity-base-slider #unity-dragger:hover {
+.unity-scroller--horizontal .unity-base-slider:focus #unity-dragger {
+  color: #1481b8;
+  border-left-color: #1481b8;
+  border-right-color: #1481b8;
+  border-top-color: #1481b8;
+  border-bottom-color: #1481b8;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+}
+.unity-scroller--horizontal #unity-low-button {
+  color: #1a1a1a;
+  background-color: rgba(237,230,222,0.5);
+  border-left-color: #4d3900;
+  border-right-color: #4d3900;
+  border-top-color: #4d3900;
+  border-bottom-color: #4d3900;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png');
+  -unity-background-image-tint-color: #121c21;
+  width: 24px;
+  height: 24px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
+}
+.unity-scroller--horizontal #unity-low-button:hover {
   color: #1a1a1a;
   background-color: rgba(255,255,255,0.5);
   border-left-color: #997300;
@@ -602,8 +589,12 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
 }
-.unity-scroller--horizontal .unity-base-slider #unity-dragger:active {
+.unity-scroller--horizontal #unity-low-button:active {
   color: #1a1a1a;
   background-color: rgba(220,207,193,0.5);
   border-left-color: #413203;
@@ -614,6 +605,10 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
 }
 .unity-scroller--horizontal #unity-high-button {
   color: #1a1a1a;
@@ -658,6 +653,10 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
 }
 .unity-scroller--horizontal #unity-high-button:active {
   color: #1a1a1a;
@@ -670,6 +669,10 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
 }
 .unity-scroller--vertical {
   flex-grow: 0;
@@ -679,62 +682,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-}
-.unity-scroller--vertical #unity-low-button {
-  color: #1a1a1a;
-  background-color: rgba(237,230,222,0.5);
-  border-left-color: #4d3900;
-  border-right-color: #4d3900;
-  border-top-color: #4d3900;
-  border-bottom-color: #4d3900;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png');
-  -unity-background-image-tint-color: #121c21;
-  width: 24px;
-  height: 24px;
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: auto;
-  align-self: auto;
-}
-.unity-scroller--vertical #unity-low-button:hover {
-  color: #1a1a1a;
-  background-color: rgba(255,255,255,0.5);
-  border-left-color: #997300;
-  border-right-color: #997300;
-  border-top-color: #997300;
-  border-bottom-color: #997300;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-.unity-scroller--vertical #unity-low-button:active {
-  color: #1a1a1a;
-  background-color: rgba(220,207,193,0.5);
-  border-left-color: #413203;
-  border-right-color: #413203;
-  border-top-color: #413203;
-  border-bottom-color: #413203;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 .unity-scroller--vertical .unity-base-slider {
   background-color: rgba(0,0,0,0);
@@ -892,7 +839,50 @@
   flex-basis: auto;
   align-self: auto;
 }
-.unity-scroller--vertical .unity-base-slider #unity-dragger:hover {
+.unity-scroller--vertical .unity-base-slider:focus #unity-dragger {
+  color: #1481b8;
+  border-left-color: #1481b8;
+  border-right-color: #1481b8;
+  border-top-color: #1481b8;
+  border-bottom-color: #1481b8;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+}
+.unity-scroller--vertical #unity-low-button {
+  color: #1a1a1a;
+  background-color: rgba(237,230,222,0.5);
+  border-left-color: #4d3900;
+  border-right-color: #4d3900;
+  border-top-color: #4d3900;
+  border-bottom-color: #4d3900;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png');
+  -unity-background-image-tint-color: #121c21;
+  width: 24px;
+  height: 24px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
+}
+.unity-scroller--vertical #unity-low-button:hover {
   color: #1a1a1a;
   background-color: rgba(255,255,255,0.5);
   border-left-color: #997300;
@@ -903,8 +893,12 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
 }
-.unity-scroller--vertical .unity-base-slider #unity-dragger:active {
+.unity-scroller--vertical #unity-low-button:active {
   color: #1a1a1a;
   background-color: rgba(220,207,193,0.5);
   border-left-color: #413203;
@@ -915,6 +909,10 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
 }
 .unity-scroller--vertical #unity-high-button {
   color: #1a1a1a;
@@ -959,6 +957,10 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
 }
 .unity-scroller--vertical #unity-high-button:active {
   color: #1a1a1a;
@@ -971,4 +973,8 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
 }

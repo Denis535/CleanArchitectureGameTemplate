@@ -1,15 +1,15 @@
 @import "../StyleSheet__Theme"
 
 // label
-label()
-    add-skin(label, text: txt(upper-left))
-    add-skin2(label)
-    add-flex(0, 1, auto, auto)
+label(effect)
+    add-element(label, text: txt(upper-left), effect: effect)
+    add-skin2(label)           if effect == null
+    add-flex(0, 1, auto, auto) if effect == null
 
 // label
 .unity-label
-    label()
+    label(null)
     &:focus
-        add-skin(focus-effect)
+        label(focus)
     &.invalid
-        add-skin(invalid-effect)
+        label(invalid)
