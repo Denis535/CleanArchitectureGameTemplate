@@ -1,5 +1,5 @@
-// create-skin
-create-skin(foreground, background, border)
+// create-view
+create-view(foreground, background, border)
     return {
         foreground: foreground,
         background: background,
@@ -45,8 +45,8 @@ img(url = null, color = null, scale-mode = null, slice-left = null, slice-right 
         slice-scale:  slice-scale
     }
 
-// create-skin2
-create-skin2(position, size, box)
+// create-layout
+create-layout(position, size, box)
     return {
         position: position,
         size:     size,
@@ -54,11 +54,11 @@ create-skin2(position, size, box)
     }
 create-position(position, left = null, right = null, top = null, bottom = null)
     return {
-        position: position[0],
-        left:     left   or position[1],
-        right:    right  or position[2],
-        top:      top    or position[3],
-        bottom:   bottom or position[4]
+        position: position,
+        left:     left,
+        right:    right,
+        top:      top,
+        bottom:   bottom
     }
 create-size(width, height)
     return {
