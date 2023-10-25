@@ -297,6 +297,20 @@
   border-bottom-right-radius: 4px;
 }
 .unity-scroll-view #unity-content-and-vertical-scroll-container {
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
@@ -307,6 +321,20 @@
 }
 .unity-scroll-view #unity-content-viewport {
   overflow: hidden;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
@@ -317,6 +345,16 @@
 }
 .unity-scroll-view #unity-content-container {
   overflow: scroll;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
   padding-left: 12px;
   padding-right: 12px;
   padding-top: 10px;
@@ -333,10 +371,6 @@
   flex-direction: column-reverse;
 }
 .unity-scroller--horizontal {
-  padding-left: 2px;
-  padding-right: 2px;
-  padding-top: 2px;
-  padding-bottom: 2px;
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;
@@ -359,13 +393,23 @@
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png');
   -unity-background-image-tint-color: #121c21;
   width: 24px;
-  min-width: 24px;
   height: 24px;
-  min-height: 24px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
   border-left-width: 1px;
   border-right-width: 1px;
   border-top-width: 1px;
   border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
 }
 .unity-scroller--horizontal #unity-low-button:hover {
   color: #1a1a1a;
@@ -391,53 +435,16 @@
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-.unity-scroller--horizontal #unity-high-button {
-  color: #1a1a1a;
-  background-color: rgba(237,230,222,0.5);
-  border-left-color: #4d3900;
-  border-right-color: #4d3900;
-  border-top-color: #4d3900;
-  border-bottom-color: #4d3900;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png');
-  -unity-background-image-tint-color: #121c21;
-  width: 24px;
-  min-width: 24px;
-  height: 24px;
-  min-height: 24px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-}
-.unity-scroller--horizontal #unity-high-button:hover {
-  color: #1a1a1a;
-  background-color: rgba(255,255,255,0.5);
-  border-left-color: #997300;
-  border-right-color: #997300;
-  border-top-color: #997300;
-  border-bottom-color: #997300;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-.unity-scroller--horizontal #unity-high-button:active {
-  color: #1a1a1a;
-  background-color: rgba(220,207,193,0.5);
-  border-left-color: #413203;
-  border-right-color: #413203;
-  border-top-color: #413203;
-  border-bottom-color: #413203;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
 .unity-scroller--horizontal .unity-base-slider {
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -461,6 +468,15 @@
   align-items: center;
 }
 .unity-scroller--horizontal .unity-base-slider .unity-base-slider__input {
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -516,39 +532,25 @@
   align-items: center;
 }
 .unity-scroller--horizontal .unity-base-slider #unity-tracker {
-  background-color: rgba(0,0,0,0);
-  border-left-color: rgba(0,0,0,0);
-  border-right-color: rgba(0,0,0,0);
-  border-top-color: rgba(0,0,0,0);
-  border-bottom-color: rgba(0,0,0,0);
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  background-color: rgba(18,28,33,0.8);
+  border-left-color: #997300;
+  border-right-color: #997300;
+  border-top-color: #997300;
+  border-bottom-color: #997300;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
   width: auto;
   height: 24px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
   padding-left: 0px;
   padding-right: 0px;
   padding-top: 0px;
@@ -572,10 +574,18 @@
   position: absolute;
   width: auto;
   height: 24px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   border-left-width: 1px;
   border-right-width: 1px;
   border-top-width: 1px;
   border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
@@ -605,18 +615,63 @@
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-.unity-scroller--horizontal .unity-base-slider:focus #unity-dragger {
-  color: #1481b8;
-  border-left-color: #1481b8;
-  border-right-color: #1481b8;
-  border-top-color: #1481b8;
-  border-bottom-color: #1481b8;
+.unity-scroller--horizontal #unity-high-button {
+  color: #1a1a1a;
+  background-color: rgba(237,230,222,0.5);
+  border-left-color: #4d3900;
+  border-right-color: #4d3900;
+  border-top-color: #4d3900;
+  border-bottom-color: #4d3900;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png');
+  -unity-background-image-tint-color: #121c21;
+  width: 24px;
+  height: 24px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
+}
+.unity-scroller--horizontal #unity-high-button:hover {
+  color: #1a1a1a;
+  background-color: rgba(255,255,255,0.5);
+  border-left-color: #997300;
+  border-right-color: #997300;
+  border-top-color: #997300;
+  border-bottom-color: #997300;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.unity-scroller--horizontal #unity-high-button:active {
+  color: #1a1a1a;
+  background-color: rgba(220,207,193,0.5);
+  border-left-color: #413203;
+  border-right-color: #413203;
+  border-top-color: #413203;
+  border-bottom-color: #413203;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 .unity-scroller--vertical {
-  padding-left: 2px;
-  padding-right: 2px;
-  padding-top: 2px;
-  padding-bottom: 2px;
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;
@@ -639,13 +694,23 @@
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png');
   -unity-background-image-tint-color: #121c21;
   width: 24px;
-  min-width: 24px;
   height: 24px;
-  min-height: 24px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
   border-left-width: 1px;
   border-right-width: 1px;
   border-top-width: 1px;
   border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
 }
 .unity-scroller--vertical #unity-low-button:hover {
   color: #1a1a1a;
@@ -671,53 +736,16 @@
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-.unity-scroller--vertical #unity-high-button {
-  color: #1a1a1a;
-  background-color: rgba(237,230,222,0.5);
-  border-left-color: #4d3900;
-  border-right-color: #4d3900;
-  border-top-color: #4d3900;
-  border-bottom-color: #4d3900;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png');
-  -unity-background-image-tint-color: #121c21;
-  width: 24px;
-  min-width: 24px;
-  height: 24px;
-  min-height: 24px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-}
-.unity-scroller--vertical #unity-high-button:hover {
-  color: #1a1a1a;
-  background-color: rgba(255,255,255,0.5);
-  border-left-color: #997300;
-  border-right-color: #997300;
-  border-top-color: #997300;
-  border-bottom-color: #997300;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-.unity-scroller--vertical #unity-high-button:active {
-  color: #1a1a1a;
-  background-color: rgba(220,207,193,0.5);
-  border-left-color: #413203;
-  border-right-color: #413203;
-  border-top-color: #413203;
-  border-bottom-color: #413203;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
 .unity-scroller--vertical .unity-base-slider {
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -741,6 +769,15 @@
   align-items: center;
 }
 .unity-scroller--vertical .unity-base-slider .unity-base-slider__input {
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -796,39 +833,25 @@
   align-items: center;
 }
 .unity-scroller--vertical .unity-base-slider #unity-tracker {
-  background-color: rgba(0,0,0,0);
-  border-left-color: rgba(0,0,0,0);
-  border-right-color: rgba(0,0,0,0);
-  border-top-color: rgba(0,0,0,0);
-  border-bottom-color: rgba(0,0,0,0);
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  background-color: rgba(18,28,33,0.8);
+  border-left-color: #997300;
+  border-right-color: #997300;
+  border-top-color: #997300;
+  border-bottom-color: #997300;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
   width: 24px;
   height: auto;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
   padding-left: 0px;
   padding-right: 0px;
   padding-top: 0px;
@@ -852,10 +875,18 @@
   position: absolute;
   width: 24px;
   height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   border-left-width: 1px;
   border-right-width: 1px;
   border-top-width: 1px;
   border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
@@ -885,10 +916,59 @@
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-.unity-scroller--vertical .unity-base-slider:focus #unity-dragger {
-  color: #1481b8;
-  border-left-color: #1481b8;
-  border-right-color: #1481b8;
-  border-top-color: #1481b8;
-  border-bottom-color: #1481b8;
+.unity-scroller--vertical #unity-high-button {
+  color: #1a1a1a;
+  background-color: rgba(237,230,222,0.5);
+  border-left-color: #4d3900;
+  border-right-color: #4d3900;
+  border-top-color: #4d3900;
+  border-bottom-color: #4d3900;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png');
+  -unity-background-image-tint-color: #121c21;
+  width: 24px;
+  height: 24px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
+}
+.unity-scroller--vertical #unity-high-button:hover {
+  color: #1a1a1a;
+  background-color: rgba(255,255,255,0.5);
+  border-left-color: #997300;
+  border-right-color: #997300;
+  border-top-color: #997300;
+  border-bottom-color: #997300;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.unity-scroller--vertical #unity-high-button:active {
+  color: #1a1a1a;
+  background-color: rgba(220,207,193,0.5);
+  border-left-color: #413203;
+  border-right-color: #413203;
+  border-top-color: #413203;
+  border-bottom-color: #413203;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }

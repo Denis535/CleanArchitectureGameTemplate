@@ -6,8 +6,9 @@ toggle-field-label()
 toggle-field-input()
     add-skin(null)
     add-skin2(null)
-toggle-field-input--checkmark(value)
-    add-image(light-image,                     null, 16px 16px, null)
+// checkmark
+checkmark(value)
+    add-image(light-image,                     null, 16px 16px, null) if !value
     add-image(light-image dark-checkmark-icon, null, 16px 16px, null) if value
 
 // toggle-field
@@ -18,6 +19,6 @@ toggle-field-input--checkmark(value)
     &__input
         toggle-field-input()
     &__input #unity-checkmark
-        toggle-field-input--checkmark(false)
+        checkmark(false)
     &__input:checked #unity-checkmark
-        toggle-field-input--checkmark(true)
+        checkmark(true)

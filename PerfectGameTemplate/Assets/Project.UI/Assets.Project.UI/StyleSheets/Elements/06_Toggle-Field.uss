@@ -10,27 +10,20 @@
   border-bottom-right-radius: 2px;
   width: 16px;
   height: 16px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   border-left-width: 1px;
   border-right-width: 1px;
   border-top-width: 1px;
   border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .unity-toggle__input:checked #unity-checkmark {
-  background-color: rgba(237,230,222,0.8);
-  border-left-color: #997300;
-  border-right-color: #997300;
-  border-top-color: #997300;
-  border-bottom-color: #997300;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-  width: 16px;
-  height: 16px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
   background-color: rgba(237,230,222,0.8);
   border-left-color: #997300;
   border-right-color: #997300;
@@ -44,8 +37,16 @@
   -unity-background-image-tint-color: #121c21;
   width: 16px;
   height: 16px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   border-left-width: 1px;
   border-right-width: 1px;
   border-top-width: 1px;
   border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }

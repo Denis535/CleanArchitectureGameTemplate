@@ -6,12 +6,14 @@ popup-field-label()
 popup-field-input()
     add-skin(null)
     add-skin2(null)
-popup-field-input--text()
-    add-skin(null)
-    add-skin2(null)
+// text
+text()
+    add-component(null)
     add-flex(1, 1, auto, auto)
-popup-field-input--arrow()
+// arrow
+arrow()
     add-image(image light-dropdown-arrow-icon, null, 12px 12px, 2px null null)
+    add-flex(0, 1, auto, auto)
 
 // popup-field
 .unity-base-popup-field
@@ -21,6 +23,6 @@ popup-field-input--arrow()
     &__input
         popup-field-input()
     &__input .unity-text-element
-        popup-field-input--text()
+        text()
     &__input &__arrow
-        popup-field-input--arrow()
+        arrow()

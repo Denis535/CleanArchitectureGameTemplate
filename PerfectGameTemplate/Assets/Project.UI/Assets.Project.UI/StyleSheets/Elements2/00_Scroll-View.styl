@@ -50,117 +50,106 @@ scroll-view()
         add-skin(dark-scroll-view, alpha: 0.90)
     &.dark-10
         add-skin(dark-scroll-view, alpha: 1.00)
-scroll-view--content-viewport-and-vertical-scroller()
-    add-skin(null)
-    add-skin2(null)
+viewport-and-vertical-scroller()
+    add-component(null)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, stretch)
-scroll-view--content-viewport()
+viewport()
     overflow hidden
-    add-skin(null)
-    add-skin2(null)
+    add-component(null)
     add-flex(1, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
-scroll-view--content-container()
+content()
     overflow scroll
-    add-skin(null)
-    add-skin2(null, padding: (12px 12px 10px 10px))
+    add-medium-component(null)
     add-flex(0, 0, auto, auto)
     add-flex2(column, flex-start, stretch)
 
 // scroller
 horizontal-scroller()
     add-skin(null)
-    add-skin2(null, padding: 2px)
+    add-skin2(null)
     add-flex(0, 0, auto, auto)
     add-flex2(row, flex-start, center)
-// slider-field
 horizontal-slider-field()
-    add-skin(null)
+    add-skin(default)
     add-skin2(default)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
-// slider-field-input
 horizontal-slider-field-input()
-    add-skin(null)
-    add-skin2(default)
-    add-flex(1, 1, auto, auto)
-    add-flex2(row, flex-start, center)
-horizontal-slider-field-input--container()
     add-skin(default)
     add-skin2(default)
     add-flex(1, 1, auto, auto)
     add-flex2(row, flex-start, center)
-horizontal-slider-field-input--tracker()
-    add-skin(default)
-    add-skin2(default, null, auto, 24px, 0px, 0px, 0px)
+horizontal-container()
+    add-component(default)
     add-flex(1, 1, auto, auto)
-horizontal-slider-field-input--dragger()
+    add-flex2(row, flex-start, center)
+horizontal-tracker()
+    add-image(dark-image, null, auto 24px, null)
+    add-flex(1, 1, auto, auto)
+horizontal-dragger()
     add-image(button, absolute, auto 24px, null)
     add-flex(0, 1, auto, auto)
     &:hover
-        add-skin-with-hover-effect(button)
+        add-image-with-hover-effect(button)
     &:active
-        add-skin-with-active-effect(button)
-
-// scroller
-vertical-scroller()
-    add-skin(null)
-    add-skin2(null, padding: 2px)
-    add-flex(0, 0, auto, auto)
-    add-flex2(column, flex-start, center)
-// slider-field
-vertical-slider-field()
-    add-skin(null)
-    add-skin2(default)
-    add-flex(1, 1, auto, auto)
-    add-flex2(column, flex-start, center)
-// slider-field-input
-vertical-slider-field-input()
-    add-skin(null)
-    add-skin2(default)
-    add-flex(1, 1, auto, auto)
-    add-flex2(column, flex-start, center)
-vertical-slider-field-input--container()
-    add-skin(default)
-    add-skin2(default)
-    add-flex(1, 1, auto, auto)
-    add-flex2(column, flex-start, center)
-vertical-slider-field-input--tracker()
-    add-skin(default)
-    add-skin2(default, null, 24px, auto, 0px, 0px, 0px)
-    add-flex(1, 1, auto, auto)
-vertical-slider-field-input--dragger()
-    add-image(button, absolute, 24px auto, null)
-    add-flex(0, 1, auto, auto)
-    &:hover
-        add-skin-with-hover-effect(button)
-    &:active
-        add-skin-with-active-effect(button)
-
-// button
+        add-image-with-active-effect(button)
 horizontal-low-button()
-    add-image(button dark-arrow-icon--left, null, (24px 24px) (24px 24px), null)
+    add-image(button dark-arrow-icon--left, null, 24px 24px, 2px null null)
+    add-flex(0, 0, auto, auto)
     &:hover
         add-image-with-hover-effect(button)
     &:active
         add-image-with-active-effect(button)
 horizontal-high-button()
-    add-image(button dark-arrow-icon--right, null, (24px 24px) (24px 24px), null)
+    add-image(button dark-arrow-icon--right, null, 24px 24px, 2px null null)
+    add-flex(0, 0, auto, auto)
     &:hover
         add-image-with-hover-effect(button)
     &:active
         add-image-with-active-effect(button)
 
-// button
+// scroller
+vertical-scroller()
+    add-skin(null)
+    add-skin2(null)
+    add-flex(0, 0, auto, auto)
+    add-flex2(column, flex-start, center)
+vertical-slider-field()
+    add-skin(default)
+    add-skin2(default)
+    add-flex(1, 1, auto, auto)
+    add-flex2(column, flex-start, center)
+vertical-slider-field-input()
+    add-skin(default)
+    add-skin2(default)
+    add-flex(1, 1, auto, auto)
+    add-flex2(column, flex-start, center)
+vertical-container()
+    add-component(default)
+    add-flex(1, 1, auto, auto)
+    add-flex2(column, flex-start, center)
+vertical-tracker()
+    add-image(dark-image, null, 24px auto, null)
+    add-flex(1, 1, auto, auto)
+vertical-dragger()
+    add-image(button, absolute, 24px auto, null)
+    add-flex(0, 1, auto, auto)
+    &:hover
+        add-image-with-hover-effect(button)
+    &:active
+        add-image-with-active-effect(button)
 vertical-low-button()
-    add-image(button dark-arrow-icon--up, null, (24px 24px) (24px 24px), null)
+    add-image(button dark-arrow-icon--up, null, 24px 24px, 2px null null)
+    add-flex(0, 0, auto, auto)
     &:hover
         add-image-with-hover-effect(button)
     &:active
         add-image-with-active-effect(button)
 vertical-high-button()
-    add-image(button dark-arrow-icon--down, null, (24px 24px) (24px 24px), null)
+    add-image(button dark-arrow-icon--down, null, 24px 24px, 2px null null)
+    add-flex(0, 0, auto, auto)
     &:hover
         add-image-with-hover-effect(button)
     &:active
@@ -170,11 +159,11 @@ vertical-high-button()
 .unity-scroll-view
     scroll-view()
     #unity-content-and-vertical-scroll-container
-        scroll-view--content-viewport-and-vertical-scroller()
+        viewport-and-vertical-scroller()
     #unity-content-viewport
-        scroll-view--content-viewport()
+        viewport()
     #unity-content-container
-        scroll-view--content-container()
+        content()
 .unity-scroll-view.reverse
     #unity-content-viewport
         add-flex2(column-reverse, null, null)
@@ -184,41 +173,39 @@ vertical-high-button()
     horizontal-scroller()
     #unity-low-button
         horizontal-low-button()
-    #unity-high-button
-        horizontal-high-button()
-    // slider-field
     .unity-base-slider
         horizontal-slider-field()
         .unity-base-slider__input
             horizontal-slider-field-input()
         #unity-drag-container
-            horizontal-slider-field-input--container()
+            horizontal-container()
         #unity-tracker
-            horizontal-slider-field-input--tracker()
+            horizontal-tracker()
         #unity-dragger
-            horizontal-slider-field-input--dragger()
-    .unity-base-slider:focus
-        #unity-dragger
-            add-skin(focus-effect)
+            horizontal-dragger()
+    // .unity-base-slider:focus
+    //     #unity-dragger
+    //         add-skin(focus-effect)
+    #unity-high-button
+        horizontal-high-button()
 
 // scroller
 .unity-scroller--vertical
     vertical-scroller()
     #unity-low-button
         vertical-low-button()
-    #unity-high-button
-        vertical-high-button()
-    // slider-field
     .unity-base-slider
         vertical-slider-field()
         .unity-base-slider__input
             vertical-slider-field-input()
         #unity-drag-container
-            vertical-slider-field-input--container()
+            vertical-container()
         #unity-tracker
-            vertical-slider-field-input--tracker()
+            vertical-tracker()
         #unity-dragger
-            vertical-slider-field-input--dragger()
-    .unity-base-slider:focus
-        #unity-dragger
-            add-skin(focus-effect)
+            vertical-dragger()
+    // .unity-base-slider:focus
+    //     #unity-dragger
+    //         add-skin(focus-effect)
+    #unity-high-button
+        vertical-high-button()

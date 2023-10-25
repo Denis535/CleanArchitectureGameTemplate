@@ -7,33 +7,28 @@ dropdown-view()
 
 // scroll-view
 scroll-view()
-    add-view(null, null, null, transparent, null, transparent, null)
-    add-layout(null, auto, auto, 0px, 0px, 0px)
-scroll-view--content-viewport-and-vertical-scroller()
-    add-view()
-    add-layout()
-scroll-view--content-viewport()
-    add-view()
-    add-layout()
-scroll-view--content-container()
-    add-view()
-    add-layout(null, auto, auto, 0px, 0px, 0px)
+    add-skin(default)
+    add-skin2(default)
+viewport-and-vertical-scroller()
+    add-component(null)
+viewport()
+    add-component(null)
+content()
+    add-component(null)
 
-// dropdown-item
-dropdown-item()
-    add-skin(null)
-    add-skin2(null, padding: (12px 12px 10px 10px))
+// item
+item()
+    add-medium-component(null)
     add-flex(0, 1, auto, auto)
     add-flex2(row, flex-start, center)
-    &:hover
-        add-skin(hover-effect)
-dropdown-item--checkmark(value)
-    add-image(null,                      null, 16px 16px, (0px 12px 0px 0px) null null)
+// checkmark
+checkmark(value)
+    add-image(null,                      null, 16px 16px, (0px 12px 0px 0px) null null) if !value
     add-image(null light-checkmark-icon, null, 16px 16px, (0px 12px 0px 0px) null null) if value
     add-flex(0, 1, auto, auto)
-dropdown-item--text()
-    add-skin(null)
-    add-skin2(null, width: auto, height: auto, margin: 0px, border: 0px, padding: 0px)
+// text
+text()
+    add-component(null)
     add-flex(1, 1, auto, auto)
 
 // dropdown-view
@@ -45,16 +40,18 @@ dropdown-item--text()
     .unity-scroll-view
         scroll-view()
     #unity-content-and-vertical-scroll-container
-        scroll-view--content-viewport-and-vertical-scroller()
+        viewport-and-vertical-scroller()
     #unity-content-viewport
-        scroll-view--content-viewport()
+        viewport()
     #unity-content-container
-        scroll-view--content-container()
+        content()
     &__item
-        dropdown-item()
+        item()
+    &__item:hover
+        add-skin(hover-effect)
     &__item &__checkmark
-        dropdown-item--checkmark(false)
+        checkmark(false)
     &__item:checked &__checkmark
-        dropdown-item--checkmark(true)
+        checkmark(true)
     &__item &__label
-        dropdown-item--text()
+        text()

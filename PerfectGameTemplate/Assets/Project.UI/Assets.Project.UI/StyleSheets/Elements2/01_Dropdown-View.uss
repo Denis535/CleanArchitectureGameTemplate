@@ -29,11 +29,47 @@
   padding-bottom: 0px;
 }
 .unity-base-dropdown .unity-scroll-view {
-  background-color: transparent;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.unity-base-dropdown #unity-content-and-vertical-scroll-container {
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.unity-base-dropdown #unity-content-viewport {
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -66,6 +102,16 @@
   padding-bottom: 0px;
 }
 .unity-base-dropdown__item {
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
   padding-left: 12px;
   padding-right: 12px;
   padding-top: 10px;
@@ -92,22 +138,16 @@
   border-right-width: 1px;
   border-top-width: 1px;
   border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
   align-self: auto;
 }
 .unity-base-dropdown__item:checked .unity-base-dropdown__checkmark {
-  width: 16px;
-  height: 16px;
-  margin-left: 0px;
-  margin-right: 12px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
   -unity-background-image-tint-color: #ede6de;
   width: 16px;
@@ -120,6 +160,10 @@
   border-right-width: 1px;
   border-top-width: 1px;
   border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
