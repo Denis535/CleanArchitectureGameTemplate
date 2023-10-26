@@ -2,16 +2,13 @@
 
 // box
 box()
-    add-view-skin(box)
-    add-view-skin-light-gradient(light-box)
-    add-view-skin-dark-gradient(dark-box)
-    add-layout-skin(box)
+    add-element-gradient(box, light-box, dark-box, box)
     &.small
-        add-layout-skin(small-box)
+        add-element(null, small-box)
     &.medium
-        add-layout-skin(medium-box)
+        add-element(null, medium-box)
     &.large
-        add-layout-skin(large-box)
+        add-element(null, large-box)
 
 // box
 .unity-box

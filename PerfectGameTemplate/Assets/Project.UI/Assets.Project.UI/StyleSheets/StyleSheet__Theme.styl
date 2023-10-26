@@ -241,28 +241,55 @@ layouts = {
     dropdown-item:                     create-layout-skin( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (12px 12px 10px 10px)) ),
 }
 
+// // add-element
+// add-element(view, font = null, text = null, effect = null)
+//     if effect == null
+//         add-skin(view, font: font, text: text)
+//     else
+//         add-skin(view, saturation: 1.0, lightness: 2.0, alpha: 1) if effect == 'hover'
+//         add-skin(view, saturation: 0.9, lightness: 0.9, alpha: 1) if effect == 'active'
+//         add-skin(focus-effect)                                    if effect == 'focus'
+//         add-skin(focus-effect--without-foreground)                if effect == 'focus-without-foreground'
+//         add-skin(invalid-effect)                                  if effect == 'invalid'
+//         add-skin(invalid-effect--without-foreground)              if effect == 'invalid-without-foreground'
+
 // add-element
-add-element(view, font = null, text = null, effect = null)
-    if effect == null
-        add-skin(view, font: font, text: text)
-    else
-        add-skin(view, saturation: 1.0, lightness: 2.0, alpha: 1) if effect == 'hover'
-        add-skin(view, saturation: 0.9, lightness: 0.9, alpha: 1) if effect == 'active'
-        add-skin(focus-effect)                                    if effect == 'focus'
-        add-skin(focus-effect--without-foreground)                if effect == 'focus-without-foreground'
-        add-skin(invalid-effect)                                  if effect == 'invalid'
-        add-skin(invalid-effect--without-foreground)              if effect == 'invalid-without-foreground'
+add-element(view, layout, font = null, text = null)
+    add-view-skin(view)
+    add-view(font: font, text: text)
+    add-layout-skin(layout)
+// add-element-gradient
+add-element-gradient(view, light-view, dark-view, layout, font = null, text = null)
+    add-view-skin(view)
+    for i in 0..10
+        alpha  = i / 10
+        alpha2 = (alpha+3)/4
+        &.light-{i}
+            skin = get-view-skin(light-view)
+            skin.background.color = alpha(skin.background.color, alpha(skin.background.color) * alpha )
+            skin.border.color     = alpha(skin.border.color,     alpha(skin.border.color    ) * alpha2)
+            add-view-skin(skin)
+        &.dark-{i}
+            skin = get-view-skin(dark-view)
+            skin.background.color = alpha(skin.background.color, alpha(skin.background.color) * alpha )
+            skin.border.color     = alpha(skin.border.color,     alpha(skin.border.color    ) * alpha2)
+            add-view-skin(skin)
+    add-view(font: font, text: text)
+    add-layout-skin(layout)
 
 // add-component
-add-component(view, position = null, size = null, box = null)
-    position = position or null
-    width    = size[0]  or auto
-    height   = size[1]  or auto
-    margin   = box[0]   or 0px
-    border   = box[1]   or 0px
-    padding  = box[2]   or 0px
-    add-skin(view)
-    add-skin2(null, position, width, height, margin, border, padding)
+add-component(view, position = null, size = null, box = null, effect = null)
+    if effect == null
+        position = position or null
+        width    = size[0]  or auto
+        height   = size[1]  or auto
+        margin   = box[0]   or 0px
+        border   = box[1]   or 0px
+        padding  = box[2]   or 0px
+        add-skin(view)
+        add-layout-skin(null, position, width, height, margin, border, padding)
+    else
+        error('Effect is not supported: ' + effect)
 
 // add-image
 add-image(view, position, size, box, effect = null)
@@ -275,7 +302,7 @@ add-image(view, position, size, box, effect = null)
         padding  = box[2]   or 0px
         add-skin(view[0])
         add-skin(view[1])
-        add-skin2(null, position, width, height, margin, border, padding)
+        add-layout-skin(null, position, width, height, margin, border, padding)
     else
         add-skin(view[0], saturation: 1.0, lightness: 2.0, alpha: 1) if effect == 'hover'
         add-skin(view[0], saturation: 0.9, lightness: 0.9, alpha: 1) if effect == 'active'
@@ -301,8 +328,8 @@ add-skin(view, color = null, font = null, text = null, bg-color = null, bg-image
     add-view color, font, text, bg-color, bg-image, bd-color, bd-radius
 
 // add-skin2
-add-skin2(layout, position = null, width = null, height = null, margin = null, border = null, padding = null)
-    if layout != null
-        layout = layouts[get-string(layout)] or error('Layouts has no layout: ' + get-string(layout))
-        add-layout-skin layout
-    add-layout position, width, height, margin, border, padding
+// add-skin2(layout, position = null, width = null, height = null, margin = null, border = null, padding = null)
+//     if layout != null
+//         layout = layouts[get-string(layout)] or error('Layouts has no layout: ' + get-string(layout))
+//         add-layout-skin layout
+//     add-layout position, width, height, margin, border, padding

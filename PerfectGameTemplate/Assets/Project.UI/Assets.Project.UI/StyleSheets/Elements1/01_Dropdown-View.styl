@@ -2,13 +2,11 @@
 
 // dropdown-view
 dropdown-view()
-    add-view-skin(dropdown-view)
-    add-layout-skin(dropdown-view)
+    add-element(dropdown-view, dropdown-view)
 
 // scroll-view
 scroll-view()
-    add-view-skin(default)
-    add-layout-skin(default)
+    add-element(default, default)
 viewport-and-vertical-scroller()
     add-component(null)
 viewport()
@@ -18,9 +16,8 @@ content()
 
 // dropdown-item
 dropdown-item(effect)
-    add-view-skin(dropdown-item)
-    add-view-skin(dropdown-item--hover) if effect == 'hover'
-    add-layout-skin(dropdown-item)
+    add-element(dropdown-item,        dropdown-item) if effect == null
+    add-element(dropdown-item--hover, dropdown-item) if effect == 'hover'
     add-flex(0, 1, auto, auto)
     add-flex2(row, flex-start, center)
 // checkmark

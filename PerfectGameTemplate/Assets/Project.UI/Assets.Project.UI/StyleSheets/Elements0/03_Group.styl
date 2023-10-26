@@ -2,16 +2,13 @@
 
 // group
 group()
-    add-view-skin(group)
-    add-view-skin-light-gradient(light-group)
-    add-view-skin-dark-gradient(dark-group)
-    add-layout-skin(group)
+    add-element-gradient(group, light-group, dark-group, group)
     &.small
-        add-layout-skin(small-group)
+        add-element(null, small-group)
     &.medium
-        add-layout-skin(medium-group)
+        add-element(null, medium-group)
     &.large
-        add-layout-skin(large-group)
+        add-element(null, large-group)
 column-group()
     add-flex(0, 1, auto, auto)
     add-flex2(column, flex-start, stretch)

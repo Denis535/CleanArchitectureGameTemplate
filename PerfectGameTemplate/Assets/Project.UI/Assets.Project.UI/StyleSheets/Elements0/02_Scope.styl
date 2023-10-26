@@ -2,16 +2,13 @@
 
 // scope
 scope()
-    add-view-skin(scope)
-    add-view-skin-light-gradient(light-scope)
-    add-view-skin-dark-gradient(dark-scope)
-    add-layout-skin(scope)
+    add-element-gradient(scope, light-scope, dark-scope, scope)
     &.small
-        add-layout-skin(small-scope)
+        add-element(null, small-scope)
     &.medium
-        add-layout-skin(medium-scope)
+        add-element(null, medium-scope)
     &.large
-        add-layout-skin(large-scope)
+        add-element(null, large-scope)
 column-scope()
     add-flex(0, 1, auto, auto)
     add-flex2(column, flex-start, stretch)

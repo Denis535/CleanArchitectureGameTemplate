@@ -52,54 +52,6 @@
   padding-top: 0px;
   padding-bottom: 0px;
 }
-.unity-base-dropdown #unity-content-and-vertical-scroll-container {
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-.unity-base-dropdown #unity-content-viewport {
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-.unity-base-dropdown #unity-content-container {
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
 .unity-base-dropdown__item {
   background-color: transparent;
   border-left-color: transparent;
@@ -133,15 +85,6 @@
   align-items: center;
 }
 .unity-base-dropdown__item:hover {
-  background-color: transparent;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
   background-color: #a37a29;
   border-left-color: #a37a29;
   border-right-color: #a37a29;
@@ -174,20 +117,6 @@
   align-items: center;
 }
 .unity-base-dropdown__item .unity-base-dropdown__checkmark {
-  width: 16px;
-  height: 16px;
-  margin-left: 0px;
-  margin-right: 12px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
@@ -196,40 +125,12 @@
 .unity-base-dropdown__item:checked .unity-base-dropdown__checkmark {
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
   -unity-background-image-tint-color: #ede6de;
-  width: 16px;
-  height: 16px;
-  margin-left: 0px;
-  margin-right: 12px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
   align-self: auto;
 }
 .unity-base-dropdown__item .unity-base-dropdown__label {
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;

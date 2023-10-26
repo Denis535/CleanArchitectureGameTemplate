@@ -86,64 +86,6 @@ add-view-skin(view)
         add-view-foreground color, font, text
         add-view-background background-color, background-image
         add-view-border     border-color, border-radius
-// add-view-skin-with-alpha
-add-view-skin-with-alpha(view, alpha)
-    view = get-view-skin(view)
-    view.background.color = alpha(view.background.color, alpha(view.background.color) * alpha      ) if view.background.color != null
-    view.border.color     = alpha(view.border.color,     alpha(view.border.color    ) * (alpha+3)/4) if view.border.color     != null
-    add-view-skin(view)
-// add-view-skin-light-gradient
-add-view-skin-light-gradient(view)
-    &.light
-        add-view-skin-with-alpha(view, alpha: 0.00)
-    &.light-0
-        add-view-skin-with-alpha(view, alpha: 0.00)
-    &.light-1
-        add-view-skin-with-alpha(view, alpha: 0.10)
-    &.light-2
-        add-view-skin-with-alpha(view, alpha: 0.20)
-    &.light-3
-        add-view-skin-with-alpha(view, alpha: 0.30)
-    &.light-4
-        add-view-skin-with-alpha(view, alpha: 0.40)
-    &.light-5
-        add-view-skin-with-alpha(view, alpha: 0.50)
-    &.light-6
-        add-view-skin-with-alpha(view, alpha: 0.60)
-    &.light-7
-        add-view-skin-with-alpha(view, alpha: 0.70)
-    &.light-8
-        add-view-skin-with-alpha(view, alpha: 0.80)
-    &.light-9
-        add-view-skin-with-alpha(view, alpha: 0.90)
-    &.light-10
-        add-view-skin-with-alpha(view, alpha: 1.00)
-// add-view-skin-dark-gradient
-add-view-skin-dark-gradient(view)
-    &.dark
-        add-view-skin-with-alpha(view, alpha: 0.00)
-    &.dark-0
-        add-view-skin-with-alpha(view, alpha: 0.00)
-    &.dark-1
-        add-view-skin-with-alpha(view, alpha: 0.10)
-    &.dark-2
-        add-view-skin-with-alpha(view, alpha: 0.20)
-    &.dark-3
-        add-view-skin-with-alpha(view, alpha: 0.30)
-    &.dark-4
-        add-view-skin-with-alpha(view, alpha: 0.40)
-    &.dark-5
-        add-view-skin-with-alpha(view, alpha: 0.50)
-    &.dark-6
-        add-view-skin-with-alpha(view, alpha: 0.60)
-    &.dark-7
-        add-view-skin-with-alpha(view, alpha: 0.70)
-    &.dark-8
-        add-view-skin-with-alpha(view, alpha: 0.80)
-    &.dark-9
-        add-view-skin-with-alpha(view, alpha: 0.90)
-    &.dark-10
-        add-view-skin-with-alpha(view, alpha: 1.00)
 
 // add-layout-skin
 add-layout-skin(layout)

@@ -28,17 +28,3 @@
   flex-basis: auto;
   align-self: auto;
 }
-.unity-label:focus {
-  color: #1481b8;
-  border-left-color: #1481b8;
-  border-right-color: #1481b8;
-  border-top-color: #1481b8;
-  border-bottom-color: #1481b8;
-}
-.unity-label.invalid {
-  color: #b83014;
-  border-left-color: #b83014;
-  border-right-color: #b83014;
-  border-top-color: #b83014;
-  border-bottom-color: #b83014;
-}
