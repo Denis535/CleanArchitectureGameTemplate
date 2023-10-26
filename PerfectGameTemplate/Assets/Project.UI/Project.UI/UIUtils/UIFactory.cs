@@ -9,35 +9,6 @@ namespace Project.UI {
 
     public static class UIFactory {
 
-        // Element
-        public static Label Label(string? text) {
-            return new Label().Text( text );
-        }
-        public static Button Button(string? text) {
-            return new Button().Text( text );
-        }
-        public static TextField TextField(string? label, int maxLength, bool isMultiline) {
-            return new TextField( label, maxLength, isMultiline, false, '*' );
-        }
-        public static TextField TextFieldReadOnly(string? label, int maxLength, bool isMultiline) {
-            return new TextField( label, maxLength, isMultiline, false, '*' ).Pipe( i => i.isReadOnly = true );
-        }
-        public static PopupField<object?> PopupField(string? label) {
-            return new PopupField<object?>( label ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
-        }
-        public static DropdownField DropdownField(string? label) {
-            return new DropdownField( label ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
-        }
-        public static Slider Slider(string? label) {
-            return new Slider( label );
-        }
-        public static SliderInt SliderInt(string? label) {
-            return new SliderInt( label );
-        }
-        public static Toggle Toggle(string? label) {
-            return new Toggle( label );
-        }
-
         // Widget
         public static View Widget(string name) {
             return new View().Name( name ).Classes( "widget-view" );
@@ -105,6 +76,11 @@ namespace Project.UI {
             return new RowGroup().Name( name );
         }
 
+        // Box
+        public static Box Box(string? name = null) {
+            return new Box().Name( name );
+        }
+
         // ScrollView
         public static ScrollView ScrollView(string? name = null) {
             var view = new ScrollView().Name( name );
@@ -113,9 +89,35 @@ namespace Project.UI {
             return view;
         }
 
-        // Box
-        public static Box Box(string? name = null) {
-            return new Box().Name( name );
+        // Label
+        public static Label Label(string? text) {
+            return new Label().Text( text );
+        }
+        // Button
+        public static Button Button(string? text) {
+            return new Button().Text( text );
+        }
+        // Field
+        public static TextField TextField(string? label, int maxLength, bool isMultiline) {
+            return new TextField( label, maxLength, isMultiline, false, '*' );
+        }
+        public static TextField TextFieldReadOnly(string? label, int maxLength, bool isMultiline) {
+            return new TextField( label, maxLength, isMultiline, false, '*' ).Pipe( i => i.isReadOnly = true );
+        }
+        public static PopupField<object?> PopupField(string? label) {
+            return new PopupField<object?>( label ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
+        }
+        public static DropdownField DropdownField(string? label) {
+            return new DropdownField( label ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
+        }
+        public static Slider Slider(string? label) {
+            return new Slider( label );
+        }
+        public static SliderInt SliderInt(string? label) {
+            return new SliderInt( label );
+        }
+        public static Toggle Toggle(string? label) {
+            return new Toggle( label );
         }
 
         // Helpers/GetDisplayString

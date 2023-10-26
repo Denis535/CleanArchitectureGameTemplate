@@ -16,9 +16,11 @@ viewport()
 content()
     add-component(null)
 
-// item
-item()
-    add-component(null, box: null null medium)
+// dropdown-item
+dropdown-item(effect)
+    add-view-skin(dropdown-item)
+    add-view-skin(dropdown-item--hover) if effect == 'hover'
+    add-layout-skin(dropdown-item)
     add-flex(0, 1, auto, auto)
     add-flex2(row, flex-start, center)
 // checkmark
@@ -46,9 +48,9 @@ text()
     #unity-content-container
         content()
     &__item
-        item()
+        dropdown-item(null)
     &__item:hover
-        add-view-skin(hover-effect)
+        dropdown-item(hover)
     &__item &__checkmark
         checkmark(false)
     &__item:checked &__checkmark

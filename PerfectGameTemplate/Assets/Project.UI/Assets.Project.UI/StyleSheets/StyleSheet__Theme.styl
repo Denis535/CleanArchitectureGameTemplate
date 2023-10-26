@@ -28,10 +28,6 @@ theme = {
         scope:                         hsla(  0deg,   0%,   0%, 0.00),
         light-scope:                   hsla( 30deg,   5%,  80%, 0.20),
         dark-scope:                    hsla(200deg,   5%,  20%, 0.80),
-        // group
-        group:                         hsla(  0deg,   0%,   0%, 0.00),
-        light-group:                   hsla( 30deg,   5%,  80%, 0.20),
-        dark-group:                    hsla(200deg,   5%,  20%, 0.80),
         // box
         box:                           hsla(  0deg,   0%,   0%, 0.00),
         light-box:                     hsla( 30deg,  15%,  80%, 0.20),
@@ -40,10 +36,6 @@ theme = {
         element:                       hsla(  0deg,   0%,   0%, 0.00),
         light-element:                 hsla( 30deg,  30%,  90%, 0.50),
         dark-element:                  hsla(200deg,  30%,  10%, 0.50),
-        // view
-        view:                          hsla(  0deg,   0%,   0%, 0.00),
-        light-view:                    hsla( 30deg,   5%,  90%, 0.20),
-        dark-view:                     hsla(200deg,   5%,  10%, 0.80),
         // image
         image:                         hsla(  0deg,   0%,   0%, 0.00),
         light-image:                   hsla( 30deg,  30%,  90%, 0.80),
@@ -68,10 +60,6 @@ theme = {
         scope:                         img(null, null, null),
         light-scope:                   img(null, null, null),
         dark-scope:                    img(null, null, null),
-        // group
-        group:                         img(null, null, null),
-        light-group:                   img(null, null, null),
-        dark-group:                    img(null, null, null),
         // box
         box:                           img(null, null, null), 
         light-box:                     img(null, null, null),
@@ -80,10 +68,6 @@ theme = {
         element:                       img(null, null, null),
         light-element:                 img(null, null, null),
         dark-element:                  img(null, null, null),
-        // view
-        view:                          img(null, null, null),
-        light-view:                    img(null, null, null),
-        dark-view:                     img(null, null, null),
         // image
         image:                         img(null, null, null),
         light-image:                   img(null, null, null),
@@ -119,10 +103,6 @@ theme = {
         scope:                         hsla(  0deg,   0%,   0%, 0.00),
         light-scope:                   hsla( 35deg, 100%,  30%, 1.00),
         dark-scope:                    hsla( 35deg, 100%,  30%, 1.00),
-        // group
-        group:                         hsla(  0deg,   0%,   0%, 0.00),
-        light-group:                   hsla( 35deg, 100%,  30%, 1.00),
-        dark-group:                    hsla( 35deg, 100%,  30%, 1.00),
         // box
         box:                           hsla(  0deg,   0%,   0%, 0.00),
         light-box:                     hsla( 45deg, 100%,  30%, 1.00),
@@ -131,10 +111,6 @@ theme = {
         element:                       hsla(  0deg,   0%,   0%, 0.00),
         light-element:                 hsla( 45deg, 100%,  15%, 1.00),
         dark-element:                  hsla( 45deg, 100%,  30%, 1.00),
-        // view
-        view:                          hsla(  0deg,   0%,   0%, 0.00),
-        light-view:                    hsla( 45deg, 100%,  30%, 1.00),
-        dark-view:                     hsla( 45deg, 100%,  30%, 1.00),
         // image
         image:                         hsla(  0deg,   0%,   0%, 0.00),
         light-image:                   hsla( 45deg, 100%,  30%, 1.00),
@@ -154,14 +130,10 @@ theme = {
         dialog-card-footer:            0px 0px 6px 6px,
         // scope
         scope:                         4px,
-        // group
-        group:                         4px,
         // box
         box:                           4px,
         // element
         element:                       4px,
-        // view
-        view:                          4px,
         // image
         image:                         2px,
     }
@@ -188,9 +160,14 @@ views = {
     light-scope:                       create-view-skin( create-foreground(dark,           null, null), create-background(light-scope,                 light-scope                ), create-border(light-scope,         scope              ) ),
     dark-scope:                        create-view-skin( create-foreground(light,          null, null), create-background(dark-scope,                  dark-scope                 ), create-border(dark-scope,          scope              ) ),
     // group         
-    group:                             create-view-skin( create-foreground(null,           null, null), create-background(group,                       group                      ), create-border(group,               group              ) ),
-    light-group:                       create-view-skin( create-foreground(dark,           null, null), create-background(light-group,                 light-group                ), create-border(light-group,         group              ) ),
-    dark-group:                        create-view-skin( create-foreground(light,          null, null), create-background(dark-group,                  dark-group                 ), create-border(dark-group,          group              ) ),
+    group:                             create-view-skin( create-foreground(null,           null, null), create-background(scope,                       scope                      ), create-border(scope,               scope              ) ),
+    light-group:                       create-view-skin( create-foreground(dark,           null, null), create-background(light-scope,                 light-scope                ), create-border(light-scope,         scope              ) ),
+    dark-group:                        create-view-skin( create-foreground(light,          null, null), create-background(dark-scope,                  dark-scope                 ), create-border(dark-scope,          scope              ) ),
+    // view
+    scroll-view:                       create-view-skin( create-foreground(null,           null, null), create-background(scope,                        scope                     ), create-border(scope,               scope              ) ),
+    light-scroll-view:                 create-view-skin( create-foreground(dark,           null, null), create-background(light-scope,                  light-scope               ), create-border(light-scope,         scope              ) ),
+    dark-scroll-view:                  create-view-skin( create-foreground(light,          null, null), create-background(dark-scope,                   dark-scope                ), create-border(dark-scope,          scope              ) ),
+    dropdown-view:                     create-view-skin( create-foreground(light,          null, null), create-background(dark-scope,                   dark-scope                ), create-border(dark-scope,          scope              ) ),
     // box
     box:                               create-view-skin( create-foreground(null,           null, null), create-background(box,                         box                        ), create-border(box,                 box                ) ),
     light-box:                         create-view-skin( create-foreground(dark,           null, null), create-background(light-box,                   light-box                  ), create-border(light-box,           box                ) ),
@@ -201,11 +178,8 @@ views = {
     field:                             create-view-skin( create-foreground(null,           null, null), create-background(element,                     element                    ), create-border(element,             element            ) ),
     field-label:                       create-view-skin( create-foreground(dark,           null, null), create-background(light-element,               light-element              ), create-border(light-element,       element            ) ),
     field-input:                       create-view-skin( create-foreground(light,          null, null), create-background(dark-element,                dark-element               ), create-border(dark-element,        element            ) ),
-    // view
-    scroll-view:                       create-view-skin( create-foreground(null,           null, null), create-background(view,                        view                       ), create-border(view,                view               ) ),
-    light-scroll-view:                 create-view-skin( create-foreground(dark,           null, null), create-background(light-view,                  light-view                 ), create-border(light-view,          view               ) ),
-    dark-scroll-view:                  create-view-skin( create-foreground(light,          null, null), create-background(dark-view,                   dark-view                  ), create-border(dark-view,           view               ) ),
-    dropdown-view:                     create-view-skin( create-foreground(light,          null, null), create-background(dark-view,                   dark-view                  ), create-border(dark-view,           view               ) ),
+    dropdown-item:                     create-view-skin( create-foreground(null,           null, null), create-background(default,                     default                    ), create-border(default,             default            ) ),
+    dropdown-item--hover:              create-view-skin( create-foreground(null,           null, null), create-background(hover-effect,                default                    ), create-border(hover-effect,        default            ) ),
     // image
     image:                             create-view-skin( create-foreground(null,           null, null), create-background(image,                       null                       ), create-border(image,               image              ) ),
     light-image:                       create-view-skin( create-foreground(null,           null, null), create-background(light-image,                 null                       ), create-border(light-image,         image              ) ),
@@ -255,17 +229,16 @@ layouts = {
     small-box:                         create-layout-skin( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), ( 6px  6px  5px  5px)) ),
     medium-box:                        create-layout-skin( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), (12px 12px 10px 10px)) ),
     large-box:                         create-layout-skin( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), (24px 24px 20px 20px)) ),
+    // view
+    scroll-view:                       create-layout-skin( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), (0px                )) ),
+    dropdown-view:                     create-layout-skin( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) ),
     // element
     label:                             create-layout-skin( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), (12px 12px 10px 10px)) ),
     button:                            create-layout-skin( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), (12px 12px 10px 10px)) ),
     field:                             create-layout-skin( create-position(null), create-size(auto, auto), create-box((4px            ), (0px            ), (0px                )) ),
     field-label:                       create-layout-skin( create-position(null), create-size(auto, auto), create-box((0px 2px 0px 0px), (1px            ), (12px 12px 10px 10px)) ),
     field-input:                       create-layout-skin( create-position(null), create-size(auto, auto), create-box((0px 0px 0px 0px), (1px            ), (12px 12px 10px 10px)) ),
-    // view
-    scroll-view:                       create-layout-skin( create-position(null), create-size(auto, auto), create-box((4px            ), (1px            ), (0px                )) ),
-    dropdown-view:                     create-layout-skin( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) ),
-    // image
-    image:                             create-layout-skin( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (0px                )) ),
+    dropdown-item:                     create-layout-skin( create-position(null), create-size(auto, auto), create-box((0px            ), (1px            ), (12px 12px 10px 10px)) ),
 }
 
 // add-element
@@ -288,9 +261,6 @@ add-component(view, position = null, size = null, box = null)
     margin   = box[0]   or 0px
     border   = box[1]   or 0px
     padding  = box[2]   or 0px
-    padding  = (6px  6px  5px  5px ) if padding == 'small'
-    padding  = (12px 12px 10px 10px) if padding == 'medium'
-    padding  = (24px 24px 20px 20px) if padding == 'large'
     add-skin(view)
     add-skin2(null, position, width, height, margin, border, padding)
 

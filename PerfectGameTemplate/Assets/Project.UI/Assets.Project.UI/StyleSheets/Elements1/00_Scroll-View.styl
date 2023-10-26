@@ -3,8 +3,8 @@
 // scroll-view
 scroll-view()
     add-view-skin(scroll-view)
-    add-view-skin-light-gradient(scroll-view)
-    add-view-skin-dark-gradient(scroll-view)
+    add-view-skin-light-gradient(light-scroll-view)
+    add-view-skin-dark-gradient(dark-scroll-view)
     add-layout-skin(scroll-view)
     add-flex(0, 1, auto, auto)
     add-flex2(column, flex-start, stretch)
@@ -19,7 +19,7 @@ viewport()
     add-flex2(column, flex-start, stretch)
 content()
     overflow scroll
-    add-component(null, box: null null medium)
+    add-component(null)
     add-flex(0, 0, auto, auto)
     add-flex2(column, flex-start, stretch)
 
@@ -50,11 +50,10 @@ horizontal-tracker()
 horizontal-dragger(effect)
     add-image(button, absolute, auto 24px, null, effect: effect)
     add-flex(0, 1, auto, auto)
-// low
+// button
 horizontal-low-button(effect)
     add-image(button dark-arrow-icon--left, null, 24px 24px, 2px null null, effect: effect)
     add-flex(0, 0, auto, auto)
-// high
 horizontal-high-button(effect)
     add-image(button dark-arrow-icon--right, null, 24px 24px, 2px null null, effect: effect)
     add-flex(0, 0, auto, auto)
@@ -86,11 +85,10 @@ vertical-tracker()
 vertical-dragger(effect)
     add-image(button, absolute, 24px auto, null, effect: effect)
     add-flex(0, 1, auto, auto)
-// low
+// button
 vertical-low-button(effect)
     add-image(button dark-arrow-icon--up, null, 24px 24px, 2px null null, effect: effect)
     add-flex(0, 0, auto, auto)
-// high
 vertical-high-button(effect)
     add-image(button dark-arrow-icon--down, null, 24px 24px, 2px null null, effect: effect)
     add-flex(0, 0, auto, auto)
@@ -104,6 +102,8 @@ vertical-high-button(effect)
         viewport()
     #unity-content-container
         content()
+
+// scroll-view
 .unity-scroll-view.reverse
     #unity-content-viewport
         add-flex2(column-reverse, null, null)
@@ -125,14 +125,14 @@ vertical-high-button(effect)
     .unity-base-slider:focus
         #unity-dragger
             horizontal-dragger(focus)
-    // low
+    // button
     #unity-low-button
         horizontal-low-button(null)
     #unity-low-button:hover
         horizontal-low-button(hover)
     #unity-low-button:active
         horizontal-low-button(active)
-    // high
+    // button
     #unity-high-button
         horizontal-high-button(null)
     #unity-high-button:hover
@@ -157,14 +157,14 @@ vertical-high-button(effect)
     .unity-base-slider:focus
         #unity-dragger
             vertical-dragger(focus)
-    // low
+    // button
     #unity-low-button
         vertical-low-button(null)
     #unity-low-button:hover
         vertical-low-button(hover)
     #unity-low-button:active
         vertical-low-button(active)
-    // high
+    // button
     #unity-high-button
         vertical-high-button(null)
     #unity-high-button:hover

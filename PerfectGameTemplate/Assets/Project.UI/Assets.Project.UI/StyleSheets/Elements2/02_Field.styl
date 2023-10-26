@@ -24,13 +24,21 @@ field-input(effect)
         field-label(null)
     &__label:hover
         field-label(hover)
-    &__label:focus
-        field-label(focus)
-    &__label.invalid
-        field-label(invalid)
     &__input
         field-input(null)
-    &__input:focus
+    // &__input:hover
+    //     field-input(hover)
+
+// field
+.unity-base-field:focus
+    .unity-base-field__label
+        field-label(focus)
+    .unity-base-field__input
         field-input(focus-without-foreground)
-    &__input.invalid
+
+// field
+.unity-base-field.invalid
+    .unity-base-field__label
+        field-label(invalid)
+    .unity-base-field__input
         field-input(invalid-without-foreground)
