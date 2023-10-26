@@ -28,11 +28,11 @@
   padding-bottom: 0px;
 }
 .unity-base-dropdown .unity-scroll-view {
-  background-color: rgba(0,0,0,0);
-  border-left-color: rgba(0,0,0,0);
-  border-right-color: rgba(0,0,0,0);
-  border-top-color: rgba(0,0,0,0);
-  border-bottom-color: rgba(0,0,0,0);
+  background-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border-bottom-left-radius: 0px;

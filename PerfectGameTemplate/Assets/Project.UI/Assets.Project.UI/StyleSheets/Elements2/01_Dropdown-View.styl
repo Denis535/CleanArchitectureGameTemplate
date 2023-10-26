@@ -2,13 +2,13 @@
 
 // dropdown-view
 dropdown-view()
-    add-skin(dropdown-view)
-    add-skin2(dropdown-view)
+    add-view-skin(dropdown-view)
+    add-layout-skin(dropdown-view)
 
 // scroll-view
 scroll-view()
-    add-skin(default)
-    add-skin2(default)
+    add-view-skin(default)
+    add-layout-skin(default)
 viewport-and-vertical-scroller()
     add-component(null)
 viewport()
@@ -48,7 +48,7 @@ text()
     &__item
         item()
     &__item:hover
-        add-skin(hover-effect)
+        add-view-skin(hover-effect)
     &__item &__checkmark
         checkmark(false)
     &__item:checked &__checkmark
