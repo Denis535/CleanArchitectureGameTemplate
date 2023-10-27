@@ -23,6 +23,13 @@
   width: 100%;
   height: 100%;
 }
+#main-widget-view {
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI.MainScreen/Images/Background.png');
+  -unity-background-scale-mode: scale-and-crop;
+  transition-property: scale, -unity-background-image-tint-color;
+  transition-duration: 3s;
+  transition-timing-function: ease;
+}
 .card .header {
   font-size: 140%;
   -unity-font-style: bold;
@@ -45,11 +52,4 @@
 .title {
   font-size: 120%;
   -unity-font-style: bold;
-}
-#main-widget-view {
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI.MainScreen/Images/Background.png');
-  -unity-background-scale-mode: scale-and-crop;
-  transition-property: scale, -unity-background-image-tint-color;
-  transition-duration: 3s;
-  transition-timing-function: ease;
 }

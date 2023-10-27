@@ -8,6 +8,10 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
 }
 .unity-toggle__input:checked #unity-checkmark {
   background-color: rgba(237,230,222,0.8);
@@ -21,4 +25,8 @@
   border-bottom-right-radius: 2px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
   -unity-background-image-tint-color: #121c21;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
 }

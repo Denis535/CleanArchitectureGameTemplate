@@ -18,17 +18,17 @@ content()
 dropdown-item(effect)
     add-element(dropdown-item,        dropdown-item) if effect == null
     add-element(dropdown-item--hover, dropdown-item) if effect == 'hover'
-    add-flex(0, 1, auto, auto)
-    add-flex2(row, flex-start, center)
+    add-element-flex(0, 1, auto, auto)
+    add-element-flex2(row, flex-start, center)
 // checkmark
 checkmark(value)
     add-image(null,                      null, 16px 16px, (0px 12px 0px 0px) null null) if !value
     add-image(null light-checkmark-icon, null, 16px 16px, (0px 12px 0px 0px) null null) if value
-    add-flex(0, 1, auto, auto)
+    add-image-flex(0, 1, auto, auto)
 // text
 text()
     add-component(null)
-    add-flex(1, 1, auto, auto)
+    add-component-flex(1, 1, auto, auto)
 
 // dropdown-view
 .unity-base-dropdown

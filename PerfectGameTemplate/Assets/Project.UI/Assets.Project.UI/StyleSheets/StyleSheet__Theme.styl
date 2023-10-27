@@ -258,6 +258,11 @@ add-element(view, layout, font = null, text = null)
     add-view-skin(view)
     add-view(font: font, text: text)
     add-layout-skin(layout)
+add-element-flex(grow, shrink, basis, align-self)
+    add-flex(grow, shrink, basis, align-self)
+add-element-flex2(direction, justify-content, align-items)
+    add-flex2(direction, justify-content, align-items)
+
 // add-element-gradient
 add-element-gradient(view, light-view, dark-view, layout, font = null, text = null)
     add-view-skin(view)
@@ -279,53 +284,61 @@ add-element-gradient(view, light-view, dark-view, layout, font = null, text = nu
 
 // add-component
 add-component(view, position = null, size = null, box = null, effect = null)
-    if effect == null
-        position = position or null
-        width    = size[0]  or auto
-        height   = size[1]  or auto
-        margin   = box[0]   or 0px
-        border   = box[1]   or 0px
-        padding  = box[2]   or 0px
-        add-skin(view)
-        add-layout-skin(null, position, width, height, margin, border, padding)
-    else
-        error('Effect is not supported: ' + effect)
+    // if effect == null
+    position = position or null
+    width    = size[0]  or auto
+    height   = size[1]  or auto
+    margin   = box[0]   or 0px
+    border   = box[1]   or 0px
+    padding  = box[2]   or 0px
+    add-view-skin(view)
+    add-layout-skin(null, position, width, height, margin, border, padding)
+    // else
+    //     error('Effect is not supported: ' + effect)
+add-component-flex(grow, shrink, basis, align-self)
+    add-flex(grow, shrink, basis, align-self)
+add-component-flex2(direction, justify-content, align-items)
+    add-flex2(direction, justify-content, align-items)
 
 // add-image
 add-image(view, position, size, box, effect = null)
-    if effect == null
-        position = position or null
-        width    = size[0]  or auto
-        height   = size[1]  or auto
-        margin   = box[0]   or 0px
-        border   = box[1]   or 1px
-        padding  = box[2]   or 0px
-        add-skin(view[0])
-        add-skin(view[1])
-        add-layout-skin(null, position, width, height, margin, border, padding)
-    else
-        add-skin(view[0], saturation: 1.0, lightness: 2.0, alpha: 1) if effect == 'hover'
-        add-skin(view[0], saturation: 0.9, lightness: 0.9, alpha: 1) if effect == 'active'
-        add-skin(focus-effect)                                       if effect == 'focus'
-        add-skin(focus-effect--without-foreground)                   if effect == 'focus-without-foreground'
-        add-skin(invalid-effect)                                     if effect == 'invalid'
-        add-skin(invalid-effect--without-foreground)                 if effect == 'invalid-without-foreground'
+    // if effect == null
+    position = position or null
+    width    = size[0]  or auto
+    height   = size[1]  or auto
+    margin   = box[0]   or 0px
+    border   = box[1]   or 1px
+    padding  = box[2]   or 0px
+    add-view-skin(view[0])
+    add-view-skin(view[1])
+    add-layout-skin(null, position, width, height, margin, border, padding)
+    // else
+    //     add-view-skin(view[0], saturation: 1.0, lightness: 2.0, alpha: 1) if effect == 'hover'
+    //     add-view-skin(view[0], saturation: 0.9, lightness: 0.9, alpha: 1) if effect == 'active'
+    //     add-view-skin(focus-effect)                                       if effect == 'focus'
+    //     add-view-skin(focus-effect--without-foreground)                   if effect == 'focus-without-foreground'
+    //     add-view-skin(invalid-effect)                                     if effect == 'invalid'
+    //     add-view-skin(invalid-effect--without-foreground)                 if effect == 'invalid-without-foreground'
+add-image-flex(grow, shrink, basis, align-self)
+    add-flex(grow, shrink, basis, align-self)
+add-image-flex2(direction, justify-content, align-items)
+    add-flex2(direction, justify-content, align-items)
 
 // add-skin
-add-skin(view, color = null, font = null, text = null, bg-color = null, bg-image = null, bd-color = null, bd-radius = null, saturation = 1, lightness = 1, alpha = 1)
-    if view != null
-        view = views[get-string(view)] or error('Views has no view: ' + get-string(view))
-        view = clone(view)
-        if view.background.color != null
-            view.background.color = saturation(view.background.color, saturation(view.background.color) * saturation)
-            view.background.color = lightness( view.background.color, lightness( view.background.color) * lightness )
-            view.background.color = alpha(     view.background.color, alpha(     view.background.color) * alpha     )
-        if view.border.color != null
-            view.border.color = saturation(view.border.color, saturation(view.border.color) * saturation )
-            view.border.color = lightness( view.border.color, lightness( view.border.color) * lightness  )
-            view.border.color = alpha(     view.border.color, alpha(     view.border.color) * (alpha+3)/4)
-        add-view-skin view
-    add-view color, font, text, bg-color, bg-image, bd-color, bd-radius
+// add-skin(view, color = null, font = null, text = null, bg-color = null, bg-image = null, bd-color = null, bd-radius = null, saturation = 1, lightness = 1, alpha = 1)
+//     if view != null
+//         view = views[get-string(view)] or error('Views has no view: ' + get-string(view))
+//         view = clone(view)
+//         if view.background.color != null
+//             view.background.color = saturation(view.background.color, saturation(view.background.color) * saturation)
+//             view.background.color = lightness( view.background.color, lightness( view.background.color) * lightness )
+//             view.background.color = alpha(     view.background.color, alpha(     view.background.color) * alpha     )
+//         if view.border.color != null
+//             view.border.color = saturation(view.border.color, saturation(view.border.color) * saturation )
+//             view.border.color = lightness( view.border.color, lightness( view.border.color) * lightness  )
+//             view.border.color = alpha(     view.border.color, alpha(     view.border.color) * (alpha+3)/4)
+//         add-view-skin view
+//     add-view color, font, text, bg-color, bg-image, bd-color, bd-radius
 
 // add-skin2
 // add-skin2(layout, position = null, width = null, height = null, margin = null, border = null, padding = null)

@@ -3,16 +3,16 @@
 // field
 field(effect)
     add-element(field, field)
-    add-flex(0, 1, auto, auto)
-    add-flex2(row, flex-start, stretch)
+    add-element-flex(0, 1, auto, auto)
+    add-element-flex2(row, flex-start, stretch)
 field-label(effect)
     add-element(field-label, field-label, font: fnt(null, null, bold), text: txt(middle-left))
-    add-flex(0, 1, auto, auto)
+    add-element-flex(0, 1, auto, auto)
 field-input(effect)
     // cursor text
     add-element(field-input, field-input, text: txt(middle-left))
-    add-flex(1, 1, auto, auto)
-    add-flex2(row, flex-end, center)
+    add-element-flex(1, 1, auto, auto)
+    add-element-flex2(row, flex-end, center)
 
 // field
 .unity-base-field
