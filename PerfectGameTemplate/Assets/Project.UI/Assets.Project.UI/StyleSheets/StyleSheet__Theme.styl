@@ -265,9 +265,7 @@ layouts = {
 
 // add-element
 add-element(effect, view, layout, font = null, text = null)
-    add-view-skin(view)
-    add-style(font, text)
-    add-layout-skin(layout)
+    add-skins(effect, view, layout, font, text)
 // add-element
 add-element-flex(grow, shrink, basis, align-self)
     add-flex(grow, shrink, basis, align-self)
@@ -276,30 +274,7 @@ add-element-flex2(direction, justify-content, align-items)
 
 // add-element-gradient
 add-element-gradient(effect, view, light-view, dark-view, layout, font = null, text = null)
-    add-view-skin(view)
-    add-style(font, text)
-    for i in 0..10
-        alpha  = i / 10
-        alpha2 = (alpha+3)/4
-        &.light-{i}
-            skin = get-view-skin(light-view)
-            skin.background-color    = alpha(skin.background-color,    alpha(skin.background-color   ) * alpha )
-            skin.border-color        = alpha(skin.border-color,        alpha(skin.border-color       ) * alpha2) if has(skin, 'border-color'       )
-            skin.border-left-color   = alpha(skin.border-left-color,   alpha(skin.border-left-color  ) * alpha2) if has(skin, 'border-left-color'  )
-            skin.border-right-color  = alpha(skin.border-right-color,  alpha(skin.border-right-color ) * alpha2) if has(skin, 'border-right-color' )
-            skin.border-top-color    = alpha(skin.border-top-color,    alpha(skin.border-top-color   ) * alpha2) if has(skin, 'border-top-color'   )
-            skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
-            add-view-skin(skin)
-        &.dark-{i}
-            skin = get-view-skin(dark-view)
-            skin.background-color    = alpha(skin.background-color,    alpha(skin.background-color   ) * alpha )
-            skin.border-color        = alpha(skin.border-color,        alpha(skin.border-color       ) * alpha2) if has(skin, 'border-color'       )
-            skin.border-left-color   = alpha(skin.border-left-color,   alpha(skin.border-left-color  ) * alpha2) if has(skin, 'border-left-color'  )
-            skin.border-right-color  = alpha(skin.border-right-color,  alpha(skin.border-right-color ) * alpha2) if has(skin, 'border-right-color' )
-            skin.border-top-color    = alpha(skin.border-top-color,    alpha(skin.border-top-color   ) * alpha2) if has(skin, 'border-top-color'   )
-            skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
-            add-view-skin(skin)
-    add-layout-skin(layout)
+    add-skins-gradient(effect, view, light-view, dark-view, layout, font, text)
 
 // add-component
 add-component(effect, view, position = null, size = null, box = null)
@@ -309,9 +284,7 @@ add-component(effect, view, position = null, size = null, box = null)
     margin   = box[0]   or 0px
     border   = box[1]   or 0px
     padding  = box[2]   or 0px
-    add-view-skin(view[0])
-    add-view-skin(view[1])
-    add-style(create-layout(position, width, height, margin, border, padding))
+    add-skins(effect, view, null, create-layout(position, width, height, margin, border, padding))
 // add-component
 add-component-flex(grow, shrink, basis, align-self)
     add-flex(grow, shrink, basis, align-self)
@@ -326,9 +299,7 @@ add-image(effect, view, position = null, size = null, box = null)
     margin   = box[0]   or 0px
     border   = box[1]   or 1px
     padding  = box[2]   or 0px
-    add-view-skin(view[0])
-    add-view-skin(view[1])
-    add-style(create-layout(position, width, height, margin, border, padding))
+    add-skins(effect, view, null, create-layout(position, width, height, margin, border, padding))
 // add-image
 add-image-flex(grow, shrink, basis, align-self)
     add-flex(grow, shrink, basis, align-self)

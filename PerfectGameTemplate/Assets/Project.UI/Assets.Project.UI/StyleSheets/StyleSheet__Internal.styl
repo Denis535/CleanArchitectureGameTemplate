@@ -140,7 +140,15 @@ create-flex2(flex-direction, justify-content, align-items)
 // add-style
 add-style(objects...)
     for object in objects
-        if object != null
+        add-style-internal(object)
+
+// add-style-internal
+add-style-internal(object)
+    if object != null
+        if get-type(object) == 'Expression'
+            for item in object
+                add-style-internal(item)
+        else
             for key, value in object
                 add-style-property key, value
 
