@@ -8,47 +8,54 @@ create-view-skin(color, background, border)
     border-color     = get-theme-border-color(border[0])
     border-radius    = get-theme-border-radius(border[1])
     create-view(color, null, null, background-color, background-image, border-color, border-radius)
+
 // create-layout-skin
 create-layout-skin(position, size, box)
     create-layout(position, size[0], size[1], box[0], box[1], box[2])
 
-// add-skins
-add-skins(effect, view, layout, objects...)
+// add-skin
+add-skin(effect, view, layout, objects...)
     add-view-skin(view[0])
     add-view-skin(view[1])
     add-layout-skin(layout)
     add-style(objects)
 
-// add-skins-gradient
-add-skins-gradient(effect, view, light-view, dark-view, layout, objects...)
-    add-skins(effect, view, layout, objects)
+// add-skin-light-gradient
+add-skin-light-gradient(effect, view)
     for i in 0..10
         alpha  = i / 10
         alpha2 = (alpha+3)/4
         &.light-{i}
-            skin = get-view-skin(light-view)
+            skin = get-view-skin(view)
             skin.background-color    = alpha(skin.background-color,    alpha(skin.background-color   ) * alpha )
             skin.border-color        = alpha(skin.border-color,        alpha(skin.border-color       ) * alpha2) if has(skin, 'border-color'       )
             skin.border-left-color   = alpha(skin.border-left-color,   alpha(skin.border-left-color  ) * alpha2) if has(skin, 'border-left-color'  )
             skin.border-right-color  = alpha(skin.border-right-color,  alpha(skin.border-right-color ) * alpha2) if has(skin, 'border-right-color' )
             skin.border-top-color    = alpha(skin.border-top-color,    alpha(skin.border-top-color   ) * alpha2) if has(skin, 'border-top-color'   )
             skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
-            add-skins(effect, skin, null)
+            add-skin(effect, skin, null)
+
+// add-skin-dark-gradient
+add-skin-dark-gradient(effect, view)
+    for i in 0..10
+        alpha  = i / 10
+        alpha2 = (alpha+3)/4
         &.dark-{i}
-            skin = get-view-skin(dark-view)
+            skin = get-view-skin(view)
             skin.background-color    = alpha(skin.background-color,    alpha(skin.background-color   ) * alpha )
             skin.border-color        = alpha(skin.border-color,        alpha(skin.border-color       ) * alpha2) if has(skin, 'border-color'       )
             skin.border-left-color   = alpha(skin.border-left-color,   alpha(skin.border-left-color  ) * alpha2) if has(skin, 'border-left-color'  )
             skin.border-right-color  = alpha(skin.border-right-color,  alpha(skin.border-right-color ) * alpha2) if has(skin, 'border-right-color' )
             skin.border-top-color    = alpha(skin.border-top-color,    alpha(skin.border-top-color   ) * alpha2) if has(skin, 'border-top-color'   )
             skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
-            add-skins(effect, skin, null)
+            add-skin(effect, skin, null)
 
 // add-view-skin
 add-view-skin(view)
     if view != null
         view = get-view-skin(view) if typeof(view) != 'object'
         add-style(view)
+
 // add-layout-skin
 add-layout-skin(layout)
     if layout != null
@@ -61,6 +68,7 @@ get-view-skin(view)
         view = views[get-string(view)] or error('Views has no view: ' + get-string(view))
         return clone(view)
     null
+
 // get-layout-skin
 get-layout-skin(layout)
     if layout != null

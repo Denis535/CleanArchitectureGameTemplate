@@ -265,7 +265,7 @@ layouts = {
 
 // add-element
 add-element(effect, view, layout, font = null, text = null)
-    add-skins(effect, view, layout, font, text)
+    add-skin(effect, view, layout, font, text)
 // add-element
 add-element-flex(grow, shrink, basis, align-self)
     add-flex(grow, shrink, basis, align-self)
@@ -274,7 +274,9 @@ add-element-flex2(direction, justify-content, align-items)
 
 // add-element-gradient
 add-element-gradient(effect, view, light-view, dark-view, layout, font = null, text = null)
-    add-skins-gradient(effect, view, light-view, dark-view, layout, font, text)
+    add-skin(effect, view, layout, font, text)
+    add-skin-light-gradient(effect, light-view)
+    add-skin-dark-gradient(effect, dark-view)
 
 // add-component
 add-component(effect, view, position = null, size = null, box = null)
@@ -284,7 +286,7 @@ add-component(effect, view, position = null, size = null, box = null)
     margin   = box[0]   or 0px
     border   = box[1]   or 0px
     padding  = box[2]   or 0px
-    add-skins(effect, view, null, create-layout(position, width, height, margin, border, padding))
+    add-skin(effect, view, null, create-layout(position, width, height, margin, border, padding))
 // add-component
 add-component-flex(grow, shrink, basis, align-self)
     add-flex(grow, shrink, basis, align-self)
@@ -299,7 +301,7 @@ add-image(effect, view, position = null, size = null, box = null)
     margin   = box[0]   or 0px
     border   = box[1]   or 1px
     padding  = box[2]   or 0px
-    add-skins(effect, view, null, create-layout(position, width, height, margin, border, padding))
+    add-skin(effect, view, null, create-layout(position, width, height, margin, border, padding))
 // add-image
 add-image-flex(grow, shrink, basis, align-self)
     add-flex(grow, shrink, basis, align-self)
