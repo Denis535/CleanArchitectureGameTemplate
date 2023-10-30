@@ -5,17 +5,17 @@ slider-field()
 slider-field-label()
 slider-field-input()
 // container
-container()
-    add-component(null)
+container(effect)
+    add-component(effect, null)
     add-component-flex(1, 1, auto, auto)
     add-component-flex2(row, flex-start, center)
 // tracker
-tracker()
-    add-image(light-image, null, auto 8px, null)
+tracker(effect)
+    add-image(effect, light-image, null, auto 8px, null)
     add-image-flex(1, 1, auto, auto)
 // dragger
-dragger()
-    add-image(light-image, absolute, 8px 24px, null)
+dragger(effect)
+    add-image(effect, light-image, absolute, 8px 24px, null)
     add-image-flex(0, 1, auto, auto)
 
 // slider-field
@@ -26,8 +26,8 @@ dragger()
     &__input
         slider-field-input()
     &__input #unity-drag-container
-        container()
+        container(null)
     &__input #unity-tracker
-        tracker()
+        tracker(null)
     &__input #unity-dragger
-        dragger()
+        dragger(null)

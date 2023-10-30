@@ -5,14 +5,14 @@ dropdown-view(effect)
     add-element(effect, dropdown-view, dropdown-view)
 
 // scroll-view
-scroll-view()
-    add-element(null, default, default)
-viewport-and-vertical-scroller()
-    add-component(null)
-viewport()
-    add-component(null)
-content()
-    add-component(null)
+scroll-view(effect)
+    add-element(effect, default, default)
+viewport-and-vertical-scroller(effect)
+    add-component(effect, null)
+viewport(effect)
+    add-component(effect, null)
+content(effect)
+    add-component(effect, null)
 
 // dropdown-item
 dropdown-item(effect)
@@ -22,12 +22,12 @@ dropdown-item(effect)
     add-element-flex2(row, flex-start, center)
 // checkmark
 checkmark(effect, value)
-    add-image(null,                      null, 16px 16px, (0px 12px 0px 0px) null null) if !value
-    add-image(null light-checkmark-icon, null, 16px 16px, (0px 12px 0px 0px) null null) if value
+    add-image(effect, null,                      null, 16px 16px, (0px 12px 0px 0px) null null) if !value
+    add-image(effect, null light-checkmark-icon, null, 16px 16px, (0px 12px 0px 0px) null null) if value
     add-image-flex(0, 1, auto, auto)
 // text
 text(effect)
-    add-component(null)
+    add-component(effect, null)
     add-component-flex(1, 1, auto, auto)
 
 // dropdown-view
@@ -37,13 +37,13 @@ text(effect)
     &__container-outer
         dropdown-view(null)
     .unity-scroll-view
-        scroll-view()
+        scroll-view(null)
     #unity-content-and-vertical-scroll-container
-        viewport-and-vertical-scroller()
+        viewport-and-vertical-scroller(null)
     #unity-content-viewport
-        viewport()
+        viewport(null)
     #unity-content-container
-        content()
+        content(null)
     &__item
         dropdown-item(null)
     &__item:hover

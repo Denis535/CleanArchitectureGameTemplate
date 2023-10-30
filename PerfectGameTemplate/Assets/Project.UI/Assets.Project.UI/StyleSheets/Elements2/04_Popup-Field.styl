@@ -5,12 +5,12 @@ popup-field()
 popup-field-label()
 popup-field-input()
 // text
-text()
-    add-component(null)
+text(effect)
+    add-component(effect, null)
     add-component-flex(1, 1, auto, auto)
 // arrow
-arrow()
-    add-image(image light-dropdown-arrow-icon, null, 12px 12px, 2px null null)
+arrow(effect)
+    add-image(effect, image light-dropdown-arrow-icon, null, 12px 12px, 2px null null)
     add-image-flex(0, 1, auto, auto)
 
 // popup-field
@@ -21,6 +21,6 @@ arrow()
     &__input
         popup-field-input()
     &__input .unity-text-element
-        text()
+        text(null)
     &__input &__arrow
-        arrow()
+        arrow(null)

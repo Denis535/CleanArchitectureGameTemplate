@@ -5,8 +5,8 @@ text-field()
 text-field-label()
 text-field-input()
 // text
-text()
-    add-component(null)
+text(effect)
+    add-component(effect, null)
     add-component-flex(1, 1, auto, auto)
 
 // text-field
@@ -17,4 +17,4 @@ text()
     &__input
         text-field-input()
     &__input .unity-text-element
-        text()
+        text(null)
