@@ -1,10 +1,10 @@
 @import "../StyleSheet__Theme"
 
 // label
-label()
-    add-element(label, label, text: create-text(upper-left))
+label(effect)
+    add-element(effect, label, label, text: create-text(upper-left))
     add-element-flex(0, 1, auto, auto)
 
 // label
 .unity-label
-    label()
+    label(null)

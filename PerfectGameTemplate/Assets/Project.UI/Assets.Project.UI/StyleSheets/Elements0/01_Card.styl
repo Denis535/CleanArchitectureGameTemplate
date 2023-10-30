@@ -1,89 +1,89 @@
 @import "../StyleSheet__Theme"
 
 // card
-card()
-    add-element(card, card)
+card(effect)
+    add-element(effect, card, card)
     add-element-flex(1, 1, auto, auto)
     add-element-flex2(column, flex-start, stretch)
-card-header()
-    add-element(card-header, card-header)
+card-header(effect)
+    add-element(effect, card-header, card-header)
     add-element-flex(0, 0, auto, auto)
     add-element-flex2(row, center, center)
-card-content()
-    add-element(card-content, card-content)
+card-content(effect)
+    add-element(effect, card-content, card-content)
     add-element-flex(1, 1, auto, auto)
     add-element-flex2(column, flex-start, stretch)
-card-footer()
-    add-element(card-footer, card-footer)
+card-footer(effect)
+    add-element(effect, card-footer, card-footer)
     add-element-flex(0, 0, auto, auto)
     add-element-flex2(row, space-around, center)
 
 // dialog-card
-dialog-card()
-    add-element(dialog-card, card)
-dialog-card-header()
-    add-element(dialog-card-header, card-header)
-dialog-card-header--info()
-    add-element(dialog-card-header--info, card-header)
-dialog-card-header--warning()
-    add-element(dialog-card-header--warning, card-header)
-dialog-card-header--error()
-    add-element(dialog-card-header--error, card-header)
-dialog-card-content()
-    add-element(dialog-card-content, card-content)
+dialog-card(effect)
+    add-element(effect, dialog-card, card)
+dialog-card-header(effect)
+    add-element(effect, dialog-card-header, card-header)
+dialog-card-header--info(effect)
+    add-element(effect, dialog-card-header--info, card-header)
+dialog-card-header--warning(effect)
+    add-element(effect, dialog-card-header--warning, card-header)
+dialog-card-header--error(effect)
+    add-element(effect, dialog-card-header--error, card-header)
+dialog-card-content(effect)
+    add-element(effect, dialog-card-content, card-content)
     add-element-flex(null, null, null, null)
     add-element-flex2(null, center, center)
-dialog-card-footer()
-    add-element(dialog-card-footer, card-footer)
+dialog-card-footer(effect)
+    add-element(effect, dialog-card-footer, card-footer)
 
 // card
 .card
-    card()
+    card(null)
 .header
-    card-header()
+    card-header(null)
 .content
-    card-content()
+    card-content(null)
 .footer
-    card-footer()
+    card-footer(null)
     *
         add-layout(width: 25%)
 
 // dialog-card
 .dialog-card
-    dialog-card()
+    dialog-card(null)
     .header
-        dialog-card-header()
+        dialog-card-header(null)
     .content
-        dialog-card-content()
+        dialog-card-content(null)
     .footer
-        dialog-card-footer()
+        dialog-card-footer(null)
 
 // info-dialog-card
 .info-dialog-card
-    dialog-card()
+    dialog-card(null)
     .header
-        dialog-card-header--info()
+        dialog-card-header--info(null)
     .content
-        dialog-card-content()
+        dialog-card-content(null)
     .footer
-        dialog-card-footer()
+        dialog-card-footer(null)
 
 // warning-dialog-card
 .warning-dialog-card
-    dialog-card()
+    dialog-card(null)
     .header
-        dialog-card-header--warning()
+        dialog-card-header--warning(null)
     .content
-        dialog-card-content()
+        dialog-card-content(null)
     .footer
-        dialog-card-footer()
+        dialog-card-footer(null)
 
 // error-dialog-card
 .error-dialog-card
-    dialog-card()
+    dialog-card(null)
     .header
-        dialog-card-header--error()
+        dialog-card-header--error(null)
     .content
-        dialog-card-content()
+        dialog-card-content(null)
     .footer
-        dialog-card-footer()
+        dialog-card-footer(null)

@@ -1,44 +1,44 @@
 @import "../StyleSheet__Theme"
 
 // scroll-view
-scroll-view()
-    add-element-gradient(scroll-view, light-scroll-view, dark-scroll-view, scroll-view)
+scroll-view(effect)
+    add-element-gradient(effect, scroll-view, light-scroll-view, dark-scroll-view, scroll-view)
     add-element-flex(0, 1, auto, auto)
     add-element-flex2(column, flex-start, stretch)
-viewport-and-vertical-scroller()
+viewport-and-vertical-scroller(effect)
     add-component(null)
     add-component-flex(1, 1, auto, auto)
     add-component-flex2(row, flex-start, stretch)
-viewport()
+viewport(effect)
     overflow hidden
     add-component(null)
     add-component-flex(1, 1, auto, auto)
     add-component-flex2(column, flex-start, stretch)
-content()
+content(effect)
     overflow scroll
     add-component(null)
     add-component-flex(0, 0, auto, auto)
     add-component-flex2(column, flex-start, stretch)
 
 // scroller
-horizontal-scroller()
-    add-element(null, null)
+horizontal-scroller(effect)
+    add-element(effect, null, null)
     add-element-flex(0, 0, auto, auto)
     add-element-flex2(row, flex-start, center)
 // slider-field
-horizontal-slider-field()
-    add-element(default, default)
+horizontal-slider-field(effect)
+    add-element(effect, default, default)
     add-element-flex(1, 1, auto, auto)
     add-element-flex2(row, flex-start, center)
-horizontal-slider-field-input()
-    add-element(default, default)
+horizontal-slider-field-input(effect)
+    add-element(effect, default, default)
     add-element-flex(1, 1, auto, auto)
     add-element-flex2(row, flex-start, center)
-horizontal-container()
+horizontal-container(effect)
     add-component(default)
     add-component-flex(1, 1, auto, auto)
     add-component-flex2(row, flex-start, center)
-horizontal-tracker()
+horizontal-tracker(effect)
     add-image(dark-image, null, auto 24px, null)
     add-image-flex(1, 1, auto, auto)
 horizontal-dragger(effect)
@@ -53,24 +53,24 @@ horizontal-high-button(effect)
     add-image-flex(0, 0, auto, auto)
 
 // scroller
-vertical-scroller()
-    add-element(null, null)
+vertical-scroller(effect)
+    add-element(effect, null, null)
     add-element-flex(0, 0, auto, auto)
     add-element-flex2(column, flex-start, center)
 // slider-field
-vertical-slider-field()
-    add-element(default, default)
+vertical-slider-field(effect)
+    add-element(effect, default, default)
     add-element-flex(1, 1, auto, auto)
     add-element-flex2(column, flex-start, center)
-vertical-slider-field-input()
-    add-element(default, default)
+vertical-slider-field-input(effect)
+    add-element(effect, default, default)
     add-element-flex(1, 1, auto, auto)
     add-element-flex2(column, flex-start, center)
-vertical-container()
+vertical-container(effect)
     add-component(default)
     add-component-flex(1, 1, auto, auto)
     add-component-flex2(column, flex-start, center)
-vertical-tracker()
+vertical-tracker(effect)
     add-image(dark-image, null, 24px auto, null)
     add-image-flex(1, 1, auto, auto)
 vertical-dragger(effect)
@@ -86,13 +86,13 @@ vertical-high-button(effect)
 
 // scroll-view
 .unity-scroll-view
-    scroll-view()
+    scroll-view(null)
     #unity-content-and-vertical-scroll-container
-        viewport-and-vertical-scroller()
+        viewport-and-vertical-scroller(null)
     #unity-content-viewport
-        viewport()
+        viewport(null)
     #unity-content-container
-        content()
+        content(null)
 
 // scroll-view
 .unity-scroll-view.reverse
@@ -101,16 +101,16 @@ vertical-high-button(effect)
 
 // scroller
 .unity-scroller--horizontal
-    horizontal-scroller()
+    horizontal-scroller(null)
     // slider
     .unity-base-slider
-        horizontal-slider-field()
+        horizontal-slider-field(null)
         .unity-base-slider__input
-            horizontal-slider-field-input()
+            horizontal-slider-field-input(null)
         #unity-drag-container
-            horizontal-container()
+            horizontal-container(null)
         #unity-tracker
-            horizontal-tracker()
+            horizontal-tracker(null)
         #unity-dragger
             horizontal-dragger(null)
     .unity-base-slider:focus
@@ -133,16 +133,16 @@ vertical-high-button(effect)
 
 // scroller
 .unity-scroller--vertical
-    vertical-scroller()
+    vertical-scroller(null)
     // slider
     .unity-base-slider
-        vertical-slider-field()
+        vertical-slider-field(null)
         .unity-base-slider__input
-            vertical-slider-field-input()
+            vertical-slider-field-input(null)
         #unity-drag-container
-            vertical-container()
+            vertical-container(null)
         #unity-tracker
-            vertical-tracker()
+            vertical-tracker(null)
         #unity-dragger
             vertical-dragger(null)
     .unity-base-slider:focus

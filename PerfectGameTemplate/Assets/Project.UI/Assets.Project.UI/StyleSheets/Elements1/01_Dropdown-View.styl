@@ -1,12 +1,12 @@
 @import "../StyleSheet__Theme"
 
 // dropdown-view
-dropdown-view()
-    add-element(dropdown-view, dropdown-view)
+dropdown-view(effect)
+    add-element(effect, dropdown-view, dropdown-view)
 
 // scroll-view
 scroll-view()
-    add-element(default, default)
+    add-element(null, default, default)
 viewport-and-vertical-scroller()
     add-component(null)
 viewport()
@@ -16,17 +16,17 @@ content()
 
 // dropdown-item
 dropdown-item(effect)
-    add-element(dropdown-item,        dropdown-item) if effect == null
-    add-element(dropdown-item--hover, dropdown-item) if effect == 'hover'
+    add-element(effect, dropdown-item,        dropdown-item) if effect == null
+    add-element(effect, dropdown-item--hover, dropdown-item) if effect == 'hover'
     add-element-flex(0, 1, auto, auto)
     add-element-flex2(row, flex-start, center)
 // checkmark
-checkmark(value)
+checkmark(effect, value)
     add-image(null,                      null, 16px 16px, (0px 12px 0px 0px) null null) if !value
     add-image(null light-checkmark-icon, null, 16px 16px, (0px 12px 0px 0px) null null) if value
     add-image-flex(0, 1, auto, auto)
 // text
-text()
+text(effect)
     add-component(null)
     add-component-flex(1, 1, auto, auto)
 
@@ -35,7 +35,7 @@ text()
     add-view(bg-color: rgba(0, 0, 0, 0.25))
     add-layout(position: absolute)
     &__container-outer
-        dropdown-view()
+        dropdown-view(null)
     .unity-scroll-view
         scroll-view()
     #unity-content-and-vertical-scroll-container
@@ -49,8 +49,8 @@ text()
     &__item:hover
         dropdown-item(hover)
     &__item &__checkmark
-        checkmark(false)
+        checkmark(null, false)
     &__item:checked &__checkmark
-        checkmark(true)
+        checkmark(null, true)
     &__item &__label
-        text()
+        text(null)

@@ -1,15 +1,15 @@
 @import "../StyleSheet__Theme"
 
 // box
-box()
-    add-element-gradient(box, light-box, dark-box, box)
+box(effect)
+    add-element-gradient(effect, box, light-box, dark-box, box)
     &.small
-        add-element(null, small-box)
+        add-element(effect, null, small-box)
     &.medium
-        add-element(null, medium-box)
+        add-element(effect, null, medium-box)
     &.large
-        add-element(null, large-box)
+        add-element(effect, null, large-box)
 
 // box
 .unity-box
-    box()
+    box(null)

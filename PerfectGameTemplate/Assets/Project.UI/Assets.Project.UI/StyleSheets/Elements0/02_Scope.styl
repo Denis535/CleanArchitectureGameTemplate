@@ -1,14 +1,14 @@
 @import "../StyleSheet__Theme"
 
 // scope
-scope()
-    add-element-gradient(scope, light-scope, dark-scope, scope)
+scope(effect)
+    add-element-gradient(effect, scope, light-scope, dark-scope, scope)
     &.small
-        add-element(null, small-scope)
+        add-element(effect, null, small-scope)
     &.medium
-        add-element(null, medium-scope)
+        add-element(effect, null, medium-scope)
     &.large
-        add-element(null, large-scope)
+        add-element(effect, null, large-scope)
 column-scope()
     add-element-flex(0, 1, auto, auto)
     add-element-flex2(column, flex-start, stretch)
@@ -18,8 +18,8 @@ row-scope()
 
 // scope
 .scope
-    scope()
+    scope(null)
 .column-scope
-    column-scope()
+    column-scope(null)
 .row-scope
-    row-scope()
+    row-scope(null)

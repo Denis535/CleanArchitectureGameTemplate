@@ -1,14 +1,14 @@
 @import "../StyleSheet__Theme"
 
 // group
-group()
-    add-element-gradient(group, light-group, dark-group, group)
+group(effect)
+    add-element-gradient(effect, group, light-group, dark-group, group)
     &.small
-        add-element(null, small-group)
+        add-element(effect, null, small-group)
     &.medium
-        add-element(null, medium-group)
+        add-element(effect, null, medium-group)
     &.large
-        add-element(null, large-group)
+        add-element(effect, null, large-group)
 column-group()
     add-element-flex(0, 1, auto, auto)
     add-element-flex2(column, flex-start, stretch)
@@ -18,7 +18,7 @@ row-group()
 
 // group
 .group
-    group()
+    group(null)
 .column-group
     column-group()
 .row-group

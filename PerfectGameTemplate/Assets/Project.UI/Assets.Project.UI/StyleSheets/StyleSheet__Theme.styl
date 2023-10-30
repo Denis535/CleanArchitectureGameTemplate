@@ -257,10 +257,14 @@ layouts = {
     field-label:                       create-layout-skin( null, (auto auto), ((0px 2px 0px 0px) (1px            ) (12px 12px 10px 10px)) ),
     field-input:                       create-layout-skin( null, (auto auto), ((0px 0px 0px 0px) (1px            ) (12px 12px 10px 10px)) ),
     dropdown-item:                     create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (12px 12px 10px 10px)) ),
+    // component
+    component:                         create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (0px  0px  0px   0px)) ),
+    // image
+    image:                             create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (0px  0px  0px   0px)) ),
 }
 
 // add-element
-add-element(view, layout, font = null, text = null)
+add-element(effect, view, layout, font = null, text = null)
     add-view-skin(view)
     add-style(font, text)
     add-layout-skin(layout)
@@ -271,7 +275,7 @@ add-element-flex2(direction, justify-content, align-items)
     add-flex2(direction, justify-content, align-items)
 
 // add-element-gradient
-add-element-gradient(view, light-view, dark-view, layout, font = null, text = null)
+add-element-gradient(effect, view, light-view, dark-view, layout, font = null, text = null)
     add-view-skin(view)
     add-style(font, text)
     for i in 0..10
