@@ -158,11 +158,12 @@ namespace UnityEditor {
             const source = FS.readFileSync(src, 'utf8');
 
             Stylus(source)
-                .set('filename', Path.basename(src))
-                .set('paths', [Path.dirname(src)])
-                .define('eval', evalEx)
-                .define('raw-eval', rawEvalEx, raw = true)
-                .define('get-string', getStringEx, raw = true)
+                .set('filename',      Path.basename(src)      )
+                .set('paths',         [Path.dirname(src)]     )
+                .define('eval',       evalEx,      raw = false)
+                .define('raw-eval',   rawEvalEx,   raw = true )
+                .define('get-type',   getTypeEx,   raw = true )
+                .define('get-string', getStringEx, raw = true )
                 .render(onComplete);
 
             // onCallback
@@ -187,21 +188,25 @@ namespace UnityEditor {
             function rawEvalEx(script, arg, arg2, arg3, arg4, arg5, arg6) {{
                 return eval(script.nodes[0].val);
             }}
-            function getStringEx(obj) {{
-                if (obj.constructor.name == 'Expression') {{
-                    const result = new Stylus.nodes.Expression(obj.isList);
-                    for (const node of obj.nodes.map(getStringEx)) {{
-                        result.push(node);
-                    }}
-                    return result;
+            function getTypeEx(expr) {{
+                expr = Stylus.utils.unwrap(expr);
+                if (expr.nodes.length == 0) return new Stylus.nodes.Null();
+                if (expr.nodes.length == 1) return new Stylus.nodes.Literal(expr.nodes[0].constructor.name);
+                return new Stylus.nodes.Literal(expr.constructor.name);
+            }}
+            function getStringEx(expr) {{
+                expr = Stylus.utils.unwrap(expr);
+                if (expr.nodes.length == 0) return new Stylus.nodes.Null();
+                if (expr.nodes.length == 1) {{
+                    const expr2 = expr.nodes[0];
+                    if (expr2.constructor.name == 'String')   return new Stylus.nodes.Literal(expr2.string ?? expr2.toString());
+                    if (expr2.constructor.name == 'Ident')    return new Stylus.nodes.Literal(expr2.string ?? expr2.toString());
+                    if (expr2.constructor.name == 'Unit')     return new Stylus.nodes.Literal(expr2.string ?? expr2.toString());
+                    if (expr2.constructor.name == 'RGBA')     return new Stylus.nodes.Literal(expr2.name);
+                    if (expr2.constructor.name == 'Function') return new Stylus.nodes.Literal(expr2.name);
+                    if (expr2.constructor.name == 'Null')     return new Stylus.nodes.Null();
                 }}
-                if (obj.constructor.name == 'RGBA') {{
-                    return new Stylus.nodes.Literal(obj.name);
-                }}
-                if (obj.constructor.name == 'Function') {{
-                    return new Stylus.nodes.Literal(obj.name);
-                }}
-                return new Stylus.nodes.Literal(obj.string ?? obj.toString());
+                throw new Error( 'Expression is invalid: ' + expr );
             }}
             " );
         }
