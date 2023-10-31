@@ -6,13 +6,20 @@ slider-field-label()
 slider-field-input()
 // container
 container(effect)
-    add-skin effect, component, component, create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
+    add-skin1       effect, component
+    add-skin2       effect, component
+    add-skin3-flex  effect, 1, 1, auto, auto
+    add-skin3-flex2 effect, row, flex-start, center
 // tracker
 tracker(effect)
-    add-skin effect, light-image, image, create-position(null), create-size(auto, 8px), create-flex(1, 1, auto, auto)
+    add-skin1      effect, light-image
+    add-skin2      effect, image, create-position(null), create-size(auto, 8px)
+    add-skin3-flex effect, 1, 1, auto, auto
 // dragger
 dragger(effect)
-    add-skin effect, light-image, image, create-position(absolute), create-size(8px, 24px), create-flex(0, 1, auto, auto)
+    add-skin1      effect, light-image
+    add-skin2      effect, image, create-position(absolute), create-size(8px, 24px)
+    add-skin3-flex effect, 0, 1, auto, auto
 
 // slider-field
 .unity-base-slider

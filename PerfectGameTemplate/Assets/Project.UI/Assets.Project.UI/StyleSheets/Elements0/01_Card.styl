@@ -2,39 +2,50 @@
 
 // card
 card(effect)
-    add-element(effect, card, card)
-    add-element-flex(1, 1, auto, auto)
-    add-element-flex2(column, flex-start, stretch)
+    add-skin1       effect, card
+    add-skin2       effect, card
+    add-skin3-flex  effect, 1, 1, auto, auto
+    add-skin3-flex2 effect, column, flex-start, stretch
 card-header(effect)
-    add-element(effect, card-header, card-header)
-    add-element-flex(0, 0, auto, auto)
-    add-element-flex2(row, center, center)
+    add-skin1       effect, card-header
+    add-skin2       effect, card-header
+    add-skin3-flex  effect, 0, 0, auto, auto
+    add-skin3-flex2 effect, row, center, center
 card-content(effect)
-    add-element(effect, card-content, card-content)
-    add-element-flex(1, 1, auto, auto)
-    add-element-flex2(column, flex-start, stretch)
+    add-skin1       effect, card-content
+    add-skin2       effect, card-content
+    add-skin3-flex  effect, 1, 1, auto, auto
+    add-skin3-flex2 effect, column, flex-start, stretch
 card-footer(effect)
-    add-element(effect, card-footer, card-footer)
-    add-element-flex(0, 0, auto, auto)
-    add-element-flex2(row, space-around, center)
+    add-skin1       effect, card-footer
+    add-skin2       effect, card-footer
+    add-skin3-flex  effect, 0, 0, auto, auto
+    add-skin3-flex2 effect, row, space-around, center
 
 // dialog-card
 dialog-card(effect)
-    add-element(effect, dialog-card, card)
+    add-skin1       effect, dialog-card
+    add-skin2       effect, card
 dialog-card-header(effect)
-    add-element(effect, dialog-card-header, card-header)
+    add-skin1       effect, dialog-card-header
+    add-skin2       effect, card-header
 dialog-card-header--info(effect)
-    add-element(effect, dialog-card-header--info, card-header)
+    add-skin1       effect, dialog-card-header--info
+    add-skin2       effect, card-header
 dialog-card-header--warning(effect)
-    add-element(effect, dialog-card-header--warning, card-header)
+    add-skin1       effect, dialog-card-header--warning
+    add-skin2       effect, card-header
 dialog-card-header--error(effect)
-    add-element(effect, dialog-card-header--error, card-header)
+    add-skin1       effect, dialog-card-header--error
+    add-skin2       effect, card-header
 dialog-card-content(effect)
-    add-element(effect, dialog-card-content, card-content)
-    add-element-flex(null, null, null, null)
-    add-element-flex2(null, center, center)
+    add-skin1       effect, dialog-card-content
+    add-skin2       effect, card-content
+    add-skin3-flex  effect, null, null, null, null
+    add-skin3-flex2 effect, null, center, center
 dialog-card-footer(effect)
-    add-element(effect, dialog-card-footer, card-footer)
+    add-skin1       effect, dialog-card-footer
+    add-skin2       effect, card-footer
 
 // card
 .card

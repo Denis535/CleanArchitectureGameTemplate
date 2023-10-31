@@ -2,69 +2,109 @@
 
 // scroll-view
 scroll-view(effect)
-    add-element-gradient(effect, scroll-view, light-scroll-view, dark-scroll-view, scroll-view)
-    add-element-flex(0, 1, auto, auto)
-    add-element-flex2(column, flex-start, stretch)
+    add-skin1       effect, scroll-view
+    add-skin1-light effect, light-scroll-view
+    add-skin1-dark  effect, dark-scroll-view
+    add-skin2       effect, scroll-view
+    add-skin3-flex  effect, 0, 1, auto, auto
+    add-skin3-flex2 effect, column, flex-start, stretch
 viewport-and-vertical-scroller(effect)
-    add-skin effect, null, null, create-flex(1, 1, auto, auto), create-flex2(row, flex-start, stretch)
+    add-skin1       effect, null
+    add-skin2       effect, null
+    add-skin3-flex  effect, 1, 1, auto, auto
+    add-skin3-flex2 effect, row, flex-start, stretch
 viewport(effect)
     overflow hidden
-    add-skin effect, null, null, create-flex(1, 1, auto, auto), create-flex2(column, flex-start, stretch)
+    add-skin1       effect, null
+    add-skin2       effect, null
+    add-skin3-flex  effect, 1, 1, auto, auto
+    add-skin3-flex2 effect, column, flex-start, stretch
 content(effect)
     overflow scroll
-    add-skin effect, null, null, create-flex(0, 0, auto, auto), create-flex2(column, flex-start, stretch)
+    add-skin1       effect, null
+    add-skin2       effect, null
+    add-skin3-flex  effect, 0, 0, auto, auto
+    add-skin3-flex2 effect, column, flex-start, stretch
 
 // scroller
 horizontal-scroller(effect)
-    add-element(effect, null, null)
-    add-element-flex(0, 0, auto, auto)
-    add-element-flex2(row, flex-start, center)
+    add-skin1       effect, null
+    add-skin2       effect, null
+    add-skin3-flex  effect, 0, 0, auto, auto
+    add-skin3-flex2 effect, row, flex-start, center
 // slider-field
 horizontal-slider-field(effect)
-    add-element(effect, default, default)
-    add-element-flex(1, 1, auto, auto)
-    add-element-flex2(row, flex-start, center)
+    add-skin1       effect, default
+    add-skin2       effect, default
+    add-skin3-flex  effect, 1, 1, auto, auto
+    add-skin3-flex2 effect, row, flex-start, center
 horizontal-slider-field-input(effect)
-    add-element(effect, default, default)
-    add-element-flex(1, 1, auto, auto)
-    add-element-flex2(row, flex-start, center)
+    add-skin1       effect, default
+    add-skin2       effect, default
+    add-skin3-flex  effect, 1, 1, auto, auto
+    add-skin3-flex2 effect, row, flex-start, center
 horizontal-container(effect)
-    add-skin effect, default, default, create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
+    add-skin1       effect, default
+    add-skin2       effect, default
+    add-skin3-flex  effect, 1, 1, auto, auto
+    add-skin3-flex2 effect, row, flex-start, center
 horizontal-tracker(effect)
-    add-skin effect, dark-image, image, create-position(null), create-size(auto, 24px), create-flex(1, 1, auto, auto)
+    add-skin1      effect, dark-image
+    add-skin2      effect, image, create-position(null), create-size(auto, 24px)
+    add-skin3-flex effect, 1, 1, auto, auto
 horizontal-dragger(effect)
-    add-skin effect, button, image, create-position(absolute), create-size(auto, 24px), create-flex(0, 1, auto, auto)
+    add-skin1      effect, button
+    add-skin2      effect, image, create-position(absolute), create-size(auto, 24px)
+    add-skin3-flex effect, 0, 1, auto, auto
 // button
 horizontal-low-button(effect)
-    add-skin effect, button dark-arrow-icon--left, image, create-size(24px, 24px), create-box(2px, null, null), create-flex(0, 0, auto, auto)
+    add-skin1      effect, button dark-arrow-icon--left
+    add-skin2      effect, image, create-size(24px, 24px), create-box(2px, null, null)
+    add-skin3-flex effect, 0, 0, auto, auto
 horizontal-high-button(effect)
-    add-skin effect, button dark-arrow-icon--right, image, create-size(24px, 24px), create-box(2px, null, null), create-flex(0, 0, auto, auto)
+    add-skin1      effect, button dark-arrow-icon--right
+    add-skin2      effect, image, create-size(24px, 24px), create-box(2px, null, null)
+    add-skin3-flex effect, 0, 0, auto, auto
 
 // scroller
 vertical-scroller(effect)
-    add-element(effect, null, null)
-    add-element-flex(0, 0, auto, auto)
-    add-element-flex2(column, flex-start, center)
+    add-skin1       effect, null
+    add-skin2       effect, null
+    add-skin3-flex  effect, 0, 0, auto, auto
+    add-skin3-flex2 effect, column, flex-start, center
 // slider-field
 vertical-slider-field(effect)
-    add-element(effect, default, default)
-    add-element-flex(1, 1, auto, auto)
-    add-element-flex2(column, flex-start, center)
+    add-skin1       effect, default
+    add-skin2       effect, default
+    add-skin3-flex  effect, 1, 1, auto, auto
+    add-skin3-flex2 effect, column, flex-start, center
 vertical-slider-field-input(effect)
-    add-element(effect, default, default)
-    add-element-flex(1, 1, auto, auto)
-    add-element-flex2(column, flex-start, center)
+    add-skin1       effect, default
+    add-skin2       effect, default
+    add-skin3-flex  effect, 1, 1, auto, auto
+    add-skin3-flex2 effect, column, flex-start, center
 vertical-container(effect)
-    add-skin effect, default, default, create-flex(1, 1, auto, auto), create-flex2(column, flex-start, center)
+    add-skin1       effect, default
+    add-skin2       effect, default
+    add-skin3-flex  effect, 1, 1, auto, auto
+    add-skin3-flex2 effect, column, flex-start, center
 vertical-tracker(effect)
-    add-skin effect, dark-image, image, create-size(24px, auto), create-flex(1, 1, auto, auto)
+    add-skin1      effect, dark-image
+    add-skin2      effect, image, create-size(24px, auto)
+    add-skin3-flex effect, 1, 1, auto, auto
 vertical-dragger(effect)
-    add-skin effect, button, image, create-position(absolute), create-size(24px, auto), create-flex(0, 1, auto, auto)
+    add-skin1      effect, button
+    add-skin2      effect, image, create-position(absolute), create-size(24px, auto)
+    add-skin3-flex effect, 0, 1, auto, auto
 // button
 vertical-low-button(effect)
-    add-skin effect, button dark-arrow-icon--up, image, create-size(24px, 24px), create-box(2px, null, null), create-flex(0, 0, auto, auto)
+    add-skin1      effect, button dark-arrow-icon--up
+    add-skin2      effect, image, create-size(24px, 24px), create-box(2px, null, null)
+    add-skin3-flex effect, 0, 0, auto, auto
 vertical-high-button(effect)
-    add-skin effect, button dark-arrow-icon--down, image, create-size(24px, 24px), create-box(2px, null, null), create-flex(0, 0, auto, auto)
+    add-skin1      effect, button dark-arrow-icon--down
+    add-skin2      effect, image, create-size(24px, 24px), create-box(2px, null, null)
+    add-skin3-flex effect, 0, 0, auto, auto
 
 // scroll-view
 .unity-scroll-view
@@ -79,7 +119,7 @@ vertical-high-button(effect)
 // scroll-view
 .unity-scroll-view.reverse
     #unity-content-viewport
-        add-skin null, null, null, create-flex2(column-reverse, null, null)
+        add-skin3-flex2 null, column-reverse, null, null
 
 // scroller
 .unity-scroller--horizontal

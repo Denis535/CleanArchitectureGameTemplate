@@ -2,19 +2,19 @@
 
 // scope
 scope(effect)
-    add-element-gradient(effect, scope, light-scope, dark-scope, scope)
-    &.small
-        add-element(effect, null, small-scope)
-    &.medium
-        add-element(effect, null, medium-scope)
-    &.large
-        add-element(effect, null, large-scope)
-column-scope()
-    add-element-flex(0, 1, auto, auto)
-    add-element-flex2(column, flex-start, stretch)
-row-scope()
-    add-element-flex(0, 1, auto, auto)
-    add-element-flex2(row, flex-start, stretch)
+    add-skin1        effect, scope
+    add-skin1-light  effect, light-scope
+    add-skin1-dark   effect, dark-scope
+    add-skin2        effect, scope
+    add-skin2-small  effect, small-scope
+    add-skin2-medium effect, medium-scope
+    add-skin2-large  effect, large-scope
+column-scope(effect)
+    add-skin3-flex  effect, 0, 1, auto, auto
+    add-skin3-flex2 effect, column, flex-start, stretch
+row-scope(effect)
+    add-skin3-flex  effect, 0, 1, auto, auto
+    add-skin3-flex2 effect, row, flex-start, stretch
 
 // scope
 .scope

@@ -2,31 +2,41 @@
 
 // dropdown-view
 dropdown-view(effect)
-    add-element(effect, dropdown-view, dropdown-view)
+    add-skin1 effect, dropdown-view
+    add-skin2 effect, dropdown-view
 
 // scroll-view
 scroll-view(effect)
-    add-element(effect, default, default)
+    add-skin1 effect, default
+    add-skin2 effect, default
 viewport-and-vertical-scroller(effect)
-    add-skin effect, null, null
+    add-skin1 effect, null
+    add-skin2 effect, null
 viewport(effect)
-    add-skin effect, null, null
+    add-skin1 effect, null
+    add-skin2 effect, null
 content(effect)
-    add-skin effect, null, null
+    add-skin1 effect, null
+    add-skin2 effect, null
 
 // dropdown-item
 dropdown-item(effect)
-    add-element(effect, dropdown-item,        dropdown-item) if effect == null
-    add-element(effect, dropdown-item--hover, dropdown-item) if effect == 'hover'
-    add-element-flex(0, 1, auto, auto)
-    add-element-flex2(row, flex-start, center)
+    add-skin1       effect, dropdown-item,       if effect == null
+    add-skin1       effect, dropdown-item--hover if effect == 'hover'
+    add-skin2       effect, dropdown-item
+    add-skin3-flex  effect, 0, 1, auto, auto
+    add-skin3-flex2 effect, row, flex-start, center
 // checkmark
 checkmark(effect, value)
-    add-skin effect, image,                      image, create-size(16px, 16px), create-box(0px 12px 0px 0px, null, null), create-flex(0, 1, auto, auto) if !value
-    add-skin effect, image light-checkmark-icon, image, create-size(16px, 16px), create-box(0px 12px 0px 0px, null, null), create-flex(0, 1, auto, auto) if value
+    add-skin1      effect, image,                     if !value
+    add-skin1      effect, image light-checkmark-icon if value
+    add-skin2      effect, image, create-size(16px, 16px), create-box(0px 12px 0px 0px, null, null) 
+    add-skin3-flex effect, 0, 1, auto, auto
 // text
 text(effect)
-    add-skin effect, component, component, create-flex(1, 1, auto, auto)
+    add-skin1      effect, component
+    add-skin2      effect, component
+    add-skin3-flex effect, 1, 1, auto, auto
 
 // dropdown-view
 .unity-base-dropdown

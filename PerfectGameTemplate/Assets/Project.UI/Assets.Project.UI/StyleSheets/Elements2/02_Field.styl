@@ -2,17 +2,20 @@
 
 // field
 field(effect)
-    add-element(effect, field, field)
-    add-element-flex(0, 1, auto, auto)
-    add-element-flex2(row, flex-start, stretch)
+    add-skin1       effect, field
+    add-skin2       effect, field
+    add-skin3-flex  effect, 0, 1, auto, auto
+    add-skin3-flex2 effect, row, flex-start, stretch
 field-label(effect)
-    add-element(effect, field-label, field-label, font: fnt(null, null, bold), text: txt(middle-left))
-    add-element-flex(0, 1, auto, auto)
+    add-skin1      effect, field-label, create-font(null, null, bold), create-text(middle-left, null, null)
+    add-skin2      effect, field-label
+    add-skin3-flex effect, 0, 1, auto, auto
 field-input(effect)
     // cursor text
-    add-element(effect, field-input, field-input, text: txt(middle-left))
-    add-element-flex(1, 1, auto, auto)
-    add-element-flex2(row, flex-end, center)
+    add-skin1       effect, field-input, create-font(null, null, null), create-text(middle-left, null, null)
+    add-skin2       effect, field-input
+    add-skin3-flex  effect, 1, 1, auto, auto
+    add-skin3-flex2 effect, row, flex-end, center
 
 // field
 .unity-base-field

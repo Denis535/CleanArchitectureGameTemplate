@@ -20,8 +20,14 @@ add-skin(effect, view, layout, objects...)
     add-layout-skin(layout)
     add-style(objects)
 
-// add-skin-light-gradient
-add-skin-light-gradient(effect, view)
+// add-skin1
+add-skin1(effect, view, objects...)
+    add-view-skin(view[0])
+    add-view-skin(view[1])
+    add-style(objects)
+
+// add-skin1
+add-skin1-light(effect, view)
     for i in 0..10
         alpha  = i / 10
         alpha2 = (alpha+3)/4
@@ -33,10 +39,8 @@ add-skin-light-gradient(effect, view)
             skin.border-right-color  = alpha(skin.border-right-color,  alpha(skin.border-right-color ) * alpha2) if has(skin, 'border-right-color' )
             skin.border-top-color    = alpha(skin.border-top-color,    alpha(skin.border-top-color   ) * alpha2) if has(skin, 'border-top-color'   )
             skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
-            add-skin(effect, skin, null)
-
-// add-skin-dark-gradient
-add-skin-dark-gradient(effect, view)
+            add-style(skin)
+add-skin1-dark(effect, view)
     for i in 0..10
         alpha  = i / 10
         alpha2 = (alpha+3)/4
@@ -48,7 +52,29 @@ add-skin-dark-gradient(effect, view)
             skin.border-right-color  = alpha(skin.border-right-color,  alpha(skin.border-right-color ) * alpha2) if has(skin, 'border-right-color' )
             skin.border-top-color    = alpha(skin.border-top-color,    alpha(skin.border-top-color   ) * alpha2) if has(skin, 'border-top-color'   )
             skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
-            add-skin(effect, skin, null)
+            add-style(skin)
+
+// add-skin2
+add-skin2(effect, layout, objects...)
+    add-layout-skin(layout)
+    add-style(objects)
+
+// add-skin2
+add-skin2-small(effect, layout)
+    &.small
+        add-skin2 effect, small-scope
+add-skin2-medium(effect, layout)
+    &.medium
+        add-skin2 effect, medium-scope
+add-skin2-large(effect, layout)
+    &.large
+        add-skin2 effect, large-scope
+
+// add-skin3
+add-skin3-flex(effect, flex-grow, flex-shrink, flex-basis, align-self)
+    add-style create-flex(flex-grow, flex-shrink, flex-basis, align-self)
+add-skin3-flex2(effect, flex-direction, justify-content, align-items)
+    add-style create-flex2(flex-direction, justify-content, align-items)
 
 // add-view-skin
 add-view-skin(view)
@@ -61,20 +87,6 @@ add-layout-skin(layout)
     if layout != null
         layout = get-layout-skin(layout) if typeof(layout) != 'object'
         add-style(layout)
-
-// get-view-skin
-get-view-skin(view)
-    if view != null
-        view = views[get-string(view)] or error('Views has no view: ' + get-string(view))
-        return clone(view)
-    null
-
-// get-layout-skin
-get-layout-skin(layout)
-    if layout != null
-        layout = layouts[get-string(layout)] or error('Layouts has no layout: ' + get-string(layout))
-        return clone(layout)
-    null
 
 // get-theme-value
 get-theme-color(key)
@@ -103,6 +115,20 @@ get-theme-border-radius(key)
     if key != null
         return get(theme.border-radius, key) if has(theme.border-radius, key)                              
         error('Theme has no border-radius: ' + get-string(key))
+    null
+
+// get-view-skin
+get-view-skin(view)
+    if view != null
+        view = views[get-string(view)] or error('Views has no view: ' + get-string(view))
+        return clone(view)
+    null
+
+// get-layout-skin
+get-layout-skin(layout)
+    if layout != null
+        layout = layouts[get-string(layout)] or error('Layouts has no layout: ' + get-string(layout))
+        return clone(layout)
     null
 
 // add-view

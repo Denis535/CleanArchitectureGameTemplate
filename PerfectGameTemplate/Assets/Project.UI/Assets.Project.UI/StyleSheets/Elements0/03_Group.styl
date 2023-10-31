@@ -2,24 +2,24 @@
 
 // group
 group(effect)
-    add-element-gradient(effect, group, light-group, dark-group, group)
-    &.small
-        add-element(effect, null, small-group)
-    &.medium
-        add-element(effect, null, medium-group)
-    &.large
-        add-element(effect, null, large-group)
-column-group()
-    add-element-flex(0, 1, auto, auto)
-    add-element-flex2(column, flex-start, stretch)
-row-group()
-    add-element-flex(0, 1, auto, auto)
-    add-element-flex2(row, flex-start, stretch)
+    add-skin1        effect, group
+    add-skin1-light  effect, light-group
+    add-skin1-dark   effect, dark-group
+    add-skin2        effect, group
+    add-skin2-small  effect, small-group
+    add-skin2-medium effect, medium-group
+    add-skin2-large  effect, large-group
+column-group(effect)
+    add-skin3-flex  effect, 0, 1, auto, auto
+    add-skin3-flex2 effect, column, flex-start, stretch
+row-group(effect)
+    add-skin3-flex  effect, 0, 1, auto, auto
+    add-skin3-flex2 effect, row, flex-start, stretch
 
 // group
 .group
     group(null)
 .column-group
-    column-group()
+    column-group(null)
 .row-group
-    row-group()
+    row-group(null)
