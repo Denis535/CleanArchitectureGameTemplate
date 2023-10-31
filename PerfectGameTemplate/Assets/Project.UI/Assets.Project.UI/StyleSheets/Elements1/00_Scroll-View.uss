@@ -295,6 +295,29 @@
   border-bottom-right-radius: 4px;
 }
 .unity-scroll-view #unity-content-and-vertical-scroll-container {
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
@@ -305,6 +328,29 @@
 }
 .unity-scroll-view #unity-content-viewport {
   overflow: hidden;
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
@@ -315,6 +361,29 @@
 }
 .unity-scroll-view #unity-content-container {
   overflow: scroll;
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;
@@ -327,6 +396,29 @@
   flex-direction: column-reverse;
 }
 .unity-scroller--horizontal {
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;
@@ -336,15 +428,15 @@
   align-items: center;
 }
 .unity-scroller--horizontal .unity-base-slider {
-  background-color: transparent;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -368,15 +460,15 @@
   align-items: center;
 }
 .unity-scroller--horizontal .unity-base-slider .unity-base-slider__input {
-  background-color: transparent;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -400,15 +492,15 @@
   align-items: center;
 }
 .unity-scroller--horizontal .unity-base-slider #unity-drag-container {
-  background-color: transparent;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -757,6 +849,29 @@
   align-self: auto;
 }
 .unity-scroller--vertical {
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;
@@ -766,15 +881,15 @@
   align-items: center;
 }
 .unity-scroller--vertical .unity-base-slider {
-  background-color: transparent;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -798,15 +913,15 @@
   align-items: center;
 }
 .unity-scroller--vertical .unity-base-slider .unity-base-slider__input {
-  background-color: transparent;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -830,15 +945,15 @@
   align-items: center;
 }
 .unity-scroller--vertical .unity-base-slider #unity-drag-container {
-  background-color: transparent;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   width: auto;
   height: auto;
   margin-left: 0px;

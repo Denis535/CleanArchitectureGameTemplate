@@ -13,17 +13,10 @@ create-view-skin(color, background, border)
 create-layout-skin(position, size, box)
     create-layout(position, size[0], size[1], box[0], box[1], box[2])
 
-// add-skin
-add-skin(effect, view, layout, objects...)
-    add-view-skin(view[0])
-    add-view-skin(view[1])
-    add-layout-skin(layout)
-    add-style(objects)
-
 // add-skin1
 add-skin1(effect, view, objects...)
-    add-view-skin(view[0])
-    add-view-skin(view[1])
+    add-style(get-view-skin(view[0]))
+    add-style(get-view-skin(view[1]))
     add-style(objects)
 
 // add-skin1
@@ -56,37 +49,27 @@ add-skin1-dark(effect, view)
 
 // add-skin2
 add-skin2(effect, layout, objects...)
-    add-layout-skin(layout)
+    add-style(get-layout-skin(layout))
     add-style(objects)
 
 // add-skin2
 add-skin2-small(effect, layout)
     &.small
-        add-skin2 effect, small-scope
+        add-style(get-layout-skin(layout))
 add-skin2-medium(effect, layout)
     &.medium
-        add-skin2 effect, medium-scope
+        add-style(get-layout-skin(layout))
 add-skin2-large(effect, layout)
     &.large
-        add-skin2 effect, large-scope
+        add-style(get-layout-skin(layout))
 
 // add-skin3
 add-skin3-flex(effect, flex-grow, flex-shrink, flex-basis, align-self)
     add-style create-flex(flex-grow, flex-shrink, flex-basis, align-self)
+
+// add-skin3
 add-skin3-flex2(effect, flex-direction, justify-content, align-items)
     add-style create-flex2(flex-direction, justify-content, align-items)
-
-// add-view-skin
-add-view-skin(view)
-    if view != null
-        view = get-view-skin(view) if typeof(view) != 'object'
-        add-style(view)
-
-// add-layout-skin
-add-layout-skin(layout)
-    if layout != null
-        layout = get-layout-skin(layout) if typeof(layout) != 'object'
-        add-style(layout)
 
 // get-theme-value
 get-theme-color(key)

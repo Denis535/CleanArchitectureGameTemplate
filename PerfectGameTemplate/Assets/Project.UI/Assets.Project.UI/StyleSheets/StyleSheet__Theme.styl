@@ -155,7 +155,6 @@ theme = {
 
 // views
 views = {
-    default:                           create-view-skin( null,           (default                     default                    ), (default             default            ) ),
     // card
     card:                              create-view-skin( dark,           (card                        card                       ), (card                 card               ) ),
     card-header:                       create-view-skin( dark,           (card-header                 card-header                ), (card-header          card-header        ) ),
@@ -177,15 +176,15 @@ views = {
     group:                             create-view-skin( null,           (scope                       scope                      ), (scope                scope              ) ),
     light-group:                       create-view-skin( dark,           (light-scope                 light-scope                ), (light-scope          scope              ) ),
     dark-group:                        create-view-skin( light,          (dark-scope                  dark-scope                 ), (dark-scope           scope              ) ),
+    // box
+    box:                               create-view-skin( null,           (box                         box                        ), (box                  box                ) ),
+    light-box:                         create-view-skin( dark,           (light-box                   light-box                  ), (light-box            box                ) ),
+    dark-box:                          create-view-skin( light,          (dark-box                    dark-box                   ), (dark-box             box                ) ),
     // view
     scroll-view:                       create-view-skin( null,           (scope                       scope                      ), (scope                scope              ) ),
     light-scroll-view:                 create-view-skin( dark,           (light-scope                 light-scope                ), (light-scope          scope              ) ),
     dark-scroll-view:                  create-view-skin( light,          (dark-scope                  dark-scope                 ), (dark-scope           scope              ) ),
     dropdown-view:                     create-view-skin( light,          (dark-scope                  dark-scope                 ), (dark-scope           scope              ) ),
-    // box
-    box:                               create-view-skin( null,           (box                         box                        ), (box                  box                ) ),
-    light-box:                         create-view-skin( dark,           (light-box                   light-box                  ), (light-box            box                ) ),
-    dark-box:                          create-view-skin( light,          (dark-box                    dark-box                   ), (dark-box             box                ) ),
     // element
     label:                             create-view-skin( null,           (element                     element                    ), (element              element            ) ),
     button:                            create-view-skin( dark,           (light-element               light-element              ), (light-element        element            ) ),
@@ -226,7 +225,6 @@ views = {
 
 // layouts
 layouts = {
-    default:                           create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (0px                )) ),
     // card
     card:                              create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (0px                )) ),
     card-header:                       create-layout-skin( null, (auto auto), ((0px            ) (0px 0px 0px 1px) (12px 12px 10px 10px)) ),
