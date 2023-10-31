@@ -144,13 +144,15 @@ add-style(objects...)
 
 // add-style-internal
 add-style-internal(object)
-    if object != null
+    if object != null and get-type(object) != null
         if get-type(object) == 'Expression'
-            for item in object
-                add-style-internal(item)
-        else
+            for obj in object
+                add-style-internal(obj)
+        else if get-type(object) == 'Object'
             for key, value in object
                 add-style-property key, value
+        else
+            error('Object is invalid: ' + object)
 
 // add-style-property
 add-style-property(property, value)

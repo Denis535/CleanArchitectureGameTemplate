@@ -196,7 +196,9 @@ namespace UnityEditor {
             }}
             function getStringEx(expr) {{
                 expr = Stylus.utils.unwrap(expr);
-                if (expr.nodes.length == 0) return new Stylus.nodes.Null();
+                if (expr.nodes.length == 0) {{
+                    return new Stylus.nodes.Null();
+                }}
                 if (expr.nodes.length == 1) {{
                     const expr2 = expr.nodes[0];
                     if (expr2.constructor.name == 'String')   return new Stylus.nodes.Literal(expr2.string ?? expr2.toString());
