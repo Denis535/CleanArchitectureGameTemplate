@@ -5,12 +5,10 @@ theme = {
     color: {
         light:                         hsla(  0deg,   0%,  90%, 1.00),
         dark:                          hsla(  0deg,   0%,  10%, 1.00),
-        hover-effect:                  hsla( 40deg,  60%,  40%, 1.00),
         focus-effect:                  hsla(200deg,  80%,  40%, 1.00),
         invalid-effect:                hsla( 10deg,  80%,  40%, 1.00),
     },
     background-color: {
-        default:                       transparent,
         // card
         card:                          hsla(240deg,   5%,  25%, 0.75),
         card-header:                   hsla( 60deg,   5%,  65%, 0.75),
@@ -36,6 +34,8 @@ theme = {
         element:                       hsla(  0deg,   0%,   0%, 0.00),
         light-element:                 hsla( 30deg,  30%,  90%, 0.50),
         dark-element:                  hsla(200deg,  30%,  10%, 0.50),
+        dropdown-item:                 hsla(  0deg,   0%,   0%, 0.00),
+        dropdown-item--hover:          hsla( 40deg,  60%,  40%, 1.00),
         // component
         component:                     hsla(  0deg,   0%,   0%, 0.00),
         light-component:               hsla( 30deg,  30%,  90%, 0.80),
@@ -46,7 +46,6 @@ theme = {
         dark-image:                    hsla(200deg,  30%,  10%, 0.80),
     },
     background-image: {
-        default:                       create-background-image(null, null, null),
         // card
         card:                          create-background-image(null, null, null),
         card-header:                   create-background-image(null, null, null),
@@ -72,6 +71,7 @@ theme = {
         element:                       create-background-image(null, null, null),
         light-element:                 create-background-image(null, null, null),
         dark-element:                  create-background-image(null, null, null),
+        dropdown-item:                 create-background-image(null, null, null),
         // component
         component:                     create-background-image(null, null, null),
         light-component:               create-background-image(null, null, null),
@@ -96,7 +96,6 @@ theme = {
         light-checkmark-icon:          create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla( 30deg,  30%,  90%, 1.00), null),
     },
     border-color: {
-        default:                       transparent,
         // card
         card:                          hsla( 35deg, 100%,  30%, 1.00),
         card-header:                   hsla( 35deg, 100%,  30%, 1.00),
@@ -119,6 +118,8 @@ theme = {
         element:                       hsla(  0deg,   0%,   0%, 0.00),
         light-element:                 hsla( 45deg, 100%,  15%, 1.00),
         dark-element:                  hsla( 45deg, 100%,  30%, 1.00),
+        dropdown-item:                 hsla(  0deg,   0%,   0%, 0.00),
+        dropdown-item--hover:          hsla( 20deg,  60%,  40%, 1.00),
         // component
         component:                     hsla(  0deg,   0%,   0%, 0.00),
         light-component:               hsla( 45deg, 100%,  30%, 1.00),
@@ -129,7 +130,6 @@ theme = {
         dark-image:                    hsla( 45deg, 100%,  30%, 1.00),
     },
     border-radius: {
-        default:                       0px,
         // card
         card:                          6px,
         card-header:                   6px 6px 0px 0px,
@@ -191,8 +191,8 @@ views = {
     field:                             create-view-skin( null,           (element                     element                    ), (element              element            ) ),
     field-label:                       create-view-skin( dark,           (light-element               light-element              ), (light-element        element            ) ),
     field-input:                       create-view-skin( light,          (dark-element                dark-element               ), (dark-element         element            ) ),
-    dropdown-item:                     create-view-skin( null,           (default                     default                    ), (default              default            ) ),
-    dropdown-item--hover:              create-view-skin( null,           (hover-effect                default                    ), (hover-effect         default            ) ),
+    dropdown-item:                     create-view-skin( null,           (dropdown-item               dropdown-item              ), (dropdown-item        element            ) ),
+    dropdown-item--hover:              create-view-skin( null,           (dropdown-item--hover        dropdown-item              ), (dropdown-item--hover element            ) ),
     // component
     component:                         create-view-skin( null,           (component                   component                  ), (component            component          ) ),
     light-component:                   create-view-skin( null,           (light-component             light-component            ), (light-component      component          ) ),
@@ -216,7 +216,6 @@ views = {
     dark-dropdown-arrow-icon:          create-view-skin( null,           (null                        dark-dropdown-arrow-icon   ), (null                 null               ) ),
     dark-checkmark-icon:               create-view-skin( null,           (null                        dark-checkmark-icon        ), (null                 null               ) ),
     // effect
-    hover-effect:                      create-view-skin( null,           (hover-effect                null                       ), (null                 null               ) ),
     focus-effect:                      create-view-skin( focus-effect,   (null                        null                       ), (focus-effect         null               ) ),
     focus-effect--without-foreground:  create-view-skin( null,           (null                        null                       ), (focus-effect         null               ) ),
     invalid-effect:                    create-view-skin( invalid-effect, (null                        null                       ), (invalid-effect       null               ) ),
