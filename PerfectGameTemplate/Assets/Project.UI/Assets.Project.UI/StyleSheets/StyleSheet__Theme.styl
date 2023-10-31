@@ -278,32 +278,32 @@ add-element-gradient(effect, view, light-view, dark-view, layout, font = null, t
     add-skin-light-gradient(effect, light-view)
     add-skin-dark-gradient(effect, dark-view)
 
-// add-component
-add-component(effect, view, position = null, size = null, box = null)
-    position = position or null
-    width    = size[0]  or auto
-    height   = size[1]  or auto
-    margin   = box[0]   or 0px
-    border   = box[1]   or 0px
-    padding  = box[2]   or 0px
-    add-skin(effect, view, null, create-layout(position, width, height, margin, border, padding))
-// add-component
-add-component-flex(grow, shrink, basis, align-self)
-    add-flex(grow, shrink, basis, align-self)
-add-component-flex2(direction, justify-content, align-items)
-    add-flex2(direction, justify-content, align-items)
+// // add-component
+// add-component(effect, view, position = null, size = null, box = null)
+//     position = position or null
+//     width    = size[0]  or auto
+//     height   = size[1]  or auto
+//     margin   = box[0]   or 0px
+//     border   = box[1]   or 0px
+//     padding  = box[2]   or 0px
+//     add-skin(effect, view, null, create-layout(position, width, height, margin, border, padding))
+// // add-component
+// add-component-flex(grow, shrink, basis, align-self)
+//     add-flex(grow, shrink, basis, align-self)
+// add-component-flex2(direction, justify-content, align-items)
+//     add-flex2(direction, justify-content, align-items)
 
 // add-image
-add-image(effect, view, position = null, size = null, box = null)
-    position = position or null
-    width    = size[0]  or auto
-    height   = size[1]  or auto
-    margin   = box[0]   or 0px
-    border   = box[1]   or 1px
-    padding  = box[2]   or 0px
-    add-skin(effect, view, null, create-layout(position, width, height, margin, border, padding))
-// add-image
-add-image-flex(grow, shrink, basis, align-self)
-    add-flex(grow, shrink, basis, align-self)
-add-image-flex2(direction, justify-content, align-items)
-    add-flex2(direction, justify-content, align-items)
+// add-image(effect, view, position = null, size = null, box = null)
+//     position = position or null
+//     width    = size[0]  or auto
+//     height   = size[1]  or auto
+//     margin   = box[0]   or 0px
+//     border   = box[1]   or 1px
+//     padding  = box[2]   or 0px
+//     add-skin(effect, view, null, create-layout(position, width, height, margin, border, padding))
+// // add-image
+// add-image-flex(grow, shrink, basis, align-self)
+//     add-flex(grow, shrink, basis, align-self)
+// add-image-flex2(direction, justify-content, align-items)
+//     add-flex2(direction, justify-content, align-items)

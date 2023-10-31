@@ -6,19 +6,13 @@ scroll-view(effect)
     add-element-flex(0, 1, auto, auto)
     add-element-flex2(column, flex-start, stretch)
 viewport-and-vertical-scroller(effect)
-    add-component(effect, null)
-    add-component-flex(1, 1, auto, auto)
-    add-component-flex2(row, flex-start, stretch)
+    add-skin effect, null, null, create-flex(1, 1, auto, auto), create-flex2(row, flex-start, stretch)
 viewport(effect)
     overflow hidden
-    add-component(effect, null)
-    add-component-flex(1, 1, auto, auto)
-    add-component-flex2(column, flex-start, stretch)
+    add-skin effect, null, null, create-flex(1, 1, auto, auto), create-flex2(column, flex-start, stretch)
 content(effect)
     overflow scroll
-    add-component(effect, null)
-    add-component-flex(0, 0, auto, auto)
-    add-component-flex2(column, flex-start, stretch)
+    add-skin effect, null, null, create-flex(0, 0, auto, auto), create-flex2(column, flex-start, stretch)
 
 // scroller
 horizontal-scroller(effect)
@@ -35,9 +29,7 @@ horizontal-slider-field-input(effect)
     add-element-flex(1, 1, auto, auto)
     add-element-flex2(row, flex-start, center)
 horizontal-container(effect)
-    add-component(effect, default)
-    add-component-flex(1, 1, auto, auto)
-    add-component-flex2(row, flex-start, center)
+    add-skin effect, default, default, create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
 horizontal-tracker(effect)
     add-skin effect, dark-image, image, create-position(null), create-size(auto, 24px), create-flex(1, 1, auto, auto)
 horizontal-dragger(effect)
@@ -63,9 +55,7 @@ vertical-slider-field-input(effect)
     add-element-flex(1, 1, auto, auto)
     add-element-flex2(column, flex-start, center)
 vertical-container(effect)
-    add-component(effect, default)
-    add-component-flex(1, 1, auto, auto)
-    add-component-flex2(column, flex-start, center)
+    add-skin effect, default, default, create-flex(1, 1, auto, auto), create-flex2(column, flex-start, center)
 vertical-tracker(effect)
     add-skin effect, dark-image, image, create-size(24px, auto), create-flex(1, 1, auto, auto)
 vertical-dragger(effect)
@@ -89,7 +79,7 @@ vertical-high-button(effect)
 // scroll-view
 .unity-scroll-view.reverse
     #unity-content-viewport
-        add-component-flex2(column-reverse, null, null)
+        add-skin null, null, null, create-flex2(column-reverse, null, null)
 
 // scroller
 .unity-scroller--horizontal

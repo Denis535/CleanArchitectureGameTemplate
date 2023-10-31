@@ -52,54 +52,6 @@
   padding-top: 0px;
   padding-bottom: 0px;
 }
-.unity-base-dropdown #unity-content-and-vertical-scroll-container {
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-.unity-base-dropdown #unity-content-viewport {
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-.unity-base-dropdown #unity-content-container {
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
 .unity-base-dropdown__item {
   background-color: transparent;
   border-left-color: transparent;
@@ -200,6 +152,15 @@
   align-self: auto;
 }
 .unity-base-dropdown__item:checked .unity-base-dropdown__checkmark {
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
   -unity-background-image-tint-color: #ede6de;
   width: auto;
@@ -228,6 +189,15 @@
   align-self: auto;
 }
 .unity-base-dropdown__item .unity-base-dropdown__label {
+  background-color: rgba(0,0,0,0);
+  border-left-color: rgba(0,0,0,0);
+  border-right-color: rgba(0,0,0,0);
+  border-top-color: rgba(0,0,0,0);
+  border-bottom-color: rgba(0,0,0,0);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   width: auto;
   height: auto;
   margin-left: 0px;

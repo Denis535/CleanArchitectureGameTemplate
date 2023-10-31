@@ -295,20 +295,6 @@
   border-bottom-right-radius: 4px;
 }
 .unity-scroll-view #unity-content-and-vertical-scroll-container {
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
@@ -319,20 +305,6 @@
 }
 .unity-scroll-view #unity-content-viewport {
   overflow: hidden;
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
@@ -343,20 +315,6 @@
 }
 .unity-scroll-view #unity-content-container {
   overflow: scroll;
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;

@@ -6,8 +6,7 @@ popup-field-label()
 popup-field-input()
 // text
 text(effect)
-    add-component(effect, null)
-    add-component-flex(1, 1, auto, auto)
+    add-skin effect, component, component, create-flex(1, 1, auto, auto)
 // arrow
 arrow(effect)
     add-skin effect, image light-dropdown-arrow-icon, image, create-size(12px, 12px), create-box(2px, null, null), create-flex(0, 1, auto, auto)

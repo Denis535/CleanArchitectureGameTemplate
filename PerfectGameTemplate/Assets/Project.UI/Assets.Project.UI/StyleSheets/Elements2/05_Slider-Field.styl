@@ -6,9 +6,7 @@ slider-field-label()
 slider-field-input()
 // container
 container(effect)
-    add-component(effect, null)
-    add-component-flex(1, 1, auto, auto)
-    add-component-flex2(row, flex-start, center)
+    add-skin effect, component, component, create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
 // tracker
 tracker(effect)
     add-skin effect, light-image, image, create-position(null), create-size(auto, 8px), create-flex(1, 1, auto, auto)

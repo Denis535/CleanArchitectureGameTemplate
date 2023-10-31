@@ -8,11 +8,11 @@ dropdown-view(effect)
 scroll-view(effect)
     add-element(effect, default, default)
 viewport-and-vertical-scroller(effect)
-    add-component(effect, null)
+    add-skin effect, null, null
 viewport(effect)
-    add-component(effect, null)
+    add-skin effect, null, null
 content(effect)
-    add-component(effect, null)
+    add-skin effect, null, null
 
 // dropdown-item
 dropdown-item(effect)
@@ -22,12 +22,11 @@ dropdown-item(effect)
     add-element-flex2(row, flex-start, center)
 // checkmark
 checkmark(effect, value)
-    add-skin effect, image,                image, create-size(16px, 16px), create-box(0px 12px 0px 0px, null, null), create-flex(0, 1, auto, auto) if !value
-    add-skin effect, light-checkmark-icon, image, create-size(16px, 16px), create-box(0px 12px 0px 0px, null, null), create-flex(0, 1, auto, auto) if value
+    add-skin effect, image,                      image, create-size(16px, 16px), create-box(0px 12px 0px 0px, null, null), create-flex(0, 1, auto, auto) if !value
+    add-skin effect, image light-checkmark-icon, image, create-size(16px, 16px), create-box(0px 12px 0px 0px, null, null), create-flex(0, 1, auto, auto) if value
 // text
 text(effect)
-    add-component(effect, null)
-    add-component-flex(1, 1, auto, auto)
+    add-skin effect, component, component, create-flex(1, 1, auto, auto)
 
 // dropdown-view
 .unity-base-dropdown
