@@ -22,9 +22,8 @@ dropdown-item(effect)
     add-element-flex2(row, flex-start, center)
 // checkmark
 checkmark(effect, value)
-    add-image(effect, null,                      null, 16px 16px, (0px 12px 0px 0px) null null) if !value
-    add-image(effect, null light-checkmark-icon, null, 16px 16px, (0px 12px 0px 0px) null null) if value
-    add-image-flex(0, 1, auto, auto)
+    add-skin effect, image,                image, create-size(16px, 16px), create-box(0px 12px 0px 0px, null, null), create-flex(0, 1, auto, auto) if !value
+    add-skin effect, light-checkmark-icon, image, create-size(16px, 16px), create-box(0px 12px 0px 0px, null, null), create-flex(0, 1, auto, auto) if value
 // text
 text(effect)
     add-component(effect, null)

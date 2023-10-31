@@ -11,12 +11,10 @@ container(effect)
     add-component-flex2(row, flex-start, center)
 // tracker
 tracker(effect)
-    add-image(effect, light-image, null, auto 8px, null)
-    add-image-flex(1, 1, auto, auto)
+    add-skin effect, light-image, image, create-position(null), create-size(auto, 8px), create-flex(1, 1, auto, auto)
 // dragger
 dragger(effect)
-    add-image(effect, light-image, absolute, 8px 24px, null)
-    add-image-flex(0, 1, auto, auto)
+    add-skin effect, light-image, image, create-position(absolute), create-size(8px, 24px), create-flex(0, 1, auto, auto)
 
 // slider-field
 .unity-base-slider

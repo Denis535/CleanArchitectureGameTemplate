@@ -8,8 +8,8 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  width: 16px;
-  height: 16px;
+  width: auto;
+  height: auto;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -22,25 +22,18 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  width: 16px;
+  height: 16px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
   align-self: auto;
 }
 .unity-toggle__input:checked #unity-checkmark {
-  background-color: rgba(237,230,222,0.8);
-  border-left-color: #997300;
-  border-right-color: #997300;
-  border-top-color: #997300;
-  border-bottom-color: #997300;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
   -unity-background-image-tint-color: #121c21;
-  width: 16px;
-  height: 16px;
+  width: auto;
+  height: auto;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -53,6 +46,8 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  width: 16px;
+  height: 16px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
