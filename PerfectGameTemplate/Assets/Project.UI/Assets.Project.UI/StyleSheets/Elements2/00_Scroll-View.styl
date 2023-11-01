@@ -3,8 +3,8 @@
 // scroll-view
 scroll-view(effect)
     add-skin1       effect, scroll-view
-    add-skin1-light effect, light-scroll-view
-    add-skin1-dark  effect, dark-scroll-view
+    add-skin1-light effect, scroll-view--light
+    add-skin1-dark  effect, scroll-view--dark
     add-skin2       effect, scroll-view
     add-skin3-flex  effect, 0, 1, auto, auto
     add-skin3-flex2 effect, column, flex-start, stretch
@@ -49,7 +49,7 @@ horizontal-container(effect)
     add-skin3-flex  effect, 1, 1, auto, auto
     add-skin3-flex2 effect, row, flex-start, center
 horizontal-tracker(effect)
-    add-skin1      effect, dark-image
+    add-skin1      effect, image--dark
     add-skin2      effect, image, create-position(null), create-size(auto, 24px)
     add-skin3-flex effect, 1, 1, auto, auto
 horizontal-dragger(effect)
@@ -58,11 +58,11 @@ horizontal-dragger(effect)
     add-skin3-flex effect, 0, 1, auto, auto
 // button
 horizontal-low-button(effect)
-    add-skin1      effect, button dark-arrow-icon--left
+    add-skin1      effect, button icon--dark--arrow--left
     add-skin2      effect, image, create-size(24px, 24px), create-box(2px, null, null)
     add-skin3-flex effect, 0, 0, auto, auto
 horizontal-high-button(effect)
-    add-skin1      effect, button dark-arrow-icon--right
+    add-skin1      effect, button icon--dark--arrow--right
     add-skin2      effect, image, create-size(24px, 24px), create-box(2px, null, null)
     add-skin3-flex effect, 0, 0, auto, auto
 
@@ -89,7 +89,7 @@ vertical-container(effect)
     add-skin3-flex  effect, 1, 1, auto, auto
     add-skin3-flex2 effect, column, flex-start, center
 vertical-tracker(effect)
-    add-skin1      effect, dark-image
+    add-skin1      effect, image--dark
     add-skin2      effect, image, create-size(24px, auto)
     add-skin3-flex effect, 1, 1, auto, auto
 vertical-dragger(effect)
@@ -98,11 +98,11 @@ vertical-dragger(effect)
     add-skin3-flex effect, 0, 1, auto, auto
 // button
 vertical-low-button(effect)
-    add-skin1      effect, button dark-arrow-icon--up
+    add-skin1      effect, button icon--dark--arrow--up
     add-skin2      effect, image, create-size(24px, 24px), create-box(2px, null, null)
     add-skin3-flex effect, 0, 0, auto, auto
 vertical-high-button(effect)
-    add-skin1      effect, button dark-arrow-icon--down
+    add-skin1      effect, button icon--dark--arrow--down
     add-skin2      effect, image, create-size(24px, 24px), create-box(2px, null, null)
     add-skin3-flex effect, 0, 0, auto, auto
 
