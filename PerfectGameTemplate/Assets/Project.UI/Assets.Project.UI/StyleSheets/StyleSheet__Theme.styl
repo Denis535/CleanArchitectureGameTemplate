@@ -1,7 +1,7 @@
-@import "StyleSheet__Internal2"
+@import "StyleSheet__Internal3"
 
 // theme
-theme = {
+theme0 = {
     color: {
         light:                         hsla(  0deg,   0%,  90%, 1.00),
         dark:                          hsla(  0deg,   0%,  10%, 1.00),
@@ -30,20 +30,6 @@ theme = {
         box:                           hsla(  0deg,   0%,   0%, 0.00),
         light-box:                     hsla( 30deg,  15%,  80%, 0.20),
         dark-box:                      hsla(200deg,  15%,  20%, 0.80),
-        // element
-        element:                       hsla(  0deg,   0%,   0%, 0.00),
-        light-element:                 hsla( 30deg,  30%,  90%, 0.50),
-        dark-element:                  hsla(200deg,  30%,  10%, 0.50),
-        dropdown-item:                 hsla(  0deg,   0%,   0%, 0.00),
-        dropdown-item--hover:          hsla( 40deg,  60%,  40%, 1.00),
-        // component
-        component:                     hsla(  0deg,   0%,   0%, 0.00),
-        light-component:               hsla( 30deg,  30%,  90%, 0.80),
-        dark-component:                hsla(200deg,  30%,  10%, 0.80),
-        // image
-        image:                         hsla(  0deg,   0%,   0%, 0.00),
-        light-image:                   hsla( 30deg,  30%,  90%, 0.80),
-        dark-image:                    hsla(200deg,  30%,  10%, 0.80),
     },
     background-image: {
         // card
@@ -67,33 +53,6 @@ theme = {
         box:                           create-background-image(null, null, null), 
         light-box:                     create-background-image(null, null, null),
         dark-box:                      create-background-image(null, null, null),
-        // element
-        element:                       create-background-image(null, null, null),
-        light-element:                 create-background-image(null, null, null),
-        dark-element:                  create-background-image(null, null, null),
-        dropdown-item:                 create-background-image(null, null, null),
-        // component
-        component:                     create-background-image(null, null, null),
-        light-component:               create-background-image(null, null, null),
-        dark-component:                create-background-image(null, null, null),
-        // image
-        image:                         create-background-image(null, null, null),
-        light-image:                   create-background-image(null, null, null),
-        dark-image:                    create-background-image(null, null, null),
-        // icon
-        dark-arrow-icon--left:         create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla(200deg,  30%,  10%, 1.00), null),
-        dark-arrow-icon--right:        create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla(200deg,  30%,  10%, 1.00), null),
-        dark-arrow-icon--up:           create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla(200deg,  30%,  10%, 1.00), null),
-        dark-arrow-icon--down:         create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla(200deg,  30%,  10%, 1.00), null),
-        dark-dropdown-arrow-icon:      create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png', hsla(200deg,  30%,  10%, 1.00), null),
-        dark-checkmark-icon:           create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla(200deg,  30%,  10%, 1.00), null),
-        // icon
-        light-arrow-icon--left:        create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla( 30deg,  30%,  90%, 1.00), null),
-        light-arrow-icon--right:       create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla( 30deg,  30%,  90%, 1.00), null),
-        light-arrow-icon--up:          create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla( 30deg,  30%,  90%, 1.00), null),
-        light-arrow-icon--down:        create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla( 30deg,  30%,  90%, 1.00), null),
-        light-dropdown-arrow-icon:     create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png', hsla( 30deg,  30%,  90%, 1.00), null),
-        light-checkmark-icon:          create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla( 30deg,  30%,  90%, 1.00), null),
     },
     border-color: {
         // card
@@ -114,20 +73,6 @@ theme = {
         box:                           hsla(  0deg,   0%,   0%, 0.00),
         light-box:                     hsla( 45deg, 100%,  30%, 1.00),
         dark-box:                      hsla( 45deg, 100%,  30%, 1.00),
-        // element
-        element:                       hsla(  0deg,   0%,   0%, 0.00),
-        light-element:                 hsla( 45deg, 100%,  15%, 1.00),
-        dark-element:                  hsla( 45deg, 100%,  30%, 1.00),
-        dropdown-item:                 hsla(  0deg,   0%,   0%, 0.00),
-        dropdown-item--hover:          hsla( 20deg,  60%,  40%, 1.00),
-        // component
-        component:                     hsla(  0deg,   0%,   0%, 0.00),
-        light-component:               hsla( 45deg, 100%,  30%, 1.00),
-        dark-component:                hsla( 45deg, 100%,  30%, 1.00),
-        // image
-        image:                         hsla(  0deg,   0%,   0%, 0.00),
-        light-image:                   hsla( 45deg, 100%,  30%, 1.00),
-        dark-image:                    hsla( 45deg, 100%,  30%, 1.00),
     },
     border-radius: {
         // card
@@ -144,6 +89,61 @@ theme = {
         scope:                         4px,
         // box
         box:                           4px,
+    }
+}
+
+// theme
+theme1 = {
+    color: {
+    },
+    background-color: {
+        // element
+        element:                       hsla(  0deg,   0%,   0%, 0.00),
+        light-element:                 hsla( 30deg,  30%,  90%, 0.50),
+        dark-element:                  hsla(200deg,  30%,  10%, 0.50),
+        dropdown-item-element:         hsla(  0deg,   0%,   0%, 0.00),
+        dropdown-item-element--hover:  hsla( 40deg,  60%,  40%, 1.00),
+        // component
+        component:                     hsla(  0deg,   0%,   0%, 0.00),
+        light-component:               hsla( 30deg,  30%,  90%, 0.80),
+        dark-component:                hsla(200deg,  30%,  10%, 0.80),
+        // image
+        image:                         hsla(  0deg,   0%,   0%, 0.00),
+        light-image:                   hsla( 30deg,  30%,  90%, 0.80),
+        dark-image:                    hsla(200deg,  30%,  10%, 0.80),
+    },
+    background-image: {
+        // element
+        element:                       create-background-image(null, null, null),
+        light-element:                 create-background-image(null, null, null),
+        dark-element:                  create-background-image(null, null, null),
+        dropdown-item-element:         create-background-image(null, null, null),
+        // component
+        component:                     create-background-image(null, null, null),
+        light-component:               create-background-image(null, null, null),
+        dark-component:                create-background-image(null, null, null),
+        // image
+        image:                         create-background-image(null, null, null),
+        light-image:                   create-background-image(null, null, null),
+        dark-image:                    create-background-image(null, null, null),
+    },
+    border-color: {
+        // element
+        element:                       hsla(  0deg,   0%,   0%, 0.00),
+        light-element:                 hsla( 45deg, 100%,  15%, 1.00),
+        dark-element:                  hsla( 45deg, 100%,  30%, 1.00),
+        dropdown-item-element:         hsla(  0deg,   0%,   0%, 0.00),
+        dropdown-item-element--hover:  hsla( 30deg,  60%,  40%, 1.00),
+        // component
+        component:                     hsla(  0deg,   0%,   0%, 0.00),
+        light-component:               hsla( 45deg, 100%,  30%, 1.00),
+        dark-component:                hsla( 45deg, 100%,  30%, 1.00),
+        // image
+        image:                         hsla(  0deg,   0%,   0%, 0.00),
+        light-image:                   hsla( 45deg, 100%,  30%, 1.00),
+        dark-image:                    hsla( 45deg, 100%,  30%, 1.00),
+    },
+    border-radius: {
         // element
         element:                       4px,
         // component
@@ -153,109 +153,39 @@ theme = {
     }
 }
 
-// views
-views = {
-    // card
-    card:                              create-view-skin( dark,           (card                        card                       ), (card                 card               ) ),
-    card-header:                       create-view-skin( dark,           (card-header                 card-header                ), (card-header          card-header        ) ),
-    card-content:                      create-view-skin( dark,           (card-content                card-content               ), (card-content         card-content       ) ),
-    card-footer:                       create-view-skin( dark,           (card-footer                 card-footer                ), (card-footer          card-footer        ) ),
-    // card
-    dialog-card:                       create-view-skin( dark,           (dialog-card                 dialog-card                ), (dialog-card          dialog-card        ) ),
-    dialog-card-header:                create-view-skin( dark,           (dialog-card-header          dialog-card-header         ), (dialog-card-header   dialog-card-header ) ),
-    dialog-card-header--info:          create-view-skin( dark,           (dialog-card-header--info    dialog-card-header--info   ), (dialog-card-header   dialog-card-header ) ),
-    dialog-card-header--warning:       create-view-skin( dark,           (dialog-card-header--warning dialog-card-header--warning), (dialog-card-header   dialog-card-header ) ),
-    dialog-card-header--error:         create-view-skin( dark,           (dialog-card-header--error   dialog-card-header--error  ), (dialog-card-header   dialog-card-header ) ),
-    dialog-card-content:               create-view-skin( dark,           (dialog-card-content         dialog-card-content        ), (dialog-card-content  dialog-card-content) ),
-    dialog-card-footer:                create-view-skin( dark,           (dialog-card-footer          dialog-card-footer         ), (dialog-card-footer   dialog-card-footer ) ),
-    // scope
-    scope:                             create-view-skin( null,           (scope                       scope                      ), (scope                scope              ) ),
-    light-scope:                       create-view-skin( dark,           (light-scope                 light-scope                ), (light-scope          scope              ) ),
-    dark-scope:                        create-view-skin( light,          (dark-scope                  dark-scope                 ), (dark-scope           scope              ) ),
-    // group         
-    group:                             create-view-skin( null,           (scope                       scope                      ), (scope                scope              ) ),
-    light-group:                       create-view-skin( dark,           (light-scope                 light-scope                ), (light-scope          scope              ) ),
-    dark-group:                        create-view-skin( light,          (dark-scope                  dark-scope                 ), (dark-scope           scope              ) ),
-    // box
-    box:                               create-view-skin( null,           (box                         box                        ), (box                  box                ) ),
-    light-box:                         create-view-skin( dark,           (light-box                   light-box                  ), (light-box            box                ) ),
-    dark-box:                          create-view-skin( light,          (dark-box                    dark-box                   ), (dark-box             box                ) ),
-    // view
-    scroll-view:                       create-view-skin( null,           (scope                       scope                      ), (scope                scope              ) ),
-    light-scroll-view:                 create-view-skin( dark,           (light-scope                 light-scope                ), (light-scope          scope              ) ),
-    dark-scroll-view:                  create-view-skin( light,          (dark-scope                  dark-scope                 ), (dark-scope           scope              ) ),
-    dropdown-view:                     create-view-skin( light,          (dark-scope                  dark-scope                 ), (dark-scope           scope              ) ),
-    // element
-    label:                             create-view-skin( null,           (element                     element                    ), (element              element            ) ),
-    button:                            create-view-skin( dark,           (light-element               light-element              ), (light-element        element            ) ),
-    field:                             create-view-skin( null,           (element                     element                    ), (element              element            ) ),
-    field-label:                       create-view-skin( dark,           (light-element               light-element              ), (light-element        element            ) ),
-    field-input:                       create-view-skin( light,          (dark-element                dark-element               ), (dark-element         element            ) ),
-    dropdown-item:                     create-view-skin( null,           (dropdown-item               dropdown-item              ), (dropdown-item        element            ) ),
-    dropdown-item--hover:              create-view-skin( null,           (dropdown-item--hover        dropdown-item              ), (dropdown-item--hover element            ) ),
-    // component
-    component:                         create-view-skin( null,           (component                   component                  ), (component            component          ) ),
-    light-component:                   create-view-skin( null,           (light-component             light-component            ), (light-component      component          ) ),
-    dark-component:                    create-view-skin( null,           (dark-component              dark-component             ), (dark-component       component          ) ),
-    // image
-    image:                             create-view-skin( null,           (image                       image                      ), (image                image              ) ),
-    light-image:                       create-view-skin( null,           (light-image                 light-image                ), (light-image          image              ) ),
-    dark-image:                        create-view-skin( null,           (dark-image                  dark-image                 ), (dark-image           image              ) ),
-    // icon
-    light-arrow-icon--left:            create-view-skin( null,           (null                        light-arrow-icon--left     ), (null                 null               ) ),
-    light-arrow-icon--right:           create-view-skin( null,           (null                        light-arrow-icon--right    ), (null                 null               ) ),
-    light-arrow-icon--up:              create-view-skin( null,           (null                        light-arrow-icon--up       ), (null                 null               ) ),
-    light-arrow-icon--down:            create-view-skin( null,           (null                        light-arrow-icon--down     ), (null                 null               ) ),
-    light-dropdown-arrow-icon:         create-view-skin( null,           (null                        light-dropdown-arrow-icon  ), (null                 null               ) ),
-    light-checkmark-icon:              create-view-skin( null,           (null                        light-checkmark-icon       ), (null                 null               ) ),
-    // icon
-    dark-arrow-icon--left:             create-view-skin( null,           (null                        dark-arrow-icon--left      ), (null                 null               ) ),
-    dark-arrow-icon--right:            create-view-skin( null,           (null                        dark-arrow-icon--right     ), (null                 null               ) ),
-    dark-arrow-icon--up:               create-view-skin( null,           (null                        dark-arrow-icon--up        ), (null                 null               ) ),
-    dark-arrow-icon--down:             create-view-skin( null,           (null                        dark-arrow-icon--down      ), (null                 null               ) ),
-    dark-dropdown-arrow-icon:          create-view-skin( null,           (null                        dark-dropdown-arrow-icon   ), (null                 null               ) ),
-    dark-checkmark-icon:               create-view-skin( null,           (null                        dark-checkmark-icon        ), (null                 null               ) ),
-    // effect
-    focus-effect:                      create-view-skin( focus-effect,   (null                        null                       ), (focus-effect         null               ) ),
-    focus-effect--without-foreground:  create-view-skin( null,           (null                        null                       ), (focus-effect         null               ) ),
-    invalid-effect:                    create-view-skin( invalid-effect, (null                        null                       ), (invalid-effect       null               ) ),
-    invalid-effect--without-foreground:create-view-skin( null,           (null                        null                       ), (invalid-effect       null               ) ),
+// theme
+theme2 = {
+    color: {
+    },
+    background-color: {
+    },
+    background-image: {
+        // icon
+        dark-arrow-icon--left:         create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla(200deg,  30%,  10%, 1.00), null),
+        dark-arrow-icon--right:        create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla(200deg,  30%,  10%, 1.00), null),
+        dark-arrow-icon--up:           create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla(200deg,  30%,  10%, 1.00), null),
+        dark-arrow-icon--down:         create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla(200deg,  30%,  10%, 1.00), null),
+        dark-dropdown-arrow-icon:      create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png', hsla(200deg,  30%,  10%, 1.00), null),
+        dark-checkmark-icon:           create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla(200deg,  30%,  10%, 1.00), null),
+        // icon
+        light-arrow-icon--left:        create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla( 30deg,  30%,  90%, 1.00), null),
+        light-arrow-icon--right:       create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla( 30deg,  30%,  90%, 1.00), null),
+        light-arrow-icon--up:          create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla( 30deg,  30%,  90%, 1.00), null),
+        light-arrow-icon--down:        create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla( 30deg,  30%,  90%, 1.00), null),
+        light-dropdown-arrow-icon:     create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png', hsla( 30deg,  30%,  90%, 1.00), null),
+        light-checkmark-icon:          create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla( 30deg,  30%,  90%, 1.00), null),
+    },
+    border-color: {
+    },
+    border-radius: {
+    }
 }
 
-// layouts
-layouts = {
-    // card
-    card:                              create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (0px                )) ),
-    card-header:                       create-layout-skin( null, (auto auto), ((0px            ) (0px 0px 0px 1px) (12px 12px 10px 10px)) ),
-    card-content:                      create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (24px 24px 20px 20px)) ),
-    card-footer:                       create-layout-skin( null, (auto auto), ((0px            ) (0px 0px 1px 0px) (24px 24px 20px 20px)) ),
-    // scope
-    scope:                             create-layout-skin( null, (auto auto), ((0px            ) (0px            ) ( 0px  0px  0px  0px)) ),
-    small-scope:                       create-layout-skin( null, (auto auto), ((0px            ) (0px            ) ( 6px  6px  5px  5px)) ),
-    medium-scope:                      create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (12px 12px 10px 10px)) ),
-    large-scope:                       create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (24px 24px 20px 20px)) ),
-    // group
-    group:                             create-layout-skin( null, (auto auto), ((4px            ) (1px            ) ( 0px  0px  0px  0px)) ),
-    small-group:                       create-layout-skin( null, (auto auto), ((4px            ) (1px            ) ( 6px  6px  5px  5px)) ),
-    medium-group:                      create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
-    large-group:                       create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (24px 24px 20px 20px)) ),
-    // box
-    box:                               create-layout-skin( null, (auto auto), ((4px            ) (1px            ) ( 0px  0px  0px  0px)) ),
-    small-box:                         create-layout-skin( null, (auto auto), ((4px            ) (1px            ) ( 6px  6px  5px  5px)) ),
-    medium-box:                        create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
-    large-box:                         create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (24px 24px 20px 20px)) ),
-    // view
-    scroll-view:                       create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (0px                )) ),
-    dropdown-view:                     create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (0px                )) ),
-    // element
-    label:                             create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
-    button:                            create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
-    field:                             create-layout-skin( null, (auto auto), ((4px            ) (0px            ) (0px                )) ),
-    field-label:                       create-layout-skin( null, (auto auto), ((0px 2px 0px 0px) (1px            ) (12px 12px 10px 10px)) ),
-    field-input:                       create-layout-skin( null, (auto auto), ((0px 0px 0px 0px) (1px            ) (12px 12px 10px 10px)) ),
-    dropdown-item:                     create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (12px 12px 10px 10px)) ),
-    // component
-    component:                         create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (0px  0px  0px   0px)) ),
-    // image
-    image:                             create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (0px  0px  0px   0px)) ),
+// theme
+theme = {
+    color:            merge(theme0.color,            theme1.color,            theme2.color           ),
+    background-color: merge(theme0.background-color, theme1.background-color, theme2.background-color),
+    background-image: merge(theme0.background-image, theme1.background-image, theme2.background-image),
+    border-color:     merge(theme0.border-color,     theme1.border-color,     theme2.border-color    ),
+    border-radius:    merge(theme0.border-radius,    theme1.border-radius,    theme2.border-radius   ),
 }

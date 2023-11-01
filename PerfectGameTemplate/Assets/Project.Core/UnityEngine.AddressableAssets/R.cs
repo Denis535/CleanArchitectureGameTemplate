@@ -114,12 +114,28 @@ namespace UnityEngine.AddressableAssets {
                     public const string @Window_Warning = "Project.UI/Sounds/Window_Warning.wav";
                 }
                 public static class @StyleSheets {
+                    public static class @Elements0 {
+                        public const string @View = "Project.UI/StyleSheets/Elements0/00_View.uss";
+                        public const string @Card = "Project.UI/StyleSheets/Elements0/01_Card.uss";
+                        public const string @Scope = "Project.UI/StyleSheets/Elements0/02_Scope.uss";
+                        public const string @Group = "Project.UI/StyleSheets/Elements0/03_Group.uss";
+                        public const string @Box = "Project.UI/StyleSheets/Elements0/04_Box.uss";
+                    }
+                    public static class @Elements1 {
+                        public const string @Label = "Project.UI/StyleSheets/Elements1/00_Label.uss";
+                        public const string @Button = "Project.UI/StyleSheets/Elements1/01_Button.uss";
+                        public const string @Field = "Project.UI/StyleSheets/Elements1/02_Field.uss";
+                        public const string @Text_Field = "Project.UI/StyleSheets/Elements1/03_Text-Field.uss";
+                        public const string @Popup_Field = "Project.UI/StyleSheets/Elements1/04_Popup-Field.uss";
+                        public const string @Slider_Field = "Project.UI/StyleSheets/Elements1/05_Slider-Field.uss";
+                        public const string @Toggle_Field = "Project.UI/StyleSheets/Elements1/06_Toggle-Field.uss";
+                    }
+                    public static class @Elements2 {
+                        public const string @Scroll_View = "Project.UI/StyleSheets/Elements2/00_Scroll-View.uss";
+                        public const string @Dropdown_View = "Project.UI/StyleSheets/Elements2/01_Dropdown-View.uss";
+                    }
+                    public const string @LibraryStyleSheet = "Project.UI/StyleSheets/LibraryStyleSheet.uss";
                     public const string @StyleSheet = "Project.UI/StyleSheets/StyleSheet.uss";
-                    public const string @StyleSheet_Core = "Project.UI/StyleSheets/StyleSheet_Core.uss";
-                    public const string @StyleSheet_Core2 = "Project.UI/StyleSheets/StyleSheet_Core2.uss";
-                    public const string @StyleSheet_Internal = "Project.UI/StyleSheets/StyleSheet_Internal.uss";
-                    public const string @StyleSheet_Internal2 = "Project.UI/StyleSheets/StyleSheet_Internal2.uss";
-                    public const string @StyleSheet_Library = "Project.UI/StyleSheets/StyleSheet_Library.uss";
                 }
                 public static class @ThemeStyleSheets {
                     public const string @ThemeStyleSheet = "Project.UI/ThemeStyleSheets/ThemeStyleSheet.tss";

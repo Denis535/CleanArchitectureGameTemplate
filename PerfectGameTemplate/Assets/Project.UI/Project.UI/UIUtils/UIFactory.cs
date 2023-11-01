@@ -81,14 +81,6 @@ namespace Project.UI {
             return new Box().Name( name );
         }
 
-        // ScrollView
-        public static ScrollView ScrollView(string? name = null) {
-            var view = new ScrollView().Name( name );
-            view.horizontalScroller.highButton.BringToFront();
-            view.verticalScroller.highButton.BringToFront();
-            return view;
-        }
-
         // Label
         public static Label Label(string? text) {
             return new Label().Text( text );
@@ -118,6 +110,14 @@ namespace Project.UI {
         }
         public static Toggle Toggle(string? label) {
             return new Toggle( label );
+        }
+
+        // ScrollView
+        public static ScrollView ScrollView(string? name = null) {
+            var view = new ScrollView().Name( name );
+            view.horizontalScroller.highButton.BringToFront();
+            view.verticalScroller.highButton.BringToFront();
+            return view;
         }
 
         // Helpers/GetDisplayString

@@ -32,17 +32,11 @@ namespace UnityEditor.Tools_ {
         private void AppendClass(StringBuilder builder, int indent, string name, KeyValueTreeList<AddressableAssetEntry>.Item[] items) {
             builder.AppendIndent( indent ).AppendLine( $"public static class @{name} {{" );
             foreach (var item in Sort( items )) {
-                if (item is KeyValueTreeList<AddressableAssetEntry>.ValueItem value) {
-                    var key = Escape( value.Key );
-                    if (key == name) key = $"{key}_";
-                    var value_ = value.Value;
-                    AppendConst( builder, indent + 1, key, value_ );
+                if (item is KeyValueTreeList<AddressableAssetEntry>.ValueItem @const) {
+                    AppendConst( builder, indent + 1, Escape( @const.Key, name ), @const.Value );
                 } else
-                if (item is KeyValueTreeList<AddressableAssetEntry>.ListItem list) {
-                    var key = Escape( list.Key );
-                    if (key == name) key = $"{key}_";
-                    var items_ = list.Items.ToArray();
-                    AppendClass( builder, indent + 1, key, items_ );
+                if (item is KeyValueTreeList<AddressableAssetEntry>.ListItem @class) {
+                    AppendClass( builder, indent + 1, Escape( @class.Key, name ), @class.Items.ToArray() );
                 }
             }
             builder.AppendIndent( indent ).AppendLine( "}" );
@@ -97,12 +91,21 @@ namespace UnityEditor.Tools_ {
         }
 
         // Helpers
-        private static string Escape(string value) {
-            var chars = value.ToCharArray();
-            for (var i = 0; i < chars.Length; i++) {
-                if (!char.IsLetterOrDigit( chars[ i ] )) chars[ i ] = '_';
-            }
-            return new string( chars );
+        private static string Escape(string name, string? outer) {
+            //var chars = name.ToCharArray();
+            //for (var i = 0; i < chars.Length; i++) {
+            //    if (chars[ i ] is '_' || char.IsLetterOrDigit( chars[ i ] )) {
+            //        continue;
+            //    }
+            //    chars[ i ] = '_';
+            //}
+            //name = new string( chars );
+            name = name.TrimStart( ' ', '-', '_', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' );
+            name = name.TrimEnd( ' ', '-', '_' );
+            name = name.Replace( ' ', '_' );
+            name = name.Replace( '-', '_' );
+            name = name.Replace( '@', '_' );
+            return name == outer ? (name + "_") : name;
         }
         private static void WriteText(string path, string text) {
             if (!File.Exists( path ) || File.ReadAllText( path ) != text) {

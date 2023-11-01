@@ -1,0 +1,108 @@
+@import "StyleSheet__Theme"
+
+// views
+views = {
+    // card
+    card:                              create-view-skin( dark,           (card                         card                       ), (card                         card               ) ),
+    card-header:                       create-view-skin( dark,           (card-header                  card-header                ), (card-header                  card-header        ) ),
+    card-content:                      create-view-skin( dark,           (card-content                 card-content               ), (card-content                 card-content       ) ),
+    card-footer:                       create-view-skin( dark,           (card-footer                  card-footer                ), (card-footer                  card-footer        ) ),
+    // card 
+    dialog-card:                       create-view-skin( dark,           (dialog-card                  dialog-card                ), (dialog-card                  dialog-card        ) ),
+    dialog-card-header:                create-view-skin( dark,           (dialog-card-header           dialog-card-header         ), (dialog-card-header           dialog-card-header ) ),
+    dialog-card-header--info:          create-view-skin( dark,           (dialog-card-header--info     dialog-card-header--info   ), (dialog-card-header           dialog-card-header ) ),
+    dialog-card-header--warning:       create-view-skin( dark,           (dialog-card-header--warning  dialog-card-header--warning), (dialog-card-header           dialog-card-header ) ),
+    dialog-card-header--error:         create-view-skin( dark,           (dialog-card-header--error    dialog-card-header--error  ), (dialog-card-header           dialog-card-header ) ),
+    dialog-card-content:               create-view-skin( dark,           (dialog-card-content          dialog-card-content        ), (dialog-card-content          dialog-card-content) ),
+    dialog-card-footer:                create-view-skin( dark,           (dialog-card-footer           dialog-card-footer         ), (dialog-card-footer           dialog-card-footer ) ),
+    // scope
+    scope:                             create-view-skin( null,           (scope                        scope                      ), (scope                        scope              ) ),
+    light-scope:                       create-view-skin( dark,           (light-scope                  light-scope                ), (light-scope                  scope              ) ),
+    dark-scope:                        create-view-skin( light,          (dark-scope                   dark-scope                 ), (dark-scope                   scope              ) ),
+    // group         
+    group:                             create-view-skin( null,           (scope                        scope                      ), (scope                        scope              ) ),
+    light-group:                       create-view-skin( dark,           (light-scope                  light-scope                ), (light-scope                  scope              ) ),
+    dark-group:                        create-view-skin( light,          (dark-scope                   dark-scope                 ), (dark-scope                   scope              ) ),
+    // box
+    box:                               create-view-skin( null,           (box                          box                        ), (box                          box                ) ),
+    light-box:                         create-view-skin( dark,           (light-box                    light-box                  ), (light-box                    box                ) ),
+    dark-box:                          create-view-skin( light,          (dark-box                     dark-box                   ), (dark-box                     box                ) ),
+    // element
+    label:                             create-view-skin( null,           (element                      element                    ), (element                      element            ) ),
+    button:                            create-view-skin( dark,           (light-element                light-element              ), (light-element                element            ) ),
+    field:                             create-view-skin( null,           (element                      element                    ), (element                      element            ) ),
+    field-label:                       create-view-skin( dark,           (light-element                light-element              ), (light-element                element            ) ),
+    field-input:                       create-view-skin( light,          (dark-element                 dark-element               ), (dark-element                 element            ) ),
+    dropdown-item:                     create-view-skin( null,           (dropdown-item-element        dropdown-item-element      ), (dropdown-item-element        element            ) ),
+    dropdown-item--hover:              create-view-skin( null,           (dropdown-item-element--hover dropdown-item-element      ), (dropdown-item-element--hover element            ) ),
+    // view
+    scroll-view:                       create-view-skin( null,           (scope                        scope                      ), (scope                        scope              ) ),
+    light-scroll-view:                 create-view-skin( dark,           (light-scope                  light-scope                ), (light-scope                  scope              ) ),
+    dark-scroll-view:                  create-view-skin( light,          (dark-scope                   dark-scope                 ), (dark-scope                   scope              ) ),
+    dropdown-view:                     create-view-skin( light,          (dark-scope                   dark-scope                 ), (dark-scope                   scope              ) ),
+    // component
+    component:                         create-view-skin( null,           (component                    component                  ), (component                    component          ) ),
+    light-component:                   create-view-skin( null,           (light-component              light-component            ), (light-component              component          ) ),
+    dark-component:                    create-view-skin( null,           (dark-component               dark-component             ), (dark-component               component          ) ),
+    // image
+    image:                             create-view-skin( null,           (image                        image                      ), (image                        image              ) ),
+    light-image:                       create-view-skin( null,           (light-image                  light-image                ), (light-image                  image              ) ),
+    dark-image:                        create-view-skin( null,           (dark-image                   dark-image                 ), (dark-image                   image              ) ),
+    // icon
+    light-arrow-icon--left:            create-view-skin( null,           (null                         light-arrow-icon--left     ), (null                         null               ) ),
+    light-arrow-icon--right:           create-view-skin( null,           (null                         light-arrow-icon--right    ), (null                         null               ) ),
+    light-arrow-icon--up:              create-view-skin( null,           (null                         light-arrow-icon--up       ), (null                         null               ) ),
+    light-arrow-icon--down:            create-view-skin( null,           (null                         light-arrow-icon--down     ), (null                         null               ) ),
+    light-dropdown-arrow-icon:         create-view-skin( null,           (null                         light-dropdown-arrow-icon  ), (null                         null               ) ),
+    light-checkmark-icon:              create-view-skin( null,           (null                         light-checkmark-icon       ), (null                         null               ) ),
+    // icon
+    dark-arrow-icon--left:             create-view-skin( null,           (null                         dark-arrow-icon--left      ), (null                         null               ) ),
+    dark-arrow-icon--right:            create-view-skin( null,           (null                         dark-arrow-icon--right     ), (null                         null               ) ),
+    dark-arrow-icon--up:               create-view-skin( null,           (null                         dark-arrow-icon--up        ), (null                         null               ) ),
+    dark-arrow-icon--down:             create-view-skin( null,           (null                         dark-arrow-icon--down      ), (null                         null               ) ),
+    dark-dropdown-arrow-icon:          create-view-skin( null,           (null                         dark-dropdown-arrow-icon   ), (null                         null               ) ),
+    dark-checkmark-icon:               create-view-skin( null,           (null                         dark-checkmark-icon        ), (null                         null               ) ),
+    // effect
+    focus-effect:                      create-view-skin( focus-effect,   (null                         null                       ), (focus-effect                 null               ) ),
+    focus-effect--without-foreground:  create-view-skin( null,           (null                         null                       ), (focus-effect                 null               ) ),
+    invalid-effect:                    create-view-skin( invalid-effect, (null                         null                       ), (invalid-effect               null               ) ),
+    invalid-effect--without-foreground:create-view-skin( null,           (null                         null                       ), (invalid-effect               null               ) ),
+}
+
+// layouts
+layouts = {
+    // card
+    card:                              create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (0px                )) ),
+    card-header:                       create-layout-skin( null, (auto auto), ((0px            ) (0px 0px 0px 1px) (12px 12px 10px 10px)) ),
+    card-content:                      create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (24px 24px 20px 20px)) ),
+    card-footer:                       create-layout-skin( null, (auto auto), ((0px            ) (0px 0px 1px 0px) (24px 24px 20px 20px)) ),
+    // scope
+    scope:                             create-layout-skin( null, (auto auto), ((0px            ) (0px            ) ( 0px  0px  0px  0px)) ),
+    small-scope:                       create-layout-skin( null, (auto auto), ((0px            ) (0px            ) ( 6px  6px  5px  5px)) ),
+    medium-scope:                      create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (12px 12px 10px 10px)) ),
+    large-scope:                       create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (24px 24px 20px 20px)) ),
+    // group
+    group:                             create-layout-skin( null, (auto auto), ((4px            ) (1px            ) ( 0px  0px  0px  0px)) ),
+    small-group:                       create-layout-skin( null, (auto auto), ((4px            ) (1px            ) ( 6px  6px  5px  5px)) ),
+    medium-group:                      create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
+    large-group:                       create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (24px 24px 20px 20px)) ),
+    // box
+    box:                               create-layout-skin( null, (auto auto), ((4px            ) (1px            ) ( 0px  0px  0px  0px)) ),
+    small-box:                         create-layout-skin( null, (auto auto), ((4px            ) (1px            ) ( 6px  6px  5px  5px)) ),
+    medium-box:                        create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
+    large-box:                         create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (24px 24px 20px 20px)) ),
+    // element
+    label:                             create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
+    button:                            create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
+    field:                             create-layout-skin( null, (auto auto), ((4px            ) (0px            ) (0px                )) ),
+    field-label:                       create-layout-skin( null, (auto auto), ((0px 2px 0px 0px) (1px            ) (12px 12px 10px 10px)) ),
+    field-input:                       create-layout-skin( null, (auto auto), ((0px 0px 0px 0px) (1px            ) (12px 12px 10px 10px)) ),
+    dropdown-item:                     create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (12px 12px 10px 10px)) ),
+    // view
+    scroll-view:                       create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (0px                )) ),
+    dropdown-view:                     create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (0px                )) ),
+    // component
+    component:                         create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (0px  0px  0px   0px)) ),
+    // image
+    image:                             create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (0px  0px  0px   0px)) ),
+}

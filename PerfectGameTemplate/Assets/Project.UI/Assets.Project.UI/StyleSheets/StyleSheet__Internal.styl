@@ -239,20 +239,25 @@ get-style-property(property)
     return 'justify-content'             if property == 'justify-content'
     return 'align-items'                 if property == 'align-items'
     return 'align-content'               if property == 'align-content'
+    //
     property
 
 // get-unity-style-property
 get-unity-style-property(property)
+    // view
     return '-unity-' + property if property == 'overflow-clip-box'
+    // font
     return '-unity-' + property if property == 'font'
     return '-unity-' + property if property == 'font-definition'
     return '-unity-' + property if property == 'font-style'
+    // text
     return '-unity-' + property if property == 'text-align'
     return '-unity-' + property if property == 'text-outline'
     return '-unity-' + property if property == 'text-outline-width'
     return '-unity-' + property if property == 'text-outline-color'
     return '-unity-' + property if property == 'text-overflow-position'
     return '-unity-' + property if property == 'paragraph-spacing'
+    // background
     return '-unity-' + property if property == 'background-image-tint-color'
     return '-unity-' + property if property == 'background-scale-mode'
     return '-unity-' + property if property == 'slice-left'
@@ -260,6 +265,7 @@ get-unity-style-property(property)
     return '-unity-' + property if property == 'slice-top'
     return '-unity-' + property if property == 'slice-bottom'
     return '-unity-' + property if property == 'slice-scale'
+    // 
     property
 
 // get-style-value
