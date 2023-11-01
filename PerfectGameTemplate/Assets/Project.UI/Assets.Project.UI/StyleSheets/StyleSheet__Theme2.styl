@@ -28,6 +28,7 @@ views = {
     light-box:                         create-view-skin( dark,           (light-box                    light-box                  ), (light-box                    box                ) ),
     dark-box:                          create-view-skin( light,          (dark-box                     dark-box                   ), (dark-box                     box                ) ),
     // element
+    element:                           create-view-skin( null,           (element                      element                    ), (element                      element            ) ),
     label:                             create-view-skin( null,           (element                      element                    ), (element                      element            ) ),
     button:                            create-view-skin( dark,           (light-element                light-element              ), (light-element                element            ) ),
     field:                             create-view-skin( null,           (element                      element                    ), (element                      element            ) ),
@@ -40,10 +41,6 @@ views = {
     light-scroll-view:                 create-view-skin( dark,           (light-scope                  light-scope                ), (light-scope                  scope              ) ),
     dark-scroll-view:                  create-view-skin( light,          (dark-scope                   dark-scope                 ), (dark-scope                   scope              ) ),
     dropdown-view:                     create-view-skin( light,          (dark-scope                   dark-scope                 ), (dark-scope                   scope              ) ),
-    // component
-    component:                         create-view-skin( null,           (component                    component                  ), (component                    component          ) ),
-    light-component:                   create-view-skin( null,           (light-component              light-component            ), (light-component              component          ) ),
-    dark-component:                    create-view-skin( null,           (dark-component               dark-component             ), (dark-component               component          ) ),
     // image
     image:                             create-view-skin( null,           (image                        image                      ), (image                        image              ) ),
     light-image:                       create-view-skin( null,           (light-image                  light-image                ), (light-image                  image              ) ),
@@ -77,21 +74,22 @@ layouts = {
     card-content:                      create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (24px 24px 20px 20px)) ),
     card-footer:                       create-layout-skin( null, (auto auto), ((0px            ) (0px 0px 1px 0px) (24px 24px 20px 20px)) ),
     // scope
-    scope:                             create-layout-skin( null, (auto auto), ((0px            ) (0px            ) ( 0px  0px  0px  0px)) ),
-    small-scope:                       create-layout-skin( null, (auto auto), ((0px            ) (0px            ) ( 6px  6px  5px  5px)) ),
+    scope:                             create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (0px                )) ),
+    small-scope:                       create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (6px  6px  5px  5px )) ),
     medium-scope:                      create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (12px 12px 10px 10px)) ),
     large-scope:                       create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (24px 24px 20px 20px)) ),
     // group
-    group:                             create-layout-skin( null, (auto auto), ((4px            ) (1px            ) ( 0px  0px  0px  0px)) ),
-    small-group:                       create-layout-skin( null, (auto auto), ((4px            ) (1px            ) ( 6px  6px  5px  5px)) ),
+    group:                             create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (0px                )) ),
+    small-group:                       create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (6px  6px  5px  5px )) ),
     medium-group:                      create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
     large-group:                       create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (24px 24px 20px 20px)) ),
     // box
-    box:                               create-layout-skin( null, (auto auto), ((4px            ) (1px            ) ( 0px  0px  0px  0px)) ),
-    small-box:                         create-layout-skin( null, (auto auto), ((4px            ) (1px            ) ( 6px  6px  5px  5px)) ),
+    box:                               create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (0px                )) ),
+    small-box:                         create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (6px  6px  5px  5px )) ),
     medium-box:                        create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
     large-box:                         create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (24px 24px 20px 20px)) ),
     // element
+    element:                           create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (0px                )) ),
     label:                             create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
     button:                            create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
     field:                             create-layout-skin( null, (auto auto), ((4px            ) (0px            ) (0px                )) ),
@@ -101,8 +99,6 @@ layouts = {
     // view
     scroll-view:                       create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (0px                )) ),
     dropdown-view:                     create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (0px                )) ),
-    // component
-    component:                         create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (0px  0px  0px   0px)) ),
     // image
     image:                             create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (0px  0px  0px   0px)) ),
 }
