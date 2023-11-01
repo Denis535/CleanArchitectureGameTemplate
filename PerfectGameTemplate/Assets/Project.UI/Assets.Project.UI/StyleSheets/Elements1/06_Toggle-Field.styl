@@ -6,9 +6,9 @@ toggle-field-label()
 toggle-field-input()
 // checkmark
 checkmark(effect, value)
-    add-skin1      effect, image--light,                      if !value
-    add-skin1      effect, image--light icon--dark--checkmark if value
-    add-skin2      effect, image, create-size(16px, 16px)
+    add-skin1      effect, component--light,                      if !value
+    add-skin1      effect, component--light icon--dark--checkmark if value
+    add-skin2      effect, component, create-size(16px, 16px)
     add-skin3-flex effect, 0, 1, auto, auto
 
 // toggle-field
