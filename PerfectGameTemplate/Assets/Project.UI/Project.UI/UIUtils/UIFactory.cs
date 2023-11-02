@@ -33,6 +33,17 @@ namespace Project.UI {
         public static Card Card() {
             return new Card().Name( "card" );
         }
+        public static Header Header() {
+            return new Header().Name( "header" );
+        }
+        public static Content Content() {
+            return new Content().Name( "content" );
+        }
+        public static Footer Footer() {
+            return new Footer().Name( "footer" );
+        }
+
+        // Card
         public static Card DialogCard() {
             return new Card().Name( "dialog-card" ).Classes( "dialog-card" );
         }
@@ -44,15 +55,6 @@ namespace Project.UI {
         }
         public static Card ErrorDialogCard() {
             return new Card().Name( "error-dialog-card" ).Classes( "error-dialog-card" );
-        }
-        public static Header Header() {
-            return new Header().Name( "header" );
-        }
-        public static Content Content() {
-            return new Content().Name( "content" );
-        }
-        public static Footer Footer() {
-            return new Footer().Name( "footer" );
         }
 
         // Slot
@@ -74,6 +76,14 @@ namespace Project.UI {
         }
         public static RowGroup RowGroup(string? name = null) {
             return new RowGroup().Name( name );
+        }
+
+        // ScrollView
+        public static ScrollView ScrollView(string? name = null) {
+            var view = new ScrollView().Name( name );
+            view.horizontalScroller.highButton.BringToFront();
+            view.verticalScroller.highButton.BringToFront();
+            return view;
         }
 
         // Box
@@ -110,14 +120,6 @@ namespace Project.UI {
         }
         public static Toggle Toggle(string? label) {
             return new Toggle( label );
-        }
-
-        // ScrollView
-        public static ScrollView ScrollView(string? name = null) {
-            var view = new ScrollView().Name( name );
-            view.horizontalScroller.highButton.BringToFront();
-            view.verticalScroller.highButton.BringToFront();
-            return view;
         }
 
         // Helpers/GetDisplayString
