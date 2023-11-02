@@ -25,6 +25,14 @@ content(effect)
     add-skin2       effect, element
     add-skin3-flex  effect, 0, 0, auto, auto
     add-skin3-flex2 effect, column, flex-start, stretch
+small-content(effect)
+    add-skin2 effect, null, create-box(null, null, 6px  6px  5px  5px )
+medium-content(effect)
+    add-skin2 effect, null, create-box(null, null, 12px 12px 10px 10px)
+large-content(effect)
+    add-skin2 effect, null, create-box(null, null, 24px 24px 20px 20px)
+reverse-content(effect)
+    add-skin3-flex2 effect, column-reverse, null, null
 
 // scroller
 horizontal-scroller(effect)
@@ -117,16 +125,16 @@ vertical-high-button(effect)
         content(null)
 .unity-scroll-view.small
     #unity-content-container
-        add-skin2 null, null, create-box(null, null, 6px 6px 5px 5px)
+        small-content(null)
 .unity-scroll-view.medium
     #unity-content-container
-        add-skin2 null, null, create-box(null, null, 12px 12px 10px 10px)
+        medium-content(null)
 .unity-scroll-view.large
     #unity-content-container
-        add-skin2 null, null, create-box(null, null, 24px 24px 20px 20px)
+        large-content(null)
 .unity-scroll-view.reverse
     #unity-content-viewport
-        add-skin3-flex2 null, column-reverse, null, null
+        reverse-content(null)
 
 // scroller
 .unity-scroller--horizontal

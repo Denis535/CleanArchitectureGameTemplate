@@ -1,7 +1,7 @@
 @import "../StyleSheet__Theme2"
 
-// dropdown-view
-dropdown-view(effect)
+// dropdown
+dropdown(effect)
     add-skin1 effect, dropdown-element
     add-skin2 effect, dropdown-element
 
@@ -22,7 +22,7 @@ content(effect)
 // dropdown-item
 dropdown-item(effect)
     add-skin1       effect, dropdown-item-element,       if effect == null
-    add-skin1       effect, dropdown-item-element--hover if effect == 'hover'
+    add-skin1       null,   dropdown-item-element--hover if effect == 'hover'
     add-skin2       effect, dropdown-item-element
     add-skin3-flex  effect, 0, 1, auto, auto
     add-skin3-flex2 effect, row, flex-start, center
@@ -38,12 +38,12 @@ text(effect)
     add-skin2      effect, element
     add-skin3-flex effect, 1, 1, auto, auto
 
-// dropdown-view
+// dropdown
 .unity-base-dropdown
     add-view(bg-color: rgba(0, 0, 0, 0.25))
     add-layout(position: absolute)
     &__container-outer
-        dropdown-view(null)
+        dropdown(null)
     .unity-scroll-view
         scroll-view(null)
     #unity-content-and-vertical-scroll-container
