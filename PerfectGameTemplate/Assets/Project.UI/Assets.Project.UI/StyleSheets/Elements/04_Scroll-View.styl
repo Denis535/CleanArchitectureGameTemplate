@@ -115,8 +115,15 @@ vertical-high-button(effect)
         viewport(null)
     #unity-content-container
         content(null)
-
-// scroll-view
+.unity-scroll-view.small
+    #unity-content-container
+        add-skin2 null, null, create-box(null, null, 6px 6px 5px 5px)
+.unity-scroll-view.medium
+    #unity-content-container
+        add-skin2 null, null, create-box(null, null, 12px 12px 10px 10px)
+.unity-scroll-view.large
+    #unity-content-container
+        add-skin2 null, null, create-box(null, null, 24px 24px 20px 20px)
 .unity-scroll-view.reverse
     #unity-content-viewport
         add-skin3-flex2 null, column-reverse, null, null
