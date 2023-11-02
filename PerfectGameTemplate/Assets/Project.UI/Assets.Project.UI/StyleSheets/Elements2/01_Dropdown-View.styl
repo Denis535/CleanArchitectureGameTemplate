@@ -2,8 +2,8 @@
 
 // dropdown-view
 dropdown-view(effect)
-    add-skin1 effect, element--dropdown-view
-    add-skin2 effect, element--dropdown-view
+    add-skin1 effect, dropdown-element
+    add-skin2 effect, dropdown-element
 
 // scroll-view
 scroll-view(effect)
@@ -21,15 +21,15 @@ content(effect)
 
 // dropdown-item
 dropdown-item(effect)
-    add-skin1       effect, element--dropdown-item,       if effect == null
-    add-skin1       effect, element--dropdown-item--hover if effect == 'hover'
-    add-skin2       effect, element--dropdown-item
+    add-skin1       effect, dropdown-item-element,       if effect == null
+    add-skin1       effect, dropdown-item-element--hover if effect == 'hover'
+    add-skin2       effect, dropdown-item-element
     add-skin3-flex  effect, 0, 1, auto, auto
     add-skin3-flex2 effect, row, flex-start, center
 // checkmark
 checkmark(effect, value)
-    add-skin1      effect, component,                       if !value
-    add-skin1      effect, component icon--light--checkmark if value
+    add-skin1      effect, component,                      if !value
+    add-skin1      effect, component checkmark-icon--light if value
     add-skin2      effect, component, create-size(16px, 16px), create-box(0px 12px 0px 0px, null, null) 
     add-skin3-flex effect, 0, 1, auto, auto
 // text
