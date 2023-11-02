@@ -202,11 +202,13 @@ namespace UnityEditor {
                 if (expr.nodes.length == 1) {{
                     const expr2 = expr.nodes[0];
                     if (expr2.constructor.name == 'String')   return new Stylus.nodes.Literal(expr2.string ?? expr2.toString());
+                    if (expr2.constructor.name == 'Literal')  return new Stylus.nodes.Literal(expr2.string ?? expr2.toString());
                     if (expr2.constructor.name == 'Ident')    return new Stylus.nodes.Literal(expr2.string ?? expr2.toString());
                     if (expr2.constructor.name == 'Unit')     return new Stylus.nodes.Literal(expr2.string ?? expr2.toString());
                     if (expr2.constructor.name == 'RGBA')     return new Stylus.nodes.Literal(expr2.name);
                     if (expr2.constructor.name == 'Function') return new Stylus.nodes.Literal(expr2.name);
                     if (expr2.constructor.name == 'Null')     return new Stylus.nodes.Null();
+                    throw new Error( 'Expression is not supported: ' + expr2 );
                 }}
                 throw new Error( 'Expression is invalid: ' + expr );
             }}
