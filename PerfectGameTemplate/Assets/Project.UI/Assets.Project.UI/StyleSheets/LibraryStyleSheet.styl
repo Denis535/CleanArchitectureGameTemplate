@@ -19,11 +19,12 @@ get-style-selector(selector, key)
     key2 = ()
     for i in key
         i = get-string(i)
-        i = replace('^(flex-)', '',  i) // trim starting 'flex-'
-        i = replace('(%)$',     '',  i) // trim ending '%'
-        i = replace('^(-)',     'n', i) // replace starting '-' with 'n'
-        i = replace(' ',        '-', i) // replace ' ' with '-'
+        i = replace('^(flex-)', '',   i) // trim starting 'flex-'
+        i = replace('^(-)',     'n',  i) // replace starting '-' with 'n'
+        i = replace('(%)$',     'pc', i) // replace ending '%' with 'pc'
+        i = replace(' ',        '-',  i) // replace spaces with '-'
         push(key2, i)
+    key2 = join('-', key2)
     replace('{key}', key2, selector)
 
 // get-style-property

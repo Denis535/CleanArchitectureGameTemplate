@@ -39,7 +39,7 @@ namespace Project.UI.Common {
                     ),
                     UIFactory.Content().Children(
                         UIFactory.ColumnGroup().Classes( "dark-2", "large", "grow-1" ).Children(
-                            name = UIFactory.TextField( "Name", 16, false ).Name( "name" ).Classes( "label-width-25" )
+                            name = UIFactory.TextField( "Name", 16, false ).Name( "name" ).Classes( "label-width-25pc" )
                         )
                     ),
                     UIFactory.Footer().Children(

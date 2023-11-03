@@ -95,10 +95,12 @@ namespace Project.UI {
         public static Label Label(string? text) {
             return new Label().Text( text );
         }
+
         // Button
         public static Button Button(string? text) {
             return new Button().Text( text );
         }
+
         // Field
         public static TextField TextField(string? label, int maxLength, bool isMultiline) {
             return new TextField( label, maxLength, isMultiline, false, '*' );
