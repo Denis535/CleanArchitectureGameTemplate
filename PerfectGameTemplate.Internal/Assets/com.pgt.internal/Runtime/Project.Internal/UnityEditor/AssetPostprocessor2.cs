@@ -191,7 +191,7 @@ namespace UnityEditor {
             function getTypeEx(expr) {{
                 expr = Stylus.utils.unwrap(expr);
                 if (expr.nodes.length == 0) return new Stylus.nodes.Null();
-                if (expr.nodes.length == 1) return new Stylus.nodes.Literal(expr.nodes[0].constructor.name);
+                if (expr.nodes.length == 1) return new Stylus.nodes.String(expr.nodes[0].constructor.name);
                 return new Stylus.nodes.Literal(expr.constructor.name);
             }}
             function getStringEx(expr) {{
@@ -201,12 +201,12 @@ namespace UnityEditor {
                 }}
                 if (expr.nodes.length == 1) {{
                     const expr2 = expr.nodes[0];
-                    if (expr2.constructor.name == 'String')   return new Stylus.nodes.Literal(expr2.string ?? expr2.toString());
-                    if (expr2.constructor.name == 'Literal')  return new Stylus.nodes.Literal(expr2.string ?? expr2.toString());
-                    if (expr2.constructor.name == 'Ident')    return new Stylus.nodes.Literal(expr2.string ?? expr2.toString());
-                    if (expr2.constructor.name == 'Unit')     return new Stylus.nodes.Literal(expr2.string ?? expr2.toString());
-                    if (expr2.constructor.name == 'RGBA')     return new Stylus.nodes.Literal(expr2.name);
-                    if (expr2.constructor.name == 'Function') return new Stylus.nodes.Literal(expr2.name);
+                    if (expr2.constructor.name == 'String')   return new Stylus.nodes.String(expr2.string ?? expr2.toString());
+                    if (expr2.constructor.name == 'Literal')  return new Stylus.nodes.String(expr2.string ?? expr2.toString());
+                    if (expr2.constructor.name == 'Ident')    return new Stylus.nodes.String(expr2.string ?? expr2.toString());
+                    if (expr2.constructor.name == 'Unit')     return new Stylus.nodes.String(expr2.string ?? expr2.toString());
+                    if (expr2.constructor.name == 'RGBA')     return new Stylus.nodes.String(expr2.name);
+                    if (expr2.constructor.name == 'Function') return new Stylus.nodes.String(expr2.name);
                     if (expr2.constructor.name == 'Null')     return new Stylus.nodes.Null();
                     throw new Error( 'Expression is not supported: ' + expr2 );
                 }}

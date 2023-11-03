@@ -67,9 +67,9 @@ views = {
 }
 
 // add-skin1
-add-skin1(effect, view, objects...)
+add-skin1(effect, name, objects...)
     if effect == null
-        add-style get-view-skin(view[0]), get-view-skin(view[1]), objects
+        add-style get-view-skin(name[0]), get-view-skin(name[1]), objects
 
 // add-skin1
 add-skin1-light(effect, view)
@@ -101,7 +101,7 @@ add-skin1-dark(effect, view)
                 skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
                 add-style skin
 
-// add-misc
-add-misc(effect, objects...)
+// add-skin2
+add-skin2(effect, name, objects...)
     if effect == null
-        add-style objects
+        add-style get-skin(name), objects

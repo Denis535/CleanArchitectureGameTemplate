@@ -10,10 +10,21 @@ create-view-skin(color, background, border)
     create-view color, null, null, background-color, background-image, border-color, border-radius
 
 // get-view-skin
-get-view-skin(view)
-    if view != null
-        view = views[get-string(view)] or error('Views has no view: ' + get-string(view))
-        return clone(view)
+get-view-skin(name)
+    if name != null
+        name = get-string(name)
+        if name in views
+            return clone(views[name])
+        error('View is not found: ' + name)
+    null
+
+// get-skin
+get-skin(name)
+    if name != null
+        name = 'skin--' + get-string(name)
+        if name is defined
+            return clone(lookup(name))
+        error('Skin is not found: ' + name)
     null
 
 // get-theme-value
