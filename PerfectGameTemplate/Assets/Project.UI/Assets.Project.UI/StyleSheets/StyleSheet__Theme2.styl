@@ -68,28 +68,28 @@ views = {
 
 // layouts
 layouts = {
-    // card
-    card:                                        create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (0px                )) ),
-    card-header:                                 create-layout-skin( null, (auto auto), ((0px            ) (0px 0px 0px 1px) (12px 12px 10px 10px)) ),
-    card-content:                                create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (24px 24px 20px 20px)) ),
-    card-footer:                                 create-layout-skin( null, (auto auto), ((0px            ) (0px 0px 1px 0px) (24px 24px 20px 20px)) ),
-    // scope          
-    scope:                                       create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (0px                )) ),
-    scope--small:                                create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (6px  6px  5px  5px )) ),
-    scope--medium:                               create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (12px 12px 10px 10px)) ),
-    scope--large:                                create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (24px 24px 20px 20px)) ),
+    // // card
+    // card:                                        create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (0px                )) ),
+    // card-header:                                 create-layout-skin( null, (auto auto), ((0px            ) (0px 0px 0px 1px) (12px 12px 10px 10px)) ),
+    // card-content:                                create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (24px 24px 20px 20px)) ),
+    // card-footer:                                 create-layout-skin( null, (auto auto), ((0px            ) (0px 0px 1px 0px) (24px 24px 20px 20px)) ),
+    // // scope          
+    // scope:                                       create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (0px                )) ),
+    // scope--small:                                create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (6px  6px  5px  5px )) ),
+    // scope--medium:                               create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (12px 12px 10px 10px)) ),
+    // scope--large:                                create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (24px 24px 20px 20px)) ),
     // group          
-    group:                                       create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (0px                )) ),
-    group--small:                                create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (6px  6px  5px  5px )) ),
-    group--medium:                               create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
-    group--large:                                create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (24px 24px 20px 20px)) ),
+    // group:                                       create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (0px                )) ),
+    // group--small:                                create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (6px  6px  5px  5px )) ),
+    // group--medium:                               create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
+    // group--large:                                create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (24px 24px 20px 20px)) ),
     // scroll-view
-    scroll-view:                                 create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (0px                )) ),
-    // box          
-    box:                                         create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (0px                )) ),
-    box--small:                                  create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (6px  6px  5px  5px )) ),
-    box--medium:                                 create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
-    box--large:                                  create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (24px 24px 20px 20px)) ),
+    // scroll-view:                                 create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (0px                )) ),
+    // // box          
+    // box:                                         create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (0px                )) ),
+    // box--small:                                  create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (6px  6px  5px  5px )) ),
+    // box--medium:                                 create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
+    // box--large:                                  create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (24px 24px 20px 20px)) ),
     // element          
     element:                                     create-layout-skin( null, (auto auto), ((0px            ) (0px            ) (0px                )) ),
     label-element:                               create-layout-skin( null, (auto auto), ((4px            ) (1px            ) (12px 12px 10px 10px)) ),
@@ -102,3 +102,62 @@ layouts = {
     // component          
     component:                                   create-layout-skin( null, (auto auto), ((0px            ) (1px            ) (0px                )) ),
 }
+
+// add-skin1
+add-skin1(effect, view, objects...)
+    if effect == null
+        add-style get-view-skin(view[0]), get-view-skin(view[1]), objects
+
+// add-skin1
+add-skin1-light(effect, view)
+    if effect == null
+        for i in 0..10
+            alpha  = i / 10
+            alpha2 = (alpha+3)/4
+            &.light-{i}
+                skin = get-view-skin(view)
+                skin.background-color    = alpha(skin.background-color,    alpha(skin.background-color   ) * alpha )
+                skin.border-color        = alpha(skin.border-color,        alpha(skin.border-color       ) * alpha2) if has(skin, 'border-color'       )
+                skin.border-left-color   = alpha(skin.border-left-color,   alpha(skin.border-left-color  ) * alpha2) if has(skin, 'border-left-color'  )
+                skin.border-right-color  = alpha(skin.border-right-color,  alpha(skin.border-right-color ) * alpha2) if has(skin, 'border-right-color' )
+                skin.border-top-color    = alpha(skin.border-top-color,    alpha(skin.border-top-color   ) * alpha2) if has(skin, 'border-top-color'   )
+                skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
+                add-style skin
+add-skin1-dark(effect, view)
+    if effect == null
+        for i in 0..10
+            alpha  = i / 10
+            alpha2 = (alpha+3)/4
+            &.dark-{i}
+                skin = get-view-skin(view)
+                skin.background-color    = alpha(skin.background-color,    alpha(skin.background-color   ) * alpha )
+                skin.border-color        = alpha(skin.border-color,        alpha(skin.border-color       ) * alpha2) if has(skin, 'border-color'       )
+                skin.border-left-color   = alpha(skin.border-left-color,   alpha(skin.border-left-color  ) * alpha2) if has(skin, 'border-left-color'  )
+                skin.border-right-color  = alpha(skin.border-right-color,  alpha(skin.border-right-color ) * alpha2) if has(skin, 'border-right-color' )
+                skin.border-top-color    = alpha(skin.border-top-color,    alpha(skin.border-top-color   ) * alpha2) if has(skin, 'border-top-color'   )
+                skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
+                add-style skin
+
+// add-skin2
+add-skin2(effect, layout, objects...)
+    if effect == null
+        add-style get-layout-skin(layout), objects
+
+// add-skin2
+add-skin2-small(effect, layout)
+    if effect == null
+        &.small
+            add-style get-layout-skin(layout)
+add-skin2-medium(effect, layout)
+    if effect == null
+        &.medium
+            add-style get-layout-skin(layout)
+add-skin2-large(effect, layout)
+    if effect == null
+        &.large
+            add-style get-layout-skin(layout)
+
+// add-misc
+add-misc(effect, objects...)
+    if effect == null
+        add-style objects

@@ -158,6 +158,13 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 .dialog-card .header {
   color: #1a1a1a;
@@ -184,6 +191,13 @@
   padding-right: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .dialog-card .content {
   color: #1a1a1a;
@@ -210,6 +224,13 @@
   padding-right: 24px;
   padding-top: 20px;
   padding-bottom: 20px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   justify-content: center;
   align-items: center;
 }
@@ -238,6 +259,13 @@
   padding-right: 24px;
   padding-top: 20px;
   padding-bottom: 20px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 .info-dialog-card {
   color: #1a1a1a;
@@ -264,6 +292,13 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 .info-dialog-card .header {
   color: #1a1a1a;
@@ -290,6 +325,13 @@
   padding-right: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .info-dialog-card .content {
   color: #1a1a1a;
@@ -316,6 +358,13 @@
   padding-right: 24px;
   padding-top: 20px;
   padding-bottom: 20px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   justify-content: center;
   align-items: center;
 }
@@ -344,6 +393,13 @@
   padding-right: 24px;
   padding-top: 20px;
   padding-bottom: 20px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 .warning-dialog-card {
   color: #1a1a1a;
@@ -370,6 +426,13 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 .warning-dialog-card .header {
   color: #1a1a1a;
@@ -396,6 +459,13 @@
   padding-right: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .warning-dialog-card .content {
   color: #1a1a1a;
@@ -422,6 +492,13 @@
   padding-right: 24px;
   padding-top: 20px;
   padding-bottom: 20px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   justify-content: center;
   align-items: center;
 }
@@ -450,6 +527,13 @@
   padding-right: 24px;
   padding-top: 20px;
   padding-bottom: 20px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 .error-dialog-card {
   color: #1a1a1a;
@@ -476,6 +560,13 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 .error-dialog-card .header {
   color: #1a1a1a;
@@ -502,6 +593,13 @@
   padding-right: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .error-dialog-card .content {
   color: #1a1a1a;
@@ -528,6 +626,13 @@
   padding-right: 24px;
   padding-top: 20px;
   padding-bottom: 20px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   justify-content: center;
   align-items: center;
 }
@@ -556,4 +661,11 @@
   padding-right: 24px;
   padding-top: 20px;
   padding-bottom: 20px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }

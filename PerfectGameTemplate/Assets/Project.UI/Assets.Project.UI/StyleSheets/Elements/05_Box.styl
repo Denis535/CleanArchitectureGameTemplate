@@ -1,14 +1,23 @@
 @import "../StyleSheet__Theme2"
 
+// skin
+skin--box         = create-layout(null, auto, auto, 4px, 1px, 0px                )
+skin--box--small  = create-layout(null, auto, auto, 4px, 1px, 6px  6px  5px  5px )
+skin--box--medium = create-layout(null, auto, auto, 4px, 1px, 12px 12px 10px 10px)
+skin--box--large  = create-layout(null, auto, auto, 4px, 1px, 24px 24px 20px 20px)
+
 // box
 box(effect)
     add-skin1        effect, box
     add-skin1-light  effect, box--light
     add-skin1-dark   effect, box--dark
-    add-skin2        effect, box
-    add-skin2-small  effect, box--small
-    add-skin2-medium effect, box--medium
-    add-skin2-large  effect, box--large
+    add-misc         effect, skin--box
+    &.small
+        add-misc     effect, skin--box--small
+    &.medium
+        add-misc     effect, skin--box--medium
+    &.large
+        add-misc     effect, skin--box--large
 
 // box
 .unity-box

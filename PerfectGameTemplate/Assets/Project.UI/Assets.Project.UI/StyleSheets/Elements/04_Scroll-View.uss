@@ -18,10 +18,10 @@
   border-right-width: 1px;
   border-top-width: 1px;
   border-bottom-width: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
@@ -393,18 +393,48 @@
   align-items: stretch;
 }
 .unity-scroll-view.small #unity-content-container {
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
   padding-left: 6px;
   padding-right: 6px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 .unity-scroll-view.medium #unity-content-container {
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
   padding-left: 12px;
   padding-right: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 .unity-scroll-view.large #unity-content-container {
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
   padding-left: 24px;
   padding-right: 24px;
   padding-top: 20px;
@@ -412,6 +442,8 @@
 }
 .unity-scroll-view.reverse #unity-content-viewport {
   flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 .unity-scroller--horizontal {
   background-color: rgba(0,0,0,0);
@@ -552,21 +584,19 @@
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   width: auto;
-  height: auto;
+  height: 24px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
   padding-left: 0px;
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  width: auto;
-  height: 24px;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
@@ -583,8 +613,9 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  position: absolute;
   width: auto;
-  height: auto;
+  height: 24px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -597,9 +628,6 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  position: absolute;
-  width: auto;
-  height: 24px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
@@ -618,8 +646,8 @@
   border-bottom-right-radius: 4px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png');
   -unity-background-image-tint-color: #121c21;
-  width: auto;
-  height: auto;
+  width: 24px;
+  height: 24px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -632,12 +660,6 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  width: 24px;
-  height: 24px;
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-top: 2px;
-  margin-bottom: 2px;
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;
@@ -656,8 +678,8 @@
   border-bottom-right-radius: 4px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png');
   -unity-background-image-tint-color: #121c21;
-  width: auto;
-  height: auto;
+  width: 24px;
+  height: 24px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -670,12 +692,6 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  width: 24px;
-  height: 24px;
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-top: 2px;
-  margin-bottom: 2px;
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;
@@ -819,22 +835,20 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  width: auto;
+  width: 24px;
   height: auto;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
   padding-left: 0px;
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  width: 24px;
-  height: auto;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: auto;
@@ -851,7 +865,8 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  width: auto;
+  position: absolute;
+  width: 24px;
   height: auto;
   margin-left: 0px;
   margin-right: 0px;
@@ -865,9 +880,6 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  position: absolute;
-  width: 24px;
-  height: auto;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
@@ -886,8 +898,8 @@
   border-bottom-right-radius: 4px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png');
   -unity-background-image-tint-color: #121c21;
-  width: auto;
-  height: auto;
+  width: 24px;
+  height: 24px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -900,12 +912,6 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  width: 24px;
-  height: 24px;
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-top: 2px;
-  margin-bottom: 2px;
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;
@@ -924,8 +930,8 @@
   border-bottom-right-radius: 4px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png');
   -unity-background-image-tint-color: #121c21;
-  width: auto;
-  height: auto;
+  width: 24px;
+  height: 24px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -938,12 +944,6 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  width: 24px;
-  height: 24px;
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-top: 2px;
-  margin-bottom: 2px;
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;

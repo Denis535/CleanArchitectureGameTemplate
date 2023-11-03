@@ -132,26 +132,26 @@ create-box(margin, border, padding)
     border-width = create-border-width(border)
     padding      = create-padding(padding)
     merge(margin, border-width, padding)
-create-margin(margin)
+create-margin(margin, left = null, right = null, top = null, bottom = null)
     return {
-        margin-left:   margin[0],
-        margin-right:  margin[1] or margin[0],
-        margin-top:    margin[2] or margin[0],
-        margin-bottom: margin[3] or margin[0],
+        margin-left:   left   or margin[0],
+        margin-right:  right  or margin[1] or margin[0],
+        margin-top:    top    or margin[2] or margin[0],
+        margin-bottom: bottom or margin[3] or margin[0],
     }
-create-border-width(border)
+create-border-width(border, left = null, right = null, top = null, bottom = null)
     return {
-        border-left-width:   border[0],
-        border-right-width:  border[1] or border[0],
-        border-top-width:    border[2] or border[0],
-        border-bottom-width: border[3] or border[0],
+        border-left-width:   left   or border[0],
+        border-right-width:  right  or border[1] or border[0],
+        border-top-width:    top    or border[2] or border[0],
+        border-bottom-width: bottom or border[3] or border[0],
     }
-create-padding(padding)
+create-padding(padding, left = null, right = null, top = null, bottom = null)
     return {
-        padding-left:   padding[0],
-        padding-right:  padding[1] or padding[0],
-        padding-top:    padding[2] or padding[0],
-        padding-bottom: padding[3] or padding[0],
+        padding-left:   left   or padding[0],
+        padding-right:  right  or padding[1] or padding[0],
+        padding-top:    top    or padding[2] or padding[0],
+        padding-bottom: bottom or padding[3] or padding[0],
     }
 
 // create-flex

@@ -1,51 +1,47 @@
 @import "../StyleSheet__Theme2"
 
+// skin
+skin--card         = create-layout(null, auto, auto, 0px, 1px 1px 1px 1px, 0px  0px  0px  0px ), create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch)
+skin--card-header  = create-layout(null, auto, auto, 0px, 0px 0px 0px 1px, 12px 12px 10px 10px), create-flex(0, 0, auto, auto), create-flex2(row,    center,       center )
+skin--card-content = create-layout(null, auto, auto, 0px, 0px 0px 0px 0px, 24px 24px 20px 20px), create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch)
+skin--card-footer  = create-layout(null, auto, auto, 0px, 0px 0px 1px 0px, 24px 24px 20px 20px), create-flex(0, 0, auto, auto), create-flex2(row,    space-around, center )
+
 // card
 card(effect)
     add-skin1 effect, card
-    add-skin2 effect, card
-    add-misc  effect, create-flex(1, 1, auto, auto)
-    add-misc  effect, create-flex2(column, flex-start, stretch)
+    add-misc  effect, skin--card
 card-header(effect)
     add-skin1 effect, card-header
-    add-skin2 effect, card-header
-    add-misc  effect, create-flex(0, 0, auto, auto)
-    add-misc  effect, create-flex2(row, center, center)
+    add-misc  effect, skin--card-header
 card-content(effect)
     add-skin1 effect, card-content
-    add-skin2 effect, card-content
-    add-misc  effect, create-flex(1, 1, auto, auto)
-    add-misc  effect, create-flex2(column, flex-start, stretch)
+    add-misc  effect, skin--card-content
 card-footer(effect)
     add-skin1 effect, card-footer
-    add-skin2 effect, card-footer
-    add-misc  effect, create-flex(0, 0, auto, auto)
-    add-misc  effect, create-flex2(row, space-around, center)
+    add-misc  effect, skin--card-footer
 
 // dialog-card
 dialog-card(effect)
     add-skin1 effect, dialog-card
-    add-skin2 effect, card
+    add-misc  effect, skin--card
 dialog-card-header(effect)
     add-skin1 effect, dialog-card-header
-    add-skin2 effect, card-header
+    add-misc  effect, skin--card-header
 dialog-card-header--info(effect)
     add-skin1 effect, dialog-card-header--info
-    add-skin2 effect, card-header
+    add-misc  effect, skin--card-header
 dialog-card-header--warning(effect)
     add-skin1 effect, dialog-card-header--warning
-    add-skin2 effect, card-header
+    add-misc  effect, skin--card-header
 dialog-card-header--error(effect)
     add-skin1 effect, dialog-card-header--error
-    add-skin2 effect, card-header
+    add-misc  effect, skin--card-header
 dialog-card-content(effect)
     add-skin1 effect, dialog-card-content
-    add-skin2 effect, card-content
-    add-misc  effect, create-flex(null, null, null, null)
-    add-misc  effect, create-flex2(null, center, center)
+    add-misc  effect, skin--card-content,create-flex2(null, center, center)
 dialog-card-footer(effect)
     add-skin1 effect, dialog-card-footer
-    add-skin2 effect, card-footer
+    add-misc  effect, skin--card-footer
 
 // card
 .card
