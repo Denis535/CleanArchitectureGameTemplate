@@ -6,10 +6,10 @@ toggle-field-label()
 toggle-field-input()
 // checkmark
 checkmark(effect, value)
-    add-skin1      effect, component--light,                     if !value
-    add-skin1      effect, component--light checkmark-icon--dark if value
-    add-skin2      effect, component, create-size(16px, 16px)
-    add-skin3-flex effect, 0, 1, auto, auto
+    add-skin1 effect, component--light,                     if !value
+    add-skin1 effect, component--light checkmark-icon--dark if value
+    add-skin2 effect, component, create-size(16px, 16px)
+    add-misc  effect, create-flex(0, 1, auto, auto)
 
 // toggle-field
 .unity-toggle

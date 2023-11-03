@@ -6,14 +6,14 @@ popup-field-label()
 popup-field-input()
 // text
 text(effect)
-    add-skin1      effect, element
-    add-skin2      effect, element
-    add-skin3-flex effect, 1, 1, auto, auto
+    add-skin1 effect, element
+    add-skin2 effect, element
+    add-misc  effect, create-flex(1, 1, auto, auto)
 // arrow
 arrow(effect)
-    add-skin1      effect, component dropdown-arrow-icon--light
-    add-skin2      effect, component, create-size(12px, 12px), create-box(2px, null, null)
-    add-skin3-flex effect, 0, 1, auto, auto
+    add-skin1 effect, component dropdown-arrow-icon--light
+    add-skin2 effect, component, create-size(12px, 12px), create-box(2px, null, null)
+    add-misc  effect, create-flex(0, 1, auto, auto)
 
 // popup-field
 .unity-base-popup-field

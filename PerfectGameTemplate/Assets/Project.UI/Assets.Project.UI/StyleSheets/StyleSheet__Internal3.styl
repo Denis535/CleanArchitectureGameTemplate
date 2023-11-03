@@ -58,8 +58,11 @@ add-skin2-large(effect, layout)
 add-skin3-flex(effect, flex-grow, flex-shrink, flex-basis, align-self)
     if effect == null
         add-style create-flex(flex-grow, flex-shrink, flex-basis, align-self)
-
-// add-skin3
 add-skin3-flex2(effect, flex-direction, justify-content, align-items)
     if effect == null
         add-style create-flex2(flex-direction, justify-content, align-items)
+
+// add-misc
+add-misc(effect, objects...)
+    if effect == null
+        add-style objects
