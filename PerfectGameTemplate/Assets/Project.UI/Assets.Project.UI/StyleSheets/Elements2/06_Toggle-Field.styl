@@ -1,23 +1,32 @@
 @import "../StyleSheet__Theme2"
 
+// skin
+skin--field       = null
+skin--field-label = null
+skin--field-input = null
+// skin
+skin--checkmark   = create-layout(null, 16px, 16px,  0px, 1px, 0px), create-flex(0, 1, auto, auto)
+
 // toggle-field
-toggle-field()
-toggle-field-label()
-toggle-field-input()
+toggle-field(effect)
+    add-misc skin--field
+toggle-field-label(effect)
+    add-misc skin--field-label
+toggle-field-input(effect)
+    add-misc skin--field-input
 // checkmark
 checkmark(effect, value)
     add-skin1 effect, component--light,                     if !value
     add-skin1 effect, component--light checkmark-icon--dark if value
-    add-skin2 effect, component, create-size(16px, 16px)
-    add-misc  effect, create-flex(0, 1, auto, auto)
+    add-misc  effect, skin--checkmark
 
 // toggle-field
 .unity-toggle
-    toggle-field()
+    toggle-field(null)
     &__label
-        toggle-field-label()
+        toggle-field-label(null)
     &__input
-        toggle-field-input()
+        toggle-field-input(null)
     &__input #unity-checkmark
         checkmark(null, false)
     &__input:checked #unity-checkmark

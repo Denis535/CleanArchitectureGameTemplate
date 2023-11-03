@@ -1,21 +1,21 @@
 @import "../StyleSheet__Theme2"
 
+// skin
+skin--field       = create-layout(null, auto, auto, 4px,             0px, 0px                ), create-flex(0, 1, auto, auto), create-flex2(row, flex-start, stretch)
+skin--field-label = create-layout(null, auto, auto, 0px 2px 0px 0px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
+skin--field-input = create-layout(null, auto, auto, 0px,             1px, 12px 12px 10px 10px), create-flex(1, 1, auto, auto), create-flex2(row, flex-end, center)
+
 // field
 field(effect)
     add-skin1 effect, field-element
-    add-skin2 effect, field-element
-    add-misc  effect, create-flex(0, 1, auto, auto)
-    add-misc  effect, create-flex2(row, flex-start, stretch)
+    add-misc  effect, skin--field
 field-label(effect)
     add-skin1 effect, field-label-element, create-font(null, null, bold), create-text(middle-left, null, null)
-    add-skin2 effect, field-label-element
-    add-misc  effect, create-flex(0, 1, auto, auto)
+    add-misc  effect, skin--field-label
 field-input(effect)
     // cursor text
     add-skin1 effect, field-input-element, create-font(null, null, null), create-text(middle-left, null, null)
-    add-skin2 effect, field-input-element
-    add-misc  effect, create-flex(1, 1, auto, auto)
-    add-misc  effect, create-flex2(row, flex-end, center)
+    add-misc  effect, skin--field-input
 
 // field
 .unity-base-field

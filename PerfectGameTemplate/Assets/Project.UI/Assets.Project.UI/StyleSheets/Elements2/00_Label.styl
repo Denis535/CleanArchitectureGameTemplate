@@ -1,10 +1,12 @@
 @import "../StyleSheet__Theme2"
 
+// skin
+skin--label = create-layout(null, auto, auto, 4px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
+
 // label
 label(effect)
     add-skin1 effect, label-element, create-text(upper-left)
-    add-skin2 effect, label-element
-    add-misc  effect, create-flex(0, 1, auto, auto)
+    add-misc  effect, skin--label
 
 // label
 .unity-label

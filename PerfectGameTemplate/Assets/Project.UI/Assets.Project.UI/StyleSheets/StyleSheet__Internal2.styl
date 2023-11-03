@@ -9,22 +9,11 @@ create-view-skin(color, background, border)
     border-radius    = get-theme-border-radius(border[1])
     create-view color, null, null, background-color, background-image, border-color, border-radius
 
-// create-layout-skin
-create-layout-skin(position, size, box)
-    create-layout position, size[0], size[1], box[0], box[1], box[2]
-
 // get-view-skin
 get-view-skin(view)
     if view != null
         view = views[get-string(view)] or error('Views has no view: ' + get-string(view))
         return clone(view)
-    null
-
-// get-layout-skin
-get-layout-skin(layout)
-    if layout != null
-        layout = layouts[get-string(layout)] or error('Layouts has no layout: ' + get-string(layout))
-        return clone(layout)
     null
 
 // get-theme-value

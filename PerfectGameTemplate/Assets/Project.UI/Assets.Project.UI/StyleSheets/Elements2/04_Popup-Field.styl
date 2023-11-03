@@ -1,27 +1,36 @@
 @import "../StyleSheet__Theme2"
 
+// skin
+skin--field       = null
+skin--field-label = null
+skin--field-input = null
+// skin
+skin--text        = create-layout(null, auto, auto, 0px, 0px, 0px), create-flex(1, 1, auto, auto)
+skin--arrow       = create-layout(null, 12px, 12px, 2px, 0px, 0px), create-flex(0, 1, auto, auto)
+
 // popup-field
-popup-field()
-popup-field-label()
-popup-field-input()
+popup-field(effect)
+    add-misc effect, skin--field
+popup-field-label(effect)
+    add-misc effect, skin--field-label
+popup-field-input(effect)
+    add-misc effect, skin--field-input
 // text
 text(effect)
     add-skin1 effect, element
-    add-skin2 effect, element
-    add-misc  effect, create-flex(1, 1, auto, auto)
+    add-misc  effect, skin--text
 // arrow
 arrow(effect)
     add-skin1 effect, component dropdown-arrow-icon--light
-    add-skin2 effect, component, create-size(12px, 12px), create-box(2px, null, null)
-    add-misc  effect, create-flex(0, 1, auto, auto)
+    add-misc  effect, skin--arrow
 
 // popup-field
 .unity-base-popup-field
-    popup-field()
+    popup-field(null)
     &__label
-        popup-field-label()
+        popup-field-label(null)
     &__input
-        popup-field-input()
+        popup-field-input(null)
     &__input .unity-text-element
         text(null)
     &__input &__arrow

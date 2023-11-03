@@ -1,21 +1,30 @@
 @import "../StyleSheet__Theme2"
 
+// skin
+skin--field       = null
+skin--field-label = null
+skin--field-input = null
+// skin
+skin--text        = create-layout(null, auto, auto, 0px, 0px, 0px), create-flex(1, 1, auto, auto)
+
 // text-field
-text-field()
-text-field-label()
-text-field-input()
+text-field(effect)
+    add-misc effect, skin--field
+text-field-label(effect)
+    add-misc effect, skin--field-label
+text-field-input(effect)
+    add-misc effect, skin--field-input
 // text
 text(effect)
     add-skin1 effect, element
-    add-skin2 effect, element
-    add-misc  effect, create-flex(1, 1, auto, auto)
+    add-misc  effect, skin--text
 
 // text-field
 .unity-base-text-field
-    text-field()
+    text-field(null)
     &__label
-        text-field-label()
+        text-field-label(null)
     &__input
-        text-field-input()
+        text-field-input(null)
     &__input .unity-text-element
         text(null)

@@ -26,6 +26,10 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
 }
 .unity-base-dropdown .unity-scroll-view {
   background-color: rgba(0,0,0,0);
@@ -169,10 +173,10 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  width: auto;
-  height: auto;
+  width: 16px;
+  height: 16px;
   margin-left: 0px;
-  margin-right: 0px;
+  margin-right: 12px;
   margin-top: 0px;
   margin-bottom: 0px;
   border-left-width: 1px;
@@ -183,12 +187,6 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  width: 16px;
-  height: 16px;
-  margin-left: 0px;
-  margin-right: 12px;
-  margin-top: 0px;
-  margin-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
@@ -206,10 +204,10 @@
   border-bottom-right-radius: 2px;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
   -unity-background-image-tint-color: #ede6de;
-  width: auto;
-  height: auto;
+  width: 16px;
+  height: 16px;
   margin-left: 0px;
-  margin-right: 0px;
+  margin-right: 12px;
   margin-top: 0px;
   margin-bottom: 0px;
   border-left-width: 1px;
@@ -220,12 +218,6 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  width: 16px;
-  height: 16px;
-  margin-left: 0px;
-  margin-right: 12px;
-  margin-top: 0px;
-  margin-bottom: 0px;
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;

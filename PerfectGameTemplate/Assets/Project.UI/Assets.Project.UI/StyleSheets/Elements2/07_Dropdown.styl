@@ -1,41 +1,48 @@
 @import "../StyleSheet__Theme2"
 
+// skin
+skin--dropdown                       = create-layout(null, auto, auto, 0px,              1px, 0px                ), create-flex(0, 1, auto, auto)
+skin--dropdown-item                  = create-layout(null, auto, auto, 0px,              1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto), create-flex2(row, flex-start, center)
+skin--checkmark                      = create-layout(null, 16px, 16px, 0px 12px 0px 0px, 1px, 0px                ), create-flex(0, 1, auto, auto)
+skin--text                           = create-layout(null, auto, auto, 0px,              0px, 0px                ), create-flex(1, 1, auto, auto)
+// skin
+skin--scroll-view                    = create-layout(null, auto, auto, 0px,              0px, 0px                )
+skin--viewport-and-vertical-scroller = create-layout(null, auto, auto, 0px,              0px, 0px                )
+skin--viewport                       = create-layout(null, auto, auto, 0px,              0px, 0px                )
+skin--content                        = create-layout(null, auto, auto, 0px,              0px, 0px                )
+
 // dropdown
 dropdown(effect)
     add-skin1 effect, dropdown-element
-    add-skin2 effect, dropdown-element
+    add-misc  effect, skin--dropdown
 
 // scroll-view
 scroll-view(effect)
     add-skin1 effect, element
-    add-skin2 effect, element
+    add-misc  effect, skin--scroll-view
 viewport-and-vertical-scroller(effect)
     add-skin1 effect, element
-    add-skin2 effect, element
+    add-misc  effect, skin--viewport-and-vertical-scroller
 viewport(effect)
     add-skin1 effect, element
-    add-skin2 effect, element
+    add-misc  effect, skin--viewport
 content(effect)
     add-skin1 effect, element
-    add-skin2 effect, element
+    add-misc  effect, skin--content
 
 // dropdown-item
 dropdown-item(effect)
     add-skin1 effect, dropdown-item-element
-    add-skin2 effect, dropdown-item-element
-    add-misc  effect, create-flex(0, 1, auto, auto)
-    add-misc  effect, create-flex2(row, flex-start, center)
+    add-misc  effect, skin--dropdown-item
 // checkmark
 checkmark(effect, value)
     add-skin1 effect, component,                      if !value
     add-skin1 effect, component checkmark-icon--light if value
-    add-skin2 effect, component, create-size(16px, 16px), create-box(0px 12px 0px 0px, null, null) 
-    add-misc  effect, create-flex(0, 1, auto, auto)
+    add-misc  effect, skin--checkmark
 // text
 text(effect)
     add-skin1 effect, element
-    add-skin2 effect, element
-    add-misc  effect, create-flex(1, 1, auto, auto)
+    add-misc effect, skin--text
 
 // dropdown
 .unity-base-dropdown
