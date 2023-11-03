@@ -3,7 +3,7 @@
 }
 .unity-base-dropdown__container-outer {
   color: #e6e6e6;
-  background-color: rgba(18,28,33,0.5);
+  background-color: rgba(18,28,33,0.8);
   border-left-color: #997300;
   border-right-color: #997300;
   border-top-color: #997300;
@@ -161,7 +161,7 @@
   align-self: auto;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
 }
 .unity-base-dropdown__item .unity-base-dropdown__checkmark {
   background-color: rgba(0,0,0,0);
