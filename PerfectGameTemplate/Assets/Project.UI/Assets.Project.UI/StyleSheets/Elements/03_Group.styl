@@ -1,36 +1,36 @@
 @import "../StyleSheet__Theme"
 
 // group
-skin1--group         = create-view-skin(null,  (view        view       ), (view        view))
-skin1--group--light  = create-view-skin(dark,  (view--light view--light), (view--light view))
-skin1--group--dark   = create-view-skin(light, (view--dark  view--dark ), (view--dark  view))
+skin--group         = create-view-skin(null,  (view        view       ), (view        view))
+skin--group--light  = create-view-skin(dark,  (view--light view--light), (view--light view))
+skin--group--dark   = create-view-skin(light, (view--dark  view--dark ), (view--dark  view))
 
 // group
-skin2--group         = create-layout-skin(null, auto auto, 4px, 1px, 0px                )
-skin2--group--small  = create-layout-skin(null, auto auto, 4px, 1px, 6px  6px  5px  5px )
-skin2--group--medium = create-layout-skin(null, auto auto, 4px, 1px, 12px 12px 10px 10px)
-skin2--group--large  = create-layout-skin(null, auto auto, 4px, 1px, 24px 24px 20px 20px)
+misc--group         = create-layout-skin(null, auto auto, 4px, 1px, 0px                )
+misc--group--small  = create-layout-skin(null, auto auto, 4px, 1px, 6px  6px  5px  5px )
+misc--group--medium = create-layout-skin(null, auto auto, 4px, 1px, 12px 12px 10px 10px)
+misc--group--large  = create-layout-skin(null, auto auto, 4px, 1px, 24px 24px 20px 20px)
 // group
-skin2--group--column = create-flex(0, 1, auto, auto), create-flex2(column, flex-start, stretch)
-skin2--group--row    = create-flex(0, 1, auto, auto), create-flex2(row,    flex-start, stretch)
+misc--group--column = create-flex(0, 1, auto, auto), create-flex2(column, flex-start, stretch)
+misc--group--row    = create-flex(0, 1, auto, auto), create-flex2(row,    flex-start, stretch)
 
 // group
 group(effect)
-    add-skin1        effect, group
-    add-skin1-light  effect, group--light
-    add-skin1-dark   effect, group--dark
-    add-skin2        effect, group
+    add-skin        effect, group
+    add-skin-light  effect, group--light
+    add-skin-dark   effect, group--dark
+    add-misc        effect, group
     &.small
-        add-skin2    effect, group--small
+        add-misc    effect, group--small
     &.medium
-        add-skin2    effect, group--medium
+        add-misc    effect, group--medium
     &.large
-        add-skin2    effect, group--large
+        add-misc    effect, group--large
 // group
 column-group(effect)
-    add-skin2 effect, group--column
+    add-misc effect, group--column
 row-group(effect)
-    add-skin2 effect, group--row
+    add-misc effect, group--row
 
 // group
 .group

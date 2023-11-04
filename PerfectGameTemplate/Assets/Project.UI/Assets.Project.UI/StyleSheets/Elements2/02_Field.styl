@@ -1,26 +1,26 @@
 @import "../StyleSheet__Theme"
 
 // field
-skin1--field       = create-view-skin(null,  (element        element       ), (element        element))
-skin1--field-label = create-view-skin(dark,  (element--light element--light), (element--light element)), create-font(null, null, bold), create-text(middle-left, null, null)
-skin1--field-input = create-view-skin(light, (element--dark  element--dark ), (element--dark  element)), create-font(null, null, null), create-text(middle-left, null, null)
+skin--field       = create-view-skin(null,  (element        element       ), (element        element))
+skin--field-label = create-view-skin(dark,  (element--light element--light), (element--light element)), create-font(null, null, bold), create-text(middle-left, null, null)
+skin--field-input = create-view-skin(light, (element--dark  element--dark ), (element--dark  element)), create-font(null, null, null), create-text(middle-left, null, null)
 
 // field
-skin2--field       = create-layout-skin(null, auto auto, 4px,             0px, 0px                ), create-flex(0, 1, auto, auto), create-flex2(row, flex-start, stretch)
-skin2--field-label = create-layout-skin(null, auto auto, 0px 2px 0px 0px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
-skin2--field-input = create-layout-skin(null, auto auto, 0px,             1px, 12px 12px 10px 10px), create-flex(1, 1, auto, auto), create-flex2(row, flex-end, stretch)
+misc--field       = create-layout-skin(null, auto auto, 4px,             0px, 0px                ), create-flex(0, 1, auto, auto), create-flex2(row, flex-start, stretch)
+misc--field-label = create-layout-skin(null, auto auto, 0px 2px 0px 0px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
+misc--field-input = create-layout-skin(null, auto auto, 0px,             1px, 12px 12px 10px 10px), create-flex(1, 1, auto, auto), create-flex2(row, flex-end, stretch)
 
 // field
 field(effect)
-    add-skin1 effect, field
-    add-skin2 effect, field
+    add-skin effect, field
+    add-misc effect, field
 field-label(effect)
-    add-skin1 effect, field-label
-    add-skin2 effect, field-label
+    add-skin effect, field-label
+    add-misc effect, field-label
 field-input(effect)
     // cursor text
-    add-skin1 effect, field-input
-    add-skin2 effect, field-input
+    add-skin effect, field-input
+    add-misc effect, field-input
 
 // field
 .unity-base-field

@@ -1,33 +1,33 @@
 @import "../StyleSheet__Theme"
 
 // field
-skin1--field              = null
-skin1--field-label        = null
-skin1--field-input        = null
-skin1--checkmark          = create-view-skin(null, (component--light component--light    ), (component--light component))
-skin1--checkmark--checked = create-view-skin(null, (component--light checkmark-icon--dark), (component--light component))
+skin--field              = null
+skin--field-label        = null
+skin--field-input        = null
+skin--checkmark          = create-view-skin(null, (component--light component--light    ), (component--light component))
+skin--checkmark--checked = create-view-skin(null, (component--light checkmark-icon--dark), (component--light component))
 
 // field
-skin2--field              = null
-skin2--field-label        = null
-skin2--field-input        = null
-skin2--checkmark          = create-layout-skin(null, 16px 16px, 0px, 1px, 0px), create-flex(0, 1, auto, auto)
+misc--field              = null
+misc--field-label        = null
+misc--field-input        = null
+misc--checkmark          = create-layout-skin(null, 16px 16px, 0px, 1px, 0px), create-flex(0, 1, auto, auto)
 
 // toggle-field
 toggle-field(effect)
-    add-skin1 effect, field
-    add-skin2 effect, field
+    add-skin effect, field
+    add-misc effect, field
 toggle-field-label(effect)
-    add-skin1 effect, field-label
-    add-skin2 effect, field-label
+    add-skin effect, field-label
+    add-misc effect, field-label
 toggle-field-input(effect)
-    add-skin1 effect, field-input
-    add-skin2 effect, field-input
+    add-skin effect, field-input
+    add-misc effect, field-input
 // checkmark
 checkmark(effect, value)
-    add-skin1 effect, checkmark          if !value
-    add-skin1 effect, checkmark--checked if value
-    add-skin2 effect, checkmark
+    add-skin effect, checkmark          if !value
+    add-skin effect, checkmark--checked if value
+    add-misc effect, checkmark
 
 // toggle-field
 .unity-toggle

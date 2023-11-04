@@ -224,18 +224,18 @@ get-theme-border-radius(key)
         error('Theme has no border-radius: ' + get-string(key))
     null
 
-// add-skin1
-add-skin1(effect, name, objects...)
+// add-skin
+add-skin(effect, name)
     if effect == null
-        add-style get-skin1(name[0]), objects
-// add-skin1
-add-skin1-light(effect, name)
+        add-style get-skin(name)
+// add-skin
+add-skin-light(effect, name)
     if effect == null
         for i in 0..10
             alpha  = i / 10
             alpha2 = (alpha+3)/4
             &.light-{i}
-                skin = get-skin1(name)
+                skin = get-skin(name)
                 skin.background-color    = alpha(skin.background-color,    alpha(skin.background-color   ) * alpha )
                 skin.border-color        = alpha(skin.border-color,        alpha(skin.border-color       ) * alpha2) if has(skin, 'border-color'       )
                 skin.border-left-color   = alpha(skin.border-left-color,   alpha(skin.border-left-color  ) * alpha2) if has(skin, 'border-left-color'  )
@@ -243,14 +243,14 @@ add-skin1-light(effect, name)
                 skin.border-top-color    = alpha(skin.border-top-color,    alpha(skin.border-top-color   ) * alpha2) if has(skin, 'border-top-color'   )
                 skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
                 add-style skin
-// add-skin1
-add-skin1-dark(effect, name)
+// add-skin
+add-skin-dark(effect, name)
     if effect == null
         for i in 0..10
             alpha  = i / 10
             alpha2 = (alpha+3)/4
             &.dark-{i}
-                skin = get-skin1(name)
+                skin = get-skin(name)
                 skin.background-color    = alpha(skin.background-color,    alpha(skin.background-color   ) * alpha )
                 skin.border-color        = alpha(skin.border-color,        alpha(skin.border-color       ) * alpha2) if has(skin, 'border-color'       )
                 skin.border-left-color   = alpha(skin.border-left-color,   alpha(skin.border-left-color  ) * alpha2) if has(skin, 'border-left-color'  )
@@ -258,24 +258,24 @@ add-skin1-dark(effect, name)
                 skin.border-top-color    = alpha(skin.border-top-color,    alpha(skin.border-top-color   ) * alpha2) if has(skin, 'border-top-color'   )
                 skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
                 add-style skin
-// add-skin2
-add-skin2(effect, name, objects...)
+// add-misc
+add-misc(effect, name, objects...)
     if effect == null
-        add-style get-skin2(name), objects
+        add-style get-misc(name), objects
 
-// get-skin1
-get-skin1(name)
+// get-skin
+get-skin(name)
     if name != null
-        name = 'skin1--' + get-string(name)
+        name = 'skin--' + get-string(name)
         if name is defined
             return clone(lookup(name))
-        error('Skin1 is not found: ' + name)
+        error('Skin is not found: ' + name)
     null
-// get-skin2
-get-skin2(name)
+// get-misc
+get-misc(name)
     if name != null
-        name = 'skin2--' + get-string(name)
+        name = 'misc--' + get-string(name)
         if name is defined
             return clone(lookup(name))
-        error('Skin2 is not found: ' + name)
+        error('Skin (misc) is not found: ' + name)
     null

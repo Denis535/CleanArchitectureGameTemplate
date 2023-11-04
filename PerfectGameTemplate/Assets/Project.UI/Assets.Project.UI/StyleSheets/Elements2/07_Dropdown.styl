@@ -1,62 +1,62 @@
 @import "../StyleSheet__Theme"
 
 // dropdown
-skin1--dropdown                       = create-view-skin(null,  (dropdown-element             dropdown-element     ), (dropdown-element             element  ))
-skin1--dropdown-item                  = create-view-skin(light, (dropdown-item-element        dropdown-item-element), (dropdown-item-element        element  ))
-skin1--dropdown-item--hover           = create-view-skin(light, (dropdown-item-element--hover dropdown-item-element), (dropdown-item-element--hover element  ))
-skin1--checkmark                      = create-view-skin(null,  (component                    component            ), (component                    component))
-skin1--checkmark--checked             = create-view-skin(null,  (component                    checkmark-icon--light), (component                    component))
-skin1--text                           = create-view-skin(null,  (element                      element              ), (element                      element  ))
+skin--dropdown                       = create-view-skin(null,  (dropdown-element             dropdown-element     ), (dropdown-element             element  ))
+skin--dropdown-item                  = create-view-skin(light, (dropdown-item-element        dropdown-item-element), (dropdown-item-element        element  ))
+skin--dropdown-item--hover           = create-view-skin(light, (dropdown-item-element--hover dropdown-item-element), (dropdown-item-element--hover element  ))
+skin--checkmark                      = create-view-skin(null,  (component                    component            ), (component                    component))
+skin--checkmark--checked             = create-view-skin(null,  (component                    checkmark-icon--light), (component                    component))
+skin--text                           = create-view-skin(null,  (element                      element              ), (element                      element  ))
 // scroll-view
-skin1--scroll-view                    = create-view-skin(null,  (element                      element              ), (element                      element  ))
-skin1--viewport-and-vertical-scroller = create-view-skin(null,  (element                      element              ), (element                      element  ))
-skin1--viewport                       = create-view-skin(null,  (element                      element              ), (element                      element  ))
-skin1--content                        = create-view-skin(null,  (element                      element              ), (element                      element  ))
+skin--scroll-view                    = create-view-skin(null,  (element                      element              ), (element                      element  ))
+skin--viewport-and-vertical-scroller = create-view-skin(null,  (element                      element              ), (element                      element  ))
+skin--viewport                       = create-view-skin(null,  (element                      element              ), (element                      element  ))
+skin--content                        = create-view-skin(null,  (element                      element              ), (element                      element  ))
 
 // dropdown
-skin2--dropdown                       = create-layout-skin(null, auto auto, 0px,              1px, 0px                ), create-flex(0, 1, auto, auto)
-skin2--dropdown-item                  = create-layout-skin(null, auto auto, 0px,              1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto), create-flex2(row, flex-start, stretch)
-skin2--checkmark                      = create-layout-skin(null, 16px 16px, 0px 12px 0px 0px, 1px, 0px                ), create-flex(0, 1, auto, auto)
-skin2--text                           = create-layout-skin(null, auto auto, 0px,              0px, 0px                ), create-flex(1, 1, auto, auto)
+misc--dropdown                       = create-layout-skin(null, auto auto, 0px,              1px, 0px                ), create-flex(0, 1, auto, auto)
+misc--dropdown-item                  = create-layout-skin(null, auto auto, 0px,              1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto), create-flex2(row, flex-start, stretch)
+misc--checkmark                      = create-layout-skin(null, 16px 16px, 0px 12px 0px 0px, 1px, 0px                ), create-flex(0, 1, auto, auto)
+misc--text                           = create-layout-skin(null, auto auto, 0px,              0px, 0px                ), create-flex(1, 1, auto, auto)
 // scroll-view
-skin2--scroll-view                    = create-layout-skin(null, auto auto, 0px,              0px, 0px                )
-skin2--viewport-and-vertical-scroller = create-layout-skin(null, auto auto, 0px,              0px, 0px                )
-skin2--viewport                       = create-layout-skin(null, auto auto, 0px,              0px, 0px                )
-skin2--content                        = create-layout-skin(null, auto auto, 0px,              0px, 0px                )
+misc--scroll-view                    = create-layout-skin(null, auto auto, 0px,              0px, 0px                )
+misc--viewport-and-vertical-scroller = create-layout-skin(null, auto auto, 0px,              0px, 0px                )
+misc--viewport                       = create-layout-skin(null, auto auto, 0px,              0px, 0px                )
+misc--content                        = create-layout-skin(null, auto auto, 0px,              0px, 0px                )
 
 // dropdown
 dropdown(effect)
-    add-skin1 effect, dropdown
-    add-skin2 effect, dropdown
+    add-skin effect, dropdown
+    add-misc effect, dropdown
 
 // scroll-view
 scroll-view(effect)
-    add-skin1 effect, scroll-view
-    add-skin2 effect, scroll-view
+    add-skin effect, scroll-view
+    add-misc effect, scroll-view
 viewport-and-vertical-scroller(effect)
-    add-skin1 effect, viewport-and-vertical-scroller
-    add-skin2 effect, viewport-and-vertical-scroller
+    add-skin effect, viewport-and-vertical-scroller
+    add-misc effect, viewport-and-vertical-scroller
 viewport(effect)
-    add-skin1 effect, viewport
-    add-skin2 effect, viewport
+    add-skin effect, viewport
+    add-misc effect, viewport
 content(effect)
-    add-skin1 effect, content
-    add-skin2 effect, content
+    add-skin effect, content
+    add-misc effect, content
 
 // dropdown-item
 dropdown-item(effect)
-    add-skin1 effect, dropdown-item        if effect != 'hover'
-    add-skin1 null,   dropdown-item--hover if effect == 'hover'
-    add-skin2 effect, dropdown-item
+    add-skin effect, dropdown-item        if effect != 'hover'
+    add-skin null,   dropdown-item--hover if effect == 'hover'
+    add-misc effect, dropdown-item
 // checkmark
 checkmark(effect, value)
-    add-skin1 effect, checkmark,         if !value
-    add-skin1 effect, checkmark--checked if value
-    add-skin2 effect, checkmark
+    add-skin effect, checkmark,         if !value
+    add-skin effect, checkmark--checked if value
+    add-misc effect, checkmark
 // text
 text(effect)
-    add-skin1 effect, text
-    add-skin2 effect, text
+    add-skin effect, text
+    add-misc effect, text
 
 // dropdown
 .unity-base-dropdown

@@ -1,28 +1,28 @@
 @import "../StyleSheet__Theme"
 
 // box
-skin1--box         = create-view-skin(null,  (box        box       ), (box        box))
-skin1--box--light  = create-view-skin(dark,  (box--light box--light), (box--light box))
-skin1--box--dark   = create-view-skin(light, (box--dark  box--dark ), (box--dark  box))
+skin--box         = create-view-skin(null,  (box        box       ), (box        box))
+skin--box--light  = create-view-skin(dark,  (box--light box--light), (box--light box))
+skin--box--dark   = create-view-skin(light, (box--dark  box--dark ), (box--dark  box))
 
 // box
-skin2--box         = create-layout-skin(null, auto auto, 4px, 1px, 0px                ), create-flex(0, 1, auto, auto)
-skin2--box--small  = create-layout-skin(null, auto auto, 4px, 1px, 6px  6px  5px  5px ), create-flex(0, 1, auto, auto)
-skin2--box--medium = create-layout-skin(null, auto auto, 4px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
-skin2--box--large  = create-layout-skin(null, auto auto, 4px, 1px, 24px 24px 20px 20px), create-flex(0, 1, auto, auto)
+misc--box         = create-layout-skin(null, auto auto, 4px, 1px, 0px                ), create-flex(0, 1, auto, auto)
+misc--box--small  = create-layout-skin(null, auto auto, 4px, 1px, 6px  6px  5px  5px ), create-flex(0, 1, auto, auto)
+misc--box--medium = create-layout-skin(null, auto auto, 4px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
+misc--box--large  = create-layout-skin(null, auto auto, 4px, 1px, 24px 24px 20px 20px), create-flex(0, 1, auto, auto)
 
 // box
 box(effect)
-    add-skin1        effect, box
-    add-skin1-light  effect, box--light
-    add-skin1-dark   effect, box--dark
-    add-skin2        effect, box
+    add-skin        effect, box
+    add-skin-light  effect, box--light
+    add-skin-dark   effect, box--dark
+    add-misc        effect, box
     &.small
-        add-skin2    effect, box--small
+        add-misc    effect, box--small
     &.medium
-        add-skin2    effect, box--medium
+        add-misc    effect, box--medium
     &.large
-        add-skin2    effect, box--large
+        add-misc    effect, box--large
 
 // box
 .unity-box

@@ -1,43 +1,43 @@
 @import "../StyleSheet__Theme"
 
 // field
-skin1--field       = null
-skin1--field-label = null
-skin1--field-input = null
-skin1--container   = create-view-skin(null, (element          element         ), (element          element  ))
-skin1--tracker     = create-view-skin(null, (component--light component--light), (component--light component))
-skin1--dragger     = create-view-skin(null, (component--light component--light), (component--light component))
+skin--field       = null
+skin--field-label = null
+skin--field-input = null
+skin--container   = create-view-skin(null, (element          element         ), (element          element  ))
+skin--tracker     = create-view-skin(null, (component--light component--light), (component--light component))
+skin--dragger     = create-view-skin(null, (component--light component--light), (component--light component))
 
 // field
-skin2--field       = null
-skin2--field-label = null
-skin2--field-input = null
-skin2--container   = create-layout-skin(null,     auto auto, 0px, 0px, 0px), create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
-skin2--tracker     = create-layout-skin(null,     auto 8px,  0px, 1px, 0px), create-flex(1, 1, auto, auto)
-skin2--dragger     = create-layout-skin(absolute, 8px  24px, 0px, 1px, 0px), create-flex(0, 1, auto, auto)
+misc--field       = null
+misc--field-label = null
+misc--field-input = null
+misc--container   = create-layout-skin(null,     auto auto, 0px, 0px, 0px), create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
+misc--tracker     = create-layout-skin(null,     auto 8px,  0px, 1px, 0px), create-flex(1, 1, auto, auto)
+misc--dragger     = create-layout-skin(absolute, 8px  24px, 0px, 1px, 0px), create-flex(0, 1, auto, auto)
 
 // slider-field
 slider-field(effect)
-    add-skin1 effect, field
-    add-skin2 effect, field
+    add-skin effect, field
+    add-misc effect, field
 slider-field-label(effect)
-    add-skin1 effect, field-label
-    add-skin2 effect, field-label
+    add-skin effect, field-label
+    add-misc effect, field-label
 slider-field-input(effect)
-    add-skin1 effect, field-input
-    add-skin2 effect, field-input
+    add-skin effect, field-input
+    add-misc effect, field-input
 // container
 container(effect)
-    add-skin1 effect, container
-    add-skin2 effect, container
+    add-skin effect, container
+    add-misc effect, container
 // tracker
 tracker(effect)
-    add-skin1 effect, tracker
-    add-skin2 effect, tracker
+    add-skin effect, tracker
+    add-misc effect, tracker
 // dragger
 dragger(effect)
-    add-skin1 effect, dragger
-    add-skin2 effect, dragger
+    add-skin effect, dragger
+    add-misc effect, dragger
 
 // slider-field
 .unity-base-slider

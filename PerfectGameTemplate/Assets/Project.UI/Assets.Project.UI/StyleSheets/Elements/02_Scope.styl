@@ -1,36 +1,36 @@
 @import "../StyleSheet__Theme"
 
 // scope
-skin1--scope         = create-view-skin(null,  (view        view       ), (view        view))
-skin1--scope--light  = create-view-skin(dark,  (view--light view--light), (view--light view))
-skin1--scope--dark   = create-view-skin(light, (view--dark  view--dark ), (view--dark  view))
+skin--scope         = create-view-skin(null,  (view        view       ), (view        view))
+skin--scope--light  = create-view-skin(dark,  (view--light view--light), (view--light view))
+skin--scope--dark   = create-view-skin(light, (view--dark  view--dark ), (view--dark  view))
 
 // scope
-skin2--scope         = create-layout-skin(null, auto auto, 0px, 0px, 0px                )
-skin2--scope--small  = create-layout-skin(null, auto auto, 0px, 0px, 6px  6px  5px  5px )
-skin2--scope--medium = create-layout-skin(null, auto auto, 0px, 0px, 12px 12px 10px 10px)
-skin2--scope--large  = create-layout-skin(null, auto auto, 0px, 0px, 24px 24px 20px 20px)
+misc--scope         = create-layout-skin(null, auto auto, 0px, 0px, 0px                )
+misc--scope--small  = create-layout-skin(null, auto auto, 0px, 0px, 6px  6px  5px  5px )
+misc--scope--medium = create-layout-skin(null, auto auto, 0px, 0px, 12px 12px 10px 10px)
+misc--scope--large  = create-layout-skin(null, auto auto, 0px, 0px, 24px 24px 20px 20px)
 // scope
-skin2--scope--column = create-flex(0, 1, auto, auto), create-flex2(column, flex-start, stretch)
-skin2--scope--row    = create-flex(0, 1, auto, auto), create-flex2(row,    flex-start, stretch)
+misc--scope--column = create-flex(0, 1, auto, auto), create-flex2(column, flex-start, stretch)
+misc--scope--row    = create-flex(0, 1, auto, auto), create-flex2(row,    flex-start, stretch)
 
 // scope
 scope(effect)
-    add-skin1        effect, scope
-    add-skin1-light  effect, scope--light
-    add-skin1-dark   effect, scope--dark
-    add-skin2        effect, scope
+    add-skin        effect, scope
+    add-skin-light  effect, scope--light
+    add-skin-dark   effect, scope--dark
+    add-misc        effect, scope
     &.small
-        add-skin2    effect, scope--small
+        add-misc    effect, scope--small
     &.medium
-        add-skin2    effect, scope--medium
+        add-misc    effect, scope--medium
     &.large
-        add-skin2    effect, scope--large
+        add-misc    effect, scope--large
 // scope
 column-scope(effect)
-    add-skin2 effect, scope--column
+    add-misc effect, scope--column
 row-scope(effect)
-    add-skin2 effect, scope--row
+    add-misc effect, scope--row
 
 // scope
 .scope
