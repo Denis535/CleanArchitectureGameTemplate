@@ -1,22 +1,30 @@
 @import "../StyleSheet__Theme2"
 
-// skin
+// field
+skin1--field       = null
+skin1--field-label = null
+skin1--field-input = null
+skin1--text        = create-view-skin(null, (element element), (element element))
+
+// field
 skin2--field       = null
 skin2--field-label = null
 skin2--field-input = null
-// skin
-skin2--text        = create-layout(null, auto, auto, 0px, 0px, 0px), create-flex(1, 1, auto, auto)
+skin2--text        = create-layout-skin(null, auto auto, 0px, 0px, 0px), create-flex(1, 1, auto, auto)
 
 // text-field
 text-field(effect)
+    add-skin1 effect, field
     add-skin2 effect, field
 text-field-label(effect)
+    add-skin1 effect, field-label
     add-skin2 effect, field-label
 text-field-input(effect)
+    add-skin1 effect, field-input
     add-skin2 effect, field-input
 // text
 text(effect)
-    add-skin1 effect, element
+    add-skin1 effect, text
     add-skin2 effect, text
 
 // text-field

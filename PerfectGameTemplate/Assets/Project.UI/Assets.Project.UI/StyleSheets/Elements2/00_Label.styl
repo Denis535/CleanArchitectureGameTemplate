@@ -1,11 +1,14 @@
 @import "../StyleSheet__Theme2"
 
-// skin
-skin2--label = create-layout(null, auto, auto, 4px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
+// label
+skin1--label = create-view-skin(null, (element element), (element element)), create-text(upper-left, null, null)
+
+// label
+skin2--label = create-layout-skin(null, auto auto, 4px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
 
 // label
 label(effect)
-    add-skin1 effect, label-element, create-text(upper-left)
+    add-skin1 effect, label
     add-skin2 effect, label
 
 // label

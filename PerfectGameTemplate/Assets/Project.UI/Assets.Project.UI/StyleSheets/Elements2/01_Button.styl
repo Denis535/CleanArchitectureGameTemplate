@@ -1,12 +1,15 @@
 @import "../StyleSheet__Theme2"
 
-// skin
-skin2--button = create-layout(null, auto, auto, 4px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
+// button
+skin1--button = create-view-skin(dark, (element--light element--light), (element--light element)), create-font(null, null, bold), create-text(middle-center, null, null)
+
+// button
+skin2--button = create-layout-skin(null, auto auto, 4px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
 
 // button
 button(effect)
     // cursor link
-    add-skin1 effect, button-element, create-font(null, null, bold), create-text(middle-center)
+    add-skin1 effect, button
     add-skin2 effect, button
 
 // button

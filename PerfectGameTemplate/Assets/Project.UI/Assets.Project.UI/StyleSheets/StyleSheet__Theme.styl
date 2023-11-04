@@ -191,6 +191,10 @@ create-view-skin(color, background, border)
     border-radius    = get-theme-border-radius(border[1])
     create-view color, null, null, background-color, background-image, border-color, border-radius
 
+// create-layout-skin
+create-layout-skin(position, size, margin, border, padding)
+    create-layout(position, size[0], size[1], margin, border, padding)
+
 // get-theme-value
 get-theme-color(key)
     if key != null
