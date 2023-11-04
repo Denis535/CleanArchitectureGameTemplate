@@ -295,15 +295,6 @@
   border-bottom-right-radius: 4px;
 }
 .unity-scroll-view #unity-content-and-vertical-scroll-container {
-  background-color: rgba(0,0,0,0);
-  border-left-color: rgba(0,0,0,0);
-  border-right-color: rgba(0,0,0,0);
-  border-top-color: rgba(0,0,0,0);
-  border-bottom-color: rgba(0,0,0,0);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -328,15 +319,6 @@
 }
 .unity-scroll-view #unity-content-viewport {
   overflow: hidden;
-  background-color: rgba(0,0,0,0);
-  border-left-color: rgba(0,0,0,0);
-  border-right-color: rgba(0,0,0,0);
-  border-top-color: rgba(0,0,0,0);
-  border-bottom-color: rgba(0,0,0,0);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -361,15 +343,6 @@
 }
 .unity-scroll-view #unity-content-container {
   overflow: scroll;
-  background-color: rgba(0,0,0,0);
-  border-left-color: rgba(0,0,0,0);
-  border-right-color: rgba(0,0,0,0);
-  border-top-color: rgba(0,0,0,0);
-  border-bottom-color: rgba(0,0,0,0);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -574,15 +547,15 @@
   align-items: center;
 }
 .unity-scroller--horizontal .unity-base-slider #unity-tracker {
-  background-color: rgba(18,28,33,0.8);
+  background-color: rgba(18,28,33,0.5);
   border-left-color: #997300;
   border-right-color: #997300;
   border-top-color: #997300;
   border-bottom-color: #997300;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   width: auto;
   height: 24px;
   margin-left: 0px;
@@ -603,7 +576,6 @@
   align-self: auto;
 }
 .unity-scroller--horizontal .unity-base-slider #unity-dragger {
-  color: #1a1a1a;
   background-color: rgba(237,230,222,0.5);
   border-left-color: #4d3900;
   border-right-color: #4d3900;
@@ -634,8 +606,9 @@
   align-self: auto;
 }
 .unity-scroller--horizontal #unity-low-button {
-  color: #1a1a1a;
   background-color: rgba(237,230,222,0.5);
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png');
+  -unity-background-image-tint-color: #121c21;
   border-left-color: #4d3900;
   border-right-color: #4d3900;
   border-top-color: #4d3900;
@@ -644,8 +617,6 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png');
-  -unity-background-image-tint-color: #121c21;
   width: 24px;
   height: 24px;
   margin-left: 0px;
@@ -666,8 +637,9 @@
   align-self: auto;
 }
 .unity-scroller--horizontal #unity-high-button {
-  color: #1a1a1a;
   background-color: rgba(237,230,222,0.5);
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png');
+  -unity-background-image-tint-color: #121c21;
   border-left-color: #4d3900;
   border-right-color: #4d3900;
   border-top-color: #4d3900;
@@ -676,8 +648,6 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png');
-  -unity-background-image-tint-color: #121c21;
   width: 24px;
   height: 24px;
   margin-left: 0px;
@@ -826,15 +796,15 @@
   align-items: center;
 }
 .unity-scroller--vertical .unity-base-slider #unity-tracker {
-  background-color: rgba(18,28,33,0.8);
+  background-color: rgba(18,28,33,0.5);
   border-left-color: #997300;
   border-right-color: #997300;
   border-top-color: #997300;
   border-bottom-color: #997300;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   width: 24px;
   height: auto;
   margin-left: 0px;
@@ -855,7 +825,6 @@
   align-self: auto;
 }
 .unity-scroller--vertical .unity-base-slider #unity-dragger {
-  color: #1a1a1a;
   background-color: rgba(237,230,222,0.5);
   border-left-color: #4d3900;
   border-right-color: #4d3900;
@@ -886,8 +855,9 @@
   align-self: auto;
 }
 .unity-scroller--vertical #unity-low-button {
-  color: #1a1a1a;
   background-color: rgba(237,230,222,0.5);
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png');
+  -unity-background-image-tint-color: #121c21;
   border-left-color: #4d3900;
   border-right-color: #4d3900;
   border-top-color: #4d3900;
@@ -896,8 +866,6 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png');
-  -unity-background-image-tint-color: #121c21;
   width: 24px;
   height: 24px;
   margin-left: 0px;
@@ -918,8 +886,9 @@
   align-self: auto;
 }
 .unity-scroller--vertical #unity-high-button {
-  color: #1a1a1a;
   background-color: rgba(237,230,222,0.5);
+  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png');
+  -unity-background-image-tint-color: #121c21;
   border-left-color: #4d3900;
   border-right-color: #4d3900;
   border-top-color: #4d3900;
@@ -928,8 +897,6 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png');
-  -unity-background-image-tint-color: #121c21;
   width: 24px;
   height: 24px;
   margin-left: 0px;

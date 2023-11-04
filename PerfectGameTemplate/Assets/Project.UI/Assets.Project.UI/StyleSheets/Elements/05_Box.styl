@@ -1,6 +1,11 @@
 @import "../StyleSheet__Theme2"
 
-// skin
+// box
+skin1--box         = create-view-skin(null,  (box        box       ), (box        box))
+skin1--box--light  = create-view-skin(dark,  (box--light box--light), (box--light box))
+skin1--box--dark   = create-view-skin(light, (box--dark  box--dark ), (box--dark  box))
+
+// box
 skin2--box         = create-layout(null, auto, auto, 4px, 1px, 0px                ), create-flex(0, 1, auto, auto)
 skin2--box--small  = create-layout(null, auto, auto, 4px, 1px, 6px  6px  5px  5px ), create-flex(0, 1, auto, auto)
 skin2--box--medium = create-layout(null, auto, auto, 4px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)

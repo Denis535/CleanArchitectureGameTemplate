@@ -1,35 +1,3 @@
-// add-view
-add-view(color = null, font = null, text = null, background-color = null, background-image = null, border-color = null, border-radius = null)
-    add-style create-view(color, font, text, background-color, background-image, border-color, border-radius)
-// add-view/foreground
-add-view-foreground(color, font, text)
-    add-style create-foreground(color, font, text)
-// add-view/background
-add-view-background(background-color, background-image)
-    add-style create-background(background-color, background-image)
-// add-view/border
-add-view-border(border-color, border-radius)
-    add-style create-border(border-color, border-radius)
-
-// add-layout
-add-layout(position = null, width = null, height = null, margin = null, border = null, padding = null)
-    add-style create-layout(position, width, height, margin, border, padding)
-// add-layout/position
-add-layout-position(position, left = null, right = null, top = null, bottom = null)
-    add-style create-position(position, left, right, top, bottom)
-// add-layout/size
-add-layout-size(width, height)
-    add-style create-size(width, height)
-// add-layout/box
-add-layout-box(margin, border, padding)
-    add-style create-box(margin, border, padding)
-
-// add-flex
-add-flex(flex-grow, flex-shrink, flex-basis, align-self)
-    add-style create-flex(flex-grow, flex-shrink, flex-basis, align-self)
-add-flex2(flex-direction, justify-content, align-items)
-    add-style create-flex2(flex-direction, justify-content, align-items)
-
 // create-view
 create-view(color, font, text, background-color, background-image, border-color, border-radius)
     foreground = create-foreground(color, font, text)
@@ -37,7 +5,6 @@ create-view(color, font, text, background-color, background-image, border-color,
     border     = create-border(border-color, border-radius)
     merge(foreground, background, border)
 
-// create-view/foreground
 create-foreground(color, font = null, text = null)
     foreground = { color: color }
     merge(foreground, font, text)
@@ -55,7 +22,6 @@ create-text(align = null, outline = null, shadow = null)
         text-shadow:  shadow,
     }
 
-// create-view/background
 create-background(color, image = null)
     background = { background-color: color }
     merge(background, image)
@@ -71,7 +37,6 @@ create-background-image(url = null, color = null, scale-mode = null, slice-left 
         background-image-slice-scale:  slice-scale,
     }
 
-// create-view/border
 create-border(color, radius)
     border-color  = create-border-color(color)
     border-radius = create-border-radius(radius)
@@ -98,7 +63,6 @@ create-layout(position, width, height, margin, border, padding)
     box      = create-box(margin, border, padding)
     merge(position, size, box)
 
-// create-layout/position
 create-position(position, left = null, right = null, top = null, bottom = null)
     return {
         position: position[0],
@@ -108,7 +72,6 @@ create-position(position, left = null, right = null, top = null, bottom = null)
         bottom:   bottom or position[4],
     }
 
-// create-layout/size
 create-size(width, height)
     width  = create-width(width)
     height = create-height(height)
@@ -126,7 +89,6 @@ create-height(height)
         max-height:  height[2],
     }
 
-// create-layout/box
 create-box(margin, border, padding)
     margin       = create-margin(margin)
     border-width = create-border-width(border)
@@ -169,12 +131,36 @@ create-flex2(flex-direction, justify-content, align-items)
         align-items:     align-items,
     }
 
+// add-view
+add-view(color = null, font = null, text = null, background-color = null, background-image = null, border-color = null, border-radius = null)
+    add-style create-view(color, font, text, background-color, background-image, border-color, border-radius)
+add-view-foreground(color, font, text)
+    add-style create-foreground(color, font, text)
+add-view-background(background-color, background-image)
+    add-style create-background(background-color, background-image)
+add-view-border(border-color, border-radius)
+    add-style create-border(border-color, border-radius)
+
+// add-layout
+add-layout(position = null, width = null, height = null, margin = null, border = null, padding = null)
+    add-style create-layout(position, width, height, margin, border, padding)
+add-layout-position(position, left = null, right = null, top = null, bottom = null)
+    add-style create-position(position, left, right, top, bottom)
+add-layout-size(width, height)
+    add-style create-size(width, height)
+add-layout-box(margin, border, padding)
+    add-style create-box(margin, border, padding)
+
+// add-flex
+add-flex(flex-grow, flex-shrink, flex-basis, align-self)
+    add-style create-flex(flex-grow, flex-shrink, flex-basis, align-self)
+add-flex2(flex-direction, justify-content, align-items)
+    add-style create-flex2(flex-direction, justify-content, align-items)
+
 // add-style
 add-style(objects...)
     for object in objects
         add-style-internal(object)
-
-// add-style-internal
 add-style-internal(object)
     if object != null and get-type(object) != null
         if get-type(object) == 'Expression'

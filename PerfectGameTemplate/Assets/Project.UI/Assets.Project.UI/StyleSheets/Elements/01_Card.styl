@@ -1,10 +1,24 @@
 @import "../StyleSheet__Theme2"
 
-// skin
-skin2--card         = create-layout(null, auto, auto, 0px, 1px 1px 1px 1px, 0px  0px  0px  0px ), create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch)
-skin2--card-header  = create-layout(null, auto, auto, 0px, 0px 0px 0px 1px, 12px 12px 10px 10px), create-flex(0, 0, auto, auto), create-flex2(row,    center,       center )
-skin2--card-content = create-layout(null, auto, auto, 0px, 0px 0px 0px 0px, 24px 24px 20px 20px), create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch)
-skin2--card-footer  = create-layout(null, auto, auto, 0px, 0px 0px 1px 0px, 24px 24px 20px 20px), create-flex(0, 0, auto, auto), create-flex2(row,    space-around, center )
+// card
+skin1--card                        = create-view-skin(dark, (card                        card                        ), (card                          card               ))
+skin1--card-header                 = create-view-skin(dark, (card-header                 card-header                 ), (card-header                   card-header        ))
+skin1--card-content                = create-view-skin(dark, (card-content                card-content                ), (card-content                  card-content       ))
+skin1--card-footer                 = create-view-skin(dark, (card-footer                 card-footer                 ), (card-footer                   card-footer        ))
+// card
+skin1--dialog-card                 = create-view-skin(dark, (dialog-card                 dialog-card                 ), (dialog-card                   dialog-card        ))
+skin1--dialog-card-header          = create-view-skin(dark, (dialog-card-header          dialog-card-header          ), (dialog-card-header            dialog-card-header ))
+skin1--dialog-card-header--info    = create-view-skin(dark, (dialog-card-header--info    dialog-card-header--info    ), (dialog-card-header            dialog-card-header ))
+skin1--dialog-card-header--warning = create-view-skin(dark, (dialog-card-header--warning dialog-card-header--warning ), (dialog-card-header            dialog-card-header ))
+skin1--dialog-card-header--error   = create-view-skin(dark, (dialog-card-header--error   dialog-card-header--error   ), (dialog-card-header            dialog-card-header ))
+skin1--dialog-card-content         = create-view-skin(dark, (dialog-card-content         dialog-card-content         ), (dialog-card-content           dialog-card-content))
+skin1--dialog-card-footer          = create-view-skin(dark, (dialog-card-footer          dialog-card-footer          ), (dialog-card-footer            dialog-card-footer ))
+
+// card
+skin2--card                        = create-layout(null, auto, auto, 0px, 1px 1px 1px 1px, 0px  0px  0px  0px ), create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch)
+skin2--card-header                 = create-layout(null, auto, auto, 0px, 0px 0px 0px 1px, 12px 12px 10px 10px), create-flex(0, 0, auto, auto), create-flex2(row,    center,       center )
+skin2--card-content                = create-layout(null, auto, auto, 0px, 0px 0px 0px 0px, 24px 24px 20px 20px), create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch)
+skin2--card-footer                 = create-layout(null, auto, auto, 0px, 0px 0px 1px 0px, 24px 24px 20px 20px), create-flex(0, 0, auto, auto), create-flex2(row,    space-around, center )
 
 // card
 card(effect)
