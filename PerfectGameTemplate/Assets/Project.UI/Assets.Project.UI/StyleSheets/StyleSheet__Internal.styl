@@ -4,6 +4,7 @@ create-view(color, font, text, background-color, background-image, border-color,
     background = create-background(background-color, background-image)
     border     = create-border(border-color, border-radius)
     merge(foreground, background, border)
+
 // create-view
 create-foreground(color, font = null, text = null)
     foreground = { color: color }
@@ -21,6 +22,7 @@ create-text(align = null, outline = null, shadow = null)
         text-outline: outline,
         text-shadow:  shadow,
     }
+
 // create-view
 create-background(color, image = null)
     background = { background-color: color }
@@ -36,6 +38,7 @@ create-background-image(url = null, color = null, scale-mode = null, slice-left 
         background-image-slice-bottom: slice-bottom,
         background-image-slice-scale:  slice-scale,
     }
+
 // create-view
 create-border(color, radius)
     border-color  = create-border-color(color)
@@ -62,6 +65,7 @@ create-layout(position, width, height, margin, border, padding)
     size     = create-size(width, height)
     box      = create-box(margin, border, padding)
     merge(position, size, box)
+
 // create-layout
 create-position(position, left = null, right = null, top = null, bottom = null)
     return {
@@ -71,6 +75,7 @@ create-position(position, left = null, right = null, top = null, bottom = null)
         top:      top    or position[3],
         bottom:   bottom or position[4],
     }
+
 // create-layout
 create-size(width, height)
     width  = create-width(width)
@@ -88,6 +93,7 @@ create-height(height)
         min-height:  height[1],
         max-height:  height[2],
     }
+
 // create-layout
 create-box(margin, border, padding)
     margin       = create-margin(margin)
