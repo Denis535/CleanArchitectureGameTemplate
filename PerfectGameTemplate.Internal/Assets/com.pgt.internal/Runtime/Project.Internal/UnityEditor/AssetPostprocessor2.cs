@@ -162,8 +162,8 @@ namespace UnityEditor {
                 .set('paths',         [Path.dirname(src)]     )
                 .define('eval',       evalEx,      raw = false)
                 .define('raw-eval',   rawEvalEx,   raw = true )
-                .define('get-type',   getTypeEx,   raw = true )
                 .define('get-string', getStringEx, raw = true )
+                .define('get-type',   getTypeEx,   raw = true )
                 .render(onComplete);
 
             // onCallback
@@ -188,12 +188,6 @@ namespace UnityEditor {
             function rawEvalEx(script, arg, arg2, arg3, arg4, arg5, arg6) {{
                 return eval(script.nodes[0].val);
             }}
-            function getTypeEx(expr) {{
-                expr = Stylus.utils.unwrap(expr);
-                if (expr.nodes.length == 0) return new Stylus.nodes.Null();
-                if (expr.nodes.length == 1) return new Stylus.nodes.String(expr.nodes[0].constructor.name);
-                return new Stylus.nodes.Literal(expr.constructor.name);
-            }}
             function getStringEx(expr) {{
                 expr = Stylus.utils.unwrap(expr);
                 if (expr.nodes.length == 0) {{
@@ -211,6 +205,12 @@ namespace UnityEditor {
                     throw new Error( 'Expression is not supported: ' + expr2 );
                 }}
                 throw new Error( 'Expression is invalid: ' + expr );
+            }}
+            function getTypeEx(expr) {{
+                expr = Stylus.utils.unwrap(expr);
+                if (expr.nodes.length == 0) return new Stylus.nodes.Null();
+                if (expr.nodes.length == 1) return new Stylus.nodes.String(expr.nodes[0].constructor.name);
+                return new Stylus.nodes.Literal(expr.constructor.name);
             }}
             " );
         }

@@ -1,4 +1,4 @@
-@import "StyleSheet__Internal2"
+@import "StyleSheet__Internal"
 
 // theme
 theme = {
@@ -181,3 +181,41 @@ theme = {
     border-color:     merge(theme.border-color,     theme0.border-color,     theme1.border-color    ),
     border-radius:    merge(theme.border-radius,    theme0.border-radius,    theme1.border-radius   ),
 }
+
+// create-view-skin
+create-view-skin(color, background, border)
+    color            = get-theme-color(color)
+    background-color = get-theme-background-color(background[0])
+    background-image = get-theme-background-image(background[1])
+    border-color     = get-theme-border-color(border[0])
+    border-radius    = get-theme-border-radius(border[1])
+    create-view color, null, null, background-color, background-image, border-color, border-radius
+
+// get-theme-value
+get-theme-color(key)
+    if key != null
+        return get(theme.color, key) if has(theme.color, key)
+        error('Theme has no color: ' + get-string(key))
+    null
+get-theme-background-color(key)
+    if key != null
+        return get(theme.background-color, key) if has(theme.background-color, key)
+        return get(theme.color,            key) if has(theme.color,            key)
+        error('Theme has no background-color: ' + get-string(key))
+    null
+get-theme-background-image(key)
+    if key != null
+        return get(theme.background-image, key) if has(theme.background-image, key)                              
+        error('Theme has no background-image: ' + get-string(key))
+    null
+get-theme-border-color(key)
+    if key != null
+        return get(theme.border-color, key) if has(theme.border-color, key)
+        return get(theme.color,        key) if has(theme.color,        key)
+        error('Theme has no border-color: ' + get-string(key))
+    null
+get-theme-border-radius(key)
+    if key != null
+        return get(theme.border-radius, key) if has(theme.border-radius, key)                              
+        error('Theme has no border-radius: ' + get-string(key))
+    null
