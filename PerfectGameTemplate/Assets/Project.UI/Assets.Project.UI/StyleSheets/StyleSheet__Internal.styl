@@ -302,10 +302,15 @@ get-style-value(value, property)
 
 // has
 has(obj, key)
-    get-string(key) in obj
+    if obj != null
+        get-string(key) in obj
+    else
+        key = get-string(key)
+        key is defined
 
 // get
-get(obj, key, index = null)
-    result = obj[get-string(key)]
-    result = result[index] if index != null
-    result
+get(obj, key)
+    if obj != null
+        obj[get-string(key)]
+    else
+        lookup(get-string(key))

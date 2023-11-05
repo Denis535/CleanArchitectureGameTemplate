@@ -133,10 +133,10 @@
 .unity-base-dropdown__item {
   color: #e6e6e6;
   background-color: rgba(0,0,0,0);
-  border-left-color: #22282a;
-  border-right-color: #22282a;
-  border-top-color: #22282a;
-  border-bottom-color: #22282a;
+  border-left-color: #394246;
+  border-right-color: #394246;
+  border-top-color: #394246;
+  border-bottom-color: #394246;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -166,10 +166,10 @@
 .unity-base-dropdown__item:hover {
   color: #e6e6e6;
   background-color: #a37a29;
-  border-left-color: #997300;
-  border-right-color: #997300;
-  border-top-color: #997300;
-  border-bottom-color: #997300;
+  border-left-color: #c93;
+  border-right-color: #c93;
+  border-top-color: #c93;
+  border-bottom-color: #c93;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
