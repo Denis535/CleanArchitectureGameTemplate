@@ -2734,11 +2734,11 @@
   align-items: center;
 }
 .unity-scroller--horizontal .unity-base-slider #unity-tracker {
-  background-color: rgba(18,28,33,0.5);
-  border-left-color: #997300;
-  border-right-color: #997300;
-  border-top-color: #997300;
-  border-bottom-color: #997300;
+  background-color: rgba(46,51,56,0.95);
+  border-left-color: #c60;
+  border-right-color: #c60;
+  border-top-color: #c60;
+  border-bottom-color: #c60;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -2763,11 +2763,11 @@
   align-self: auto;
 }
 .unity-scroller--horizontal .unity-base-slider #unity-dragger {
-  background-color: rgba(237,230,222,0.5);
-  border-left-color: #4d3900;
-  border-right-color: #4d3900;
-  border-top-color: #4d3900;
-  border-bottom-color: #4d3900;
+  background-color: rgba(209,204,199,0.95);
+  border-left-color: #630;
+  border-right-color: #630;
+  border-top-color: #630;
+  border-bottom-color: #630;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -2793,13 +2793,13 @@
   align-self: auto;
 }
 .unity-scroller--horizontal #unity-low-button {
-  background-color: rgba(237,230,222,0.5);
+  background-color: rgba(209,204,199,0.95);
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png');
   -unity-background-image-tint-color: #121c21;
-  border-left-color: #4d3900;
-  border-right-color: #4d3900;
-  border-top-color: #4d3900;
-  border-bottom-color: #4d3900;
+  border-left-color: #630;
+  border-right-color: #630;
+  border-top-color: #630;
+  border-bottom-color: #630;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -2824,13 +2824,13 @@
   align-self: auto;
 }
 .unity-scroller--horizontal #unity-high-button {
-  background-color: rgba(237,230,222,0.5);
+  background-color: rgba(209,204,199,0.95);
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png');
   -unity-background-image-tint-color: #121c21;
-  border-left-color: #4d3900;
-  border-right-color: #4d3900;
-  border-top-color: #4d3900;
-  border-bottom-color: #4d3900;
+  border-left-color: #630;
+  border-right-color: #630;
+  border-top-color: #630;
+  border-bottom-color: #630;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -2983,11 +2983,11 @@
   align-items: center;
 }
 .unity-scroller--vertical .unity-base-slider #unity-tracker {
-  background-color: rgba(18,28,33,0.5);
-  border-left-color: #997300;
-  border-right-color: #997300;
-  border-top-color: #997300;
-  border-bottom-color: #997300;
+  background-color: rgba(46,51,56,0.95);
+  border-left-color: #c60;
+  border-right-color: #c60;
+  border-top-color: #c60;
+  border-bottom-color: #c60;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -3012,11 +3012,11 @@
   align-self: auto;
 }
 .unity-scroller--vertical .unity-base-slider #unity-dragger {
-  background-color: rgba(237,230,222,0.5);
-  border-left-color: #4d3900;
-  border-right-color: #4d3900;
-  border-top-color: #4d3900;
-  border-bottom-color: #4d3900;
+  background-color: rgba(209,204,199,0.95);
+  border-left-color: #630;
+  border-right-color: #630;
+  border-top-color: #630;
+  border-bottom-color: #630;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -3042,13 +3042,13 @@
   align-self: auto;
 }
 .unity-scroller--vertical #unity-low-button {
-  background-color: rgba(237,230,222,0.5);
+  background-color: rgba(209,204,199,0.95);
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png');
   -unity-background-image-tint-color: #121c21;
-  border-left-color: #4d3900;
-  border-right-color: #4d3900;
-  border-top-color: #4d3900;
-  border-bottom-color: #4d3900;
+  border-left-color: #630;
+  border-right-color: #630;
+  border-top-color: #630;
+  border-bottom-color: #630;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -3073,13 +3073,13 @@
   align-self: auto;
 }
 .unity-scroller--vertical #unity-high-button {
-  background-color: rgba(237,230,222,0.5);
+  background-color: rgba(209,204,199,0.95);
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png');
   -unity-background-image-tint-color: #121c21;
-  border-left-color: #4d3900;
-  border-right-color: #4d3900;
-  border-top-color: #4d3900;
-  border-bottom-color: #4d3900;
+  border-left-color: #630;
+  border-right-color: #630;
+  border-top-color: #630;
+  border-bottom-color: #630;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
