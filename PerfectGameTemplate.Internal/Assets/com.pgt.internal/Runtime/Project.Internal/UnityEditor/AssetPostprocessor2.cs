@@ -202,9 +202,9 @@ namespace UnityEditor {
                     if (expr2.constructor.name == 'RGBA')     return new Stylus.nodes.String(expr2.name);
                     if (expr2.constructor.name == 'Function') return new Stylus.nodes.String(expr2.name);
                     if (expr2.constructor.name == 'Null')     return new Stylus.nodes.Null();
-                    throw new Error( 'Expression is not supported: ' + expr2 );
+                    throw new Error( ""Argument 'expr' is not supported: "" + expr2 );
                 }}
-                throw new Error( 'Expression is invalid: ' + expr );
+                throw new Error( ""Argument 'expr' is invalid: "" + expr );
             }}
             function getTypeEx(expr) {{
                 expr = Stylus.utils.unwrap(expr);

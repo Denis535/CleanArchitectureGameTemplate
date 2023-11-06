@@ -1,3 +1,67 @@
+// create-theme
+create-theme()
+    return {
+        color: {},
+        background-color: {},
+        background-image: {},
+        border-color: {},
+        border-radius: {},
+    }
+
+// create-view-skin
+create-view-skin(color, background, border)
+    color            = get-theme-color(color)
+    background-color = get-theme-background-color(background[0])
+    background-image = get-theme-background-image(background[1])
+    border-color     = get-theme-border-color(border[0])
+    border-radius    = get-theme-border-radius(border[1])
+    create-view color, null, null, background-color, background-image, border-color, border-radius
+
+// create-layout-skin
+create-layout-skin(position, size, margin, border, padding)
+    create-layout(position, size[0], size[1], margin, border, padding)
+
+// get-theme-value
+get-theme-color(key)
+    if key != null
+        return get(theme.color, key) if has(theme.color, key)
+        error('Color is not found: ' + get-string(key))
+    null
+get-theme-background-color(key)
+    if key != null
+        return get(theme.background-color, key) if has(theme.background-color, key)
+        return get(theme.color,            key) if has(theme.color,            key)
+        error('Background color is not found: ' + get-string(key))
+    null
+get-theme-background-image(key)
+    if key != null
+        return get(theme.background-image, key) if has(theme.background-image, key)
+        error('Background image is not found: ' + get-string(key))
+    null
+get-theme-border-color(key)
+    if key != null
+        return get(theme.border-color, key) if has(theme.border-color, key)
+        return get(theme.color,        key) if has(theme.color,        key)
+        error('Border color is not found: ' + get-string(key))
+    null
+get-theme-border-radius(key)
+    if key != null
+        return get(theme.border-radius, key) if has(theme.border-radius, key)
+        error('Border radius is not found: ' + get-string(key))
+    null
+
+// set-theme-value
+set-theme-color(key, value)
+    set(theme.color, key, value)
+set-theme-background-color(key, value)
+    set(theme.background-color, key, value)
+set-theme-background-image(key, value)
+    set(theme.background-image, key, value)
+set-theme-border-color(key, value)
+    set(theme.border-color, key, value)
+set-theme-border-radius(key, value)
+    set(theme.border-radius, key, value)
+
 // create-view
 create-view(color, font, text, background-color, background-image, border-color, border-radius)
     foreground = create-foreground(color, font, text)
@@ -27,7 +91,7 @@ create-text(align = null, outline = null, shadow = null)
 create-background(color, image = null)
     background = { background-color: color }
     merge(background, image)
-create-background-image(url = null, color = null, scale-mode = null, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
+create-background-image(url, color, scale-mode, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
     return {
         background-image-url:          url,
         background-image-color:        color,
@@ -303,14 +367,22 @@ get-style-value(value, property)
 // has
 has(obj, key)
     if obj != null
-        get-string(key) in obj
+        key = get-string(key)
+        return key in obj
     else
         key = get-string(key)
-        key is defined
+        return key is defined
 
 // get
 get(obj, key)
     if obj != null
-        obj[get-string(key)]
+        return obj[get-string(key)]
     else
-        lookup(get-string(key))
+        return lookup(get-string(key))
+
+// set
+set(obj, key, value)
+    if obj != null
+        obj[get-string(key)] = value
+    else
+        define(get-string(key), value)

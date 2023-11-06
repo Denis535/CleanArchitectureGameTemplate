@@ -1,20 +1,20 @@
 @import "../StyleSheet__Theme"
 
 // dropdown
-skin--dropdown                       = create-view-skin(null,  (dropdown-element             dropdown-element     ), (dropdown-element             element  ))
-skin--dropdown-item                  = create-view-skin(light, (dropdown-item-element        dropdown-item-element), (dropdown-item-element        element  ))
-skin--dropdown-item--hover           = create-view-skin(light, (dropdown-item-element--hover dropdown-item-element), (dropdown-item-element--hover element  ))
-skin--checkmark                      = create-view-skin(null,  (component                    component            ), (component                    component))
-skin--checkmark--checked             = create-view-skin(null,  (component                    checkmark-icon--light), (component                    component))
-skin--text                           = create-view-skin(null,  (element                      element              ), (element                      element  ))
+skin--dropdown                       = create-view-skin(null,  (dropdown-element             dropdown-element            ), (dropdown-element             dropdown-element            ))
+skin--dropdown-item                  = create-view-skin(light, (dropdown-item-element        dropdown-item-element       ), (dropdown-item-element        dropdown-item-element       ))
+skin--dropdown-item--hover           = create-view-skin(light, (dropdown-item-element--hover dropdown-item-element--hover), (dropdown-item-element--hover dropdown-item-element--hover))
+skin--checkmark                      = create-view-skin(null,  (component                    component                   ), (component                    component                   ))
+skin--checkmark--checked             = create-view-skin(null,  (component                    checkmark-icon--light       ), (component                    component                   ))
+skin--text                           = create-view-skin(null,  (element                      element                     ), (element                      element                     ))
 // scroll-view
-skin--scroll-view                    = create-view-skin(null,  (element                      element              ), (element                      element  ))
-skin--viewport-and-vertical-scroller = create-view-skin(null,  (element                      element              ), (element                      element  ))
-skin--viewport                       = create-view-skin(null,  (element                      element              ), (element                      element  ))
-skin--content                        = create-view-skin(null,  (element                      element              ), (element                      element  ))
+skin--scroll-view                    = create-view-skin(null,  (element                      element                     ), (element                      element                     ))
+skin--viewport-and-vertical-scroller = create-view-skin(null,  (element                      element                     ), (element                      element                     ))
+skin--viewport                       = create-view-skin(null,  (element                      element                     ), (element                      element                     ))
+skin--content                        = create-view-skin(null,  (element                      element                     ), (element                      element                     ))
 
 // dropdown
-misc--dropdown                       = create-layout-skin(null, auto auto, 0px,              1px,             0px                ), create-flex(0, 1, auto, auto)
+misc--dropdown                       = create-layout-skin(null, auto auto, 0px 0px  2px 0px, 1px,             0px                ), create-flex(0, 1, auto, auto)
 misc--dropdown-item                  = create-layout-skin(null, auto auto, 0px,              0px 0px 0px 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto), create-flex2(row, flex-start, stretch)
 misc--checkmark                      = create-layout-skin(null, 16px 16px, 0px 12px 0px 0px, 1px,             0px                ), create-flex(0, 1, auto, auto)
 misc--text                           = create-layout-skin(null, auto auto, 0px,              0px,             0px                ), create-flex(1, 1, auto, auto)
