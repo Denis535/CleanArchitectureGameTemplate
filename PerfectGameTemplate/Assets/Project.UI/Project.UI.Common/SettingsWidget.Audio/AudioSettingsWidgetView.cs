@@ -44,7 +44,7 @@ namespace Project.UI.Common {
                         title = UIFactory.Label( "Audio Settings" ).Name( "title" )
                     ),
                     UIFactory.Content().Children(
-                        UIFactory.ColumnGroup().Classes( "dark-30", "large", "grow-1" ).Children(
+                        UIFactory.ColumnGroup().Classes( "dark-50", "large", "grow-1" ).Children(
                             masterVolume = UIFactory.Slider( "Master Volume" ).Name( "master-volume" ).Classes( "label-width-25pc" ),
                             musicVolume = UIFactory.Slider( "Music Volume" ).Name( "music-volume" ).Classes( "label-width-25pc" ),
                             sfxVolume = UIFactory.Slider( "Sfx Volume" ).Name( "sfx-volume" ).Classes( "label-width-25pc" ),
