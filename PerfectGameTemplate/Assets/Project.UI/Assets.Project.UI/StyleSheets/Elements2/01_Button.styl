@@ -7,31 +7,27 @@ skin--button = create-view-skin(dark, (element--light element--light), (element-
 misc--button = create-layout-skin(null, auto auto, 4px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
 
 // button
-button(effect)
+.unity-button, .unity-repeat-button
     // cursor link
-    add-skin effect, button
-    add-misc effect, button
+    add-skin button
+    add-misc button
 
-// button
-.unity-button
-    button(null)
-    &:hover
-        button(hover)
-    &:active
-        button(active)
-    &:focus
-        button(focus)
-    &.invalid
-        button(invalid)
+// // button
+// .unity-button:hover, .unity-repeat-button:hover
+//     add-skin button
+//     add-misc button
 
-// repeat-button
-.unity-repeat-button
-    button(null)
-    &:hover
-        button(hover)
-    &:active
-        button(active)
-    &:focus
-        button(focus)
-    &.invalid
-        button(invalid)
+// // button
+// .unity-button:active, .unity-repeat-button:active
+//     add-skin button
+//     add-misc button
+
+// // button
+// .unity-button:focus, .unity-repeat-button:focus
+//     add-skin button
+//     add-misc button
+
+// // button
+// .unity-button.invalid, .unity-repeat-button.invalid
+//     add-skin button
+//     add-misc button

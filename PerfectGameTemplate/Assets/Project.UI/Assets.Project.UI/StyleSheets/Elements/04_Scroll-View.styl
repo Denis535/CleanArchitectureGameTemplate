@@ -14,6 +14,8 @@ skin--horizontal-slider-field-input  = create-view-skin(null,  (element         
 skin--horizontal-container           = create-view-skin(null,  (element         element               ), (element         element))
 skin--horizontal-tracker             = create-view-skin(null,  (element--dark   element--dark         ), (element--dark   element))
 skin--horizontal-dragger             = create-view-skin(null,  (element--light  element--light        ), (element--light  element))
+skin--horizontal-low-button          = create-view-skin(null,  (element--light  left-arrow-icon--dark ), (element--light  element))
+skin--horizontal-high-button         = create-view-skin(null,  (element--light  right-arrow-icon--dark), (element--light  element))
 // vertical-scroller
 skin--vertical-scroller              = create-view-skin(null,  (element         element               ), (element         element))
 skin--vertical-slider-field          = create-view-skin(null,  (element         element               ), (element         element))
@@ -21,211 +23,175 @@ skin--vertical-slider-field-input    = create-view-skin(null,  (element         
 skin--vertical-container             = create-view-skin(null,  (element         element               ), (element         element))
 skin--vertical-tracker               = create-view-skin(null,  (element--dark   element--dark         ), (element--dark   element))
 skin--vertical-dragger               = create-view-skin(null,  (element--light  element--light        ), (element--light  element))
-// horizontal-button
-skin--horizontal-low-button          = create-view-skin(null,  (element--light  left-arrow-icon--dark ), (element--light  element))
-skin--horizontal-high-button         = create-view-skin(null,  (element--light  right-arrow-icon--dark), (element--light  element))
-// vertical-button
 skin--vertical-low-button            = create-view-skin(null,  (element--light  up-arrow-icon--dark   ), (element--light  element))
 skin--vertical-high-button           = create-view-skin(null,  (element--light  down-arrow-icon--dark ), (element--light  element))
 
 // scroll-view
-misc--scroll-view                    = create-layout-skin(null,     auto auto, 4px,  1px,  2px                ), create-flex(0, 1, auto, auto), create-flex2(column,         flex-start, stretch)
-misc--viewport-and-vertical-scroller = create-layout-skin(null,     auto auto, 0px,  0px,  0px                ), create-flex(1, 1, auto, auto), create-flex2(row,            flex-start, stretch)
-misc--viewport                       = create-layout-skin(null,     auto auto, 0px,  0px,  0px                ), create-flex(1, 1, auto, auto), create-flex2(column,         flex-start, stretch)
-misc--content                        = create-layout-skin(null,     auto auto, 0px,  0px,  0px                ), create-flex(0, 0, auto, auto), create-flex2(column,         flex-start, stretch)
-misc--content--small                 = create-layout-skin(null,     auto auto, 0px,  0px,  6px  6px  5px  5px )
-misc--content--medium                = create-layout-skin(null,     auto auto, 0px,  0px,  12px 12px 10px 10px)
-misc--content--large                 = create-layout-skin(null,     auto auto, 0px,  0px,  24px 24px 20px 20px)
-misc--content--reverse               = create-layout-skin(null,     null null, null, null, null               ),                                create-flex2(column-reverse, flex-start, stretch)
+misc--scroll-view                    = create-layout-skin(null,     auto auto, margin: 4px,  border: 1px,  padding: 2px                ), create-flex(0, 1, auto, auto), create-flex2(column,         flex-start, stretch)
+misc--viewport-and-vertical-scroller = create-layout-skin(null,     auto auto, margin: 0px,  border: 0px,  padding: 0px                ), create-flex(1, 1, auto, auto), create-flex2(row,            flex-start, stretch)
+misc--viewport                       = create-layout-skin(null,     auto auto, margin: 0px,  border: 0px,  padding: 0px                ), create-flex(1, 1, auto, auto), create-flex2(column,         flex-start, stretch)
+misc--content                        = create-layout-skin(null,     auto auto, margin: 0px,  border: 0px,  padding: 0px                ), create-flex(0, 0, auto, auto), create-flex2(column,         flex-start, stretch)
+misc--content--small                 = create-layout-skin(null,     auto auto, margin: 0px,  border: 0px,  padding: 6px  6px  5px  5px )
+misc--content--medium                = create-layout-skin(null,     auto auto, margin: 0px,  border: 0px,  padding: 12px 12px 10px 10px)
+misc--content--large                 = create-layout-skin(null,     auto auto, margin: 0px,  border: 0px,  padding: 24px 24px 20px 20px)
+misc--content--reverse               = create-layout-skin(null,     null null, margin: null, border: null, padding: null               ),                                create-flex2(column-reverse, flex-start, stretch)
 // horizontal-scroller
-misc--horizontal-scroller            = create-layout-skin(null,     auto auto, 0px, 0px, 0px                  ), create-flex(0, 0, auto, auto), create-flex2(row, flex-start, center)
-misc--horizontal-slider-field        = create-layout-skin(null,     auto auto, 0px, 0px, 0px                  ), create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
-misc--horizontal-slider-field-input  = create-layout-skin(null,     auto auto, 0px, 0px, 0px                  ), create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
-misc--horizontal-container           = create-layout-skin(null,     auto auto, 0px, 0px, 0px                  ), create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
-misc--horizontal-tracker             = create-layout-skin(null,     auto 24px, 0px, 0px, 0px                  ), create-flex(1, 1, auto, auto)
-misc--horizontal-dragger             = create-layout-skin(absolute, auto 24px, 0px, 1px, 0px                  ), create-flex(0, 1, auto, auto)
+misc--horizontal-scroller            = create-layout-skin(null,     auto auto, margin: 0px,  border: 0px,  padding: 0px                ), create-flex(0, 0, auto, auto), create-flex2(row, flex-start, center)
+misc--horizontal-slider-field        = create-layout-skin(null,     auto auto, margin: 0px,  border: 0px,  padding: 0px                ), create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
+misc--horizontal-slider-field-input  = create-layout-skin(null,     auto auto, margin: 0px,  border: 0px,  padding: 0px                ), create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
+misc--horizontal-container           = create-layout-skin(null,     auto auto, margin: 0px,  border: 0px,  padding: 0px                ), create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
+misc--horizontal-tracker             = create-layout-skin(null,     auto 24px, margin: 0px,  border: 0px,  padding: 0px                ), create-flex(1, 1, auto, auto)
+misc--horizontal-dragger             = create-layout-skin(absolute, auto 24px, margin: 0px,  border: 1px,  padding: 0px                ), create-flex(0, 1, auto, auto)
+misc--horizontal-low-button          = create-layout-skin(null,     24px 24px, margin: 0px,  border: 1px,  padding: 0px                ), create-flex(0, 0, auto, auto)
+misc--horizontal-high-button         = create-layout-skin(null,     24px 24px, margin: 0px,  border: 1px,  padding: 0px                ), create-flex(0, 0, auto, auto)
 // vertical-scroller
-misc--vertical-scroller              = create-layout-skin(null,     auto auto, 0px, 0px, 0px                  ), create-flex(0, 0, auto, auto), create-flex2(column, flex-start, center)
-misc--vertical-slider-field          = create-layout-skin(null,     auto auto, 0px, 0px, 0px                  ), create-flex(1, 1, auto, auto), create-flex2(column, flex-start, center)
-misc--vertical-slider-field-input    = create-layout-skin(null,     auto auto, 0px, 0px, 0px                  ), create-flex(1, 1, auto, auto), create-flex2(column, flex-start, center)
-misc--vertical-container             = create-layout-skin(null,     auto auto, 0px, 0px, 0px                  ), create-flex(1, 1, auto, auto), create-flex2(column, flex-start, center)
-misc--vertical-tracker               = create-layout-skin(null,     24px auto, 0px, 0px, 0px                  ), create-flex(1, 1, auto, auto)
-misc--vertical-dragger               = create-layout-skin(absolute, 24px auto, 0px, 1px, 0px                  ), create-flex(0, 1, auto, auto)
-// horizontal-button
-misc--horizontal-low-button          = create-layout-skin(null,     24px 24px, 0px, 1px, 0px                  ), create-flex(0, 0, auto, auto)
-misc--horizontal-high-button         = create-layout-skin(null,     24px 24px, 0px, 1px, 0px                  ), create-flex(0, 0, auto, auto)
-// vertical-button
-misc--vertical-low-button            = create-layout-skin(null,     24px 24px, 0px, 1px, 0px                  ), create-flex(0, 0, auto, auto)
-misc--vertical-high-button           = create-layout-skin(null,     24px 24px, 0px, 1px, 0px                  ), create-flex(0, 0, auto, auto)
-
-// scroll-view
-scroll-view(effect)
-    add-skin       effect, scroll-view
-    add-skin-light effect, scroll-view--light
-    add-skin-dark  effect, scroll-view--dark
-    add-misc       effect, scroll-view
-viewport-and-vertical-scroller(effect)
-    add-skin effect, viewport-and-vertical-scroller
-    add-misc effect, viewport-and-vertical-scroller
-viewport(effect)
-    overflow hidden
-    add-skin effect, viewport
-    add-misc effect, viewport
-content(effect)
-    overflow scroll
-    add-skin effect, content
-    add-misc effect, content
-small-content(effect)
-    add-skin effect, null
-    add-misc effect, content--small
-medium-content(effect)
-    add-skin effect, null
-    add-misc effect, content--medium
-large-content(effect)
-    add-skin effect, null
-    add-misc effect, content--large
-reverse-content(effect)
-    add-skin effect, null
-    add-misc effect, content--reverse
-
-// scroller
-horizontal-scroller(effect)
-    add-skin effect, horizontal-scroller
-    add-misc effect, horizontal-scroller
-// slider-field
-horizontal-slider-field(effect)
-    add-skin effect, horizontal-slider-field
-    add-misc effect, horizontal-slider-field
-horizontal-slider-field-input(effect)
-    add-skin effect, horizontal-slider-field-input
-    add-misc effect, horizontal-slider-field-input
-horizontal-container(effect)
-    add-skin effect, horizontal-container
-    add-misc effect, horizontal-container
-horizontal-tracker(effect)
-    add-skin effect, horizontal-tracker
-    add-misc effect, horizontal-tracker
-horizontal-dragger(effect)
-    add-skin effect, horizontal-dragger
-    add-misc effect, horizontal-dragger
-// button
-horizontal-low-button(effect)
-    add-skin effect, horizontal-low-button
-    add-misc effect, horizontal-low-button
-horizontal-high-button(effect)
-    add-skin effect, horizontal-high-button
-    add-misc effect, horizontal-high-button
-
-// scroller
-vertical-scroller(effect)
-    add-skin effect, vertical-scroller
-    add-misc effect, vertical-scroller
-// slider-field
-vertical-slider-field(effect)
-    add-skin effect, vertical-slider-field
-    add-misc effect, vertical-slider-field
-vertical-slider-field-input(effect)
-    add-skin effect, vertical-slider-field-input
-    add-misc effect, vertical-slider-field-input
-vertical-container(effect)
-    add-skin effect, vertical-container
-    add-misc effect, vertical-container
-vertical-tracker(effect)
-    add-skin effect, vertical-tracker
-    add-misc effect, vertical-tracker
-vertical-dragger(effect)
-    add-skin effect, vertical-dragger
-    add-misc effect, vertical-dragger
-// button
-vertical-low-button(effect)
-    add-skin effect, vertical-low-button
-    add-misc effect, vertical-low-button
-vertical-high-button(effect)
-    add-skin effect, vertical-high-button
-    add-misc effect, vertical-high-button
+misc--vertical-scroller              = create-layout-skin(null,     auto auto, margin: 0px,  border: 0px,  padding: 0px                ), create-flex(0, 0, auto, auto), create-flex2(column, flex-start, center)
+misc--vertical-slider-field          = create-layout-skin(null,     auto auto, margin: 0px,  border: 0px,  padding: 0px                ), create-flex(1, 1, auto, auto), create-flex2(column, flex-start, center)
+misc--vertical-slider-field-input    = create-layout-skin(null,     auto auto, margin: 0px,  border: 0px,  padding: 0px                ), create-flex(1, 1, auto, auto), create-flex2(column, flex-start, center)
+misc--vertical-container             = create-layout-skin(null,     auto auto, margin: 0px,  border: 0px,  padding: 0px                ), create-flex(1, 1, auto, auto), create-flex2(column, flex-start, center)
+misc--vertical-tracker               = create-layout-skin(null,     24px auto, margin: 0px,  border: 0px,  padding: 0px                ), create-flex(1, 1, auto, auto)
+misc--vertical-dragger               = create-layout-skin(absolute, 24px auto, margin: 0px,  border: 1px,  padding: 0px                ), create-flex(0, 1, auto, auto)
+misc--vertical-low-button            = create-layout-skin(null,     24px 24px, margin: 0px,  border: 1px,  padding: 0px                ), create-flex(0, 0, auto, auto)
+misc--vertical-high-button           = create-layout-skin(null,     24px 24px, margin: 0px,  border: 1px,  padding: 0px                ), create-flex(0, 0, auto, auto)
 
 // scroll-view
 .unity-scroll-view
-    scroll-view(null)
+    add-skin       scroll-view
+    add-skin-light scroll-view--light
+    add-skin-dark  scroll-view--dark
+    add-misc       scroll-view
     #unity-content-and-vertical-scroll-container
-        viewport-and-vertical-scroller(null)
+        add-skin viewport-and-vertical-scroller
+        add-misc viewport-and-vertical-scroller
     #unity-content-viewport
-        viewport(null)
+        overflow hidden
+        add-skin viewport
+        add-misc viewport
     #unity-content-container
-        content(null)
+        overflow scroll
+        add-skin content
+        add-misc content
+
+// scroll-view
 .unity-scroll-view.small
     #unity-content-container
-        small-content(null)
+        add-misc content--small
 .unity-scroll-view.medium
     #unity-content-container
-        medium-content(null)
+        add-misc content--medium
 .unity-scroll-view.large
     #unity-content-container
-        large-content(null)
+        add-misc content--large
 .unity-scroll-view.reverse
     #unity-content-viewport
-        reverse-content(null)
+        add-misc content--reverse
 
 // scroller
 .unity-scroller--horizontal
-    horizontal-scroller(null)
+    add-skin horizontal-scroller
+    add-misc horizontal-scroller
     // slider
     .unity-base-slider
-        horizontal-slider-field(null)
+        add-skin horizontal-slider-field
+        add-misc horizontal-slider-field
         .unity-base-slider__input
-            horizontal-slider-field-input(null)
+            add-skin horizontal-slider-field-input
+            add-misc horizontal-slider-field-input
         #unity-drag-container
-            horizontal-container(null)
+            add-skin horizontal-container
+            add-misc horizontal-container
         #unity-tracker
-            horizontal-tracker(null)
+            add-skin horizontal-tracker
+            add-misc horizontal-tracker
         #unity-dragger
-            horizontal-dragger(null)
-    .unity-base-slider:focus
-        #unity-dragger
-            horizontal-dragger(focus)
+            add-skin horizontal-dragger
+            add-misc horizontal-dragger
     // button
     #unity-low-button
-        horizontal-low-button(null)
-    #unity-low-button:hover
-        horizontal-low-button(hover)
-    #unity-low-button:active
-        horizontal-low-button(active)
+        add-skin horizontal-low-button
+        add-misc horizontal-low-button
     // button
     #unity-high-button
-        horizontal-high-button(null)
+        add-skin horizontal-high-button
+        add-misc horizontal-high-button
+
+// scroller
+.unity-scroller--horizontal
+    // slider
+    .unity-base-slider:hover
+        #unity-dragger
+            add-skin horizontal-dragger
+            add-misc horizontal-dragger
+    .unity-base-slider:focus
+        #unity-dragger
+            add-skin horizontal-dragger
+            add-misc horizontal-dragger
+    // button
+    #unity-low-button:hover
+        add-skin horizontal-low-button
+        add-misc horizontal-low-button
+    #unity-low-button:active
+        add-skin horizontal-low-button
+        add-misc horizontal-low-button
+    // button
     #unity-high-button:hover
-        horizontal-high-button(hover)
+        add-skin horizontal-high-button
+        add-misc horizontal-high-button
     #unity-high-button:active
-        horizontal-high-button(active)
+        add-skin horizontal-high-button
+        add-misc horizontal-high-button
 
 // scroller
 .unity-scroller--vertical
-    vertical-scroller(null)
+    add-skin vertical-scroller
+    add-misc vertical-scroller
     // slider
     .unity-base-slider
-        vertical-slider-field(null)
+        add-skin vertical-slider-field
+        add-misc vertical-slider-field
         .unity-base-slider__input
-            vertical-slider-field-input(null)
+            add-skin vertical-slider-field-input
+            add-misc vertical-slider-field-input
         #unity-drag-container
-            vertical-container(null)
+            add-skin vertical-container
+            add-misc vertical-container
         #unity-tracker
-            vertical-tracker(null)
+            add-skin vertical-tracker
+            add-misc vertical-tracker
         #unity-dragger
-            vertical-dragger(null)
-    .unity-base-slider:focus
-        #unity-dragger
-            vertical-dragger(focus)
+            add-skin vertical-dragger
+            add-misc vertical-dragger
     // button
     #unity-low-button
-        vertical-low-button(null)
-    #unity-low-button:hover
-        vertical-low-button(hover)
-    #unity-low-button:active
-        vertical-low-button(active)
+        add-skin vertical-low-button
+        add-misc vertical-low-button
     // button
     #unity-high-button
-        vertical-high-button(null)
+        add-skin vertical-high-button
+        add-misc vertical-high-button
+
+// scroller
+.unity-scroller--vertical
+    // slider
+    .unity-base-slider:hover
+        #unity-dragger
+            add-skin vertical-dragger
+            add-misc vertical-dragger
+    .unity-base-slider:focus
+        #unity-dragger
+            add-skin vertical-dragger
+            add-misc vertical-dragger
+    // button
+    #unity-low-button:hover
+        add-skin vertical-low-button
+        add-misc vertical-low-button
+    #unity-low-button:active
+        add-skin vertical-low-button
+        add-misc vertical-low-button
+    // button
     #unity-high-button:hover
-        vertical-high-button(hover)
+        add-skin vertical-high-button
+        add-misc vertical-high-button
     #unity-high-button:active
-        vertical-high-button(active)
+        add-skin vertical-high-button
+        add-misc vertical-high-button

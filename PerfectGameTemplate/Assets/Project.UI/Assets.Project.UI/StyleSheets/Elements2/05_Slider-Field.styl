@@ -17,38 +17,48 @@ misc--tracker     = create-layout-skin(null,     auto 8px,  0px, 1px, 0px), crea
 misc--dragger     = create-layout-skin(absolute, 8px  24px, 0px, 1px, 0px), create-flex(0, 1, auto, auto)
 
 // slider-field
-slider-field(effect)
-    add-skin effect, field
-    add-misc effect, field
-slider-field-label(effect)
-    add-skin effect, field-label
-    add-misc effect, field-label
-slider-field-input(effect)
-    add-skin effect, field-input
-    add-misc effect, field-input
-// container
-container(effect)
-    add-skin effect, container
-    add-misc effect, container
-// tracker
-tracker(effect)
-    add-skin effect, tracker
-    add-misc effect, tracker
-// dragger
-dragger(effect)
-    add-skin effect, dragger
-    add-misc effect, dragger
-
-// slider-field
 .unity-base-slider
-    slider-field(null)
+    add-skin field
+    add-misc field
     &__label
-        slider-field-label(null)
+        add-skin field-label
+        add-misc field-label
     &__input
-        slider-field-input(null)
+        add-skin field-input
+        add-misc field-input
     &__input #unity-drag-container
-        container(null)
+        add-skin container
+        add-misc container
     &__input #unity-tracker
-        tracker(null)
+        add-skin tracker
+        add-misc tracker
     &__input #unity-dragger
-        dragger(null)
+        add-skin dragger
+        add-misc dragger
+
+// // slider-field
+// .unity-base-slider
+//     &__input:hover #unity-tracker
+//         add-skin tracker
+//         add-misc tracker
+//     &__input:hover #unity-dragger
+//         add-skin dragger
+//         add-misc dragger
+
+// // slider-field
+// .unity-base-slider
+//     &__input:active #unity-tracker
+//         add-skin tracker
+//         add-misc tracker
+//     &__input:active #unity-dragger
+//         add-skin dragger
+//         add-misc dragger
+
+// // slider-field
+// .unity-base-slider
+//     &__input:focus #unity-tracker
+//         add-skin tracker
+//         add-misc tracker
+//     &__input:focus #unity-dragger
+//         add-skin dragger
+//         add-misc dragger

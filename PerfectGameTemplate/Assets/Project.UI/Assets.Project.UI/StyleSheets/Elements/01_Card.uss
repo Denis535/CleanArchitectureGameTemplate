@@ -229,8 +229,6 @@
   flex-basis: auto;
   align-self: auto;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
   justify-content: center;
   align-items: center;
 }
@@ -363,8 +361,6 @@
   flex-basis: auto;
   align-self: auto;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
   justify-content: center;
   align-items: center;
 }
@@ -497,8 +493,6 @@
   flex-basis: auto;
   align-self: auto;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
   justify-content: center;
   align-items: center;
 }
@@ -631,8 +625,6 @@
   flex-basis: auto;
   align-self: auto;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
   justify-content: center;
   align-items: center;
 }

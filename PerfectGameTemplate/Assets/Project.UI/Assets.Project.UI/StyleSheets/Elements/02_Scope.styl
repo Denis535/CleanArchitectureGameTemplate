@@ -15,27 +15,18 @@ misc--scope--column = create-flex(0, 1, auto, auto), create-flex2(column, flex-s
 misc--scope--row    = create-flex(0, 1, auto, auto), create-flex2(row,    flex-start, stretch)
 
 // scope
-scope(effect)
-    add-skin        effect, scope
-    add-skin-light  effect, scope--light
-    add-skin-dark   effect, scope--dark
-    add-misc        effect, scope
-    &.small
-        add-misc    effect, scope--small
-    &.medium
-        add-misc    effect, scope--medium
-    &.large
-        add-misc    effect, scope--large
-// scope
-column-scope(effect)
-    add-misc effect, scope--column
-row-scope(effect)
-    add-misc effect, scope--row
-
-// scope
 .scope
-    scope(null)
+    add-skin       scope
+    add-skin-light scope--light
+    add-skin-dark  scope--dark
+    add-misc       scope
+    &.small
+        add-misc scope--small
+    &.medium
+        add-misc scope--medium
+    &.large
+        add-misc scope--large
 .column-scope
-    column-scope(null)
+    add-misc scope--column
 .row-scope
-    row-scope(null)
+    add-misc scope--row

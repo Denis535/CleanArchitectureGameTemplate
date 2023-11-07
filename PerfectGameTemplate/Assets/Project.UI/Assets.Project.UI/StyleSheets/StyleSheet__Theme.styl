@@ -144,43 +144,39 @@ theme[background-image]['dropdown-arrow-icon--light'] = create-background-image(
 theme[background-image]['checkmark-icon--light'     ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla( 30,  30%,  90%, 1.00), null)
 
 // add-skin
-add-skin(effect, name)
-    if effect == null
-        add-style get-skin(name)
+add-skin(name)
+    add-style get-skin(name)
 // add-skin
-add-skin-light(effect, name)
-    if effect == null
-        for i in 0..100
-            alpha  = i / 100
-            alpha2 = (alpha+3)/4
-            &.light-{i}
-                skin = get-skin(name)
-                skin.background-color    = alpha(skin.background-color,    alpha(skin.background-color   ) * alpha )
-                skin.border-color        = alpha(skin.border-color,        alpha(skin.border-color       ) * alpha2) if has(skin, 'border-color'       )
-                skin.border-left-color   = alpha(skin.border-left-color,   alpha(skin.border-left-color  ) * alpha2) if has(skin, 'border-left-color'  )
-                skin.border-right-color  = alpha(skin.border-right-color,  alpha(skin.border-right-color ) * alpha2) if has(skin, 'border-right-color' )
-                skin.border-top-color    = alpha(skin.border-top-color,    alpha(skin.border-top-color   ) * alpha2) if has(skin, 'border-top-color'   )
-                skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
-                add-style skin
+add-skin-light(name)
+    for i in 0..100
+        alpha  = i / 100
+        alpha2 = (alpha+3)/4
+        &.light-{i}
+            skin = get-skin(name)
+            skin.background-color    = alpha(skin.background-color,    alpha(skin.background-color   ) * alpha )
+            skin.border-color        = alpha(skin.border-color,        alpha(skin.border-color       ) * alpha2) if has(skin, 'border-color'       )
+            skin.border-left-color   = alpha(skin.border-left-color,   alpha(skin.border-left-color  ) * alpha2) if has(skin, 'border-left-color'  )
+            skin.border-right-color  = alpha(skin.border-right-color,  alpha(skin.border-right-color ) * alpha2) if has(skin, 'border-right-color' )
+            skin.border-top-color    = alpha(skin.border-top-color,    alpha(skin.border-top-color   ) * alpha2) if has(skin, 'border-top-color'   )
+            skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
+            add-style skin
 // add-skin
-add-skin-dark(effect, name)
-    if effect == null
-        for i in 0..100
-            alpha  = i / 100
-            alpha2 = (alpha+3)/4
-            &.dark-{i}
-                skin = get-skin(name)
-                skin.background-color    = alpha(skin.background-color,    alpha(skin.background-color   ) * alpha )
-                skin.border-color        = alpha(skin.border-color,        alpha(skin.border-color       ) * alpha2) if has(skin, 'border-color'       )
-                skin.border-left-color   = alpha(skin.border-left-color,   alpha(skin.border-left-color  ) * alpha2) if has(skin, 'border-left-color'  )
-                skin.border-right-color  = alpha(skin.border-right-color,  alpha(skin.border-right-color ) * alpha2) if has(skin, 'border-right-color' )
-                skin.border-top-color    = alpha(skin.border-top-color,    alpha(skin.border-top-color   ) * alpha2) if has(skin, 'border-top-color'   )
-                skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
-                add-style skin
+add-skin-dark(name)
+    for i in 0..100
+        alpha  = i / 100
+        alpha2 = (alpha+3)/4
+        &.dark-{i}
+            skin = get-skin(name)
+            skin.background-color    = alpha(skin.background-color,    alpha(skin.background-color   ) * alpha )
+            skin.border-color        = alpha(skin.border-color,        alpha(skin.border-color       ) * alpha2) if has(skin, 'border-color'       )
+            skin.border-left-color   = alpha(skin.border-left-color,   alpha(skin.border-left-color  ) * alpha2) if has(skin, 'border-left-color'  )
+            skin.border-right-color  = alpha(skin.border-right-color,  alpha(skin.border-right-color ) * alpha2) if has(skin, 'border-right-color' )
+            skin.border-top-color    = alpha(skin.border-top-color,    alpha(skin.border-top-color   ) * alpha2) if has(skin, 'border-top-color'   )
+            skin.border-bottom-color = alpha(skin.border-bottom-color, alpha(skin.border-bottom-color) * alpha2) if has(skin, 'border-bottom-color')
+            add-style skin
 // add-misc
-add-misc(effect, name, objects...)
-    if effect == null
-        add-style get-misc(name), objects
+add-misc(name, objects...)
+    add-style get-misc(name), objects
 
 // get-skin
 get-skin(name)

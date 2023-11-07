@@ -15,32 +15,36 @@ misc--text        = create-layout-skin(null, auto auto, 0px, 0px, 0px), create-f
 misc--arrow       = create-layout-skin(null, 12px 12px, 2px, 0px, 0px), create-flex(0, 1, auto, auto)
 
 // popup-field
-popup-field(effect)
-    add-skin effect, field
-    add-misc effect, field
-popup-field-label(effect)
-    add-skin effect, field-label
-    add-misc effect, field-label
-popup-field-input(effect)
-    add-skin effect, field-input
-    add-misc effect, field-input
-// text
-text(effect)
-    add-skin effect, text
-    add-misc effect, text
-// arrow
-arrow(effect)
-    add-skin effect, arrow
-    add-misc effect, arrow
-
-// popup-field
 .unity-base-popup-field
-    popup-field(null)
+    add-skin field
+    add-misc field
     &__label
-        popup-field-label(null)
+        add-skin field-label
+        add-misc field-label
     &__input
-        popup-field-input(null)
+        add-skin field-input
+        add-misc field-input
     &__input .unity-text-element
-        text(null)
+        add-skin text
+        add-misc text
     &__input &__arrow
-        arrow(null)
+        add-skin arrow
+        add-misc arrow
+
+// // popup-field
+// .unity-base-popup-field
+//     &__input:hover &__arrow
+//         add-skin arrow
+//         add-misc arrow
+
+// // popup-field
+// .unity-base-popup-field
+//     &__input:active &__arrow
+//         add-skin arrow
+//         add-misc arrow
+
+// // popup-field
+// .unity-base-popup-field
+//     &__input:focus &__arrow
+//         add-skin arrow
+//         add-misc arrow

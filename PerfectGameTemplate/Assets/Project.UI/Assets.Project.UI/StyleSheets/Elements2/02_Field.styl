@@ -11,39 +11,42 @@ misc--field-label = create-layout-skin(null, auto auto, 0px 2px 0px 0px, 1px, 12
 misc--field-input = create-layout-skin(null, auto auto, 0px,             1px, 12px 12px 10px 10px), create-flex(1, 1, auto, auto), create-flex2(row, flex-end, stretch)
 
 // field
-field(effect)
-    add-skin effect, field
-    add-misc effect, field
-field-label(effect)
-    add-skin effect, field-label
-    add-misc effect, field-label
-field-input(effect)
-    // cursor text
-    add-skin effect, field-input
-    add-misc effect, field-input
-
-// field
 .unity-base-field
-    field(null)
+    add-skin field
+    add-misc field
     &__label
-        field-label(null)
-    &__label:hover
-        field-label(hover)
+        add-skin field-label
+        add-misc field-label
     &__input
-        field-input(null)
-    // &__input:hover
-    //     field-input(hover)
+        add-skin field-input
+        add-misc field-input
 
-// field
-.unity-base-field:focus
-    .unity-base-field__label
-        field-label(focus)
-    .unity-base-field__input
-        field-input(focus-without-foreground)
+// // field
+// .unity-base-field:hover
+//     .unity-base-field__label
+//         add-skin field-label
+//         add-misc field-label
+//     .unity-base-field__input
+//         // cursor text
+//         add-skin field-input
+//         add-misc field-input
 
-// field
-.unity-base-field.invalid
-    .unity-base-field__label
-        field-label(invalid)
-    .unity-base-field__input
-        field-input(invalid-without-foreground)
+// // field
+// .unity-base-field:focus
+//     .unity-base-field__label
+//         add-skin field-label
+//         add-misc field-label
+//     .unity-base-field__input
+//         // cursor text
+//         add-skin field-input
+//         add-misc field-input
+
+// // field
+// .unity-base-field.invalid
+//     .unity-base-field__label
+//         add-skin field-label
+//         add-misc field-label
+//     .unity-base-field__input
+//         // cursor text
+//         add-skin field-input
+//         add-misc field-input

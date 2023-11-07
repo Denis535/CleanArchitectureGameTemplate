@@ -13,26 +13,15 @@ misc--field-input = null
 misc--text        = create-layout-skin(null, auto auto, 0px, 0px, 0px), create-flex(1, 1, auto, auto)
 
 // text-field
-text-field(effect)
-    add-skin effect, field
-    add-misc effect, field
-text-field-label(effect)
-    add-skin effect, field-label
-    add-misc effect, field-label
-text-field-input(effect)
-    add-skin effect, field-input
-    add-misc effect, field-input
-// text
-text(effect)
-    add-skin effect, text
-    add-misc effect, text
-
-// text-field
 .unity-base-text-field
-    text-field(null)
+    add-skin field
+    add-misc field
     &__label
-        text-field-label(null)
+        add-skin field-label
+        add-misc field-label
     &__input
-        text-field-input(null)
+        add-skin field-input
+        add-misc field-input
     &__input .unity-text-element
-        text(null)
+        add-skin text
+        add-misc text

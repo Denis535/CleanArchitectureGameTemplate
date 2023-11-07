@@ -12,18 +12,14 @@ misc--box--medium = create-layout-skin(null, auto auto, 4px, 1px, 12px 12px 10px
 misc--box--large  = create-layout-skin(null, auto auto, 4px, 1px, 24px 24px 20px 20px), create-flex(0, 1, auto, auto)
 
 // box
-box(effect)
-    add-skin        effect, box
-    add-skin-light  effect, box--light
-    add-skin-dark   effect, box--dark
-    add-misc        effect, box
-    &.small
-        add-misc    effect, box--small
-    &.medium
-        add-misc    effect, box--medium
-    &.large
-        add-misc    effect, box--large
-
-// box
 .unity-box
-    box(null)
+    add-skin       box
+    add-skin-light box--light
+    add-skin-dark  box--dark
+    add-misc       box
+    &.small
+        add-misc box--small
+    &.medium
+        add-misc box--medium
+    &.large
+        add-misc box--large

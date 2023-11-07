@@ -25,60 +25,37 @@ misc--viewport                       = create-layout-skin(null, auto auto, 0px, 
 misc--content                        = create-layout-skin(null, auto auto, 0px,              0px,             0px                )
 
 // dropdown
-dropdown(effect)
-    add-skin effect, dropdown
-    add-misc effect, dropdown
-
-// scroll-view
-scroll-view(effect)
-    add-skin effect, scroll-view
-    add-misc effect, scroll-view
-viewport-and-vertical-scroller(effect)
-    add-skin effect, viewport-and-vertical-scroller
-    add-misc effect, viewport-and-vertical-scroller
-viewport(effect)
-    add-skin effect, viewport
-    add-misc effect, viewport
-content(effect)
-    add-skin effect, content
-    add-misc effect, content
-
-// dropdown-item
-dropdown-item(effect)
-    add-skin effect, dropdown-item        if effect != 'hover'
-    add-skin null,   dropdown-item--hover if effect == 'hover'
-    add-misc effect, dropdown-item
-// checkmark
-checkmark(effect, value)
-    add-skin effect, checkmark,         if !value
-    add-skin effect, checkmark--checked if value
-    add-misc effect, checkmark
-// text
-text(effect)
-    add-skin effect, text
-    add-misc effect, text
-
-// dropdown
 .unity-base-dropdown
     add-view(bg-color: rgba(0, 0, 0, 0.25))
     add-layout(position: absolute)
     &__container-outer
-        dropdown(null)
+        add-skin dropdown
+        add-misc dropdown
     .unity-scroll-view
-        scroll-view(null)
+        add-skin scroll-view
+        add-misc scroll-view
     #unity-content-and-vertical-scroll-container
-        viewport-and-vertical-scroller(null)
+        add-skin viewport-and-vertical-scroller
+        add-misc viewport-and-vertical-scroller
     #unity-content-viewport
-        viewport(null)
+        add-skin viewport
+        add-misc viewport
     #unity-content-container
-        content(null)
+        add-skin content
+        add-misc content
     &__item
-        dropdown-item(null)
-    &__item:hover
-        dropdown-item(hover)
+        add-skin dropdown-item
+        add-misc dropdown-item
     &__item &__checkmark
-        checkmark(null, false)
-    &__item:checked &__checkmark
-        checkmark(null, true)
+        add-skin checkmark
+        add-misc checkmark
     &__item &__label
-        text(null)
+        add-skin text
+        add-misc text
+
+// dropdown
+.unity-base-dropdown
+    &__item:hover
+        add-skin dropdown-item--hover
+    &__item:checked &__checkmark
+        add-skin checkmark--checked

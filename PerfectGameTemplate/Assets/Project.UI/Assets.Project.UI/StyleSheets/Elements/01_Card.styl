@@ -15,96 +15,84 @@ skin--dialog-card-content         = create-view-skin(dark, (dialog-card-content 
 skin--dialog-card-footer          = create-view-skin(dark, (dialog-card-footer          dialog-card-footer         ), (dialog-card-footer  dialog-card-footer ))
 
 // card
-misc--card                        = create-layout-skin(null, auto auto, 0px, 1px 1px 1px 1px, 0px  0px  0px  0px ), create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch)
-misc--card-header                 = create-layout-skin(null, auto auto, 0px, 0px 0px 0px 1px, 12px 12px 10px 10px), create-flex(0, 0, auto, auto), create-flex2(row,    center,       center )
-misc--card-content                = create-layout-skin(null, auto auto, 0px, 0px 0px 0px 0px, 24px 24px 20px 20px), create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch)
-misc--card-footer                 = create-layout-skin(null, auto auto, 0px, 0px 0px 1px 0px, 24px 24px 20px 20px), create-flex(0, 0, auto, auto), create-flex2(row,    space-around, center )
-
+misc--card                        = create-layout-skin(null, auto auto, margin: 0px, border: 1px 1px 1px 1px, padding: 0px  0px  0px  0px ), create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch)
+misc--card-header                 = create-layout-skin(null, auto auto, margin: 0px, border: 0px 0px 0px 1px, padding: 12px 12px 10px 10px), create-flex(0, 0, auto, auto), create-flex2(row,    center,       center )
+misc--card-content                = create-layout-skin(null, auto auto, margin: 0px, border: 0px 0px 0px 0px, padding: 24px 24px 20px 20px), create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch)
+misc--card-footer                 = create-layout-skin(null, auto auto, margin: 0px, border: 0px 0px 1px 0px, padding: 24px 24px 20px 20px), create-flex(0, 0, auto, auto), create-flex2(row,    space-around, center )
 // card
-card(effect)
-    add-skin effect, card
-    add-misc effect, card
-card-header(effect)
-    add-skin effect, card-header
-    add-misc effect, card-header
-card-content(effect)
-    add-skin effect, card-content
-    add-misc effect, card-content
-card-footer(effect)
-    add-skin effect, card-footer
-    add-misc effect, card-footer
-
-// dialog-card
-dialog-card(effect)
-    add-skin effect, dialog-card
-    add-misc effect, card
-dialog-card-header(effect)
-    add-skin effect, dialog-card-header
-    add-misc effect, card-header
-dialog-card-header--info(effect)
-    add-skin effect, dialog-card-header--info
-    add-misc effect, card-header
-dialog-card-header--warning(effect)
-    add-skin effect, dialog-card-header--warning
-    add-misc effect, card-header
-dialog-card-header--error(effect)
-    add-skin effect, dialog-card-header--error
-    add-misc effect, card-header
-dialog-card-content(effect)
-    add-skin effect, dialog-card-content
-    add-misc effect, card-content,create-flex2(null, center, center)
-dialog-card-footer(effect)
-    add-skin effect, dialog-card-footer
-    add-misc effect, card-footer
+misc--dialog-card                 = create-layout-skin(null, auto auto, margin: 0px, border: 1px 1px 1px 1px, padding: 0px  0px  0px  0px ), create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch)
+misc--dialog-card-header          = create-layout-skin(null, auto auto, margin: 0px, border: 0px 0px 0px 1px, padding: 12px 12px 10px 10px), create-flex(0, 0, auto, auto), create-flex2(row,    center,       center )
+misc--dialog-card-content         = create-layout-skin(null, auto auto, margin: 0px, border: 0px 0px 0px 0px, padding: 24px 24px 20px 20px), create-flex(1, 1, auto, auto), create-flex2(column, center,       center )
+misc--dialog-card-footer          = create-layout-skin(null, auto auto, margin: 0px, border: 0px 0px 1px 0px, padding: 24px 24px 20px 20px), create-flex(0, 0, auto, auto), create-flex2(row,    space-around, center )
 
 // card
 .card
-    card(null)
+    add-skin card
+    add-misc card
 .header
-    card-header(null)
+    add-skin card-header
+    add-misc card-header
 .content
-    card-content(null)
+    add-skin card-content
+    add-misc card-content
 .footer
-    card-footer(null)
+    add-skin card-footer
+    add-misc card-footer
     *
         add-layout(width: 25%)
 
 // dialog-card
 .dialog-card
-    dialog-card(null)
+    add-skin dialog-card
+    add-misc dialog-card
     .header
-        dialog-card-header(null)
+        add-skin dialog-card-header
+        add-misc dialog-card-header
     .content
-        dialog-card-content(null)
+        add-skin dialog-card-content
+        add-misc dialog-card-content
     .footer
-        dialog-card-footer(null)
+        add-skin dialog-card-footer
+        add-misc dialog-card-footer
 
 // info-dialog-card
 .info-dialog-card
-    dialog-card(null)
+    add-skin dialog-card
+    add-misc  dialog-card
     .header
-        dialog-card-header--info(null)
+        add-skin dialog-card-header--info
+        add-misc dialog-card-header
     .content
-        dialog-card-content(null)
+        add-skin dialog-card-content
+        add-misc dialog-card-content
     .footer
-        dialog-card-footer(null)
+        add-skin dialog-card-footer
+        add-misc dialog-card-footer
 
 // warning-dialog-card
 .warning-dialog-card
-    dialog-card(null)
+    add-skin dialog-card
+    add-misc dialog-card
     .header
-        dialog-card-header--warning(null)
+        add-skin dialog-card-header--warning
+        add-misc dialog-card-header
     .content
-        dialog-card-content(null)
+        add-skin dialog-card-content
+        add-misc dialog-card-content
     .footer
-        dialog-card-footer(null)
+        add-skin dialog-card-footer
+        add-misc dialog-card-footer
 
 // error-dialog-card
 .error-dialog-card
-    dialog-card(null)
+    add-skin dialog-card
+    add-misc dialog-card
     .header
-        dialog-card-header--error(null)
+        add-skin dialog-card-header--error
+        add-misc dialog-card-header
     .content
-        dialog-card-content(null)
+        add-skin dialog-card-content
+        add-misc dialog-card-content
     .footer
-        dialog-card-footer(null)
+        add-skin dialog-card-footer
+        add-misc dialog-card-footer

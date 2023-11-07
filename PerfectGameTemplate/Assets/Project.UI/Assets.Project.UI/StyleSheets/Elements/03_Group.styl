@@ -15,27 +15,18 @@ misc--group--column = create-flex(0, 1, auto, auto), create-flex2(column, flex-s
 misc--group--row    = create-flex(0, 1, auto, auto), create-flex2(row,    flex-start, stretch)
 
 // group
-group(effect)
-    add-skin        effect, group
-    add-skin-light  effect, group--light
-    add-skin-dark   effect, group--dark
-    add-misc        effect, group
-    &.small
-        add-misc    effect, group--small
-    &.medium
-        add-misc    effect, group--medium
-    &.large
-        add-misc    effect, group--large
-// group
-column-group(effect)
-    add-misc effect, group--column
-row-group(effect)
-    add-misc effect, group--row
-
-// group
 .group
-    group(null)
+    add-skin       group
+    add-skin-light group--light
+    add-skin-dark  group--dark
+    add-misc       group
+    &.small
+        add-misc group--small
+    &.medium
+        add-misc group--medium
+    &.large
+        add-misc group--large
 .column-group
-    column-group(null)
+    add-misc group--column
 .row-group
-    row-group(null)
+    add-misc group--row

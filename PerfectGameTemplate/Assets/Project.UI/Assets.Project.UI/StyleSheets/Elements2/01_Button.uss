@@ -1,35 +1,4 @@
-.unity-button {
-  color: #1a1a1a;
-  background-color: rgba(209,204,199,0.95);
-  border-left-color: #c60;
-  border-right-color: #c60;
-  border-top-color: #c60;
-  border-bottom-color: #c60;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  -unity-font-style: bold;
-  -unity-text-align: middle-center;
-  width: auto;
-  height: auto;
-  margin-left: 4px;
-  margin-right: 4px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-}
+.unity-button,
 .unity-repeat-button {
   color: #1a1a1a;
   background-color: rgba(209,204,199,0.95);

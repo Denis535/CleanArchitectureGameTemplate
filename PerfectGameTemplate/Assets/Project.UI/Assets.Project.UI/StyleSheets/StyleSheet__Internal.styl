@@ -50,18 +50,6 @@ get-theme-border-radius(key)
         error('Border radius is not found: ' + get-string(key))
     null
 
-// set-theme-value
-set-theme-color(key, value)
-    set(theme.color, key, value)
-set-theme-background-color(key, value)
-    set(theme.background-color, key, value)
-set-theme-background-image(key, value)
-    set(theme.background-image, key, value)
-set-theme-border-color(key, value)
-    set(theme.border-color, key, value)
-set-theme-border-radius(key, value)
-    set(theme.border-radius, key, value)
-
 // create-view
 create-view(color, font, text, background-color, background-image, border-color, border-radius)
     foreground = create-foreground(color, font, text)

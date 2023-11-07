@@ -14,29 +14,20 @@ misc--field-input        = null
 misc--checkmark          = create-layout-skin(null, 16px 16px, 0px, 1px, 0px), create-flex(0, 1, auto, auto)
 
 // toggle-field
-toggle-field(effect)
-    add-skin effect, field
-    add-misc effect, field
-toggle-field-label(effect)
-    add-skin effect, field-label
-    add-misc effect, field-label
-toggle-field-input(effect)
-    add-skin effect, field-input
-    add-misc effect, field-input
-// checkmark
-checkmark(effect, value)
-    add-skin effect, checkmark          if !value
-    add-skin effect, checkmark--checked if value
-    add-misc effect, checkmark
+.unity-toggle
+    add-skin field
+    add-misc field
+    &__label
+        add-skin field-label
+        add-misc field-label
+    &__input
+        add-skin field-input
+        add-misc field-input
+    &__input #unity-checkmark
+        add-skin checkmark
+        add-misc checkmark
 
 // toggle-field
 .unity-toggle
-    toggle-field(null)
-    &__label
-        toggle-field-label(null)
-    &__input
-        toggle-field-input(null)
-    &__input #unity-checkmark
-        checkmark(null, false)
     &__input:checked #unity-checkmark
-        checkmark(null, true)
+        add-skin checkmark--checked
