@@ -223,7 +223,7 @@
 }
 .unity-base-dropdown__item:hover {
   color: #d9d9d9;
-  background-color: #664d00;
+  background-color: #994d00;
   border-left-color: #c60;
   border-right-color: #c60;
   border-top-color: #c60;

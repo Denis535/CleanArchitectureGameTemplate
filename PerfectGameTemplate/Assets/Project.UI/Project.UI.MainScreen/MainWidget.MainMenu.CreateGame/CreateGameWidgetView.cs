@@ -164,7 +164,7 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
             return view = UIFactory.ColumnGroup( "lobby-view" ).Classes( "dark-50", "medium", "grow-1" ).Children(
-                title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" ),
+                title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title", "shrink-0" ),
                 UIFactory.ScrollView( "players-view" ).Classes( "light-50", "medium", "reverse", "grow-1" ).Children(
                     CreatePlayer( "Player 1" ),
                     CreatePlayer( "Player 2" ),
@@ -227,7 +227,7 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
             return view = UIFactory.ColumnGroup( "chat-view" ).Classes( "dark-50", "medium", "grow-1" ).Children(
-                title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title" ),
+                title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title", "shrink-0" ),
                 UIFactory.ScrollView( "messages-view" ).Classes( "dark-100", "medium", "reverse", "grow-1" ).Children(
                     CreateMessage( "Message 1" ),
                     CreateMessage( "Message 2" ),
@@ -246,9 +246,9 @@ namespace Project.UI.MainScreen {
                     CreateMessage( "Message 15" ),
                     CreateMessage( "Message 16" )
                 ),
-                UIFactory.RowScope().Children(
+                UIFactory.RowScope().Classes( "shrink-0" ).Children(
                     UIFactory.TextField( null, 128, false ).Name( "message" ).Classes( "grow-1" ),
-                    UIFactory.Button( "Ok" ).Name( "send" )
+                    UIFactory.Button( "Send" ).Name( "send" )
                 )
             );
         }
