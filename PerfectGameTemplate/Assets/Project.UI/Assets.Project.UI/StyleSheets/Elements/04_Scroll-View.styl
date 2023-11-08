@@ -1,7 +1,9 @@
 @import "../StyleSheet__Theme"
 
 // scroll-view
-skin--scroll-view                    = create-view-skin(light, (view           view                  ), (view           view   ))
+skin--scroll-view                    = create-view-skin(null,  (view           view                  ), (view           view   ))
+skin--scroll-view--light             = create-view-skin(light, (view--light    view--light           ), (view--light    view   ))
+skin--scroll-view--dark              = create-view-skin(light, (view--dark     view--dark            ), (view--dark     view   ))
 skin--viewport-and-vertical-scroller = create-view-skin(null,  (element        element               ), (element        element))
 skin--viewport                       = create-view-skin(null,  (element        element               ), (element        element))
 skin--content                        = create-view-skin(null,  (element        element               ), (element        element))
@@ -56,8 +58,10 @@ misc--vertical-high-button           = create-layout-skin(null,     24px 24px, m
 .unity-scroll-view
     add-skin scroll-view
     for i in 0..100
-        &.alpha-{i}
-            add-skin with-alpha(get-skin(scroll-view), i/100)
+        &.light-{i}
+            add-skin with-alpha(get-skin(scroll-view--light), i/100)
+        &.dark-{i}
+            add-skin with-alpha(get-skin(scroll-view--dark), i/100)
     add-misc scroll-view
     #unity-content-and-vertical-scroll-container
         add-skin viewport-and-vertical-scroller

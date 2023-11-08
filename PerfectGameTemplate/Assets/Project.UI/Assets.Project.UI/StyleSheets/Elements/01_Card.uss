@@ -1,10 +1,10 @@
 .card {
   color: #262626;
-  background-color: rgba(77,77,77,0.9);
-  border-left-color: #2e3338;
-  border-right-color: #2e3338;
-  border-top-color: #2e3338;
-  border-bottom-color: #2e3338;
+  background-color: rgba(61,64,67,0.75);
+  border-left-color: #4d3319;
+  border-right-color: #4d3319;
+  border-top-color: #4d3319;
+  border-bottom-color: #4d3319;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   border-bottom-left-radius: 6px;
@@ -33,11 +33,11 @@
 }
 .header {
   color: #262626;
-  background-color: rgba(170,166,161,0.9);
-  border-left-color: #2e3338;
-  border-right-color: #2e3338;
-  border-top-color: #2e3338;
-  border-bottom-color: #2e3338;
+  background-color: rgba(170,166,161,0.75);
+  border-left-color: #4d3319;
+  border-right-color: #4d3319;
+  border-top-color: #4d3319;
+  border-bottom-color: #4d3319;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   border-bottom-left-radius: 0px;
@@ -67,10 +67,10 @@
 .content {
   color: #262626;
   background-color: rgba(0,0,0,0);
-  border-left-color: #2e3338;
-  border-right-color: #2e3338;
-  border-top-color: #2e3338;
-  border-bottom-color: #2e3338;
+  border-left-color: #4d3319;
+  border-right-color: #4d3319;
+  border-top-color: #4d3319;
+  border-bottom-color: #4d3319;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   border-bottom-left-radius: 6px;
@@ -99,11 +99,11 @@
 }
 .footer {
   color: #262626;
-  background-color: rgba(36,38,40,0.9);
-  border-left-color: #2e3338;
-  border-right-color: #2e3338;
-  border-top-color: #2e3338;
-  border-bottom-color: #2e3338;
+  background-color: rgba(36,38,40,0.75);
+  border-left-color: #4d3319;
+  border-right-color: #4d3319;
+  border-top-color: #4d3319;
+  border-bottom-color: #4d3319;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border-bottom-left-radius: 6px;
@@ -255,7 +255,7 @@
 }
 .info-dialog-card .header {
   color: #262626;
-  background-color: rgba(77,166,255,0.9);
+  background-color: rgba(77,166,255,0.75);
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -352,7 +352,7 @@
 }
 .warning-dialog-card .header {
   color: #262626;
-  background-color: rgba(255,166,77,0.9);
+  background-color: rgba(255,166,77,0.75);
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -449,7 +449,7 @@
 }
 .error-dialog-card .header {
   color: #262626;
-  background-color: rgba(255,77,77,0.9);
+  background-color: rgba(255,77,77,0.75);
   width: auto;
   height: auto;
   margin-left: 0px;

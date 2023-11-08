@@ -1,7 +1,9 @@
 @import "../StyleSheet__Theme"
 
 // group
-skin--group         = create-view-skin(light, (view view), (view view))
+skin--group         = create-view-skin(null,  (view        view       ), (view        view))
+skin--group--light  = create-view-skin(light, (view--light view--light), (view--light view))
+skin--group--dark   = create-view-skin(light, (view--dark  view--dark ), (view--dark  view))
 
 // group
 misc--group         = create-layout-skin(null, auto auto, 4px, 1px, 0px                )
@@ -16,8 +18,10 @@ misc--group--row    = create-flex(0, 1, auto, auto), create-flex2(row,    flex-s
 .group
     add-skin group
     for i in 0..100
-        &.alpha-{i}
-            add-skin with-alpha(get-skin(group), i/100)
+        &.light-{i}
+            add-skin with-alpha(get-skin(group--light), i/100)
+        &.dark-{i}
+            add-skin with-alpha(get-skin(group--dark), i/100)
     add-misc group
     &.small
         add-misc group--small

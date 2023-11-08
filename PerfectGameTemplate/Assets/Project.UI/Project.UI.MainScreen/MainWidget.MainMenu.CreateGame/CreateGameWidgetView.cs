@@ -90,7 +90,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> mode, out PopupField<object?> world, out Toggle isPrivate) {
-            return view = UIFactory.ColumnGroup( "game-view" ).Classes( "alpha-50", "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup( "game-view" ).Classes( "dark-50", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
                 UIFactory.RowScope().Children(
                     name = UIFactory.TextField( null, 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
@@ -130,7 +130,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> role, out Toggle isReady) {
-            return view = UIFactory.ColumnGroup( "players-view" ).Classes( "alpha-50", "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup( "players-view" ).Classes( "dark-50", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
                 UIFactory.RowScope().Children(
                     name = UIFactory.TextFieldReadOnly( null, 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
@@ -163,9 +163,9 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
-            return view = UIFactory.ColumnGroup( "lobby-view" ).Classes( "alpha-50", "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup( "lobby-view" ).Classes( "dark-50", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" ),
-                UIFactory.ScrollView( "players-view" ).Classes( "alpha-50", "medium", "reverse", "grow-1" ).Children(
+                UIFactory.ScrollView( "players-view" ).Classes( "light-50", "medium", "reverse", "grow-1" ).Children(
                     CreatePlayer( "Player 1" ),
                     CreatePlayer( "Player 2" ),
                     CreatePlayer( "Player 3" ),
@@ -226,12 +226,25 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
-            return view = UIFactory.ColumnGroup( "chat-view" ).Classes( "alpha-50", "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup( "chat-view" ).Classes( "dark-50", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title" ),
-                UIFactory.ScrollView( "messages-view" ).Classes( "alpha-50", "medium", "reverse", "grow-1" ).Children(
+                UIFactory.ScrollView( "messages-view" ).Classes( "dark-100", "medium", "reverse", "grow-1" ).Children(
                     CreateMessage( "Message 1" ),
                     CreateMessage( "Message 2" ),
-                    CreateMessage( "Message 3" )
+                    CreateMessage( "Message 3" ),
+                    CreateMessage( "Message 4" ),
+                    CreateMessage( "Message 5" ),
+                    CreateMessage( "Message 6" ),
+                    CreateMessage( "Message 7" ),
+                    CreateMessage( "Message 8" ),
+                    CreateMessage( "Message 9" ),
+                    CreateMessage( "Message 10" ),
+                    CreateMessage( "Message 11" ),
+                    CreateMessage( "Message 12" ),
+                    CreateMessage( "Message 13" ),
+                    CreateMessage( "Message 14" ),
+                    CreateMessage( "Message 15" ),
+                    CreateMessage( "Message 16" )
                 ),
                 UIFactory.RowScope().Children(
                     UIFactory.TextField( null, 128, false ).Name( "message" ).Classes( "grow-1" ),

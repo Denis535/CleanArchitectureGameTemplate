@@ -13,7 +13,7 @@
 @import url("Elements/04_Scroll-View.uss");
 @import url("Elements/05_Box.uss");
 #PanelSettings {
-  color: #1a1a1a;
+  color: #262626;
   -unity-font: url('project://database/Assets/Project.UI/Assets.Project.UI/Fonts/NotInter/NotInter-Regular.ttf');
   -unity-font-definition: url('project://database/Assets/Project.UI/Assets.Project.UI/Fonts/NotInter/NotInter-Regular.ttf');
   font-size: 14px;
