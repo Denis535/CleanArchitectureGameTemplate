@@ -90,7 +90,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> mode, out PopupField<object?> world, out Toggle isPrivate) {
-            return view = UIFactory.ColumnGroup( "game-view" ).Classes( "light-100", "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup( "game-view" ).Classes( "alpha-50", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
                 UIFactory.RowScope().Children(
                     name = UIFactory.TextField( null, 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
@@ -130,7 +130,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> role, out Toggle isReady) {
-            return view = UIFactory.ColumnGroup( "players-view" ).Classes( "dark-100", "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup( "players-view" ).Classes( "alpha-50", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
                 UIFactory.RowScope().Children(
                     name = UIFactory.TextField( null, 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
@@ -163,9 +163,9 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
-            return view = UIFactory.ColumnGroup( "lobby-view" ).Classes( "light-50", "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup( "lobby-view" ).Classes( "alpha-50", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title" ),
-                UIFactory.ScrollView( "players-view" ).Classes( "dark-100", "medium", "reverse", "grow-1" ).Children(
+                UIFactory.ScrollView( "players-view" ).Classes( "alpha-50", "medium", "reverse", "grow-1" ).Children(
                     CreatePlayer( "Player 1" ),
                     CreatePlayer( "Player 2" ),
                     CreatePlayer( "Player 3" ),
@@ -202,7 +202,7 @@ namespace Project.UI.MainScreen {
             );
         }
         private static Box CreatePlayer(string text) {
-            return UIFactory.Box( "player" ).Classes( "light-100", "small", "grow-1" ).Children( UIFactory.Label( text ).Classes( "margin-0px" ) );
+            return UIFactory.Box( "player" ).Classes( "light-100", "small", "grow-1" ).Children( UIFactory.Label( text ).Classes( "font-style-bold", "margin-0px" ) );
         }
 
     }
@@ -226,9 +226,9 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title) {
-            return view = UIFactory.ColumnGroup( "chat-view" ).Classes( "light-50", "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup( "chat-view" ).Classes( "alpha-50", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title" ),
-                UIFactory.ScrollView( "messages-view" ).Classes( "light-100", "medium", "reverse", "grow-1" ).Children(
+                UIFactory.ScrollView( "messages-view" ).Classes( "alpha-50", "medium", "reverse", "grow-1" ).Children(
                     CreateMessage( "Message 1" ),
                     CreateMessage( "Message 2" ),
                     CreateMessage( "Message 3" )

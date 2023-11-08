@@ -1,9 +1,7 @@
 @import "../StyleSheet__Theme"
 
 // scope
-skin--scope         = create-view-skin(null,  (view        view       ), (view        view))
-skin--scope--light  = create-view-skin(dark,  (view--light view--light), (view--light view))
-skin--scope--dark   = create-view-skin(light, (view--dark  view--dark ), (view--dark  view))
+skin--scope         = create-view-skin(null, (null null), (null null))
 
 // scope
 misc--scope         = create-layout-skin(null, auto auto, 0px, 0px, 0px                )
@@ -16,10 +14,8 @@ misc--scope--row    = create-flex(0, 1, auto, auto), create-flex2(row,    flex-s
 
 // scope
 .scope
-    add-skin       scope
-    add-skin-light scope--light
-    add-skin-dark  scope--dark
-    add-misc       scope
+    add-skin scope
+    add-misc scope
     &.small
         add-misc scope--small
     &.medium

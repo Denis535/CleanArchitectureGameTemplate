@@ -1,9 +1,7 @@
 @import "../StyleSheet__Theme"
 
 // box
-skin--box         = create-view-skin(null,  (box        box       ), (box        box))
-skin--box--light  = create-view-skin(dark,  (box--light box--light), (box--light box))
-skin--box--dark   = create-view-skin(light, (box--dark  box--dark ), (box--dark  box))
+skin--box         = create-view-skin(dark, (box box), (box box))
 
 // box
 misc--box         = create-layout-skin(null, auto auto, 4px, 1px, 0px                ), create-flex(0, 1, auto, auto)
@@ -13,10 +11,11 @@ misc--box--large  = create-layout-skin(null, auto auto, 4px, 1px, 24px 24px 20px
 
 // box
 .unity-box
-    add-skin       box
-    add-skin-light box--light
-    add-skin-dark  box--dark
-    add-misc       box
+    add-skin box
+    for i in 0..100
+        &.alpha-{i}
+            add-skin with-alpha(get-skin(box), i/100)
+    add-misc box
     &.small
         add-misc box--small
     &.medium

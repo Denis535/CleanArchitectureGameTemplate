@@ -4,7 +4,6 @@ namespace Project.UI {
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
-    using UnityEditor.Experimental.GraphView;
     using UnityEngine;
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
@@ -198,6 +197,38 @@ namespace Project.UI {
     public static class VisualElementWrapperExtensions {
 
         // Wrap
+        public static SlotWrapper Wrap(this Card visualElement) {
+            return new SlotWrapper( visualElement );
+        }
+        public static SlotWrapper Wrap(this Header visualElement) {
+            return new SlotWrapper( visualElement );
+        }
+        public static SlotWrapper Wrap(this Content visualElement) {
+            return new SlotWrapper( visualElement );
+        }
+        public static SlotWrapper Wrap(this Footer visualElement) {
+            return new SlotWrapper( visualElement );
+        }
+        public static SlotWrapper Wrap(this Slot visualElement) {
+            return new SlotWrapper( visualElement );
+        }
+        public static ElementWrapper Wrap(this ColumnScope visualElement) {
+            return new ElementWrapper( visualElement );
+        }
+        public static ElementWrapper Wrap(this RowScope visualElement) {
+            return new ElementWrapper( visualElement );
+        }
+        public static ElementWrapper Wrap(this ColumnGroup visualElement) {
+            return new ElementWrapper( visualElement );
+        }
+        public static ElementWrapper Wrap(this RowGroup visualElement) {
+            return new ElementWrapper( visualElement );
+        }
+        public static ElementWrapper Wrap(this Box visualElement) {
+            return new ElementWrapper( visualElement );
+        }
+
+        // Wrap
         public static ElementWrapper Wrap(this VisualElement visualElement) {
             return new ElementWrapper( visualElement );
         }
@@ -220,32 +251,6 @@ namespace Project.UI {
             return new ToggleWrapper<bool>( visualElement );
         }
         public static SlotWrapper Wrap(this ScrollView visualElement) {
-            return new SlotWrapper( visualElement );
-        }
-
-        // Wrap
-        public static SlotWrapper Wrap(this Card visualElement) {
-            return new SlotWrapper( visualElement );
-        }
-        public static SlotWrapper Wrap(this Header visualElement) {
-            return new SlotWrapper( visualElement );
-        }
-        public static SlotWrapper Wrap(this Content visualElement) {
-            return new SlotWrapper( visualElement );
-        }
-        public static SlotWrapper Wrap(this Footer visualElement) {
-            return new SlotWrapper( visualElement );
-        }
-        public static SlotWrapper Wrap(this Slot visualElement) {
-            return new SlotWrapper( visualElement );
-        }
-        public static SlotWrapper Wrap(this Scope visualElement) {
-            return new SlotWrapper( visualElement );
-        }
-        public static SlotWrapper Wrap(this Group visualElement) {
-            return new SlotWrapper( visualElement );
-        }
-        public static SlotWrapper Wrap(this Box visualElement) {
             return new SlotWrapper( visualElement );
         }
 

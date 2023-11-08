@@ -33,10 +33,10 @@
 .unity-base-field__label {
   color: #1a1a1a;
   background-color: rgba(209,204,199,0.95);
-  border-left-color: #c60;
-  border-right-color: #c60;
-  border-top-color: #c60;
-  border-bottom-color: #c60;
+  border-left-color: #630;
+  border-right-color: #630;
+  border-top-color: #630;
+  border-bottom-color: #630;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -65,10 +65,10 @@
 .unity-base-field__input {
   color: #e6e6e6;
   background-color: rgba(46,51,56,0.95);
-  border-left-color: #c60;
-  border-right-color: #c60;
-  border-top-color: #c60;
-  border-bottom-color: #c60;
+  border-left-color: #994d00;
+  border-right-color: #994d00;
+  border-top-color: #994d00;
+  border-bottom-color: #994d00;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;

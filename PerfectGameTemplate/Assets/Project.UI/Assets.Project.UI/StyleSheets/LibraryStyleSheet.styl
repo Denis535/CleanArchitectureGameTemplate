@@ -57,9 +57,8 @@ get-style-property(property)
 get-style-value(value)
     value2 = ()
     for i in value
-        i = get-string(i)
-        i = hsla(0deg, 0%, 90%, 1.00) if i == 'light'
-        i = hsla(0deg, 0%, 10%, 1.00) if i == 'dark'
+        i = hsla(0deg, 0%, 90%, 1.00) if i == light
+        i = hsla(0deg, 0%, 10%, 1.00) if i == dark
         push(value2, i)
     value2
 
@@ -115,11 +114,11 @@ add-style( '.margin-bottom-{key}',                   'margin-bottom',           
 add-style( '.margin-left-{key}',                     'margin-left',                 i, i       ) for i in flatten(auto, range(-100%,  100%), range(-200px,  200px))
 add-style( '.margin-right-{key}',                    'margin-right',                i, i       ) for i in flatten(auto, range(-100%,  100%), range(-200px,  200px))
 /* layout/border */
-add-style( '.border-width-{key}',                    'border-width',                i, i       ) for i in range(0px,  10px)
-add-style( '.border-top-width-{key}',                'border-top-width',            i, i       ) for i in range(0px,  10px)
-add-style( '.border-bottom-width-{key}',             'border-bottom-width',         i, i       ) for i in range(0px,  10px)
-add-style( '.border-left-width-{key}',               'border-left-width',           i, i       ) for i in range(0px,  10px)
-add-style( '.border-right-width-{key}',              'border-right-width',          i, i       ) for i in range(0px,  10px)
+add-style( '.border-width-{key}',                    'border-width',                i, i       ) for i in range(0px,  2px)
+add-style( '.border-top-width-{key}',                'border-top-width',            i, i       ) for i in range(0px,  2px)
+add-style( '.border-bottom-width-{key}',             'border-bottom-width',         i, i       ) for i in range(0px,  2px)
+add-style( '.border-left-width-{key}',               'border-left-width',           i, i       ) for i in range(0px,  2px)
+add-style( '.border-right-width-{key}',              'border-right-width',          i, i       ) for i in range(0px,  2px)
 /* layout/padding */
 add-style( '.padding-{key}',                         'padding',                     i, i       ) for i in flatten(range(-100%,  100%), range(-200px,  200px))
 add-style( '.padding-top-{key}',                     'padding-top',                 i, i       ) for i in flatten(range(-100%,  100%), range(-200px,  200px))
@@ -131,7 +130,7 @@ add-style( '.padding-right-{key}',                   'padding-right',           
 add-style( '.grow-{key}',                            'flex-grow',                   i, i       ) for i in range(0, 100)
 add-style( '.shrink-{key}',                          'flex-shrink',                 i, i       ) for i in range(0, 100)
 add-style( '.basis-{key}',                           'flex-basis',                  i, i       ) for i in flatten(auto, range(0%, 100%), range(0px, 200px))
-add-style( '.align-self-{key}',                      'align-self',                  i, i       ) for i in flex-start flex-end center stretch // align-self on cross-axis
+add-style( '.align-self-{key}',                      'align-self',                  i, i       ) for i in flex-start flex-end center stretch // align self on cross-axis
 /* flex/container */
 add-style( '.{key}',                                 'flex-direction',              i, i       ) for i in column column-reverse row row-reverse
 add-style( '.{key}',                                 'flex-wrap',                   i, i       ) for i in nowrap wrap wrap-reverse
