@@ -131,7 +131,7 @@
   padding-bottom: 0px;
 }
 .unity-base-dropdown__item {
-  color: #e6e6e6;
+  color: #d9d9d9;
   background-color: rgba(0,0,0,0);
   border-left-color: #504d49;
   border-right-color: #504d49;
@@ -222,7 +222,7 @@
   align-self: auto;
 }
 .unity-base-dropdown__item:hover {
-  color: #e6e6e6;
+  color: #d9d9d9;
   background-color: #664d00;
   border-left-color: #c60;
   border-right-color: #c60;

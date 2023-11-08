@@ -3,82 +3,78 @@
 theme = create-theme()
 
 // common
-theme[color           ]['light'                      ] = hsla(  0,   0%,  90%, 1.00)
-theme[color           ]['dark'                       ] = hsla(  0,   0%,  10%, 1.00)
-theme[color           ]['focus-effect'               ] = hsla(200,  80%,  40%, 1.00)
-theme[color           ]['invalid-effect'             ] = hsla( 20,  80%,  40%, 0.10)
+theme[color           ]['light'                      ] = hsla(  0,   0%,  85%, 1.00)
+theme[color           ]['dark'                       ] = hsla(  0,   0%,  15%, 1.00)
+// common
+theme[color           ]['focus-effect'               ] = hsla(210,  80%,  50%, 1.00)
+theme[color           ]['invalid-effect'             ] = hsla(  0,  80%,  50%, 1.00)
 
 // card
-theme[background-color]['card'                       ] = hsla(240,   5%,  25%, 0.75)
-theme[background-color]['card-header'                ] = hsla( 60,   5%,  65%, 0.75)
+theme[background-color]['card'                       ] = hsla(  0,   0%,  30%, 0.90)
+theme[background-color]['card-header'                ] = hsla( 30,   5%,  65%, 0.90)
 theme[background-color]['card-content'               ] = hsla(  0,   0%,   0%, 0.00)
-theme[background-color]['card-footer'                ] = hsla(240,  10%,  10%, 0.75)
+theme[background-color]['card-footer'                ] = hsla(210,   5%,  15%, 0.90)
+theme[background-color]['dialog-card'                ] = null
+theme[background-color]['dialog-card-header'         ] = null
+theme[background-color]['dialog-card-header--info'   ] = hsla(210, 100%,  65%, 0.90)
+theme[background-color]['dialog-card-header--warning'] = hsla( 30, 100%,  65%, 0.90)
+theme[background-color]['dialog-card-header--error'  ] = hsla(  0, 100%,  65%, 0.90)
+theme[background-color]['dialog-card-content'        ] = null
+theme[background-color]['dialog-card-footer'         ] = null
 // card
 theme[background-image]['card'                       ] = create-background-image(null, null, null)
 theme[background-image]['card-header'                ] = create-background-image(null, null, null)
 theme[background-image]['card-content'               ] = create-background-image(null, null, null)
 theme[background-image]['card-footer'                ] = create-background-image(null, null, null)
+theme[background-image]['dialog-card'                ] = null
+theme[background-image]['dialog-card-header'         ] = null
+theme[background-image]['dialog-card-header--info'   ] = null
+theme[background-image]['dialog-card-header--warning'] = null
+theme[background-image]['dialog-card-header--error'  ] = null
+theme[background-image]['dialog-card-content'        ] = null
+theme[background-image]['dialog-card-footer'         ] = null
 // card
-theme[border-color    ]['card'                       ] = hsla( 35, 100%,  30%, 1.00)
-theme[border-color    ]['card-header'                ] = hsla( 35, 100%,  30%, 1.00)
-theme[border-color    ]['card-content'               ] = hsla(  0,   0%,   0%, 0.00)
-theme[border-color    ]['card-footer'                ] = hsla( 35, 100%,  30%, 1.00)
+theme[border-color    ]['card'                       ] = hsla(210,  10%,  20%, 1.00)
+theme[border-color    ]['card-header'                ] = hsla(210,  10%,  20%, 1.00)
+theme[border-color    ]['card-content'               ] = hsla(210,  10%,  20%, 1.00)
+theme[border-color    ]['card-footer'                ] = hsla(210,  10%,  20%, 1.00)
+theme[border-color    ]['dialog-card'                ] = null
+theme[border-color    ]['dialog-card-header'         ] = null
+theme[border-color    ]['dialog-card-content'        ] = null
+theme[border-color    ]['dialog-card-footer'         ] = null
 // card
 theme[border-radius   ]['card'                       ] = 6px
 theme[border-radius   ]['card-header'                ] = 6px 6px 0px 0px
 theme[border-radius   ]['card-content'               ] = 6px
 theme[border-radius   ]['card-footer'                ] = 0px 0px 6px 6px
-
-// card
-theme[background-color]['dialog-card'                ] = hsla(240,   5%,  40%, 0.95)
-theme[background-color]['dialog-card-header'         ] = hsla( 60,   5%,  65%, 0.75)
-theme[background-color]['dialog-card-header--info'   ] = hsla(220,  70%,  65%, 0.75)
-theme[background-color]['dialog-card-header--warning'] = hsla( 40,  70%,  65%, 0.75)
-theme[background-color]['dialog-card-header--error'  ] = hsla( 10,  70%,  65%, 0.75)
-theme[background-color]['dialog-card-content'        ] = hsla(  0,   0%,   0%, 0.00)
-theme[background-color]['dialog-card-footer'         ] = hsla(240,  10%,  10%, 0.75)
-// card
-theme[background-image]['dialog-card'                ] = create-background-image(null, null, null)
-theme[background-image]['dialog-card-header'         ] = create-background-image(null, null, null)
-theme[background-image]['dialog-card-header--info'   ] = create-background-image(null, null, null)
-theme[background-image]['dialog-card-header--warning'] = create-background-image(null, null, null)
-theme[background-image]['dialog-card-header--error'  ] = create-background-image(null, null, null)
-theme[background-image]['dialog-card-content'        ] = create-background-image(null, null, null)
-theme[background-image]['dialog-card-footer'         ] = create-background-image(null, null, null)
-// card
-theme[border-color    ]['dialog-card'                ] = hsla( 35, 100%,  30%, 1.00)
-theme[border-color    ]['dialog-card-header'         ] = hsla( 35, 100%,  30%, 1.00)
-theme[border-color    ]['dialog-card-content'        ] = hsla(  0,   0%,   0%, 0.00)
-theme[border-color    ]['dialog-card-footer'         ] = hsla( 35, 100%,  30%, 1.00)
-// card
-theme[border-radius   ]['dialog-card'                ] = 6px
-theme[border-radius   ]['dialog-card-header'         ] = 6px 6px 0px 0px
-theme[border-radius   ]['dialog-card-content'        ] = 6px
-theme[border-radius   ]['dialog-card-footer'         ] = 0px 0px 6px 6px
+theme[border-radius   ]['dialog-card'                ] = null
+theme[border-radius   ]['dialog-card-header'         ] = null
+theme[border-radius   ]['dialog-card-content'        ] = null
+theme[border-radius   ]['dialog-card-footer'         ] = null
 
 // scope
-theme[background-color]['view'                       ] = hsla(210,   0%,  10%, 1.00)
+theme[background-color]['view'                       ] = hsla(210,   3%,  10%, 1.00)
 theme[background-color]['box'                        ] = hsla(  0,   0%,   0%, 0.00)
-theme[background-color]['box--light'                 ] = hsla( 30,   5%,  75%, 1.00)
-theme[background-color]['box--dark'                  ] = hsla( 30,   5%,  25%, 1.00)
+theme[background-color]['box--light'                 ] = hsla( 30,   3%,  70%, 1.00)
+theme[background-color]['box--dark'                  ] = hsla(210,   3%,  30%, 1.00)
 // scope
 theme[background-image]['view'                       ] = create-background-image(null, null, null)
 theme[background-image]['box'                        ] = create-background-image(null, null, null)
 theme[background-image]['box--light'                 ] = create-background-image(null, null, null)
 theme[background-image]['box--dark'                  ] = create-background-image(null, null, null)
 // scope
-theme[border-color    ]['view'                       ] = hsla( 30, 100%,  30%, 1.00)
-theme[border-color    ]['box'                        ] = hsla( 00,   0%,   0%, 0.00)
-theme[border-color    ]['box--light'                 ] = hsla( 30, 100%,  30%, 1.00)
-theme[border-color    ]['box--dark'                  ] = hsla( 30, 100%,  30%, 1.00)
+theme[border-color    ]['view'                       ] = hsla(210,  10%,  20%, 1.00)
+theme[border-color    ]['box'                        ] = hsla(210,  10%,   0%, 0.00)
+theme[border-color    ]['box--light'                 ] = hsla( 30,  50%,  30%, 1.00)
+theme[border-color    ]['box--dark'                  ] = hsla( 30,  50%,  30%, 1.00)
 // scope
 theme[border-radius   ]['view'                       ] = 4px
 theme[border-radius   ]['box'                        ] = 4px
 
 // element
 theme[background-color]['element'                    ] = hsla(  0,   0%,   0%, 0.00)
-theme[background-color]['element--light'             ] = hsla( 30,  10%,  80%, 0.95)
-theme[background-color]['element--dark'              ] = hsla(210,  10%,  20%, 0.95)
+theme[background-color]['element--light'             ] = hsla( 30,  10%,  80%, 0.90)
+theme[background-color]['element--dark'              ] = hsla(210,  10%,  20%, 0.90)
 theme[background-color]['component'                  ] = hsla(  0,   0%,   0%, 0.00)
 theme[background-color]['component--light'           ] = hsla( 30,  30%,  80%, 1.00)
 theme[background-color]['component--dark'            ] = hsla(210,  30%,  20%, 1.00)
@@ -91,10 +87,10 @@ theme[background-image]['component--light'           ] = create-background-image
 theme[background-image]['component--dark'            ] = create-background-image(null, null, null)
 // element
 theme[border-color    ]['element'                    ] = hsla(  0,   0%,   0%, 0.00)
-theme[border-color    ]['element--light'             ] = hsla( 30, 100%,  20%, 1.00)
-theme[border-color    ]['element--dark'              ] = hsla( 30, 100%,  30%, 1.00)
+theme[border-color    ]['element--light'             ] = hsla( 30,  50%,  30%, 1.00)
+theme[border-color    ]['element--dark'              ] = hsla( 30,  50%,  30%, 1.00)
 theme[border-color    ]['component'                  ] = hsla(  0,   0%,   0%, 0.00)
-theme[border-color    ]['component--light'           ] = hsla( 60,  50%,  20%, 1.00)
+theme[border-color    ]['component--light'           ] = hsla( 60,  50%,  30%, 1.00)
 theme[border-color    ]['component--dark'            ] = hsla( 60,  50%,  30%, 1.00)
 // element
 theme[border-radius   ]['element'                    ] = 4px

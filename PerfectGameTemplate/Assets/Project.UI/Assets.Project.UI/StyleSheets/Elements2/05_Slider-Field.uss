@@ -32,10 +32,10 @@
 }
 .unity-base-slider__input #unity-tracker {
   background-color: #dbccbd;
-  border-left-color: #4d4d19;
-  border-right-color: #4d4d19;
-  border-top-color: #4d4d19;
-  border-bottom-color: #4d4d19;
+  border-left-color: #737326;
+  border-right-color: #737326;
+  border-top-color: #737326;
+  border-bottom-color: #737326;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
@@ -61,10 +61,10 @@
 }
 .unity-base-slider__input #unity-dragger {
   background-color: #dbccbd;
-  border-left-color: #4d4d19;
-  border-right-color: #4d4d19;
-  border-top-color: #4d4d19;
-  border-bottom-color: #4d4d19;
+  border-left-color: #737326;
+  border-right-color: #737326;
+  border-top-color: #737326;
+  border-bottom-color: #737326;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
