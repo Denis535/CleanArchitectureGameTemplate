@@ -133,7 +133,7 @@ namespace Project.UI.MainScreen {
             return view = UIFactory.ColumnGroup( "players-view" ).Classes( "alpha-50", "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
                 UIFactory.RowScope().Children(
-                    name = UIFactory.TextField( null, 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
+                    name = UIFactory.TextFieldReadOnly( null, 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
                 ),
                 UIFactory.RowScope().Children(
                     role = UIFactory.PopupField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" ),
@@ -202,7 +202,7 @@ namespace Project.UI.MainScreen {
             );
         }
         private static Box CreatePlayer(string text) {
-            return UIFactory.Box( "player" ).Classes( "light-100", "small", "grow-1" ).Children( UIFactory.Label( text ).Classes( "font-style-bold", "margin-0px" ) );
+            return UIFactory.Box( "player" ).Classes( "dark-100", "medium", "grow-1" ).Children( UIFactory.Label( text ).Classes( "font-style-bold", "margin-0px", "padding-0px" ) );
         }
 
     }
@@ -240,7 +240,7 @@ namespace Project.UI.MainScreen {
             );
         }
         private static Box CreateMessage(string text) {
-            return UIFactory.Box( "message" ).Classes( "dark-100", "small", "grow-1" ).Children( UIFactory.Label( text ).Classes( "margin-0px" ) );
+            return UIFactory.Box( "message" ).Classes( "light-100", "medium", "grow-1" ).Children( UIFactory.Label( text ).Classes( "margin-0px", "padding-0px" ) );
         }
 
     }
