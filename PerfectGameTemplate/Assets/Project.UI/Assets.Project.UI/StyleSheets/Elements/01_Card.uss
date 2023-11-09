@@ -1,10 +1,10 @@
 .card {
-  color: #262626;
+  color: #1a1a1a;
   background-color: rgba(61,64,67,0.75);
-  border-left-color: #4d3319;
-  border-right-color: #4d3319;
-  border-top-color: #4d3319;
-  border-bottom-color: #4d3319;
+  border-left-color: #b86614;
+  border-right-color: #b86614;
+  border-top-color: #b86614;
+  border-bottom-color: #b86614;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   border-bottom-left-radius: 6px;
@@ -32,12 +32,12 @@
   align-items: stretch;
 }
 .header {
-  color: #262626;
-  background-color: rgba(170,166,161,0.75);
-  border-left-color: #4d3319;
-  border-right-color: #4d3319;
-  border-top-color: #4d3319;
-  border-bottom-color: #4d3319;
+  color: #1a1a1a;
+  background-color: rgba(188,191,194,0.75);
+  border-left-color: #b86614;
+  border-right-color: #b86614;
+  border-top-color: #b86614;
+  border-bottom-color: #b86614;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   border-bottom-left-radius: 0px;
@@ -65,12 +65,12 @@
   align-items: center;
 }
 .content {
-  color: #262626;
+  color: #1a1a1a;
   background-color: rgba(0,0,0,0);
-  border-left-color: #4d3319;
-  border-right-color: #4d3319;
-  border-top-color: #4d3319;
-  border-bottom-color: #4d3319;
+  border-left-color: #b86614;
+  border-right-color: #b86614;
+  border-top-color: #b86614;
+  border-bottom-color: #b86614;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   border-bottom-left-radius: 6px;
@@ -98,12 +98,12 @@
   align-items: stretch;
 }
 .footer {
-  color: #262626;
+  color: #1a1a1a;
   background-color: rgba(36,38,40,0.75);
-  border-left-color: #4d3319;
-  border-right-color: #4d3319;
-  border-top-color: #4d3319;
-  border-bottom-color: #4d3319;
+  border-left-color: #b86614;
+  border-right-color: #b86614;
+  border-top-color: #b86614;
+  border-bottom-color: #b86614;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border-bottom-left-radius: 6px;
@@ -134,7 +134,7 @@
   width: 25%;
 }
 .dialog-card {
-  color: #262626;
+  color: #1a1a1a;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -158,7 +158,7 @@
   align-items: stretch;
 }
 .dialog-card .header {
-  color: #262626;
+  color: #1a1a1a;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -182,7 +182,7 @@
   align-items: center;
 }
 .dialog-card .content {
-  color: #262626;
+  color: #1a1a1a;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -206,7 +206,7 @@
   align-items: center;
 }
 .dialog-card .footer {
-  color: #262626;
+  color: #1a1a1a;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -230,7 +230,7 @@
   align-items: center;
 }
 .info-dialog-card {
-  color: #262626;
+  color: #1a1a1a;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -254,7 +254,7 @@
   align-items: stretch;
 }
 .info-dialog-card .header {
-  color: #262626;
+  color: #1a1a1a;
   background-color: rgba(77,166,255,0.75);
   width: auto;
   height: auto;
@@ -279,7 +279,7 @@
   align-items: center;
 }
 .info-dialog-card .content {
-  color: #262626;
+  color: #1a1a1a;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -303,7 +303,7 @@
   align-items: center;
 }
 .info-dialog-card .footer {
-  color: #262626;
+  color: #1a1a1a;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -327,7 +327,7 @@
   align-items: center;
 }
 .warning-dialog-card {
-  color: #262626;
+  color: #1a1a1a;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -351,7 +351,7 @@
   align-items: stretch;
 }
 .warning-dialog-card .header {
-  color: #262626;
+  color: #1a1a1a;
   background-color: rgba(255,166,77,0.75);
   width: auto;
   height: auto;
@@ -376,7 +376,7 @@
   align-items: center;
 }
 .warning-dialog-card .content {
-  color: #262626;
+  color: #1a1a1a;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -400,7 +400,7 @@
   align-items: center;
 }
 .warning-dialog-card .footer {
-  color: #262626;
+  color: #1a1a1a;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -424,7 +424,7 @@
   align-items: center;
 }
 .error-dialog-card {
-  color: #262626;
+  color: #1a1a1a;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -448,7 +448,7 @@
   align-items: stretch;
 }
 .error-dialog-card .header {
-  color: #262626;
+  color: #1a1a1a;
   background-color: rgba(255,77,77,0.75);
   width: auto;
   height: auto;
@@ -473,7 +473,7 @@
   align-items: center;
 }
 .error-dialog-card .content {
-  color: #262626;
+  color: #1a1a1a;
   width: auto;
   height: auto;
   margin-left: 0px;
@@ -497,7 +497,7 @@
   align-items: center;
 }
 .error-dialog-card .footer {
-  color: #262626;
+  color: #1a1a1a;
   width: auto;
   height: auto;
   margin-left: 0px;

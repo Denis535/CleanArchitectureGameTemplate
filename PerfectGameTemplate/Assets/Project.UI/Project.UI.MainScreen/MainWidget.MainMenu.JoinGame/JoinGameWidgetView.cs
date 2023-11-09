@@ -25,10 +25,10 @@ namespace Project.UI.MainScreen {
             VisualElement = CreateVisualElement( out var view, out var title, out var gameViewSlot, out var playerViewSlot, out var lobbyViewSlot, out var chatViewSlot, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
-            GameViewSlot = gameViewSlot.Wrap();
-            PlayerViewSlot = playerViewSlot.Wrap();
-            LobbyViewSlot = lobbyViewSlot.Wrap();
-            ChatViewSlot = chatViewSlot.Wrap();
+            GameViewSlot = gameViewSlot.AsSlot();
+            PlayerViewSlot = playerViewSlot.AsSlot();
+            LobbyViewSlot = lobbyViewSlot.AsSlot();
+            ChatViewSlot = chatViewSlot.AsSlot();
             Okey = okey.Wrap();
             Back = back.Wrap();
         }

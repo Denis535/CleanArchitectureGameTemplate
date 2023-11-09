@@ -13,10 +13,10 @@ namespace Project.UI.Common {
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
-        public SlotWrapper Card { get; }
-        public SlotWrapper Header { get; }
-        public SlotWrapper Content { get; }
-        public SlotWrapper Footer { get; }
+        public ElementWrapper Card { get; }
+        public ElementWrapper Header { get; }
+        public ElementWrapper Content { get; }
+        public ElementWrapper Footer { get; }
         public LabelWrapper Title { get; }
         public LabelWrapper Message { get; }
 
@@ -44,7 +44,7 @@ namespace Project.UI.Common {
                     callback?.Invoke();
                 }
             } );
-            Footer.Add( button );
+            Footer.VisualElement.Add( button );
         }
         public void OnCancel(string text, Action? callback) {
             var button = UIFactory.Button( text ).Name( "cancel" );
@@ -53,7 +53,7 @@ namespace Project.UI.Common {
                     callback?.Invoke();
                 }
             } );
-            Footer.Add( button );
+            Footer.VisualElement.Add( button );
         }
 
         // Heleprs

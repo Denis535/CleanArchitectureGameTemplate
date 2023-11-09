@@ -14,12 +14,11 @@ misc--box--large  = create-layout-skin(null, auto auto, 4px, 1px, 24px 24px 20px
 // box
 .unity-box
     add-skin box
-    for i in 0..100
-        &.light-{i}
-            add-skin with-alpha(get-skin(box--light), i/100)
-        &.dark-{i}
-            add-skin with-alpha(get-skin(box--dark), i/100)
     add-misc box
+    &.light
+        add-skin box--light
+    &.dark
+        add-skin box--dark
     &.small
         add-misc box--small
     &.medium

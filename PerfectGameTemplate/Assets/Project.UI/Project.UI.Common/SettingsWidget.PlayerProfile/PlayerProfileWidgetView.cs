@@ -38,7 +38,7 @@ namespace Project.UI.Common {
                         title = UIFactory.Label( "Player Profile" ).Name( "title" )
                     ),
                     UIFactory.Content().Children(
-                        UIFactory.ColumnGroup().Classes( "dark-50", "large", "grow-1" ).Children(
+                        UIFactory.ColumnGroup().Classes( "large", "grow-1" ).Children(
                             name = UIFactory.TextField( "Name", 16, false ).Name( "name" ).Classes( "label-width-25pc" )
                         )
                     ),
