@@ -1,9 +1,11 @@
 @import "../StyleSheet__Theme"
 
 // box
-skin--box--light  = create-view-skin(light, (box--light box--light), (box--light box))
-skin--box         = create-view-skin(light, (box        box       ), (box        box))
-skin--box--dark   = create-view-skin(light, (box--dark  box--dark ), (box--dark  box))
+skin--box--light2 = create-view-skin(light, (box--light2 box--light2), (box--light2 box))
+skin--box--light  = create-view-skin(light, (box--light  box--light ), (box--light  box))
+skin--box         = create-view-skin(light, (box         box        ), (box         box))
+skin--box--dark   = create-view-skin(light, (box--dark   box--dark  ), (box--dark   box))
+skin--box--dark2  = create-view-skin(light, (box--dark2  box--dark2 ), (box--dark2  box))
 
 // box
 misc--box         = create-layout-skin(null, auto auto, 4px, 1px, 0px                ), create-flex(0, 1, auto, auto)
@@ -15,10 +17,14 @@ misc--box--large  = create-layout-skin(null, auto auto, 4px, 1px, 24px 24px 20px
 .unity-box
     add-skin box
     add-misc box
+    &.light2
+        add-skin box--light2
     &.light
         add-skin box--light
     &.dark
         add-skin box--dark
+    &.dark2
+        add-skin box--dark2
     &.small
         add-misc box--small
     &.medium

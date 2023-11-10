@@ -174,11 +174,13 @@ namespace Project.UI.MainScreen {
             );
         }
         private static Box CreatePlayer(string text, int id) {
-            var style = (int) Mathf.PingPong( id, 2 ) switch {
-                0 => "light",
-                1 => null,
-                2 => "dark",
-                _ => null
+            var style = (int) Mathf.PingPong( id, 4 ) switch {
+                0 => "light2",
+                1 => "light",
+                2 => null,
+                3 => "dark",
+                4 => "dark2",
+                _ => throw Exceptions.Internal.Exception( $"Value is invalid" )
             };
             return UIFactory.Box().Name( "player" ).Classes( style, "medium", "grow-1" ).Pipe( i => i.style.width = 2000 ).Children( UIFactory.Label( text ).Classes( "font-style-bold", "margin-0px", "padding-0px" ) );
         }
@@ -223,11 +225,13 @@ namespace Project.UI.MainScreen {
             );
         }
         private static Box CreateMessage(string text, int id) {
-            var style = (int) Mathf.PingPong( id, 2 ) switch {
-                0 => "light",
-                1 => null,
-                2 => "dark",
-                _ => null
+            var style = (int) Mathf.PingPong( id, 4 ) switch {
+                0 => "light2",
+                1 => "light",
+                2 => null,
+                3 => "dark",
+                4 => "dark2",
+                _ => throw Exceptions.Internal.Exception( $"Value is invalid" )
             };
             return UIFactory.Box().Name( "message" ).Classes( style, "medium", "grow-1" ).Pipe( i => i.style.width = 2000 ).Children( UIFactory.Label( text ).Classes( "margin-0px", "padding-0px" ) );
         }
