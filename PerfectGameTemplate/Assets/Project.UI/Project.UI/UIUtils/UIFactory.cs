@@ -28,6 +28,18 @@ namespace Project.UI {
         public static View ModalWidget(string name) {
             return new View().Name( name ).Classes( "modal-widget-view" );
         }
+        public static View DialogWidget() {
+            return new View().Name( "dialog-widget-view" ).Classes( "modal-widget-view", "dialog-widget-view" );
+        }
+        public static View InfoDialogWidget() {
+            return new View().Name( "info-dialog-widget-view" ).Classes( "modal-widget-view", "info-dialog-widget-view" );
+        }
+        public static View WarningDialogWidget() {
+            return new View().Name( "warning-dialog-widget-view" ).Classes( "modal-widget-view", "warning-dialog-widget-view" );
+        }
+        public static View ErrorDialogWidget() {
+            return new View().Name( "error-dialog-widget-view" ).Classes( "modal-widget-view", "error-dialog-widget-view" );
+        }
 
         // Card
         public static Card Card() {
@@ -58,49 +70,47 @@ namespace Project.UI {
         }
 
         // Slot
-        public static Slot Slot(string? name = null) {
-            return new Slot().Name( name );
+        public static Slot Slot() {
+            return new Slot();
         }
 
         // Scope
-        public static ColumnScope ColumnScope(string? name = null) {
-            return new ColumnScope().Name( name );
+        public static ColumnScope ColumnScope() {
+            return new ColumnScope();
         }
-        public static RowScope RowScope(string? name = null) {
-            return new RowScope().Name( name );
+        public static RowScope RowScope() {
+            return new RowScope();
         }
 
         // Group
-        public static ColumnGroup ColumnGroup(string? name = null) {
-            return new ColumnGroup().Name( name );
+        public static ColumnGroup ColumnGroup() {
+            return new ColumnGroup();
         }
-        public static RowGroup RowGroup(string? name = null) {
-            return new RowGroup().Name( name );
+        public static RowGroup RowGroup() {
+            return new RowGroup();
         }
 
         // ScrollView
-        public static ScrollView ScrollView(string? name = null) {
-            var view = new ScrollView().Name( name );
+        public static ScrollView ScrollView() {
+            var view = new ScrollView();
             view.horizontalScroller.highButton.BringToFront();
             view.verticalScroller.highButton.BringToFront();
             return view;
         }
 
         // Box
-        public static Box Box(string? name = null) {
-            return new Box().Name( name );
+        public static Box Box() {
+            return new Box();
         }
 
         // Label
         public static Label Label(string? text) {
             return new Label().Text( text );
         }
-
         // Button
         public static Button Button(string? text) {
             return new Button().Text( text );
         }
-
         // Field
         public static TextField TextField(string? label, int maxLength, bool isMultiline) {
             return new TextField( label, maxLength, isMultiline, false, '*' );

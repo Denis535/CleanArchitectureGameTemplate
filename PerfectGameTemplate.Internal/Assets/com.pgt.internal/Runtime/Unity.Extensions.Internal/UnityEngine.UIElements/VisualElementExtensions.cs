@@ -3,7 +3,6 @@ namespace UnityEngine.UIElements {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using UnityEngine;
 
     public static partial class VisualElementExtensions {
@@ -57,9 +56,9 @@ namespace UnityEngine.UIElements {
             element.name = name;
             return element;
         }
-        public static T Classes<T>(this T element, params string[] classes) where T : VisualElement {
-            foreach (var @class in classes.SelectMany( i => i.Split( '.' ) )) {
-                element.AddToClassList( @class.Trim() );
+        public static T Classes<T>(this T element, params string?[] classes) where T : VisualElement {
+            foreach (var @class in classes) {
+                element.AddToClassList( @class?.Trim() );
             }
             return element;
         }
@@ -67,7 +66,7 @@ namespace UnityEngine.UIElements {
             element.userData = userData;
             return element;
         }
-        public static T Children<T>(this T element, params VisualElement[] children) where T : VisualElement {
+        public static T Children<T>(this T element, params VisualElement?[] children) where T : VisualElement {
             foreach (var child in children) {
                 element.Add( child );
             }

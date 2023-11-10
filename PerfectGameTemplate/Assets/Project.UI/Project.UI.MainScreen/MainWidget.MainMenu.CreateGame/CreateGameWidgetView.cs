@@ -45,12 +45,12 @@ namespace Project.UI.MainScreen {
                     ),
                     UIFactory.Content().Children(
                         UIFactory.RowScope().Classes( "grow-0", "basis-40pc" ).Children(
-                            gameViewSlot = UIFactory.Slot( "game-view-slot" ).Classes( "grow-1", "basis-0pc" ),
-                            playerViewSlot = UIFactory.Slot( "player-view-slot" ).Classes( "grow-1", "basis-0pc" )
+                            gameViewSlot = UIFactory.Slot().Name( "game-view-slot" ).Classes( "grow-1", "basis-0pc" ),
+                            playerViewSlot = UIFactory.Slot().Name( "player-view-slot" ).Classes( "grow-1", "basis-0pc" )
                         ),
                         UIFactory.RowScope().Classes( "grow-1", "basis-auto" ).Children(
-                            lobbyViewSlot = UIFactory.Slot( "lobby-view-slot" ).Classes( "grow-1", "basis-0pc" ),
-                            chatViewSlot = UIFactory.Slot( "chat-view-slot" ).Classes( "grow-1", "basis-0pc" )
+                            lobbyViewSlot = UIFactory.Slot().Name( "lobby-view-slot" ).Classes( "grow-1", "basis-0pc" ),
+                            chatViewSlot = UIFactory.Slot().Name( "chat-view-slot" ).Classes( "grow-1", "basis-0pc" )
                         )
                     ),
                     UIFactory.Footer().Children(
@@ -90,7 +90,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> mode, out PopupField<object?> world, out Toggle isPrivate) {
-            return view = UIFactory.ColumnGroup( "game-view" ).Classes( "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup().Name( "game-view" ).Classes( "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
                 UIFactory.RowScope().Children(
                     name = UIFactory.TextField( null, 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
@@ -130,7 +130,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> role, out Toggle isReady) {
-            return view = UIFactory.ColumnGroup( "players-view" ).Classes( "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup().Name( "players-view" ).Classes( "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
                 UIFactory.RowScope().Children(
                     name = UIFactory.TextFieldReadOnly( null, 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
@@ -168,16 +168,17 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out ScrollView players) {
-            return view = UIFactory.ColumnGroup( "lobby-view" ).Classes( "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup().Name( "lobby-view" ).Classes( "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title", "shrink-0" ),
-                players = UIFactory.ScrollView( "players-view" ).Classes( "light", "medium", "reverse", "grow-1" )
+                players = UIFactory.ScrollView().Name( "players-view" ).Classes( "light", "medium", "reverse", "grow-1" )
             );
         }
         private static Box CreatePlayer(string text, int id) {
-            if (id % 3 == 0) return UIFactory.Box( "player" ).Classes( "light", "medium", "grow-1" ).Children( UIFactory.Label( text ).Classes( "font-style-bold", "margin-0px", "padding-0px" ) );
-            if (id % 3 == 1) return UIFactory.Box( "player" ).Classes( "medium", "grow-1" ).Children( UIFactory.Label( text ).Classes( "font-style-bold", "margin-0px", "padding-0px" ) );
-            if (id % 3 == 2) return UIFactory.Box( "player" ).Classes( "dark", "medium", "grow-1" ).Children( UIFactory.Label( text ).Classes( "font-style-bold", "margin-0px", "padding-0px" ) );
-            throw Exceptions.Internal.Exception( $"Can not create player box" );
+            var style = default( string );
+            if (id % 3 == 0) style = "light";
+            if (id % 3 == 1) style = null;
+            if (id % 3 == 2) style = "dark";
+            return UIFactory.Box().Name( "player" ).Classes( style, "medium", "grow-1" ).Pipe( i => i.style.width = 2000 ).Children( UIFactory.Label( text ).Classes( "font-style-bold", "margin-0px", "padding-0px" ) );
         }
 
     }
@@ -210,9 +211,9 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out ScrollView messages, out TextField text, out Button send) {
-            return view = UIFactory.ColumnGroup( "chat-view" ).Classes( "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup().Name( "chat-view" ).Classes( "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title", "shrink-0" ),
-                messages = UIFactory.ScrollView( "messages-view" ).Classes( "dark", "medium", "reverse", "grow-1" ),
+                messages = UIFactory.ScrollView().Name( "messages-view" ).Classes( "dark", "medium", "reverse", "grow-1" ),
                 UIFactory.RowScope().Classes( "shrink-0" ).Children(
                     text = UIFactory.TextField( null, 128, false ).Name( "message" ).Classes( "grow-1" ),
                     send = UIFactory.Button( "Send" ).Name( "send" )
@@ -220,10 +221,11 @@ namespace Project.UI.MainScreen {
             );
         }
         private static Box CreateMessage(string text, int id) {
-            if (id % 3 == 0) return UIFactory.Box( "message" ).Classes( "light", "medium", "grow-1" ).Children( UIFactory.Label( text ).Classes( "margin-0px", "padding-0px" ) );
-            if (id % 3 == 1) return UIFactory.Box( "message" ).Classes( "medium", "grow-1" ).Children( UIFactory.Label( text ).Classes( "margin-0px", "padding-0px" ) );
-            if (id % 3 == 2) return UIFactory.Box( "message" ).Classes( "dark", "medium", "grow-1" ).Children( UIFactory.Label( text ).Classes( "margin-0px", "padding-0px" ) );
-            throw Exceptions.Internal.Exception( $"Can not create message box" );
+            var style = default( string );
+            if (id % 3 == 0) style = "light";
+            if (id % 3 == 1) style = null;
+            if (id % 3 == 2) style = "dark";
+            return UIFactory.Box().Name( "message" ).Classes( style, "medium", "grow-1" ).Pipe( i => i.style.width = 2000 ).Children( UIFactory.Label( text ).Classes( "margin-0px", "padding-0px" ) );
         }
 
     }

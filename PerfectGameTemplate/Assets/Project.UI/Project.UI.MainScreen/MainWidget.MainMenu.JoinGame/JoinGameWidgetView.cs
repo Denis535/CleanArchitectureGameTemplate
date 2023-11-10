@@ -45,12 +45,12 @@ namespace Project.UI.MainScreen {
                     ),
                     UIFactory.Content().Children(
                         UIFactory.RowScope().Classes( "grow-0", "basis-40pc" ).Children(
-                            gameViewSlot = UIFactory.Slot( "game-view-slot" ).Classes( "grow-1", "basis-0pc" ),
-                            playerViewSlot = UIFactory.Slot( "player-view-slot" ).Classes( "grow-1", "basis-0pc" )
+                            gameViewSlot = UIFactory.Slot().Name( "game-view-slot" ).Classes( "grow-1", "basis-0pc" ),
+                            playerViewSlot = UIFactory.Slot().Name( "player-view-slot" ).Classes( "grow-1", "basis-0pc" )
                         ),
                         UIFactory.RowScope().Classes( "grow-1", "basis-auto" ).Children(
-                            lobbyViewSlot = UIFactory.Slot( "lobby-view-slot" ).Classes( "grow-1", "basis-0pc" ),
-                            chatViewSlot = UIFactory.Slot( "chat-view-slot" ).Classes( "grow-1", "basis-0pc" )
+                            lobbyViewSlot = UIFactory.Slot().Name( "lobby-view-slot" ).Classes( "grow-1", "basis-0pc" ),
+                            chatViewSlot = UIFactory.Slot().Name( "chat-view-slot" ).Classes( "grow-1", "basis-0pc" )
                         )
                     ),
                     UIFactory.Footer().Children(

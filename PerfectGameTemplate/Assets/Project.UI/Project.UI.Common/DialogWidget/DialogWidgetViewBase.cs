@@ -86,17 +86,19 @@ namespace Project.UI.Common {
 
         // Helpers
         protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return view = UIFactory.ModalWidget( "dialog-widget-view" ).Classes( "dialog-widget-view" ).Children(
-                card = UIFactory.DialogCard().Children(
-                    header = UIFactory.Header().Children(
-                        title = UIFactory.Label( null ).Name( "title" )
-                    ),
-                    content = UIFactory.Content().Children(
+            view = UIFactory.DialogWidget();
+            card = UIFactory.DialogCard().Children(
+                header = UIFactory.Header().Children(
+                    title = UIFactory.Label( null ).Name( "title" )
+                ),
+                content = UIFactory.Content().Children(
+                    UIFactory.ColumnGroup().Classes( "dark", "grow-1", "justify-content-center", "align-items-center" ).Children(
                         message = UIFactory.Label( null ).Name( "message" )
-                    ),
-                    footer = UIFactory.Footer()
-                )
+                    )
+                ),
+                footer = UIFactory.Footer()
             );
+            return view.Children( card );
         }
 
     }
@@ -112,17 +114,19 @@ namespace Project.UI.Common {
 
         // Helpers
         protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return view = UIFactory.ModalWidget( "info-dialog-widget-view" ).Classes( "info-dialog-widget-view" ).Children(
-                card = UIFactory.InfoDialogCard().Children(
-                    header = UIFactory.Header().Children(
-                        title = UIFactory.Label( null ).Name( "title" )
-                    ),
-                    content = UIFactory.Content().Children(
+            view = UIFactory.InfoDialogWidget();
+            card = UIFactory.InfoDialogCard().Children(
+                header = UIFactory.Header().Children(
+                    title = UIFactory.Label( null ).Name( "title" )
+                ),
+                content = UIFactory.Content().Children(
+                    UIFactory.ColumnGroup().Classes( "dark", "grow-1", "justify-content-center", "align-items-center" ).Children(
                         message = UIFactory.Label( null ).Name( "message" )
-                    ),
-                    footer = UIFactory.Footer()
-                )
+                    )
+                ),
+                footer = UIFactory.Footer()
             );
+            return view.Children( card );
         }
 
     }
@@ -138,17 +142,19 @@ namespace Project.UI.Common {
 
         // Helpers
         protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return view = UIFactory.ModalWidget( "warning-dialog-widget-view" ).Classes( "warning-dialog-widget-view" ).Children(
-                card = UIFactory.WarningDialogCard().Children(
-                    header = UIFactory.Header().Children(
-                        title = UIFactory.Label( null ).Name( "title" )
-                    ),
-                    content = UIFactory.Content().Children(
+            view = UIFactory.WarningDialogWidget();
+            card = UIFactory.WarningDialogCard().Children(
+                header = UIFactory.Header().Children(
+                    title = UIFactory.Label( null ).Name( "title" )
+                ),
+                content = UIFactory.Content().Children(
+                    UIFactory.ColumnGroup().Classes( "dark", "grow-1", "justify-content-center", "align-items-center" ).Children(
                         message = UIFactory.Label( null ).Name( "message" )
-                    ),
-                    footer = UIFactory.Footer()
-                )
+                    )
+                ),
+                footer = UIFactory.Footer()
             );
+            return view.Children( card );
         }
 
     }
@@ -164,17 +170,19 @@ namespace Project.UI.Common {
 
         // Helpers
         protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            return view = UIFactory.ModalWidget( "error-dialog-widget-view" ).Classes( "error-dialog-widget-view" ).Children(
-                card = UIFactory.ErrorDialogCard().Children(
-                    header = UIFactory.Header().Children(
-                        title = UIFactory.Label( null ).Name( "title" )
-                    ),
-                    content = UIFactory.Content().Children(
+            view = UIFactory.ErrorDialogWidget();
+            card = UIFactory.ErrorDialogCard().Children(
+                header = UIFactory.Header().Children(
+                    title = UIFactory.Label( null ).Name( "title" )
+                ),
+                content = UIFactory.Content().Children(
+                    UIFactory.ColumnGroup().Classes( "dark", "grow-1", "justify-content-center", "align-items-center" ).Children(
                         message = UIFactory.Label( null ).Name( "message" )
-                    ),
-                    footer = UIFactory.Footer()
-                )
+                    )
+                ),
+                footer = UIFactory.Footer()
             );
+            return view.Children( card );
         }
 
     }

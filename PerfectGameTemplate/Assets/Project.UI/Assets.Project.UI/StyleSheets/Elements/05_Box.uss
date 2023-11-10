@@ -1,4 +1,5 @@
 .unity-box {
+  color: #e6e6e6;
   background-color: #7c8083;
   border-left-color: #b86614;
   border-right-color: #b86614;
@@ -28,7 +29,7 @@
   align-self: auto;
 }
 .unity-box.light {
-  color: #262626;
+  color: #e6e6e6;
   background-color: #b0b3b5;
   border-left-color: #b86614;
   border-right-color: #b86614;
@@ -40,7 +41,7 @@
   border-bottom-right-radius: 4px;
 }
 .unity-box.dark {
-  color: #d9d9d9;
+  color: #e6e6e6;
   background-color: #4a4d4f;
   border-left-color: #b86614;
   border-right-color: #b86614;
