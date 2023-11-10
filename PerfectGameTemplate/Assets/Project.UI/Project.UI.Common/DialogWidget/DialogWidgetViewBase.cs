@@ -92,7 +92,7 @@ namespace Project.UI.Common {
                     title = UIFactory.Label( null ).Name( "title" )
                 ),
                 content = UIFactory.Content().Children(
-                    UIFactory.ColumnGroup().Classes( "dark", "grow-1", "justify-content-center", "align-items-center" ).Children(
+                    UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Children(
                         message = UIFactory.Label( null ).Name( "message" )
                     )
                 ),
@@ -120,7 +120,7 @@ namespace Project.UI.Common {
                     title = UIFactory.Label( null ).Name( "title" )
                 ),
                 content = UIFactory.Content().Children(
-                    UIFactory.ColumnGroup().Classes( "dark", "grow-1", "justify-content-center", "align-items-center" ).Children(
+                    UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Children(
                         message = UIFactory.Label( null ).Name( "message" )
                     )
                 ),
@@ -148,7 +148,7 @@ namespace Project.UI.Common {
                     title = UIFactory.Label( null ).Name( "title" )
                 ),
                 content = UIFactory.Content().Children(
-                    UIFactory.ColumnGroup().Classes( "dark", "grow-1", "justify-content-center", "align-items-center" ).Children(
+                    UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Children(
                         message = UIFactory.Label( null ).Name( "message" )
                     )
                 ),
@@ -176,7 +176,7 @@ namespace Project.UI.Common {
                     title = UIFactory.Label( null ).Name( "title" )
                 ),
                 content = UIFactory.Content().Children(
-                    UIFactory.ColumnGroup().Classes( "dark", "grow-1", "justify-content-center", "align-items-center" ).Children(
+                    UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Children(
                         message = UIFactory.Label( null ).Name( "message" )
                     )
                 ),
