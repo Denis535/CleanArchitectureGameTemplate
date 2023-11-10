@@ -174,10 +174,12 @@ namespace Project.UI.MainScreen {
             );
         }
         private static Box CreatePlayer(string text, int id) {
-            var style = default( string );
-            if (id % 3 == 0) style = "light";
-            if (id % 3 == 1) style = null;
-            if (id % 3 == 2) style = "dark";
+            var style = (int) Mathf.PingPong( id, 2 ) switch {
+                0 => "light",
+                1 => null,
+                2 => "dark",
+                _ => null
+            };
             return UIFactory.Box().Name( "player" ).Classes( style, "medium", "grow-1" ).Pipe( i => i.style.width = 2000 ).Children( UIFactory.Label( text ).Classes( "font-style-bold", "margin-0px", "padding-0px" ) );
         }
 
@@ -221,10 +223,12 @@ namespace Project.UI.MainScreen {
             );
         }
         private static Box CreateMessage(string text, int id) {
-            var style = default( string );
-            if (id % 3 == 0) style = "light";
-            if (id % 3 == 1) style = null;
-            if (id % 3 == 2) style = "dark";
+            var style = (int) Mathf.PingPong( id, 2 ) switch {
+                0 => "light",
+                1 => null,
+                2 => "dark",
+                _ => null
+            };
             return UIFactory.Box().Name( "message" ).Classes( style, "medium", "grow-1" ).Pipe( i => i.style.width = 2000 ).Children( UIFactory.Label( text ).Classes( "margin-0px", "padding-0px" ) );
         }
 

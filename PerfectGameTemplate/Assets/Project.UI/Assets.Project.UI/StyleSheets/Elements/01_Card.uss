@@ -1,5 +1,5 @@
 .card {
-  background-color: rgba(50,51,52,0.9);
+  background-color: rgba(62,64,65,0.9);
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
@@ -32,7 +32,7 @@
 }
 .header {
   color: #e6e6e6;
-  background-color: rgba(45,46,47,0.9);
+  background-color: rgba(50,51,52,0.9);
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
@@ -64,7 +64,7 @@
   align-items: center;
 }
 .content {
-  color: #1a1a1a;
+  color: #e6e6e6;
   background-color: rgba(0,0,0,0);
   border-left-color: #b86614;
   border-right-color: #b86614;
@@ -136,37 +136,37 @@
   color: #e6e6e6;
 }
 .dialog-card .content {
-  color: #1a1a1a;
+  color: #e6e6e6;
 }
 .dialog-card .footer {
   color: #e6e6e6;
 }
 .info-dialog-card .header {
   color: #e6e6e6;
-  background-color: rgba(23,23,69,0.9);
+  background-color: rgba(25,25,77,0.9);
 }
 .info-dialog-card .content {
-  color: #1a1a1a;
+  color: #e6e6e6;
 }
 .info-dialog-card .footer {
   color: #e6e6e6;
 }
 .warning-dialog-card .header {
   color: #e6e6e6;
-  background-color: rgba(69,69,23,0.9);
+  background-color: rgba(77,77,25,0.9);
 }
 .warning-dialog-card .content {
-  color: #1a1a1a;
+  color: #e6e6e6;
 }
 .warning-dialog-card .footer {
   color: #e6e6e6;
 }
 .error-dialog-card .header {
   color: #e6e6e6;
-  background-color: rgba(69,23,23,0.9);
+  background-color: rgba(77,25,25,0.9);
 }
 .error-dialog-card .content {
-  color: #1a1a1a;
+  color: #e6e6e6;
 }
 .error-dialog-card .footer {
   color: #e6e6e6;

@@ -1,6 +1,6 @@
 .unity-box {
   color: #e6e6e6;
-  background-color: #7c8083;
+  background-color: #303336;
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
@@ -30,7 +30,7 @@
 }
 .unity-box.light {
   color: #e6e6e6;
-  background-color: #b0b3b5;
+  background-color: #3d4043;
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
@@ -42,7 +42,7 @@
 }
 .unity-box.dark {
   color: #e6e6e6;
-  background-color: #4a4d4f;
+  background-color: #242628;
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
