@@ -30,7 +30,7 @@
 .unity-base-popup-field__input .unity-base-popup-field__arrow {
   background-color: rgba(0,0,0,0);
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png');
-  -unity-background-image-tint-color: #ede6de;
+  -unity-background-image-tint-color: #d9d9d9;
   border-left-color: rgba(0,0,0,0);
   border-right-color: rgba(0,0,0,0);
   border-top-color: rgba(0,0,0,0);

@@ -1,10 +1,10 @@
 .unity-box {
   color: #e6e6e6;
-  background-color: #303336;
-  border-left-color: #b86614;
-  border-right-color: #b86614;
-  border-top-color: #b86614;
-  border-bottom-color: #b86614;
+  background-color: #323334;
+  border-left-color: #bf8040;
+  border-right-color: #bf8040;
+  border-top-color: #bf8040;
+  border-bottom-color: #bf8040;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -30,11 +30,11 @@
 }
 .unity-box.light2 {
   color: #e6e6e6;
-  background-color: #3a3d40;
-  border-left-color: #b86614;
-  border-right-color: #b86614;
-  border-top-color: #b86614;
-  border-bottom-color: #b86614;
+  background-color: #3c3d3e;
+  border-left-color: #bf8040;
+  border-right-color: #bf8040;
+  border-top-color: #bf8040;
+  border-bottom-color: #bf8040;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -42,11 +42,11 @@
 }
 .unity-box.light {
   color: #e6e6e6;
-  background-color: #35383b;
-  border-left-color: #b86614;
-  border-right-color: #b86614;
-  border-top-color: #b86614;
-  border-bottom-color: #b86614;
+  background-color: #373839;
+  border-left-color: #bf8040;
+  border-right-color: #bf8040;
+  border-top-color: #bf8040;
+  border-bottom-color: #bf8040;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -54,11 +54,11 @@
 }
 .unity-box.dark {
   color: #e6e6e6;
-  background-color: #2c2e30;
-  border-left-color: #b86614;
-  border-right-color: #b86614;
-  border-top-color: #b86614;
-  border-bottom-color: #b86614;
+  background-color: #2d2e2f;
+  border-left-color: #bf8040;
+  border-right-color: #bf8040;
+  border-top-color: #bf8040;
+  border-bottom-color: #bf8040;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -66,11 +66,11 @@
 }
 .unity-box.dark2 {
   color: #e6e6e6;
-  background-color: #27292b;
-  border-left-color: #b86614;
-  border-right-color: #b86614;
-  border-top-color: #b86614;
-  border-bottom-color: #b86614;
+  background-color: #28292a;
+  border-left-color: #bf8040;
+  border-right-color: #bf8040;
+  border-top-color: #bf8040;
+  border-bottom-color: #bf8040;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;

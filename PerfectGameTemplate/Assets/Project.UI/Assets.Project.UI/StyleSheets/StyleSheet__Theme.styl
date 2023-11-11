@@ -2,19 +2,19 @@
 
 theme = create-theme()
 
-// theme
+// color
 theme[color           ]['light'                      ] = hsla(  0,   0%,  90%, 1.00)
 theme[color           ]['dark'                       ] = hsla(  0,   0%,  10%, 1.00)
-// theme
+// color
 theme[color           ]['focus-effect'               ] = hsla(210,  80%,  50%, 1.00)
 theme[color           ]['invalid-effect'             ] = hsla(  0,  80%,  50%, 1.00)
 
-// theme
-theme[background-color]['card'                       ] = hsla(210,   2%,  30%, 0.90)
-theme[background-color]['card-header'                ] = hsla(210,   2%,  20%, 0.90)
+// background-color
+theme[background-color]['card'                       ] = hsla(210,   0%,  30%, 0.90)
+theme[background-color]['card-header'                ] = hsla(210,   0%,  20%, 0.90)
 theme[background-color]['card-content'               ] = hsla(  0,   0%,   0%, 0.00)
-theme[background-color]['card-footer'                ] = hsla(210,   2%,  15%, 0.90)
-// theme
+theme[background-color]['card-footer'                ] = hsla(210,   0%,  15%, 0.90)
+// background-color
 theme[background-color]['dialog-card'                ] = null
 theme[background-color]['dialog-card-header'         ] = null
 theme[background-color]['dialog-card-header--info'   ] = hsla(240,  50%,  20%, 0.90)
@@ -22,12 +22,33 @@ theme[background-color]['dialog-card-header--warning'] = hsla( 60,  50%,  20%, 0
 theme[background-color]['dialog-card-header--error'  ] = hsla(  0,  50%,  20%, 0.90)
 theme[background-color]['dialog-card-content'        ] = null
 theme[background-color]['dialog-card-footer'         ] = null
-// theme
+// background-color
+theme[background-color]['view--light2'               ] = hsla(210,   0%,  30%, 0.75)
+theme[background-color]['view--light'                ] = hsla(210,   0%,  25%, 0.75)
+theme[background-color]['view'                       ] = hsla(210,   0%,  20%, 0.75)
+theme[background-color]['view--dark'                 ] = hsla(210,   0%,  15%, 0.75)
+theme[background-color]['view--dark2'                ] = hsla(210,   0%,  10%, 0.75)
+// background-color
+theme[background-color]['box--light2'                ] = hsla(210,   2%,  24%, 1.00)
+theme[background-color]['box--light'                 ] = hsla(210,   2%,  22%, 1.00)
+theme[background-color]['box'                        ] = hsla(210,   2%,  20%, 1.00)
+theme[background-color]['box--dark'                  ] = hsla(210,   2%,  18%, 1.00)
+theme[background-color]['box--dark2'                 ] = hsla(210,   2%,  16%, 1.00)
+// background-color
+theme[background-color]['element'                    ] = hsla(  0,   0%,   0%, 0.00)
+theme[background-color]['element--light'             ] = hsla(210,   4%,  20%, 1.00)
+theme[background-color]['element--dark'              ] = hsla(210,   4%,  17%, 1.00)
+// background-color
+theme[background-color]['component'                  ] = hsla(  0,   0%,   0%, 0.00)
+theme[background-color]['component--light'           ] = hsla(210,   4%,  80%, 1.00)
+theme[background-color]['component--dark'            ] = hsla(210,   4%,  20%, 1.00)
+
+// background-image
 theme[background-image]['card'                       ] = create-background-image(null, null, null)
 theme[background-image]['card-header'                ] = create-background-image(null, null, null)
 theme[background-image]['card-content'               ] = create-background-image(null, null, null)
 theme[background-image]['card-footer'                ] = create-background-image(null, null, null)
-// theme
+// background-image
 theme[background-image]['dialog-card'                ] = null
 theme[background-image]['dialog-card-header'         ] = null
 theme[background-image]['dialog-card-header--info'   ] = null
@@ -35,134 +56,113 @@ theme[background-image]['dialog-card-header--warning'] = null
 theme[background-image]['dialog-card-header--error'  ] = null
 theme[background-image]['dialog-card-content'        ] = null
 theme[background-image]['dialog-card-footer'         ] = null
-// theme
-theme[border-color    ]['card'                       ] = hsla( 30,  80%,  40%, 1.00)
-theme[border-color    ]['card-header'                ] = hsla( 30,  80%,  40%, 1.00)
-theme[border-color    ]['card-content'               ] = hsla( 30,  80%,  40%, 1.00)
-theme[border-color    ]['card-footer'                ] = hsla( 30,  80%,  40%, 1.00)
-// theme
-theme[border-color    ]['dialog-card'                ] = null
-theme[border-color    ]['dialog-card-header'         ] = null
-theme[border-color    ]['dialog-card-content'        ] = null
-theme[border-color    ]['dialog-card-footer'         ] = null
-// theme
-theme[border-radius   ]['card'                       ] = 6px
-theme[border-radius   ]['card-header'                ] = 6px 6px 0px 0px
-theme[border-radius   ]['card-content'               ] = 6px
-theme[border-radius   ]['card-footer'                ] = 0px 0px 6px 6px
-// theme
-theme[border-radius   ]['dialog-card'                ] = null
-theme[border-radius   ]['dialog-card-header'         ] = null
-theme[border-radius   ]['dialog-card-content'        ] = null
-theme[border-radius   ]['dialog-card-footer'         ] = null
-
-// theme
-theme[background-color]['view--light2'               ] = hsla(210,   5%,  30%, 0.75)
-theme[background-color]['view--light'                ] = hsla(210,   5%,  25%, 0.75)
-theme[background-color]['view'                       ] = hsla(210,   5%,  20%, 0.75)
-theme[background-color]['view--dark'                 ] = hsla(210,   5%,  15%, 0.75)
-theme[background-color]['view--dark2'                ] = hsla(210,   5%,  10%, 0.75)
-// theme
-theme[background-color]['box--light2'                ] = hsla(210,   5%,  24%, 1.00)
-theme[background-color]['box--light'                 ] = hsla(210,   5%,  22%, 1.00)
-theme[background-color]['box'                        ] = hsla(210,   5%,  20%, 1.00)
-theme[background-color]['box--dark'                  ] = hsla(210,   5%,  18%, 1.00)
-theme[background-color]['box--dark2'                 ] = hsla(210,   5%,  16%, 1.00)
-// theme
-theme[background-color]['element'                    ] = hsla(  0,   0%,   0%, 0.00)
-theme[background-color]['element--light'             ] = hsla(210,  10%,  20%, 1.00)
-theme[background-color]['element--dark'              ] = hsla(210,  10%,  17%, 1.00)
-// theme
-theme[background-color]['component'                  ] = hsla(  0,   0%,   0%, 0.00)
-theme[background-color]['component--light'           ] = hsla(210,  12%,  80%, 1.00)
-theme[background-color]['component--dark'            ] = hsla(210,  12%,  20%, 1.00)
-// theme
+// background-image
 theme[background-image]['view--light2'               ] = create-background-image(null, null, null)
 theme[background-image]['view--light'                ] = create-background-image(null, null, null)
 theme[background-image]['view'                       ] = create-background-image(null, null, null)
 theme[background-image]['view--dark'                 ] = create-background-image(null, null, null)
 theme[background-image]['view--dark2'                ] = create-background-image(null, null, null)
-// theme
+// background-image
 theme[background-image]['box--light2'                ] = create-background-image(null, null, null)
 theme[background-image]['box--light'                 ] = create-background-image(null, null, null)
 theme[background-image]['box'                        ] = create-background-image(null, null, null)
 theme[background-image]['box--dark'                  ] = create-background-image(null, null, null)
 theme[background-image]['box--dark2'                 ] = create-background-image(null, null, null)
-// theme
+// background-image
 theme[background-image]['element'                    ] = create-background-image(null, null, null)
 theme[background-image]['element--light'             ] = create-background-image(null, null, null)
 theme[background-image]['element--dark'              ] = create-background-image(null, null, null)
-// theme
+// background-image
 theme[background-image]['component'                  ] = create-background-image(null, null, null)
 theme[background-image]['component--light'           ] = create-background-image(null, null, null)
 theme[background-image]['component--dark'            ] = create-background-image(null, null, null)
-// theme
-theme[border-color    ]['view--light2'               ] = hsla( 30,  80%,  40%, 1.00)
-theme[border-color    ]['view--light'                ] = hsla( 30,  80%,  40%, 1.00)
-theme[border-color    ]['view'                       ] = hsla( 30,  80%,  40%, 1.00)
-theme[border-color    ]['view--dark'                 ] = hsla( 30,  80%,  40%, 1.00)
-theme[border-color    ]['view--dark2'                ] = hsla( 30,  80%,  40%, 1.00)
-// theme
-theme[border-color    ]['box--light2'                ] = hsla( 30,  80%,  40%, 1.00)
-theme[border-color    ]['box--light'                 ] = hsla( 30,  80%,  40%, 1.00)
-theme[border-color    ]['box'                        ] = hsla( 30,  80%,  40%, 1.00)
-theme[border-color    ]['box--dark'                  ] = hsla( 30,  80%,  40%, 1.00)
-theme[border-color    ]['box--dark2'                 ] = hsla( 30,  80%,  40%, 1.00)
-// theme
+
+// border-color
+theme[border-color    ]['card'                       ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['card-header'                ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['card-content'               ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['card-footer'                ] = hsla( 30,  50%,  50%, 1.00)
+// border-color
+theme[border-color    ]['dialog-card'                ] = null
+theme[border-color    ]['dialog-card-header'         ] = null
+theme[border-color    ]['dialog-card-content'        ] = null
+theme[border-color    ]['dialog-card-footer'         ] = null
+// border-color
+theme[border-color    ]['view--light2'               ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['view--light'                ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['view'                       ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['view--dark'                 ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['view--dark2'                ] = hsla( 30,  50%,  50%, 1.00)
+// border-color
+theme[border-color    ]['box--light2'                ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['box--light'                 ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['box'                        ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['box--dark'                  ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['box--dark2'                 ] = hsla( 30,  50%,  50%, 1.00)
+// border-color
 theme[border-color    ]['element'                    ] = hsla(  0,   0%,   0%, 0.00)
-theme[border-color    ]['element--light'             ] = hsla( 30,  80%,  40%, 1.00)
-theme[border-color    ]['element--dark'              ] = hsla( 30,  80%,  40%, 1.00)
-// theme
+theme[border-color    ]['element--light'             ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['element--dark'              ] = hsla( 30,  50%,  50%, 1.00)
+// border-color
 theme[border-color    ]['component'                  ] = hsla(  0,   0%,   0%, 0.00)
-theme[border-color    ]['component--light'           ] = hsla( 30,  80%,  40%, 1.00)
-theme[border-color    ]['component--dark'            ] = hsla( 30,  80%,  40%, 1.00)
-// theme
+theme[border-color    ]['component--light'           ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['component--dark'            ] = hsla( 30,  50%,  50%, 1.00)
+
+// border-radius
+theme[border-radius   ]['card'                       ] = 6px
+theme[border-radius   ]['card-header'                ] = 6px 6px 0px 0px
+theme[border-radius   ]['card-content'               ] = 6px
+theme[border-radius   ]['card-footer'                ] = 0px 0px 6px 6px
+// border-radius
+theme[border-radius   ]['dialog-card'                ] = null
+theme[border-radius   ]['dialog-card-header'         ] = null
+theme[border-radius   ]['dialog-card-content'        ] = null
+theme[border-radius   ]['dialog-card-footer'         ] = null
+// border-radius
 theme[border-radius   ]['view'                       ] = 4px
+// border-radius
 theme[border-radius   ]['box'                        ] = 4px
+// border-radius
 theme[border-radius   ]['element'                    ] = 4px
+// border-radius
 theme[border-radius   ]['component'                  ] = 2px
 
-// theme
-theme[background-color]['dropdown'                   ] = theme[background-color]['element--dark']
-theme[background-image]['dropdown'                   ] = theme[background-image]['element--dark']
-theme[border-color    ]['dropdown'                   ] = theme[border-color    ]['element--dark']
-theme[border-radius   ]['dropdown'                   ] = theme[border-radius   ]['element--dark']
+// icon--dark
+theme[background-image]['left-arrow-icon--dark'      ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla(  0,  0%,  15%, 1.00), null)
+theme[background-image]['right-arrow-icon--dark'     ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla(  0,  0%,  15%, 1.00), null)
+theme[background-image]['up-arrow-icon--dark'        ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla(  0,  0%,  15%, 1.00), null)
+theme[background-image]['down-arrow-icon--dark'      ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla(  0,  0%,  15%, 1.00), null)
+theme[background-image]['dropdown-arrow-icon--dark'  ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png', hsla(  0,  0%,  15%, 1.00), null)
+theme[background-image]['checkmark-icon--dark'       ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla(  0,  0%,  15%, 1.00), null)
+// icon--light
+theme[background-image]['left-arrow-icon--light'     ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla(  0,  0%,  85%, 1.00), null)
+theme[background-image]['right-arrow-icon--light'    ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla(  0,  0%,  85%, 1.00), null)
+theme[background-image]['up-arrow-icon--light'       ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla(  0,  0%,  85%, 1.00), null)
+theme[background-image]['down-arrow-icon--light'     ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla(  0,  0%,  85%, 1.00), null)
+theme[background-image]['dropdown-arrow-icon--light' ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png', hsla(  0,  0%,  85%, 1.00), null)
+theme[background-image]['checkmark-icon--light'      ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla(  0,  0%,  85%, 1.00), null)
 
-// theme
-theme[background-color]['dropdown-item'              ] = theme[background-color]['element'      ]
-theme[background-image]['dropdown-item'              ] = theme[background-image]['element'      ]
-theme[border-color    ]['dropdown-item'              ] = theme[border-color    ]['element'      ]
-theme[border-radius   ]['dropdown-item'              ] = theme[border-radius   ]['element'      ]
-// theme
-theme[background-color]['dropdown-item--hover'       ] = theme[border-color    ]['element--dark']
-theme[background-image]['dropdown-item--hover'       ] = theme[background-image]['element'      ]
-theme[border-color    ]['dropdown-item--hover'       ] = darken(theme[border-color]['element--dark'], 30%)
-theme[border-radius   ]['dropdown-item--hover'       ] = theme[border-radius   ]['element'      ]
+// dropdown
+theme[background-color]['dropdown'                   ] = get-theme-background-color('element--dark')
+theme[background-image]['dropdown'                   ] = get-theme-background-image('element--dark')
+theme[border-color    ]['dropdown'                   ] = get-theme-border-color(    'element--dark')
+theme[border-radius   ]['dropdown'                   ] = get-theme-border-radius(   'element'      )
 
-// theme
-theme[background-image]['left-arrow-icon--dark'      ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla(210,  30%,  10%, 1.00), null)
-theme[background-image]['right-arrow-icon--dark'     ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla(210,  30%,  10%, 1.00), null)
-theme[background-image]['up-arrow-icon--dark'        ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla(210,  30%,  10%, 1.00), null)
-theme[background-image]['down-arrow-icon--dark'      ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla(210,  30%,  10%, 1.00), null)
-theme[background-image]['dropdown-arrow-icon--dark'  ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png', hsla(210,  30%,  10%, 1.00), null)
-theme[background-image]['checkmark-icon--dark'       ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla(210,  30%,  10%, 1.00), null)
-// theme
-theme[background-image]['left-arrow-icon--light'     ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla( 30,  30%,  90%, 1.00), null)
-theme[background-image]['right-arrow-icon--light'    ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla( 30,  30%,  90%, 1.00), null)
-theme[background-image]['up-arrow-icon--light'       ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla( 30,  30%,  90%, 1.00), null)
-theme[background-image]['down-arrow-icon--light'     ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla( 30,  30%,  90%, 1.00), null)
-theme[background-image]['dropdown-arrow-icon--light' ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png', hsla( 30,  30%,  90%, 1.00), null)
-theme[background-image]['checkmark-icon--light'      ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla( 30,  30%,  90%, 1.00), null)
+// dropdown-item
+theme[background-color]['dropdown-item'              ] = get-theme-background-color('element')
+theme[background-image]['dropdown-item'              ] = get-theme-background-image('element')
+theme[border-color    ]['dropdown-item'              ] = get-theme-border-color(    'element')
+theme[border-radius   ]['dropdown-item'              ] = get-theme-border-radius(   'element')
+// dropdown-item--hover
+theme[background-color]['dropdown-item--hover'       ] = hsla( 30,  80%,  40%, 1.00)
+theme[background-image]['dropdown-item--hover'       ] = null
+theme[border-color    ]['dropdown-item--hover'       ] = hsla( 30,  80%,  20%, 1.00)
+theme[border-radius   ]['dropdown-item--hover'       ] = null
 
 // add-skin
 add-skin(name)
     object = typeof(name) == 'object' ? name : get-skin(name)
     add-style object
-// add-misc
-add-misc(name, objects...)
-    object = typeof(name) == 'object' ? name : get-misc(name)
-    add-style object
-
 // get-skin
 get-skin(name)
     if name != null
@@ -171,6 +171,11 @@ get-skin(name)
             return clone(lookup(name))
         error('Skin is not found: ' + name)
     null
+
+// add-misc
+add-misc(name, objects...)
+    object = typeof(name) == 'object' ? name : get-misc(name)
+    add-style object
 // get-misc
 get-misc(name)
     if name != null

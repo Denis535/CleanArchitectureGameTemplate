@@ -1,9 +1,9 @@
 .unity-toggle__input #unity-checkmark {
-  background-color: #c6ccd2;
-  border-left-color: #b86614;
-  border-right-color: #b86614;
-  border-top-color: #b86614;
-  border-bottom-color: #b86614;
+  background-color: #caccce;
+  border-left-color: #bf8040;
+  border-right-color: #bf8040;
+  border-top-color: #bf8040;
+  border-bottom-color: #bf8040;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
@@ -28,13 +28,13 @@
   align-self: auto;
 }
 .unity-toggle__input:checked #unity-checkmark {
-  background-color: #c6ccd2;
+  background-color: #caccce;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
-  -unity-background-image-tint-color: #121921;
-  border-left-color: #b86614;
-  border-right-color: #b86614;
-  border-top-color: #b86614;
-  border-bottom-color: #b86614;
+  -unity-background-image-tint-color: #262626;
+  border-left-color: #bf8040;
+  border-right-color: #bf8040;
+  border-top-color: #bf8040;
+  border-bottom-color: #bf8040;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;

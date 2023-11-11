@@ -31,11 +31,11 @@
   align-items: center;
 }
 .unity-base-slider__input #unity-tracker {
-  background-color: #c6ccd2;
-  border-left-color: #b86614;
-  border-right-color: #b86614;
-  border-top-color: #b86614;
-  border-bottom-color: #b86614;
+  background-color: #caccce;
+  border-left-color: #bf8040;
+  border-right-color: #bf8040;
+  border-top-color: #bf8040;
+  border-bottom-color: #bf8040;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
@@ -60,11 +60,11 @@
   align-self: auto;
 }
 .unity-base-slider__input #unity-dragger {
-  background-color: #c6ccd2;
-  border-left-color: #b86614;
-  border-right-color: #b86614;
-  border-top-color: #b86614;
-  border-bottom-color: #b86614;
+  background-color: #caccce;
+  border-left-color: #bf8040;
+  border-right-color: #bf8040;
+  border-top-color: #bf8040;
+  border-bottom-color: #bf8040;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
