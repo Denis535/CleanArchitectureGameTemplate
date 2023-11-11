@@ -1,5 +1,6 @@
 .card {
-  background-color: rgba(62,64,65,0.9);
+  color: #e6e6e6;
+  background-color: rgba(75,77,78,0.9);
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
@@ -132,6 +133,9 @@
 .footer * {
   width: 25%;
 }
+.dialog-card {
+  color: #e6e6e6;
+}
 .dialog-card .header {
   color: #e6e6e6;
 }
@@ -139,6 +143,9 @@
   color: #e6e6e6;
 }
 .dialog-card .footer {
+  color: #e6e6e6;
+}
+.info-dialog-card {
   color: #e6e6e6;
 }
 .info-dialog-card .header {
@@ -151,6 +158,9 @@
 .info-dialog-card .footer {
   color: #e6e6e6;
 }
+.warning-dialog-card {
+  color: #e6e6e6;
+}
 .warning-dialog-card .header {
   color: #e6e6e6;
   background-color: rgba(77,77,25,0.9);
@@ -159,6 +169,9 @@
   color: #e6e6e6;
 }
 .warning-dialog-card .footer {
+  color: #e6e6e6;
+}
+.error-dialog-card {
   color: #e6e6e6;
 }
 .error-dialog-card .header {

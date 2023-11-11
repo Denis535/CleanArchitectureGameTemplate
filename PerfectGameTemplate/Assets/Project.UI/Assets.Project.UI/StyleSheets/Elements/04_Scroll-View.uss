@@ -363,7 +363,7 @@
   align-items: center;
 }
 .unity-scroller--horizontal .unity-base-slider #unity-tracker {
-  background-color: #2d3339;
+  background-color: #272b30;
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
@@ -392,7 +392,7 @@
   align-self: auto;
 }
 .unity-scroller--horizontal .unity-base-slider #unity-dragger {
-  background-color: #c6ccd2;
+  background-color: #2e3338;
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
@@ -422,9 +422,9 @@
   align-self: auto;
 }
 .unity-scroller--horizontal #unity-low-button {
-  background-color: #c6ccd2;
+  background-color: #2e3338;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png');
-  -unity-background-image-tint-color: #121921;
+  -unity-background-image-tint-color: #ede6de;
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
@@ -453,9 +453,9 @@
   align-self: auto;
 }
 .unity-scroller--horizontal #unity-high-button {
-  background-color: #c6ccd2;
+  background-color: #2e3338;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png');
-  -unity-background-image-tint-color: #121921;
+  -unity-background-image-tint-color: #ede6de;
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
@@ -612,7 +612,7 @@
   align-items: center;
 }
 .unity-scroller--vertical .unity-base-slider #unity-tracker {
-  background-color: #2d3339;
+  background-color: #272b30;
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
@@ -641,7 +641,7 @@
   align-self: auto;
 }
 .unity-scroller--vertical .unity-base-slider #unity-dragger {
-  background-color: #c6ccd2;
+  background-color: #2e3338;
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
@@ -671,9 +671,9 @@
   align-self: auto;
 }
 .unity-scroller--vertical #unity-low-button {
-  background-color: #c6ccd2;
+  background-color: #2e3338;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png');
-  -unity-background-image-tint-color: #121921;
+  -unity-background-image-tint-color: #ede6de;
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
@@ -702,9 +702,9 @@
   align-self: auto;
 }
 .unity-scroller--vertical #unity-high-button {
-  background-color: #c6ccd2;
+  background-color: #2e3338;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png');
-  -unity-background-image-tint-color: #121921;
+  -unity-background-image-tint-color: #ede6de;
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;

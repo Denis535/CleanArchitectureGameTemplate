@@ -1,7 +1,7 @@
 .unity-button,
 .unity-repeat-button {
-  color: #1a1a1a;
-  background-color: #c6ccd2;
+  color: #e6e6e6;
+  background-color: #2e3338;
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;

@@ -31,8 +31,8 @@
   align-items: stretch;
 }
 .unity-base-field__label {
-  color: #1a1a1a;
-  background-color: #c6ccd2;
+  color: #e6e6e6;
+  background-color: #2e3338;
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
@@ -64,7 +64,7 @@
 }
 .unity-base-field__input {
   color: #e6e6e6;
-  background-color: #2d3339;
+  background-color: #272b30;
   border-left-color: #b86614;
   border-right-color: #b86614;
   border-top-color: #b86614;
