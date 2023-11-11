@@ -1,9 +1,9 @@
 .unity-toggle__input #unity-checkmark {
-  background-color: #404040;
-  border-left-color: rgba(191,128,64,0.2);
-  border-right-color: rgba(191,128,64,0.2);
-  border-top-color: rgba(191,128,64,0.2);
-  border-bottom-color: rgba(191,128,64,0.2);
+  background-color: rgba(99,77,54,0.7);
+  border-left-color: rgba(64,127,191,0.3);
+  border-right-color: rgba(64,127,191,0.3);
+  border-top-color: rgba(64,127,191,0.3);
+  border-bottom-color: rgba(64,127,191,0.3);
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
@@ -28,13 +28,13 @@
   align-self: auto;
 }
 .unity-toggle__input:checked #unity-checkmark {
-  background-color: #404040;
+  background-color: rgba(99,77,54,0.7);
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
   -unity-background-image-tint-color: #e6e6e6;
-  border-left-color: rgba(191,128,64,0.2);
-  border-right-color: rgba(191,128,64,0.2);
-  border-top-color: rgba(191,128,64,0.2);
-  border-bottom-color: rgba(191,128,64,0.2);
+  border-left-color: rgba(64,127,191,0.3);
+  border-right-color: rgba(64,127,191,0.3);
+  border-top-color: rgba(64,127,191,0.3);
+  border-bottom-color: rgba(64,127,191,0.3);
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;

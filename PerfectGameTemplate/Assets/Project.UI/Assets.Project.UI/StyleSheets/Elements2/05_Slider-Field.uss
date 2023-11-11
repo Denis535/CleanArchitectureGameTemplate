@@ -31,17 +31,17 @@
   align-items: center;
 }
 .unity-base-slider__input #unity-tracker {
-  background-color: #404040;
-  border-left-color: rgba(191,128,64,0.2);
-  border-right-color: rgba(191,128,64,0.2);
-  border-top-color: rgba(191,128,64,0.2);
-  border-bottom-color: rgba(191,128,64,0.2);
+  background-color: rgba(99,77,54,0.7);
+  border-left-color: rgba(64,127,191,0.3);
+  border-right-color: rgba(64,127,191,0.3);
+  border-top-color: rgba(64,127,191,0.3);
+  border-bottom-color: rgba(64,127,191,0.3);
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   width: auto;
-  height: 12px;
+  height: 8px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -60,17 +60,17 @@
   align-self: auto;
 }
 .unity-base-slider__input #unity-dragger {
-  background-color: #808080;
-  border-left-color: rgba(191,128,64,0.2);
-  border-right-color: rgba(191,128,64,0.2);
-  border-top-color: rgba(191,128,64,0.2);
-  border-bottom-color: rgba(191,128,64,0.2);
+  background-color: rgba(133,102,71,0.7);
+  border-left-color: rgba(64,127,191,0.3);
+  border-right-color: rgba(64,127,191,0.3);
+  border-top-color: rgba(64,127,191,0.3);
+  border-bottom-color: rgba(64,127,191,0.3);
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   position: absolute;
-  width: 12px;
+  width: 8px;
   height: 24px;
   margin-left: 0px;
   margin-right: 0px;

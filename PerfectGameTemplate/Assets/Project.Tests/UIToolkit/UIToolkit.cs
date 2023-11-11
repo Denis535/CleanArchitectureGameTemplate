@@ -79,12 +79,12 @@ namespace UIToolkit {
                 // ProgressBar
                 typeof( AbstractProgressBar ),
                 typeof( ProgressBar ),
-                // Foldout
-                typeof( Foldout ),
 
                 // Container
                 typeof( TemplateContainer ),
                 typeof( IMGUIContainer ),
+                // Foldout
+                typeof( Foldout ),
                 // View/Scroll
                 typeof( ScrollView ),
                 typeof( Scroller ),

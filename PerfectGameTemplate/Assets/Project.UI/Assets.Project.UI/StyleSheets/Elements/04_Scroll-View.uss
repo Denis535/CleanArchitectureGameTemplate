@@ -363,7 +363,7 @@
   align-items: center;
 }
 .unity-scroller--horizontal .unity-base-slider #unity-tracker {
-  background-color: #2a2b2d;
+  background-color: #252628;
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
@@ -612,7 +612,7 @@
   align-items: center;
 }
 .unity-scroller--vertical .unity-base-slider #unity-tracker {
-  background-color: #2a2b2d;
+  background-color: #252628;
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
