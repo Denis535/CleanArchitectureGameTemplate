@@ -31,17 +31,17 @@
   align-items: center;
 }
 .unity-base-slider__input #unity-tracker {
-  background-color: #caccce;
-  border-left-color: #bf8040;
-  border-right-color: #bf8040;
-  border-top-color: #bf8040;
-  border-bottom-color: #bf8040;
+  background-color: #404040;
+  border-left-color: rgba(191,128,64,0.2);
+  border-right-color: rgba(191,128,64,0.2);
+  border-top-color: rgba(191,128,64,0.2);
+  border-bottom-color: rgba(191,128,64,0.2);
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   width: auto;
-  height: 8px;
+  height: 12px;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -60,17 +60,17 @@
   align-self: auto;
 }
 .unity-base-slider__input #unity-dragger {
-  background-color: #caccce;
-  border-left-color: #bf8040;
-  border-right-color: #bf8040;
-  border-top-color: #bf8040;
-  border-bottom-color: #bf8040;
+  background-color: #808080;
+  border-left-color: rgba(191,128,64,0.2);
+  border-right-color: rgba(191,128,64,0.2);
+  border-top-color: rgba(191,128,64,0.2);
+  border-bottom-color: rgba(191,128,64,0.2);
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   position: absolute;
-  width: 8px;
+  width: 12px;
   height: 24px;
   margin-left: 0px;
   margin-right: 0px;

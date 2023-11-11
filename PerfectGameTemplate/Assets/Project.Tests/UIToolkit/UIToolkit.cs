@@ -29,17 +29,17 @@ namespace UIToolkit {
 
                 // Text
                 typeof( TextElement ),
-                typeof( PopupWindow ),
+                typeof( Label ),
                 typeof( Button ),
                 typeof( RepeatButton ),
-                typeof( Label ),
+                typeof( PopupWindow ),
                 // Image
                 typeof( Image ),
                 // Field
                 typeof( BaseField<> ),
-                typeof( EnumField ),
                 typeof( BoundsField ),
                 typeof( BoundsIntField ),
+                typeof( EnumField ),
                 typeof( RadioButtonGroup ),
                 // Field/Text
                 typeof( TextInputBaseField<> ),
@@ -48,22 +48,24 @@ namespace UIToolkit {
                 // Field/Text/Value
                 typeof( TextValueField<> ),
                 typeof( IntegerField ),
+                typeof( UnsignedIntegerField ),
                 typeof( LongField ),
+                typeof( UnsignedLongField ),
                 typeof( FloatField ),
                 typeof( DoubleField ),
-                // Field/Bool
-                typeof( BaseBoolField ),
-                typeof( RadioButton ),
-                typeof( Toggle ),
-                // Field/Slider
-                typeof( BaseSlider<> ),
-                typeof( Slider ),
-                typeof( MinMaxSlider ),
-                typeof( SliderInt ),
                 // Field/Popup
                 typeof( BasePopupField<,> ),
                 typeof( PopupField<> ),
                 typeof( DropdownField ),
+                // Field/Slider
+                typeof( BaseSlider<> ),
+                typeof( Slider ),
+                typeof( SliderInt ),
+                typeof( MinMaxSlider ),
+                // Field/Bool
+                typeof( BaseBoolField ),
+                typeof( Toggle ),
+                typeof( RadioButton ),
                 // Field/Composite
                 typeof( BaseCompositeField<,,> ),
                 typeof( Vector2Field ),
@@ -71,13 +73,14 @@ namespace UIToolkit {
                 typeof( Vector3Field ),
                 typeof( Vector3IntField ),
                 typeof( Vector4Field ),
+                //typeof( Vector4IntField ),
                 typeof( RectField ),
                 typeof( RectIntField ),
-                // Foldout
-                typeof( Foldout ),
                 // ProgressBar
                 typeof( AbstractProgressBar ),
                 typeof( ProgressBar ),
+                // Foldout
+                typeof( Foldout ),
 
                 // Container
                 typeof( TemplateContainer ),

@@ -2,7 +2,7 @@
   position: absolute;
 }
 .unity-base-dropdown__container-outer {
-  background-color: #2a2b2d;
+  background-color: #252628;
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
@@ -232,7 +232,7 @@
 .unity-base-dropdown__item:checked .unity-base-dropdown__checkmark {
   background-color: rgba(0,0,0,0);
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png');
-  -unity-background-image-tint-color: #d9d9d9;
+  -unity-background-image-tint-color: #e6e6e6;
   border-left-color: rgba(0,0,0,0);
   border-right-color: rgba(0,0,0,0);
   border-top-color: rgba(0,0,0,0);

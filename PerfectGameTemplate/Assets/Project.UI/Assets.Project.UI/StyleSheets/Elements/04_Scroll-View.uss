@@ -246,10 +246,10 @@
   border-bottom-right-radius: 4px;
   width: auto;
   height: auto;
-  margin-left: 4px;
-  margin-right: 4px;
-  margin-top: 4px;
-  margin-bottom: 4px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   border-left-width: 0px;
   border-right-width: 0px;
   border-top-width: 0px;
@@ -424,7 +424,7 @@
 .unity-scroller--horizontal #unity-low-button {
   background-color: #313335;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png');
-  -unity-background-image-tint-color: #d9d9d9;
+  -unity-background-image-tint-color: #e6e6e6;
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
@@ -435,10 +435,10 @@
   border-bottom-right-radius: 4px;
   width: 24px;
   height: 24px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
   border-left-width: 1px;
   border-right-width: 1px;
   border-top-width: 1px;
@@ -455,7 +455,7 @@
 .unity-scroller--horizontal #unity-high-button {
   background-color: #313335;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png');
-  -unity-background-image-tint-color: #d9d9d9;
+  -unity-background-image-tint-color: #e6e6e6;
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
@@ -466,10 +466,10 @@
   border-bottom-right-radius: 4px;
   width: 24px;
   height: 24px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
   border-left-width: 1px;
   border-right-width: 1px;
   border-top-width: 1px;
@@ -495,10 +495,10 @@
   border-bottom-right-radius: 4px;
   width: auto;
   height: auto;
-  margin-left: 4px;
-  margin-right: 4px;
-  margin-top: 4px;
-  margin-bottom: 4px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   border-left-width: 0px;
   border-right-width: 0px;
   border-top-width: 0px;
@@ -673,7 +673,7 @@
 .unity-scroller--vertical #unity-low-button {
   background-color: #313335;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png');
-  -unity-background-image-tint-color: #d9d9d9;
+  -unity-background-image-tint-color: #e6e6e6;
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
@@ -684,10 +684,10 @@
   border-bottom-right-radius: 4px;
   width: 24px;
   height: 24px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
   border-left-width: 1px;
   border-right-width: 1px;
   border-top-width: 1px;
@@ -704,7 +704,7 @@
 .unity-scroller--vertical #unity-high-button {
   background-color: #313335;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png');
-  -unity-background-image-tint-color: #d9d9d9;
+  -unity-background-image-tint-color: #e6e6e6;
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
@@ -715,10 +715,10 @@
   border-bottom-right-radius: 4px;
   width: 24px;
   height: 24px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
   border-left-width: 1px;
   border-right-width: 1px;
   border-top-width: 1px;
