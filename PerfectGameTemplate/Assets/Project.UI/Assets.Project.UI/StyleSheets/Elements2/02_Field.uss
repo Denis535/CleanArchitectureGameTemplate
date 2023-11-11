@@ -64,7 +64,7 @@
 }
 .unity-base-field__input {
   color: #e6e6e6;
-  background-color: #252628;
+  background-color: #27292a;
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;

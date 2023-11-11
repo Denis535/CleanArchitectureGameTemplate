@@ -30,7 +30,7 @@
 }
 .unity-box.light2 {
   color: #e6e6e6;
-  background-color: #3c3d3e;
+  background-color: #373839;
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
@@ -42,7 +42,7 @@
 }
 .unity-box.light {
   color: #e6e6e6;
-  background-color: #373839;
+  background-color: #343637;
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
@@ -54,7 +54,7 @@
 }
 .unity-box.dark {
   color: #e6e6e6;
-  background-color: #2d2e2f;
+  background-color: #2f3031;
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
@@ -66,7 +66,7 @@
 }
 .unity-box.dark2 {
   color: #e6e6e6;
-  background-color: #28292a;
+  background-color: #2d2e2f;
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
