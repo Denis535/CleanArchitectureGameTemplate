@@ -1,5 +1,6 @@
-@import "StyleSheet__Internal"
+@import "__Utils2"
 
+// theme
 theme = create-theme()
 
 // color
@@ -179,29 +180,3 @@ theme[border-color    ]['dropdown--hover'            ] = null
 theme[background-color]['dropdown-item--hover'       ] = hsla( 30,  80%,  40%, 1.00)
 theme[background-image]['dropdown-item--hover'       ] = null
 theme[border-color    ]['dropdown-item--hover'       ] = hsla( 30,  80%,  20%, 1.00)
-
-// add-skin
-add-skin(name)
-    object = typeof(name) == 'object' ? name : get-skin(name)
-    add-style object
-// get-skin
-get-skin(name)
-    if name != null
-        name = 'skin--' + get-string(name)
-        if name is defined
-            return clone(lookup(name))
-        error('Skin is not found: ' + name)
-    null
-
-// add-misc
-add-misc(name, objects...)
-    object = typeof(name) == 'object' ? name : get-misc(name)
-    add-style object
-// get-misc
-get-misc(name)
-    if name != null
-        name = 'misc--' + get-string(name)
-        if name is defined
-            return clone(lookup(name))
-        error('Skin (misc) is not found: ' + name)
-    null
