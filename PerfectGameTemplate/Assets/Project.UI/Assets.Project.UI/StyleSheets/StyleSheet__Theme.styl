@@ -80,6 +80,20 @@ theme[background-image]['component'                  ] = create-background-image
 theme[background-image]['component--light'           ] = create-background-image(null, null, null)
 theme[background-image]['component--gray'            ] = create-background-image(null, null, null)
 theme[background-image]['component--dark'            ] = create-background-image(null, null, null)
+// background-image
+theme[background-image]['left-arrow-icon--light'     ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla(  0,  0%,  90%, 1.00), null)
+theme[background-image]['right-arrow-icon--light'    ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla(  0,  0%,  90%, 1.00), null)
+theme[background-image]['up-arrow-icon--light'       ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla(  0,  0%,  90%, 1.00), null)
+theme[background-image]['down-arrow-icon--light'     ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla(  0,  0%,  90%, 1.00), null)
+theme[background-image]['dropdown-arrow-icon--light' ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png', hsla(  0,  0%,  90%, 1.00), null)
+theme[background-image]['checkmark-icon--light'      ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla(  0,  0%,  90%, 1.00), null)
+// background-image
+theme[background-image]['left-arrow-icon--dark'      ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla(  0,  0%,  10%, 1.00), null)
+theme[background-image]['right-arrow-icon--dark'     ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla(  0,  0%,  10%, 1.00), null)
+theme[background-image]['up-arrow-icon--dark'        ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla(  0,  0%,  10%, 1.00), null)
+theme[background-image]['down-arrow-icon--dark'      ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla(  0,  0%,  10%, 1.00), null)
+theme[background-image]['dropdown-arrow-icon--dark'  ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png', hsla(  0,  0%,  10%, 1.00), null)
+theme[background-image]['checkmark-icon--dark'       ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla(  0,  0%,  10%, 1.00), null)
 
 // border-color
 theme[border-color    ]['card'                       ] = hsla( 30,  50%,  50%, 1.00)
@@ -98,21 +112,21 @@ theme[border-color    ]['view--gray'                 ] = hsla( 30,  50%,  50%, 1
 theme[border-color    ]['view--dark'                 ] = hsla( 30,  50%,  50%, 1.00)
 theme[border-color    ]['view--dark2'                ] = hsla( 30,  50%,  50%, 1.00)
 // border-color
-theme[border-color    ]['box--light2'                ] = hsla( 30,  50%,  50%, 1.00)
-theme[border-color    ]['box--light'                 ] = hsla( 30,  50%,  50%, 1.00)
-theme[border-color    ]['box--gray'                  ] = hsla( 30,  50%,  50%, 1.00)
-theme[border-color    ]['box--dark'                  ] = hsla( 30,  50%,  50%, 1.00)
-theme[border-color    ]['box--dark2'                 ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['box--light2'                ] = hsla( 30,  30%,  50%, 1.00)
+theme[border-color    ]['box--light'                 ] = hsla( 30,  30%,  50%, 1.00)
+theme[border-color    ]['box--gray'                  ] = hsla( 30,  30%,  50%, 1.00)
+theme[border-color    ]['box--dark'                  ] = hsla( 30,  30%,  50%, 1.00)
+theme[border-color    ]['box--dark2'                 ] = hsla( 30,  30%,  50%, 1.00)
 // border-color
 theme[border-color    ]['element'                    ] = hsla(  0,   0%,   0%, 0.00)
-theme[border-color    ]['element--light'             ] = hsla( 30,  50%,  50%, 1.00)
-theme[border-color    ]['element--gray'              ] = hsla( 30,  50%,  50%, 1.00)
-theme[border-color    ]['element--dark'              ] = hsla( 30,  50%,  50%, 1.00)
+theme[border-color    ]['element--light'             ] = hsla( 30,  30%,  50%, 1.00)
+theme[border-color    ]['element--gray'              ] = hsla( 30,  30%,  50%, 1.00)
+theme[border-color    ]['element--dark'              ] = hsla( 30,  30%,  50%, 1.00)
 // border-color
 theme[border-color    ]['component'                  ] = hsla(  0,   0%,   0%, 0.00)
-theme[border-color    ]['component--light'           ] = hsla( 30,  50%,  50%, 0.10)
-theme[border-color    ]['component--gray'            ] = hsla( 30,  50%,  50%, 0.10)
-theme[border-color    ]['component--dark'            ] = hsla( 30,  50%,  50%, 0.10)
+theme[border-color    ]['component--light'           ] = hsla( 30,  30%,  50%, 0.20)
+theme[border-color    ]['component--gray'            ] = hsla( 30,  30%,  50%, 0.20)
+theme[border-color    ]['component--dark'            ] = hsla( 30,  30%,  50%, 0.20)
 
 // border-radius
 theme[border-radius   ]['card'                       ] = 6px
@@ -133,38 +147,35 @@ theme[border-radius   ]['element'                    ] = 4px
 // border-radius
 theme[border-radius   ]['component'                  ] = 2px
 
-// icon--light
-theme[background-image]['left-arrow-icon--light'     ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla(  0,  0%,  90%, 1.00), null)
-theme[background-image]['right-arrow-icon--light'    ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla(  0,  0%,  90%, 1.00), null)
-theme[background-image]['up-arrow-icon--light'       ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla(  0,  0%,  90%, 1.00), null)
-theme[background-image]['down-arrow-icon--light'     ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla(  0,  0%,  90%, 1.00), null)
-theme[background-image]['dropdown-arrow-icon--light' ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png', hsla(  0,  0%,  70%, 1.00), null)
-theme[background-image]['checkmark-icon--light'      ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla(  0,  0%,  90%, 1.00), null)
-// icon--dark
-theme[background-image]['left-arrow-icon--dark'      ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png',    hsla(  0,  0%,  10%, 1.00), null)
-theme[background-image]['right-arrow-icon--dark'     ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png',   hsla(  0,  0%,  10%, 1.00), null)
-theme[background-image]['up-arrow-icon--dark'        ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png',      hsla(  0,  0%,  10%, 1.00), null)
-theme[background-image]['down-arrow-icon--dark'      ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png',    hsla(  0,  0%,  10%, 1.00), null)
-theme[background-image]['dropdown-arrow-icon--dark'  ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/DropdownArrow.png', hsla(  0,  0%,  10%, 1.00), null)
-theme[background-image]['checkmark-icon--dark'       ] = create-background-image('project://database/Assets/Project.UI/Assets.Project.UI/Images/Check.png',         hsla(  0,  0%,  10%, 1.00), null)
+// element/hover
+theme[background-color]['element--light--hover'      ] = lighten(get-theme-background-color('element--light'), 10%)
+theme[background-image]['element--light--hover'      ] = null
+theme[border-color    ]['element--light--hover'      ] = null
+// element/hover
+theme[background-color]['element--gray--hover'       ] = lighten(get-theme-background-color('element--gray' ), 10%)
+theme[background-image]['element--gray--hover'       ] = null
+theme[border-color    ]['element--gray--hover'       ] = null
+// element/hover
+theme[background-color]['element--dark--hover'       ] = lighten(get-theme-background-color('element--dark' ), 10%)
+theme[background-image]['element--dark--hover'       ] = null
+theme[border-color    ]['element--dark--hover'       ] = null
 
 // dropdown
 theme[background-color]['dropdown'                   ] = get-theme-background-color('element--dark')
 theme[background-image]['dropdown'                   ] = get-theme-background-image('element--dark')
 theme[border-color    ]['dropdown'                   ] = get-theme-border-color(    'element--dark')
 theme[border-radius   ]['dropdown'                   ] = get-theme-border-radius(   'element'      )
-// dropdown--hover
-theme[background-color]['dropdown--hover'            ] = null
-theme[background-image]['dropdown--hover'            ] = null
-theme[border-color    ]['dropdown--hover'            ] = null
-theme[border-radius   ]['dropdown--hover'            ] = null
-
 // dropdown-item
 theme[background-color]['dropdown-item'              ] = get-theme-background-color('element')
 theme[background-image]['dropdown-item'              ] = get-theme-background-image('element')
 theme[border-color    ]['dropdown-item'              ] = get-theme-border-color(    'element')
 theme[border-radius   ]['dropdown-item'              ] = get-theme-border-radius(   'element')
-// dropdown-item--hover
+
+// dropdown/hover
+theme[background-color]['dropdown--hover'            ] = null
+theme[background-image]['dropdown--hover'            ] = null
+theme[border-color    ]['dropdown--hover'            ] = null
+// dropdown-item/hover
 theme[background-color]['dropdown-item--hover'       ] = hsla( 30,  80%,  40%, 1.00)
 theme[background-image]['dropdown-item--hover'       ] = null
 theme[border-color    ]['dropdown-item--hover'       ] = hsla( 30,  80%,  20%, 1.00)

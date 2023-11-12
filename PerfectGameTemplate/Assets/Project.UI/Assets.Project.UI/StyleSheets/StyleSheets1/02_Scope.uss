@@ -13,6 +13,10 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
 }
 .scope.small {
   width: auto;
@@ -29,6 +33,10 @@
   padding-right: 6px;
   padding-top: 5px;
   padding-bottom: 5px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
 }
 .scope.medium {
   width: auto;
@@ -45,6 +53,10 @@
   padding-right: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
 }
 .scope.large {
   width: auto;
@@ -61,8 +73,12 @@
   padding-right: 24px;
   padding-top: 20px;
   padding-bottom: 20px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
 }
-.column-scope {
+.scope.column {
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
@@ -71,7 +87,7 @@
   justify-content: flex-start;
   align-items: stretch;
 }
-.row-scope {
+.scope.row {
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;

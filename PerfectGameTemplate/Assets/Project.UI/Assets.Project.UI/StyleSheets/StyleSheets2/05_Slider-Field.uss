@@ -32,10 +32,10 @@
 }
 .unity-base-slider__input #unity-tracker {
   background-color: #494d50;
-  border-left-color: rgba(191,128,64,0.1);
-  border-right-color: rgba(191,128,64,0.1);
-  border-top-color: rgba(191,128,64,0.1);
-  border-bottom-color: rgba(191,128,64,0.1);
+  border-left-color: rgba(166,128,89,0.2);
+  border-right-color: rgba(166,128,89,0.2);
+  border-top-color: rgba(166,128,89,0.2);
+  border-bottom-color: rgba(166,128,89,0.2);
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
@@ -61,10 +61,10 @@
 }
 .unity-base-slider__input #unity-dragger {
   background-color: #afb3b6;
-  border-left-color: rgba(191,128,64,0.1);
-  border-right-color: rgba(191,128,64,0.1);
-  border-top-color: rgba(191,128,64,0.1);
-  border-bottom-color: rgba(191,128,64,0.1);
+  border-left-color: rgba(166,128,89,0.2);
+  border-right-color: rgba(166,128,89,0.2);
+  border-top-color: rgba(166,128,89,0.2);
+  border-bottom-color: rgba(166,128,89,0.2);
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;

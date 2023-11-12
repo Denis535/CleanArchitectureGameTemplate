@@ -1,6 +1,6 @@
-.unity-box {
+.group {
   color: #e6e6e6;
-  background-color: #323334;
+  background-color: rgba(51,51,51,0.75);
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
@@ -28,9 +28,9 @@
   flex-basis: auto;
   align-self: auto;
 }
-.unity-box.light2 {
+.group.light2 {
   color: #e6e6e6;
-  background-color: #373839;
+  background-color: rgba(77,77,77,0.75);
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
@@ -40,9 +40,9 @@
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-.unity-box.light {
+.group.light {
   color: #e6e6e6;
-  background-color: #343637;
+  background-color: rgba(64,64,64,0.75);
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
@@ -52,9 +52,9 @@
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-.unity-box.dark {
+.group.dark {
   color: #e6e6e6;
-  background-color: #2f3031;
+  background-color: rgba(38,38,38,0.75);
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
@@ -64,9 +64,9 @@
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-.unity-box.dark2 {
+.group.dark2 {
   color: #e6e6e6;
-  background-color: #2d2e2f;
+  background-color: rgba(26,26,26,0.75);
   border-left-color: #bf8040;
   border-right-color: #bf8040;
   border-top-color: #bf8040;
@@ -76,7 +76,7 @@
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-.unity-box.small {
+.group.small {
   width: auto;
   height: auto;
   margin-left: 4px;
@@ -96,7 +96,7 @@
   flex-basis: auto;
   align-self: auto;
 }
-.unity-box.medium {
+.group.medium {
   width: auto;
   height: auto;
   margin-left: 4px;
@@ -116,7 +116,7 @@
   flex-basis: auto;
   align-self: auto;
 }
-.unity-box.large {
+.group.large {
   width: auto;
   height: auto;
   margin-left: 4px;
@@ -135,4 +135,22 @@
   flex-shrink: 1;
   flex-basis: auto;
   align-self: auto;
+}
+.group.column {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.group.row {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
 }

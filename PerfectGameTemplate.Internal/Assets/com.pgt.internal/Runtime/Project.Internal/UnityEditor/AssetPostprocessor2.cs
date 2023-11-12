@@ -251,8 +251,7 @@ namespace UnityEditor {
             return Path.GetExtension( path ) == ".styl";
         }
         private static bool IsSupported(string path) {
-            var name = Path.GetFileName( path );
-            return !name.Contains( "__" );
+            return !Path.GetFileName( path ).Contains( "__" );
         }
 
     }

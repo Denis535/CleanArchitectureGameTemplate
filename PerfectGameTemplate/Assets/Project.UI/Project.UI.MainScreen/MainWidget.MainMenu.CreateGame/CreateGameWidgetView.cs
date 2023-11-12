@@ -91,7 +91,7 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> mode, out PopupField<object?> world, out Toggle isPrivate) {
             return view = UIFactory.ColumnGroup().Name( "game-view" ).Classes( "medium", "grow-1" ).Children(
-                title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title" ),
+                title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title", "medium" ),
                 UIFactory.RowScope().Children(
                     name = UIFactory.TextField( null, 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
                 ),
@@ -131,7 +131,7 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> role, out Toggle isReady) {
             return view = UIFactory.ColumnGroup().Name( "players-view" ).Classes( "medium", "grow-1" ).Children(
-                title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title" ),
+                title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title", "medium" ),
                 UIFactory.RowScope().Children(
                     name = UIFactory.TextFieldReadOnly( null, 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
                 ),
@@ -169,7 +169,7 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out ScrollView players) {
             return view = UIFactory.ColumnGroup().Name( "lobby-view" ).Classes( "medium", "grow-1" ).Children(
-                title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title", "shrink-0" ),
+                title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title", "medium", "shrink-0" ),
                 players = UIFactory.ScrollView().Name( "players-view" ).Classes( "light", "medium", "reverse", "grow-1" )
             );
         }
@@ -216,7 +216,7 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out ScrollView messages, out TextField text, out Button send) {
             return view = UIFactory.ColumnGroup().Name( "chat-view" ).Classes( "medium", "grow-1" ).Children(
-                title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title", "shrink-0" ),
+                title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title", "medium", "shrink-0" ),
                 messages = UIFactory.ScrollView().Name( "messages-view" ).Classes( "dark", "medium", "reverse", "grow-1" ),
                 UIFactory.RowScope().Classes( "shrink-0" ).Children(
                     text = UIFactory.TextField( null, 128, false ).Name( "message" ).Classes( "grow-1" ),

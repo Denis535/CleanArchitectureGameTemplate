@@ -8,10 +8,10 @@ skin--group--dark   = create-view-skin(light, (view--dark   view--dark  ), (view
 skin--group--dark2  = create-view-skin(light, (view--dark2  view--dark2 ), (view--dark2  view))
 
 // group
-misc--group         = create-layout-skin(null, auto auto, 4px, 1px, 0px                )
-misc--group--small  = create-layout-skin(null, auto auto, 4px, 1px, 6px  6px  5px  5px )
-misc--group--medium = create-layout-skin(null, auto auto, 4px, 1px, 12px 12px 10px 10px)
-misc--group--large  = create-layout-skin(null, auto auto, 4px, 1px, 24px 24px 20px 20px)
+misc--group         = create-layout-skin(null, auto auto, 4px, 1px, 0px                ), create-flex(0, 1, auto, auto)
+misc--group--small  = create-layout-skin(null, auto auto, 4px, 1px, 6px  6px  5px  5px ), create-flex(0, 1, auto, auto)
+misc--group--medium = create-layout-skin(null, auto auto, 4px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
+misc--group--large  = create-layout-skin(null, auto auto, 4px, 1px, 24px 24px 20px 20px), create-flex(0, 1, auto, auto)
 // group
 misc--group--column = create-flex(0, 1, auto, auto), create-flex2(column, flex-start, stretch)
 misc--group--row    = create-flex(0, 1, auto, auto), create-flex2(row,    flex-start, stretch)
@@ -34,7 +34,7 @@ misc--group--row    = create-flex(0, 1, auto, auto), create-flex2(row,    flex-s
         add-misc group--medium
     &.large
         add-misc group--large
-.column-group
-    add-misc group--column
-.row-group
-    add-misc group--row
+    &.column
+        add-misc group--column
+    &.row
+        add-misc group--row

@@ -1,0 +1,28 @@
+@import "../StyleSheet__Theme"
+
+// scope
+skin--scope         = create-view-skin(null, (null null), (null null))
+
+// scope
+misc--scope         = create-layout-skin(null, auto auto, 0px, 0px, 0px                ), create-flex(0, 1, auto, auto)
+misc--scope--small  = create-layout-skin(null, auto auto, 0px, 0px, 6px  6px  5px  5px ), create-flex(0, 1, auto, auto)
+misc--scope--medium = create-layout-skin(null, auto auto, 0px, 0px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
+misc--scope--large  = create-layout-skin(null, auto auto, 0px, 0px, 24px 24px 20px 20px), create-flex(0, 1, auto, auto)
+// scope
+misc--scope--column = create-flex(0, 1, auto, auto), create-flex2(column, flex-start, stretch)
+misc--scope--row    = create-flex(0, 1, auto, auto), create-flex2(row,    flex-start, stretch)
+
+// scope
+.scope
+    add-skin scope
+    add-misc scope
+    &.small
+        add-misc scope--small
+    &.medium
+        add-misc scope--medium
+    &.large
+        add-misc scope--large
+    &.column
+        add-misc scope--column
+    &.row
+        add-misc scope--row

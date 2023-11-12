@@ -1,0 +1,16 @@
+#PanelSettings {
+  -unity-font: url('project://database/Assets/Project.UI/Assets.Project.UI/Fonts/NotInter/NotInter-Regular.ttf');
+  -unity-font-definition: url('project://database/Assets/Project.UI/Assets.Project.UI/Fonts/NotInter/NotInter-Regular.ttf');
+  font-size: 14px;
+  -unity-font-style: normal;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+}
+#UIDocument-container {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+}

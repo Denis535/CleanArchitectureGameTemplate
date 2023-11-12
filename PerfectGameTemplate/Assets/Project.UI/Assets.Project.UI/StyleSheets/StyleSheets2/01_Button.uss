@@ -2,10 +2,10 @@
 .unity-repeat-button {
   color: #e6e6e6;
   background-color: #313335;
-  border-left-color: #bf8040;
-  border-right-color: #bf8040;
-  border-top-color: #bf8040;
-  border-bottom-color: #bf8040;
+  border-left-color: #a68059;
+  border-right-color: #a68059;
+  border-top-color: #a68059;
+  border-bottom-color: #a68059;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;

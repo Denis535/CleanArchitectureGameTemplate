@@ -58,7 +58,7 @@ namespace UnityEngine.UIElements {
         }
         public static T Classes<T>(this T element, params string?[] classes) where T : VisualElement {
             foreach (var @class in classes) {
-                element.AddToClassList( @class?.Trim() );
+                element.AddToClassList( @class );
             }
             return element;
         }
