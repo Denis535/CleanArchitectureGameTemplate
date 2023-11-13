@@ -2,7 +2,7 @@
   "dependencies": {
     "com.pgt.internal": "file:../../PerfectGameTemplate.Internal/Assets/com.pgt.internal",
     "com.unity.2d.sprite": "1.0.0",
-    "com.unity.addressables": "1.21.18",
+    "com.unity.addressables": "1.21.19",
     "com.unity.ide.visualstudio": "2.0.22",
     "com.unity.inputsystem": "1.7.0",
     "com.unity.nuget.mono-cecil": "1.11.4",

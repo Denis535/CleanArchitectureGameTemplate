@@ -1,10 +1,10 @@
 .unity-box {
   color: #e6e6e6;
   background-color: #333;
-  border-left-color: #544d45;
-  border-right-color: #544d45;
-  border-top-color: #544d45;
-  border-bottom-color: #544d45;
+  border-left-color: #634d36;
+  border-right-color: #634d36;
+  border-top-color: #634d36;
+  border-bottom-color: #634d36;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -31,10 +31,10 @@
 .unity-box.light2 {
   color: #e6e6e6;
   background-color: #383838;
-  border-left-color: #544d45;
-  border-right-color: #544d45;
-  border-top-color: #544d45;
-  border-bottom-color: #544d45;
+  border-left-color: #634d36;
+  border-right-color: #634d36;
+  border-top-color: #634d36;
+  border-bottom-color: #634d36;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -43,10 +43,10 @@
 .unity-box.light {
   color: #e6e6e6;
   background-color: #363636;
-  border-left-color: #544d45;
-  border-right-color: #544d45;
-  border-top-color: #544d45;
-  border-bottom-color: #544d45;
+  border-left-color: #634d36;
+  border-right-color: #634d36;
+  border-top-color: #634d36;
+  border-bottom-color: #634d36;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -55,10 +55,10 @@
 .unity-box.dark {
   color: #e6e6e6;
   background-color: #303030;
-  border-left-color: #544d45;
-  border-right-color: #544d45;
-  border-top-color: #544d45;
-  border-bottom-color: #544d45;
+  border-left-color: #634d36;
+  border-right-color: #634d36;
+  border-top-color: #634d36;
+  border-bottom-color: #634d36;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -67,10 +67,10 @@
 .unity-box.dark2 {
   color: #e6e6e6;
   background-color: #2e2e2e;
-  border-left-color: #544d45;
-  border-right-color: #544d45;
-  border-top-color: #544d45;
-  border-bottom-color: #544d45;
+  border-left-color: #634d36;
+  border-right-color: #634d36;
+  border-top-color: #634d36;
+  border-bottom-color: #634d36;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;

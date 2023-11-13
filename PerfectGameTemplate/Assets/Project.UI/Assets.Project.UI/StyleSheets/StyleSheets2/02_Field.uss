@@ -32,11 +32,11 @@
 }
 .unity-base-field__label {
   color: #e6e6e6;
-  background-color: #313335;
-  border-left-color: #544d45;
-  border-right-color: #544d45;
-  border-top-color: #544d45;
-  border-bottom-color: #544d45;
+  background-color: #3b3b3b;
+  border-left-color: #634d36;
+  border-right-color: #634d36;
+  border-top-color: #634d36;
+  border-bottom-color: #634d36;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -64,11 +64,11 @@
 }
 .unity-base-field__input {
   color: #e6e6e6;
-  background-color: #27292a;
-  border-left-color: #544d45;
-  border-right-color: #544d45;
-  border-top-color: #544d45;
-  border-bottom-color: #544d45;
+  background-color: #2b2b2b;
+  border-left-color: #634d36;
+  border-right-color: #634d36;
+  border-top-color: #634d36;
+  border-bottom-color: #634d36;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
