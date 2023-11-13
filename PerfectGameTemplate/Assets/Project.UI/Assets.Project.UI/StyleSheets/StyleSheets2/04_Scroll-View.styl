@@ -60,14 +60,6 @@ misc--vertical-high-button           = create-layout-skin(null,     24px 24px, m
 .unity-scroll-view
     add-skin scroll-view
     add-misc scroll-view
-    &.light2
-        add-skin scroll-view--light2
-    &.light
-        add-skin scroll-view--light
-    &.dark
-        add-skin scroll-view--dark
-    &.dark2
-        add-skin scroll-view--dark2
     #unity-content-and-vertical-scroll-container
         add-skin viewport-and-vertical-scroller
         add-misc viewport-and-vertical-scroller
@@ -79,20 +71,26 @@ misc--vertical-high-button           = create-layout-skin(null,     24px 24px, m
         overflow scroll
         add-skin content
         add-misc content
-
-// scroll-view/small
+// scroll-view/view
+.unity-scroll-view.light2
+    add-skin scroll-view--light2
+.unity-scroll-view.light
+    add-skin scroll-view--light
+.unity-scroll-view.dark
+    add-skin scroll-view--dark
+.unity-scroll-view.dark2
+    add-skin scroll-view--dark2
+// scroll-view/layout
 .unity-scroll-view.small
     #unity-content-container
         add-misc content--small
-// scroll-view/medium
 .unity-scroll-view.medium
     #unity-content-container
         add-misc content--medium
-// scroll-view/large
 .unity-scroll-view.large
     #unity-content-container
         add-misc content--large
-// scroll-view/reverse
+// scroll-view/flex
 .unity-scroll-view.reverse
     #unity-content-viewport
         add-misc viewport--reverse

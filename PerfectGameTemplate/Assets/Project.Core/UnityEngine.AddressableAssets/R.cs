@@ -114,26 +114,29 @@ namespace UnityEngine.AddressableAssets {
                     public const string @Window_Warning = "Project.UI/Sounds/Window_Warning.wav";
                 }
                 public static class @StyleSheets {
-                    public static class @Elements {
-                        public const string @View = "Project.UI/StyleSheets/Elements/00_View.uss";
-                        public const string @Card = "Project.UI/StyleSheets/Elements/01_Card.uss";
-                        public const string @Scope = "Project.UI/StyleSheets/Elements/02_Scope.uss";
-                        public const string @Group = "Project.UI/StyleSheets/Elements/03_Group.uss";
-                        public const string @Scroll_View = "Project.UI/StyleSheets/Elements/04_Scroll-View.uss";
-                        public const string @Box = "Project.UI/StyleSheets/Elements/05_Box.uss";
-                    }
-                    public static class @Elements2 {
-                        public const string @Label = "Project.UI/StyleSheets/Elements2/00_Label.uss";
-                        public const string @Button = "Project.UI/StyleSheets/Elements2/01_Button.uss";
-                        public const string @Field = "Project.UI/StyleSheets/Elements2/02_Field.uss";
-                        public const string @Text_Field = "Project.UI/StyleSheets/Elements2/03_Text-Field.uss";
-                        public const string @Popup_Field = "Project.UI/StyleSheets/Elements2/04_Popup-Field.uss";
-                        public const string @Slider_Field = "Project.UI/StyleSheets/Elements2/05_Slider-Field.uss";
-                        public const string @Toggle_Field = "Project.UI/StyleSheets/Elements2/06_Toggle-Field.uss";
-                        public const string @Dropdown = "Project.UI/StyleSheets/Elements2/07_Dropdown.uss";
-                    }
                     public const string @LibraryStyleSheet = "Project.UI/StyleSheets/LibraryStyleSheet.uss";
                     public const string @StyleSheet = "Project.UI/StyleSheets/StyleSheet.uss";
+                    public static class @StyleSheets1 {
+                        public const string @Root = "Project.UI/StyleSheets/StyleSheets1/00_Root.uss";
+                    }
+                    public static class @StyleSheets2 {
+                        public const string @View = "Project.UI/StyleSheets/StyleSheets2/00_View.uss";
+                        public const string @Card = "Project.UI/StyleSheets/StyleSheets2/01_Card.uss";
+                        public const string @Scope = "Project.UI/StyleSheets/StyleSheets2/02_Scope.uss";
+                        public const string @Group = "Project.UI/StyleSheets/StyleSheets2/03_Group.uss";
+                        public const string @Scroll_View = "Project.UI/StyleSheets/StyleSheets2/04_Scroll-View.uss";
+                        public const string @Box = "Project.UI/StyleSheets/StyleSheets2/05_Box.uss";
+                    }
+                    public static class @StyleSheets3 {
+                        public const string @Label = "Project.UI/StyleSheets/StyleSheets3/00_Label.uss";
+                        public const string @Button = "Project.UI/StyleSheets/StyleSheets3/01_Button.uss";
+                        public const string @Field = "Project.UI/StyleSheets/StyleSheets3/02_Field.uss";
+                        public const string @Text_Field = "Project.UI/StyleSheets/StyleSheets3/03_Text-Field.uss";
+                        public const string @Popup_Field = "Project.UI/StyleSheets/StyleSheets3/04_Popup-Field.uss";
+                        public const string @Slider_Field = "Project.UI/StyleSheets/StyleSheets3/05_Slider-Field.uss";
+                        public const string @Toggle_Field = "Project.UI/StyleSheets/StyleSheets3/06_Toggle-Field.uss";
+                        public const string @Dropdown = "Project.UI/StyleSheets/StyleSheets3/07_Dropdown.uss";
+                    }
                 }
                 public static class @ThemeStyleSheets {
                     public const string @ThemeStyleSheet = "Project.UI/ThemeStyleSheets/ThemeStyleSheet.tss";

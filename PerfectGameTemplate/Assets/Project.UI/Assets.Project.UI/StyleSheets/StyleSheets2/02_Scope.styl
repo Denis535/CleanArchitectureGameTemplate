@@ -16,13 +16,15 @@ misc--scope--row    = create-flex(0, 1, auto, auto), create-flex2(row,    flex-s
 .scope
     add-skin scope
     add-misc scope
-    &.small
-        add-misc scope--small
-    &.medium
-        add-misc scope--medium
-    &.large
-        add-misc scope--large
-    &.column
-        add-misc scope--column
-    &.row
-        add-misc scope--row
+// scope/layout
+.scope.small
+    add-misc scope--small
+.scope.medium
+    add-misc scope--medium
+.scope.large
+    add-misc scope--large
+// scope/flex
+.scope.column
+    add-misc scope--column
+.scope.row
+    add-misc scope--row
