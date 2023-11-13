@@ -1,64 +1,64 @@
 @import "../Internal/__Theme"
 
 // field
-skin--field       = null
-skin--field-label = null
-skin--field-input = null
-skin--container   = create-view-skin(null, (element          element         ), (element          element  ))
-skin--tracker     = create-view-skin(null, (component--dark  component--dark ), (component--dark  component))
-skin--dragger     = create-view-skin(null, (component--light component--light), (component--light component))
+view--field       = null
+view--field-label = null
+view--field-input = null
+view--container   = create-view-skin(null, (element          element         ), (element          element  ))
+view--tracker     = create-view-skin(null, (component--dark  component--dark ), (component--dark  component))
+view--dragger     = create-view-skin(null, (component--light component--light), (component--light component))
 
 // field
-misc--field       = null
-misc--field-label = null
-misc--field-input = null
-misc--container   = create-layout-skin(null,     auto auto, 0px, 0px, 0px), create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
-misc--tracker     = create-layout-skin(null,     auto  8px, 0px, 1px, 0px), create-flex(1, 1, auto, auto)
-misc--dragger     = create-layout-skin(absolute, 8px  24px, 0px, 1px, 0px), create-flex(0, 1, auto, auto)
+layout--field       = null
+layout--field-label = null
+layout--field-input = null
+layout--container   = create-layout-skin(null,     auto auto, 0px, 0px, 0px), create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
+layout--tracker     = create-layout-skin(null,     auto  8px, 0px, 1px, 0px), create-flex(1, 1, auto, auto)
+layout--dragger     = create-layout-skin(absolute, 8px  24px, 0px, 1px, 0px), create-flex(0, 1, auto, auto)
 
 // slider-field
 .unity-base-slider
-    add-skin field
-    add-misc field
+    add-skin1 field
+    add-skin2 field
     &__label
-        add-skin field-label
-        add-misc field-label
+        add-skin1 field-label
+        add-skin2 field-label
     &__input
-        add-skin field-input
-        add-misc field-input
+        add-skin1 field-input
+        add-skin2 field-input
     &__input #unity-drag-container
-        add-skin container
-        add-misc container
+        add-skin1 container
+        add-skin2 container
     &__input #unity-tracker
-        add-skin tracker
-        add-misc tracker
+        add-skin1 tracker
+        add-skin2 tracker
     &__input #unity-dragger
-        add-skin dragger
-        add-misc dragger
+        add-skin1 dragger
+        add-skin2 dragger
 
 // // slider-field
 // .unity-base-slider
 //     &__input:hover #unity-tracker
-//         add-skin tracker
-//         add-misc tracker
+//         add-skin1 tracker
+//         add-skin2 tracker
 //     &__input:hover #unity-dragger
-//         add-skin dragger
-//         add-misc dragger
+//         add-skin1 dragger
+//         add-skin2 dragger
 
 // // slider-field
 // .unity-base-slider
 //     &__input:active #unity-tracker
-//         add-skin tracker
-//         add-misc tracker
+//         add-skin1 tracker
+//         add-skin2 tracker
 //     &__input:active #unity-dragger
-//         add-skin dragger
-//         add-misc dragger
+//         add-skin1 dragger
+//         add-skin2 dragger
 
 // // slider-field
 // .unity-base-slider
 //     &__input:focus #unity-tracker
-//         add-skin tracker
-//         add-misc tracker
+//         add-skin1 tracker
+//         add-skin2 tracker
 //     &__input:focus #unity-dragger
-//         add-skin dragger
-//         add-misc dragger
+//         add-skin1 dragger
+//         add-skin2 dragger

@@ -52,28 +52,41 @@ get-theme-border-radius(key)
         error('Border radius is not found: ' + get-string(key))
     null
 
-// add-skin
-add-skin(name)
-    object = typeof(name) == 'object' ? name : get-skin(name)
-    add-style object
-// get-skin
-get-skin(name)
+// add-skin1
+add-skin1(name)
+    if typeof(name) == 'object'
+        add-style name
+    else
+        add-style get-skin1(name)
+get-skin1(name)
     if name != null
-        name = 'skin--' + get-string(name)
-        if name is defined
-            return clone(lookup(name))
-        error('Skin is not found: ' + name)
+        name = 'view--' + get-string(name)
+        return lookup(name) if name is defined
+        error('Skin (view) is not found: ' + name)
     null
 
-// add-misc
-add-misc(name, objects...)
-    object = typeof(name) == 'object' ? name : get-misc(name)
-    add-style object
-// get-misc
-get-misc(name)
+// add-skin2
+add-skin2(name)
+    if typeof(name) == 'object'
+        add-style name
+    else
+        add-style get-skin2(name)
+get-skin2(name)
     if name != null
-        name = 'misc--' + get-string(name)
-        if name is defined
-            return clone(lookup(name))
-        error('Skin (misc) is not found: ' + name)
+        name = 'layout--' + get-string(name)
+        return lookup(name) if name is defined
+        error('Skin (layout) is not found: ' + name)
+    null
+
+// add-skin3
+add-skin3(name)
+    if typeof(name) == 'object'
+        add-style name
+    else
+        add-style get-skin3(name)
+get-skin3(name)
+    if name != null
+        name = 'flex--' + get-string(name)
+        return lookup(name) if name is defined
+        error('Skin (flex) is not found: ' + name)
     null

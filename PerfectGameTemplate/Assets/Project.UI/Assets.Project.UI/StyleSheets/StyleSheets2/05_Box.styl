@@ -1,35 +1,35 @@
 @import "../Internal/__Theme"
 
 // box
-skin--box--light2 = create-view-skin(light, (box--light2 box--light2), (box--light2 box))
-skin--box--light  = create-view-skin(light, (box--light  box--light ), (box--light  box))
-skin--box         = create-view-skin(light, (box--gray   box--gray  ), (box--gray   box))
-skin--box--dark   = create-view-skin(light, (box--dark   box--dark  ), (box--dark   box))
-skin--box--dark2  = create-view-skin(light, (box--dark2  box--dark2 ), (box--dark2  box))
+view--box--light2 = create-view-skin(light, (box--light2 box--light2), (box--light2 box))
+view--box--light  = create-view-skin(light, (box--light  box--light ), (box--light  box))
+view--box         = create-view-skin(light, (box--gray   box--gray  ), (box--gray   box))
+view--box--dark   = create-view-skin(light, (box--dark   box--dark  ), (box--dark   box))
+view--box--dark2  = create-view-skin(light, (box--dark2  box--dark2 ), (box--dark2  box))
 
 // box
-misc--box         = create-layout-skin(null, auto auto, 4px, 1px, 0px                ), create-flex(0, 1, auto, auto)
-misc--box--small  = create-layout-skin(null, auto auto, 4px, 1px, 6px  6px  5px  5px ), create-flex(0, 1, auto, auto)
-misc--box--medium = create-layout-skin(null, auto auto, 4px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
-misc--box--large  = create-layout-skin(null, auto auto, 4px, 1px, 24px 24px 20px 20px), create-flex(0, 1, auto, auto)
+layout--box         = create-layout-skin(null, auto auto, 4px, 1px, 0px                ), create-flex(0, 1, auto, auto)
+layout--box--small  = create-layout-skin(null, auto auto, 4px, 1px, 6px  6px  5px  5px ), create-flex(0, 1, auto, auto)
+layout--box--medium = create-layout-skin(null, auto auto, 4px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
+layout--box--large  = create-layout-skin(null, auto auto, 4px, 1px, 24px 24px 20px 20px), create-flex(0, 1, auto, auto)
 
 // box
 .unity-box
-    add-skin box
-    add-misc box
+    add-skin1 box
+    add-skin2 box
 // box/view
 .unity-box.light2
-    add-skin box--light2
+    add-skin1 box--light2
 .unity-box.light
-    add-skin box--light
+    add-skin1 box--light
 .unity-box.dark
-    add-skin box--dark
+    add-skin1 box--dark
 .unity-box.dark2
-    add-skin box--dark2
+    add-skin1 box--dark2
 // box/layout
 .unity-box.small
-    add-misc box--small
+    add-skin2 box--small
 .unity-box.medium
-    add-misc box--medium
+    add-skin2 box--medium
 .unity-box.large
-    add-misc box--large
+    add-skin2 box--large

@@ -1,33 +1,33 @@
 @import "../Internal/__Theme"
 
 // field
-skin--field              = null
-skin--field-label        = null
-skin--field-input        = null
-skin--checkmark          = create-view-skin(null, (component--dark component--dark      ), (component--dark component))
-skin--checkmark--checked = create-view-skin(null, (component--dark checkmark-icon--light), (component--dark component))
+view--field              = null
+view--field-label        = null
+view--field-input        = null
+view--checkmark          = create-view-skin(null, (component--dark component--dark      ), (component--dark component))
+view--checkmark--checked = create-view-skin(null, (component--dark checkmark-icon--light), (component--dark component))
 
 // field
-misc--field              = null
-misc--field-label        = null
-misc--field-input        = null
-misc--checkmark          = create-layout-skin(null, 16px 16px, 0px, 1px, 0px), create-flex(0, 1, auto, auto)
+layout--field              = null
+layout--field-label        = null
+layout--field-input        = null
+layout--checkmark          = create-layout-skin(null, 16px 16px, 0px, 1px, 0px), create-flex(0, 1, auto, auto)
 
 // toggle-field
 .unity-toggle
-    add-skin field
-    add-misc field
+    add-skin1 field
+    add-skin2 field
     &__label
-        add-skin field-label
-        add-misc field-label
+        add-skin1 field-label
+        add-skin2 field-label
     &__input
-        add-skin field-input
-        add-misc field-input
+        add-skin1 field-input
+        add-skin2 field-input
     &__input #unity-checkmark
-        add-skin checkmark
-        add-misc checkmark
+        add-skin1 checkmark
+        add-skin2 checkmark
 
 // toggle-field
 .unity-toggle
     &__input:checked #unity-checkmark
-        add-skin checkmark--checked
+        add-skin1 checkmark--checked

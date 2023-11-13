@@ -1,22 +1,22 @@
 @import "../Internal/__Theme"
 
 // label
-skin--label = create-view-skin(null, (element element), (element element)), create-text(upper-left, null, null)
+view--label = create-view-skin(null, (element element), (element element)), create-text(upper-left, null, null)
 
 // label
-misc--label         = create-layout-skin(null, auto auto, 4px, 1px, 0px  0px  0px  0px ), create-flex(0, 1, auto, auto)
-misc--label--small  = create-layout-skin(null, auto auto, 4px, 1px, 6px  6px  5px  5px ), create-flex(0, 1, auto, auto)
-misc--label--medium = create-layout-skin(null, auto auto, 4px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
-misc--label--large  = create-layout-skin(null, auto auto, 4px, 1px, 24px 24px 20px 20px), create-flex(0, 1, auto, auto)
+layout--label         = create-layout-skin(null, auto auto, 4px, 1px, 0px  0px  0px  0px ), create-flex(0, 1, auto, auto)
+layout--label--small  = create-layout-skin(null, auto auto, 4px, 1px, 6px  6px  5px  5px ), create-flex(0, 1, auto, auto)
+layout--label--medium = create-layout-skin(null, auto auto, 4px, 1px, 12px 12px 10px 10px), create-flex(0, 1, auto, auto)
+layout--label--large  = create-layout-skin(null, auto auto, 4px, 1px, 24px 24px 20px 20px), create-flex(0, 1, auto, auto)
 
 // label
 .unity-label
-    add-skin label
-    add-misc label
+    add-skin1 label
+    add-skin2 label
 // label/layout
 .unity-label.small
-    add-misc label--small
+    add-skin2 label--small
 .unity-label.medium
-    add-misc label--medium
+    add-skin2 label--medium
 .unity-label.large
-    add-misc label--large
+    add-skin2 label--large
