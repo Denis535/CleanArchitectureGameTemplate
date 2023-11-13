@@ -62,6 +62,9 @@ get-style-value(value)
         push(value2, i)
     value2
 
+// multiple selectors are always applied after simple selectors.
+// https://forum.unity.com/threads/uss-selector-priority-important-mediaqueries.1278239/#post-9469016
+
 /* view */
 add-style( '.visual-element.display-{key}',                         'display',                     i, i       ) for i in flex none
 add-style( '.visual-element.visibility-{key}',                      'visibility',                  i, i       ) for i in visible hidden
