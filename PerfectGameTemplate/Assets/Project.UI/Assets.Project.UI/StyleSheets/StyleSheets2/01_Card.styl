@@ -1,17 +1,17 @@
 @import "../Internal/__Theme"
 
 // card
-skin--card                        = create-view-skin(light, (card                        card                       ), (card                card               ))
-skin--card-header                 = create-view-skin(light, (card-header                 card-header                ), (card-header         card-header        ))
-skin--card-content                = create-view-skin(light, (card-content                card-content               ), (card-content        card-content       ))
-skin--card-footer                 = create-view-skin(light, (card-footer                 card-footer                ), (card-footer         card-footer        ))
+skin--card                        = create-view-skin(light, (card                        card                       ), (card                card               )), create-font(null, 100%, normal)
+skin--card-header                 = create-view-skin(light, (card-header                 card-header                ), (card-header         card-header        )), create-font(null, 130%, bold  )
+skin--card-content                = create-view-skin(light, (card-content                card-content               ), (card-content        card-content       )), create-font(null, 100%, normal)
+skin--card-footer                 = create-view-skin(light, (card-footer                 card-footer                ), (card-footer         card-footer        )), create-font(null, 120%, bold  )
 // card
 skin--dialog-card                 = create-view-skin(light, (dialog-card                 dialog-card                ), (dialog-card         dialog-card        ))
 skin--dialog-card-header          = create-view-skin(light, (dialog-card-header          dialog-card-header         ), (dialog-card-header  dialog-card-header ))
 skin--dialog-card-header--info    = create-view-skin(light, (dialog-card-header--info    dialog-card-header--info   ), (dialog-card-header  dialog-card-header ))
 skin--dialog-card-header--warning = create-view-skin(light, (dialog-card-header--warning dialog-card-header--warning), (dialog-card-header  dialog-card-header ))
 skin--dialog-card-header--error   = create-view-skin(light, (dialog-card-header--error   dialog-card-header--error  ), (dialog-card-header  dialog-card-header ))
-skin--dialog-card-content         = create-view-skin(light, (dialog-card-content         dialog-card-content        ), (dialog-card-content dialog-card-content))
+skin--dialog-card-content         = create-view-skin(light, (dialog-card-content         dialog-card-content        ), (dialog-card-content dialog-card-content)), create-font(null, 120%, bold  )
 skin--dialog-card-footer          = create-view-skin(light, (dialog-card-footer          dialog-card-footer         ), (dialog-card-footer  dialog-card-footer ))
 
 // card

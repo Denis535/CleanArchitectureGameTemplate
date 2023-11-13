@@ -3,7 +3,7 @@
 }
 .unity-base-dropdown__container-outer {
   color: #e6e6e6;
-  background-color: #2b2b2b;
+  background-color: #2a2b2c;
   border-left-color: #634d36;
   border-right-color: #634d36;
   border-top-color: #634d36;

@@ -375,7 +375,7 @@
   align-items: center;
 }
 .unity-scroller--horizontal .unity-base-slider #unity-tracker {
-  background-color: #2b2b2b;
+  background-color: #2a2b2c;
   border-left-color: #634d36;
   border-right-color: #634d36;
   border-top-color: #634d36;
@@ -404,7 +404,7 @@
   align-self: auto;
 }
 .unity-scroller--horizontal .unity-base-slider #unity-dragger {
-  background-color: #3b3b3b;
+  background-color: #393b3c;
   border-left-color: #634d36;
   border-right-color: #634d36;
   border-top-color: #634d36;
@@ -434,7 +434,7 @@
   align-self: auto;
 }
 .unity-scroller--horizontal #unity-low-button {
-  background-color: #3b3b3b;
+  background-color: #393b3c;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Left.png');
   -unity-background-image-tint-color: #e6e6e6;
   border-left-color: #634d36;
@@ -465,7 +465,7 @@
   align-self: auto;
 }
 .unity-scroller--horizontal #unity-high-button {
-  background-color: #3b3b3b;
+  background-color: #393b3c;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Right.png');
   -unity-background-image-tint-color: #e6e6e6;
   border-left-color: #634d36;
@@ -624,7 +624,7 @@
   align-items: center;
 }
 .unity-scroller--vertical .unity-base-slider #unity-tracker {
-  background-color: #2b2b2b;
+  background-color: #2a2b2c;
   border-left-color: #634d36;
   border-right-color: #634d36;
   border-top-color: #634d36;
@@ -653,7 +653,7 @@
   align-self: auto;
 }
 .unity-scroller--vertical .unity-base-slider #unity-dragger {
-  background-color: #3b3b3b;
+  background-color: #393b3c;
   border-left-color: #634d36;
   border-right-color: #634d36;
   border-top-color: #634d36;
@@ -683,7 +683,7 @@
   align-self: auto;
 }
 .unity-scroller--vertical #unity-low-button {
-  background-color: #3b3b3b;
+  background-color: #393b3c;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Up.png');
   -unity-background-image-tint-color: #e6e6e6;
   border-left-color: #634d36;
@@ -714,7 +714,7 @@
   align-self: auto;
 }
 .unity-scroller--vertical #unity-high-button {
-  background-color: #3b3b3b;
+  background-color: #393b3c;
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI/Images/Arrow_Down.png');
   -unity-background-image-tint-color: #e6e6e6;
   border-left-color: #634d36;

@@ -31,7 +31,7 @@
   align-items: center;
 }
 .unity-base-slider__input #unity-tracker {
-  background-color: #4d4d4d;
+  background-color: #4b4d4e;
   border-left-color: rgba(99,77,54,0.9);
   border-right-color: rgba(99,77,54,0.9);
   border-top-color: rgba(99,77,54,0.9);
@@ -60,7 +60,7 @@
   align-self: auto;
 }
 .unity-base-slider__input #unity-dragger {
-  background-color: #b3b3b3;
+  background-color: #b1b3b4;
   border-left-color: rgba(99,77,54,0.9);
   border-right-color: rgba(99,77,54,0.9);
   border-top-color: rgba(99,77,54,0.9);
