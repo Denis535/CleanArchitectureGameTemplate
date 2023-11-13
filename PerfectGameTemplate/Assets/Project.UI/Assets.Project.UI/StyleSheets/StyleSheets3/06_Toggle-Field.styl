@@ -8,24 +8,34 @@ view--checkmark          = create-view-skin(null, (component--dark component--da
 view--checkmark--checked = create-view-skin(null, (component--dark checkmark-icon--light), (component--dark component))
 
 // field
-layout--field              = null
-layout--field-label        = null
-layout--field-input        = null
-layout--checkmark          = create-layout-skin(null, 16px 16px, 0px, 1px, 0px), create-flex(0, 1, auto, auto)
+layout--field            = null
+layout--field-label      = null
+layout--field-input      = null
+layout--checkmark        = create-layout-skin(null, 16px 16px, 0px, 1px, 0px)
+
+// field
+flex--field              = null
+flex--field-label        = null
+flex--field-input        = null
+flex--checkmark          = create-flex(0, 1, auto, auto)
 
 // toggle-field
 .unity-toggle
     add-skin1 field
     add-skin2 field
+    add-skin3 field
     &__label
         add-skin1 field-label
         add-skin2 field-label
+        add-skin3 field-label
     &__input
         add-skin1 field-input
         add-skin2 field-input
+        add-skin3 field-input
     &__input #unity-checkmark
         add-skin1 checkmark
         add-skin2 checkmark
+        add-skin3 checkmark
 
 // toggle-field
 .unity-toggle

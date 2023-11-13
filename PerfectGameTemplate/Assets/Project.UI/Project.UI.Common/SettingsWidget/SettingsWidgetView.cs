@@ -41,9 +41,9 @@ namespace Project.UI.Common {
                     ),
                     UIFactory.Content().Children(
                         UIFactory.ColumnGroup().Classes( "large", "grow-1" ).Children(
-                            playerProfile = UIFactory.Button( "Player Profile" ).Name( "player-profile" ).Classes( "width-75pc", "align-self-center" ),
-                            videoSettings = UIFactory.Button( "Video Settings" ).Name( "video-settings" ).Classes( "width-75pc", "align-self-center" ),
-                            audioSettings = UIFactory.Button( "Audio Settings" ).Name( "audio-settings" ).Classes( "width-75pc", "align-self-center" )
+                            playerProfile = UIFactory.Button( "Player Profile" ).Name( "player-profile" ).Classes( "width-50pc", "align-self-center" ),
+                            videoSettings = UIFactory.Button( "Video Settings" ).Name( "video-settings" ).Classes( "width-50pc", "align-self-center" ),
+                            audioSettings = UIFactory.Button( "Audio Settings" ).Name( "audio-settings" ).Classes( "width-50pc", "align-self-center" )
                         )
                     ),
                     UIFactory.Footer().Children(

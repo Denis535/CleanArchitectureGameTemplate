@@ -1,27 +1,37 @@
 @import "../Internal/__Theme"
 
 // field
-view--field       = null
-view--field-label = null
-view--field-input = null
-view--text        = create-view-skin(null, (element element), (element element))
+view--field         = null
+view--field-label   = null
+view--field-input   = null
+view--text          = create-view-skin(null, (element element), (element element))
 
 // field
 layout--field       = null
 layout--field-label = null
 layout--field-input = null
-layout--text        = create-layout-skin(null, auto auto, 0px, 0px, 0px), create-flex(1, 1, auto, auto)
+layout--text        = create-layout-skin(null, auto auto, 0px, 0px, 0px)
+
+// field
+flex--field         = null
+flex--field-label   = null
+flex--field-input   = null
+flex--text          = create-flex(1, 1, auto, auto)
 
 // text-field
 .unity-base-text-field
     add-skin1 field
     add-skin2 field
+    add-skin3 field
     &__label
         add-skin1 field-label
         add-skin2 field-label
+        add-skin3 field-label
     &__input
         add-skin1 field-input
         add-skin2 field-input
+        add-skin3 field-input
     &__input .unity-text-element
         add-skin1 text
         add-skin2 text
+        add-skin3 text

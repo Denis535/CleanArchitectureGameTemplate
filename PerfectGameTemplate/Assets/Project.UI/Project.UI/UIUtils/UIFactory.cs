@@ -11,88 +11,88 @@ namespace Project.UI {
 
         // Widget
         public static View Widget(string name) {
-            return new View().Name( name ).Classes( "widget-view" );
+            return new View().Name( name ).Classes( "visual-element", "widget-view" );
         }
         public static View LeftWidget(string name) {
-            return new View().Name( name ).Classes( "left-widget-view" );
+            return new View().Name( name ).Classes( "visual-element", "left-widget-view" );
         }
         public static View SmallWidget(string name) {
-            return new View().Name( name ).Classes( "small-widget-view" );
+            return new View().Name( name ).Classes( "visual-element", "small-widget-view" );
         }
         public static View MediumWidget(string name) {
-            return new View().Name( name ).Classes( "medium-widget-view" );
+            return new View().Name( name ).Classes( "visual-element", "medium-widget-view" );
         }
         public static View LargeWidget(string name) {
-            return new View().Name( name ).Classes( "large-widget-view" );
+            return new View().Name( name ).Classes( "visual-element", "large-widget-view" );
         }
         public static View ModalWidget(string name) {
-            return new View().Name( name ).Classes( "modal-widget-view" );
+            return new View().Name( name ).Classes( "visual-element", "modal-widget-view" );
         }
         public static View DialogWidget() {
-            return new View().Name( "dialog-widget-view" ).Classes( "modal-widget-view", "dialog-widget-view" );
+            return new View().Name( "dialog-widget-view" ).Classes( "visual-element", "modal-widget-view", "dialog-widget-view" );
         }
         public static View InfoDialogWidget() {
-            return new View().Name( "info-dialog-widget-view" ).Classes( "modal-widget-view", "info-dialog-widget-view" );
+            return new View().Name( "info-dialog-widget-view" ).Classes( "visual-element", "modal-widget-view", "info-dialog-widget-view" );
         }
         public static View WarningDialogWidget() {
-            return new View().Name( "warning-dialog-widget-view" ).Classes( "modal-widget-view", "warning-dialog-widget-view" );
+            return new View().Name( "warning-dialog-widget-view" ).Classes( "visual-element", "modal-widget-view", "warning-dialog-widget-view" );
         }
         public static View ErrorDialogWidget() {
-            return new View().Name( "error-dialog-widget-view" ).Classes( "modal-widget-view", "error-dialog-widget-view" );
+            return new View().Name( "error-dialog-widget-view" ).Classes( "visual-element", "modal-widget-view", "error-dialog-widget-view" );
         }
 
         // Card
         public static Card Card() {
-            return new Card().Name( "card" );
+            return new Card().Name( "card" ).Classes( "visual-element" );
         }
         public static Header Header() {
-            return new Header().Name( "header" );
+            return new Header().Name( "header" ).Classes( "visual-element" );
         }
         public static Content Content() {
-            return new Content().Name( "content" );
+            return new Content().Name( "content" ).Classes( "visual-element" );
         }
         public static Footer Footer() {
-            return new Footer().Name( "footer" );
+            return new Footer().Name( "footer" ).Classes( "visual-element" );
         }
 
         // Card
         public static Card DialogCard() {
-            return new Card().Name( "dialog-card" ).Classes( "dialog-card" );
+            return new Card().Name( "dialog-card" ).Classes( "visual-element", "dialog-card" );
         }
         public static Card InfoDialogCard() {
-            return new Card().Name( "info-dialog-card" ).Classes( "info-dialog-card" );
+            return new Card().Name( "info-dialog-card" ).Classes( "visual-element", "info-dialog-card" );
         }
         public static Card WarningDialogCard() {
-            return new Card().Name( "warning-dialog-card" ).Classes( "warning-dialog-card" );
+            return new Card().Name( "warning-dialog-card" ).Classes( "visual-element", "warning-dialog-card" );
         }
         public static Card ErrorDialogCard() {
-            return new Card().Name( "error-dialog-card" ).Classes( "error-dialog-card" );
+            return new Card().Name( "error-dialog-card" ).Classes( "visual-element", "error-dialog-card" );
         }
 
         // Slot
         public static Slot Slot() {
-            return new Slot();
+            return new Slot().Classes( "visual-element" );
         }
 
         // Scope
         public static ColumnScope ColumnScope() {
-            return new ColumnScope();
+            return new ColumnScope().Classes( "visual-element" );
         }
         public static RowScope RowScope() {
-            return new RowScope();
+            return new RowScope().Classes( "visual-element" );
         }
 
         // Group
         public static ColumnGroup ColumnGroup() {
-            return new ColumnGroup();
+            return new ColumnGroup().Classes( "visual-element" );
         }
         public static RowGroup RowGroup() {
-            return new RowGroup();
+            return new RowGroup().Classes( "visual-element" );
         }
 
         // ScrollView
         public static ScrollView ScrollView() {
-            var view = new ScrollView();
+            var view = new ScrollView().Classes( "visual-element" );
             view.horizontalScroller.highButton.BringToFront();
             view.verticalScroller.highButton.BringToFront();
             return view;
@@ -100,38 +100,38 @@ namespace Project.UI {
 
         // Box
         public static Box Box() {
-            return new Box();
+            return new Box().Classes( "visual-element" );
         }
 
         // Label
         public static Label Label(string? text) {
-            return new Label().Text( text );
+            return new Label().Text( text ).Classes( "visual-element" );
         }
         // Button
         public static Button Button(string? text) {
-            return new Button().Text( text );
+            return new Button().Text( text ).Classes( "visual-element" );
         }
         // Field
         public static TextField TextField(string? label, int maxLength, bool isMultiline) {
-            return new TextField( label, maxLength, isMultiline, false, '*' );
+            return new TextField( label, maxLength, isMultiline, false, '*' ).Classes( "visual-element" );
         }
         public static TextField TextFieldReadOnly(string? label, int maxLength, bool isMultiline) {
-            return new TextField( label, maxLength, isMultiline, false, '*' ).Pipe( i => i.isReadOnly = true );
+            return new TextField( label, maxLength, isMultiline, false, '*' ).Classes( "visual-element" ).Pipe( i => i.isReadOnly = true );
         }
         public static PopupField<object?> PopupField(string? label) {
-            return new PopupField<object?>( label ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
+            return new PopupField<object?>( label ).Classes( "visual-element" ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
         }
         public static DropdownField DropdownField(string? label) {
-            return new DropdownField( label ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
+            return new DropdownField( label ).Classes( "visual-element" ).Pipe( i => i.formatSelectedValueCallback = GetDisplayString ).Pipe( i => i.formatListItemCallback = GetDisplayString );
         }
         public static Slider Slider(string? label) {
-            return new Slider( label );
+            return new Slider( label ).Classes( "visual-element" );
         }
         public static SliderInt SliderInt(string? label) {
-            return new SliderInt( label );
+            return new SliderInt( label ).Classes( "visual-element" );
         }
         public static Toggle Toggle(string? label) {
-            return new Toggle( label );
+            return new Toggle( label ).Classes( "visual-element" );
         }
 
         // Helpers/GetDisplayString

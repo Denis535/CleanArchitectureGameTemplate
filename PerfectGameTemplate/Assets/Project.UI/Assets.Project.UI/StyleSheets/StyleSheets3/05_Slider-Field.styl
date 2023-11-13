@@ -1,40 +1,54 @@
 @import "../Internal/__Theme"
 
 // field
-view--field       = null
-view--field-label = null
-view--field-input = null
-view--container   = create-view-skin(null, (element          element         ), (element          element  ))
-view--tracker     = create-view-skin(null, (component--dark  component--dark ), (component--dark  component))
-view--dragger     = create-view-skin(null, (component--light component--light), (component--light component))
+view--field         = null
+view--field-label   = null
+view--field-input   = null
+view--container     = create-view-skin(null, (element          element         ), (element          element  ))
+view--tracker       = create-view-skin(null, (component--dark  component--dark ), (component--dark  component))
+view--dragger       = create-view-skin(null, (component--light component--light), (component--light component))
 
 // field
 layout--field       = null
 layout--field-label = null
 layout--field-input = null
-layout--container   = create-layout-skin(null,     auto auto, 0px, 0px, 0px), create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
-layout--tracker     = create-layout-skin(null,     auto  8px, 0px, 1px, 0px), create-flex(1, 1, auto, auto)
-layout--dragger     = create-layout-skin(absolute, 8px  24px, 0px, 1px, 0px), create-flex(0, 1, auto, auto)
+layout--container   = create-layout-skin(null,     auto auto, 0px, 0px, 0px)
+layout--tracker     = create-layout-skin(null,     auto  8px, 0px, 1px, 0px)
+layout--dragger     = create-layout-skin(absolute, 8px  24px, 0px, 1px, 0px)
+
+// field
+flex--field         = null
+flex--field-label   = null
+flex--field-input   = null
+flex--container     = create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
+flex--tracker       = create-flex(1, 1, auto, auto)
+flex--dragger       = create-flex(0, 1, auto, auto)
 
 // slider-field
 .unity-base-slider
     add-skin1 field
     add-skin2 field
+    add-skin3 field
     &__label
         add-skin1 field-label
         add-skin2 field-label
+        add-skin3 field-label
     &__input
         add-skin1 field-input
         add-skin2 field-input
+        add-skin3 field-input
     &__input #unity-drag-container
         add-skin1 container
         add-skin2 container
+        add-skin3 container
     &__input #unity-tracker
         add-skin1 tracker
         add-skin2 tracker
+        add-skin3 tracker
     &__input #unity-dragger
         add-skin1 dragger
         add-skin2 dragger
+        add-skin3 dragger
 
 // // slider-field
 // .unity-base-slider

@@ -1,35 +1,47 @@
 @import "../Internal/__Theme"
 
 // field
-view--field       = null
-view--field-label = null
-view--field-input = null
-view--text        = create-view-skin(null, (element   element                   ), (element   element  ))
-view--arrow       = create-view-skin(null, (component dropdown-arrow-icon--light), (component component))
+view--field         = null
+view--field-label   = null
+view--field-input   = null
+view--text          = create-view-skin(null, (element   element                   ), (element   element  ))
+view--arrow         = create-view-skin(null, (component dropdown-arrow-icon--light), (component component))
 
-// skin
+// field
 layout--field       = null
 layout--field-label = null
 layout--field-input = null
-layout--text        = create-layout-skin(null, auto auto, 0px, 0px, 0px), create-flex(1, 1, auto, auto)
-layout--arrow       = create-layout-skin(null, 12px 12px, 2px, 0px, 0px), create-flex(0, 1, auto, auto)
+layout--text        = create-layout-skin(null, auto auto, 0px, 0px, 0px)
+layout--arrow       = create-layout-skin(null, 12px 12px, 2px, 0px, 0px)
+
+// field
+flex--field         = null
+flex--field-label   = null
+flex--field-input   = null
+flex--text          = create-flex(1, 1, auto, auto)
+flex--arrow         = create-flex(0, 1, auto, auto)
 
 // popup-field
 .unity-base-popup-field
     add-skin1 field
     add-skin2 field
+    add-skin3 field
     &__label
         add-skin1 field-label
         add-skin2 field-label
+        add-skin3 field-label
     &__input
         add-skin1 field-input
         add-skin2 field-input
+        add-skin3 field-input
     &__input .unity-text-element
         add-skin1 text
         add-skin2 text
+        add-skin3 text
     &__input &__arrow
         add-skin1 arrow
         add-skin2 arrow
+        add-skin3 arrow
 
 // // popup-field
 // .unity-base-popup-field
