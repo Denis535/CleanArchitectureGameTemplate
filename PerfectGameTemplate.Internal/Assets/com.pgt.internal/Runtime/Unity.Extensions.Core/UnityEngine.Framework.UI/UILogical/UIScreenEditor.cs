@@ -36,7 +36,7 @@ namespace UnityEngine.Framework.UI {
         // Helpers
         private static string? GetDisplayString(VisualElement view) {
             var builder = new StringBuilder();
-            builder.AppendHierarchy( view, i => view.name ?? i.GetType().Name, i => i.Children() );
+            builder.AppendHierarchy( view, i => string.Format( "{0} ({1})", i.GetType().Name, i.name ), i => i.Children() );
             return builder.ToString();
         }
         private static string? GetDisplayString(UIWidgetBase? widget) {

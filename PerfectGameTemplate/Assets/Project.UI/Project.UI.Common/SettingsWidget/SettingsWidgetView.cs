@@ -34,23 +34,22 @@ namespace Project.UI.Common {
 
         // Helpers
         private static View CreateVisualElement(out View view, out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
-            return view = UIFactory.MediumWidget( "settings-widget-view" ).Children(
-                UIFactory.Card().Children(
-                    UIFactory.Header().Children(
-                        title = UIFactory.Label( "Settings" ).Name( "title" )
-                    ),
-                    UIFactory.Content().Children(
-                        UIFactory.ColumnGroup().Classes( "large", "grow-1" ).Children(
-                            playerProfile = UIFactory.Button( "Player Profile" ).Name( "player-profile" ).Classes( "width-50pc", "align-self-center" ),
-                            videoSettings = UIFactory.Button( "Video Settings" ).Name( "video-settings" ).Classes( "width-50pc", "align-self-center" ),
-                            audioSettings = UIFactory.Button( "Audio Settings" ).Name( "audio-settings" ).Classes( "width-50pc", "align-self-center" )
-                        )
-                    ),
-                    UIFactory.Footer().Children(
-                        back = UIFactory.Button( "Back" ).Name( "back" )
-                    )
+            view = UIFactory.MediumWidget( "settings-widget-view" );
+            view.Card();
+            view.Header(
+                title = UIFactory.Label( "Settings" ).Name( "title" )
+            );
+            view.Content(
+                UIFactory.ColumnGroup().Classes( "large", "grow-1" ).Children(
+                    playerProfile = UIFactory.Button( "Player Profile" ).Name( "player-profile" ).Classes( "width-50pc", "align-self-center" ),
+                    videoSettings = UIFactory.Button( "Video Settings" ).Name( "video-settings" ).Classes( "width-50pc", "align-self-center" ),
+                    audioSettings = UIFactory.Button( "Audio Settings" ).Name( "audio-settings" ).Classes( "width-50pc", "align-self-center" )
                 )
             );
+            view.Footer(
+                back = UIFactory.Button( "Back" ).Name( "back" )
+            );
+            return view;
         }
 
     }

@@ -21,7 +21,8 @@
   transition-duration: 3s;
   transition-timing-function: ease;
 }
-.title {
+#create-game-widget-view #title,
+#join-game-widget-view #title {
   font-size: 120%;
   -unity-font-style: bold;
 }

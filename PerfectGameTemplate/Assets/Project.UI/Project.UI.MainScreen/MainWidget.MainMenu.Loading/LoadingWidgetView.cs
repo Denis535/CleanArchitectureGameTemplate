@@ -19,9 +19,9 @@ namespace Project.UI.MainScreen {
         // Constructor
         public LoadingWidgetView(LoadingWidget widget) : base( widget ) {
             VisualElement = CreateVisualElement( out var view, out var loading );
+            VisualElement.OnAttachToPanel( i => PlayLoadingAnimation( loading ) );
             View = view.Wrap();
             Loading = loading.Wrap();
-            Loading.OnAttachToPanel( i => PlayLoadingAnimation( (Label) i.VisualElement ) );
         }
         public override void Dispose() {
             base.Dispose();
@@ -29,11 +29,13 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static View CreateVisualElement(out View view, out Label loading) {
-            return view = UIFactory.Widget( "loading-widget-view" ).Children(
+            view = UIFactory.Widget( "loading-widget-view" );
+            view.Add(
                 UIFactory.ColumnScope().Classes( "padding-2pc", "grow-1", "justify-content-end", "align-items-center" ).Children(
                     loading = UIFactory.Label( "Loading..." ).Name( "loading" ).Classes( "color-light", "font-size-200pc", "font-style-bold" )
                 )
             );
+            return view;
         }
         // Helpers
         private static void PlayLoadingAnimation(Label label) {

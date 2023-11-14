@@ -11,8 +11,8 @@ layout--field-label = create-layout-skin(null, auto auto, (0px 2px 0px 0px), (1p
 layout--field-input = create-layout-skin(null, auto auto, (0px            ), (1px), (12px 12px 10px 10px))
 
 // field
-flex--field         = null,                          create-flex2(row, flex-start, stretch)
-flex--field-label   = null,                          null
+flex--field         = create-flex(0, 1, auto, auto), create-flex2(row, flex-start, stretch)
+flex--field-label   = create-flex(0, 1, auto, auto), null
 flex--field-input   = create-flex(1, 1, auto, auto), create-flex2(row, flex-end, stretch)
 
 // field

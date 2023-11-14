@@ -32,10 +32,10 @@ namespace Project.UI.MainScreen {
             PlayerProfile = this.GetDependencyContainer().Resolve<Globals.PlayerProfile>( null );
             //LobbyService = this.GetDependencyContainer().Resolve<ILobbyService>( null );
             View = CreateView( this, Router );
-            View.GameViewSlot.Add( GameView = CreateGameView( this ) );
-            View.PlayerViewSlot.Add( PlayerView = CreatePlayerView( this ) );
-            View.LobbyViewSlot.Add( LobbyView = CreateLobbyView( this ) );
-            View.ChatViewSlot.Add( ChatView = CreateChatView( this ) );
+            View.GameSlot.Add( GameView = CreateGameView( this ) );
+            View.PlayerSlot.Add( PlayerView = CreatePlayerView( this ) );
+            View.LobbySlot.Add( LobbyView = CreateLobbyView( this ) );
+            View.ChatSlot.Add( ChatView = CreateChatView( this ) );
         }
         public override void Dispose() {
             GameView.Dispose();

@@ -13,22 +13,22 @@ namespace Project.UI.MainScreen {
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
         public LabelWrapper Title { get; }
-        public SlotWrapper GameViewSlot { get; }
-        public SlotWrapper PlayerViewSlot { get; }
-        public SlotWrapper LobbyViewSlot { get; }
-        public SlotWrapper ChatViewSlot { get; }
+        public SlotWrapper GameSlot { get; }
+        public SlotWrapper PlayerSlot { get; }
+        public SlotWrapper LobbySlot { get; }
+        public SlotWrapper ChatSlot { get; }
         public ButtonWrapper Okey { get; }
         public ButtonWrapper Back { get; }
 
         // Constructor
         public CreateGameWidgetView(CreateGameWidget widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view, out var title, out var gameViewSlot, out var playerViewSlot, out var lobbyViewSlot, out var chatViewSlot, out var okey, out var back );
+            VisualElement = CreateVisualElement( out var view, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
-            GameViewSlot = gameViewSlot.AsSlot();
-            PlayerViewSlot = playerViewSlot.AsSlot();
-            LobbyViewSlot = lobbyViewSlot.AsSlot();
-            ChatViewSlot = chatViewSlot.AsSlot();
+            GameSlot = gameSlot.AsSlot();
+            PlayerSlot = playerSlot.AsSlot();
+            LobbySlot = lobbySlot.AsSlot();
+            ChatSlot = chatSlot.AsSlot();
             Okey = okey.Wrap();
             Back = back.Wrap();
         }
@@ -37,28 +37,27 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static View CreateVisualElement(out View view, out Label title, out Slot gameViewSlot, out Slot playerViewSlot, out Slot lobbyViewSlot, out Slot chatViewSlot, out Button okey, out Button back) {
-            return view = UIFactory.LargeWidget( "create-game-widget-view" ).Children(
-                UIFactory.Card().Children(
-                    UIFactory.Header().Children(
-                        title = UIFactory.Label( "Create Game" ).Name( "title" )
-                    ),
-                    UIFactory.Content().Children(
-                        UIFactory.RowScope().Classes( "grow-0", "basis-40pc" ).Children(
-                            gameViewSlot = UIFactory.Slot().Name( "game-view-slot" ).Classes( "grow-1", "basis-0pc" ),
-                            playerViewSlot = UIFactory.Slot().Name( "player-view-slot" ).Classes( "grow-1", "basis-0pc" )
-                        ),
-                        UIFactory.RowScope().Classes( "grow-1", "basis-auto" ).Children(
-                            lobbyViewSlot = UIFactory.Slot().Name( "lobby-view-slot" ).Classes( "grow-1", "basis-0pc" ),
-                            chatViewSlot = UIFactory.Slot().Name( "chat-view-slot" ).Classes( "grow-1", "basis-0pc" )
-                        )
-                    ),
-                    UIFactory.Footer().Children(
-                        okey = UIFactory.Button( "Ok" ).Name( "okey" ),
-                        back = UIFactory.Button( "Back" ).Name( "back" )
-                    )
+        private static View CreateVisualElement(out View view, out Label title, out Slot gameSlot, out Slot playerSlot, out Slot lobbySlot, out Slot chatSlot, out Button okey, out Button back) {
+            view = UIFactory.LargeWidget( "create-game-widget-view" );
+            view.Card();
+            view.Header(
+                title = UIFactory.Label( "Create Game" ).Name( "title" )
+            );
+            view.Content(
+                UIFactory.RowScope().Name( "game-and-player-scope" ).Classes( "grow-0", "basis-40pc" ).Children(
+                    gameSlot = UIFactory.Slot().Name( "game-slot" ).Classes( "grow-1", "basis-0pc" ),
+                    playerSlot = UIFactory.Slot().Name( "player-slot" ).Classes( "grow-1", "basis-0pc" )
+                ),
+                UIFactory.RowScope().Name( "lobby-and-chat-scope" ).Classes( "grow-1", "basis-auto" ).Children(
+                    lobbySlot = UIFactory.Slot().Name( "lobby-slot" ).Classes( "grow-1", "basis-0pc" ),
+                    chatSlot = UIFactory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" )
                 )
             );
+            view.Footer(
+                okey = UIFactory.Button( "Ok" ).Name( "okey" ),
+                back = UIFactory.Button( "Back" ).Name( "back" )
+            );
+            return view;
         }
     }
 
@@ -130,14 +129,14 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> role, out Toggle isReady) {
-            return view = UIFactory.ColumnGroup().Name( "players-view" ).Classes( "medium", "grow-1" ).Children(
+            return view = UIFactory.ColumnGroup().Name( "player-view" ).Classes( "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title", "medium" ),
                 UIFactory.RowScope().Children(
                     name = UIFactory.TextFieldReadOnly( null, 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
                 ),
                 UIFactory.RowScope().Children(
                     role = UIFactory.PopupField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" ),
-                    isReady = UIFactory.Toggle( "Ready" ).Name( "is-ready" ).Classes( "label-width-150px", "grow-1" )
+                    isReady = UIFactory.Toggle( "Ready" ).Name( "is-player-ready" ).Classes( "label-width-150px", "grow-1" )
                 )
             );
         }
@@ -218,8 +217,8 @@ namespace Project.UI.MainScreen {
             return view = UIFactory.ColumnGroup().Name( "chat-view" ).Classes( "medium", "grow-1" ).Children(
                 title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title", "medium", "shrink-0" ),
                 messages = UIFactory.ScrollView().Name( "messages-view" ).Classes( "dark", "medium", "reverse", "grow-1" ),
-                UIFactory.RowScope().Classes( "shrink-0" ).Children(
-                    text = UIFactory.TextField( null, 128, false ).Name( "message" ).Classes( "grow-1" ),
+                UIFactory.RowScope().Name( "input-text-scope" ).Classes( "shrink-0" ).Children(
+                    text = UIFactory.TextField( null, 128, false ).Name( "input-text" ).Classes( "grow-1" ),
                     send = UIFactory.Button( "Send" ).Name( "send" )
                 )
             );

@@ -27,6 +27,13 @@
   flex-shrink: 1;
   flex-basis: auto;
   align-self: auto;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 .unity-box.light2 {
   color: #e6e6e6;

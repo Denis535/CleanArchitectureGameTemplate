@@ -1,3 +1,6 @@
+// multiple selectors are always applied after simple selectors, so we should use multiple selectors (.style.visual-element).
+// https://forum.unity.com/threads/uss-selector-priority-important-mediaqueries.1278239/#post-9469016
+
 // flatten
 flatten()
     result = ()
@@ -62,93 +65,90 @@ get-style-value(value)
         push(value2, i)
     value2
 
-// multiple selectors are always applied after simple selectors.
-// https://forum.unity.com/threads/uss-selector-priority-important-mediaqueries.1278239/#post-9469016
-
 /* view */
-add-style( '.visual-element.display-{key}',                         'display',                     i, i       ) for i in flex none
-add-style( '.visual-element.visibility-{key}',                      'visibility',                  i, i       ) for i in visible hidden
-add-style( '.visual-element.opacity-{key}',                         'opacity',                     i, i/100   ) for i in range(0, 100)
+add-style( '.display-{key}.visual-element',                         'display',                     i, i       ) for i in flex none
+add-style( '.visibility-{key}.visual-element',                      'visibility',                  i, i       ) for i in visible hidden
+add-style( '.opacity-{key}.visual-element',                         'opacity',                     i, i/100   ) for i in range(0, 100)
 /* view/cursor */
-add-style( '.visual-element.cursor-{key}',                          'cursor',                      i, i       ) for i in arrow arrow-plus arrow-minus move-arrow rotate-arrow scale-arrow slide-arrow text link pan orbit zoom fps
+add-style( '.cursor-{key}.visual-element',                          'cursor',                      i, i       ) for i in arrow arrow-plus arrow-minus move-arrow rotate-arrow scale-arrow slide-arrow text link pan orbit zoom fps
 /* view/foreground */
-add-style( '.visual-element.color-{key}',                           'color',                       i, i       ) for i in white black light dark gray red green blue transparent
-add-style( '.visual-element.font-size-{key}',                       'font-size',                   i, i       ) for i in range(25%, 400%)
-add-style( '.visual-element.font-style-{key}',                      'font-style',                  i, i       ) for i in normal bold italic bold-and-italic
-add-style( '.visual-element.text-align-{key}',                      'text-align',                  i, i       ) for i in upper-left upper-center upper-right middle-left middle-center middle-right lower-left lower-center lower-right
+add-style( '.color-{key}.visual-element',                           'color',                       i, i       ) for i in white black light dark gray red green blue transparent
+add-style( '.font-size-{key}.visual-element',                       'font-size',                   i, i       ) for i in range(25%, 400%)
+add-style( '.font-style-{key}.visual-element',                      'font-style',                  i, i       ) for i in normal bold italic bold-and-italic
+add-style( '.text-align-{key}.visual-element',                      'text-align',                  i, i       ) for i in upper-left upper-center upper-right middle-left middle-center middle-right lower-left lower-center lower-right
 /* view/background */
-add-style( '.visual-element.background-color-{key}',                'background-color',            i, i       ) for i in white black light dark gray red green blue transparent
-add-style( '.visual-element.background-image-color-{key}',          'background-image-tint-color', i, i       ) for i in white black light dark gray red green blue transparent
+add-style( '.background-color-{key}.visual-element',                'background-color',            i, i       ) for i in white black light dark gray red green blue transparent
+add-style( '.background-image-color-{key}.visual-element',          'background-image-tint-color', i, i       ) for i in white black light dark gray red green blue transparent
 /* view/border */
-add-style( '.visual-element.border-color-{key}',                    'border-color',                i, i       ) for i in white black light dark gray red green blue transparent
-add-style( '.visual-element.border-top-color-{key}',                'border-top-color',            i, i       ) for i in white black light dark gray red green blue transparent
-add-style( '.visual-element.border-bottom-color-{key}',             'border-bottom-color',         i, i       ) for i in white black light dark gray red green blue transparent
-add-style( '.visual-element.border-left-color-{key}',               'border-left-color',           i, i       ) for i in white black light dark gray red green blue transparent
-add-style( '.visual-element.border-right-color-{key}',              'border-right-color',          i, i       ) for i in white black light dark gray red green blue transparent
+add-style( '.border-color-{key}.visual-element',                    'border-color',                i, i       ) for i in white black light dark gray red green blue transparent
+add-style( '.border-top-color-{key}.visual-element',                'border-top-color',            i, i       ) for i in white black light dark gray red green blue transparent
+add-style( '.border-bottom-color-{key}.visual-element',             'border-bottom-color',         i, i       ) for i in white black light dark gray red green blue transparent
+add-style( '.border-left-color-{key}.visual-element',               'border-left-color',           i, i       ) for i in white black light dark gray red green blue transparent
+add-style( '.border-right-color-{key}.visual-element',              'border-right-color',          i, i       ) for i in white black light dark gray red green blue transparent
 /* view/border */
-add-style( '.visual-element.border-radius-{key}',                   'border-radius',               i, i       ) for i in range(0px, 10px)
-add-style( '.visual-element.border-top-left-radius-{key}',          'border-top-left-radius',      i, i       ) for i in range(0px, 10px)
-add-style( '.visual-element.border-top-right-radius-{key}',         'border-top-right-radius',     i, i       ) for i in range(0px, 10px)
-add-style( '.visual-element.border-bottom-left-radius-{key}',       'border-bottom-left-radius',   i, i       ) for i in range(0px, 10px)
-add-style( '.visual-element.border-bottom-right-radius-{key}',      'border-bottom-right-radius',  i, i       ) for i in range(0px, 10px)
+add-style( '.border-radius-{key}.visual-element',                   'border-radius',               i, i       ) for i in range(0px, 10px)
+add-style( '.border-top-left-radius-{key}.visual-element',          'border-top-left-radius',      i, i       ) for i in range(0px, 10px)
+add-style( '.border-top-right-radius-{key}.visual-element',         'border-top-right-radius',     i, i       ) for i in range(0px, 10px)
+add-style( '.border-bottom-left-radius-{key}.visual-element',       'border-bottom-left-radius',   i, i       ) for i in range(0px, 10px)
+add-style( '.border-bottom-right-radius-{key}.visual-element',      'border-bottom-right-radius',  i, i       ) for i in range(0px, 10px)
 
 /* layout/position */
-add-style( '.visual-element.position-{key}',                        'position',                    i, i       ) for i in relative absolute
-add-style( '.visual-element.top-{key}',                             'top',                         i, i       ) for i in flatten(auto, range(-100%, 100%), range(-200px, 200px))
-add-style( '.visual-element.bottom-{key}',                          'bottom',                      i, i       ) for i in flatten(auto, range(-100%, 100%), range(-200px, 200px))
-add-style( '.visual-element.left-{key}',                            'left',                        i, i       ) for i in flatten(auto, range(-100%, 100%), range(-200px, 200px))
-add-style( '.visual-element.right-{key}',                           'right',                       i, i       ) for i in flatten(auto, range(-100%, 100%), range(-200px, 200px))
+add-style( '.position-{key}.visual-element',                        'position',                    i, i       ) for i in relative absolute
+add-style( '.top-{key}.visual-element',                             'top',                         i, i       ) for i in flatten(auto, range(-100%, 100%), range(-200px, 200px))
+add-style( '.bottom-{key}.visual-element',                          'bottom',                      i, i       ) for i in flatten(auto, range(-100%, 100%), range(-200px, 200px))
+add-style( '.left-{key}.visual-element',                            'left',                        i, i       ) for i in flatten(auto, range(-100%, 100%), range(-200px, 200px))
+add-style( '.right-{key}.visual-element',                           'right',                       i, i       ) for i in flatten(auto, range(-100%, 100%), range(-200px, 200px))
 /* layout/width */
-add-style( '.visual-element.width-{key}',                           'width',                       i, i       ) for i in flatten(auto, range(0%,  100%), range(0px, 200px))
-add-style( '.visual-element.min-width-{key}',                       'min-width',                   i, i       ) for i in flatten(auto, range(0%,  100%), range(0px, 200px))
-add-style( '.visual-element.max-width-{key}',                       'max-width',                   i, i       ) for i in flatten(none, range(0%,  100%), range(0px, 200px))
+add-style( '.width-{key}.visual-element',                           'width',                       i, i       ) for i in flatten(auto, range(0%,  100%), range(0px, 200px))
+add-style( '.min-width-{key}.visual-element',                       'min-width',                   i, i       ) for i in flatten(auto, range(0%,  100%), range(0px, 200px))
+add-style( '.max-width-{key}.visual-element',                       'max-width',                   i, i       ) for i in flatten(none, range(0%,  100%), range(0px, 200px))
 /* layout/width */
-add-style( '.visual-element.label-width-{key} > .unity-label',      'width',                       i, i       ) for i in flatten(auto, range(0%, 100%), range(0px, 200px))
-add-style( '.visual-element.min-label-width-{key} > .unity-label',  'min-width',                   i, i       ) for i in flatten(auto, range(0%, 100%), range(0px, 200px))
-add-style( '.visual-element.max-label-width-{key} > .unity-label',  'max-width',                   i, i       ) for i in flatten(none, range(0%, 100%), range(0px, 200px))
+add-style( '.label-width-{key}.visual-element > .unity-label',      'width',                       i, i       ) for i in flatten(auto, range(0%, 100%), range(0px, 200px))
+add-style( '.min-label-width-{key}.visual-element > .unity-label',  'min-width',                   i, i       ) for i in flatten(auto, range(0%, 100%), range(0px, 200px))
+add-style( '.max-label-width-{key}.visual-element > .unity-label',  'max-width',                   i, i       ) for i in flatten(none, range(0%, 100%), range(0px, 200px))
 /* layout/height */
-add-style( '.visual-element.height-{key}',                          'height',                      i, i       ) for i in flatten(auto, range(0%,  100%), range(0px, 200px))
-add-style( '.visual-element.min-height-{key}',                      'min-height',                  i, i       ) for i in flatten(auto, range(0%,  100%), range(0px, 200px))
-add-style( '.visual-element.max-height-{key}',                      'max-height',                  i, i       ) for i in flatten(none, range(0%,  100%), range(0px, 200px))
+add-style( '.height-{key}.visual-element',                          'height',                      i, i       ) for i in flatten(auto, range(0%,  100%), range(0px, 200px))
+add-style( '.min-height-{key}.visual-element',                      'min-height',                  i, i       ) for i in flatten(auto, range(0%,  100%), range(0px, 200px))
+add-style( '.max-height-{key}.visual-element',                      'max-height',                  i, i       ) for i in flatten(none, range(0%,  100%), range(0px, 200px))
 /* layout/margin */
-add-style( '.visual-element.margin-{key}',                          'margin',                      i, i       ) for i in flatten(auto, range(-100%,  100%), range(-200px,  200px))
-add-style( '.visual-element.margin-top-{key}',                      'margin-top',                  i, i       ) for i in flatten(auto, range(-100%,  100%), range(-200px,  200px))
-add-style( '.visual-element.margin-bottom-{key}',                   'margin-bottom',               i, i       ) for i in flatten(auto, range(-100%,  100%), range(-200px,  200px))
-add-style( '.visual-element.margin-left-{key}',                     'margin-left',                 i, i       ) for i in flatten(auto, range(-100%,  100%), range(-200px,  200px))
-add-style( '.visual-element.margin-right-{key}',                    'margin-right',                i, i       ) for i in flatten(auto, range(-100%,  100%), range(-200px,  200px))
+add-style( '.margin-{key}.visual-element',                          'margin',                      i, i       ) for i in flatten(auto, range(-100%,  100%), range(-200px,  200px))
+add-style( '.margin-top-{key}.visual-element',                      'margin-top',                  i, i       ) for i in flatten(auto, range(-100%,  100%), range(-200px,  200px))
+add-style( '.margin-bottom-{key}.visual-element',                   'margin-bottom',               i, i       ) for i in flatten(auto, range(-100%,  100%), range(-200px,  200px))
+add-style( '.margin-left-{key}.visual-element',                     'margin-left',                 i, i       ) for i in flatten(auto, range(-100%,  100%), range(-200px,  200px))
+add-style( '.margin-right-{key}.visual-element',                    'margin-right',                i, i       ) for i in flatten(auto, range(-100%,  100%), range(-200px,  200px))
 /* layout/border */
-add-style( '.visual-element.border-width-{key}',                    'border-width',                i, i       ) for i in range(0px,  2px)
-add-style( '.visual-element.border-top-width-{key}',                'border-top-width',            i, i       ) for i in range(0px,  2px)
-add-style( '.visual-element.border-bottom-width-{key}',             'border-bottom-width',         i, i       ) for i in range(0px,  2px)
-add-style( '.visual-element.border-left-width-{key}',               'border-left-width',           i, i       ) for i in range(0px,  2px)
-add-style( '.visual-element.border-right-width-{key}',              'border-right-width',          i, i       ) for i in range(0px,  2px)
+add-style( '.border-width-{key}.visual-element',                    'border-width',                i, i       ) for i in range(0px,  2px)
+add-style( '.border-top-width-{key}.visual-element',                'border-top-width',            i, i       ) for i in range(0px,  2px)
+add-style( '.border-bottom-width-{key}.visual-element',             'border-bottom-width',         i, i       ) for i in range(0px,  2px)
+add-style( '.border-left-width-{key}.visual-element',               'border-left-width',           i, i       ) for i in range(0px,  2px)
+add-style( '.border-right-width-{key}.visual-element',              'border-right-width',          i, i       ) for i in range(0px,  2px)
 /* layout/padding */
-add-style( '.visual-element.padding-{key}',                         'padding',                     i, i       ) for i in flatten(range(-100%,  100%), range(-200px,  200px))
-add-style( '.visual-element.padding-top-{key}',                     'padding-top',                 i, i       ) for i in flatten(range(-100%,  100%), range(-200px,  200px))
-add-style( '.visual-element.padding-bottom-{key}',                  'padding-bottom',              i, i       ) for i in flatten(range(-100%,  100%), range(-200px,  200px))
-add-style( '.visual-element.padding-left-{key}',                    'padding-left',                i, i       ) for i in flatten(range(-100%,  100%), range(-200px,  200px))
-add-style( '.visual-element.padding-right-{key}',                   'padding-right',               i, i       ) for i in flatten(range(-100%,  100%), range(-200px,  200px))
+add-style( '.padding-{key}.visual-element',                         'padding',                     i, i       ) for i in flatten(range(-100%,  100%), range(-200px,  200px))
+add-style( '.padding-top-{key}.visual-element',                     'padding-top',                 i, i       ) for i in flatten(range(-100%,  100%), range(-200px,  200px))
+add-style( '.padding-bottom-{key}.visual-element',                  'padding-bottom',              i, i       ) for i in flatten(range(-100%,  100%), range(-200px,  200px))
+add-style( '.padding-left-{key}.visual-element',                    'padding-left',                i, i       ) for i in flatten(range(-100%,  100%), range(-200px,  200px))
+add-style( '.padding-right-{key}.visual-element',                   'padding-right',               i, i       ) for i in flatten(range(-100%,  100%), range(-200px,  200px))
 
 /* flex/self */
-add-style( '.visual-element.grow-{key}',                            'flex-grow',                   i, i       ) for i in range(0, 100)
-add-style( '.visual-element.shrink-{key}',                          'flex-shrink',                 i, i       ) for i in range(0, 100)
-add-style( '.visual-element.basis-{key}',                           'flex-basis',                  i, i       ) for i in flatten(auto, range(0%, 100%), range(0px, 200px))
-add-style( '.visual-element.align-self-{key}',                      'align-self',                  i, i       ) for i in flex-start flex-end center stretch // align self on cross-axis
+add-style( '.grow-{key}.visual-element',                            'flex-grow',                   i, i       ) for i in range(0, 100)
+add-style( '.shrink-{key}.visual-element',                          'flex-shrink',                 i, i       ) for i in range(0, 100)
+add-style( '.basis-{key}.visual-element',                           'flex-basis',                  i, i       ) for i in flatten(auto, range(0%, 100%), range(0px, 200px))
+add-style( '.align-self-{key}.visual-element',                      'align-self',                  i, i       ) for i in flex-start flex-end center stretch // align self on cross-axis
 /* flex/container */
-add-style( '.visual-element.{key}',                                 'flex-direction',              i, i       ) for i in column column-reverse row row-reverse
-add-style( '.visual-element.{key}',                                 'flex-wrap',                   i, i       ) for i in nowrap wrap wrap-reverse
-add-style( '.visual-element.justify-content-{key}',                 'justify-content',             i, i       ) for i in flex-start flex-end center space-between space-around // justify children along main-axis
-add-style( '.visual-element.align-items-{key}',                     'align-items',                 i, i       ) for i in flex-start flex-end center stretch // align children on cross-axis
-add-style( '.visual-element.align-content-{key}',                   'align-content',               i, i       ) for i in flex-start flex-end center stretch
+add-style( '.{key}.visual-element',                                 'flex-direction',              i, i       ) for i in column column-reverse row row-reverse
+add-style( '.{key}.visual-element',                                 'flex-wrap',                   i, i       ) for i in nowrap wrap wrap-reverse
+add-style( '.justify-content-{key}.visual-element',                 'justify-content',             i, i       ) for i in flex-start flex-end center space-between space-around // justify children along main-axis
+add-style( '.align-items-{key}.visual-element',                     'align-items',                 i, i       ) for i in flex-start flex-end center stretch // align children on cross-axis
+add-style( '.align-content-{key}.visual-element',                   'align-content',               i, i       ) for i in flex-start flex-end center stretch
 
 /* transform */
-add-style( '.visual-element.transform-origin-{key}',                'transform-origin',            i, i       ) for i in center (center top) (center bottom) (center left) (center right) (top left) (top right) (bottom left) (bottom right)
-add-style( '.visual-element.translate-{key}',                       'translate',                   i, i       ) for i in none
-add-style( '.visual-element.translate-x-{key}',                     'translate',                   i, (i  0%) ) for i in range(-100%,   100%)
-add-style( '.visual-element.translate-x-{key}',                     'translate',                   i, (i 0px) ) for i in range(-200px, 200px)
-add-style( '.visual-element.translate-y-{key}',                     'translate',                   i, (0%  i) ) for i in range(-100%,   100%)
-add-style( '.visual-element.translate-y-{key}',                     'translate',                   i, (0px i) ) for i in range(-200px, 200px)
-add-style( '.visual-element.rotate-{key}',                          'rotate',                      i, i       ) for i in none
-add-style( '.visual-element.rotate-{key}',                          'rotate',                      i, i       ) for i in range(-360deg, 360deg)
-add-style( '.visual-element.scale-{key}',                           'scale',                       i, i       ) for i in none
-add-style( '.visual-element.scale-{key}',                           'scale',                       i, i/100   ) for i in range(25, 400)
+add-style( '.transform-origin-{key}.visual-element',                'transform-origin',            i, i       ) for i in center (center top) (center bottom) (center left) (center right) (top left) (top right) (bottom left) (bottom right)
+add-style( '.translate-{key}.visual-element',                       'translate',                   i, i       ) for i in none
+add-style( '.translate-x-{key}.visual-element',                     'translate',                   i, (i  0%) ) for i in range(-100%,   100%)
+add-style( '.translate-x-{key}.visual-element',                     'translate',                   i, (i 0px) ) for i in range(-200px, 200px)
+add-style( '.translate-y-{key}.visual-element',                     'translate',                   i, (0%  i) ) for i in range(-100%,   100%)
+add-style( '.translate-y-{key}.visual-element',                     'translate',                   i, (0px i) ) for i in range(-200px, 200px)
+add-style( '.rotate-{key}.visual-element',                          'rotate',                      i, i       ) for i in none
+add-style( '.rotate-{key}.visual-element',                          'rotate',                      i, i       ) for i in range(-360deg, 360deg)
+add-style( '.scale-{key}.visual-element',                           'scale',                       i, i       ) for i in none
+add-style( '.scale-{key}.visual-element',                           'scale',                       i, i/100   ) for i in range(25, 400)

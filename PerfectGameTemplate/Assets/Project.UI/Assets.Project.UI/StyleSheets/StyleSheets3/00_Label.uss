@@ -22,6 +22,10 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
 }
 .unity-label.small {
   width: auto;
