@@ -30,11 +30,9 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static View CreateVisualElement(out View view, out Label loading) {
             view = UIFactory.Widget( "loading-widget-view" );
-            view.Add(
-                UIFactory.ColumnScope().Classes( "padding-2pc", "grow-1", "justify-content-end", "align-items-center" ).Children(
+            view.Children( UIFactory.ColumnScope().Classes( "padding-2pc", "grow-1", "justify-content-end", "align-items-center" ).Children(
                     loading = UIFactory.Label( "Loading..." ).Name( "loading" ).Classes( "color-light", "font-size-200pc", "font-style-bold" )
-                )
-            );
+            ) );
             return view;
         }
         // Helpers

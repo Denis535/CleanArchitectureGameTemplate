@@ -66,6 +66,14 @@ namespace UnityEngine.UIElements {
             element.userData = userData;
             return element;
         }
+        public static T Parent<T>(this T element, VisualElement? parent) where T : VisualElement {
+            if (parent != null) {
+                parent.Add( element );
+            } else {
+                element.RemoveFromHierarchy();
+            }
+            return element;
+        }
         public static T Children<T>(this T element, params VisualElement?[] children) where T : VisualElement {
             foreach (var child in children) {
                 element.Add( child );

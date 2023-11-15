@@ -33,18 +33,19 @@ namespace Project.UI.Common {
         // Helpers
         private static View CreateVisualElement(out View view, out Label title, out TextField name, out Button okey, out Button back) {
             view = UIFactory.MediumWidget( "player-profile-widget-view" );
-            view.Card();
-            view.Header(
-                title = UIFactory.Label( "Player Profile" ).Name( "title" )
-            );
-            view.Content(
-                UIFactory.ColumnGroup().Classes( "large", "grow-1" ).Children(
-                    name = UIFactory.TextField( "Name", 16, false ).Name( "name" ).Classes( "label-width-25pc" )
+            view.Card().Children(
+                UIFactory.Header().Children(
+                    title = UIFactory.Label( "Player Profile" ).Name( "title" )
+                ),
+                UIFactory.Content().Children(
+                    UIFactory.ColumnGroup().Classes( "large", "grow-1" ).Children(
+                        name = UIFactory.TextField( "Name", 16, false ).Name( "name" ).Classes( "label-width-25pc" )
+                    )
+                ),
+                UIFactory.Footer().Children(
+                    okey = UIFactory.Button( "Ok" ).Name( "okey" ),
+                    back = UIFactory.Button( "Back" ).Name( "back" )
                 )
-            );
-            view.Footer(
-                okey = UIFactory.Button( "Ok" ).Name( "okey" ),
-                back = UIFactory.Button( "Back" ).Name( "back" )
             );
             return view;
         }

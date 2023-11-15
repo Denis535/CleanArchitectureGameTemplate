@@ -39,23 +39,24 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static View CreateVisualElement(out View view, out Label title, out Slot gameSlot, out Slot playerSlot, out Slot lobbySlot, out Slot chatSlot, out Button okey, out Button back) {
             view = UIFactory.LargeWidget( "create-game-widget-view" );
-            view.Card();
-            view.Header(
-                title = UIFactory.Label( "Create Game" ).Name( "title" )
-            );
-            view.Content(
-                UIFactory.RowScope().Name( "game-and-player-scope" ).Classes( "grow-0", "basis-40pc" ).Children(
-                    gameSlot = UIFactory.Slot().Name( "game-slot" ).Classes( "grow-1", "basis-0pc" ),
-                    playerSlot = UIFactory.Slot().Name( "player-slot" ).Classes( "grow-1", "basis-0pc" )
+            view.Card().Children(
+                UIFactory.Header().Children(
+                    title = UIFactory.Label( "Create Game" ).Name( "title" )
                 ),
-                UIFactory.RowScope().Name( "lobby-and-chat-scope" ).Classes( "grow-1", "basis-auto" ).Children(
-                    lobbySlot = UIFactory.Slot().Name( "lobby-slot" ).Classes( "grow-1", "basis-0pc" ),
-                    chatSlot = UIFactory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" )
+                UIFactory.Content().Children(
+                    UIFactory.RowScope().Name( "game-and-player-scope" ).Classes( "grow-0", "basis-40pc" ).Children(
+                        gameSlot = UIFactory.Slot().Name( "game-slot" ).Classes( "grow-1", "basis-0pc" ),
+                        playerSlot = UIFactory.Slot().Name( "player-slot" ).Classes( "grow-1", "basis-0pc" )
+                    ),
+                    UIFactory.RowScope().Name( "lobby-and-chat-scope" ).Classes( "grow-1", "basis-auto" ).Children(
+                        lobbySlot = UIFactory.Slot().Name( "lobby-slot" ).Classes( "grow-1", "basis-0pc" ),
+                        chatSlot = UIFactory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" )
+                    )
+                ),
+                UIFactory.Footer().Children(
+                    okey = UIFactory.Button( "Ok" ).Name( "okey" ),
+                    back = UIFactory.Button( "Back" ).Name( "back" )
                 )
-            );
-            view.Footer(
-                okey = UIFactory.Button( "Ok" ).Name( "okey" ),
-                back = UIFactory.Button( "Back" ).Name( "back" )
             );
             return view;
         }
@@ -90,15 +91,15 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> mode, out PopupField<object?> world, out Toggle isPrivate) {
             view = UIFactory.ColumnGroup().Name( "game-view" ).Classes( "medium", "grow-1" );
-            view.Add( title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "title", "medium" ) );
-            view.Add( UIFactory.RowScope().Children(
+            title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "medium" ).Parent( view );
+            UIFactory.RowScope().Parent( view ).Children(
                 name = UIFactory.TextField( null, 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" )
-            ) );
-            view.Add( UIFactory.RowScope().Children(
+            );
+            UIFactory.RowScope().Parent( view ).Children(
                 mode = UIFactory.PopupField( "Mode" ).Name( "game-mode" ).Classes( "label-width-150px", "grow-1" ),
                 world = UIFactory.PopupField( "World" ).Name( "game-world" ).Classes( "label-width-150px", "grow-1" ),
                 isPrivate = UIFactory.Toggle( "Private" ).Name( "is-game-private" ).Classes( "label-width-150px", "grow-0" )
-            ) );
+            );
             return view;
         }
 
@@ -130,14 +131,14 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> role, out Toggle isReady) {
             view = UIFactory.ColumnGroup().Name( "player-view" ).Classes( "medium", "grow-1" );
-            view.Add( title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "title", "medium" ) );
-            view.Add( UIFactory.RowScope().Children(
+            title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "medium" ).Parent( view );
+            UIFactory.RowScope().Parent( view ).Children(
                 name = UIFactory.TextFieldReadOnly( null, 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" )
-            ) );
-            view.Add( UIFactory.RowScope().Children(
+            );
+            UIFactory.RowScope().Parent( view ).Children(
                 role = UIFactory.PopupField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" ),
                 isReady = UIFactory.Toggle( "Ready" ).Name( "is-player-ready" ).Classes( "label-width-150px", "grow-1" )
-            ) );
+            );
             return view;
         }
 
@@ -168,8 +169,8 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out ScrollView players) {
             view = UIFactory.ColumnGroup().Name( "lobby-view" ).Classes( "medium", "grow-1" );
-            view.Add( title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "title", "medium", "shrink-0" ) );
-            view.Add( players = UIFactory.ScrollView().Name( "players-view" ).Classes( "light", "medium", "reverse", "grow-1" ) );
+            title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "medium", "shrink-0" ).Parent( view );
+            players = UIFactory.ScrollView().Name( "players-view" ).Classes( "light", "medium", "reverse", "grow-1" ).Parent( view );
             return view;
         }
         private static Box CreatePlayer(string text, int id) {
@@ -182,7 +183,7 @@ namespace Project.UI.MainScreen {
                 _ => throw Exceptions.Internal.Exception( $"Value is invalid" )
             };
             var box = UIFactory.Box().Name( "player" ).Classes( style, "medium", "grow-1" ).Pipe( i => i.style.width = 2000 );
-            box.Add( UIFactory.Label( text ).Classes( "font-style-bold", "margin-0px", "padding-0px" ) );
+            UIFactory.Label( text ).Classes( "font-style-bold", "margin-0px", "padding-0px" ).Parent( box );
             return box;
         }
 
@@ -217,12 +218,12 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out ScrollView messages, out TextField text, out Button send) {
             view = UIFactory.ColumnGroup().Name( "chat-view" ).Classes( "medium", "grow-1" );
-            view.Add( title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "title", "medium", "shrink-0" ) );
-            view.Add( messages = UIFactory.ScrollView().Name( "messages-view" ).Classes( "dark", "medium", "reverse", "grow-1" ) );
-            view.Add( UIFactory.RowScope().Name( "input-text-scope" ).Classes( "shrink-0" ).Children(
+            title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "medium", "shrink-0" ).Parent( view );
+            messages = UIFactory.ScrollView().Name( "messages-view" ).Classes( "dark", "medium", "reverse", "grow-1" ).Parent( view );
+            UIFactory.RowScope().Name( "input-text-scope" ).Classes( "shrink-0" ).Parent( view ).Children(
                 text = UIFactory.TextField( null, 128, false ).Name( "input-text" ).Classes( "grow-1" ),
                 send = UIFactory.Button( "Send" ).Name( "send" )
-            ) );
+            );
             return view;
         }
         private static Box CreateMessage(string text, int id) {
@@ -235,7 +236,7 @@ namespace Project.UI.MainScreen {
                 _ => throw Exceptions.Internal.Exception( $"Value is invalid" )
             };
             var box = UIFactory.Box().Name( "message" ).Classes( style, "medium", "grow-1" ).Pipe( i => i.style.width = 2000 );
-            box.Add( UIFactory.Label( text ).Classes( "margin-0px", "padding-0px" ) );
+            UIFactory.Label( text ).Classes( "margin-0px", "padding-0px" ).Parent( box );
             return box;
         }
 

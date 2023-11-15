@@ -87,16 +87,17 @@ namespace Project.UI.Common {
         // Helpers
         protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             view = UIFactory.DialogWidget();
-            card = view.DialogCard();
-            header = view.Header(
-                title = UIFactory.Label( null ).Name( "title" )
+            card = view.DialogCard().Children(
+                header = UIFactory.Header().Children(
+                    title = UIFactory.Label( null ).Name( "title" )
+                ),
+                content = UIFactory.Content().Children(
+                    UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Children(
+                        message = UIFactory.Label( null ).Name( "message" )
+                    )
+                ),
+                footer = UIFactory.Footer()
             );
-            content = view.Content(
-                UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Children(
-                    message = UIFactory.Label( null ).Name( "message" )
-                )
-            );
-            footer = view.Footer();
             return view;
         }
 
@@ -114,16 +115,17 @@ namespace Project.UI.Common {
         // Helpers
         protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             view = UIFactory.InfoDialogWidget();
-            card = view.InfoDialogCard();
-            header = view.Header(
-                title = UIFactory.Label( null ).Name( "title" )
+            card = view.InfoDialogCard().Children(
+                header = UIFactory.Header().Children(
+                    title = UIFactory.Label( null ).Name( "title" )
+                ),
+                content = UIFactory.Content().Children(
+                    UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Children(
+                        message = UIFactory.Label( null ).Name( "message" )
+                    )
+                ),
+                footer = UIFactory.Footer()
             );
-            content = view.Content(
-                UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Children(
-                    message = UIFactory.Label( null ).Name( "message" )
-                )
-            );
-            footer = view.Footer();
             return view;
         }
 
@@ -141,16 +143,17 @@ namespace Project.UI.Common {
         // Helpers
         protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             view = UIFactory.WarningDialogWidget();
-            card = view.WarningDialogCard();
-            header = view.Header(
-                title = UIFactory.Label( null ).Name( "title" )
+            card = view.WarningDialogCard().Children(
+                header = UIFactory.Header().Children(
+                    title = UIFactory.Label( null ).Name( "title" )
+                ),
+                content = UIFactory.Content().Children(
+                    UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Children(
+                        message = UIFactory.Label( null ).Name( "message" )
+                    )
+                ),
+                footer = UIFactory.Footer()
             );
-            content = view.Content(
-                UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Children(
-                    message = UIFactory.Label( null ).Name( "message" )
-                )
-            );
-            footer = view.Footer();
             return view;
         }
 
@@ -168,16 +171,17 @@ namespace Project.UI.Common {
         // Helpers
         protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             view = UIFactory.ErrorDialogWidget();
-            card = view.ErrorDialogCard();
-            header = view.Header(
-                title = UIFactory.Label( null ).Name( "title" )
+            card = view.ErrorDialogCard().Children(
+                header = UIFactory.Header().Children(
+                    title = UIFactory.Label( null ).Name( "title" )
+                ),
+                content = UIFactory.Content().Children(
+                    UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Children(
+                        message = UIFactory.Label( null ).Name( "message" )
+                    )
+                ),
+                footer = UIFactory.Footer()
             );
-            content = view.Content(
-                UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Children(
-                    message = UIFactory.Label( null ).Name( "message" )
-                )
-            );
-            footer = view.Footer();
             return view;
         }
 

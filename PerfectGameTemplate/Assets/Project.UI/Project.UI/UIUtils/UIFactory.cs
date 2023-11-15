@@ -3,7 +3,6 @@ namespace Project.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using Project.Entities.GameScene;
     using UnityEngine;
     using UnityEngine.UIElements;
@@ -43,74 +42,29 @@ namespace Project.UI {
 
         // Card
         public static Card Card(this View view) {
-            var card = Card();
-            view.Add( card );
-            return card;
+            return new Card().Name( "card" ).Classes( "visual-element" ).Parent( view );
         }
         public static Card DialogCard(this View view) {
-            var card = DialogCard();
-            view.Add( card );
-            return card;
+            return new Card().Name( "dialog-card" ).Classes( "visual-element", "dialog-card" ).Parent( view );
         }
         public static Card InfoDialogCard(this View view) {
-            var card = InfoDialogCard();
-            view.Add( card );
-            return card;
+            return new Card().Name( "info-dialog-card" ).Classes( "visual-element", "info-dialog-card" ).Parent( view );
         }
         public static Card WarningDialogCard(this View view) {
-            var card = WarningDialogCard();
-            view.Add( card );
-            return card;
+            return new Card().Name( "warning-dialog-card" ).Classes( "visual-element", "warning-dialog-card" ).Parent( view );
         }
         public static Card ErrorDialogCard(this View view) {
-            var card = ErrorDialogCard();
-            view.Add( card );
-            return card;
-        }
-        // Card
-        private static Card Card() {
-            return new Card().Name( "card" ).Classes( "visual-element" );
-        }
-        private static Card DialogCard() {
-            return new Card().Name( "dialog-card" ).Classes( "visual-element", "dialog-card" );
-        }
-        private static Card InfoDialogCard() {
-            return new Card().Name( "info-dialog-card" ).Classes( "visual-element", "info-dialog-card" );
-        }
-        private static Card WarningDialogCard() {
-            return new Card().Name( "warning-dialog-card" ).Classes( "visual-element", "warning-dialog-card" );
-        }
-        private static Card ErrorDialogCard() {
-            return new Card().Name( "error-dialog-card" ).Classes( "visual-element", "error-dialog-card" );
+            return new Card().Name( "error-dialog-card" ).Classes( "visual-element", "error-dialog-card" ).Parent( view );
         }
 
         // Card
-        public static Header Header(this View view, params VisualElement[] children) {
-            var card = (Card) view.Children().First();
-            var header = Header().Children( children );
-            card.Add( header );
-            return header;
-        }
-        public static Content Content(this View view, params VisualElement[] children) {
-            var card = (Card) view.Children().First();
-            var content = Content().Children( children );
-            card.Add( content );
-            return content;
-        }
-        public static Footer Footer(this View view, params VisualElement[] children) {
-            var card = (Card) view.Children().First();
-            var footer = Footer().Children( children );
-            card.Add( footer );
-            return footer;
-        }
-        // Card
-        private static Header Header() {
+        public static Header Header() {
             return new Header().Name( "header" ).Classes( "visual-element" );
         }
-        private static Content Content() {
+        public static Content Content() {
             return new Content().Name( "content" ).Classes( "visual-element" );
         }
-        private static Footer Footer() {
+        public static Footer Footer() {
             return new Footer().Name( "footer" ).Classes( "visual-element" );
         }
 

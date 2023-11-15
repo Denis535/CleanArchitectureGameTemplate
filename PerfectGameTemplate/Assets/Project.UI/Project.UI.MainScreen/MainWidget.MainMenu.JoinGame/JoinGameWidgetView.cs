@@ -39,23 +39,24 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static View CreateVisualElement(out View view, out Label title, out Slot gameSlot, out Slot playerSlot, out Slot lobbySlot, out Slot chatSlot, out Button okey, out Button back) {
             view = UIFactory.LargeWidget( "join-game-widget-view" );
-            view.Card();
-            view.Header(
-                title = UIFactory.Label( "Join Game" ).Name( "title" )
-            );
-            view.Content(
-                UIFactory.RowScope().Name( "game-and-player-scope" ).Classes( "grow-0", "basis-40pc" ).Children(
-                    gameSlot = UIFactory.Slot().Name( "game-slot" ).Classes( "grow-1", "basis-0pc" ),
-                    playerSlot = UIFactory.Slot().Name( "player-slot" ).Classes( "grow-1", "basis-0pc" )
+            view.Card().Children(
+                UIFactory.Header().Children(
+                    title = UIFactory.Label( "Join Game" ).Name( "title" )
                 ),
-                UIFactory.RowScope().Name( "lobby-and-chat-scope" ).Classes( "grow-1", "basis-auto" ).Children(
-                    lobbySlot = UIFactory.Slot().Name( "lobby-slot" ).Classes( "grow-1", "basis-0pc" ),
-                    chatSlot = UIFactory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" )
+                UIFactory.Content().Children(
+                    UIFactory.RowScope().Name( "game-and-player-scope" ).Classes( "grow-0", "basis-40pc" ).Children(
+                        gameSlot = UIFactory.Slot().Name( "game-slot" ).Classes( "grow-1", "basis-0pc" ),
+                        playerSlot = UIFactory.Slot().Name( "player-slot" ).Classes( "grow-1", "basis-0pc" )
+                    ),
+                    UIFactory.RowScope().Name( "lobby-and-chat-scope" ).Classes( "grow-1", "basis-auto" ).Children(
+                        lobbySlot = UIFactory.Slot().Name( "lobby-slot" ).Classes( "grow-1", "basis-0pc" ),
+                        chatSlot = UIFactory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" )
+                    )
+                ),
+                UIFactory.Footer().Children(
+                    okey = UIFactory.Button( "Ok" ).Name( "okey" ),
+                    back = UIFactory.Button( "Back" ).Name( "back" )
                 )
-            );
-            view.Footer(
-                okey = UIFactory.Button( "Ok" ).Name( "okey" ),
-                back = UIFactory.Button( "Back" ).Name( "back" )
             );
             return view;
         }
