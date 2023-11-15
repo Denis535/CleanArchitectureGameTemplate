@@ -86,17 +86,17 @@ namespace Project.UI.Common {
 
         // Helpers
         protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            using (UIFactory.DialogWidget().Enter( out view )) {
-                using (UIFactory.DialogCard().Enter( out card )) {
-                    using (UIFactory.Header().Enter( out header )) {
+            using (UIFactory.DialogWidget().AsScope( out view )) {
+                using (UIFactory.DialogCard().AsScope( out card )) {
+                    using (UIFactory.Header().AsScope( out header )) {
                         title = UIFactory.Label( null ).Name( "title" );
                     }
-                    using (UIFactory.Content().Enter( out content )) {
-                        using (UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Enter()) {
+                    using (UIFactory.Content().AsScope( out content )) {
+                        using (UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             message = UIFactory.Label( null ).Name( "message" );
                         }
                     }
-                    using (UIFactory.Footer().Enter( out footer )) {
+                    using (UIFactory.Footer().AsScope( out footer )) {
                     }
                 }
             }
@@ -116,17 +116,17 @@ namespace Project.UI.Common {
 
         // Helpers
         protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            using (UIFactory.InfoDialogWidget().Enter( out view )) {
-                using (UIFactory.InfoDialogCard().Enter( out card )) {
-                    using (UIFactory.Header().Enter( out header )) {
+            using (UIFactory.InfoDialogWidget().AsScope( out view )) {
+                using (UIFactory.InfoDialogCard().AsScope( out card )) {
+                    using (UIFactory.Header().AsScope( out header )) {
                         title = UIFactory.Label( null ).Name( "title" );
                     }
-                    using (UIFactory.Content().Enter( out content )) {
-                        using (UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Enter()) {
+                    using (UIFactory.Content().AsScope( out content )) {
+                        using (UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             message = UIFactory.Label( null ).Name( "message" );
                         }
                     }
-                    using (UIFactory.Footer().Enter( out footer )) {
+                    using (UIFactory.Footer().AsScope( out footer )) {
                     }
                 }
             }
@@ -146,17 +146,17 @@ namespace Project.UI.Common {
 
         // Helpers
         protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            using (UIFactory.WarningDialogWidget().Enter( out view )) {
-                using (UIFactory.WarningDialogCard().Enter( out card )) {
-                    using (UIFactory.Header().Enter( out header )) {
+            using (UIFactory.WarningDialogWidget().AsScope( out view )) {
+                using (UIFactory.WarningDialogCard().AsScope( out card )) {
+                    using (UIFactory.Header().AsScope( out header )) {
                         title = UIFactory.Label( null ).Name( "title" );
                     }
-                    using (UIFactory.Content().Enter( out content )) {
-                        using (UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Enter()) {
+                    using (UIFactory.Content().AsScope( out content )) {
+                        using (UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             message = UIFactory.Label( null ).Name( "message" );
                         }
                     }
-                    using (UIFactory.Footer().Enter( out footer )) {
+                    using (UIFactory.Footer().AsScope( out footer )) {
                     }
                 }
             }
@@ -176,17 +176,17 @@ namespace Project.UI.Common {
 
         // Helpers
         protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            using (UIFactory.ErrorDialogWidget().Enter( out view )) {
-                using (UIFactory.ErrorDialogCard().Enter( out card )) {
-                    using (UIFactory.Header().Enter( out header )) {
+            using (UIFactory.ErrorDialogWidget().AsScope( out view )) {
+                using (UIFactory.ErrorDialogCard().AsScope( out card )) {
+                    using (UIFactory.Header().AsScope( out header )) {
                         title = UIFactory.Label( null ).Name( "title" );
                     }
-                    using (UIFactory.Content().Enter( out content )) {
-                        using (UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).Enter()) {
+                    using (UIFactory.Content().AsScope( out content )) {
+                        using (UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             message = UIFactory.Label( null ).Name( "message" );
                         }
                     }
-                    using (UIFactory.Footer().Enter( out footer )) {
+                    using (UIFactory.Footer().AsScope( out footer )) {
                     }
                 }
             }

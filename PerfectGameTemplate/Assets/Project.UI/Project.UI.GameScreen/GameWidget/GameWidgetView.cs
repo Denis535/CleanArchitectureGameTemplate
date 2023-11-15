@@ -24,7 +24,7 @@ namespace Project.UI.GameScreen {
 
         // Helpers
         private static View CreateVisualElement(out View view) {
-            using (UIFactory.Widget( "game-widget-view" ).Enter( out view )) {
+            using (UIFactory.Widget( "game-widget-view" ).AsScope( out view )) {
             }
             return view;
         }

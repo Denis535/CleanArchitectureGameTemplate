@@ -27,9 +27,6 @@ namespace Project.UI {
             VisualElement = visualElement;
         }
 
-        public static implicit operator VisualElementScope<T>(T visualElement) {
-            return new VisualElementScope<T>( visualElement );
-        }
         public static implicit operator T(VisualElementScope<T> scope) {
             return scope.VisualElement;
         }
@@ -37,10 +34,10 @@ namespace Project.UI {
     }
     public static class VisualElementScopeExtensions {
 
-        public static VisualElementScope<T> Enter<T>(this T visualElement) where T : VisualElement {
+        public static VisualElementScope<T> AsScope<T>(this T visualElement) where T : VisualElement {
             return new VisualElementScope<T>( visualElement );
         }
-        public static VisualElementScope<T> Enter<T>(this T visualElement, out T @out) where T : VisualElement {
+        public static VisualElementScope<T> AsScope<T>(this T visualElement, out T @out) where T : VisualElement {
             return new VisualElementScope<T>( @out = visualElement );
         }
 

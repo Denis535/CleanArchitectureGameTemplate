@@ -34,12 +34,12 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static View CreateVisualElement(out View view, out Label title, out Button createGame, out Button joinGame, out Button settings, out Button quit) {
-            using (UIFactory.LeftWidget( "main-menu-widget-view" ).Enter( out view )) {
-                using (UIFactory.Card().Enter()) {
-                    using (UIFactory.Header().Enter()) {
+            using (UIFactory.LeftWidget( "main-menu-widget-view" ).AsScope( out view )) {
+                using (UIFactory.Card().AsScope()) {
+                    using (UIFactory.Header().AsScope()) {
                         title = UIFactory.Label( "Main Menu" ).Name( "main-menu" );
                     }
-                    using (UIFactory.Content().Enter()) {
+                    using (UIFactory.Content().AsScope()) {
                         createGame = UIFactory.Button( "Create Game" ).Name( "create-game" );
                         joinGame = UIFactory.Button( "Join Game" ).Name( "join-game" );
                         settings = UIFactory.Button( "Settings" ).Name( "settings" );

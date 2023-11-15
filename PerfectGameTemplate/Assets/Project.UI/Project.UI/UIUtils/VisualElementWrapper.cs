@@ -92,6 +92,42 @@ namespace Project.UI {
         }
 
     }
+    // ImageWrapper
+    public class ImageWrapper : VisualElementWrapper<Image> {
+
+        public Texture Image {
+            get => VisualElement.image;
+            set => VisualElement.image = value;
+        }
+        public Sprite Sprite {
+            get => VisualElement.sprite;
+            set => VisualElement.sprite = value;
+        }
+        public VectorImage VectorImage {
+            get => VisualElement.vectorImage;
+            set => VisualElement.vectorImage = value;
+        }
+        public Color Color {
+            get => VisualElement.tintColor;
+            set => VisualElement.tintColor = value;
+        }
+        public ScaleMode ScaleMode {
+            get => VisualElement.scaleMode;
+            set => VisualElement.scaleMode = value;
+        }
+        public Rect Rect {
+            get => VisualElement.sourceRect;
+            set => VisualElement.sourceRect = value;
+        }
+        public Rect RectUV {
+            get => VisualElement.uv;
+            set => VisualElement.uv = value;
+        }
+
+        public ImageWrapper(Image visualElement) : base( visualElement ) {
+        }
+
+    }
     // TextWrapper
     public class TextWrapper<T> : VisualElementWrapper<BaseField<string?>> where T : notnull {
 
@@ -205,6 +241,9 @@ namespace Project.UI {
         }
         public static ButtonWrapper Wrap(this Button visualElement) {
             return new ButtonWrapper( visualElement );
+        }
+        public static ImageWrapper Wrap(this Image visualElement) {
+            return new ImageWrapper( visualElement );
         }
         public static TextWrapper<string> Wrap(this BaseField<string?> visualElement) {
             return new TextWrapper<string>( visualElement );

@@ -38,20 +38,20 @@ namespace Project.UI.Common {
 
         // Helpers
         private static View CreateVisualElement(out View view, out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
-            using (UIFactory.MediumWidget( "audio-settings-widget-view" ).Enter( out view )) {
-                using (UIFactory.Card().Enter()) {
-                    using (UIFactory.Header().Enter()) {
+            using (UIFactory.MediumWidget( "audio-settings-widget-view" ).AsScope( out view )) {
+                using (UIFactory.Card().AsScope()) {
+                    using (UIFactory.Header().AsScope()) {
                         title = UIFactory.Label( "Audio Settings" ).Name( "title" );
                     }
-                    using (UIFactory.Content().Enter()) {
-                        using (UIFactory.ColumnGroup().Classes( "large", "grow-1" ).Enter()) {
+                    using (UIFactory.Content().AsScope()) {
+                        using (UIFactory.ColumnGroup().Classes( "large", "grow-1" ).AsScope()) {
                             masterVolume = UIFactory.Slider( "Master Volume" ).Name( "master-volume" ).Classes( "label-width-25pc" );
                             musicVolume = UIFactory.Slider( "Music Volume" ).Name( "music-volume" ).Classes( "label-width-25pc" );
                             sfxVolume = UIFactory.Slider( "Sfx Volume" ).Name( "sfx-volume" ).Classes( "label-width-25pc" );
                             gameVolume = UIFactory.Slider( "Game Volume" ).Name( "game-volume" ).Classes( "label-width-25pc" );
                         }
                     }
-                    using (UIFactory.Footer().Enter()) {
+                    using (UIFactory.Footer().AsScope()) {
                         okey = UIFactory.Button( "Ok" ).Name( "okey" );
                         back = UIFactory.Button( "Back" ).Name( "back" );
                     }

@@ -38,22 +38,22 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static View CreateVisualElement(out View view, out Label title, out Slot gameSlot, out Slot playerSlot, out Slot lobbySlot, out Slot chatSlot, out Button okey, out Button back) {
-            using (UIFactory.LargeWidget( "join-game-widget-view" ).Enter( out view )) {
-                using (UIFactory.Card().Enter()) {
-                    using (UIFactory.Header().Enter()) {
+            using (UIFactory.LargeWidget( "join-game-widget-view" ).AsScope( out view )) {
+                using (UIFactory.Card().AsScope()) {
+                    using (UIFactory.Header().AsScope()) {
                         title = UIFactory.Label( "Join Game" ).Name( "title" );
                     }
-                    using (UIFactory.Content().Enter()) {
-                        using (UIFactory.RowScope().Name( "game-and-player-scope" ).Classes( "grow-0", "basis-40pc" ).Enter()) {
+                    using (UIFactory.Content().AsScope()) {
+                        using (UIFactory.RowScope().Name( "game-and-player-scope" ).Classes( "grow-0", "basis-40pc" ).AsScope()) {
                             gameSlot = UIFactory.Slot().Name( "game-slot" ).Classes( "grow-1", "basis-0pc" );
                             playerSlot = UIFactory.Slot().Name( "player-slot" ).Classes( "grow-1", "basis-0pc" );
                         }
-                        using (UIFactory.RowScope().Name( "lobby-and-chat-scope" ).Classes( "grow-1", "basis-auto" ).Enter()) {
+                        using (UIFactory.RowScope().Name( "lobby-and-chat-scope" ).Classes( "grow-1", "basis-auto" ).AsScope()) {
                             lobbySlot = UIFactory.Slot().Name( "lobby-slot" ).Classes( "grow-1", "basis-0pc" );
                             chatSlot = UIFactory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" );
                         }
                     }
-                    using (UIFactory.Footer().Enter()) {
+                    using (UIFactory.Footer().AsScope()) {
                         okey = UIFactory.Button( "Ok" ).Name( "okey" );
                         back = UIFactory.Button( "Back" ).Name( "back" );
                     }

@@ -32,7 +32,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static View CreateVisualElement(out View view) {
-            using (UIFactory.Widget( "main-widget-view" ).Enter( out view )) {
+            using (UIFactory.Widget( "main-widget-view" ).AsScope( out view )) {
             }
             return view;
         }

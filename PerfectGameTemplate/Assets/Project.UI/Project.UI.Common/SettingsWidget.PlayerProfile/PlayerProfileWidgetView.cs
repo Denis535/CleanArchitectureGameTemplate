@@ -32,17 +32,17 @@ namespace Project.UI.Common {
 
         // Helpers
         private static View CreateVisualElement(out View view, out Label title, out TextField name, out Button okey, out Button back) {
-            using (UIFactory.MediumWidget( "player-profile-widget-view" ).Enter( out view )) {
-                using (UIFactory.Card().Enter()) {
-                    using (UIFactory.Header().Enter()) {
+            using (UIFactory.MediumWidget( "player-profile-widget-view" ).AsScope( out view )) {
+                using (UIFactory.Card().AsScope()) {
+                    using (UIFactory.Header().AsScope()) {
                         title = UIFactory.Label( "Player Profile" ).Name( "title" );
                     }
-                    using (UIFactory.Content().Enter()) {
-                        using (UIFactory.ColumnGroup().Classes( "large", "grow-1" ).Enter()) {
+                    using (UIFactory.Content().AsScope()) {
+                        using (UIFactory.ColumnGroup().Classes( "large", "grow-1" ).AsScope()) {
                             name = UIFactory.TextField( "Name", 16, false ).Name( "name" ).Classes( "label-width-25pc" );
                         }
                     }
-                    using (UIFactory.Footer().Enter()) {
+                    using (UIFactory.Footer().AsScope()) {
                         okey = UIFactory.Button( "Ok" ).Name( "okey" );
                         back = UIFactory.Button( "Back" ).Name( "back" );
                     }

@@ -34,19 +34,19 @@ namespace Project.UI.Common {
 
         // Helpers
         private static View CreateVisualElement(out View view, out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
-            using (UIFactory.MediumWidget( "settings-widget-view" ).Enter( out view )) {
-                using (UIFactory.Card().Enter()) {
-                    using (UIFactory.Header().Enter()) {
+            using (UIFactory.MediumWidget( "settings-widget-view" ).AsScope( out view )) {
+                using (UIFactory.Card().AsScope()) {
+                    using (UIFactory.Header().AsScope()) {
                         title = UIFactory.Label( "Settings" ).Name( "title" );
                     }
-                    using (UIFactory.Content().Enter()) {
-                        using (UIFactory.ColumnGroup().Classes( "large", "grow-1" ).Enter()) {
+                    using (UIFactory.Content().AsScope()) {
+                        using (UIFactory.ColumnGroup().Classes( "large", "grow-1" ).AsScope()) {
                             playerProfile = UIFactory.Button( "Player Profile" ).Name( "player-profile" ).Classes( "width-50pc", "align-self-center" );
                             videoSettings = UIFactory.Button( "Video Settings" ).Name( "video-settings" ).Classes( "width-50pc", "align-self-center" );
                             audioSettings = UIFactory.Button( "Audio Settings" ).Name( "audio-settings" ).Classes( "width-50pc", "align-self-center" );
                         }
                     }
-                    using (UIFactory.Footer().Enter()) {
+                    using (UIFactory.Footer().AsScope()) {
                         back = UIFactory.Button( "Back" ).Name( "back" );
                     }
                 }
