@@ -38,24 +38,25 @@ namespace Project.UI.Common {
 
         // Helpers
         private static View CreateVisualElement(out View view, out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
-            view = UIFactory.MediumWidget( "audio-settings-widget-view" );
-            view.Card().Children(
-                UIFactory.Header().Children(
-                    title = UIFactory.Label( "Audio Settings" ).Name( "title" )
-                ),
-                UIFactory.Content().Children(
-                    UIFactory.ColumnGroup().Classes( "large", "grow-1" ).Children(
-                        masterVolume = UIFactory.Slider( "Master Volume" ).Name( "master-volume" ).Classes( "label-width-25pc" ),
-                        musicVolume = UIFactory.Slider( "Music Volume" ).Name( "music-volume" ).Classes( "label-width-25pc" ),
-                        sfxVolume = UIFactory.Slider( "Sfx Volume" ).Name( "sfx-volume" ).Classes( "label-width-25pc" ),
-                        gameVolume = UIFactory.Slider( "Game Volume" ).Name( "game-volume" ).Classes( "label-width-25pc" )
-                    )
-                ),
-                UIFactory.Footer().Children(
-                    okey = UIFactory.Button( "Ok" ).Name( "okey" ),
-                    back = UIFactory.Button( "Back" ).Name( "back" )
-                )
-            );
+            using (UIFactory.MediumWidget( "audio-settings-widget-view" ).Enter( out view )) {
+                using (UIFactory.Card().Enter()) {
+                    using (UIFactory.Header().Enter()) {
+                        title = UIFactory.Label( "Audio Settings" ).Name( "title" );
+                    }
+                    using (UIFactory.Content().Enter()) {
+                        using (UIFactory.ColumnGroup().Classes( "large", "grow-1" ).Enter()) {
+                            masterVolume = UIFactory.Slider( "Master Volume" ).Name( "master-volume" ).Classes( "label-width-25pc" );
+                            musicVolume = UIFactory.Slider( "Music Volume" ).Name( "music-volume" ).Classes( "label-width-25pc" );
+                            sfxVolume = UIFactory.Slider( "Sfx Volume" ).Name( "sfx-volume" ).Classes( "label-width-25pc" );
+                            gameVolume = UIFactory.Slider( "Game Volume" ).Name( "game-volume" ).Classes( "label-width-25pc" );
+                        }
+                    }
+                    using (UIFactory.Footer().Enter()) {
+                        okey = UIFactory.Button( "Ok" ).Name( "okey" );
+                        back = UIFactory.Button( "Back" ).Name( "back" );
+                    }
+                }
+            }
             return view;
         }
 

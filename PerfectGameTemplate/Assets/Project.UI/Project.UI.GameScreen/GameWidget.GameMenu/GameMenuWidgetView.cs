@@ -32,17 +32,18 @@ namespace Project.UI.GameScreen {
 
         // Helpers
         private static View CreateVisualElement(out View view, out Label title, out Button resume, out Button settings, out Button back) {
-            view = UIFactory.LeftWidget( "game-menu-widget-view" );
-            view.Card().Children(
-                UIFactory.Header().Children(
-                    title = UIFactory.Label( "Game Menu" ).Name( "title" )
-                ),
-                UIFactory.Content().Children(
-                    resume = UIFactory.Button( "Resume" ).Name( "resume" ),
-                    settings = UIFactory.Button( "Settings" ).Name( "settings" ),
-                    back = UIFactory.Button( "Back To Main Menu" ).Name( "back" )
-                )
-            );
+            using (UIFactory.LeftWidget( "game-menu-widget-view" ).Enter( out view )) {
+                using (UIFactory.Card().Enter()) {
+                    using (UIFactory.Header().Enter()) {
+                        title = UIFactory.Label( "Game Menu" ).Name( "title" );
+                    }
+                    using (UIFactory.Content().Enter()) {
+                        resume = UIFactory.Button( "Resume" ).Name( "resume" );
+                        settings = UIFactory.Button( "Settings" ).Name( "settings" );
+                        back = UIFactory.Button( "Back To Main Menu" ).Name( "back" );
+                    }
+                }
+            }
             return view;
         }
 

@@ -38,26 +38,27 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static View CreateVisualElement(out View view, out Label title, out Slot gameSlot, out Slot playerSlot, out Slot lobbySlot, out Slot chatSlot, out Button okey, out Button back) {
-            view = UIFactory.LargeWidget( "join-game-widget-view" );
-            view.Card().Children(
-                UIFactory.Header().Children(
-                    title = UIFactory.Label( "Join Game" ).Name( "title" )
-                ),
-                UIFactory.Content().Children(
-                    UIFactory.RowScope().Name( "game-and-player-scope" ).Classes( "grow-0", "basis-40pc" ).Children(
-                        gameSlot = UIFactory.Slot().Name( "game-slot" ).Classes( "grow-1", "basis-0pc" ),
-                        playerSlot = UIFactory.Slot().Name( "player-slot" ).Classes( "grow-1", "basis-0pc" )
-                    ),
-                    UIFactory.RowScope().Name( "lobby-and-chat-scope" ).Classes( "grow-1", "basis-auto" ).Children(
-                        lobbySlot = UIFactory.Slot().Name( "lobby-slot" ).Classes( "grow-1", "basis-0pc" ),
-                        chatSlot = UIFactory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" )
-                    )
-                ),
-                UIFactory.Footer().Children(
-                    okey = UIFactory.Button( "Ok" ).Name( "okey" ),
-                    back = UIFactory.Button( "Back" ).Name( "back" )
-                )
-            );
+            using (UIFactory.LargeWidget( "join-game-widget-view" ).Enter( out view )) {
+                using (UIFactory.Card().Enter()) {
+                    using (UIFactory.Header().Enter()) {
+                        title = UIFactory.Label( "Join Game" ).Name( "title" );
+                    }
+                    using (UIFactory.Content().Enter()) {
+                        using (UIFactory.RowScope().Name( "game-and-player-scope" ).Classes( "grow-0", "basis-40pc" ).Enter()) {
+                            gameSlot = UIFactory.Slot().Name( "game-slot" ).Classes( "grow-1", "basis-0pc" );
+                            playerSlot = UIFactory.Slot().Name( "player-slot" ).Classes( "grow-1", "basis-0pc" );
+                        }
+                        using (UIFactory.RowScope().Name( "lobby-and-chat-scope" ).Classes( "grow-1", "basis-auto" ).Enter()) {
+                            lobbySlot = UIFactory.Slot().Name( "lobby-slot" ).Classes( "grow-1", "basis-0pc" );
+                            chatSlot = UIFactory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" );
+                        }
+                    }
+                    using (UIFactory.Footer().Enter()) {
+                        okey = UIFactory.Button( "Ok" ).Name( "okey" );
+                        back = UIFactory.Button( "Back" ).Name( "back" );
+                    }
+                }
+            }
             return view;
         }
 
