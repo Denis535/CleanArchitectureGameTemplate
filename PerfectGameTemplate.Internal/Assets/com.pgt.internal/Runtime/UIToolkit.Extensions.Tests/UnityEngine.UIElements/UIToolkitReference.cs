@@ -1,14 +1,13 @@
 #nullable enable
-namespace UIToolkit {
+namespace UnityEngine.UIElements {
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using NUnit.Framework;
     using UnityEngine;
-    using UnityEngine.UIElements;
 
-    public class UIToolkit : ApiReferenceBase {
+    public class UIToolkitReference : ApiReferenceBase {
 
         // Test
         [Test]

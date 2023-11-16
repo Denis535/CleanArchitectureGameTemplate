@@ -1,6 +1,6 @@
 {
-    "name": "Project.Tests",
-    "rootNamespace": "Project.Tests",
+    "name": "UIToolkit.Extensions.Tests",
+    "rootNamespace": "UnityEngine",
     "references": [],
     "includePlatforms": [
         "Editor"
@@ -8,9 +8,7 @@
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
-    "precompiledReferences": [
-        "nunit.framework.dll"
-    ],
+    "precompiledReferences": [],
     "autoReferenced": false,
     "defineConstraints": [],
     "versionDefines": [],

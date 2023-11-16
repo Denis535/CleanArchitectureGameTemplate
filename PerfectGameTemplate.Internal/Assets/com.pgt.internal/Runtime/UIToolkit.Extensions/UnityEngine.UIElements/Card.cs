@@ -19,28 +19,6 @@ namespace UnityEngine.UIElements {
             AddToClassList( "card" );
         }
 
-        public void AddToHeader(params VisualElement[] children) {
-            if (Header != null) {
-                Header!.Add( children );
-            } else {
-                Add( new Header().Children( children ) );
-            }
-        }
-        public void AddToContent(params VisualElement[] children) {
-            if (Content != null) {
-                Content!.Add( children );
-            } else {
-                Add( new Content().Children( children ) );
-            }
-        }
-        public void AddToFooter(params VisualElement[] children) {
-            if (Footer != null) {
-                Footer!.Add( children );
-            } else {
-                Add( new Footer().Children( children ) );
-            }
-        }
-
     }
     // Header
     public class Header : VisualElement {

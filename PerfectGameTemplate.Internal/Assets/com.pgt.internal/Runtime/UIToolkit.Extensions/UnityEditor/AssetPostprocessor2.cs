@@ -11,16 +11,6 @@ namespace UnityEditor {
 
     public class AssetPostprocessor2 : AssetPostprocessor {
 
-        // OnGeneratedSlnSolution
-        public static string OnGeneratedSlnSolution(string path, string content) {
-            return content;
-        }
-
-        // OnGeneratedCSProject
-        public static string OnGeneratedCSProject(string path, string content) {
-            return content;
-        }
-
         // OnPostprocessAllAssets
         public static void OnPostprocessAllAssets(string[] imported, string[] deleted, string[] moved, string[] movedFrom) {
             foreach (var imported_ in imported) {

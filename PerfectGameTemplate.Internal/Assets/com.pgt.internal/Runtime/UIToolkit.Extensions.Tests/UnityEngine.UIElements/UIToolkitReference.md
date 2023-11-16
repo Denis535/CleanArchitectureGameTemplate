@@ -10,10 +10,10 @@ Type
 *
 
 ## Complex selectors
-selector1 > selector2 - Match child
-selector1 selector2 - Match descendant
-selector1, selector2, selector3 - Match if any
-selector1selector2 - Match if all
+.a > .b - match child
+.a .b - match descendant
+.a.b - match if all
+.a, .b - match if any
 
 ## Pseudo-states
 :root

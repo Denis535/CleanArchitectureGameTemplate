@@ -25,30 +25,40 @@ namespace UnityEngine.Framework.UI {
 
         // Helpers/CreateVisualElement
         protected static VisualElement CreateVisualElement(out VisualElement view, out VisualElement viewsContainer, out VisualElement modalViewsContainer) {
-            var visualElement = view = new VisualElement().Name( "screen-view" ).Classes( "screen-view" );
+            var visualElement = view = new VisualElement();
+            visualElement.name = "screen-view";
             visualElement.pickingMode = PickingMode.Ignore;
+            visualElement.AddToClassList( "screen-view" );
             {
-                viewsContainer = new VisualElement().Name( "views-container" ).Classes( "views-container" );
+                viewsContainer = new VisualElement();
+                viewsContainer.name = "views-container";
                 viewsContainer.pickingMode = PickingMode.Ignore;
+                viewsContainer.AddToClassList( "views-container" );
                 visualElement.Add( viewsContainer );
             }
             {
-                modalViewsContainer = new VisualElement().Name( "modal-views-container" ).Classes( "modal-views-container" );
+                modalViewsContainer = new VisualElement();
+                modalViewsContainer.name = "modal-views-container";
                 modalViewsContainer.pickingMode = PickingMode.Ignore;
+                modalViewsContainer.AddToClassList( "modal-views-container" );
                 visualElement.Add( modalViewsContainer );
             }
             return visualElement;
         }
         // Helpers/AddView
         protected static void AddView(VisualElement container, UIWidgetViewBase view, UIWidgetViewBase? shadowed) {
-            shadowed?.VisualElement.SetDisplayed( false );
-            shadowed?.VisualElement.SetEnabled( false );
+            if (shadowed != null) {
+                shadowed.VisualElement.style.display = DisplayStyle.None;
+                shadowed.VisualElement.SetEnabled( false );
+            }
             container.Add( view.VisualElement );
         }
         protected static void RemoveView(VisualElement container, UIWidgetViewBase view, UIWidgetViewBase? unshadowed) {
             container.Remove( view.VisualElement );
-            unshadowed?.VisualElement.SetEnabled( true );
-            unshadowed?.VisualElement.SetDisplayed( true );
+            if (unshadowed != null) {
+                unshadowed.VisualElement.SetEnabled( true );
+                unshadowed.VisualElement.style.display = DisplayStyle.Flex;
+            }
         }
         // Helpers/AddModalView
         protected static void AddModalView(VisualElement container, UIWidgetViewBase view, UIWidgetViewBase? shadowed) {

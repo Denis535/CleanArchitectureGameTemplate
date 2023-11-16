@@ -8,24 +8,24 @@ namespace System {
 
     public static class Assert {
         public static class Argument {
-            public static Assertions.Message<Assertions.Argument> Message(FormattableString text) => new( text );
+            public static Assertions.Message<Assertions.Argument> Message(FormattableString? text) => new( text );
         }
         public static class Operation {
-            public static Assertions.Message<Assertions.Operation> Message(FormattableString text) => new( text );
+            public static Assertions.Message<Assertions.Operation> Message(FormattableString? text) => new( text );
         }
         public static class Object {
-            public static Assertions.Message<Assertions.Object> Message(FormattableString text) => new( text );
+            public static Assertions.Message<Assertions.Object> Message(FormattableString? text) => new( text );
         }
     }
     // Assertions
     public static class Assertions {
         public class Message<T> {
-            private FormattableString Value { get; }
-            public Message(FormattableString value) {
+            private FormattableString? Value { get; }
+            public Message(FormattableString? value) {
                 Value = value;
             }
-            public override string ToString() {
-                return Value.GetDisplayString();
+            public override string? ToString() {
+                return Value?.GetDisplayString();
             }
         }
         public abstract class Argument {
