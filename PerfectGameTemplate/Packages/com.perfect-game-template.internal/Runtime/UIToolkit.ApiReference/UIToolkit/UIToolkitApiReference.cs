@@ -7,7 +7,7 @@ namespace UnityEngine.UIElements {
     using NUnit.Framework;
     using UnityEngine;
 
-    public class UIToolkitReference : ApiReferenceBase {
+    public class UIToolkitApiReference : ApiReferenceBase {
 
         // Test
         [Test]

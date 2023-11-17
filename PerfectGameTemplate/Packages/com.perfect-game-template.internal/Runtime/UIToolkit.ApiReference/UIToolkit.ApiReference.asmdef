@@ -1,5 +1,5 @@
 {
-    "name": "UIToolkit.Extensions.Tests",
+    "name": "UIToolkit.ApiReference",
     "rootNamespace": "UnityEngine",
     "references": [],
     "includePlatforms": [

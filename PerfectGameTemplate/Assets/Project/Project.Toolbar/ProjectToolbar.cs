@@ -128,42 +128,42 @@ namespace Project.Toolbar {
         [MenuItem( "Project/Open Assets (UIAudioTheme)", priority = 1000 )]
         internal static void OpenAssets_UIAudioTheme() {
             OpenAssetsReverse(
-                "Assets/Project.UI/Project.UI/*Theme.cs",
-                "Assets/Project.UI/Project.UI.MainScreen/*Theme.cs",
-                "Assets/Project.UI/Project.UI.GameScreen/*Theme.cs"
+                "Assets/Project.UI/Project.UI/           (*Theme.cs)",
+                "Assets/Project.UI/Project.UI.MainScreen/(*Theme.cs)",
+                "Assets/Project.UI/Project.UI.GameScreen/(*Theme.cs)"
                 );
         }
         [MenuItem( "Project/Open Assets (UIScreen)", priority = 1001 )]
         internal static void OpenAssets_UIScreen() {
             OpenAssetsReverse(
-                "Assets/Project.UI/Project.UI/*Screen.cs",
-                "Assets/Project.UI/Project.UI.MainScreen/*Screen.cs",
-                "Assets/Project.UI/Project.UI.GameScreen/*Screen.cs"
+                "Assets/Project.UI/Project.UI/           (*Screen.cs)",
+                "Assets/Project.UI/Project.UI.MainScreen/(*Screen.cs)",
+                "Assets/Project.UI/Project.UI.GameScreen/(*Screen.cs)"
                 );
         }
         [MenuItem( "Project/Open Assets (UIWidget)", priority = 1002 )]
         internal static void OpenAssets_UIWidget() {
             OpenAssetsReverse(
-                "Assets/Project.UI/Project.UI/*(WidgetBase.cs|Widget.cs|Widget2.cs)",
-                "Assets/Project.UI/Project.UI.Common/*(WidgetBase.cs|Widget.cs|Widget2.cs)",
-                "Assets/Project.UI/Project.UI.MainScreen/*(WidgetBase.cs|Widget.cs|Widget2.cs)",
-                "Assets/Project.UI/Project.UI.GameScreen/*(WidgetBase.cs|Widget.cs|Widget2.cs)"
+                "Assets/Project.UI/Project.UI/           (*WidgetBase.cs|*Widget.cs|*Widget2.cs)",
+                "Assets/Project.UI/Project.UI.Common/    (*WidgetBase.cs|*Widget.cs|*Widget2.cs)",
+                "Assets/Project.UI/Project.UI.MainScreen/(*WidgetBase.cs|*Widget.cs|*Widget2.cs)",
+                "Assets/Project.UI/Project.UI.GameScreen/(*WidgetBase.cs|*Widget.cs|*Widget2.cs)"
                 );
         }
         [MenuItem( "Project/Open Assets (UIView)", priority = 1003 )]
         internal static void OpenAssets_UIView() {
             OpenAssetsReverse(
-                "Assets/Project.UI/Project.UI/*(ViewBase.cs|View.cs|View2.cs)",
-                "Assets/Project.UI/Project.UI.Common/*(ViewBase.cs|View.cs|View2.cs)",
-                "Assets/Project.UI/Project.UI.MainScreen/*(ViewBase.cs|View.cs|View2.cs)",
-                "Assets/Project.UI/Project.UI.GameScreen/*(ViewBase.cs|View.cs|View2.cs)"
+                "Assets/Project.UI/Project.UI/           (*ViewBase.cs|*View.cs|*View2.cs)",
+                "Assets/Project.UI/Project.UI.Common/    (*ViewBase.cs|*View.cs|*View2.cs)",
+                "Assets/Project.UI/Project.UI.MainScreen/(*ViewBase.cs|*View.cs|*View2.cs)",
+                "Assets/Project.UI/Project.UI.GameScreen/(*ViewBase.cs|*View.cs|*View2.cs)"
                 );
         }
         [MenuItem( "Project/Open Assets (StyleSheet)", priority = 1004 )]
         internal static void OpenAssets_StyleSheet() {
             OpenAssets(
-                "Assets/*/Assets.Project.UI/*.styl",
-                "Packages/*/Assets.UnityEngine.UIElements/*.styl"
+                "Assets/Project.UI/Assets.Project.UI/(*.stylus|*.styl)",
+                "Packages/com.perfect-game-template.internal/Runtime/UIToolkit.Extensions/Assets.UnityEngine.UIElements/(*.stylus|*.styl)"
                 );
         }
 
@@ -171,26 +171,30 @@ namespace Project.Toolbar {
         private static void OpenAssets(params string[] patterns) {
             foreach (var path in GetPaths( patterns )) {
                 AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
-                Thread.Sleep( 1000 );
+                Thread.Sleep( 500 );
             }
         }
         private static void OpenAssetsReverse(params string[] patterns) {
             foreach (var path in GetPaths( patterns ).Reverse()) {
                 AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
-                Thread.Sleep( 1000 );
+                Thread.Sleep( 500 );
             }
         }
         // Helpers
-        private static string[] GetPaths(string[] patterns) {
-            var paths = GetPaths();
-            return patterns.Select( GetRegex ).SelectMany( regex => paths.Where( path => regex.IsMatch( path ) ) ).ToArray();
+        private static IEnumerable<string> GetPaths(string[] patterns) {
+            var paths = GetPaths().ToArray();
+            foreach (var pattern in patterns) {
+                var regex = GetRegex( pattern.Replace( " ", "" ) );
+                foreach (var path in paths.Where( path => regex.IsMatch( path ) )) {
+                    yield return path;
+                }
+            }
         }
-        private static string[] GetPaths() {
+        private static IEnumerable<string> GetPaths() {
             var path = Directory.GetCurrentDirectory();
             return GetPaths( path )
                 .Select( i => Path.GetRelativePath( path, i ) )
-                .Select( i => i.Replace( '\\', '/' ) )
-                .ToArray();
+                .Select( i => i.Replace( '\\', '/' ) );
         }
         private static IEnumerable<string> GetPaths(string path) {
             foreach (var file in Directory.EnumerateFiles( path ).OrderBy( i => i )) {
