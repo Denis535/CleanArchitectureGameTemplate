@@ -14,6 +14,7 @@ namespace Project.Toolbar {
     using Project.UI.Common;
     using UnityEditor;
     using UnityEditor.SceneManagement;
+    using UnityEditorInternal;
     using UnityEngine;
     using UnityEngine.Framework.UI;
     using UnityEngine.SceneManagement;
@@ -45,83 +46,60 @@ namespace Project.Toolbar {
         }
 
         // LoadScene
-        [MenuItem( "Project/Launcher", priority = 100 )]
+        [MenuItem( "Project/Launcher", priority = 0 )]
         internal static void LoadLauncher() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/Launcher.unity" );
         }
-        [MenuItem( "Project/Program", priority = 101 )]
+        [MenuItem( "Project/Program", priority = 1 )]
         internal static void LoadProgram() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/Program.unity" );
         }
-        [MenuItem( "Project/Main Scene", priority = 102 )]
+        [MenuItem( "Project/Main Scene", priority = 2 )]
         internal static void LoadMainScene() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/MainScene.unity" );
         }
-        [MenuItem( "Project/Game Scene", priority = 103 )]
+        [MenuItem( "Project/Game Scene", priority = 3 )]
         internal static void LoadGameScene() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/GameScene.unity" );
         }
 
         // LoadScene
-        [MenuItem( "Project/Test World Scene 1", priority = 200 )]
+        [MenuItem( "Project/Test World Scene 1", priority = 100 )]
         internal static void LoadTestWorldScene_1() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/TestWorldScene_1.unity" );
         }
-        [MenuItem( "Project/Test World Scene 2", priority = 201 )]
+        [MenuItem( "Project/Test World Scene 2", priority = 101 )]
         internal static void LoadTestWorldScene_2() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/TestWorldScene_2.unity" );
         }
 
         // Build
-        [MenuItem( "Project/Pre Build", priority = 300 )]
+        [MenuItem( "Project/Pre Build", priority = 200 )]
         internal static void PreBuild() {
             new ProjectBuilder2().PreBuild();
         }
-        [MenuItem( "Project/Build Development", priority = 301 )]
+        [MenuItem( "Project/Build Development", priority = 201 )]
         internal static void BuildDevelopment() {
             new ProjectBuilder2().BuildDevelopment();
         }
-        [MenuItem( "Project/Build Production", priority = 302 )]
+        [MenuItem( "Project/Build Production", priority = 202 )]
         internal static void BuildProduction() {
             new ProjectBuilder2().BuildProduction();
         }
 
-        // OpenDialog
-        [MenuItem( "Project/Open Dialog", priority = 500 )]
-        internal static void OpenDialog() {
-            if (Application.isPlaying) {
-                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
-                var widget = screen.Widget;
-                var dialog = new DialogWidget( "Dialog", "This is dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
-                widget?.AttachChild( dialog );
-            }
-        }
-        [MenuItem( "Project/Open Info Dialog", priority = 501 )]
-        internal static void OpenInfoDialog() {
-            if (Application.isPlaying) {
-                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
-                var widget = screen.Widget;
-                var dialog = new InfoDialogWidget( "Info Dialog", "This is info dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
-                widget?.AttachChild( dialog );
-            }
-        }
-        [MenuItem( "Project/Open Warning Dialog", priority = 502 )]
-        internal static void OpenWarningDialog() {
-            if (Application.isPlaying) {
-                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
-                var widget = screen.Widget;
-                var dialog = new WarningDialogWidget( "Warning Dialog", "This is warning dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
-                widget?.AttachChild( dialog );
-            }
-        }
-        [MenuItem( "Project/Open Error Dialog", priority = 503 )]
-        internal static void OpenErrorDialog() {
-            if (Application.isPlaying) {
-                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
-                var widget = screen.Widget;
-                var dialog = new ErrorDialogWidget( "Error Dialog", "This is error dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
-                widget?.AttachChild( dialog );
-            }
+        // Screenshot
+        [MenuItem( "Project/Screenshot &F12", priority = 300 )]
+        private static void Screenshot() {
+            var position = EditorGUIUtility.GetMainWindowPosition();
+            var texture = new Texture2D( (int) position.width, (int) position.height );
+            texture.SetPixels( InternalEditorUtility.ReadScreenPixel( position.position, (int) position.width, (int) position.height ) );
+            var png = texture.EncodeToPNG();
+            Object.DestroyImmediate( texture );
+
+            var path = $"Screenshots/Screenshot-{DateTime.UtcNow.Ticks}.png";
+            Directory.CreateDirectory( Path.GetDirectoryName( path ) );
+            File.WriteAllBytes( path, png );
+            EditorApplication.Beep();
         }
 
         // OpenAssets
@@ -167,29 +145,58 @@ namespace Project.Toolbar {
                 );
         }
 
+        // OpenDialog
+        [MenuItem( "Project/Open Dialog", priority = 1100 )]
+        internal static void OpenDialog() {
+            if (Application.isPlaying) {
+                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
+                var widget = screen.Widget;
+                var dialog = new DialogWidget( "Dialog", "This is dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
+                widget?.AttachChild( dialog );
+            }
+        }
+        [MenuItem( "Project/Open Info Dialog", priority = 1101 )]
+        internal static void OpenInfoDialog() {
+            if (Application.isPlaying) {
+                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
+                var widget = screen.Widget;
+                var dialog = new InfoDialogWidget( "Info Dialog", "This is info dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
+                widget?.AttachChild( dialog );
+            }
+        }
+        [MenuItem( "Project/Open Warning Dialog", priority = 1102 )]
+        internal static void OpenWarningDialog() {
+            if (Application.isPlaying) {
+                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
+                var widget = screen.Widget;
+                var dialog = new WarningDialogWidget( "Warning Dialog", "This is warning dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
+                widget?.AttachChild( dialog );
+            }
+        }
+        [MenuItem( "Project/Open Error Dialog", priority = 1103 )]
+        internal static void OpenErrorDialog() {
+            if (Application.isPlaying) {
+                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
+                var widget = screen.Widget;
+                var dialog = new ErrorDialogWidget( "Error Dialog", "This is error dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
+                widget?.AttachChild( dialog );
+            }
+        }
+
         // Helpers
         private static void OpenAssets(params string[] patterns) {
-            foreach (var path in GetPaths( patterns )) {
+            foreach (var path in GetMatches( GetPaths(), patterns )) {
                 AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
                 Thread.Sleep( 500 );
             }
         }
         private static void OpenAssetsReverse(params string[] patterns) {
-            foreach (var path in GetPaths( patterns ).Reverse()) {
+            foreach (var path in GetMatches( GetPaths(), patterns ).Reverse()) {
                 AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
                 Thread.Sleep( 500 );
             }
         }
         // Helpers
-        private static IEnumerable<string> GetPaths(string[] patterns) {
-            var paths = GetPaths().ToArray();
-            foreach (var pattern in patterns) {
-                var regex = GetRegex( pattern.Replace( " ", "" ) );
-                foreach (var path in paths.Where( path => regex.IsMatch( path ) )) {
-                    yield return path;
-                }
-            }
-        }
         private static IEnumerable<string> GetPaths() {
             var path = Directory.GetCurrentDirectory();
             return GetPaths( path )
@@ -206,9 +213,14 @@ namespace Project.Toolbar {
             }
         }
         // Helpers
-        private static Regex GetRegex(string pattern) {
-            pattern = "^" + pattern.Replace( "*", "(.*?)" ) + "$";
-            return new Regex( pattern, RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace );
+        private static IEnumerable<string> GetMatches(IEnumerable<string> paths, string[] patterns) {
+            paths = paths.ToList();
+            foreach (var pattern in patterns) {
+                var regex = new Regex( "^" + pattern.Replace( " ", "" ).Replace( "*", "(.*?)" ) + "$", RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace );
+                foreach (var path in paths.Where( path => regex.IsMatch( path ) )) {
+                    yield return path;
+                }
+            }
         }
 
     }
