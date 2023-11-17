@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "com.pgt.internal": {
-      "version": "file:../../PerfectGameTemplate.Internal/Assets/com.pgt.internal",
+    "com.perfect-game-template.internal": {
+      "version": "file:D:/Projects/PerfectGameTemplate/PerfectGameTemplate.Internal/Assets/com.perfect-game-template.internal",
       "depth": 0,
       "source": "local",
       "dependencies": {
@@ -169,7 +169,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.services.lobby": {
-      "version": "1.1.0",
+      "version": "1.1.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
