@@ -129,9 +129,7 @@ namespace Project.Toolbar {
         internal static void OpenAssets_UIAudioTheme() {
             OpenAssetsReverse(
                 "Assets/Project.UI/Project.UI/*Theme.cs",
-                // MainScreen
                 "Assets/Project.UI/Project.UI.MainScreen/*Theme.cs",
-                // GameScreen
                 "Assets/Project.UI/Project.UI.GameScreen/*Theme.cs"
                 );
         }
@@ -139,9 +137,7 @@ namespace Project.Toolbar {
         internal static void OpenAssets_UIScreen() {
             OpenAssetsReverse(
                 "Assets/Project.UI/Project.UI/*Screen.cs",
-                // MainScreen
                 "Assets/Project.UI/Project.UI.MainScreen/*Screen.cs",
-                // GameScreen
                 "Assets/Project.UI/Project.UI.GameScreen/*Screen.cs"
                 );
         }
@@ -149,11 +145,8 @@ namespace Project.Toolbar {
         internal static void OpenAssets_UIWidget() {
             OpenAssetsReverse(
                 "Assets/Project.UI/Project.UI/*(WidgetBase.cs|Widget.cs|Widget2.cs)",
-                // Common
                 "Assets/Project.UI/Project.UI.Common/*(WidgetBase.cs|Widget.cs|Widget2.cs)",
-                // MainScreen
                 "Assets/Project.UI/Project.UI.MainScreen/*(WidgetBase.cs|Widget.cs|Widget2.cs)",
-                // GameScreen
                 "Assets/Project.UI/Project.UI.GameScreen/*(WidgetBase.cs|Widget.cs|Widget2.cs)"
                 );
         }
@@ -161,19 +154,16 @@ namespace Project.Toolbar {
         internal static void OpenAssets_UIView() {
             OpenAssetsReverse(
                 "Assets/Project.UI/Project.UI/*(ViewBase.cs|View.cs|View2.cs)",
-                // Common
                 "Assets/Project.UI/Project.UI.Common/*(ViewBase.cs|View.cs|View2.cs)",
-                // MainScreen
                 "Assets/Project.UI/Project.UI.MainScreen/*(ViewBase.cs|View.cs|View2.cs)",
-                // GameScreen
                 "Assets/Project.UI/Project.UI.GameScreen/*(ViewBase.cs|View.cs|View2.cs)"
                 );
         }
         [MenuItem( "Project/Open Assets (StyleSheet)", priority = 1004 )]
         internal static void OpenAssets_StyleSheet() {
             OpenAssets(
-                "Assets/Project.UI/Assets.Project.UI/*.tss",
-                "Assets/Project.UI/Assets.Project.UI/*.styl"
+                "Assets/*/Assets.Project.UI/*.styl",
+                "Packages/*/Assets.UnityEngine.UIElements/*.styl"
                 );
         }
 
@@ -181,13 +171,13 @@ namespace Project.Toolbar {
         private static void OpenAssets(params string[] patterns) {
             foreach (var path in GetPaths( patterns )) {
                 AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
-                Thread.Sleep( 500 );
+                Thread.Sleep( 1000 );
             }
         }
         private static void OpenAssetsReverse(params string[] patterns) {
             foreach (var path in GetPaths( patterns ).Reverse()) {
                 AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
-                Thread.Sleep( 500 );
+                Thread.Sleep( 1000 );
             }
         }
         // Helpers

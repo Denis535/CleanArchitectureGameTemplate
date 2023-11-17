@@ -35,17 +35,17 @@ namespace Project.UI {
         // Constructor
         public UIScreenView(UIScreen screen) : base( screen ) {
             // Assets
-            window = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window ).GetResult();
-            infoWindow = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window_Info ).GetResult();
-            warningWindow = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window_Warning ).GetResult();
-            errorWindow = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Window_Error ).GetResult();
-            focus = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Focus ).GetResult();
-            click = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Click ).GetResult();
-            select = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select ).GetResult();
-            confirmSelect = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select_Confirm ).GetResult();
-            cancelSelect = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select_Cancel ).GetResult();
-            invalidSelect = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select_Invalid ).GetResult();
-            tik = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Tick ).GetResult();
+            window = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Window ).GetResult();
+            infoWindow = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Window_Info ).GetResult();
+            warningWindow = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Window_Warning ).GetResult();
+            errorWindow = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Window_Error ).GetResult();
+            focus = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Focus ).GetResult();
+            click = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Click ).GetResult();
+            select = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Select ).GetResult();
+            confirmSelect = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Select_Confirm ).GetResult();
+            cancelSelect = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Select_Cancel ).GetResult();
+            invalidSelect = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Select_Invalid ).GetResult();
+            tik = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Tick ).GetResult();
             // View
             VisualElement = CreateVisualElement( out var view, out var viewsContainer, out var modalViewsContainer );
             View = view.Wrap();

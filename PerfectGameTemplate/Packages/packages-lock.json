@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "com.perfect-game-template.internal": {
-      "version": "file:D:/Projects/PerfectGameTemplate/PerfectGameTemplate.Internal/Assets/com.perfect-game-template.internal",
+      "version": "file:com.perfect-game-template.internal",
       "depth": 0,
-      "source": "local",
+      "source": "embedded",
       "dependencies": {
         "com.unity.addressables": "0.0.0"
       }
