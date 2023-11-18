@@ -182,7 +182,7 @@ namespace Project.UI.MainScreen {
             var style = (int) Mathf.PingPong( id, 4 ) switch {
                 0 => "light2",
                 1 => "light",
-                2 => null,
+                2 => "gray",
                 3 => "dark",
                 4 => "dark2",
                 _ => throw Exceptions.Internal.Exception( null )
@@ -237,7 +237,7 @@ namespace Project.UI.MainScreen {
             var style = (int) Mathf.PingPong( id, 4 ) switch {
                 0 => "light2",
                 1 => "light",
-                2 => null,
+                2 => "gray",
                 3 => "dark",
                 4 => "dark2",
                 _ => throw Exceptions.Internal.Exception( null )

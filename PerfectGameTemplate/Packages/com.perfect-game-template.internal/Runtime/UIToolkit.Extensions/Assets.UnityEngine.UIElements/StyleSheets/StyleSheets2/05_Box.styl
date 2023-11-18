@@ -1,17 +1,18 @@
 @import "../Internal/__Theme"
 
 // box
+view--box           = create-view-skin(light, (box         box        ), (box         box))
 view--box--light2   = create-view-skin(light, (box--light2 box--light2), (box--light2 box))
 view--box--light    = create-view-skin(light, (box--light  box--light ), (box--light  box))
-view--box           = create-view-skin(light, (box--gray   box--gray  ), (box--gray   box))
+view--box--gray     = create-view-skin(light, (box--gray   box--gray  ), (box--gray   box))
 view--box--dark     = create-view-skin(light, (box--dark   box--dark  ), (box--dark   box))
 view--box--dark2    = create-view-skin(light, (box--dark2  box--dark2 ), (box--dark2  box))
 
 // box
-layout--box         = create-layout-skin(null, auto auto, (4px), (1px), (0px                )), create-flex(0, 1, auto, auto)
-layout--box--small  = create-layout-skin(null, auto auto, (4px), (1px), (6px  6px  5px  5px )), create-flex(0, 1, auto, auto)
-layout--box--medium = create-layout-skin(null, auto auto, (4px), (1px), (12px 12px 10px 10px)), create-flex(0, 1, auto, auto)
-layout--box--large  = create-layout-skin(null, auto auto, (4px), (1px), (24px 24px 20px 20px)), create-flex(0, 1, auto, auto)
+layout--box         = create-layout-skin(null, auto auto, (4px), (1px), (0px                ))
+layout--box--small  = create-layout-skin(null, auto auto, (4px), (1px), (6px  6px  5px  5px ))
+layout--box--medium = create-layout-skin(null, auto auto, (4px), (1px), (12px 12px 10px 10px))
+layout--box--large  = create-layout-skin(null, auto auto, (4px), (1px), (24px 24px 20px 20px))
 
 // box
 flex--box           = create-flex(0, 1, auto, auto), create-flex2(column, flex-start, stretch)
@@ -26,6 +27,8 @@ flex--box           = create-flex(0, 1, auto, auto), create-flex2(column, flex-s
     add-skin1 box--light2
 .unity-box.light
     add-skin1 box--light
+.unity-box.gray
+    add-skin1 box--gray
 .unity-box.dark
     add-skin1 box--dark
 .unity-box.dark2
