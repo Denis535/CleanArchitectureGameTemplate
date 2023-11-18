@@ -1,9 +1,10 @@
 @import "../Internal/__Theme"
 
 // scroll-view
+view--scroll-view                      = create-view-skin(light, (view             view                   ), (view             view     ))
 view--scroll-view--light2              = create-view-skin(light, (view--light2     view--light2           ), (view--light2     view     ))
 view--scroll-view--light               = create-view-skin(light, (view--light      view--light            ), (view--light      view     ))
-view--scroll-view                      = create-view-skin(light, (view--gray       view--gray             ), (view--gray       view     ))
+view--scroll-view--gray                = create-view-skin(light, (view--gray       view--gray             ), (view--gray       view     ))
 view--scroll-view--dark                = create-view-skin(light, (view--dark       view--dark             ), (view--dark       view     ))
 view--scroll-view--dark2               = create-view-skin(light, (view--dark2      view--dark2            ), (view--dark2      view     ))
 view--viewport-and-vertical-scroller   = create-view-skin(null,  (element          element                ), (element          element  ))
@@ -104,6 +105,8 @@ flex--vertical-high-button             = create-flex(0, 0, auto, auto)
     add-skin1 scroll-view--light2
 .unity-scroll-view.light
     add-skin1 scroll-view--light
+.unity-scroll-view.gray
+    add-skin1 scroll-view--gray
 .unity-scroll-view.dark
     add-skin1 scroll-view--dark
 .unity-scroll-view.dark2
