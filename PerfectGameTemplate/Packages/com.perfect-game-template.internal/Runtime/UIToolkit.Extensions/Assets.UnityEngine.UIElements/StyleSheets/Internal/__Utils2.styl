@@ -52,41 +52,39 @@ create-view-skin(color, background, border)
 create-layout-skin(position, size, margin, border, padding)
     create-layout position, size[0], size[1], margin, border, padding
 
-// add-skin1
+// add-skin
 add-skin1(name)
     if typeof(name) == 'object'
         add-style name
     else
         add-style get-skin1(name)
-get-skin1(name)
-    if name != null
-        name = 'view--' + get-string(name)
-        return lookup(name) if name is defined
-        error('Skin (view) is not found: ' + name)
-    null
-
-// add-skin2
 add-skin2(name)
     if typeof(name) == 'object'
         add-style name
     else
         add-style get-skin2(name)
-get-skin2(name)
-    if name != null
-        name = 'layout--' + get-string(name)
-        return lookup(name) if name is defined
-        error('Skin (layout) is not found: ' + name)
-    null
-
-// add-skin3
 add-skin3(name)
     if typeof(name) == 'object'
         add-style name
     else
         add-style get-skin3(name)
+
+// get-skin
+get-skin1(name)
+    if name != null and name != none
+        name = 'view--' + get-string(name)
+        return lookup(name) if is-defined(name)
+        error('Skin (view) is not found: ' + name)
+    null
+get-skin2(name)
+    if name != null and name != none
+        name = 'layout--' + get-string(name)
+        return lookup(name) if is-defined(name)
+        error('Skin (layout) is not found: ' + name)
+    null
 get-skin3(name)
-    if name != null
+    if name != null and name != none
         name = 'flex--' + get-string(name)
-        return lookup(name) if name is defined
+        return lookup(name) if is-defined(name)
         error('Skin (flex) is not found: ' + name)
     null

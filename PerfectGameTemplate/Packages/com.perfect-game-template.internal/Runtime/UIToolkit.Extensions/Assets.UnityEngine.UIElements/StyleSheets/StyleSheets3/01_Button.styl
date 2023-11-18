@@ -1,13 +1,14 @@
 @import "../Internal/__Theme"
 
 // button
-view--button   = create-view-skin(light, (element--light element--light), (element--light element)), create-font(null, null, bold), create-text(middle-center, null, null)
+view--button        = create-view-skin(light,   (element--light        element--light       ), (element--light        element)), create-font(null, null, bold), create-text(middle-center, null, null)
+view--button--hover = create-view-skin(white, (element--light--hover element--light--hover), (element--light--hover element)), create-font(null, null, bold), create-text(middle-center, null, null)
 
 // button
-layout--button = create-layout-skin(null, auto auto, (4px), (1px), (12px 12px 10px 10px))
+layout--button      = create-layout-skin(null, auto auto, (4px), (1px), (12px 12px 10px 10px))
 
 // button
-flex--button   = create-flex(0, 1, auto, auto)
+flex--button        = create-flex(0, 1, auto, auto)
 
 // button
 .unity-button, .unity-repeat-button
@@ -15,11 +16,9 @@ flex--button   = create-flex(0, 1, auto, auto)
     add-skin1 button
     add-skin2 button
     add-skin3 button
-
-// // button
-// .unity-button:hover, .unity-repeat-button:hover
-//     add-skin1 button
-//     add-skin2 button
+// button
+.unity-button:hover, .unity-repeat-button:hover
+    add-skin1 button--hover
 
 // // button
 // .unity-button:active, .unity-repeat-button:active

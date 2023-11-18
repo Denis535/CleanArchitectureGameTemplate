@@ -4,8 +4,10 @@
 theme = create-theme()
 
 // color
+theme[color           ]['white'                    ] = hsla(  0,   0%, 100%, 1.00)
 theme[color           ]['light'                      ] = hsla(  0,   0%,  90%, 1.00)
 theme[color           ]['dark'                       ] = hsla(  0,   0%,  10%, 1.00)
+theme[color           ]['black'                    ] = hsla(  0,   0%,   0%, 1.00)
 // color
 theme[color           ]['focus-effect'               ] = hsla(210,  80%,  50%, 1.00)
 theme[color           ]['invalid-effect'             ] = hsla(  0,  80%,  50%, 1.00)
@@ -155,15 +157,15 @@ theme[border-radius   ]['element'                    ] = 4px
 theme[border-radius   ]['component'                  ] = 2px
 
 // element/hover
-theme[background-color]['element--light--hover'      ] = lighten(get-theme-background-color('element--light'), 10%)
+theme[background-color]['element--light--hover'      ] = lighten(get-theme-background-color('element--light'), 4%)
 theme[background-image]['element--light--hover'      ] = null
 theme[border-color    ]['element--light--hover'      ] = null
 // element/hover
-theme[background-color]['element--gray--hover'       ] = lighten(get-theme-background-color('element--gray' ), 10%)
+theme[background-color]['element--gray--hover'       ] = lighten(get-theme-background-color('element--gray' ), 0%)
 theme[background-image]['element--gray--hover'       ] = null
 theme[border-color    ]['element--gray--hover'       ] = null
 // element/hover
-theme[background-color]['element--dark--hover'       ] = lighten(get-theme-background-color('element--dark' ), 10%)
+theme[background-color]['element--dark--hover'       ] = lighten(get-theme-background-color('element--dark' ), 0%)
 theme[background-image]['element--dark--hover'       ] = null
 theme[border-color    ]['element--dark--hover'       ] = null
 

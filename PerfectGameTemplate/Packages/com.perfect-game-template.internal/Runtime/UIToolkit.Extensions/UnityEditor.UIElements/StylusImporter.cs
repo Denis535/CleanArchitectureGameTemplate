@@ -75,6 +75,7 @@ namespace UnityEditor.UIElements {
                 .define('raw-eval',   rawEvalEx,   raw = true )
                 .define('get-string', getStringEx, raw = true )
                 .define('get-type',   getTypeEx,   raw = true )
+                .define('is-defined', isDefinedEx, raw = true )
                 .render(onComplete);
 
             // onCallback
@@ -122,6 +123,21 @@ namespace UnityEditor.UIElements {
                 if (expr.nodes.length == 0) return new Stylus.nodes.Null();
                 if (expr.nodes.length == 1) return new Stylus.nodes.String(expr.nodes[0].constructor.name);
                 return new Stylus.nodes.Literal(expr.constructor.name);
+            }}
+            function isDefinedEx(expr) {{
+                expr = Stylus.utils.unwrap(expr);
+                if (expr.nodes.length == 0) {{
+                    return new Stylus.nodes.Null();
+                }}
+                if (expr.nodes.length == 1) {{
+                    const expr2 = expr.nodes[0];
+                    if (expr2.constructor.name == 'String')  return new Stylus.nodes.Boolean(this.lookup(expr2.string ?? expr2.toString()));
+                    if (expr2.constructor.name == 'Literal') return new Stylus.nodes.Boolean(this.lookup(expr2.string ?? expr2.toString()));
+                    if (expr2.constructor.name == 'Ident')   return new Stylus.nodes.Boolean(this.lookup(expr2.string ?? expr2.toString()));
+                    if (expr2.constructor.name == 'Null')    return new Stylus.nodes.Null();
+                    throw new Error( ""Argument 'expr' is not supported: "" + expr2 );
+                }}
+                throw new Error( ""Argument 'expr' is invalid: "" + expr );
             }}
             " );
         }
