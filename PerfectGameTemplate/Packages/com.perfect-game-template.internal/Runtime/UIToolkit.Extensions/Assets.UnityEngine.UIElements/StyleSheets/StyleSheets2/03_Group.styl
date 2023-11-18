@@ -1,9 +1,10 @@
 @import "../Internal/__Theme"
 
 // group
+view--group           = create-view-skin(light, (view         view        ), (view         view))
 view--group--light2   = create-view-skin(light, (view--light2 view--light2), (view--light2 view))
 view--group--light    = create-view-skin(light, (view--light  view--light ), (view--light  view))
-view--group           = create-view-skin(light, (view--gray   view--gray  ), (view--gray   view))
+view--group--gray     = create-view-skin(light, (view--gray   view--gray  ), (view--gray   view))
 view--group--dark     = create-view-skin(light, (view--dark   view--dark  ), (view--dark   view))
 view--group--dark2    = create-view-skin(light, (view--dark2  view--dark2 ), (view--dark2  view))
 
@@ -26,6 +27,8 @@ flex--group--row      = create-flex(0, 1, auto, auto), create-flex2(row,    flex
     add-skin1 group--light2
 .group.light
     add-skin1 group--light
+.group.gray
+    add-skin1 group--gray
 .group.dark
     add-skin1 group--dark
 .group.dark2

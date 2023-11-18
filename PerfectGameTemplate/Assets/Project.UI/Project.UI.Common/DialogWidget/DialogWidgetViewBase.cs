@@ -92,7 +92,7 @@ namespace Project.UI.Common {
                         title = UIFactory.Label( null ).Name( "title" );
                     }
                     using (UIFactory.Content().AsScope( out content )) {
-                        using (UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                        using (UIFactory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             message = UIFactory.Label( null ).Name( "message" );
                         }
                     }
@@ -122,7 +122,7 @@ namespace Project.UI.Common {
                         title = UIFactory.Label( null ).Name( "title" );
                     }
                     using (UIFactory.Content().AsScope( out content )) {
-                        using (UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                        using (UIFactory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             message = UIFactory.Label( null ).Name( "message" );
                         }
                     }
@@ -152,7 +152,7 @@ namespace Project.UI.Common {
                         title = UIFactory.Label( null ).Name( "title" );
                     }
                     using (UIFactory.Content().AsScope( out content )) {
-                        using (UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                        using (UIFactory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             message = UIFactory.Label( null ).Name( "message" );
                         }
                     }
@@ -182,7 +182,7 @@ namespace Project.UI.Common {
                         title = UIFactory.Label( null ).Name( "title" );
                     }
                     using (UIFactory.Content().AsScope( out content )) {
-                        using (UIFactory.ColumnGroup().Classes( "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                        using (UIFactory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             message = UIFactory.Label( null ).Name( "message" );
                         }
                     }

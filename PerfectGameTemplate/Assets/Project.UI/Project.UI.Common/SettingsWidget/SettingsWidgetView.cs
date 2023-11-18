@@ -40,7 +40,7 @@ namespace Project.UI.Common {
                         title = UIFactory.Label( "Settings" ).Name( "title" );
                     }
                     using (UIFactory.Content().AsScope()) {
-                        using (UIFactory.ColumnGroup().Classes( "large", "grow-1" ).AsScope()) {
+                        using (UIFactory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
                             playerProfile = UIFactory.Button( "Player Profile" ).Name( "player-profile" ).Classes( "width-50pc", "align-self-center" );
                             videoSettings = UIFactory.Button( "Video Settings" ).Name( "video-settings" ).Classes( "width-50pc", "align-self-center" );
                             audioSettings = UIFactory.Button( "Audio Settings" ).Name( "audio-settings" ).Classes( "width-50pc", "align-self-center" );

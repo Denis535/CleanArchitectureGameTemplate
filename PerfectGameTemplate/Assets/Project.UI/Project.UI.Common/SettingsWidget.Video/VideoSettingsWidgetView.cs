@@ -42,7 +42,7 @@ namespace Project.UI.Common {
                         title = UIFactory.Label( "Video Settings" ).Name( "title" );
                     }
                     using (UIFactory.Content().AsScope()) {
-                        using (UIFactory.ColumnGroup().Classes( "large", "grow-1" ).AsScope()) {
+                        using (UIFactory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
                             isFullScreen = UIFactory.Toggle( "Full Screen" ).Name( "is-full-screen" ).Classes( "label-width-25pc" );
                             screenResolution = UIFactory.PopupField( "Screen Resolution" ).Name( "screen-resolution" ).Classes( "label-width-25pc" );
                             isVSync = UIFactory.Toggle( "V-Sync" ).Name( "is-v-sync" ).Classes( "label-width-25pc" );
