@@ -72,15 +72,15 @@ flex--content                          = null
         add-skin1 text
         add-skin2 text
         add-skin3 text
-
-// dropdown
+// dropdown/hover
 .unity-base-dropdown
     &__container-outer:hover
         add-skin1 dropdown--hover
     &__item:hover
         add-skin1 dropdown-item--hover
-
-// dropdown
+// dropdown/checked
 .unity-base-dropdown
     &__item:checked &__checkmark
         add-skin1 checkmark--checked
+    &__item:checked &__label
+        add-skin1 none
