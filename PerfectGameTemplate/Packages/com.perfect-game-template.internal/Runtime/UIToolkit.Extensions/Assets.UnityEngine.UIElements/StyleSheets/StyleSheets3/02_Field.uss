@@ -98,7 +98,11 @@
 }
 .unity-base-field:hover .unity-base-field__label {
   color: #e6e6e6;
-  background-color: #414344;
+  background-color: #434446;
+  border-left-color: #92704f;
+  border-right-color: #92704f;
+  border-top-color: #92704f;
+  border-bottom-color: #92704f;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -107,6 +111,10 @@
 .unity-base-field:hover .unity-base-field__input {
   color: #e6e6e6;
   background-color: #2a2b2c;
+  border-left-color: #92704f;
+  border-right-color: #92704f;
+  border-top-color: #92704f;
+  border-bottom-color: #92704f;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;

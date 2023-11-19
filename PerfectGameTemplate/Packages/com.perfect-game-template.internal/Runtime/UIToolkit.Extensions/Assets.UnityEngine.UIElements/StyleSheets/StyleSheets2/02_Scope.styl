@@ -18,14 +18,16 @@ flex--scope--row      = create-flex(0, 1, auto, auto), create-flex2(row,    flex
     add-skin1 scope
     add-skin2 scope
 // scope/layout
-.scope.small
-    add-skin2 scope--small
-.scope.medium
-    add-skin2 scope--medium
-.scope.large
-    add-skin2 scope--large
+.scope
+    &.small
+        add-skin2 scope--small
+    &.medium
+        add-skin2 scope--medium
+    &.large
+        add-skin2 scope--large
 // scope/flex
-.scope.column
-    add-skin3 scope--column
-.scope.row
-    add-skin3 scope--row
+.scope
+    &.column
+        add-skin3 scope--column
+    &.row
+        add-skin3 scope--row

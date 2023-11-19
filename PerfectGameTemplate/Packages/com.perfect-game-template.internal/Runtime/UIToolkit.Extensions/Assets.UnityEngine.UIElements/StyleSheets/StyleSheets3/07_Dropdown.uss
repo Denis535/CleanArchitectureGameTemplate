@@ -243,7 +243,7 @@
 }
 .unity-base-dropdown__item:checked .unity-base-dropdown__checkmark {
   background-color: rgba(0,0,0,0);
-  background-image: url('project://database/Packages/com.perfect-game-template.internal/Runtime/UIToolkit.Extensions/Assets.UnityEngine.UIElements/Images/Check.png');
+  background-image: url('../../Images/Check.png');
   -unity-background-image-tint-color: #e6e6e6;
   border-left-color: rgba(0,0,0,0);
   border-right-color: rgba(0,0,0,0);

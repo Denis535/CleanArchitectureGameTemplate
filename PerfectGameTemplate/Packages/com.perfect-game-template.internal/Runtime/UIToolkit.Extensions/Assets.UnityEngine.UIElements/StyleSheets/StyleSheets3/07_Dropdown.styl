@@ -2,13 +2,12 @@
 
 // dropdown
 view--dropdown                         = create-view-skin(light, (dropdown             dropdown             ), (dropdown             dropdown     ))
+view--dropdown--hover                  = create-view-skin(light, (dropdown--hover      dropdown--hover      ), (dropdown--hover      dropdown     ))
 view--dropdown-item                    = create-view-skin(light, (dropdown-item        dropdown-item        ), (dropdown-item        dropdown-item))
+view--dropdown-item--hover             = create-view-skin(light, (dropdown-item--hover dropdown-item--hover ), (dropdown-item--hover dropdown-item))
 view--checkmark                        = create-view-skin(null,  (component            component            ), (component            component    ))
 view--checkmark--checked               = create-view-skin(null,  (component            checkmark-icon--light), (component            component    ))
 view--text                             = create-view-skin(null,  (element              element              ), (element              element      ))
-// dropdown
-view--dropdown--hover                  = create-view-skin(light, (dropdown--hover      dropdown--hover      ), (dropdown--hover      dropdown     ))
-view--dropdown-item--hover             = create-view-skin(light, (dropdown-item--hover dropdown-item--hover ), (dropdown-item--hover dropdown-item))
 // scroll-view
 view--scroll-view                      = create-view-skin(null,  (element              element              ), (element              element      ))
 view--viewport-and-vertical-scroller   = create-view-skin(null,  (element              element              ), (element              element      ))
@@ -85,4 +84,3 @@ flex--content                          = null
 .unity-base-dropdown
     &__item:checked &__checkmark
         add-skin1 checkmark--checked
- 

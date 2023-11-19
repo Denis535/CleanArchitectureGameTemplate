@@ -10,35 +10,6 @@ create-theme()
         border-radius: {},
     }
 
-// get-theme-value
-get-theme-color(key)
-    if key != null
-        return get(theme.color, key) if has(theme.color, key)
-        error('Color is not found: ' + get-string(key))
-    null
-get-theme-background-color(key)
-    if key != null
-        return get(theme.background-color, key) if has(theme.background-color, key)
-        return get(theme.color,            key) if has(theme.color,            key)
-        error('Background color is not found: ' + get-string(key))
-    null
-get-theme-background-image(key)
-    if key != null
-        return get(theme.background-image, key) if has(theme.background-image, key)
-        error('Background image is not found: ' + get-string(key))
-    null
-get-theme-border-color(key)
-    if key != null
-        return get(theme.border-color, key) if has(theme.border-color, key)
-        return get(theme.color,        key) if has(theme.color,        key)
-        error('Border color is not found: ' + get-string(key))
-    null
-get-theme-border-radius(key)
-    if key != null
-        return get(theme.border-radius, key) if has(theme.border-radius, key)
-        error('Border radius is not found: ' + get-string(key))
-    null
-
 // create-view-skin
 create-view-skin(color, background, border)
     color            = get-theme-color(color)
@@ -68,6 +39,49 @@ add-skin3(name)
         add-style name
     else
         add-style get-skin3(name)
+
+// get-theme-value
+get-theme-color(key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
+    if key != null
+        return get-theme-value('color', key, hue, saturate, desaturate, lighten, darken, alpha) if has-theme-value(color, key)
+        error('Theme color is not found: ' + get-string(key))
+    null
+get-theme-background-color(key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
+    if key != null
+        return get-theme-value('background-color', key, hue, saturate, desaturate, lighten, darken, alpha) if has-theme-value(background-color, key)
+        return get-theme-value('color',            key, hue, saturate, desaturate, lighten, darken, alpha) if has-theme-value(color,            key)
+        error('Theme background-color is not found: ' + get-string(key))
+    null
+get-theme-background-image(key)
+    if key != null
+        return get-theme-value('background-image', key) if has-theme-value(background-image, key)
+        error('Theme background-image is not found: ' + get-string(key))
+    null
+get-theme-border-color(key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
+    if key != null
+        return get-theme-value('border-color', key, hue, saturate, desaturate, lighten, darken, alpha) if has-theme-value(border-color, key)
+        return get-theme-value('color',        key, hue, saturate, desaturate, lighten, darken, alpha) if has-theme-value(color,        key)
+        error('Theme border-color is not found: ' + get-string(key))
+    null
+get-theme-border-radius(key)
+    if key != null
+        return get-theme-value('border-radius', key) if has-theme-value(border-radius, key)
+        error('Theme border-radius is not found: ' + get-string(key))
+    null
+
+// has-theme-value
+has-theme-value(section, key)
+    has(theme[section], key)
+// get-theme-value
+get-theme-value(section, key, _hue = null, _saturate = null, _desaturate = null, _lighten = null, _darken = null, _alpha = null)
+    value = get(theme[section], key)
+    value =        hue(value, _hue       ) if _hue        != null
+    value =   saturate(value, _saturate  ) if _saturate   != null
+    value = desaturate(value, _desaturate) if _desaturate != null
+    value =    lighten(value, _lighten   ) if _lighten    != null
+    value =     darken(value, _darken    ) if _darken     != null
+    value =      alpha(value, _alpha     ) if _alpha      != null
+    value
 
 // get-skin
 get-skin1(name)
