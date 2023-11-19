@@ -141,6 +141,7 @@
 }
 .unity-box:hover.light2 {
   color: #e6e6e6;
+  background-color: #373839;
   border-left-color: #92704f;
   border-right-color: #92704f;
   border-top-color: #92704f;
@@ -152,6 +153,7 @@
 }
 .unity-box:hover.light {
   color: #e6e6e6;
+  background-color: #343637;
   border-left-color: #92704f;
   border-right-color: #92704f;
   border-top-color: #92704f;
@@ -163,6 +165,7 @@
 }
 .unity-box:hover.gray {
   color: #e6e6e6;
+  background-color: #323334;
   border-left-color: #92704f;
   border-right-color: #92704f;
   border-top-color: #92704f;
@@ -174,6 +177,7 @@
 }
 .unity-box:hover.dark {
   color: #e6e6e6;
+  background-color: #2f3031;
   border-left-color: #92704f;
   border-right-color: #92704f;
   border-top-color: #92704f;
@@ -185,6 +189,7 @@
 }
 .unity-box:hover.dark2 {
   color: #e6e6e6;
+  background-color: #2d2e2f;
   border-left-color: #92704f;
   border-right-color: #92704f;
   border-top-color: #92704f;
