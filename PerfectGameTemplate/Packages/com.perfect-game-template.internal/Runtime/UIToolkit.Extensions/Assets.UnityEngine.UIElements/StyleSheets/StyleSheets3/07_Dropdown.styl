@@ -78,8 +78,14 @@ flex--content                          = null
         add-skin1 dropdown--hover
     &__item:hover
         add-skin1 dropdown-item--hover
+    &__item:hover &__checkmark
+        add-skin1 none
+    &__item:hover &__label
+        add-skin1 none
 // dropdown/checked
 .unity-base-dropdown
+    &__item:checked
+        add-skin1 none
     &__item:checked &__checkmark
         add-skin1 checkmark--checked
     &__item:checked &__label
