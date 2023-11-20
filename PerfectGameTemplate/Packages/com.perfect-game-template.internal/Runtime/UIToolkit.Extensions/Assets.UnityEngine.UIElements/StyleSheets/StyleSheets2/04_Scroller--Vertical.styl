@@ -74,10 +74,14 @@ flex--vertical-high-button          = create-flex(0, 0, auto, auto)
 // scroller
 .unity-scroller--vertical
     // slider
-    #unity-tracker:hover
-        add-skin1 vertical-tracker--hover
-    #unity-dragger:hover
-        add-skin1 vertical-dragger--hover
+    .unity-base-slider
+        add-skin1 none
+        .unity-base-slider__input
+            add-skin1 none
+            #unity-tracker:hover
+                add-skin1 vertical-tracker--hover
+            #unity-dragger:hover
+                add-skin1 vertical-dragger--hover
     // button
     #unity-low-button:hover
         add-skin1 vertical-low-button--hover

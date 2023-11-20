@@ -74,10 +74,14 @@ flex--horizontal-high-button          = create-flex(0, 0, auto, auto)
 // scroller
 .unity-scroller--horizontal
     // slider
-    #unity-tracker:hover
-        add-skin1 horizontal-tracker--hover
-    #unity-dragger:hover
-        add-skin1 horizontal-dragger--hover
+    .unity-base-slider
+        add-skin1 none
+        .unity-base-slider__input
+            add-skin1 none
+            #unity-tracker:hover
+                add-skin1 horizontal-tracker--hover
+            #unity-dragger:hover
+                add-skin1 horizontal-dragger--hover
     // button
     #unity-low-button:hover
         add-skin1 horizontal-low-button--hover
