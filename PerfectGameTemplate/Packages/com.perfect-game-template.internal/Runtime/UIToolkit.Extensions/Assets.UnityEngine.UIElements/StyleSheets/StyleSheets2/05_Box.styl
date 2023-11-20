@@ -29,8 +29,7 @@ flex--box                = create-flex(0, 1, auto, auto), create-flex2(column, f
     add-skin1 box
     add-skin2 box
     add-skin3 box
-// box/view
-.unity-box
+    // view
     &.light2
         add-skin1 box--light2
     &.light
@@ -41,7 +40,14 @@ flex--box                = create-flex(0, 1, auto, auto), create-flex2(column, f
         add-skin1 box--dark
     &.dark2
         add-skin1 box--dark2
-// box/view
+    // layout
+    &.small
+        add-skin2 box--small
+    &.medium
+        add-skin2 box--medium
+    &.large
+        add-skin2 box--large
+// box
 .unity-box:hover
     add-skin1 box--hover
     &.light2
@@ -54,11 +60,3 @@ flex--box                = create-flex(0, 1, auto, auto), create-flex2(column, f
         add-skin1 box--dark--hover
     &.dark2
         add-skin1 box--dark2--hover
-// box/layout
-.unity-box
-    &.small
-        add-skin2 box--small
-    &.medium
-        add-skin2 box--medium
-    &.large
-        add-skin2 box--large

@@ -1,4 +1,4 @@
-.unity-base-text-field__input .unity-text-element {
+.unity-base-text-field .unity-base-field__input .unity-text-element {
   background-color: rgba(0,0,0,0);
   border-left-color: rgba(0,0,0,0);
   border-right-color: rgba(0,0,0,0);

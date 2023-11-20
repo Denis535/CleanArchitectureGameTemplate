@@ -22,39 +22,19 @@ flex--field-input   = create-flex(1, 1, auto, auto), create-flex2(row, flex-end,
     add-skin1 field
     add-skin2 field
     add-skin3 field
-    &__label
+    .unity-base-field__label
         add-skin1 field-label
         add-skin2 field-label
         add-skin3 field-label
-    &__input
+    .unity-base-field__input
         add-skin1 field-input
         add-skin2 field-input
         add-skin3 field-input
-
 // field
-.unity-base-field:hover
-    .unity-base-field__label
+.unity-base-field
+    add-skin1 none
+    .unity-base-field__label:hover
         add-skin1 field-label--hover
-    .unity-base-field__input
+    .unity-base-field__input:hover
         // cursor text
         add-skin1 field-input--hover
-
-// // field
-// .unity-base-field:focus
-//     .unity-base-field__label
-//         add-skin1 field-label
-//         add-skin2 field-label
-//     .unity-base-field__input
-//         // cursor text
-//         add-skin1 field-input
-//         add-skin2 field-input
-
-// // field
-// .unity-base-field.invalid
-//     .unity-base-field__label
-//         add-skin1 field-label
-//         add-skin2 field-label
-//     .unity-base-field__input
-//         // cursor text
-//         add-skin1 field-input
-//         add-skin2 field-input
