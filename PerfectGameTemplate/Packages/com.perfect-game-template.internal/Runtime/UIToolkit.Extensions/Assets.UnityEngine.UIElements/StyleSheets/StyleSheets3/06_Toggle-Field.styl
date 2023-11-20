@@ -24,19 +24,18 @@ flex--checkmark          = create-flex(0, 1, auto, auto)
     add-skin1 field
     add-skin2 field
     add-skin3 field
-    .unity-base-field__label
-        add-skin1 field-label
-        add-skin2 field-label
-        add-skin3 field-label
-    .unity-base-field__input
-        add-skin1 field-input
-        add-skin2 field-input
-        add-skin3 field-input
-    .unity-base-field__input #unity-checkmark
-        add-skin1 checkmark
-        add-skin2 checkmark
-        add-skin3 checkmark
+.unity-toggle__label
+    add-skin1 field-label
+    add-skin2 field-label
+    add-skin3 field-label
+.unity-toggle__input
+    add-skin1 field-input
+    add-skin2 field-input
+    add-skin3 field-input
+.unity-toggle__input #unity-checkmark
+    add-skin1 checkmark
+    add-skin2 checkmark
+    add-skin3 checkmark
 // toggle-field
-.unity-toggle:checked
-    .unity-toggle__input #unity-checkmark
-        add-skin1 checkmark--checked
+.unity-toggle__input:checked #unity-checkmark
+    add-skin1 checkmark--checked

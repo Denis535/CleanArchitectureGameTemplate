@@ -8,33 +8,31 @@ view--field-input        = create-view-skin(light, (element--dark         elemen
 view--field-input--hover = create-view-skin(light, (element--dark--hover  element--dark--hover ), (element--dark--hover  element))
 
 // layout
-layout--field       = create-layout-skin(null, auto auto, (4px            ), (0px), (0px                ))
-layout--field-label = create-layout-skin(null, auto auto, (0px 2px 0px 0px), (1px), (12px 12px 10px 10px))
-layout--field-input = create-layout-skin(null, auto auto, (0px            ), (1px), (12px 12px 10px 10px))
+layout--field            = create-layout-skin(null, auto auto, (4px            ), (0px), (0px                ))
+layout--field-label      = create-layout-skin(null, auto auto, (0px 2px 0px 0px), (1px), (12px 12px 10px 10px))
+layout--field-input      = create-layout-skin(null, auto auto, (0px            ), (1px), (12px 12px 10px 10px))
 
 // flex
-flex--field         = create-flex(0, 1, auto, auto), create-flex2(row, flex-start, stretch)
-flex--field-label   = create-flex(0, 1, auto, auto), null
-flex--field-input   = create-flex(1, 1, auto, auto), create-flex2(row, flex-end, stretch)
+flex--field              = create-flex(0, 1, auto, auto), create-flex2(row, flex-start, stretch)
+flex--field-label        = create-flex(0, 1, auto, auto), null
+flex--field-input        = create-flex(1, 1, auto, auto), create-flex2(row, flex-end, stretch)
 
 // field
 .unity-base-field
     add-skin1 field
     add-skin2 field
     add-skin3 field
-    .unity-base-field__label
-        add-skin1 field-label
-        add-skin2 field-label
-        add-skin3 field-label
-    .unity-base-field__input
-        add-skin1 field-input
-        add-skin2 field-input
-        add-skin3 field-input
+.unity-base-field__label
+    add-skin1 field-label
+    add-skin2 field-label
+    add-skin3 field-label
+.unity-base-field__input
+    add-skin1 field-input
+    add-skin2 field-input
+    add-skin3 field-input
 // field
-.unity-base-field
-    add-skin1 none
-    .unity-base-field__label:hover
-        add-skin1 field-label--hover
-    .unity-base-field__input:hover
-        // cursor text
-        add-skin1 field-input--hover
+.unity-base-field__label:hover
+    add-skin1 field-label--hover
+.unity-base-field__input:hover
+    // cursor text
+    add-skin1 field-input--hover

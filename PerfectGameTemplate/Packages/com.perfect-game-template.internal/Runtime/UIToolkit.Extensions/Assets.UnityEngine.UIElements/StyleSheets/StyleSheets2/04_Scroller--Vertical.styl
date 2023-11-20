@@ -40,50 +40,41 @@ flex--vertical-high-button          = create-flex(0, 0, auto, auto)
     add-skin1 vertical-scroller
     add-skin2 vertical-scroller
     add-skin3 vertical-scroller
-    // slider
-    .unity-base-slider
-        add-skin1 vertical-slider-field
-        add-skin2 vertical-slider-field
-        add-skin3 vertical-slider-field
-        .unity-base-slider__input
-            add-skin1 vertical-slider-field-input
-            add-skin2 vertical-slider-field-input
-            add-skin3 vertical-slider-field-input
-        .unity-base-slider__input #unity-drag-container
-            add-skin1 vertical-container
-            add-skin2 vertical-container
-            add-skin3 vertical-container
-        .unity-base-slider__input #unity-tracker
-            add-skin1 vertical-tracker
-            add-skin2 vertical-tracker
-            add-skin3 vertical-tracker
-        .unity-base-slider__input #unity-dragger
-            add-skin1 vertical-dragger
-            add-skin2 vertical-dragger
-            add-skin3 vertical-dragger
-    // button
-    #unity-low-button
-        add-skin1 vertical-low-button
-        add-skin2 vertical-low-button
-        add-skin3 vertical-low-button
-    #unity-high-button
-        add-skin1 vertical-high-button
-        add-skin2 vertical-high-button
-        add-skin3 vertical-high-button
+.unity-scroller--vertical .unity-base-slider
+    add-skin1 vertical-slider-field
+    add-skin2 vertical-slider-field
+    add-skin3 vertical-slider-field
+.unity-scroller--vertical .unity-base-slider .unity-base-slider__input
+    add-skin1 vertical-slider-field-input
+    add-skin2 vertical-slider-field-input
+    add-skin3 vertical-slider-field-input
+.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-drag-container
+    add-skin1 vertical-container
+    add-skin2 vertical-container
+    add-skin3 vertical-container
+.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-tracker
+    add-skin1 vertical-tracker
+    add-skin2 vertical-tracker
+    add-skin3 vertical-tracker
+.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-dragger
+    add-skin1 vertical-dragger
+    add-skin2 vertical-dragger
+    add-skin3 vertical-dragger
+.unity-scroller--vertical #unity-low-button
+    add-skin1 vertical-low-button
+    add-skin2 vertical-low-button
+    add-skin3 vertical-low-button
+.unity-scroller--vertical #unity-high-button
+    add-skin1 vertical-high-button
+    add-skin2 vertical-high-button
+    add-skin3 vertical-high-button
 
 // scroller
-.unity-scroller--vertical
-    // slider
-    .unity-base-slider
-        add-skin1 none
-        .unity-base-slider__input
-            add-skin1 none
-            #unity-tracker:hover
-                add-skin1 vertical-tracker--hover
-            #unity-dragger:hover
-                add-skin1 vertical-dragger--hover
-    // button
-    #unity-low-button:hover
-        add-skin1 vertical-low-button--hover
-    #unity-high-button:hover
-        add-skin1 vertical-high-button--hover
+.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-tracker:hover
+    add-skin1 vertical-tracker--hover
+.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-dragger:hover
+    add-skin1 vertical-dragger--hover
+.unity-scroller--vertical #unity-low-button:hover
+    add-skin1 vertical-low-button--hover
+.unity-scroller--vertical #unity-high-button:hover
+    add-skin1 vertical-high-button--hover

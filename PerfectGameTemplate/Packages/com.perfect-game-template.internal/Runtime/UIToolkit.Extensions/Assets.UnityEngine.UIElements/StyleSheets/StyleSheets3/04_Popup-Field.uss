@@ -1,4 +1,4 @@
-.unity-base-popup-field .unity-base-field__input .unity-text-element {
+.unity-base-popup-field__input .unity-text-element {
   background-color: rgba(0,0,0,0);
   border-left-color: rgba(0,0,0,0);
   border-right-color: rgba(0,0,0,0);
@@ -27,7 +27,7 @@
   flex-basis: auto;
   align-self: auto;
 }
-.unity-base-popup-field .unity-base-field__input .unity-base-field__arrow {
+.unity-base-popup-field__input .unity-base-popup-field__arrow {
   background-color: rgba(0,0,0,0);
   background-image: url('../../Images/DropdownArrow.png');
   -unity-background-image-tint-color: #e6e6e6;

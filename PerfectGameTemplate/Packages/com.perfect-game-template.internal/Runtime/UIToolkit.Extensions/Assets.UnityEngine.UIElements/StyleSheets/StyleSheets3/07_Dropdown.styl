@@ -40,51 +40,54 @@ flex--content                          = null
 .unity-base-dropdown
     add-view(bg-color: rgba(0, 0, 0, 0.25))
     add-layout(position: absolute)
-    &__container-outer
-        add-skin1 dropdown
-        add-skin2 dropdown
-        add-skin3 dropdown
-    .unity-scroll-view
-        add-skin1 scroll-view
-        add-skin2 scroll-view
-        add-skin3 scroll-view
-    #unity-content-and-vertical-scroll-container
-        add-skin1 viewport-and-vertical-scroller
-        add-skin2 viewport-and-vertical-scroller
-        add-skin3 viewport-and-vertical-scroller
-    #unity-content-viewport
-        add-skin1 viewport
-        add-skin2 viewport
-        add-skin3 viewport
-    #unity-content-container
-        add-skin1 content
-        add-skin2 content
-        add-skin3 content
-    &__item
-        add-skin1 dropdown-item
-        add-skin2 dropdown-item
-        add-skin3 dropdown-item
-    &__item &__checkmark
-        add-skin1 checkmark
-        add-skin2 checkmark
-        add-skin3 checkmark
-    &__item &__label
-        add-skin1 text
-        add-skin2 text
-        add-skin3 text
+.unity-base-dropdown__container-outer
+    add-skin1 dropdown
+    add-skin2 dropdown
+    add-skin3 dropdown
+.unity-base-dropdown .unity-scroll-view
+    add-skin1 scroll-view
+    add-skin2 scroll-view
+    add-skin3 scroll-view
+.unity-base-dropdown .unity-scroll-view #unity-content-and-vertical-scroll-container
+    add-skin1 viewport-and-vertical-scroller
+    add-skin2 viewport-and-vertical-scroller
+    add-skin3 viewport-and-vertical-scroller
+.unity-base-dropdown .unity-scroll-view #unity-content-viewport
+    add-skin1 viewport
+    add-skin2 viewport
+    add-skin3 viewport
+.unity-base-dropdown .unity-scroll-view #unity-content-container
+    add-skin1 content
+    add-skin2 content
+    add-skin3 content
 // dropdown
-.unity-base-dropdown
-    &__container-outer:hover
-        add-skin1 dropdown--hover
-    &__item:hover
-        add-skin1 dropdown-item--hover
-    &__item:hover &__checkmark
-        add-skin1 none
-    &__item:hover &__label
-        add-skin1 none
-    &__item:checked
-        add-skin1 none
-    &__item:checked &__checkmark
-        add-skin1 checkmark--checked
-    &__item:checked &__label
-        add-skin1 none
+.unity-base-dropdown__container-outer:hover
+    add-skin1 dropdown--hover
+
+// dropdown-item
+.unity-base-dropdown__item
+    add-skin1 dropdown-item
+    add-skin2 dropdown-item
+    add-skin3 dropdown-item
+.unity-base-dropdown__item .unity-base-dropdown__checkmark
+    add-skin1 checkmark
+    add-skin2 checkmark
+    add-skin3 checkmark
+.unity-base-dropdown__item .unity-base-dropdown__label
+    add-skin1 text
+    add-skin2 text
+    add-skin3 text
+// dropdown-item
+.unity-base-dropdown__item:hover
+    add-skin1 dropdown-item--hover
+.unity-base-dropdown__item:hover .unity-base-dropdown__checkmark
+    add-skin1 none
+.unity-base-dropdown__item:hover .unity-base-dropdown__label
+    add-skin1 none
+// dropdown-item
+.unity-base-dropdown__item:checked
+    add-skin1 none
+.unity-base-dropdown__item:checked .unity-base-dropdown__checkmark
+    add-skin1 checkmark--checked
+.unity-base-dropdown__item:checked .unity-base-dropdown__label
+    add-skin1 none

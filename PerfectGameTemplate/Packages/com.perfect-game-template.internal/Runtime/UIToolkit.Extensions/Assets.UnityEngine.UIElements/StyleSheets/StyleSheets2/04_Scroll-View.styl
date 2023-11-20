@@ -41,51 +41,51 @@ flex--viewport--reverse                = create-flex(1, 1, auto, auto), create-f
     add-skin1 scroll-view
     add-skin2 scroll-view
     add-skin3 scroll-view
-    #unity-content-and-vertical-scroll-container
-        add-skin1 viewport-and-vertical-scroller
-        add-skin2 viewport-and-vertical-scroller
-        add-skin3 viewport-and-vertical-scroller
-    #unity-content-viewport
-        overflow hidden
-        add-skin1 viewport
-        add-skin2 viewport
-        add-skin3 viewport
-    #unity-content-container
-        overflow scroll
-        add-skin1 content
-        add-skin2 content
-        add-skin3 content
-    // view
-    &.light2
-        add-skin1 scroll-view--light2
-    &.light
-        add-skin1 scroll-view--light
-    &.gray
-        add-skin1 scroll-view--gray
-    &.dark
-        add-skin1 scroll-view--dark
-    &.dark2
-        add-skin1 scroll-view--dark2
-    // layout
-    &.small #unity-content-container
-        add-skin2 content--small
-    &.medium #unity-content-container
-        add-skin2 content--medium
-    &.large #unity-content-container
-        add-skin2 content--large
-    // flex
-    &.reverse #unity-content-viewport
-        add-skin3 viewport--reverse
+.unity-scroll-view #unity-content-and-vertical-scroll-container
+    add-skin1 viewport-and-vertical-scroller
+    add-skin2 viewport-and-vertical-scroller
+    add-skin3 viewport-and-vertical-scroller
+.unity-scroll-view #unity-content-viewport
+    overflow hidden
+    add-skin1 viewport
+    add-skin2 viewport
+    add-skin3 viewport
+.unity-scroll-view #unity-content-container
+    overflow scroll
+    add-skin1 content
+    add-skin2 content
+    add-skin3 content
+// scroll-view
+.unity-scroll-view.light2
+    add-skin1 scroll-view--light2
+.unity-scroll-view.light
+    add-skin1 scroll-view--light
+.unity-scroll-view.gray
+    add-skin1 scroll-view--gray
+.unity-scroll-view.dark
+    add-skin1 scroll-view--dark
+.unity-scroll-view.dark2
+    add-skin1 scroll-view--dark2
 // scroll-view
 .unity-scroll-view:hover
     add-skin1 scroll-view--hover
-    &.light2
-        add-skin1 scroll-view--light2--hover
-    &.light
-        add-skin1 scroll-view--light--hover
-    &.gray
-        add-skin1 scroll-view--gray--hover
-    &.dark
-        add-skin1 scroll-view--dark--hover
-    &.dark2
-        add-skin1 scroll-view--dark2--hover
+.unity-scroll-view.light2:hover
+    add-skin1 scroll-view--light2--hover
+.unity-scroll-view.light:hover
+    add-skin1 scroll-view--light--hover
+.unity-scroll-view.gray:hover
+    add-skin1 scroll-view--gray--hover
+.unity-scroll-view.dark:hover
+    add-skin1 scroll-view--dark--hover
+.unity-scroll-view.dark2:hover
+    add-skin1 scroll-view--dark2--hover
+// scroll-view
+.unity-scroll-view.small #unity-content-container
+    add-skin2 content--small
+.unity-scroll-view.medium #unity-content-container
+    add-skin2 content--medium
+.unity-scroll-view.large #unity-content-container
+    add-skin2 content--large
+// scroll-view
+.unity-scroll-view.reverse #unity-content-viewport
+    add-skin3 viewport--reverse
