@@ -10,20 +10,6 @@ create-theme()
         border-radius: {},
     }
 
-// has-theme-value
-has-theme-value(section, key)
-    has(theme[section], key)
-// get-theme-value
-get-theme-value(section, key, _hue = null, _saturate = null, _desaturate = null, _lighten = null, _darken = null, _alpha = null)
-    value = get(theme[section], key)
-    value =        hue(value, _hue       ) if value != null and _hue        != null
-    value =   saturate(value, _saturate  ) if value != null and _saturate   != null
-    value = desaturate(value, _desaturate) if value != null and _desaturate != null
-    value =    lighten(value, _lighten   ) if value != null and _lighten    != null
-    value =     darken(value, _darken    ) if value != null and _darken     != null
-    value =      alpha(value, _alpha     ) if value != null and _alpha      != null
-    value
-
 // get-theme-value
 get-theme-color(key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
     if key != null
@@ -52,6 +38,34 @@ get-theme-border-radius(key)
         return get-theme-value('border-radius', key) if has-theme-value(border-radius, key)
         error('Theme border-radius is not found: ' + get-string(key))
     null
+// set-theme-value
+set-theme-color(key, value)
+    get-theme-value('color', key, value)
+set-background-color(key, value)
+    get-theme-value('background-color', key, value)
+set-background-image(key, value)
+    get-theme-value('background-image', key, value)
+set-border-color(key, value)
+    get-theme-value('border-color', key, value)
+set-border-radius(key, value)
+    get-theme-value('border-radius', key, value)
+
+// has-theme-value
+has-theme-value(section, key)
+    has(theme[section], key)
+// get-theme-value
+get-theme-value(section, key, _hue = null, _saturate = null, _desaturate = null, _lighten = null, _darken = null, _alpha = null)
+    value = get(theme[section], key)
+    value =        hue(value, _hue       ) if value != null and _hue        != null
+    value =   saturate(value, _saturate  ) if value != null and _saturate   != null
+    value = desaturate(value, _desaturate) if value != null and _desaturate != null
+    value =    lighten(value, _lighten   ) if value != null and _lighten    != null
+    value =     darken(value, _darken    ) if value != null and _darken     != null
+    value =      alpha(value, _alpha     ) if value != null and _alpha      != null
+    value
+// set-theme-value
+set-theme-value(section, key, value)
+    set(theme[section], key, value)
 
 // create-view-skin
 create-view-skin(color, background, border)
