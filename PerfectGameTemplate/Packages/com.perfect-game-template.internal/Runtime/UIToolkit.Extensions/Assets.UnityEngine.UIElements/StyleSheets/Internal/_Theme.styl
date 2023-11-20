@@ -1,4 +1,4 @@
-@import "__Utils2"
+@import "_Utils2"
 
 // theme
 theme = create-theme()
@@ -197,9 +197,6 @@ theme[background-image]['card-footer--hover'                ] = null
 // hover/background-image
 theme[background-image]['dialog-card--hover'                ] = null
 theme[background-image]['dialog-card-header--hover'         ] = null
-theme[background-image]['dialog-card-header--info--hover'   ] = null
-theme[background-image]['dialog-card-header--warning--hover'] = null
-theme[background-image]['dialog-card-header--error--hover'  ] = null
 theme[background-image]['dialog-card-content--hover'        ] = null
 theme[background-image]['dialog-card-footer--hover'         ] = null
 // hover/background-image
@@ -222,18 +219,15 @@ theme[background-image]['element--gray--hover'              ] = null
 theme[background-image]['element--dark--hover'              ] = null
 
 // hover/border-color
-theme[border-color    ]['card--hover'                       ] = null
-theme[border-color    ]['card-header--hover'                ] = null
-theme[border-color    ]['card-content--hover'               ] = null
-theme[border-color    ]['card-footer--hover'                ] = null
+theme[border-color    ]['card--hover'                       ] = get-theme-border-color('card',         lighten: 20%)
+theme[border-color    ]['card-header--hover'                ] = get-theme-border-color('card-header',  lighten: 20%)
+theme[border-color    ]['card-content--hover'               ] = get-theme-border-color('card-content', lighten: 20%)
+theme[border-color    ]['card-footer--hover'                ] = get-theme-border-color('card-footer',  lighten: 20%)
 // hover/border-color
-theme[border-color    ]['dialog-card--hover'                ] = null
-theme[border-color    ]['dialog-card-header--hover'         ] = null
-theme[border-color    ]['dialog-card-header--info--hover'   ] = null
-theme[border-color    ]['dialog-card-header--warning--hover'] = null
-theme[border-color    ]['dialog-card-header--error--hover'  ] = null
-theme[border-color    ]['dialog-card-content--hover'        ] = null
-theme[border-color    ]['dialog-card-footer--hover'         ] = null
+theme[border-color    ]['dialog-card--hover'                ] = get-theme-border-color('dialog-card',         lighten: 20%)
+theme[border-color    ]['dialog-card-header--hover'         ] = get-theme-border-color('dialog-card-header',  lighten: 20%)
+theme[border-color    ]['dialog-card-content--hover'        ] = get-theme-border-color('dialog-card-content', lighten: 20%)
+theme[border-color    ]['dialog-card-footer--hover'         ] = get-theme-border-color('dialog-card-footer',  lighten: 20%)
 // hover/border-color
 theme[border-color    ]['view--hover'                       ] = get-theme-border-color('view',         lighten: 20%)
 theme[border-color    ]['view--light2--hover'               ] = get-theme-border-color('view--light2', lighten: 20%)

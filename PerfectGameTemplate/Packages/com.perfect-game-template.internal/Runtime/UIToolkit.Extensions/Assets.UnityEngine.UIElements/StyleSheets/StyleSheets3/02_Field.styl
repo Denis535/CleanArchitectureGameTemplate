@@ -1,18 +1,18 @@
-@import "../Internal/__Theme"
+@import "../Internal/_Theme"
 
-// field
+// view
 view--field              = create-view-skin(null,  (element               element              ), (element               element))
 view--field-label        = create-view-skin(light, (element--light        element--light       ), (element--light        element)), create-font(null, null, bold), create-text(middle-left, null, null)
 view--field-label--hover = create-view-skin(light, (element--light--hover element--light--hover), (element--light--hover element))
 view--field-input        = create-view-skin(light, (element--dark         element--dark        ), (element--dark         element)), create-font(null, null, null), create-text(middle-left, null, null)
 view--field-input--hover = create-view-skin(light, (element--dark--hover  element--dark--hover ), (element--dark--hover  element))
 
-// field
+// layout
 layout--field       = create-layout-skin(null, auto auto, (4px            ), (0px), (0px                ))
 layout--field-label = create-layout-skin(null, auto auto, (0px 2px 0px 0px), (1px), (12px 12px 10px 10px))
 layout--field-input = create-layout-skin(null, auto auto, (0px            ), (1px), (12px 12px 10px 10px))
 
-// field
+// flex
 flex--field         = create-flex(0, 1, auto, auto), create-flex2(row, flex-start, stretch)
 flex--field-label   = create-flex(0, 1, auto, auto), null
 flex--field-input   = create-flex(1, 1, auto, auto), create-flex2(row, flex-end, stretch)
