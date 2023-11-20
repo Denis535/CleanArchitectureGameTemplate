@@ -1,13 +1,13 @@
 @import "../Internal/__Theme"
 
-// box
+// view
 view--box                = create-view-skin(light, (box                box               ), (box                box))
 view--box--light2        = create-view-skin(light, (box--light2        box--light2       ), (box--light2        box))
 view--box--light         = create-view-skin(light, (box--light         box--light        ), (box--light         box))
 view--box--gray          = create-view-skin(light, (box--gray          box--gray         ), (box--gray          box))
 view--box--dark          = create-view-skin(light, (box--dark          box--dark         ), (box--dark          box))
 view--box--dark2         = create-view-skin(light, (box--dark2         box--dark2        ), (box--dark2         box))
-// box
+// view
 view--box--hover         = create-view-skin(light, (box--hover         box--hover        ), (box--hover         box))
 view--box--light2--hover = create-view-skin(light, (box--light2--hover box--light2--hover), (box--light2--hover box))
 view--box--light--hover  = create-view-skin(light, (box--light--hover  box--light--hover ), (box--light--hover  box))
@@ -15,13 +15,13 @@ view--box--gray--hover   = create-view-skin(light, (box--gray--hover   box--gray
 view--box--dark--hover   = create-view-skin(light, (box--dark--hover   box--dark--hover  ), (box--dark--hover   box))
 view--box--dark2--hover  = create-view-skin(light, (box--dark2--hover  box--dark2--hover ), (box--dark2--hover  box))
 
-// box
+// layout
 layout--box              = create-layout-skin(null, auto auto, (4px), (1px), (0px                ))
 layout--box--small       = create-layout-skin(null, auto auto, (4px), (1px), (6px  6px  5px  5px ))
 layout--box--medium      = create-layout-skin(null, auto auto, (4px), (1px), (12px 12px 10px 10px))
 layout--box--large       = create-layout-skin(null, auto auto, (4px), (1px), (24px 24px 20px 20px))
 
-// box
+// flex
 flex--box                = create-flex(0, 1, auto, auto), create-flex2(column, flex-start, stretch)
 
 // box
@@ -41,16 +41,9 @@ flex--box                = create-flex(0, 1, auto, auto), create-flex2(column, f
         add-skin1 box--dark
     &.dark2
         add-skin1 box--dark2
-// box/layout
-.unity-box
-    &.small
-        add-skin2 box--small
-    &.medium
-        add-skin2 box--medium
-    &.large
-        add-skin2 box--large
-// box/hover
+// box/view
 .unity-box:hover
+    add-skin1 box--hover
     &.light2
         add-skin1 box--light2--hover
     &.light
@@ -61,3 +54,11 @@ flex--box                = create-flex(0, 1, auto, auto), create-flex2(column, f
         add-skin1 box--dark--hover
     &.dark2
         add-skin1 box--dark2--hover
+// box/layout
+.unity-box
+    &.small
+        add-skin2 box--small
+    &.medium
+        add-skin2 box--medium
+    &.large
+        add-skin2 box--large

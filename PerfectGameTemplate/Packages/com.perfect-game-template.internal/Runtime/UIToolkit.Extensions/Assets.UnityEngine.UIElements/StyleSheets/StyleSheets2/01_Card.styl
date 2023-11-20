@@ -1,11 +1,16 @@
 @import "../Internal/__Theme"
 
-// card
+// view
 view--card                        = create-view-skin(light, (card                        card                       ), (card                card               )), create-font(null, 100%, normal)
 view--card-header                 = create-view-skin(light, (card-header                 card-header                ), (card-header         card-header        )), create-font(null, 130%, bold  )
 view--card-content                = create-view-skin(light, (card-content                card-content               ), (card-content        card-content       )), create-font(null, 100%, normal)
 view--card-footer                 = create-view-skin(light, (card-footer                 card-footer                ), (card-footer         card-footer        )), create-font(null, 120%, bold  )
-// card
+// view
+view--card--hover                 = create-view-skin(light, (card                        card                       ), (card                card               ))
+view--card-header--hover          = create-view-skin(light, (card-header                 card-header                ), (card-header         card-header        ))
+view--card-content--hover         = create-view-skin(light, (card-content                card-content               ), (card-content        card-content       ))
+view--card-footer--hover          = create-view-skin(light, (card-footer                 card-footer                ), (card-footer         card-footer        ))
+// view
 view--dialog-card                 = create-view-skin(light, (dialog-card                 dialog-card                ), (dialog-card         dialog-card        ))
 view--dialog-card-header          = create-view-skin(light, (dialog-card-header          dialog-card-header         ), (dialog-card-header  dialog-card-header ))
 view--dialog-card-header--info    = create-view-skin(light, (dialog-card-header--info    dialog-card-header--info   ), (dialog-card-header  dialog-card-header ))
@@ -13,24 +18,32 @@ view--dialog-card-header--warning = create-view-skin(light, (dialog-card-header-
 view--dialog-card-header--error   = create-view-skin(light, (dialog-card-header--error   dialog-card-header--error  ), (dialog-card-header  dialog-card-header ))
 view--dialog-card-content         = create-view-skin(light, (dialog-card-content         dialog-card-content        ), (dialog-card-content dialog-card-content)), create-font(null, 120%, bold  )
 view--dialog-card-footer          = create-view-skin(light, (dialog-card-footer          dialog-card-footer         ), (dialog-card-footer  dialog-card-footer ))
+// view
+// view--dialog-card--hover                 = create-view-skin(light, (dialog-card                 dialog-card                ), (dialog-card         dialog-card        ))
+// view--dialog-card-header--hover          = create-view-skin(light, (dialog-card-header          dialog-card-header         ), (dialog-card-header  dialog-card-header ))
+// view--dialog-card-header--info--hover    = create-view-skin(light, (dialog-card-header--info    dialog-card-header--info   ), (dialog-card-header  dialog-card-header ))
+// view--dialog-card-header--warning--hover = create-view-skin(light, (dialog-card-header--warning dialog-card-header--warning), (dialog-card-header  dialog-card-header ))
+// view--dialog-card-header--error--hover   = create-view-skin(light, (dialog-card-header--error   dialog-card-header--error  ), (dialog-card-header  dialog-card-header ))
+// view--dialog-card-content--hover         = create-view-skin(light, (dialog-card-content         dialog-card-content        ), (dialog-card-content dialog-card-content))
+// view--dialog-card-footer--hover          = create-view-skin(light, (dialog-card-footer          dialog-card-footer         ), (dialog-card-footer  dialog-card-footer ))
 
-// card
+// layout
 layout--card                      = create-layout-skin(null, auto auto, (0px), (1px 1px 1px 1px), (0px  0px  0px  0px ))
 layout--card-header               = create-layout-skin(null, auto auto, (0px), (0px 0px 0px 1px), (24px 24px 20px 20px))
 layout--card-content              = create-layout-skin(null, auto auto, (0px), (0px 0px 0px 0px), (24px 24px 20px 20px))
 layout--card-footer               = create-layout-skin(null, auto auto, (0px), (0px 0px 1px 0px), (24px 24px 20px 20px))
-// card
+// layout
 layout--dialog-card               = null
 layout--dialog-card-header        = null
 layout--dialog-card-content       = null
 layout--dialog-card-footer        = null
 
-// card
+// flex
 flex--card                        = create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch)
 flex--card-header                 = create-flex(0, 0, auto, auto), create-flex2(row,    center,       center )
 flex--card-content                = create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch)
 flex--card-footer                 = create-flex(0, 0, auto, auto), create-flex2(row,    space-around, center )
-// card
+// flex
 flex--dialog-card                 = null
 flex--dialog-card-header          = null
 flex--dialog-card-content         = null
@@ -41,20 +54,29 @@ flex--dialog-card-footer          = null
     add-skin1 card
     add-skin2 card
     add-skin3 card
-.header
-    add-skin1 card-header
-    add-skin2 card-header
-    add-skin3 card-header
-.content
-    add-skin1 card-content
-    add-skin2 card-content
-    add-skin3 card-content
-.footer
-    add-skin1 card-footer
-    add-skin2 card-footer
-    add-skin3 card-footer
-    *
-        add-layout(width: 25%)
+    .header
+        add-skin1 card-header
+        add-skin2 card-header
+        add-skin3 card-header
+    .content
+        add-skin1 card-content
+        add-skin2 card-content
+        add-skin3 card-content
+    .footer
+        add-skin1 card-footer
+        add-skin2 card-footer
+        add-skin3 card-footer
+        *
+            add-layout(width: 25%)
+// card
+.card:hover
+    add-skin1 card--hover
+    .header
+        add-skin1 card-header
+    .content
+        add-skin1 card-content
+    .footer
+        add-skin1 card-footer
 
 // dialog-card
 .dialog-card

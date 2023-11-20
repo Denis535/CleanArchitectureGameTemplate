@@ -27,7 +27,8 @@ namespace Project.App {
                 }
             }
             public Resolution[] ScreenResolutions {
-                get => Screen.resolutions.SkipWhile( i => i.width < 1000 ).Reverse().ToArray();
+                //get => Screen.resolutions.SkipWhile( i => i.width < 1000 ).Reverse().ToArray();
+                get => Screen.resolutions.Reverse().ToArray();
             }
             public bool IsVSync {
                 get => isVSync;

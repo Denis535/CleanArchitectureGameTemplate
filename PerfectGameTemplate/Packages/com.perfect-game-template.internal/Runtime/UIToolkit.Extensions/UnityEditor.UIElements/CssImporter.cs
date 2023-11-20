@@ -98,7 +98,7 @@ namespace UnityEditor.UIElements {
             return Path.GetExtension( path ) == ".css";
         }
         private static bool IsSupported(string path) {
-            return !Path.GetFileName( path ).Contains( "__" );
+            return !Path.GetFileName( path ).StartsWith( "_" );
         }
 
     }

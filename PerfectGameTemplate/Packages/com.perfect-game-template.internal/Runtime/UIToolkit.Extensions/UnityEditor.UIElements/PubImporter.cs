@@ -96,7 +96,7 @@ namespace UnityEditor.UIElements {
             return Path.GetExtension( path ) == ".pug";
         }
         private static bool IsSupported(string path) {
-            return !Path.GetFileName( path ).Contains( "__" );
+            return !Path.GetFileName( path ).StartsWith( "_" );
         }
 
     }

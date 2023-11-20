@@ -1,22 +1,29 @@
 @import "../Internal/__Theme"
 
-// group
-view--group           = create-view-skin(light, (view         view        ), (view         view))
-view--group--light2   = create-view-skin(light, (view--light2 view--light2), (view--light2 view))
-view--group--light    = create-view-skin(light, (view--light  view--light ), (view--light  view))
-view--group--gray     = create-view-skin(light, (view--gray   view--gray  ), (view--gray   view))
-view--group--dark     = create-view-skin(light, (view--dark   view--dark  ), (view--dark   view))
-view--group--dark2    = create-view-skin(light, (view--dark2  view--dark2 ), (view--dark2  view))
+// view
+view--group                = create-view-skin(light, (view                view               ), (view                view))
+view--group--light2        = create-view-skin(light, (view--light2        view--light2       ), (view--light2        view))
+view--group--light         = create-view-skin(light, (view--light         view--light        ), (view--light         view))
+view--group--gray          = create-view-skin(light, (view--gray          view--gray         ), (view--gray          view))
+view--group--dark          = create-view-skin(light, (view--dark          view--dark         ), (view--dark          view))
+view--group--dark2         = create-view-skin(light, (view--dark2         view--dark2        ), (view--dark2         view))
+// view
+view--group--hover         = create-view-skin(light, (view--hover         view--hover        ), (view--hover         view))
+view--group--light2--hover = create-view-skin(light, (view--light2--hover view--light2--hover), (view--light2--hover view))
+view--group--light--hover  = create-view-skin(light, (view--light--hover  view--light--hover ), (view--light--hover  view))
+view--group--gray--hover   = create-view-skin(light, (view--gray--hover   view--gray--hover  ), (view--gray--hover   view))
+view--group--dark--hover   = create-view-skin(light, (view--dark--hover   view--dark--hover  ), (view--dark--hover   view))
+view--group--dark2--hover  = create-view-skin(light, (view--dark2--hover  view--dark2--hover ), (view--dark2--hover  view))
 
-// group
-layout--group         = create-layout-skin(null, auto auto, (4px), (1px), (0px                ))
-layout--group--small  = create-layout-skin(null, auto auto, (4px), (1px), (6px  6px  5px  5px ))
-layout--group--medium = create-layout-skin(null, auto auto, (4px), (1px), (12px 12px 10px 10px))
-layout--group--large  = create-layout-skin(null, auto auto, (4px), (1px), (24px 24px 20px 20px))
+// layout
+layout--group              = create-layout-skin(null, auto auto, (4px), (1px), (0px                ))
+layout--group--small       = create-layout-skin(null, auto auto, (4px), (1px), (6px  6px  5px  5px ))
+layout--group--medium      = create-layout-skin(null, auto auto, (4px), (1px), (12px 12px 10px 10px))
+layout--group--large       = create-layout-skin(null, auto auto, (4px), (1px), (24px 24px 20px 20px))
 
-// group
-flex--group--column   = create-flex(0, 1, auto, auto), create-flex2(column, flex-start, stretch)
-flex--group--row      = create-flex(0, 1, auto, auto), create-flex2(row,    flex-start, stretch)
+// flex
+flex--group--column        = create-flex(0, 1, auto, auto), create-flex2(column, flex-start, stretch)
+flex--group--row           = create-flex(0, 1, auto, auto), create-flex2(row,    flex-start, stretch)
 
 // group
 .group
@@ -34,6 +41,19 @@ flex--group--row      = create-flex(0, 1, auto, auto), create-flex2(row,    flex
         add-skin1 group--dark
     &.dark2
         add-skin1 group--dark2
+// group/view
+.group:hover
+    add-skin1 group--hover
+    &.light2
+        add-skin1 group--light2--hover
+    &.light
+        add-skin1 group--light--hover
+    &.gray
+        add-skin1 group--gray--hover
+    &.dark
+        add-skin1 group--dark--hover
+    &.dark2
+        add-skin1 group--dark2--hover
 // group/layout
 .group
     &.small

@@ -4,13 +4,13 @@
 theme = create-theme()
 
 // color
-theme[color           ]['white'                    ] = hsla(  0,   0%, 100%, 1.00)
-theme[color           ]['black'                    ] = hsla(  0,   0%,   0%, 1.00)
-theme[color           ]['light'                      ] = hsla(  0,   0%,  90%, 1.00)
-theme[color           ]['dark'                       ] = hsla(  0,   0%,  10%, 1.00)
+theme[color           ]['white'       ] = hsla(  0,   0%, 100%, 1.00)
+theme[color           ]['black'       ] = hsla(  0,   0%,   0%, 1.00)
+theme[color           ]['light'         ] = hsla(  0,   0%,  90%, 1.00)
+theme[color           ]['dark'          ] = hsla(  0,   0%,  10%, 1.00)
 // color
-theme[color           ]['focus-effect'               ] = hsla(210,  80%,  50%, 1.00)
-theme[color           ]['invalid-effect'             ] = hsla(  0,  80%,  50%, 1.00)
+theme[color           ]['focus-effect'  ] = hsla(210,  80%,  50%, 1.00)
+theme[color           ]['invalid-effect'] = hsla(  0,  80%,  50%, 1.00)
 
 // background-color
 theme[background-color]['card'                       ] = hsla(210,   4%,  25%, 0.90)
@@ -56,13 +56,13 @@ theme[background-image]['card-header'                ] = create-background-image
 theme[background-image]['card-content'               ] = create-background-image(null, null, null)
 theme[background-image]['card-footer'                ] = create-background-image(null, null, null)
 // background-image
-theme[background-image]['dialog-card'                ] = null
-theme[background-image]['dialog-card-header'         ] = null
-theme[background-image]['dialog-card-header--info'   ] = null
-theme[background-image]['dialog-card-header--warning'] = null
-theme[background-image]['dialog-card-header--error'  ] = null
-theme[background-image]['dialog-card-content'        ] = null
-theme[background-image]['dialog-card-footer'         ] = null
+theme[background-image]['dialog-card'                ] = create-background-image(null, null, null)
+theme[background-image]['dialog-card-header'         ] = create-background-image(null, null, null)
+theme[background-image]['dialog-card-header--info'   ] = create-background-image(null, null, null)
+theme[background-image]['dialog-card-header--warning'] = create-background-image(null, null, null)
+theme[background-image]['dialog-card-header--error'  ] = create-background-image(null, null, null)
+theme[background-image]['dialog-card-content'        ] = create-background-image(null, null, null)
+theme[background-image]['dialog-card-footer'         ] = create-background-image(null, null, null)
 // background-image
 theme[background-image]['view'                       ] = create-background-image(null, null, null)
 theme[background-image]['view--light2'               ] = create-background-image(null, null, null)
@@ -108,10 +108,10 @@ theme[border-color    ]['card-header'                ] = hsla( 30,  20%,  30%, 1
 theme[border-color    ]['card-content'               ] = hsla( 30,  20%,  30%, 1.00)
 theme[border-color    ]['card-footer'                ] = hsla( 30,  20%,  30%, 1.00)
 // border-color
-theme[border-color    ]['dialog-card'                ] = null
-theme[border-color    ]['dialog-card-header'         ] = null
-theme[border-color    ]['dialog-card-content'        ] = null
-theme[border-color    ]['dialog-card-footer'         ] = null
+theme[border-color    ]['dialog-card'                ] = hsla( 30,  20%,  30%, 1.00)
+theme[border-color    ]['dialog-card-header'         ] = hsla( 30,  20%,  30%, 1.00)
+theme[border-color    ]['dialog-card-content'        ] = hsla( 30,  20%,  30%, 1.00)
+theme[border-color    ]['dialog-card-footer'         ] = hsla( 30,  20%,  30%, 1.00)
 // border-color
 theme[border-color    ]['view'                       ] = hsla( 30,  20%,  30%, 1.00)
 theme[border-color    ]['view--light2'               ] = hsla( 30,  20%,  30%, 1.00)
@@ -143,10 +143,10 @@ theme[border-radius   ]['card-header'                ] = 6px 6px 0px 0px
 theme[border-radius   ]['card-content'               ] = 6px
 theme[border-radius   ]['card-footer'                ] = 0px 0px 6px 6px
 // border-radius
-theme[border-radius   ]['dialog-card'                ] = null
-theme[border-radius   ]['dialog-card-header'         ] = null
-theme[border-radius   ]['dialog-card-content'        ] = null
-theme[border-radius   ]['dialog-card-footer'         ] = null
+theme[border-radius   ]['dialog-card'                ] = 6px
+theme[border-radius   ]['dialog-card-header'         ] = 6px 6px 0px 0px
+theme[border-radius   ]['dialog-card-content'        ] = 6px
+theme[border-radius   ]['dialog-card-footer'         ] = 0px 0px 6px 6px
 // border-radius
 theme[border-radius   ]['view'                       ] = 4px
 // border-radius
@@ -157,58 +157,118 @@ theme[border-radius   ]['element'                    ] = 4px
 theme[border-radius   ]['component'                  ] = 2px
 
 // hover/background-color
-theme[background-color]['box--hover'                 ] = get-theme-background-color('box',         lighten: 0%)
-theme[background-color]['box--light2--hover'         ] = get-theme-background-color('box--light2', lighten: 0%)
-theme[background-color]['box--light--hover'          ] = get-theme-background-color('box--light',  lighten: 0%)
-theme[background-color]['box--gray--hover'           ] = get-theme-background-color('box--gray',   lighten: 0%)
-theme[background-color]['box--dark--hover'           ] = get-theme-background-color('box--dark',   lighten: 0%)
-theme[background-color]['box--dark2--hover'          ] = get-theme-background-color('box--dark2',  lighten: 0%)
+theme[background-color]['card--hover'                       ] = get-theme-background-color('card',         lighten: 0%)
+theme[background-color]['card-header--hover'                ] = get-theme-background-color('card-header',  lighten: 0%)
+theme[background-color]['card-content--hover'               ] = get-theme-background-color('card-content', lighten: 0%)
+theme[background-color]['card-footer--hover'                ] = get-theme-background-color('card-footer',  lighten: 0%)
 // hover/background-color
-theme[background-color]['element--hover'             ] = get-theme-background-color('element',        lighten: 0%)
-theme[background-color]['element--light--hover'      ] = get-theme-background-color('element--light', lighten: 5%)
-theme[background-color]['element--gray--hover'       ] = get-theme-background-color('element--gray',  lighten: 0%)
-theme[background-color]['element--dark--hover'       ] = get-theme-background-color('element--dark',  lighten: 0%)
+theme[background-color]['dialog-card--hover'                ] = get-theme-background-color('dialog-card',                 lighten: 0%)
+theme[background-color]['dialog-card-header--hover'         ] = get-theme-background-color('dialog-card-header',          lighten: 0%)
+theme[background-color]['dialog-card-header--info--hover'   ] = get-theme-background-color('dialog-card-header--info',    lighten: 0%)
+theme[background-color]['dialog-card-header--warning--hover'] = get-theme-background-color('dialog-card-header--warning', lighten: 0%)
+theme[background-color]['dialog-card-header--error--hover'  ] = get-theme-background-color('dialog-card-header--error',   lighten: 0%)
+theme[background-color]['dialog-card-content--hover'        ] = get-theme-background-color('dialog-card-content',         lighten: 0%)
+theme[background-color]['dialog-card-footer--hover'         ] = get-theme-background-color('dialog-card-footer',          lighten: 0%)
+// hover/background-color
+theme[background-color]['view--hover'                       ] = get-theme-background-color('view',         lighten: 0%)
+theme[background-color]['view--light2--hover'               ] = get-theme-background-color('view--light2', lighten: 0%)
+theme[background-color]['view--light--hover'                ] = get-theme-background-color('view--light',  lighten: 0%)
+theme[background-color]['view--gray--hover'                 ] = get-theme-background-color('view--gray',   lighten: 0%)
+theme[background-color]['view--dark--hover'                 ] = get-theme-background-color('view--dark',   lighten: 0%)
+theme[background-color]['view--dark2--hover'                ] = get-theme-background-color('view--dark2',  lighten: 0%)
+// hover/background-color
+theme[background-color]['box--hover'                        ] = get-theme-background-color('box',         lighten: 0%)
+theme[background-color]['box--light2--hover'                ] = get-theme-background-color('box--light2', lighten: 0%)
+theme[background-color]['box--light--hover'                 ] = get-theme-background-color('box--light',  lighten: 0%)
+theme[background-color]['box--gray--hover'                  ] = get-theme-background-color('box--gray',   lighten: 0%)
+theme[background-color]['box--dark--hover'                  ] = get-theme-background-color('box--dark',   lighten: 0%)
+theme[background-color]['box--dark2--hover'                 ] = get-theme-background-color('box--dark2',  lighten: 0%)
+// hover/background-color
+theme[background-color]['element--hover'                    ] = get-theme-background-color('element',        lighten: 0%)
+theme[background-color]['element--light--hover'             ] = get-theme-background-color('element--light', lighten: 5%)
+theme[background-color]['element--gray--hover'              ] = get-theme-background-color('element--gray',  lighten: 0%)
+theme[background-color]['element--dark--hover'              ] = get-theme-background-color('element--dark',  lighten: 0%)
 
 // hover/background-image
-theme[background-image]['box--hover'                 ] = null
-theme[background-image]['box--light2--hover'         ] = null
-theme[background-image]['box--light--hover'          ] = null
-theme[background-image]['box--gray--hover'           ] = null
-theme[background-image]['box--dark--hover'           ] = null
-theme[background-image]['box--dark2--hover'          ] = null
+theme[background-image]['card--hover'                       ] = null
+theme[background-image]['card-header--hover'                ] = null
+theme[background-image]['card-content--hover'               ] = null
+theme[background-image]['card-footer--hover'                ] = null
 // hover/background-image
-theme[background-image]['element--light--hover'      ] = null
-theme[background-image]['element--gray--hover'       ] = null
-theme[background-image]['element--dark--hover'       ] = null
+theme[background-image]['dialog-card--hover'                ] = null
+theme[background-image]['dialog-card-header--hover'         ] = null
+theme[background-image]['dialog-card-header--info--hover'   ] = null
+theme[background-image]['dialog-card-header--warning--hover'] = null
+theme[background-image]['dialog-card-header--error--hover'  ] = null
+theme[background-image]['dialog-card-content--hover'        ] = null
+theme[background-image]['dialog-card-footer--hover'         ] = null
+// hover/background-image
+theme[background-image]['view--hover'                       ] = null
+theme[background-image]['view--light2--hover'               ] = null
+theme[background-image]['view--light--hover'                ] = null
+theme[background-image]['view--gray--hover'                 ] = null
+theme[background-image]['view--dark--hover'                 ] = null
+theme[background-image]['view--dark2--hover'                ] = null
+// hover/background-image
+theme[background-image]['box--hover'                        ] = null
+theme[background-image]['box--light2--hover'                ] = null
+theme[background-image]['box--light--hover'                 ] = null
+theme[background-image]['box--gray--hover'                  ] = null
+theme[background-image]['box--dark--hover'                  ] = null
+theme[background-image]['box--dark2--hover'                 ] = null
+// hover/background-image
+theme[background-image]['element--light--hover'             ] = null
+theme[background-image]['element--gray--hover'              ] = null
+theme[background-image]['element--dark--hover'              ] = null
 
 // hover/border-color
-theme[border-color    ]['box--hover'                 ] = get-theme-border-color('box',         lighten: 20%)
-theme[border-color    ]['box--light2--hover'         ] = get-theme-border-color('box--light2', lighten: 20%)
-theme[border-color    ]['box--light--hover'          ] = get-theme-border-color('box--light',  lighten: 20%)
-theme[border-color    ]['box--gray--hover'           ] = get-theme-border-color('box--gray',   lighten: 20%)
-theme[border-color    ]['box--dark--hover'           ] = get-theme-border-color('box--dark',   lighten: 20%)
-theme[border-color    ]['box--dark2--hover'          ] = get-theme-border-color('box--dark2',  lighten: 20%)
+theme[border-color    ]['card--hover'                       ] = null
+theme[border-color    ]['card-header--hover'                ] = null
+theme[border-color    ]['card-content--hover'               ] = null
+theme[border-color    ]['card-footer--hover'                ] = null
 // hover/border-color
-theme[border-color    ]['element--light--hover'      ] = get-theme-border-color('element--light', lighten: 20%)
-theme[border-color    ]['element--gray--hover'       ] = get-theme-border-color('element--gray',  lighten: 20%)
-theme[border-color    ]['element--dark--hover'       ] = get-theme-border-color('element--dark',  lighten: 20%)
+theme[border-color    ]['dialog-card--hover'                ] = null
+theme[border-color    ]['dialog-card-header--hover'         ] = null
+theme[border-color    ]['dialog-card-header--info--hover'   ] = null
+theme[border-color    ]['dialog-card-header--warning--hover'] = null
+theme[border-color    ]['dialog-card-header--error--hover'  ] = null
+theme[border-color    ]['dialog-card-content--hover'        ] = null
+theme[border-color    ]['dialog-card-footer--hover'         ] = null
+// hover/border-color
+theme[border-color    ]['view--hover'                       ] = get-theme-border-color('view',         lighten: 20%)
+theme[border-color    ]['view--light2--hover'               ] = get-theme-border-color('view--light2', lighten: 20%)
+theme[border-color    ]['view--light--hover'                ] = get-theme-border-color('view--light',  lighten: 20%)
+theme[border-color    ]['view--gray--hover'                 ] = get-theme-border-color('view--gray',   lighten: 20%)
+theme[border-color    ]['view--dark--hover'                 ] = get-theme-border-color('view--dark',   lighten: 20%)
+theme[border-color    ]['view--dark2--hover'                ] = get-theme-border-color('view--dark2',  lighten: 20%)
+// hover/border-color
+theme[border-color    ]['box--hover'                        ] = get-theme-border-color('box',         lighten: 20%)
+theme[border-color    ]['box--light2--hover'                ] = get-theme-border-color('box--light2', lighten: 20%)
+theme[border-color    ]['box--light--hover'                 ] = get-theme-border-color('box--light',  lighten: 20%)
+theme[border-color    ]['box--gray--hover'                  ] = get-theme-border-color('box--gray',   lighten: 20%)
+theme[border-color    ]['box--dark--hover'                  ] = get-theme-border-color('box--dark',   lighten: 20%)
+theme[border-color    ]['box--dark2--hover'                 ] = get-theme-border-color('box--dark2',  lighten: 20%)
+// hover/border-color
+theme[border-color    ]['element--light--hover'             ] = get-theme-border-color('element--light', lighten: 20%)
+theme[border-color    ]['element--gray--hover'              ] = get-theme-border-color('element--gray',  lighten: 20%)
+theme[border-color    ]['element--dark--hover'              ] = get-theme-border-color('element--dark',  lighten: 20%)
 
 // dropdown
-theme[background-color]['dropdown'                   ] = get-theme-background-color('element--dark')
-theme[background-image]['dropdown'                   ] = get-theme-background-image('element--dark')
-theme[border-color    ]['dropdown'                   ] = get-theme-border-color(    'element--dark')
-theme[border-radius   ]['dropdown'                   ] = get-theme-border-radius(   'element'      )
-// dropdown-item
-theme[background-color]['dropdown-item'              ] = get-theme-background-color('element')
-theme[background-image]['dropdown-item'              ] = get-theme-background-image('element')
-theme[border-color    ]['dropdown-item'              ] = get-theme-border-color(    'element')
-theme[border-radius   ]['dropdown-item'              ] = get-theme-border-radius(   'element')
-
+theme[background-color]['dropdown'            ] = get-theme-background-color('element--dark')
+theme[background-image]['dropdown'            ] = get-theme-background-image('element--dark')
+theme[border-color    ]['dropdown'            ] = get-theme-border-color(    'element--dark')
+theme[border-radius   ]['dropdown'            ] = get-theme-border-radius(   'element'      )
 // hover/dropdown
-theme[background-color]['dropdown--hover'            ] = null
-theme[background-image]['dropdown--hover'            ] = null
-theme[border-color    ]['dropdown--hover'            ] = null
+theme[background-color]['dropdown--hover'     ] = null
+theme[background-image]['dropdown--hover'     ] = null
+theme[border-color    ]['dropdown--hover'     ] = null
+
+// dropdown-item
+theme[background-color]['dropdown-item'       ] = get-theme-background-color('element')
+theme[background-image]['dropdown-item'       ] = get-theme-background-image('element')
+theme[border-color    ]['dropdown-item'       ] = get-theme-border-color(    'element')
+theme[border-radius   ]['dropdown-item'       ] = get-theme-border-radius(   'element')
 // hover/dropdown-item
-theme[background-color]['dropdown-item--hover'       ] = hsla( 30,  80%,  40%, 1.00)
-theme[background-image]['dropdown-item--hover'       ] = null
-theme[border-color    ]['dropdown-item--hover'       ] = hsla( 30,  80%,  20%, 1.00)
+theme[background-color]['dropdown-item--hover'] = hsla( 30,  80%,  40%, 1.00)
+theme[background-image]['dropdown-item--hover'] = null
+theme[border-color    ]['dropdown-item--hover'] = hsla( 30,  80%,  20%, 1.00)
