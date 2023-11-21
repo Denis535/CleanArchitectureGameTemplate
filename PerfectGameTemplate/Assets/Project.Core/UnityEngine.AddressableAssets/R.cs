@@ -105,8 +105,9 @@ namespace UnityEngine.AddressableAssets {
                         public const string @Card = "UnityEngine.UIElements/StyleSheets/StyleSheets2/01_Card.uss";
                         public const string @Scope = "UnityEngine.UIElements/StyleSheets/StyleSheets2/02_Scope.uss";
                         public const string @Group = "UnityEngine.UIElements/StyleSheets/StyleSheets2/03_Group.uss";
+                        public const string @Scroller__Horizontal = "UnityEngine.UIElements/StyleSheets/StyleSheets2/04_Scroller--Horizontal.uss";
+                        public const string @Scroller__Vertical = "UnityEngine.UIElements/StyleSheets/StyleSheets2/04_Scroller--Vertical.uss";
                         public const string @Scroll_View = "UnityEngine.UIElements/StyleSheets/StyleSheets2/04_Scroll-View.uss";
-                        public const string @Scroll_View_Scroller = "UnityEngine.UIElements/StyleSheets/StyleSheets2/04_Scroll-View_Scroller.uss";
                         public const string @Box = "UnityEngine.UIElements/StyleSheets/StyleSheets2/05_Box.uss";
                     }
                     public static class @StyleSheets3 {
