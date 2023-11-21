@@ -12,12 +12,12 @@ view--viewport                         = create-view-skin(null,  (element       
 view--content                          = create-view-skin(null,  (element               element                ), (element                element))
 
 // view
-view--scroll-view--hover               = create-view-skin(light, (view--hover           view--hover            ), (view--hover            view   ))
-view--scroll-view--light2--hover       = create-view-skin(light, (view--light2--hover   view--light2--hover    ), (view--light2--hover    view   ))
-view--scroll-view--light--hover        = create-view-skin(light, (view--light--hover    view--light--hover     ), (view--light--hover     view   ))
-view--scroll-view--gray--hover         = create-view-skin(light, (view--gray--hover     view--gray--hover      ), (view--gray--hover      view   ))
-view--scroll-view--dark--hover         = create-view-skin(light, (view--dark--hover     view--dark--hover      ), (view--dark--hover      view   ))
-view--scroll-view--dark2--hover        = create-view-skin(light, (view--dark2--hover    view--dark2--hover     ), (view--dark2--hover     view   ))
+view--hover--scroll-view               = create-view-skin(light, (hover--view           hover--view            ), (hover--view            view   ))
+view--hover--scroll-view--light2       = create-view-skin(light, (hover--view--light2   hover--view--light2    ), (hover--view--light2    view   ))
+view--hover--scroll-view--light        = create-view-skin(light, (hover--view--light    hover--view--light     ), (hover--view--light     view   ))
+view--hover--scroll-view--gray         = create-view-skin(light, (hover--view--gray     hover--view--gray      ), (hover--view--gray      view   ))
+view--hover--scroll-view--dark         = create-view-skin(light, (hover--view--dark     hover--view--dark      ), (hover--view--dark      view   ))
+view--hover--scroll-view--dark2        = create-view-skin(light, (hover--view--dark2    hover--view--dark2     ), (hover--view--dark2     view   ))
 
 // layout
 layout--scroll-view                    = create-layout-skin(null, auto auto, (4px), (1px), (0px                ))
@@ -69,17 +69,17 @@ flex--viewport--reverse                = create-flex(1, 1, auto, auto), create-f
     add-skin1 scroll-view--dark2
 // scroll-view
 .unity-scroll-view:hover
-    add-skin1 scroll-view--hover
+    add-skin1 hover--scroll-view
 .unity-scroll-view.light2:hover
-    add-skin1 scroll-view--light2--hover
+    add-skin1 hover--scroll-view--light2
 .unity-scroll-view.light:hover
-    add-skin1 scroll-view--light--hover
+    add-skin1 hover--scroll-view--light
 .unity-scroll-view.gray:hover
-    add-skin1 scroll-view--gray--hover
+    add-skin1 hover--scroll-view--gray
 .unity-scroll-view.dark:hover
-    add-skin1 scroll-view--dark--hover
+    add-skin1 hover--scroll-view--dark
 .unity-scroll-view.dark2:hover
-    add-skin1 scroll-view--dark2--hover
+    add-skin1 hover--scroll-view--dark2
 // scroll-view
 .unity-scroll-view.small #unity-content-container
     add-skin2 content--small

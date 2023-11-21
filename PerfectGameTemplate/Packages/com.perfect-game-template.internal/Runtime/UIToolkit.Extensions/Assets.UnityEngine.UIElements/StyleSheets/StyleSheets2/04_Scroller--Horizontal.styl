@@ -11,9 +11,9 @@ view--horizontal-low-button         = create-view-skin(null, (element--light    
 view--horizontal-high-button        = create-view-skin(null, (element--light        right-arrow-icon--light), (element--light         element))
 
 // view
-view--horizontal-dragger--hover     = create-view-skin(null, (element--light--hover element--light--hover  ), (element--light--hover  element))
-view--horizontal-low-button--hover  = create-view-skin(null, (element--light--hover left-arrow-icon--light ), (element--light--hover  element))
-view--horizontal-high-button--hover = create-view-skin(null, (element--light--hover right-arrow-icon--light), (element--light--hover  element))
+view--hover--horizontal-dragger     = create-view-skin(null, (hover--element--light hover--element--light  ), (hover--element--light  element))
+view--hover--horizontal-low-button  = create-view-skin(null, (hover--element--light left-arrow-icon--light ), (hover--element--light  element))
+view--hover--horizontal-high-button = create-view-skin(null, (hover--element--light right-arrow-icon--light), (hover--element--light  element))
 
 // layout
 layout--horizontal-scroller         = create-layout-skin(null,     auto auto, (0px            ), (0px), (0px))
@@ -70,8 +70,8 @@ flex--horizontal-high-button        = create-flex(0, 0, auto, auto)
     add-skin3 horizontal-high-button
 // scroller
 .unity-scroller--horizontal .unity-base-slider__input #unity-dragger:hover
-    add-skin1 horizontal-dragger--hover
+    add-skin1 hover--horizontal-dragger
 .unity-scroller--horizontal #unity-low-button:hover
-    add-skin1 horizontal-low-button--hover
+    add-skin1 hover--horizontal-low-button
 .unity-scroller--horizontal #unity-high-button:hover
-    add-skin1 horizontal-high-button--hover
+    add-skin1 hover--horizontal-high-button

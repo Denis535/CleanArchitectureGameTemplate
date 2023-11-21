@@ -15,15 +15,15 @@ view--dialog-card-content         = create-view-skin(light, (dialog-card-content
 view--dialog-card-footer          = create-view-skin(light, (dialog-card-footer          dialog-card-footer         ), (dialog-card-footer         dialog-card-footer ))
 
 // view
-view--card--hover                 = create-view-skin(light, (card--hover                 card--hover                ), (card--hover                card               ))
-view--card-header--hover          = create-view-skin(light, (card-header--hover          card-header--hover         ), (card-header--hover         card-header        ))
-view--card-content--hover         = create-view-skin(light, (card-content--hover         card-content--hover        ), (card-content--hover        card-content       ))
-view--card-footer--hover          = create-view-skin(light, (card-footer--hover          card-footer--hover         ), (card-footer--hover         card-footer        ))
+view--hover--card                 = create-view-skin(light, (hover--card                 hover--card                ), (hover--card                card               ))
+view--hover--card-header          = create-view-skin(light, (hover--card-header          hover--card-header         ), (hover--card-header         card-header        ))
+view--hover--card-content         = create-view-skin(light, (hover--card-content         hover--card-content        ), (hover--card-content        card-content       ))
+view--hover--card-footer          = create-view-skin(light, (hover--card-footer          hover--card-footer         ), (hover--card-footer         card-footer        ))
 // view
-view--dialog-card--hover          = create-view-skin(light, (dialog-card--hover          dialog-card--hover         ), (dialog-card--hover         dialog-card        ))
-view--dialog-card-header--hover   = create-view-skin(light, (dialog-card-header--hover   dialog-card-header--hover  ), (dialog-card-header--hover  dialog-card-header ))
-view--dialog-card-content--hover  = create-view-skin(light, (dialog-card-content--hover  dialog-card-content--hover ), (dialog-card-content--hover dialog-card-content))
-view--dialog-card-footer--hover   = create-view-skin(light, (dialog-card-footer--hover   dialog-card-footer--hover  ), (dialog-card-footer--hover  dialog-card-footer ))
+view--hover--dialog-card          = create-view-skin(light, (hover--dialog-card          hover--dialog-card         ), (hover--dialog-card         dialog-card        ))
+view--hover--dialog-card-header   = create-view-skin(light, (hover--dialog-card-header   hover--dialog-card-header  ), (hover--dialog-card-header  dialog-card-header ))
+view--hover--dialog-card-content  = create-view-skin(light, (hover--dialog-card-content  hover--dialog-card-content ), (hover--dialog-card-content dialog-card-content))
+view--hover--dialog-card-footer   = create-view-skin(light, (hover--dialog-card-footer   hover--dialog-card-footer  ), (hover--dialog-card-footer  dialog-card-footer ))
 
 // layout
 layout--card                      = create-layout-skin(null, auto auto, (0px), (1px 1px 1px 1px), (0px  0px  0px  0px ))
@@ -68,13 +68,13 @@ flex--dialog-card-footer          = null
     add-layout(width: 25%)
 // card
 .card:hover
-    add-skin1 card--hover
+    add-skin1 hover--card
 .card:hover .header
-    add-skin1 card-header--hover
+    add-skin1 hover--card-header
 .card:hover .content
-    add-skin1 card-content--hover
+    add-skin1 hover--card-content
 .card:hover .footer
-    add-skin1 card-footer--hover
+    add-skin1 hover--card-footer
 
 // dialog-card
 .dialog-card
@@ -95,13 +95,13 @@ flex--dialog-card-footer          = null
     add-skin3 dialog-card-footer
 // dialog-card
 .dialog-card:hover
-    add-skin1 dialog-card--hover
+    add-skin1 hover--dialog-card
 .dialog-card:hover .header
-    add-skin1 dialog-card-header--hover
+    add-skin1 hover--dialog-card-header
 .dialog-card:hover .content
-    add-skin1 dialog-card-content--hover
+    add-skin1 hover--dialog-card-content
 .dialog-card:hover .footer
-    add-skin1 dialog-card-footer--hover
+    add-skin1 hover--dialog-card-footer
 
 // info-dialog-card
 .info-dialog-card
@@ -122,13 +122,13 @@ flex--dialog-card-footer          = null
     add-skin3 dialog-card-footer
 // info-dialog-card
 .info-dialog-card:hover
-    add-skin1 dialog-card--hover
+    add-skin1 hover--dialog-card
 .info-dialog-card:hover .header
-    add-skin1 dialog-card-header--hover
+    add-skin1 hover--dialog-card-header
 .info-dialog-card:hover .content
-    add-skin1 dialog-card-content--hover
+    add-skin1 hover--dialog-card-content
 .info-dialog-card:hover .footer
-    add-skin1 dialog-card-footer--hover
+    add-skin1 hover--dialog-card-footer
 
 // warning-dialog-card
 .warning-dialog-card
@@ -149,13 +149,13 @@ flex--dialog-card-footer          = null
     add-skin3 dialog-card-footer
 // warning-dialog-card
 .warning-dialog-card:hover
-    add-skin1 dialog-card--hover
+    add-skin1 hover--dialog-card
 .warning-dialog-card:hover .header
-    add-skin1 dialog-card-header--hover
+    add-skin1 hover--dialog-card-header
 .warning-dialog-card:hover .content
-    add-skin1 dialog-card-content--hover
+    add-skin1 hover--dialog-card-content
 .warning-dialog-card:hover .footer
-    add-skin1 dialog-card-footer--hover
+    add-skin1 hover--dialog-card-footer
 
 // error-dialog-card
 .error-dialog-card
@@ -176,10 +176,10 @@ flex--dialog-card-footer          = null
     add-skin3 dialog-card-footer
 // error-dialog-card
 .error-dialog-card:hover
-    add-skin1 dialog-card--hover
+    add-skin1 hover--dialog-card
 .error-dialog-card:hover .header
-    add-skin1 dialog-card-header--hover
+    add-skin1 hover--dialog-card-header
 .error-dialog-card:hover .content
-    add-skin1 dialog-card-content--hover
+    add-skin1 hover--dialog-card-content
 .error-dialog-card:hover .footer
-    add-skin1 dialog-card-footer--hover
+    add-skin1 hover--dialog-card-footer

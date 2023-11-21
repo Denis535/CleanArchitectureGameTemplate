@@ -4,7 +4,7 @@
 view--button        = create-view-skin(light, (element--light        element--light       ), (element--light        element)), create-font(null, null, bold), create-text(middle-center, null, null)
 
 // view
-view--button--hover = create-view-skin(light, (element--light--hover element--light--hover), (element--light--hover element))
+view--hover--button = create-view-skin(light, (hover--element--light hover--element--light), (hover--element--light element))
 
 // layout
 layout--button      = create-layout-skin(null, auto auto, (4px), (1px), (12px 12px 10px 10px))
@@ -22,4 +22,4 @@ flex--button        = create-flex(0, 1, auto, auto)
 // button
 .unity-button:hover
 .unity-repeat-button:hover
-    add-skin1 button--hover
+    add-skin1 hover--button
