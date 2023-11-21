@@ -94,10 +94,10 @@
 .unity-box:hover {
   color: #e6e6e6;
   background-color: rgba(0,0,0,0);
-  border-left-color: #634d36;
-  border-right-color: #634d36;
-  border-top-color: #634d36;
-  border-bottom-color: #634d36;
+  border-left-color: #92704f;
+  border-right-color: #92704f;
+  border-top-color: #92704f;
+  border-bottom-color: #92704f;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -106,10 +106,10 @@
 .unity-box.light2:hover {
   color: #e6e6e6;
   background-color: #373839;
-  border-left-color: #634d36;
-  border-right-color: #634d36;
-  border-top-color: #634d36;
-  border-bottom-color: #634d36;
+  border-left-color: #92704f;
+  border-right-color: #92704f;
+  border-top-color: #92704f;
+  border-bottom-color: #92704f;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -118,10 +118,10 @@
 .unity-box.light:hover {
   color: #e6e6e6;
   background-color: #343637;
-  border-left-color: #634d36;
-  border-right-color: #634d36;
-  border-top-color: #634d36;
-  border-bottom-color: #634d36;
+  border-left-color: #92704f;
+  border-right-color: #92704f;
+  border-top-color: #92704f;
+  border-bottom-color: #92704f;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -130,10 +130,10 @@
 .unity-box.gray:hover {
   color: #e6e6e6;
   background-color: #323334;
-  border-left-color: #634d36;
-  border-right-color: #634d36;
-  border-top-color: #634d36;
-  border-bottom-color: #634d36;
+  border-left-color: #92704f;
+  border-right-color: #92704f;
+  border-top-color: #92704f;
+  border-bottom-color: #92704f;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -142,10 +142,10 @@
 .unity-box.dark:hover {
   color: #e6e6e6;
   background-color: #2f3031;
-  border-left-color: #634d36;
-  border-right-color: #634d36;
-  border-top-color: #634d36;
-  border-bottom-color: #634d36;
+  border-left-color: #92704f;
+  border-right-color: #92704f;
+  border-top-color: #92704f;
+  border-bottom-color: #92704f;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -154,10 +154,10 @@
 .unity-box.dark2:hover {
   color: #e6e6e6;
   background-color: #2d2e2f;
-  border-left-color: #634d36;
-  border-right-color: #634d36;
-  border-top-color: #634d36;
-  border-bottom-color: #634d36;
+  border-left-color: #92704f;
+  border-right-color: #92704f;
+  border-top-color: #92704f;
+  border-bottom-color: #92704f;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;

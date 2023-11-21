@@ -98,7 +98,7 @@
 }
 .unity-base-field__label:hover {
   color: #e6e6e6;
-  background-color: #434446;
+  background-color: #393b3c;
   border-left-color: #92704f;
   border-right-color: #92704f;
   border-top-color: #92704f;

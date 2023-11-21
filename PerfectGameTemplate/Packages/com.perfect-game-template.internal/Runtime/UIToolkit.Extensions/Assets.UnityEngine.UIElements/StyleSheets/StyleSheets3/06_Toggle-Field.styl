@@ -5,6 +5,7 @@ view--field              = null
 view--field-label        = null
 view--field-input        = null
 view--checkmark          = create-view-skin(null, (component--dark component--dark      ), (component--dark component))
+// view
 view--checkmark--checked = create-view-skin(null, (component--dark checkmark-icon--light), (component--dark component))
 
 // layout
@@ -32,10 +33,10 @@ flex--checkmark          = create-flex(0, 1, auto, auto)
     add-skin1 field-input
     add-skin2 field-input
     add-skin3 field-input
-.unity-toggle__input #unity-checkmark
+.unity-toggle__input .unity-toggle__checkmark
     add-skin1 checkmark
     add-skin2 checkmark
     add-skin3 checkmark
 // toggle-field
-.unity-toggle__input:checked #unity-checkmark
+.unity-toggle__input:checked .unity-toggle__checkmark
     add-skin1 checkmark--checked
