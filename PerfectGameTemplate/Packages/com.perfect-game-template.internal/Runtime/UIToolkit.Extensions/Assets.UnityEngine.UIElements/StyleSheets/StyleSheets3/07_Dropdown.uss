@@ -130,7 +130,6 @@
   align-self: auto;
 }
 .unity-base-dropdown__item:hover {
-  color: #e6e6e6;
   background-color: #b86614;
   border-left-color: #5c330a;
   border-right-color: #5c330a;

@@ -11,8 +11,8 @@ view--checkmark--checked               = create-view-skin(null,  (component     
 view--text                             = create-view-skin(null,  (element              element              ), (element              element      ))
 
 // view
-view--scroll-view--hover               = create-view-skin(null,  (dropdown--hover      dropdown--hover      ), (dropdown--hover      dropdown     ))
-view--dropdown-item--hover             = create-view-skin(light, (dropdown-item--hover dropdown-item--hover ), (dropdown-item--hover dropdown-item))
+view--scroll-view--hover               = create-view-skin(light, (dropdown--hover      dropdown--hover      ), (dropdown--hover      dropdown     ))
+view--dropdown-item--hover             = create-view-skin(null,  (dropdown-item--hover dropdown-item--hover ), (dropdown-item--hover dropdown-item))
 
 // layout
 layout--scroll-view                    = create-layout-skin(null, auto auto, (0px             ), (1px            ), (0px                ))
@@ -54,7 +54,7 @@ flex--text                             = create-flex(1, 1, auto, auto)
     add-skin3 content
 // dropdown
 .unity-base-dropdown .unity-scroll-view:hover
-    add-skin1 scroll-view
+    add-skin1 scroll-view--hover
 
 // dropdown-item
 .unity-base-dropdown__item
