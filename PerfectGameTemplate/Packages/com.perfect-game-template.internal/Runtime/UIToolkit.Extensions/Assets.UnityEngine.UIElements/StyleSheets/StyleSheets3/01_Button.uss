@@ -33,7 +33,7 @@
 }
 .unity-button:hover,
 .unity-repeat-button:hover {
-  color: #fff;
+  color: #e6e6e6;
   background-color: #434446;
   border-left-color: #92704f;
   border-right-color: #92704f;
