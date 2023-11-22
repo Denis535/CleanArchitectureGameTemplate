@@ -87,9 +87,14 @@ namespace Project.Toolbar {
             new ProjectBuilder2().BuildProduction();
         }
 
-        // Screenshot
-        [MenuItem( "Project/Screenshot &F12", priority = 300 )]
-        private static void Screenshot() {
+        // TakeScreenshot
+        [MenuItem( "Project/Take Screenshot (Game) _F12", priority = 300 )]
+        internal static void TakeScreenshot_Game() {
+            ScreenCapture.CaptureScreenshot( $"Screenshots/Screenshot-{DateTime.UtcNow.Ticks}.png", 1 );
+            EditorApplication.Beep();
+        }
+        [MenuItem( "Project/Take Screenshot (Editor) &F12", priority = 301 )]
+        internal static void TakeScreenshot_Editor() {
             var position = EditorGUIUtility.GetMainWindowPosition();
             var texture = new Texture2D( (int) position.width, (int) position.height );
             texture.SetPixels( InternalEditorUtility.ReadScreenPixel( position.position, (int) position.width, (int) position.height ) );
