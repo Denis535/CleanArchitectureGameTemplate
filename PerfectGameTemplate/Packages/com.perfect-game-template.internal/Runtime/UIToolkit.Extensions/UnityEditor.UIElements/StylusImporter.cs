@@ -76,6 +76,7 @@ namespace UnityEditor.UIElements {
                 .define('get-string', getStringEx, raw = true )
                 .define('get-type',   getTypeEx,   raw = true )
                 .define('is-defined', isDefinedEx, raw = true )
+                .define('define',     defineEx,    raw = true )
                 .render(onComplete);
 
             // onCallback
@@ -100,44 +101,61 @@ namespace UnityEditor.UIElements {
             function rawEvalEx(script, arg, arg2, arg3, arg4, arg5, arg6) {{
                 return eval(script.nodes[0].val);
             }}
+            // extensions
             function getStringEx(expr) {{
                 expr = Stylus.utils.unwrap(expr);
                 if (expr.nodes.length == 0) {{
                     return new Stylus.nodes.Null();
                 }}
                 if (expr.nodes.length == 1) {{
-                    const expr2 = expr.nodes[0];
-                    if (expr2.constructor.name == 'String')   return new Stylus.nodes.String(expr2.string ?? expr2.toString());
-                    if (expr2.constructor.name == 'Literal')  return new Stylus.nodes.String(expr2.string ?? expr2.toString());
-                    if (expr2.constructor.name == 'Ident')    return new Stylus.nodes.String(expr2.string ?? expr2.toString());
-                    if (expr2.constructor.name == 'Unit')     return new Stylus.nodes.String(expr2.string ?? expr2.toString());
-                    if (expr2.constructor.name == 'RGBA')     return new Stylus.nodes.String(expr2.name);
-                    if (expr2.constructor.name == 'Function') return new Stylus.nodes.String(expr2.name);
-                    if (expr2.constructor.name == 'Null')     return new Stylus.nodes.Null();
-                    throw new Error( ""Argument 'expr' is not supported: "" + expr2 );
+                    const value = expr.nodes[0];
+                    if (value.constructor.name == 'String')   return new Stylus.nodes.String( value.string ?? value.toString() );
+                    if (value.constructor.name == 'Literal')  return new Stylus.nodes.String( value.string ?? value.toString() );
+                    if (value.constructor.name == 'Ident')    return new Stylus.nodes.String( value.string ?? value.toString() );
+                    if (value.constructor.name == 'Unit')     return new Stylus.nodes.String( value.string ?? value.toString() );
+                    if (value.constructor.name == 'RGBA')     return new Stylus.nodes.String( value.name                       );
+                    if (value.constructor.name == 'Function') return new Stylus.nodes.String( value.name                       );
+                    if (value.constructor.name == 'Null')     return new Stylus.nodes.Null();
+                    throw new Error( ""Argument is invalid: "" + value );
                 }}
-                throw new Error( ""Argument 'expr' is invalid: "" + expr );
+                throw new Error( ""Argument is invalid: "" + expr );
             }}
             function getTypeEx(expr) {{
-                expr = Stylus.utils.unwrap(expr);
-                if (expr.nodes.length == 0) return new Stylus.nodes.Null();
-                if (expr.nodes.length == 1) return new Stylus.nodes.String(expr.nodes[0].constructor.name);
-                return new Stylus.nodes.Literal(expr.constructor.name);
-            }}
-            function isDefinedEx(expr) {{
                 expr = Stylus.utils.unwrap(expr);
                 if (expr.nodes.length == 0) {{
                     return new Stylus.nodes.Null();
                 }}
                 if (expr.nodes.length == 1) {{
-                    const expr2 = expr.nodes[0];
-                    if (expr2.constructor.name == 'String')  return new Stylus.nodes.Boolean(this.lookup(expr2.string ?? expr2.toString()));
-                    if (expr2.constructor.name == 'Literal') return new Stylus.nodes.Boolean(this.lookup(expr2.string ?? expr2.toString()));
-                    if (expr2.constructor.name == 'Ident')   return new Stylus.nodes.Boolean(this.lookup(expr2.string ?? expr2.toString()));
-                    if (expr2.constructor.name == 'Null')    return new Stylus.nodes.Null();
-                    throw new Error( ""Argument 'expr' is not supported: "" + expr2 );
+                    const value = expr.nodes[0];
+                    return new Stylus.nodes.String( value.constructor.name );
                 }}
-                throw new Error( ""Argument 'expr' is invalid: "" + expr );
+                {{
+                    return new Stylus.nodes.String( expr.constructor.name );
+                }}
+            }}
+            // extensions
+            function isDefinedEx(expr) {{
+                expr = Stylus.utils.unwrap(expr);
+                if (expr.nodes.length == 1) {{
+                    const value = expr.nodes[0];
+                    if (value.constructor.name == 'String')  return new Stylus.nodes.Boolean( this.lookup(value.string ?? value.toString()) );
+                    if (value.constructor.name == 'Literal') return new Stylus.nodes.Boolean( this.lookup(value.string ?? value.toString()) );
+                    if (value.constructor.name == 'Ident')   return new Stylus.nodes.Boolean( this.lookup(value.string ?? value.toString()) );
+                    throw new Error( ""Argument is invalid: "" + value );
+                }}
+                throw new Error( ""Argument is invalid: "" + expr );
+            }}
+            function defineEx(name, expr, global) {{
+                name = Stylus.utils.unwrap(name).nodes[0].string;
+                expr = Stylus.utils.unwrap(expr);
+                global = global != null && global.toBoolean().isTrue;
+                if (global) {{
+                    const node = new Stylus.nodes.Ident(name, expr);
+                    this.global.scope.add(node);
+                }} else {{
+                    const node = new Stylus.nodes.Ident(name, expr);
+                    this.currentScope.add(node);
+                }}
             }}
             " );
         }

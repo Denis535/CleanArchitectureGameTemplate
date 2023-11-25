@@ -1,26 +1,25 @@
 @import "../Internal/_Theme"
 
 // view
-view--box                = create-view-skin(light, (box                box               ), (box                box))
-view--box--light2        = create-view-skin(light, (box--light2        box--light2       ), (box--light2        box))
-view--box--light         = create-view-skin(light, (box--light         box--light        ), (box--light         box))
-view--box--gray          = create-view-skin(light, (box--gray          box--gray         ), (box--gray          box))
-view--box--dark          = create-view-skin(light, (box--dark          box--dark         ), (box--dark          box))
-view--box--dark2         = create-view-skin(light, (box--dark2         box--dark2        ), (box--dark2         box))
-
+view--box                = create-view-skin(light box                box                box                box)
+view--box--light2        = create-view-skin(light box--light2        box--light2        box--light2        box)
+view--box--light         = create-view-skin(light box--light         box--light         box--light         box)
+view--box--gray          = create-view-skin(light box--gray          box--gray          box--gray          box)
+view--box--dark          = create-view-skin(light box--dark          box--dark          box--dark          box)
+view--box--dark2         = create-view-skin(light box--dark2         box--dark2         box--dark2         box)
 // view
-view--hover--box         = create-view-skin(light, (hover--box         hover--box        ), (hover--box         box))
-view--hover--box--light2 = create-view-skin(light, (hover--box--light2 hover--box--light2), (hover--box--light2 box))
-view--hover--box--light  = create-view-skin(light, (hover--box--light  hover--box--light ), (hover--box--light  box))
-view--hover--box--gray   = create-view-skin(light, (hover--box--gray   hover--box--gray  ), (hover--box--gray   box))
-view--hover--box--dark   = create-view-skin(light, (hover--box--dark   hover--box--dark  ), (hover--box--dark   box))
-view--hover--box--dark2  = create-view-skin(light, (hover--box--dark2  hover--box--dark2 ), (hover--box--dark2  box))
+view--box--hover         = create-view-skin(light box--hover         box--hover         box--hover         box)
+view--box--light2--hover = create-view-skin(light box--light2--hover box--light2--hover box--light2--hover box)
+view--box--light--hover  = create-view-skin(light box--light--hover  box--light--hover  box--light--hover  box)
+view--box--gray--hover   = create-view-skin(light box--gray--hover   box--gray--hover   box--gray--hover   box)
+view--box--dark--hover   = create-view-skin(light box--dark--hover   box--dark--hover   box--dark--hover   box)
+view--box--dark2--hover  = create-view-skin(light box--dark2--hover  box--dark2--hover  box--dark2--hover  box)
 
 // layout
-layout--box              = create-layout-skin(null, auto auto, (4px), (1px), (0px                ))
-layout--box--small       = create-layout-skin(null, auto auto, (4px), (1px), (6px  6px  5px  5px ))
-layout--box--medium      = create-layout-skin(null, auto auto, (4px), (1px), (12px 12px 10px 10px))
-layout--box--large       = create-layout-skin(null, auto auto, (4px), (1px), (24px 24px 20px 20px))
+layout--box              = create-layout-skin(null auto auto (4px) (1px) (0px                ))
+layout--box--small       = create-layout-skin(null auto auto (4px) (1px) (6px  6px  5px  5px ))
+layout--box--medium      = create-layout-skin(null auto auto (4px) (1px) (12px 12px 10px 10px))
+layout--box--large       = create-layout-skin(null auto auto (4px) (1px) (24px 24px 20px 20px))
 
 // flex
 flex--box                = create-flex(0, 1, auto, auto), create-flex2(column, flex-start, stretch)
@@ -43,17 +42,17 @@ flex--box                = create-flex(0, 1, auto, auto), create-flex2(column, f
     add-skin1 box--dark2
 // box
 .unity-box:hover
-    add-skin1 hover--box
+    add-skin1 box--hover
 .unity-box.light2:hover
-    add-skin1 hover--box--light2
+    add-skin1 box--light2--hover
 .unity-box.light:hover
-    add-skin1 hover--box--light
+    add-skin1 box--light--hover
 .unity-box.gray:hover
-    add-skin1 hover--box--gray
+    add-skin1 box--gray--hover
 .unity-box.dark:hover
-    add-skin1 hover--box--dark
+    add-skin1 box--dark--hover
 .unity-box.dark2:hover
-    add-skin1 hover--box--dark2
+    add-skin1 box--dark2--hover
 // box
 .unity-box.small
     add-skin2 box--small

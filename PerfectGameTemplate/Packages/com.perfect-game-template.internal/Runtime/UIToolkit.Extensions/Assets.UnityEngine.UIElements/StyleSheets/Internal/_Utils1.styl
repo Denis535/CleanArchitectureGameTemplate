@@ -299,22 +299,3 @@ get-style-value(value, property)
     return s("url('%s')", unquote(value)) if property == '-unity-font-definition'
     return s("url('%s')", unquote(value)) if property == 'background-image'
     value
-
-// misc
-has(obj, key)
-    if obj != null
-        key = get-string(key)
-        return key in obj
-    else
-        key = get-string(key)
-        return key is defined
-get(obj, key)
-    if obj != null
-        return obj[get-string(key)]
-    else
-        return lookup(get-string(key))
-set(obj, key, value)
-    if obj != null
-        obj[get-string(key)] = value
-    else
-        define(get-string(key), value)

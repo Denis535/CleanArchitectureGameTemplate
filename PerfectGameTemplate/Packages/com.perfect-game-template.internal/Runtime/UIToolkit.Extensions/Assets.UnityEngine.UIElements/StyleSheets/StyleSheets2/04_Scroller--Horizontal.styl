@@ -1,29 +1,28 @@
 @import "../Internal/_Theme"
 
 // view
-view--horizontal-scroller           = create-view-skin(null, (element               element                ), (element                element))
-view--horizontal-field              = create-view-skin(null, (element               element                ), (element                element))
-view--horizontal-field-input        = create-view-skin(null, (element               element                ), (element                element))
-view--horizontal-container          = create-view-skin(null, (element               element                ), (element                element))
-view--horizontal-tracker            = create-view-skin(null, (element--dark         element--dark          ), (element--dark          element))
-view--horizontal-dragger            = create-view-skin(null, (element--light        element--light         ), (element--light         element))
-view--horizontal-low-button         = create-view-skin(null, (element--light        left-arrow-icon--light ), (element--light         element))
-view--horizontal-high-button        = create-view-skin(null, (element--light        right-arrow-icon--light), (element--light         element))
-
+view--horizontal-scroller           = create-view-skin(null element               element                 element                element)
+view--horizontal-field              = create-view-skin(null element               element                 element                element)
+view--horizontal-field-input        = create-view-skin(null element               element                 element                element)
+view--horizontal-container          = create-view-skin(null element               element                 element                element)
+view--horizontal-tracker            = create-view-skin(null element--dark         element--dark           element--dark          element)
+view--horizontal-dragger            = create-view-skin(null element--light        element--light          element--light         element)
+view--horizontal-low-button         = create-view-skin(null element--light        left-arrow-icon--light  element--light         element)
+view--horizontal-high-button        = create-view-skin(null element--light        right-arrow-icon--light element--light         element)
 // view
-view--hover--horizontal-dragger     = create-view-skin(null, (hover--element--light hover--element--light  ), (hover--element--light  element))
-view--hover--horizontal-low-button  = create-view-skin(null, (hover--element--light left-arrow-icon--light ), (hover--element--light  element))
-view--hover--horizontal-high-button = create-view-skin(null, (hover--element--light right-arrow-icon--light), (hover--element--light  element))
+view--hover--horizontal-dragger     = create-view-skin(null element--light--hover element--light          element--light--hover  element)
+view--hover--horizontal-low-button  = create-view-skin(null element--light--hover left-arrow-icon--light  element--light--hover  element)
+view--hover--horizontal-high-button = create-view-skin(null element--light--hover right-arrow-icon--light element--light--hover  element)
 
 // layout
-layout--horizontal-scroller         = create-layout-skin(null,     auto auto, (0px            ), (0px), (0px))
-layout--horizontal-field            = create-layout-skin(null,     auto auto, (0px            ), (0px), (0px))
-layout--horizontal-field-input      = create-layout-skin(null,     auto auto, (0px            ), (0px), (0px))
-layout--horizontal-container        = create-layout-skin(null,     auto auto, (2px 2px 0px 0px), (0px), (0px))
-layout--horizontal-tracker          = create-layout-skin(null,     auto 24px, (0px            ), (1px), (0px))
-layout--horizontal-dragger          = create-layout-skin(absolute, auto 24px, (0px            ), (1px), (0px))
-layout--horizontal-low-button       = create-layout-skin(null,     24px 24px, (0px            ), (1px), (0px))
-layout--horizontal-high-button      = create-layout-skin(null,     24px 24px, (0px            ), (1px), (0px))
+layout--horizontal-scroller         = create-layout-skin(null     auto auto (0px            ) (0px) (0px))
+layout--horizontal-field            = create-layout-skin(null     auto auto (0px            ) (0px) (0px))
+layout--horizontal-field-input      = create-layout-skin(null     auto auto (0px            ) (0px) (0px))
+layout--horizontal-container        = create-layout-skin(null     auto auto (2px 2px 0px 0px) (0px) (0px))
+layout--horizontal-tracker          = create-layout-skin(null     auto 24px (0px            ) (1px) (0px))
+layout--horizontal-dragger          = create-layout-skin(absolute auto 24px (0px            ) (1px) (0px))
+layout--horizontal-low-button       = create-layout-skin(null     24px 24px (0px            ) (1px) (0px))
+layout--horizontal-high-button      = create-layout-skin(null     24px 24px (0px            ) (1px) (0px))
 
 // flex
 flex--horizontal-scroller           = create-flex(0, 0, auto, auto), create-flex2(row, flex-start, center)

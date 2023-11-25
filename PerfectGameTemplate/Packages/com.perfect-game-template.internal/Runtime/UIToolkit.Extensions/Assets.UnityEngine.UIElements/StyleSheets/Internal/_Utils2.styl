@@ -1,82 +1,44 @@
-// create-theme
-create-theme()
-    return {
-        color: {},
-        background-color: {},
-        background-image: {},
-        border-color: {},
-        border-radius: {},
-    }
-
 // get-theme-value
-get-theme-color(key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
+get-theme-value(key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
     if key != null
-        return get-theme-value('color', key, hue, saturate, desaturate, lighten, darken, alpha) if has-theme-value(color, key)
-        error('Theme color is not found: ' + get-string(key))
+        key = create-theme-key(key)
+        if is-defined(key)
+            return get-theme-value-internal(key, hue, saturate, desaturate, lighten, darken, alpha)
+        error('Value is undefined: ' + key)
     null
-get-theme-background-color(key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
-    if key != null
-        return get-theme-value('background-color', key, hue, saturate, desaturate, lighten, darken, alpha) if has-theme-value(background-color, key)
-        return get-theme-value('color',            key, hue, saturate, desaturate, lighten, darken, alpha) if has-theme-value(color,            key)
-        error('Theme background-color is not found: ' + get-string(key))
-    null
-get-theme-background-image(key)
-    if key != null
-        return get-theme-value('background-image', key) if has-theme-value(background-image, key)
-        error('Theme background-image is not found: ' + get-string(key))
-    null
-get-theme-border-color(key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
-    if key != null
-        return get-theme-value('border-color', key, hue, saturate, desaturate, lighten, darken, alpha) if has-theme-value(border-color, key)
-        return get-theme-value('color',        key, hue, saturate, desaturate, lighten, darken, alpha) if has-theme-value(color,        key)
-        error('Theme border-color is not found: ' + get-string(key))
-    null
-get-theme-border-radius(key)
-    if key != null
-        return get-theme-value('border-radius', key) if has-theme-value(border-radius, key)
-        error('Theme border-radius is not found: ' + get-string(key))
-    null
-// set-theme-value
-set-theme-color(key, value)
-    get-theme-value('color', key, value)
-set-background-color(key, value)
-    get-theme-value('background-color', key, value)
-set-background-image(key, value)
-    get-theme-value('background-image', key, value)
-set-border-color(key, value)
-    get-theme-value('border-color', key, value)
-set-border-radius(key, value)
-    get-theme-value('border-radius', key, value)
-
-// has-theme-value
-has-theme-value(section, key)
-    has(theme[section], key)
-// get-theme-value
-get-theme-value(section, key, _hue = null, _saturate = null, _desaturate = null, _lighten = null, _darken = null, _alpha = null)
-    value = get(theme[section], key)
-    value =        hue(value, _hue       ) if value != null and _hue        != null
-    value =   saturate(value, _saturate  ) if value != null and _saturate   != null
+get-theme-value-internal(key, _hue = null, _saturate = null, _desaturate = null, _lighten = null, _darken = null, _alpha = null)
+    value = lookup(key)
+    value = hue(value, _hue)               if value != null and _hue        != null
+    value = saturate(value, _saturate)     if value != null and _saturate   != null
     value = desaturate(value, _desaturate) if value != null and _desaturate != null
-    value =    lighten(value, _lighten   ) if value != null and _lighten    != null
-    value =     darken(value, _darken    ) if value != null and _darken     != null
-    value =      alpha(value, _alpha     ) if value != null and _alpha      != null
+    value = lighten(value, _lighten)       if value != null and _lighten    != null
+    value = darken(value, _darken)         if value != null and _darken     != null
+    value = alpha(value, _alpha)           if value != null and _alpha      != null
     value
 // set-theme-value
-set-theme-value(section, key, value)
-    set(theme[section], key, value)
+set-theme-value(key, value = null)
+    key = create-theme-key(key)
+    define(key, value, true)
+// create-theme-key
+create-theme-key(key)
+    if key != null
+        key = get-string(key)
+        key = replace('(--)(-*)', '--', key)
+        return 'theme--' + key
+    null
 
 // create-view-skin
-create-view-skin(color, background, border)
-    color            = get-theme-color(color)
-    background-color = get-theme-background-color(background[0])
-    background-image = get-theme-background-image(background[1])
-    border-color     = get-theme-border-color(border[0])
-    border-radius    = get-theme-border-radius(border[1])
+create-view-skin(args)
+    color            = args[0] != null ? get-theme-value('color--'            + get-string(args[0])) : null
+    background-color = args[1] != null ? get-theme-value('background-color--' + get-string(args[1])) : null
+    background-image = args[2] != null ? get-theme-value('background-image--' + get-string(args[2])) : null
+    border-color     = args[3] != null ? get-theme-value('border-color--'     + get-string(args[3])) : null
+    border-radius    = args[4] != null ? get-theme-value('border-radius--'    + get-string(args[4])) : null
     create-view color, null, null, background-color, background-image, border-color, border-radius
 
 // create-layout-skin
-create-layout-skin(position, size, margin, border, padding)
-    create-layout position, size[0], size[1], margin, border, padding
+create-layout-skin(args)
+    create-layout args[0], args[1], args[2], args[3], args[4], args[5]
 
 // add-skin
 add-skin1(name)
