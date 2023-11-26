@@ -1,22 +1,22 @@
 // get-theme-value
 get-theme-value(key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
-    get-theme-value-internal(key, hue, saturate, desaturate, lighten, darken, alpha)
-get-theme-value-internal(key, _hue = null, _saturate = null, _desaturate = null, _lighten = null, _darken = null, _alpha = null)
     if key != null
-        value = get-value('theme', key)
-        value = hue(value, _hue)               if value != null and _hue        != null
-        value = saturate(value, _saturate)     if value != null and _saturate   != null
-        value = desaturate(value, _desaturate) if value != null and _desaturate != null
-        value = lighten(value, _lighten)       if value != null and _lighten    != null
-        value = darken(value, _darken)         if value != null and _darken     != null
-        value = alpha(value, _alpha)           if value != null and _alpha      != null
-        return value
+        return get-theme-value-internal(key, hue, saturate, desaturate, lighten, darken, alpha)
     null
+get-theme-value-internal(key, _hue = null, _saturate = null, _desaturate = null, _lighten = null, _darken = null, _alpha = null)
+    value = get-value('theme', key)
+    value = hue(value, _hue)               if value != null and _hue        != null
+    value = saturate(value, _saturate)     if value != null and _saturate   != null
+    value = desaturate(value, _desaturate) if value != null and _desaturate != null
+    value = lighten(value, _lighten)       if value != null and _lighten    != null
+    value = darken(value, _darken)         if value != null and _darken     != null
+    value = alpha(value, _alpha)           if value != null and _alpha      != null
+    value
 // set-theme-value
 set-theme-value(key, value...)
     set-value('theme', key, value)
 
-// create-view-skin
+// create-skin
 create-view-skin(args)
     color            = args[0] != null ? get-theme-value('color--'            + get-string(args[0])) : null
     background-color = args[1] != null ? get-theme-value('background-color--' + get-string(args[1])) : null
@@ -24,47 +24,19 @@ create-view-skin(args)
     border-color     = args[3] != null ? get-theme-value('border-color--'     + get-string(args[3])) : null
     border-radius    = args[4] != null ? get-theme-value('border-radius--'    + get-string(args[4])) : null
     create-view color, null, null, background-color, background-image, border-color, border-radius
-
-// create-layout-skin
 create-layout-skin(args)
     create-layout args[0], args[1], args[2], args[3], args[4], args[5]
 
 // add-skin
-add-skin1(name)
-    if typeof(name) == 'object'
-        add-style name
-    else
-        add-style get-skin1(name)
-add-skin2(name)
-    if typeof(name) == 'object'
-        add-style name
-    else
-        add-style get-skin2(name)
-add-skin3(name)
-    if typeof(name) == 'object'
-        add-style name
-    else
-        add-style get-skin3(name)
-
-// get-skin
-get-skin1(name)
-    if name != null and name != none
-        name = 'view--' + get-string(name)
-        return lookup(name) if is-defined(name)
-        error('Skin (view) is not found: ' + name)
-    null
-get-skin2(name)
-    if name != null and name != none
-        name = 'layout--' + get-string(name)
-        return lookup(name) if is-defined(name)
-        error('Skin (layout) is not found: ' + name)
-    null
-get-skin3(name)
-    if name != null and name != none
-        name = 'flex--' + get-string(name)
-        return lookup(name) if is-defined(name)
-        error('Skin (flex) is not found: ' + name)
-    null
+add-skin1(key)
+    if key != null and key != none
+        add-style get-value('view', key)
+add-skin2(key)
+    if key != null and key != none
+        add-style get-value('layout', key)
+add-skin3(key)
+    if key != null and key != none
+        add-style get-value('flex', key)
 
 // misc
 get-value(section, key)
