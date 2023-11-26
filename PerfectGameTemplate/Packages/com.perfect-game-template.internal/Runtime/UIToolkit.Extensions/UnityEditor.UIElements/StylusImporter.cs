@@ -148,8 +148,7 @@ namespace UnityEditor.UIElements {
             function defineEx(name, expr, global) {{
                 name = Stylus.utils.unwrap(name).nodes[0].string;
                 expr = Stylus.utils.unwrap(expr);
-                global = global != null && global.toBoolean().isTrue;
-                if (global) {{
+                if (global = global && global.toBoolean().isTrue) {{
                     const node = new Stylus.nodes.Ident(name, expr);
                     this.global.scope.add(node);
                 }} else {{

@@ -16,7 +16,7 @@ get-theme-value-internal(key, _hue = null, _saturate = null, _desaturate = null,
     value = alpha(value, _alpha)           if value != null and _alpha      != null
     value
 // set-theme-value
-set-theme-value(key, value = null)
+set-theme-value(key, value...)
     key = create-theme-key(key)
     define(key, value, true)
 // create-theme-key
