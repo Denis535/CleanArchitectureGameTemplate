@@ -1,14 +1,11 @@
 @import "_Utils"
 
-init-theme()
-    // common
-    set-theme-value color--light   hsla(  0,   0%,  90%, 1.00)
-    set-theme-value color--dark    hsla(  0,   0%,  10%, 1.00)
-    // common
-    set-theme-value color--focus   hsla(210,  80%,  50%, 1.00)
-    set-theme-value color--invalid hsla(  0,  80%,  50%, 1.00)
-
-init-theme()
+// common
+theme--color--light   = hsla(  0,   0%,  90%, 1.00)
+theme--color--dark    = hsla(  0,   0%,  10%, 1.00)
+// common
+theme--color--focus   = hsla(210,  80%,  50%, 1.00)
+theme--color--invalid = hsla(  0,  80%,  50%, 1.00)
 
 @import "_Theme1"
 @import "_Theme2"

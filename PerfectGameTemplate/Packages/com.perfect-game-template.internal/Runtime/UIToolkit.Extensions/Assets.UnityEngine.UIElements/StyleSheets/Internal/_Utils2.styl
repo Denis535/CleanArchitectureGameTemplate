@@ -1,3 +1,14 @@
+// create-skin
+create-view-skin(args)
+    color            = args[0] != null ? get-theme-value('color--'            + get-string(args[0])) : null
+    background-color = args[1] != null ? get-theme-value('background-color--' + get-string(args[1])) : null
+    background-image = args[2] != null ? get-theme-value('background-image--' + get-string(args[2])) : null
+    border-color     = args[3] != null ? get-theme-value('border-color--'     + get-string(args[3])) : null
+    border-radius    = args[4] != null ? get-theme-value('border-radius--'    + get-string(args[4])) : null
+    create-view color, null, null, background-color, background-image, border-color, border-radius
+create-layout-skin(args)
+    create-layout args[0], args[1], args[2], args[3], args[4], args[5]
+
 // get-theme-value
 get-theme-value(key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
     if key != null
@@ -12,20 +23,6 @@ get-theme-value-internal(key, _hue = null, _saturate = null, _desaturate = null,
     value = darken(value, _darken)         if value != null and _darken     != null
     value = alpha(value, _alpha)           if value != null and _alpha      != null
     value
-// set-theme-value
-set-theme-value(key, value...)
-    set-value('theme', key, value)
-
-// create-skin
-create-view-skin(args)
-    color            = args[0] != null ? get-theme-value('color--'            + get-string(args[0])) : null
-    background-color = args[1] != null ? get-theme-value('background-color--' + get-string(args[1])) : null
-    background-image = args[2] != null ? get-theme-value('background-image--' + get-string(args[2])) : null
-    border-color     = args[3] != null ? get-theme-value('border-color--'     + get-string(args[3])) : null
-    border-radius    = args[4] != null ? get-theme-value('border-radius--'    + get-string(args[4])) : null
-    create-view color, null, null, background-color, background-image, border-color, border-radius
-create-layout-skin(args)
-    create-layout args[0], args[1], args[2], args[3], args[4], args[5]
 
 // add-skin
 add-skin1(key)
@@ -43,6 +40,3 @@ get-value(section, key)
     key = section + '--' + replace('(--)(-*)', '--', get-string(key))
     return lookup(key) if is-defined(key)
     error('Value is undefined: ' + key)
-set-value(section, key, value)
-    key = section + '--' + replace('(--)(-*)', '--', get-string(key))
-    define(key, value, true)

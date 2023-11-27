@@ -64,6 +64,13 @@ namespace UnityEditor.UIElements {
             const Path = require('path');
             const Stylus = require( require.resolve('stylus', {{ paths: [ Path.join(process.env.APPDATA, '/npm/node_modules') ] }} ) );
 
+            Stylus.nodes.Ident = new Proxy(Stylus.nodes.Ident, {{
+                construct: function(target, args) {{
+                    args[0] = args[0].replaceAll(/(__)(_*)/g, '__').replaceAll(/(--)(-*)/g, '--');
+                    return new target(...args);
+                }}
+            }});
+
             const src = '{src}';
             const dist = '{dist}';
             const source = FS.readFileSync(src, 'utf8');
@@ -75,8 +82,8 @@ namespace UnityEditor.UIElements {
                 .define('raw-eval',   rawEvalEx,   raw = true )
                 .define('get-string', getStringEx, raw = true )
                 .define('get-type',   getTypeEx,   raw = true )
-                .define('is-defined', isDefinedEx, raw = true )
                 .define('define',     defineEx,    raw = true )
+                .define('is-defined', isDefinedEx, raw = true )
                 .render(onComplete);
 
             // onCallback
@@ -134,6 +141,18 @@ namespace UnityEditor.UIElements {
                 }}
             }}
             // extensions
+            function defineEx(name, expr, global) {{
+                name = Stylus.utils.unwrap(name).nodes[0].string;
+                expr = Stylus.utils.unwrap(expr);
+                global = global && global.toBoolean().isTrue;
+                if (global) {{
+                    const node = new Stylus.nodes.Ident(name, expr);
+                    this.global.scope.add(node);
+                }} else {{
+                    const node = new Stylus.nodes.Ident(name, expr);
+                    this.currentScope.add(node);
+                }}
+            }}
             function isDefinedEx(expr) {{
                 expr = Stylus.utils.unwrap(expr);
                 if (expr.nodes.length == 1) {{
@@ -144,17 +163,6 @@ namespace UnityEditor.UIElements {
                     throw new Error( ""Argument is invalid: "" + value );
                 }}
                 throw new Error( ""Argument is invalid: "" + expr );
-            }}
-            function defineEx(name, expr, global) {{
-                name = Stylus.utils.unwrap(name).nodes[0].string;
-                expr = Stylus.utils.unwrap(expr);
-                if (global = global && global.toBoolean().isTrue) {{
-                    const node = new Stylus.nodes.Ident(name, expr);
-                    this.global.scope.add(node);
-                }} else {{
-                    const node = new Stylus.nodes.Ident(name, expr);
-                    this.currentScope.add(node);
-                }}
             }}
             " );
         }
