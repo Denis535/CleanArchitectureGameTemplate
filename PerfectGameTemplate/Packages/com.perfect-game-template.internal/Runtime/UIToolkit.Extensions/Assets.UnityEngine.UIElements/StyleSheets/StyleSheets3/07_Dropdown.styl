@@ -9,9 +9,8 @@ view--dropdown-item                    = create-view-skin(null  dropdown-item   
 view--checkmark                        = create-view-skin(null  component            component             component            component    )
 view--checkmark--checked               = create-view-skin(null  component            checkmark-icon--light component            component    )
 view--text                             = create-view-skin(null  element              element               element              element      )
-
 // view
-view--scroll-view--hover               = create-view-skin(light dropdown--hover      dropdown--hover       dropdown--hover      dropdown     )
+view--scroll-view----hover             = create-view-skin(light dropdown--hover      dropdown--hover       dropdown--hover      dropdown     )
 view--dropdown-item--hover             = create-view-skin(null  dropdown-item--hover dropdown-item--hover  dropdown-item--hover dropdown-item)
 
 // layout
@@ -69,16 +68,16 @@ flex--text                             = create-flex(1, 1, auto, auto)
     add-skin2 text
     add-skin3 text
 // dropdown-item
-.unity-base-dropdown__item:hover
-    add-skin1 dropdown-item--hover
-.unity-base-dropdown__item:hover .unity-base-dropdown__checkmark
-    add-skin1 none
-.unity-base-dropdown__item:hover .unity-base-dropdown__label
-    add-skin1 none
-// dropdown-item
 .unity-base-dropdown__item:checked
     add-skin1 none
 .unity-base-dropdown__item:checked .unity-base-dropdown__checkmark
     add-skin1 checkmark--checked
 .unity-base-dropdown__item:checked .unity-base-dropdown__label
+    add-skin1 none
+// dropdown-item
+.unity-base-dropdown__item:hover
+    add-skin1 dropdown-item--hover
+.unity-base-dropdown__item:hover .unity-base-dropdown__checkmark
+    add-skin1 none
+.unity-base-dropdown__item:hover .unity-base-dropdown__label
     add-skin1 none

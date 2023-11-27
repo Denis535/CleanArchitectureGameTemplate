@@ -1,18 +1,19 @@
 @import "../Internal/_Theme"
 
 // view
-view--horizontal-scroller           = create-view-skin(null element               element                 element                element)
-view--horizontal-field              = create-view-skin(null element               element                 element                element)
-view--horizontal-field-input        = create-view-skin(null element               element                 element                element)
-view--horizontal-container          = create-view-skin(null element               element                 element                element)
-view--horizontal-tracker            = create-view-skin(null element--dark         element--dark           element--dark          element)
-view--horizontal-dragger            = create-view-skin(null element--light        element--light          element--light         element)
-view--horizontal-low-button         = create-view-skin(null element--light        left-arrow-icon--light  element--light         element)
-view--horizontal-high-button        = create-view-skin(null element--light        right-arrow-icon--light element--light         element)
+view--horizontal-scroller           = create-view-skin(null element               element                        element               element)
+view--horizontal-field              = create-view-skin(null element               element                        element               element)
+view--horizontal-field-input        = create-view-skin(null element               element                        element               element)
+view--horizontal-container          = create-view-skin(null element               element                        element               element)
+view--horizontal-tracker            = create-view-skin(null element--dark         element-----------dark         element--dark         element)
+view--horizontal-dragger            = create-view-skin(null element--light        element-----------light        element--light        element)
+view--horizontal-low-button         = create-view-skin(null element--light        left-arrow-icon---light        element--light        element)
+view--horizontal-high-button        = create-view-skin(null element--light        right-arrow-icon--light        element--light        element)
 // view
-view--hover--horizontal-dragger     = create-view-skin(null element--light--hover element--light          element--light--hover  element)
-view--hover--horizontal-low-button  = create-view-skin(null element--light--hover left-arrow-icon--light  element--light--hover  element)
-view--hover--horizontal-high-button = create-view-skin(null element--light--hover right-arrow-icon--light element--light--hover  element)
+view--horizontal-tracker------hover = create-view-skin(null element--dark         element-----------dark         element--dark---hover element)
+view--horizontal-dragger------hover = create-view-skin(null element--light--hover element-----------light--hover element--light--hover element)
+view--horizontal-low-button---hover = create-view-skin(null element--light--hover left-arrow-icon---light        element--light--hover element)
+view--horizontal-high-button--hover = create-view-skin(null element--light--hover right-arrow-icon--light        element--light--hover element)
 
 // layout
 layout--horizontal-scroller         = create-layout-skin(null     auto auto (0px            ) (0px) (0px))
@@ -68,9 +69,11 @@ flex--horizontal-high-button        = create-flex(0, 0, auto, auto)
     add-skin2 horizontal-high-button
     add-skin3 horizontal-high-button
 // scroller
+.unity-scroller--horizontal .unity-base-slider__input #unity-tracker:hover
+    add-skin1 horizontal-tracker--hover
 .unity-scroller--horizontal .unity-base-slider__input #unity-dragger:hover
-    add-skin1 hover--horizontal-dragger
+    add-skin1 horizontal-dragger--hover
 .unity-scroller--horizontal #unity-low-button:hover
-    add-skin1 hover--horizontal-low-button
+    add-skin1 horizontal-low-button--hover
 .unity-scroller--horizontal #unity-high-button:hover
-    add-skin1 hover--horizontal-high-button
+    add-skin1 horizontal-high-button--hover

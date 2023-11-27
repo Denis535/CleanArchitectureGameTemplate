@@ -1,18 +1,19 @@
 @import "../Internal/_Theme"
 
 // view
-view--vertical-scroller           = create-view-skin(null element               element                element                element)
-view--vertical-field              = create-view-skin(null element               element                element                element)
-view--vertical-field-input        = create-view-skin(null element               element                element                element)
-view--vertical-container          = create-view-skin(null element               element                element                element)
-view--vertical-tracker            = create-view-skin(null element--dark         element--dark          element--dark          element)
-view--vertical-dragger            = create-view-skin(null element--light        element--light         element--light         element)
-view--vertical-low-button         = create-view-skin(null element--light        up-arrow-icon--light   element--light         element)
-view--vertical-high-button        = create-view-skin(null element--light        down-arrow-icon--light element--light         element)
+view--vertical-scroller           = create-view-skin(null element               element                       element                element)
+view--vertical-field              = create-view-skin(null element               element                       element                element)
+view--vertical-field-input        = create-view-skin(null element               element                       element                element)
+view--vertical-container          = create-view-skin(null element               element                       element                element)
+view--vertical-tracker            = create-view-skin(null element--dark         element----------dark         element--dark          element)
+view--vertical-dragger            = create-view-skin(null element--light        element----------light        element--light         element)
+view--vertical-low-button         = create-view-skin(null element--light        up-arrow-icon----light        element--light         element)
+view--vertical-high-button        = create-view-skin(null element--light        down-arrow-icon--light        element--light         element)
 // view
-view--hover--vertical-dragger     = create-view-skin(null element--light--hover element--light         element--light--hover  element)
-view--hover--vertical-low-button  = create-view-skin(null element--light--hover up-arrow-icon--light   element--light--hover  element)
-view--hover--vertical-high-button = create-view-skin(null element--light--hover down-arrow-icon--light element--light--hover  element)
+view--vertical-tracker------hover = create-view-skin(null element--dark         element----------dark         element--dark---hover  element)
+view--vertical-dragger------hover = create-view-skin(null element--light--hover element----------light--hover element--light--hover  element)
+view--vertical-low-button---hover = create-view-skin(null element--light--hover up-arrow-icon----light        element--light--hover  element)
+view--vertical-high-button--hover = create-view-skin(null element--light--hover down-arrow-icon--light        element--light--hover  element)
 
 // layout
 layout--vertical-scroller         = create-layout-skin(null      auto auto (0px            ) (0px) (0px))
@@ -68,9 +69,11 @@ flex--vertical-high-button        = create-flex(0, 0, auto, auto)
     add-skin2 vertical-high-button
     add-skin3 vertical-high-button
 // scroller
+.unity-scroller--vertical .unity-base-slider__input #unity-tracker:hover
+    add-skin1 vertical-tracker--hover
 .unity-scroller--vertical .unity-base-slider__input #unity-dragger:hover
-    add-skin1 hover--vertical-dragger
+    add-skin1 vertical-dragger--hover
 .unity-scroller--vertical #unity-low-button:hover
-    add-skin1 hover--vertical-low-button
+    add-skin1 vertical-low-button--hover
 .unity-scroller--vertical #unity-high-button:hover
-    add-skin1 hover--vertical-high-button
+    add-skin1 vertical-high-button--hover
