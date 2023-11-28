@@ -3,7 +3,16 @@ add-view(color = null, font = null, text = null, background-color = null, backgr
     add-view-foreground color font text
     add-view-background background-color background-image
     add-view-border     border-color border-radius
-add-view-foreground(color, font, text)
+add-view-theme(color, background-color, background-image, border-color, border-radius)
+    color            = get-theme-value('color',            color           )
+    background-color = get-theme-value('background-color', background-color)
+    background-image = get-theme-value('background-image', background-image)
+    border-color     = get-theme-value('border-color',     border-color    )
+    border-radius    = get-theme-value('border-radius',    border-radius   )
+    add-view-foreground color
+    add-view-background background-color background-image
+    add-view-border     border-color border-radius
+add-view-foreground(color, font = null, text = null)
     add-style-property 'color'                         color
     add-style-property 'font-url'                      font.url     if font != null
     add-style-property 'font-definition-url'           font.url     if font != null

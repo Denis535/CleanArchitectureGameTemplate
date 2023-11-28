@@ -1,12 +1,7 @@
 // create-view
 create-view(args)
-    color            = get-theme-value('color',            args[0])
-    background-color = get-theme-value('background-color', args[1])
-    background-image = get-theme-value('background-image', args[2])
-    border-color     = get-theme-value('border-color',     args[3])
-    border-radius    = get-theme-value('border-radius',    args[4])
     return @block {
-        add-view(color, null, null, background-color, background-image, border-color, border-radius)
+        add-view-theme(args[0], args[1], args[2], args[3], args[4])
     }
 create-font(url = null, size = null, style = null)
     return @block {
