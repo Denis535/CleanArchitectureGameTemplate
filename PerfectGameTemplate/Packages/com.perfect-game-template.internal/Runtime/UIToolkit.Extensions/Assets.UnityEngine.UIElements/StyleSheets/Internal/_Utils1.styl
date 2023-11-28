@@ -1,182 +1,138 @@
 // create-view
-create-view(color, font, text, background-color, background-image, border-color, border-radius)
-    foreground = create-foreground(color, font, text)
-    background = create-background(background-color, background-image)
-    border     = create-border(border-color, border-radius)
-    merge(foreground, background, border)
-
-// create-view
-create-foreground(color, font = null, text = null)
-    foreground = { color: color }
-    merge(foreground, font, text)
+create-view-skin(args)
+    color            = get-theme-value('color',            args[0])
+    background-color = get-theme-value('background-color', args[1])
+    background-image = get-theme-value('background-image', args[2])
+    border-color     = get-theme-value('border-color',     args[3])
+    border-radius    = get-theme-value('border-radius',    args[4])
+    return @block {
+        add-view(color, null, null, background-color, background-image, border-color, border-radius)
+    }
 create-font(url = null, size = null, style = null)
-    return {
-        font-url:            url,
-        font-definition-url: url,
-        font-size:           size,
-        font-style:          style,
+    return @block {
+        add-view(font: fnt(url, size, style))
     }
 create-text(align = null, outline = null, shadow = null)
-    return {
-        text-align:   align,
-        text-outline: outline,
-        text-shadow:  shadow,
-    }
-
-// create-view
-create-background(color, image = null)
-    background = { background-color: color }
-    merge(background, image)
-create-background-image(url, color, scale-mode, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
-    return {
-        background-image-url:          url,
-        background-image-color:        color,
-        background-image-scale-mode:   scale-mode,
-        background-image-slice-left:   slice-left,
-        background-image-slice-right:  slice-right,
-        background-image-slice-top:    slice-top,
-        background-image-slice-bottom: slice-bottom,
-        background-image-slice-scale:  slice-scale,
-    }
-
-// create-view
-create-border(color, radius)
-    border-color  = create-border-color(color)
-    border-radius = create-border-radius(radius)
-    merge(border-color, border-radius)
-create-border-color(color)
-    return {
-        border-left-color:          color[0],
-        border-right-color:         color[1] or color[0],
-        border-top-color:           color[2] or color[0],
-        border-bottom-color:        color[3] or color[0],
-    }
-create-border-radius(radius)
-    return {
-        border-top-left-radius:     radius[0],
-        border-top-right-radius:    radius[1] or radius[0],
-        border-bottom-left-radius:  radius[2] or radius[0],
-        border-bottom-right-radius: radius[3] or radius[0],
+    return @block {
+        add-view(text: txt(align, outline, shadow))
     }
 
 // create-layout
-create-layout(position, width, height, margin, border, padding)
-    position = create-position(position)
-    size     = create-size(width, height)
-    box      = create-box(margin, border, padding)
-    merge(position, size, box)
-
-// create-layout
-create-position(position, left = null, right = null, top = null, bottom = null)
-    return {
-        position: position[0],
-        left:     left   or position[1],
-        right:    right  or position[2],
-        top:      top    or position[3],
-        bottom:   bottom or position[4],
-    }
-
-// create-layout
-create-size(width, height)
-    width  = create-width(width)
-    height = create-height(height)
-    merge(width, height)
-create-width(width)
-    return {
-        width:      width[0],
-        min-width:  width[1],
-        max-width:  width[2],
-    }
-create-height(height)
-    return {
-        height:      height[0],
-        min-height:  height[1],
-        max-height:  height[2],
-    }
-
-// create-layout
-create-box(margin, border, padding)
-    margin       = create-margin(margin)
-    border-width = create-border-width(border)
-    padding      = create-padding(padding)
-    merge(margin, border-width, padding)
-create-margin(margin, left = null, right = null, top = null, bottom = null)
-    return {
-        margin-left:   left   or margin[0],
-        margin-right:  right  or margin[1] or margin[0],
-        margin-top:    top    or margin[2] or margin[0],
-        margin-bottom: bottom or margin[3] or margin[0],
-    }
-create-border-width(border, left = null, right = null, top = null, bottom = null)
-    return {
-        border-left-width:   left   or border[0],
-        border-right-width:  right  or border[1] or border[0],
-        border-top-width:    top    or border[2] or border[0],
-        border-bottom-width: bottom or border[3] or border[0],
-    }
-create-padding(padding, left = null, right = null, top = null, bottom = null)
-    return {
-        padding-left:   left   or padding[0],
-        padding-right:  right  or padding[1] or padding[0],
-        padding-top:    top    or padding[2] or padding[0],
-        padding-bottom: bottom or padding[3] or padding[0],
+create-layout-skin(args)
+    return @block {
+        add-layout(args[0], args[1], args[2], args[3], args[4], args[5])
     }
 
 // create-flex
 create-flex(flex-grow, flex-shrink, flex-basis, align-self)
-    return {
-        flex-grow:   flex-grow,
-        flex-shrink: flex-shrink,
-        flex-basis:  flex-basis,
-        align-self:  align-self,
+    return @block {
+        add-flex(flex-grow, flex-shrink, flex-basis, align-self)
     }
 create-flex2(flex-direction, justify-content, align-items)
-    return {
-        flex-direction:  flex-direction,
-        justify-content: justify-content,
-        align-items:     align-items,
+    return @block {
+        add-flex2(flex-direction, justify-content, align-items)
     }
 
 // add-view
 add-view(color = null, font = null, text = null, background-color = null, background-image = null, border-color = null, border-radius = null)
-    add-style create-view(color, font, text, background-color, background-image, border-color, border-radius)
+    add-view-foreground color font text
+    add-view-background background-color background-image
+    add-view-border     border-color border-radius
 add-view-foreground(color, font, text)
-    add-style create-foreground(color, font, text)
-add-view-background(background-color, background-image)
-    add-style create-background(background-color, background-image)
-add-view-border(border-color, border-radius)
-    add-style create-border(border-color, border-radius)
+    add-style-property 'color'                         color
+    add-style-property 'font-url'                      font.url     if font != null
+    add-style-property 'font-definition-url'           font.url     if font != null
+    add-style-property 'font-size'                     font.size    if font != null
+    add-style-property 'font-style'                    font.style   if font != null
+    add-style-property 'text-align'                    text.align   if text != null
+    add-style-property 'text-outline'                  text.outline if text != null
+    add-style-property 'text-shadow'                   text.shadow  if text != null
+add-view-background(color, image)
+    add-style-property 'background-color'              color
+    add-style-property 'background-image-url'          image.url          if image != null
+    add-style-property 'background-image-color'        image.color        if image != null
+    add-style-property 'background-image-scale-mode'   image.scale-mode   if image != null
+    add-style-property 'background-image-slice-left'   image.slice-left   if image != null
+    add-style-property 'background-image-slice-right'  image.slice-right  if image != null
+    add-style-property 'background-image-slice-top'    image.slice-top    if image != null
+    add-style-property 'background-image-slice-bottom' image.slice-bottom if image != null
+    add-style-property 'background-image-slice-scale'  image.slice-scale  if image != null
+add-view-border(color, radius)
+    add-style-property 'border-left-color'             color[0]
+    add-style-property 'border-right-color'            color[1] or color[0]
+    add-style-property 'border-top-color'              color[2] or color[0]
+    add-style-property 'border-bottom-color'           color[3] or color[0]
+    add-style-property 'border-top-left-radius'        radius[0]
+    add-style-property 'border-top-right-radius'       radius[1] or radius[0]
+    add-style-property 'border-bottom-left-radius'     radius[2] or radius[0]
+    add-style-property 'border-bottom-right-radius'    radius[3] or radius[0]
+// add-view
+fnt(url, size, style)
+    return {
+        url:   url,
+        size:  size,
+        style: style,
+    }
+txt(align, outline, shadow)
+    return {
+        align:   align,
+        outline: outline,
+        shadow:  shadow,
+    }
+img(url, color, scale-mode, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
+    return {
+        url:          url,
+        color:        color,
+        scale-mode:   scale-mode,
+        slice-left:   slice-left,
+        slice-right:  slice-right,
+        slice-top:    slice-top,
+        slice-bottom: slice-bottom,
+        slice-scale:  slice-scale,
+    }
 
 // add-layout
 add-layout(position = null, width = null, height = null, margin = null, border = null, padding = null)
-    add-style create-layout(position, width, height, margin, border, padding)
+    add-layout-position position, null, null, null, null
+    add-layout-size     width, height
+    add-layout-box      margin, border, padding
 add-layout-position(position, left = null, right = null, top = null, bottom = null)
-    add-style create-position(position, left, right, top, bottom)
+    add-style-property 'position'            position[0]
+    add-style-property 'left'                left   or position[1]
+    add-style-property 'right'               right  or position[2]
+    add-style-property 'top'                 top    or position[3]
+    add-style-property 'bottom'              bottom or position[4]
 add-layout-size(width, height)
-    add-style create-size(width, height)
+    add-style-property 'width'               width[0]
+    add-style-property 'min-width'           width[1]
+    add-style-property 'max-width'           width[2]
+    add-style-property 'height'              height[0]
+    add-style-property 'min-height'          height[1]
+    add-style-property 'max-height'          height[2]
 add-layout-box(margin, border, padding)
-    add-style create-box(margin, border, padding)
+    add-style-property 'margin-left'         margin[0]
+    add-style-property 'margin-right'        margin[1] or margin[0]
+    add-style-property 'margin-top'          margin[2] or margin[0]
+    add-style-property 'margin-bottom'       margin[3] or margin[0]
+    add-style-property 'border-left-width'   border[0]
+    add-style-property 'border-right-width'  border[1] or border[0]
+    add-style-property 'border-top-width'    border[2] or border[0]
+    add-style-property 'border-bottom-width' border[3] or border[0]
+    add-style-property 'padding-left'        padding[0]
+    add-style-property 'padding-right'       padding[1] or padding[0]
+    add-style-property 'padding-top'         padding[2] or padding[0]
+    add-style-property 'padding-bottom'      padding[3] or padding[0]
 
 // add-flex
 add-flex(flex-grow = null, flex-shrink = null, flex-basis = null, align-self = null)
-    add-style create-flex(flex-grow, flex-shrink, flex-basis, align-self)
+    add-style-property 'flex-grow'       flex-grow
+    add-style-property 'flex-shrink'     flex-shrink
+    add-style-property 'flex-basis'      flex-basis
+    add-style-property 'align-self'      align-self
 add-flex2(flex-direction = null, justify-content = null, align-items = null)
-    add-style create-flex2(flex-direction, justify-content, align-items)
-
-// add-style
-add-style(objects...)
-    for object in objects
-        add-style-internal(object)
-add-style-internal(object)
-    if object != null and get-type(object) != null
-        if get-type(object) == 'Expression'
-            for obj in object
-                add-style-internal(obj)
-        else if get-type(object) == 'Object'
-            for key, value in object
-                add-style-property key, value
-        else
-            error('Object is invalid: ' + object)
+    add-style-property 'flex-direction'  flex-direction
+    add-style-property 'justify-content' justify-content
+    add-style-property 'align-items'     align-items
 
 // add-style-property
 add-style-property(property, value)
@@ -299,3 +255,41 @@ get-style-value(value, property)
     return s("url('%s')", unquote(value)) if property == '-unity-font-definition'
     return s("url('%s')", unquote(value)) if property == 'background-image'
     value
+
+// misc
+get-theme-value(type, key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
+    if key != null and key != none
+        return get-theme-value-internal(get-key('theme', type, key), hue, saturate, desaturate, lighten, darken, alpha)
+    null
+get-theme-value-internal(key, _hue = null, _saturate = null, _desaturate = null, _lighten = null, _darken = null, _alpha = null)
+    value = get-value(key)
+    value = hue(value, _hue)               if value != null and _hue        != null
+    value = saturate(value, _saturate)     if value != null and _saturate   != null
+    value = desaturate(value, _desaturate) if value != null and _desaturate != null
+    value = lighten(value, _lighten)       if value != null and _lighten    != null
+    value = darken(value, _darken)         if value != null and _darken     != null
+    value = alpha(value, _alpha)           if value != null and _alpha      != null
+    value
+// misc
+get-view-skin(key)
+    if key != null and key != none
+        return get-value(get-key('view', key))
+    null
+get-layout-skin(key)
+    if key != null and key != none
+        return get-value(get-key('layout', key))
+    null
+get-flex-skin(key)
+    if key != null and key != none
+        return get-value(get-key('flex', key))
+    null
+// misc
+get-key(key0, key1 = null, key2 = null)
+    key =              get-string(key0)
+    key = key + '--' + get-string(key1) if key1 != null
+    key = key + '--' + get-string(key2) if key2 != null
+    replace('(--)(-*)', '--', key)
+get-value(key)
+    if is-defined(key)
+        return lookup(key)
+    error('Value is undefined: ' + key)
