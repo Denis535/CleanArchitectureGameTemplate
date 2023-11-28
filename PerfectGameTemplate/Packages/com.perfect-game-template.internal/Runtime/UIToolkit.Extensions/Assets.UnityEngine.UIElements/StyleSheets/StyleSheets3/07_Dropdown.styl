@@ -1,26 +1,26 @@
 @import "../Internal/_Theme"
 
 // view
-view--scroll-view                      = create-view-skin(light dropdown             dropdown              dropdown             dropdown     )
+view--scroll-view                      = create-view(light dropdown             dropdown              dropdown             dropdown     )
 view--viewport-and-vertical-scroller   = null
 view--viewport                         = null
 view--content                          = null
-view--dropdown-item                    = create-view-skin(null  dropdown-item        dropdown-item         dropdown-item        dropdown-item)
-view--checkmark                        = create-view-skin(null  component            component             component            component    )
-view--checkmark--checked               = create-view-skin(null  component            checkmark-icon--light component            component    )
-view--text                             = create-view-skin(null  element              element               element              element      )
+view--dropdown-item                    = create-view(null  dropdown-item        dropdown-item         dropdown-item        dropdown-item)
+view--checkmark                        = create-view(null  component            component             component            component    )
+view--checkmark--checked               = create-view(null  component            checkmark-icon--light component            component    )
+view--text                             = create-view(null  element              element               element              element      )
 // view
-view--scroll-view----hover             = create-view-skin(light dropdown--hover      dropdown--hover       dropdown--hover      dropdown     )
-view--dropdown-item--hover             = create-view-skin(null  dropdown-item--hover dropdown-item--hover  dropdown-item--hover dropdown-item)
+view--scroll-view----hover             = create-view(light dropdown--hover      dropdown--hover       dropdown--hover      dropdown     )
+view--dropdown-item--hover             = create-view(null  dropdown-item--hover dropdown-item--hover  dropdown-item--hover dropdown-item)
 
 // layout
-layout--scroll-view                    = create-layout-skin(null auto auto (0px             ) (1px            ) (0px                ))
+layout--scroll-view                    = create-layout(null auto auto (0px             ) (1px            ) (0px                ))
 layout--viewport-and-vertical-scroller = null
 layout--viewport                       = null
 layout--content                        = null
-layout--dropdown-item                  = create-layout-skin(null auto auto (0px             ) (0px 0px 0px 1px) (12px 12px 10px 10px))
-layout--checkmark                      = create-layout-skin(null 16px 16px (0px 12px 0px 0px) (1px            ) (0px                ))
-layout--text                           = create-layout-skin(null auto auto (0px             ) (0px            ) (0px                ))
+layout--dropdown-item                  = create-layout(null auto auto (0px             ) (0px 0px 0px 1px) (12px 12px 10px 10px))
+layout--checkmark                      = create-layout(null 16px 16px (0px 12px 0px 0px) (1px            ) (0px                ))
+layout--text                           = create-layout(null auto auto (0px             ) (0px            ) (0px                ))
 
 // flex
 flex--scroll-view                      = null

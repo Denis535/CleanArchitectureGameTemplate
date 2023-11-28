@@ -1,38 +1,3 @@
-// create-view
-create-view-skin(args)
-    color            = get-theme-value('color',            args[0])
-    background-color = get-theme-value('background-color', args[1])
-    background-image = get-theme-value('background-image', args[2])
-    border-color     = get-theme-value('border-color',     args[3])
-    border-radius    = get-theme-value('border-radius',    args[4])
-    return @block {
-        add-view(color, null, null, background-color, background-image, border-color, border-radius)
-    }
-create-font(url = null, size = null, style = null)
-    return @block {
-        add-view(font: fnt(url, size, style))
-    }
-create-text(align = null, outline = null, shadow = null)
-    return @block {
-        add-view(text: txt(align, outline, shadow))
-    }
-
-// create-layout
-create-layout-skin(args)
-    return @block {
-        add-layout(args[0], args[1], args[2], args[3], args[4], args[5])
-    }
-
-// create-flex
-create-flex(flex-grow, flex-shrink, flex-basis, align-self)
-    return @block {
-        add-flex(flex-grow, flex-shrink, flex-basis, align-self)
-    }
-create-flex2(flex-direction, justify-content, align-items)
-    return @block {
-        add-flex2(flex-direction, justify-content, align-items)
-    }
-
 // add-view
 add-view(color = null, font = null, text = null, background-color = null, background-image = null, border-color = null, border-radius = null)
     add-view-foreground color font text
@@ -270,19 +235,6 @@ get-theme-value-internal(key, _hue = null, _saturate = null, _desaturate = null,
     value = darken(value, _darken)         if value != null and _darken     != null
     value = alpha(value, _alpha)           if value != null and _alpha      != null
     value
-// misc
-get-view-skin(key)
-    if key != null and key != none
-        return get-value(get-key('view', key))
-    null
-get-layout-skin(key)
-    if key != null and key != none
-        return get-value(get-key('layout', key))
-    null
-get-flex-skin(key)
-    if key != null and key != none
-        return get-value(get-key('flex', key))
-    null
 // misc
 get-key(key0, key1 = null, key2 = null)
     key =              get-string(key0)

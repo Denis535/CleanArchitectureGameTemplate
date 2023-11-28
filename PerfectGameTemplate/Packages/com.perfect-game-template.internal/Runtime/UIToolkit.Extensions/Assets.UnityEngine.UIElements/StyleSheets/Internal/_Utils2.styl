@@ -1,16 +1,51 @@
+// create-view
+create-view(args)
+    color            = get-theme-value('color',            args[0])
+    background-color = get-theme-value('background-color', args[1])
+    background-image = get-theme-value('background-image', args[2])
+    border-color     = get-theme-value('border-color',     args[3])
+    border-radius    = get-theme-value('border-radius',    args[4])
+    return @block {
+        add-view(color, null, null, background-color, background-image, border-color, border-radius)
+    }
+create-font(url = null, size = null, style = null)
+    return @block {
+        add-view(font: fnt(url, size, style))
+    }
+create-text(align = null, outline = null, shadow = null)
+    return @block {
+        add-view(text: txt(align, outline, shadow))
+    }
+
+// create-layout
+create-layout(args)
+    return @block {
+        add-layout(args[0], args[1], args[2], args[3], args[4], args[5])
+    }
+
+// create-flex
+create-flex(flex-grow, flex-shrink, flex-basis, align-self)
+    return @block {
+        add-flex(flex-grow, flex-shrink, flex-basis, align-self)
+    }
+create-flex2(flex-direction, justify-content, align-items)
+    return @block {
+        add-flex2(flex-direction, justify-content, align-items)
+    }
+
 // add-skin
 add-skin1(key)
     if key != null and key != none
-        objects = get-view-skin(key)
+        objects = get-value(get-key('view', key))
         for object in objects
             {object}
 add-skin2(key)
     if key != null and key != none
-        objects = get-layout-skin(key)
+        objects = get-value(get-key('layout', key))
         for object in objects
             {object}
 add-skin3(key)
     if key != null and key != none
-        objects = get-flex-skin(key)
+        objects = get-value(get-key('flex', key))
         for object in objects
             {object}
