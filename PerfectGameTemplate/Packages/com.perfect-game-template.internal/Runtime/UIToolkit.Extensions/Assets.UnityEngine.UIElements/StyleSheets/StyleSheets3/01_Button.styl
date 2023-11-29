@@ -1,15 +1,17 @@
 @import "../Internal/_Theme"
 
 // view
-view--button        = create-view(light element--light        element--light        element--light        element), create-font(null, null, bold), create-text(middle-center, null, null)
+view--button         = create-view(light element--light         element--light         element--light         element), create-font(null, null, bold), create-text(middle-center, null, null)
 // view
-view--button--hover = create-view(light element--light--hover element--light--hover element--light--hover element)
+view--button--hover  = create-view(light element--light--hover  element--light--hover  element--light--hover  element)
+// view
+view--button--active = create-view(light element--light--active element--light--active element--light--active element)
 
 // layout
-layout--button      = create-layout(null auto auto (4px) (1px) (12px 12px 10px 10px))
+layout--button       = create-layout(null auto auto (4px) (1px) (12px 12px 10px 10px))
 
 // flex
-flex--button        = create-flex(0, 1, auto, auto)
+flex--button         = create-flex(0, 1, auto, auto)
 
 // button
 .unity-button
@@ -22,3 +24,7 @@ flex--button        = create-flex(0, 1, auto, auto)
 .unity-button:hover
 .unity-repeat-button:hover
     add-skin1 button--hover
+// button
+.unity-button:active
+.unity-repeat-button:active
+    add-skin1 button--active

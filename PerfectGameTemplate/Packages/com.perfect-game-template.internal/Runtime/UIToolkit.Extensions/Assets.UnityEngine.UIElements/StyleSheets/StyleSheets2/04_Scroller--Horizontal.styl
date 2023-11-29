@@ -1,39 +1,44 @@
 @import "../Internal/_Theme"
 
 // view
-view--horizontal-scroller           = create-view(null element               element                        element               element)
-view--horizontal-field              = create-view(null element               element                        element               element)
-view--horizontal-field-input        = create-view(null element               element                        element               element)
-view--horizontal-container          = create-view(null element               element                        element               element)
-view--horizontal-tracker            = create-view(null element--dark         element-----------dark         element--dark         element)
-view--horizontal-dragger            = create-view(null element--light        element-----------light        element--light        element)
-view--horizontal-low-button         = create-view(null element--light        left-arrow-icon---light        element--light        element)
-view--horizontal-high-button        = create-view(null element--light        right-arrow-icon--light        element--light        element)
+view--horizontal-scroller            = create-view(null element               element                          element                element)
+view--horizontal-field               = create-view(null element               element                          element                element)
+view--horizontal-field-input         = create-view(null element               element                          element                element)
+view--horizontal-container           = create-view(null element               element                          element                element)
+view--horizontal-tracker             = create-view(null element--dark         element-----------dark           element--dark          element)
+view--horizontal-dragger             = create-view(null element--light        element-----------light          element--light         element)
+view--horizontal-low-button          = create-view(null element--light        left-arrow-icon---light          element--light         element)
+view--horizontal-high-button         = create-view(null element--light        right-arrow-icon--light          element--light         element)
 // view
-view--horizontal-tracker------hover = create-view(null element--dark         element-----------dark         element--dark---hover element)
-view--horizontal-dragger------hover = create-view(null element--light--hover element-----------light--hover element--light--hover element)
-view--horizontal-low-button---hover = create-view(null element--light--hover left-arrow-icon---light        element--light--hover element)
-view--horizontal-high-button--hover = create-view(null element--light--hover right-arrow-icon--light        element--light--hover element)
+view--horizontal-tracker------hover  = create-view(null element--dark         element-----------dark           element--dark---hover  element)
+view--horizontal-dragger------hover  = create-view(null element--light--hover element-----------light--hover   element--light--hover  element)
+view--horizontal-low-button---hover  = create-view(null element--light--hover left-arrow-icon---light          element--light--hover  element)
+view--horizontal-high-button--hover  = create-view(null element--light--hover right-arrow-icon--light          element--light--hover  element)
+// view
+view--horizontal-tracker------active = create-view(null element--dark          element-----------dark          element--dark---active element)
+view--horizontal-dragger------active = create-view(null element--light--active element-----------light--active element--light--active element)
+view--horizontal-low-button---active = create-view(null element--light--active left-arrow-icon---light         element--light--active element)
+view--horizontal-high-button--active = create-view(null element--light--active right-arrow-icon--light         element--light--active element)
 
 // layout
-layout--horizontal-scroller         = create-layout(null     auto auto (0px            ) (0px) (0px))
-layout--horizontal-field            = create-layout(null     auto auto (0px            ) (0px) (0px))
-layout--horizontal-field-input      = create-layout(null     auto auto (0px            ) (0px) (0px))
-layout--horizontal-container        = create-layout(null     auto auto (2px 2px 0px 0px) (0px) (0px))
-layout--horizontal-tracker          = create-layout(null     auto 24px (0px            ) (1px) (0px))
-layout--horizontal-dragger          = create-layout(absolute auto 24px (0px            ) (1px) (0px))
-layout--horizontal-low-button       = create-layout(null     24px 24px (0px            ) (1px) (0px))
-layout--horizontal-high-button      = create-layout(null     24px 24px (0px            ) (1px) (0px))
+layout--horizontal-scroller          = create-layout(null     auto auto (0px            ) (0px) (0px))
+layout--horizontal-field             = create-layout(null     auto auto (0px            ) (0px) (0px))
+layout--horizontal-field-input       = create-layout(null     auto auto (0px            ) (0px) (0px))
+layout--horizontal-container         = create-layout(null     auto auto (2px 2px 0px 0px) (0px) (0px))
+layout--horizontal-tracker           = create-layout(null     auto 24px (0px            ) (1px) (0px))
+layout--horizontal-dragger           = create-layout(absolute auto 24px (0px            ) (1px) (0px))
+layout--horizontal-low-button        = create-layout(null     24px 24px (0px            ) (1px) (0px))
+layout--horizontal-high-button       = create-layout(null     24px 24px (0px            ) (1px) (0px))
 
 // flex
-flex--horizontal-scroller           = create-flex(0, 0, auto, auto), create-flex2(row, flex-start, center)
-flex--horizontal-field              = create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
-flex--horizontal-field-input        = create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
-flex--horizontal-container          = create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
-flex--horizontal-tracker            = create-flex(1, 1, auto, auto)
-flex--horizontal-dragger            = create-flex(0, 1, auto, auto)
-flex--horizontal-low-button         = create-flex(0, 0, auto, auto)
-flex--horizontal-high-button        = create-flex(0, 0, auto, auto)
+flex--horizontal-scroller            = create-flex(0, 0, auto, auto), create-flex2(row, flex-start, center)
+flex--horizontal-field               = create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
+flex--horizontal-field-input         = create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
+flex--horizontal-container           = create-flex(1, 1, auto, auto), create-flex2(row, flex-start, center)
+flex--horizontal-tracker             = create-flex(1, 1, auto, auto)
+flex--horizontal-dragger             = create-flex(0, 1, auto, auto)
+flex--horizontal-low-button          = create-flex(0, 0, auto, auto)
+flex--horizontal-high-button         = create-flex(0, 0, auto, auto)
 
 // scroller
 .unity-scroller--horizontal
@@ -52,11 +57,11 @@ flex--horizontal-high-button        = create-flex(0, 0, auto, auto)
     add-skin1 horizontal-container
     add-skin2 horizontal-container
     add-skin3 horizontal-container
-.unity-scroller--horizontal .unity-base-slider__input #unity-tracker
+.unity-scroller--horizontal .unity-base-slider__input #unity-drag-container #unity-tracker
     add-skin1 horizontal-tracker
     add-skin2 horizontal-tracker
     add-skin3 horizontal-tracker
-.unity-scroller--horizontal .unity-base-slider__input #unity-dragger
+.unity-scroller--horizontal .unity-base-slider__input #unity-drag-container #unity-dragger
     add-skin1 horizontal-dragger
     add-skin2 horizontal-dragger
     add-skin3 horizontal-dragger
@@ -69,11 +74,20 @@ flex--horizontal-high-button        = create-flex(0, 0, auto, auto)
     add-skin2 horizontal-high-button
     add-skin3 horizontal-high-button
 // scroller
-.unity-scroller--horizontal .unity-base-slider__input #unity-tracker:hover
+.unity-scroller--horizontal .unity-base-slider__input #unity-drag-container:hover #unity-tracker:hover
     add-skin1 horizontal-tracker--hover
-.unity-scroller--horizontal .unity-base-slider__input #unity-dragger:hover
+.unity-scroller--horizontal .unity-base-slider__input #unity-drag-container:hover #unity-dragger:hover
     add-skin1 horizontal-dragger--hover
 .unity-scroller--horizontal #unity-low-button:hover
     add-skin1 horizontal-low-button--hover
 .unity-scroller--horizontal #unity-high-button:hover
     add-skin1 horizontal-high-button--hover
+// scroller
+.unity-scroller--horizontal .unity-base-slider__input #unity-drag-container:active #unity-tracker
+    add-skin1 horizontal-tracker--active
+.unity-scroller--horizontal .unity-base-slider__input #unity-drag-container:active #unity-dragger
+    add-skin1 horizontal-dragger--active
+.unity-scroller--horizontal #unity-low-button:active
+    add-skin1 horizontal-low-button--active
+.unity-scroller--horizontal #unity-high-button:active
+    add-skin1 horizontal-high-button--active

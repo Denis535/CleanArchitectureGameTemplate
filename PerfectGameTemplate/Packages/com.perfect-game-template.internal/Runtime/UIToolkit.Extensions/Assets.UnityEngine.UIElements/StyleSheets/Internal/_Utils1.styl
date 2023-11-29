@@ -118,20 +118,20 @@ add-style-property(property, value)
 
 // get-style-property
 get-style-property(property)
-    // foreground
+    // view
     return 'color'                       if property == 'color'
-    // font
+    // view
     return 'font'                        if property == 'font-url'
     return 'font-definition'             if property == 'font-definition-url'
     return 'font-size'                   if property == 'font-size'
     return 'font-style'                  if property == 'font-style'
-    // text
+    // view
     return 'text-align'                  if property == 'text-align'
     return 'text-outline'                if property == 'text-outline'
     return 'text-shadow'                 if property == 'text-shadow'
-    // background
+    // view
     return 'background-color'            if property == 'background-color'
-    // background
+    // view
     return 'background-image'            if property == 'background-image-url'
     return 'background-image-tint-color' if property == 'background-image-color'
     return 'background-scale-mode'       if property == 'background-image-scale-mode'
@@ -140,43 +140,43 @@ get-style-property(property)
     return 'slice-top'                   if property == 'background-image-slice-top'
     return 'slice-bottom'                if property == 'background-image-slice-bottom'
     return 'slice-scale'                 if property == 'background-image-slice-scale'
-    // border
+    // view
     return 'border-left-color'           if property == 'border-left-color'
     return 'border-right-color'          if property == 'border-right-color'
     return 'border-top-color'            if property == 'border-top-color'
     return 'border-bottom-color'         if property == 'border-bottom-color'
-    // border
+    // view
     return 'border-top-left-radius'      if property == 'border-top-left-radius'
     return 'border-top-right-radius'     if property == 'border-top-right-radius'
     return 'border-bottom-left-radius'   if property == 'border-bottom-left-radius'
     return 'border-bottom-right-radius'  if property == 'border-bottom-right-radius'
-    // position
+    // layout
     return 'position'                    if property == 'position'
     return 'left'                        if property == 'left'
     return 'right'                       if property == 'right'
     return 'top'                         if property == 'top'
     return 'bottom'                      if property == 'bottom'
-    // width
+    // layout
     return 'width'                       if property == 'width'
     return 'min-width'                   if property == 'min-width'
     return 'max-width'                   if property == 'max-width'
-    // height
+    // layout
     return 'height'                      if property == 'height'
     return 'min-height'                  if property == 'min-height'
     return 'max-height'                  if property == 'max-height'
-    // margin
+    // layout
     return 'margin'                      if property == 'margin'
     return 'margin-left'                 if property == 'margin-left'
     return 'margin-right'                if property == 'margin-right'
     return 'margin-top'                  if property == 'margin-top'
     return 'margin-bottom'               if property == 'margin-bottom'
-    // border
+    // layout
     return 'border'                      if property == 'border'
     return 'border-left-width'           if property == 'border-left-width'
     return 'border-right-width'          if property == 'border-right-width'
     return 'border-top-width'            if property == 'border-top-width'
     return 'border-bottom-width'         if property == 'border-bottom-width'
-    // padding
+    // layout
     return 'padding'                     if property == 'padding'
     return 'padding-left'                if property == 'padding-left'
     return 'padding-right'               if property == 'padding-right'
@@ -200,18 +200,18 @@ get-style-property(property)
 get-unity-style-property(property)
     // view
     return '-unity-' + property if property == 'overflow-clip-box'
-    // font
+    // view
     return '-unity-' + property if property == 'font'
     return '-unity-' + property if property == 'font-definition'
     return '-unity-' + property if property == 'font-style'
-    // text
+    // view
     return '-unity-' + property if property == 'text-align'
     return '-unity-' + property if property == 'text-outline'
     return '-unity-' + property if property == 'text-outline-width'
     return '-unity-' + property if property == 'text-outline-color'
     return '-unity-' + property if property == 'text-overflow-position'
     return '-unity-' + property if property == 'paragraph-spacing'
-    // background
+    // view
     return '-unity-' + property if property == 'background-image-tint-color'
     return '-unity-' + property if property == 'background-scale-mode'
     return '-unity-' + property if property == 'slice-left'
