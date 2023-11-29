@@ -1,10 +1,9 @@
 ﻿#nullable enable
-namespace Project.UI {
+namespace UnityEngine.UIElements {
     using System;
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-    using UnityEngine.UIElements;
 
     public abstract class VisualElementScope : IDisposable {
 

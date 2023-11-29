@@ -13,10 +13,10 @@ namespace Project.UI.Common {
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
         public LabelWrapper Title { get; }
-        public SliderWrapper<float> MasterVolume { get; }
-        public SliderWrapper<float> MusicVolume { get; }
-        public SliderWrapper<float> SfxVolume { get; }
-        public SliderWrapper<float> GameVolume { get; }
+        public SliderFieldWrapper<float> MasterVolume { get; }
+        public SliderFieldWrapper<float> MusicVolume { get; }
+        public SliderFieldWrapper<float> SfxVolume { get; }
+        public SliderFieldWrapper<float> GameVolume { get; }
         public ButtonWrapper Okey { get; }
         public ButtonWrapper Back { get; }
 

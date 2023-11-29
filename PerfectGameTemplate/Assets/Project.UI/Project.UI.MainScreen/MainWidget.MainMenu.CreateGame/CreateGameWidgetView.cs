@@ -71,10 +71,10 @@ namespace Project.UI.MainScreen {
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
         public LabelWrapper Title { get; }
-        public TextWrapper<string> Name { get; }
-        public PopupWrapper<object> Mode { get; }
-        public PopupWrapper<object> World { get; }
-        public ToggleWrapper<bool> IsPrivate { get; }
+        public TextFieldWrapper<string> Name { get; }
+        public PopupFieldWrapper<object> Mode { get; }
+        public PopupFieldWrapper<object> World { get; }
+        public ToggleFieldWrapper<bool> IsPrivate { get; }
 
         // Constructor
         public GameView(UIWidgetBase widget) : base( widget ) {
@@ -114,9 +114,9 @@ namespace Project.UI.MainScreen {
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
         public LabelWrapper Title { get; }
-        public TextWrapper<string> Name { get; }
-        public PopupWrapper<object> Role { get; }
-        public ToggleWrapper<bool> IsReady { get; }
+        public TextFieldWrapper<string> Name { get; }
+        public PopupFieldWrapper<object> Role { get; }
+        public ToggleFieldWrapper<bool> IsReady { get; }
 
         // Constructor
         public PlayerView(UIWidgetBase widget) : base( widget ) {
@@ -202,7 +202,7 @@ namespace Project.UI.MainScreen {
         public ElementWrapper View { get; }
         public LabelWrapper Title { get; }
         public SlotWrapper Messages { get; }
-        public TextWrapper<string> Text { get; }
+        public TextFieldWrapper<string> Text { get; }
         public ButtonWrapper Send { get; }
 
         // Constructor

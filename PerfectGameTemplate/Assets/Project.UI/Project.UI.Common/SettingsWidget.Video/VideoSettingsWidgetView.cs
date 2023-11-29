@@ -13,9 +13,9 @@ namespace Project.UI.Common {
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
         public LabelWrapper Title { get; }
-        public ToggleWrapper<bool> IsFullScreen { get; }
-        public PopupWrapper<object> ScreenResolution { get; }
-        public ToggleWrapper<bool> IsVSync { get; }
+        public ToggleFieldWrapper<bool> IsFullScreen { get; }
+        public PopupFieldWrapper<object> ScreenResolution { get; }
+        public ToggleFieldWrapper<bool> IsVSync { get; }
         public ButtonWrapper Okey { get; }
         public ButtonWrapper Back { get; }
 
