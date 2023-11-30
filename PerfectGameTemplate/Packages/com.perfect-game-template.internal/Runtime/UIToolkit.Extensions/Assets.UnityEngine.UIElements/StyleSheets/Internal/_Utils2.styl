@@ -1,7 +1,7 @@
 // create-view
 create-view(args)
     return @block {
-        add-view-theme(args[0], args[1], args[2], args[3], args[4])
+        add-view(args[0], null, null, args[1], args[2], args[3], args[4])
     }
 create-font(url = null, size = null, style = null)
     return @block {
@@ -31,16 +31,15 @@ create-flex2(flex-direction, justify-content, align-items)
 // add-skin
 add-skin1(key)
     if key != null and key != none
-        objects = get-value(get-key('view', key))
-        for object in objects
-            {object}
+        add-style(get-value(get-key('view', key)))
 add-skin2(key)
     if key != null and key != none
-        objects = get-value(get-key('layout', key))
-        for object in objects
-            {object}
+        add-style(get-value(get-key('layout', key)))
 add-skin3(key)
     if key != null and key != none
-        objects = get-value(get-key('flex', key))
-        for object in objects
-            {object}
+        add-style(get-value(get-key('flex', key)))
+
+// add-style
+add-style(objects)
+    for object in objects
+        {object}

@@ -3,16 +3,8 @@ add-view(color = null, font = null, text = null, background-color = null, backgr
     add-view-foreground color font text
     add-view-background background-color background-image
     add-view-border     border-color border-radius
-add-view-theme(color, background-color, background-image, border-color, border-radius)
-    color            = get-theme-value('color',            color           )
-    background-color = get-theme-value('background-color', background-color)
-    background-image = get-theme-value('background-image', background-image)
-    border-color     = get-theme-value('border-color',     border-color    )
-    border-radius    = get-theme-value('border-radius',    border-radius   )
-    add-view-foreground color
-    add-view-background background-color background-image
-    add-view-border     border-color border-radius
 add-view-foreground(color, font = null, text = null)
+    color = get-theme-value('color', color)
     add-style-property 'color'                         color
     add-style-property 'font-url'                      font.url     if font != null
     add-style-property 'font-definition-url'           font.url     if font != null
@@ -21,25 +13,29 @@ add-view-foreground(color, font = null, text = null)
     add-style-property 'text-align'                    text.align   if text != null
     add-style-property 'text-outline'                  text.outline if text != null
     add-style-property 'text-shadow'                   text.shadow  if text != null
-add-view-background(color, image)
-    add-style-property 'background-color'              color
-    add-style-property 'background-image-url'          image.url          if image != null
-    add-style-property 'background-image-color'        image.color        if image != null
-    add-style-property 'background-image-scale-mode'   image.scale-mode   if image != null
-    add-style-property 'background-image-slice-left'   image.slice-left   if image != null
-    add-style-property 'background-image-slice-right'  image.slice-right  if image != null
-    add-style-property 'background-image-slice-top'    image.slice-top    if image != null
-    add-style-property 'background-image-slice-bottom' image.slice-bottom if image != null
-    add-style-property 'background-image-slice-scale'  image.slice-scale  if image != null
-add-view-border(color, radius)
-    add-style-property 'border-left-color'             color[0]
-    add-style-property 'border-right-color'            color[1] or color[0]
-    add-style-property 'border-top-color'              color[2] or color[0]
-    add-style-property 'border-bottom-color'           color[3] or color[0]
-    add-style-property 'border-top-left-radius'        radius[0]
-    add-style-property 'border-top-right-radius'       radius[1] or radius[0]
-    add-style-property 'border-bottom-left-radius'     radius[2] or radius[0]
-    add-style-property 'border-bottom-right-radius'    radius[3] or radius[0]
+add-view-background(background-color, background-image)
+    background-color = get-theme-value('background-color', background-color)
+    background-image = get-theme-value('background-image', background-image)
+    add-style-property 'background-color'              background-color
+    add-style-property 'background-image-url'          background-image.url          if background-image != null
+    add-style-property 'background-image-color'        background-image.color        if background-image != null
+    add-style-property 'background-image-scale-mode'   background-image.scale-mode   if background-image != null
+    add-style-property 'background-image-slice-left'   background-image.slice-left   if background-image != null
+    add-style-property 'background-image-slice-right'  background-image.slice-right  if background-image != null
+    add-style-property 'background-image-slice-top'    background-image.slice-top    if background-image != null
+    add-style-property 'background-image-slice-bottom' background-image.slice-bottom if background-image != null
+    add-style-property 'background-image-slice-scale'  background-image.slice-scale  if background-image != null
+add-view-border(border-color, border-radius)
+    border-color  = get-theme-value('border-color',  border-color )
+    border-radius = get-theme-value('border-radius', border-radius)
+    add-style-property 'border-left-color'             border-color[0]
+    add-style-property 'border-right-color'            border-color[1] or border-color[0]
+    add-style-property 'border-top-color'              border-color[2] or border-color[0]
+    add-style-property 'border-bottom-color'           border-color[3] or border-color[0]
+    add-style-property 'border-top-left-radius'        border-radius[0]
+    add-style-property 'border-top-right-radius'       border-radius[1] or border-radius[0]
+    add-style-property 'border-bottom-left-radius'     border-radius[2] or border-radius[0]
+    add-style-property 'border-bottom-right-radius'    border-radius[3] or border-radius[0]
 // add-view
 fnt(url, size, style)
     return {
