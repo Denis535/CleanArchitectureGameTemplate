@@ -1,5 +1,30 @@
 @import "../Internal/_Theme"
 
+// scroller
+selector--scroller            = '.unity-scroller--vertical'
+selector--slider              = '.unity-scroller--vertical .unity-base-slider'
+selector--input               = '.unity-scroller--vertical .unity-base-slider .unity-base-slider__input'
+selector--container           = '.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-drag-container'
+selector--tracker             = '.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-tracker'
+selector--dragger             = '.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-dragger'
+selector--low-button          = '.unity-scroller--vertical #unity-low-button'
+selector--high-button         = '.unity-scroller--vertical #unity-high-button'
+// scroller
+selector--tracker------hover  = '.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-tracker:hover'
+selector--dragger------hover  = '.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-dragger:hover'
+selector--low-button---hover  = '.unity-scroller--vertical #unity-low-button:hover'
+selector--high-button--hover  = '.unity-scroller--vertical #unity-high-button:hover'
+// scroller
+selector--tracker------active = '.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-drag-container:active #unity-tracker'
+selector--dragger------active = '.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-drag-container:active #unity-dragger'
+selector--low-button---active = '.unity-scroller--vertical #unity-low-button:active'
+selector--high-button--active = '.unity-scroller--vertical #unity-high-button:active'
+// scroller
+selector--tracker------focus  = '.unity-scroller--vertical .unity-base-slider:focus .unity-base-slider__input #unity-drag-container #unity-tracker'
+selector--dragger------focus  = '.unity-scroller--vertical .unity-base-slider:focus .unity-base-slider__input #unity-drag-container #unity-dragger'
+selector--low-button---focus  = '.unity-scroller--vertical #unity-low-button:focus'
+selector--high-button--focus  = '.unity-scroller--vertical #unity-high-button:focus'
+
 // view
 view--vertical-scroller            = create-view(null element                element                element                element)
 view--vertical-field               = create-view(null element                element                element                element)
