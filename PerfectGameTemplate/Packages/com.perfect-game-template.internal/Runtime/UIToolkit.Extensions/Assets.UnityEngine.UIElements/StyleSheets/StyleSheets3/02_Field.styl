@@ -1,17 +1,17 @@
 @import "../Internal/_Theme"
 
 // view
-view--field              = create-view(null  element               element               element               element)
-view--field-label        = create-view(light element--light        element--light        element--light        element), create-font(null, null, bold), create-text(middle-left, null, null)
-view--field-input        = create-view(light element--dark         element--dark         element--dark         element), create-font(null, null, null), create-text(middle-left, null, null)
+view--field              = create-view(null  element               element        element               element)
+view--field-label        = create-view(light element--light        element--light element--light        element), create-font(null, null, bold), create-text(middle-left, null, null)
+view--field-input        = create-view(light element--dark         element--dark  element--dark         element), create-font(null, null, null), create-text(middle-left, null, null)
 // view
-view--field--------hover = create-view(null  element               element               element               null   )
-view--field-label--hover = create-view(null  element--light        element--light        element--light--hover null   )
-view--field-input--hover = create-view(null  element--dark         element--dark         element--dark---hover null   )
+view--field--------hover = create-view(null  element               null           element               null   )
+view--field-label--hover = create-view(null  element--light        null           element--light--hover null   )
+view--field-input--hover = create-view(null  element--dark         null           element--dark---hover null   )
 // view
-view--field--------focus = create-view(null  element--focus        element--focus        element--focus        null   )
-view--field-label--focus = create-view(focus element--light--focus element--light--focus element--light--focus null   )
-view--field-input--focus = create-view(null  element--dark--focus  element--dark--focus  element--dark---focus null   )
+view--field--------focus = create-view(null  element--focus        null           element--focus        null   )
+view--field-label--focus = create-view(focus element--light--focus null           element--light--focus null   )
+view--field-input--focus = create-view(null  element--dark--focus  null           element--dark---focus null   )
 
 // layout
 layout--field            = create-layout(null auto auto (4px            ) (0px) (0px                ))

@@ -263,8 +263,6 @@
 }
 .unity-scroller--vertical #unity-low-button:hover {
   background-color: #434446;
-  background-image: url('../../Images/Arrow_Up.png');
-  -unity-background-image-tint-color: #e6e6e6;
   border-left-color: #92704f;
   border-right-color: #92704f;
   border-top-color: #92704f;
@@ -272,8 +270,6 @@
 }
 .unity-scroller--vertical #unity-high-button:hover {
   background-color: #434446;
-  background-image: url('../../Images/Arrow_Down.png');
-  -unity-background-image-tint-color: #e6e6e6;
   border-left-color: #92704f;
   border-right-color: #92704f;
   border-top-color: #92704f;
@@ -295,8 +291,6 @@
 }
 .unity-scroller--vertical #unity-low-button:active {
   background-color: #373839;
-  background-image: url('../../Images/Arrow_Up.png');
-  -unity-background-image-tint-color: #e6e6e6;
   border-left-color: #463625;
   border-right-color: #463625;
   border-top-color: #463625;
@@ -304,8 +298,6 @@
 }
 .unity-scroller--vertical #unity-high-button:active {
   background-color: #373839;
-  background-image: url('../../Images/Arrow_Down.png');
-  -unity-background-image-tint-color: #e6e6e6;
   border-left-color: #463625;
   border-right-color: #463625;
   border-top-color: #463625;
