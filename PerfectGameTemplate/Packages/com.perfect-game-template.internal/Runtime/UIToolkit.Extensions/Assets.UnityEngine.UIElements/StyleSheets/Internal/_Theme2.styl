@@ -1,118 +1,143 @@
 @import "_Utils"
 
-// card
-theme--background-color--card-------------------------hover  = get-theme-value('background-color', card,                        lighten: 0%)
-theme--background-color--card-header------------------hover  = get-theme-value('background-color', card-header,                 lighten: 0%)
-theme--background-color--card-content-----------------hover  = get-theme-value('background-color', card-content,                lighten: 0%)
-theme--background-color--card-footer------------------hover  = get-theme-value('background-color', card-footer,                 lighten: 0%)
-// card
-theme--background-color--dialog-card------------------hover  = get-theme-value('background-color', dialog-card,                 lighten: 0%)
-theme--background-color--dialog-card-header-----------hover  = get-theme-value('background-color', dialog-card-header,          lighten: 0%)
-theme--background-color--dialog-card-header--info-----hover  = get-theme-value('background-color', dialog-card-header--info,    lighten: 0%)
-theme--background-color--dialog-card-header--warning--hover  = get-theme-value('background-color', dialog-card-header--warning, lighten: 0%)
-theme--background-color--dialog-card-header--error----hover  = get-theme-value('background-color', dialog-card-header--error,   lighten: 0%)
-theme--background-color--dialog-card-content----------hover  = get-theme-value('background-color', dialog-card-content,         lighten: 0%)
-theme--background-color--dialog-card-footer-----------hover  = get-theme-value('background-color', dialog-card-footer,          lighten: 0%)
-// view
-theme--background-color--view-------------------------hover  = get-theme-value('background-color', view,                        lighten: 0%)
-theme--background-color--view--light2-----------------hover  = get-theme-value('background-color', view--light2,                lighten: 0%)
-theme--background-color--view--light------------------hover  = get-theme-value('background-color', view--light,                 lighten: 0%)
-theme--background-color--view--gray-------------------hover  = get-theme-value('background-color', view--gray,                  lighten: 0%)
-theme--background-color--view--dark-------------------hover  = get-theme-value('background-color', view--dark,                  lighten: 0%)
-theme--background-color--view--dark2------------------hover  = get-theme-value('background-color', view--dark2,                 lighten: 0%)
-// box
-theme--background-color--box--------------------------hover  = get-theme-value('background-color', box,                         lighten: 0%)
-theme--background-color--box--light2------------------hover  = get-theme-value('background-color', box--light2,                 lighten: 0%)
-theme--background-color--box--light-------------------hover  = get-theme-value('background-color', box--light,                  lighten: 0%)
-theme--background-color--box--gray--------------------hover  = get-theme-value('background-color', box--gray,                   lighten: 0%)
-theme--background-color--box--dark--------------------hover  = get-theme-value('background-color', box--dark,                   lighten: 0%)
-theme--background-color--box--dark2-------------------hover  = get-theme-value('background-color', box--dark2,                  lighten: 0%)
-// element
-theme--background-color--element----------------------hover  = get-theme-value('background-color', element,                     lighten: 0%)
-theme--background-color--element--light---------------hover  = get-theme-value('background-color', element--light,              lighten: 5%)
-theme--background-color--element--gray----------------hover  = get-theme-value('background-color', element--gray,               lighten: 5%)
-theme--background-color--element--dark----------------hover  = get-theme-value('background-color', element--dark,               lighten: 5%)
-// element
-theme--background-color--element----------------------active = get-theme-value('background-color', element,                     darken:  0%)
-theme--background-color--element--light---------------active = get-theme-value('background-color', element--light,              darken:  5%)
-theme--background-color--element--gray----------------active = get-theme-value('background-color', element--gray,               darken:  5%)
-theme--background-color--element--dark----------------active = get-theme-value('background-color', element--dark,               darken:  5%)
+// hover/card
+theme--background-color--card-------------------------hover  = null
+theme--background-color--card-header------------------hover  = null
+theme--background-color--card-content-----------------hover  = null
+theme--background-color--card-footer------------------hover  = null
+// hover/card
+theme--background-image--card-------------------------hover  = null
+theme--background-image--card-header------------------hover  = null
+theme--background-image--card-content-----------------hover  = null
+theme--background-image--card-footer------------------hover  = null
+// hover/card
+theme--border-color------card-------------------------hover  = null
+theme--border-color------card-header------------------hover  = null
+theme--border-color------card-content-----------------hover  = null
+theme--border-color------card-footer------------------hover  = null
 
-// card
-theme--background-image--card-------------------------hover  = get-theme-value('background-image', card               )
-theme--background-image--card-header------------------hover  = get-theme-value('background-image', card-header        )
-theme--background-image--card-content-----------------hover  = get-theme-value('background-image', card-content       )
-theme--background-image--card-footer------------------hover  = get-theme-value('background-image', card-footer        )
-// card
-theme--background-image--dialog-card------------------hover  = get-theme-value('background-image', dialog-card        )
-theme--background-image--dialog-card-header-----------hover  = get-theme-value('background-image', dialog-card-header )
-theme--background-image--dialog-card-content----------hover  = get-theme-value('background-image', dialog-card-content)
-theme--background-image--dialog-card-footer-----------hover  = get-theme-value('background-image', dialog-card-footer )
-// view
-theme--background-image--view-------------------------hover  = get-theme-value('background-image', view               )
-theme--background-image--view--light2-----------------hover  = get-theme-value('background-image', view--light2       )
-theme--background-image--view--light------------------hover  = get-theme-value('background-image', view--light        )
-theme--background-image--view--gray-------------------hover  = get-theme-value('background-image', view--gray         )
-theme--background-image--view--dark-------------------hover  = get-theme-value('background-image', view--dark         )
-theme--background-image--view--dark2------------------hover  = get-theme-value('background-image', view--dark2        )
-// box
-theme--background-image--box--------------------------hover  = get-theme-value('background-image', box                )
-theme--background-image--box--light2------------------hover  = get-theme-value('background-image', box--light2        )
-theme--background-image--box--light-------------------hover  = get-theme-value('background-image', box--light         )
-theme--background-image--box--gray--------------------hover  = get-theme-value('background-image', box--gray          )
-theme--background-image--box--dark--------------------hover  = get-theme-value('background-image', box--dark          )
-theme--background-image--box--dark2-------------------hover  = get-theme-value('background-image', box--dark2         )
-// element
-theme--background-image--element----------------------hover  = get-theme-value('background-image', element            )
-theme--background-image--element--light---------------hover  = get-theme-value('background-image', element--light     )
-theme--background-image--element--gray----------------hover  = get-theme-value('background-image', element--gray      )
-theme--background-image--element--dark----------------hover  = get-theme-value('background-image', element--dark      )
-// element
-theme--background-image--element----------------------active = get-theme-value('background-image', element            )
-theme--background-image--element--light---------------active = get-theme-value('background-image', element--light     )
-theme--background-image--element--gray----------------active = get-theme-value('background-image', element--gray      )
-theme--background-image--element--dark----------------active = get-theme-value('background-image', element--dark      )
+// hover/card
+theme--background-color--dialog-card------------------hover  = null
+theme--background-color--dialog-card-header-----------hover  = null
+theme--background-color--dialog-card-header--info-----hover  = null
+theme--background-color--dialog-card-header--warning--hover  = null
+theme--background-color--dialog-card-header--error----hover  = null
+theme--background-color--dialog-card-content----------hover  = null
+theme--background-color--dialog-card-footer-----------hover  = null
+// hover/card
+theme--background-image--dialog-card------------------hover  = null
+theme--background-image--dialog-card-header-----------hover  = null
+theme--background-image--dialog-card-content----------hover  = null
+theme--background-image--dialog-card-footer-----------hover  = null
+// hover/card
+theme--border-color------dialog-card------------------hover  = null
+theme--border-color------dialog-card-header-----------hover  = null
+theme--border-color------dialog-card-content----------hover  = null
+theme--border-color------dialog-card-footer-----------hover  = null
 
-// card
-theme--border-color------card-------------------------hover  = get-theme-value('border-color', card,                lighten: 0%)
-theme--border-color------card-header------------------hover  = get-theme-value('border-color', card-header,         lighten: 0%)
-theme--border-color------card-content-----------------hover  = get-theme-value('border-color', card-content,        lighten: 0%)
-theme--border-color------card-footer------------------hover  = get-theme-value('border-color', card-footer,         lighten: 0%)
-// card
-theme--border-color------dialog-card------------------hover  = get-theme-value('border-color', dialog-card,         lighten: 0%)
-theme--border-color------dialog-card-header-----------hover  = get-theme-value('border-color', dialog-card-header,  lighten: 0%)
-theme--border-color------dialog-card-content----------hover  = get-theme-value('border-color', dialog-card-content, lighten: 0%)
-theme--border-color------dialog-card-footer-----------hover  = get-theme-value('border-color', dialog-card-footer,  lighten: 0%)
-// view
-theme--border-color------view-------------------------hover  = get-theme-value('border-color', view,                lighten: 0%)
-theme--border-color------view--light2-----------------hover  = get-theme-value('border-color', view--light2,        lighten: 0%)
-theme--border-color------view--light------------------hover  = get-theme-value('border-color', view--light,         lighten: 0%)
-theme--border-color------view--gray-------------------hover  = get-theme-value('border-color', view--gray,          lighten: 0%)
-theme--border-color------view--dark-------------------hover  = get-theme-value('border-color', view--dark,          lighten: 0%)
-theme--border-color------view--dark2------------------hover  = get-theme-value('border-color', view--dark2,         lighten: 0%)
-// box
-theme--border-color------box--------------------------hover  = get-theme-value('border-color', box,                 lighten: 20%)
-theme--border-color------box--light2------------------hover  = get-theme-value('border-color', box--light2,         lighten: 20%)
-theme--border-color------box--light-------------------hover  = get-theme-value('border-color', box--light,          lighten: 20%)
-theme--border-color------box--gray--------------------hover  = get-theme-value('border-color', box--gray,           lighten: 20%)
-theme--border-color------box--dark--------------------hover  = get-theme-value('border-color', box--dark,           lighten: 20%)
-theme--border-color------box--dark2-------------------hover  = get-theme-value('border-color', box--dark2,          lighten: 20%)
-// element
-theme--border-color------element----------------------hover  = get-theme-value('border-color', element,             lighten: 20%)
-theme--border-color------element--light---------------hover  = get-theme-value('border-color', element--light,      lighten: 20%)
-theme--border-color------element--gray----------------hover  = get-theme-value('border-color', element--gray,       lighten: 20%)
-theme--border-color------element--dark----------------hover  = get-theme-value('border-color', element--dark,       lighten: 20%)
-// element
-theme--border-color------element----------------------active = get-theme-value('border-color', element,             darken:  20%)
-theme--border-color------element--light---------------active = get-theme-value('border-color', element--light,      darken:  20%)
-theme--border-color------element--gray----------------active = get-theme-value('border-color', element--gray,       darken:  20%)
-theme--border-color------element--dark----------------active = get-theme-value('border-color', element--dark,       darken:  20%)
+// hover/view
+theme--background-color--view-------------------------hover  = null
+theme--background-color--view--light2-----------------hover  = null
+theme--background-color--view--light------------------hover  = null
+theme--background-color--view--gray-------------------hover  = null
+theme--background-color--view--dark-------------------hover  = null
+theme--background-color--view--dark2------------------hover  = null
+// hover/view
+theme--background-image--view-------------------------hover  = null
+theme--background-image--view--light2-----------------hover  = null
+theme--background-image--view--light------------------hover  = null
+theme--background-image--view--gray-------------------hover  = null
+theme--background-image--view--dark-------------------hover  = null
+theme--background-image--view--dark2------------------hover  = null
+// hover/view
+theme--border-color------view-------------------------hover  = null
+theme--border-color------view--light2-----------------hover  = null
+theme--border-color------view--light------------------hover  = null
+theme--border-color------view--gray-------------------hover  = null
+theme--border-color------view--dark-------------------hover  = null
+theme--border-color------view--dark2------------------hover  = null
 
-// dropdown
-theme--background-color--dropdown---------------------hover  = get-theme-value('background-color', dropdown, lighten: 0%)
-theme--background-image--dropdown---------------------hover  = get-theme-value('background-image', dropdown             )
-theme--border-color------dropdown---------------------hover  = get-theme-value('border-color',     dropdown, lighten: 0%)
-// dropdown-item
+// hover/box
+theme--background-color--box--------------------------hover  = get-theme-value('background-color', box,         lighten: 0%)
+theme--background-color--box--light2------------------hover  = get-theme-value('background-color', box--light2, lighten: 0%)
+theme--background-color--box--light-------------------hover  = get-theme-value('background-color', box--light,  lighten: 0%)
+theme--background-color--box--gray--------------------hover  = get-theme-value('background-color', box--gray,   lighten: 0%)
+theme--background-color--box--dark--------------------hover  = get-theme-value('background-color', box--dark,   lighten: 0%)
+theme--background-color--box--dark2-------------------hover  = get-theme-value('background-color', box--dark2,  lighten: 0%)
+// hover/box
+theme--background-image--box--------------------------hover  = null
+theme--background-image--box--light2------------------hover  = null
+theme--background-image--box--light-------------------hover  = null
+theme--background-image--box--gray--------------------hover  = null
+theme--background-image--box--dark--------------------hover  = null
+theme--background-image--box--dark2-------------------hover  = null
+// hover/box
+theme--border-color------box--------------------------hover  = get-theme-value('border-color',     box,         lighten: 20%)
+theme--border-color------box--light2------------------hover  = get-theme-value('border-color',     box--light2, lighten: 20%)
+theme--border-color------box--light-------------------hover  = get-theme-value('border-color',     box--light,  lighten: 20%)
+theme--border-color------box--gray--------------------hover  = get-theme-value('border-color',     box--gray,   lighten: 20%)
+theme--border-color------box--dark--------------------hover  = get-theme-value('border-color',     box--dark,   lighten: 20%)
+theme--border-color------box--dark2-------------------hover  = get-theme-value('border-color',     box--dark2,  lighten: 20%)
+
+// hover/element
+theme--background-color--element----------------------hover  = get-theme-value('background-color', element,        lighten: 5%)
+theme--background-color--element--light---------------hover  = get-theme-value('background-color', element--light, lighten: 5%)
+theme--background-color--element--gray----------------hover  = get-theme-value('background-color', element--gray,  lighten: 5%)
+theme--background-color--element--dark----------------hover  = get-theme-value('background-color', element--dark,  lighten: 5%)
+// hover/element
+theme--background-image--element----------------------hover  = null
+theme--background-image--element--light---------------hover  = null
+theme--background-image--element--gray----------------hover  = null
+theme--background-image--element--dark----------------hover  = null
+// hover/element
+theme--border-color------element----------------------hover  = get-theme-value('border-color',     element,        lighten: 20%)
+theme--border-color------element--light---------------hover  = get-theme-value('border-color',     element--light, lighten: 20%)
+theme--border-color------element--gray----------------hover  = get-theme-value('border-color',     element--gray,  lighten: 20%)
+theme--border-color------element--dark----------------hover  = get-theme-value('border-color',     element--dark,  lighten: 20%)
+
+// hover/dropdown
+theme--background-color--dropdown---------------------hover  = null
+theme--background-image--dropdown---------------------hover  = null
+theme--border-color------dropdown---------------------hover  = null
+
+// hover/dropdown-item
 theme--background-color--dropdown-item----------------hover  = hsla( 30,  80%,  40%, 1.00)
-theme--background-image--dropdown-item----------------hover  = get-theme-value('background-image', dropdown-item        )
+theme--background-image--dropdown-item----------------hover  = null
 theme--border-color------dropdown-item----------------hover  = hsla( 30,  80%,  20%, 1.00)
+
+// active/element
+theme--background-color--element----------------------active = get-theme-value('background-color', element,        darken:  5%)
+theme--background-color--element--light---------------active = get-theme-value('background-color', element--light, darken:  5%)
+theme--background-color--element--gray----------------active = get-theme-value('background-color', element--gray,  darken:  5%)
+theme--background-color--element--dark----------------active = get-theme-value('background-color', element--dark,  darken:  5%)
+// active/element
+theme--background-image--element----------------------active = null
+theme--background-image--element--light---------------active = null
+theme--background-image--element--gray----------------active = null
+theme--background-image--element--dark----------------active = null
+// active/element
+theme--border-color------element----------------------active = get-theme-value('border-color',     element,        darken:  30%)
+theme--border-color------element--light---------------active = get-theme-value('border-color',     element--light, darken:  30%)
+theme--border-color------element--gray----------------active = get-theme-value('border-color',     element--gray,  darken:  30%)
+theme--border-color------element--dark----------------active = get-theme-value('border-color',     element--dark,  darken:  30%)
+
+// focus/element
+theme--background-color--element----------------------focus  = null
+theme--background-color--element--light---------------focus  = null
+theme--background-color--element--gray----------------focus  = null
+theme--background-color--element--dark----------------focus  = null
+// focus/element
+theme--background-image--element----------------------focus  = null
+theme--background-image--element--light---------------focus  = null
+theme--background-image--element--gray----------------focus  = null
+theme--background-image--element--dark----------------focus  = null
+// focus/element
+theme--border-color------element----------------------focus  = get-theme-value('color', focus)
+theme--border-color------element--light---------------focus  = get-theme-value('color', focus)
+theme--border-color------element--gray----------------focus  = get-theme-value('color', focus)
+theme--border-color------element--dark----------------focus  = get-theme-value('color', focus)
+
+// focus/dropdown
+theme--background-color--dropdown---------------------focus  = null
+theme--background-image--dropdown---------------------focus  = null
+theme--border-color------dropdown---------------------focus  = get-theme-value('color', focus)

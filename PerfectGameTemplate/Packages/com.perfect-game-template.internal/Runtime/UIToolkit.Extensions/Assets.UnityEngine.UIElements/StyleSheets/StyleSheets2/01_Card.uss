@@ -141,54 +141,6 @@
 .card .footer * {
   width: 25%;
 }
-.card:hover {
-  color: #e6e6e6;
-  background-color: rgba(61,64,66,0.9);
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.card:hover .header {
-  color: #e6e6e6;
-  background-color: rgba(49,51,53,0.9);
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-.card:hover .content {
-  color: #e6e6e6;
-  background-color: rgba(0,0,0,0);
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.card:hover .footer {
-  color: #e6e6e6;
-  background-color: rgba(37,38,40,0.9);
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
 .dialog-card {
   color: #e6e6e6;
   border-left-color: #5c4d3d;
@@ -225,50 +177,6 @@
   -unity-font-style: bold;
 }
 .dialog-card .footer {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.dialog-card:hover {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.dialog-card:hover .header {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-.dialog-card:hover .content {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.dialog-card:hover .footer {
   color: #e6e6e6;
   border-left-color: #5c4d3d;
   border-right-color: #5c4d3d;
@@ -326,50 +234,6 @@
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
 }
-.info-dialog-card:hover {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.info-dialog-card:hover .header {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-.info-dialog-card:hover .content {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.info-dialog-card:hover .footer {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
 .warning-dialog-card {
   color: #e6e6e6;
   border-left-color: #5c4d3d;
@@ -417,50 +281,6 @@
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
 }
-.warning-dialog-card:hover {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.warning-dialog-card:hover .header {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-.warning-dialog-card:hover .content {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.warning-dialog-card:hover .footer {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
 .error-dialog-card {
   color: #e6e6e6;
   border-left-color: #5c4d3d;
@@ -498,50 +318,6 @@
   -unity-font-style: bold;
 }
 .error-dialog-card .footer {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.error-dialog-card:hover {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.error-dialog-card:hover .header {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-.error-dialog-card:hover .content {
-  color: #e6e6e6;
-  border-left-color: #5c4d3d;
-  border-right-color: #5c4d3d;
-  border-top-color: #5c4d3d;
-  border-bottom-color: #5c4d3d;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.error-dialog-card:hover .footer {
   color: #e6e6e6;
   border-left-color: #5c4d3d;
   border-right-color: #5c4d3d;

@@ -5,9 +5,13 @@ view--field              = create-view(null  element               element      
 view--field-label        = create-view(light element--light        element--light        element--light        element), create-font(null, null, bold), create-text(middle-left, null, null)
 view--field-input        = create-view(light element--dark         element--dark         element--dark         element), create-font(null, null, null), create-text(middle-left, null, null)
 // view
-view--field--------hover = create-view(null  element               element               element               element)
-view--field-label--hover = create-view(light element--light        element--light        element--light--hover element)
-view--field-input--hover = create-view(light element--dark         element--dark         element--dark---hover element)
+view--field--------hover = create-view(null  element               element               element               null   )
+view--field-label--hover = create-view(null  element--light        element--light        element--light--hover null   )
+view--field-input--hover = create-view(null  element--dark         element--dark         element--dark---hover null   )
+// view
+view--field--------focus = create-view(null  element--focus        element--focus        element--focus        null   )
+view--field-label--focus = create-view(focus element--light--focus element--light--focus element--light--focus null   )
+view--field-input--focus = create-view(null  element--dark--focus  element--dark--focus  element--dark---focus null   )
 
 // layout
 layout--field            = create-layout(null auto auto (4px            ) (0px) (0px                ))
@@ -24,19 +28,26 @@ flex--field-input        = create-flex(1, 1, auto, auto), create-flex2(row, flex
     add-skin1 field
     add-skin2 field
     add-skin3 field
-.unity-base-field__label
+.unity-base-field .unity-base-field__label
     add-skin1 field-label
     add-skin2 field-label
     add-skin3 field-label
-.unity-base-field__input
+.unity-base-field .unity-base-field__input
+    // cursor text
     add-skin1 field-input
     add-skin2 field-input
     add-skin3 field-input
 // field
 .unity-base-field:hover
     add-skin1 field--hover
-.unity-base-field__label:hover
+.unity-base-field:hover .unity-base-field__label
     add-skin1 field-label--hover
-.unity-base-field__input:hover
-    // cursor text
+.unity-base-field:hover .unity-base-field__input
     add-skin1 field-input--hover
+// field
+.unity-base-field:focus
+    add-skin1 field--focus
+.unity-base-field:focus .unity-base-field__label
+    add-skin1 field-label--focus
+.unity-base-field:focus .unity-base-field__input
+    add-skin1 field-input--focus

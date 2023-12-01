@@ -7,15 +7,10 @@ And also it provides you with useful framework, utils, extensions and tools.
 - Well designed project structure.
 - Well designed project architecture (domain driven project architecture and state (logic) driven UI architecture).
 - Well designed framework which you can use in any other projects (something like Uber Ribs).
-- Beautiful UI style sheets (UI Toolkit).
+- Beautiful dark theme style sheet.
+- Utils - assertions, exceptions, storage, environment arguments, etc.
+- Tools - resources and labels source generator, project configurator, project analyzer, project builder.
 - Project window - project window with conveniently highlighted folders and assets.
-- Source generator - generator of asset and labels list.
-- Project configurator
-- Project analyzer
-- Project builder
-- Environment utils
-- Storage utils
-- Assertion and exception utils
 
 # Reference
 It consists of two projects: PerfectGameTemplate and PerfectGameTemplate.Internal.
@@ -64,13 +59,16 @@ The project encapsulates everything rarely viewed and changed (third party, libr
 - Entity - entity (player avatar).
 - EntityView - entity visual/audible component.
 - EntityBody - entity physical component.
-## UnityEditor.Windows
-- ProjectWindow - project window with folders and assets painted in special colors.
 ## UnityEditor.Tools
 - SourceGenerator - source generator to generate assets addresses and labels.
 - ProjectConfigurator - project configurator to configure scripts execution order.
 - ProjectAnalyzer - project analyzer to analyzer coding conventions.
 - ProjectBuilder - project builder.
+## UnityEditor.Windows
+- ProjectWindow - project window with folders and assets painted in special colors.
+
+# Setup
+- Link project with Unity Gaming Services.
 
 # Build
 - Prepare your project for build (Toolbar / Project / Pre Build).

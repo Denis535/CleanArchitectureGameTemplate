@@ -1,4 +1,4 @@
-.unity-base-slider__input #unity-drag-container {
+.unity-base-slider .unity-base-slider__input #unity-drag-container {
   background-color: rgba(0,0,0,0);
   border-left-color: rgba(0,0,0,0);
   border-right-color: rgba(0,0,0,0);
@@ -30,7 +30,7 @@
   justify-content: flex-start;
   align-items: center;
 }
-.unity-base-slider__input #unity-drag-container #unity-tracker {
+.unity-base-slider .unity-base-slider__input #unity-drag-container #unity-tracker {
   background-color: #4b4d4e;
   border-left-color: rgba(99,77,54,0.5);
   border-right-color: rgba(99,77,54,0.5);
@@ -59,7 +59,7 @@
   flex-basis: auto;
   align-self: auto;
 }
-.unity-base-slider__input #unity-drag-container #unity-dragger {
+.unity-base-slider .unity-base-slider__input #unity-drag-container #unity-dragger {
   background-color: #b1b3b4;
   border-left-color: rgba(99,77,54,0.5);
   border-right-color: rgba(99,77,54,0.5);

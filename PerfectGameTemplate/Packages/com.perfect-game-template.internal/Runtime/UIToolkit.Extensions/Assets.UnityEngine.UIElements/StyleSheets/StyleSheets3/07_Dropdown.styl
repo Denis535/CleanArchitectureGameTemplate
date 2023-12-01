@@ -5,13 +5,15 @@ view--scroll-view                      = create-view(light dropdown             
 view--viewport-and-vertical-scroller   = null
 view--viewport                         = null
 view--content                          = null
-view--dropdown-item                    = create-view(null  dropdown-item        dropdown-item         dropdown-item        dropdown-item)
+view--dropdown-item                    = create-view(light dropdown-item        dropdown-item         dropdown-item        dropdown-item)
 view--checkmark                        = create-view(null  component            component             component            component    )
 view--checkmark--checked               = create-view(null  component            checkmark-icon--light component            component    )
 view--text                             = create-view(null  element              element               element              element      )
 // view
-view--scroll-view----hover             = create-view(light dropdown--hover      dropdown--hover       dropdown--hover      dropdown     )
-view--dropdown-item--hover             = create-view(null  dropdown-item--hover dropdown-item--hover  dropdown-item--hover dropdown-item)
+view--scroll-view----hover             = create-view(null  dropdown--hover      dropdown--hover       dropdown--hover      null         )
+view--dropdown-item--hover             = create-view(null  dropdown-item--hover dropdown-item--hover  dropdown-item--hover null         )
+// view
+view--scroll-view----focus             = create-view(null  dropdown--focus      dropdown--focus       dropdown--focus      null         )
 
 // layout
 layout--scroll-view                    = create-layout(null auto auto (0px             ) (1px            ) (0px                ))
@@ -53,6 +55,9 @@ flex--text                             = create-flex(1, 1, auto, auto)
 // dropdown
 .unity-base-dropdown .unity-scroll-view:hover
     add-skin1 scroll-view--hover
+// dropdown
+.unity-base-dropdown .unity-scroll-view:focus
+    add-skin1 scroll-view--focus
 
 // dropdown-item
 .unity-base-dropdown__item

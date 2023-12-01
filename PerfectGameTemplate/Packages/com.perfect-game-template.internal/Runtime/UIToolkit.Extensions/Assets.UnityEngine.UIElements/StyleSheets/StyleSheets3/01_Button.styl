@@ -3,9 +3,11 @@
 // view
 view--button         = create-view(light element--light         element--light         element--light         element), create-font(null, null, bold), create-text(middle-center, null, null)
 // view
-view--button--hover  = create-view(light element--light--hover  element--light--hover  element--light--hover  element)
+view--button--hover  = create-view(null  element--light--hover  element--light--hover  element--light--hover  null   )
 // view
-view--button--active = create-view(light element--light--active element--light--active element--light--active element)
+view--button--active = create-view(null  element--light--active element--light--active element--light--active null   )
+// view
+view--button--focus  = create-view(focus element--light--focus  element--light--focus  element--light--focus  null   )
 
 // layout
 layout--button       = create-layout(null auto auto (4px) (1px) (12px 12px 10px 10px))
@@ -28,3 +30,7 @@ flex--button         = create-flex(0, 1, auto, auto)
 .unity-button:active
 .unity-repeat-button:active
     add-skin1 button--active
+// button
+.unity-button:focus
+.unity-repeat-button:focus
+    add-skin1 button--focus

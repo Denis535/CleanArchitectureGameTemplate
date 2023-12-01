@@ -1,4 +1,4 @@
-.unity-toggle__input .unity-toggle__checkmark {
+.unity-toggle .unity-toggle__input .unity-toggle__checkmark {
   background-color: #4b4d4e;
   border-left-color: rgba(99,77,54,0.5);
   border-right-color: rgba(99,77,54,0.5);
@@ -27,7 +27,7 @@
   flex-basis: auto;
   align-self: auto;
 }
-.unity-toggle__input:checked .unity-toggle__checkmark {
+.unity-toggle .unity-toggle__input:checked .unity-toggle__checkmark {
   background-color: #4b4d4e;
   background-image: url('../../Images/Check.png');
   -unity-background-image-tint-color: #e6e6e6;
