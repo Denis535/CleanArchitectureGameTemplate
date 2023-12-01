@@ -1,21 +1,25 @@
 // add-view
-add-view(color = null, font = null, text = null, background-color = null, background-image = null, border-color = null, border-radius = null)
-    add-view-foreground color font text
+add-font(url, size, style)
+    add-style-property 'font-url'                      url
+    add-style-property 'font-definition-url'           url
+    add-style-property 'font-size'                     size
+    add-style-property 'font-style'                    style
+add-text(align, outline, shadow)
+    add-style-property 'text-align'                    align
+    add-style-property 'text-outline'                  outline
+    add-style-property 'text-shadow'                   shadow
+
+// add-view
+add-view(color = null, background-color = null, background-image = null, border-color = null, border-radius = null)
+    add-view-foreground color
     add-view-background background-color background-image
     add-view-border     border-color border-radius
-add-view-foreground(color, font = null, text = null)
+add-view-foreground(color)
     color = get-theme-value('color', color)
     add-style-property 'color'                         color
-    add-style-property 'font-url'                      font.url     if font != null
-    add-style-property 'font-definition-url'           font.url     if font != null
-    add-style-property 'font-size'                     font.size    if font != null
-    add-style-property 'font-style'                    font.style   if font != null
-    add-style-property 'text-align'                    text.align   if text != null
-    add-style-property 'text-outline'                  text.outline if text != null
-    add-style-property 'text-shadow'                   text.shadow  if text != null
 add-view-background(background-color, background-image)
     background-color = get-theme-value('background-color', background-color)
-    background-image = get-theme-value('background-image', background-image)
+    background-image = get-theme-value('background-image', background-image) if typeof(background-image) != 'object'
     add-style-property 'background-color'              background-color
     add-style-property 'background-image-url'          background-image.url          if background-image != null
     add-style-property 'background-image-color'        background-image.color        if background-image != null
@@ -36,19 +40,6 @@ add-view-border(border-color, border-radius)
     add-style-property 'border-top-right-radius'       border-radius[1] or border-radius[0]
     add-style-property 'border-bottom-left-radius'     border-radius[2] or border-radius[0]
     add-style-property 'border-bottom-right-radius'    border-radius[3] or border-radius[0]
-// add-view
-fnt(url, size, style)
-    return {
-        url:   url,
-        size:  size,
-        style: style,
-    }
-txt(align, outline, shadow)
-    return {
-        align:   align,
-        outline: outline,
-        shadow:  shadow,
-    }
 img(url, color, scale-mode, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
     return {
         url:          url,

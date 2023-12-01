@@ -6,8 +6,8 @@
   transition-duration: 3s;
   transition-timing-function: ease;
 }
-#create-game-widget-view .card .content. #title,
-#join-game-widget-view .card .content. #title {
+#create-game-widget-view .card .content #title,
+#join-game-widget-view .card .content #title {
   font-size: 120%;
   -unity-font-style: bold;
 }
