@@ -1,5 +1,29 @@
 @import "../Internal/_Theme"
 
+// dropdown
+selector--dropdown                       = '.unity-base-dropdown'
+selector--scroll-view                    = '.unity-base-dropdown .unity-scroll-view'
+selector--viewport-and-vertical-scroller = '.unity-base-dropdown .unity-scroll-view #unity-content-and-vertical-scroll-container'
+selector--viewport                       = '.unity-base-dropdown .unity-scroll-view #unity-content-viewport'
+selector--content                        = '.unity-base-dropdown .unity-scroll-view #unity-content-container'
+// dropdown
+selector--scroll-view--hover             = '.unity-base-dropdown .unity-scroll-view:hover'
+// dropdown
+selector--scroll-view--focus             = '.unity-base-dropdown .unity-scroll-view:focus'
+
+// dropdown-item
+selector--dropdown-item                  = '.unity-base-dropdown__item'
+selector--checkmark                      = '.unity-base-dropdown__item .unity-base-dropdown__checkmark'
+selector--text                           = '.unity-base-dropdown__item .unity-base-dropdown__label'
+// dropdown-item
+selector--dropdown-item--checked         = '.unity-base-dropdown__item:checked'
+selector--checkmark------checked         = '.unity-base-dropdown__item:checked .unity-base-dropdown__checkmark'
+selector--text----------checked          = '.unity-base-dropdown__item:checked .unity-base-dropdown__label'
+// dropdown-item
+selector--dropdown-item--hover           = '.unity-base-dropdown__item:hover'
+selector--checkmark------hover           = '.unity-base-dropdown__item:hover .unity-base-dropdown__checkmark'
+selector--text----------hover            = '.unity-base-dropdown__item:hover .unity-base-dropdown__label'
+
 // view
 view--scroll-view                      = create-view(light dropdown             dropdown              dropdown             dropdown     )
 view--viewport-and-vertical-scroller   = null
