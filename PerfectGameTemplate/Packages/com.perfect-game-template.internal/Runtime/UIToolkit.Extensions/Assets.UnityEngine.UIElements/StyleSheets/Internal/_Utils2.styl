@@ -1,8 +1,4 @@
 // create-view
-create-view(args)
-    return @block {
-        add-view(args[0], args[1], args[2], args[3], args[4])
-    }
 create-font(url = null, size = null, style = null)
     return @block {
         add-font(url, size, style)
@@ -10,6 +6,12 @@ create-font(url = null, size = null, style = null)
 create-text(align = null, outline = null, shadow = null)
     return @block {
         add-text(align, outline, shadow)
+    }
+
+// create-view
+create-view(args)
+    return @block {
+        add-view(args[0], args[1], args[2], args[3], args[4])
     }
 
 // create-layout
@@ -28,18 +30,34 @@ create-flex2(flex-direction, justify-content, align-items)
         add-flex2(flex-direction, justify-content, align-items)
     }
 
-// add-skin
-add-skin1(key)
-    if key != null and key != none
-        add-style(get-value(get-key('view', key)))
-add-skin2(key)
-    if key != null and key != none
-        add-style(get-value(get-key('layout', key)))
-add-skin3(key)
-    if key != null and key != none
-        add-style(get-value(get-key('flex', key)))
-
 // add-style
-add-style(objects)
-    for object in objects
-        {object}
+add-style(selector, view = null, layout = null, flex = null)
+    +add-selector(selector)
+        add-view-skin(view)
+        add-layout-skin(layout)
+        add-flex-skin(flex)
+        {block}
+
+// add-selector
+add-selector(key)
+    {get-value(get-key('selector', key))}
+        {block}
+
+// add-skin
+add-view-skin(key)
+    if key != null and key != none
+        for object in get-value(get-key('view', key))
+            {object}
+add-layout-skin(key)
+    if key != null and key != none
+        for object in get-value(get-key('layout', key))
+            {object}
+add-flex-skin(key)
+    if key != null and key != none
+        for object in get-value(get-key('flex', key))
+            {object}
+
+// add-skin
+add-skin1 = add-view-skin
+add-skin2 = add-layout-skin
+add-skin3 = add-flex-skin

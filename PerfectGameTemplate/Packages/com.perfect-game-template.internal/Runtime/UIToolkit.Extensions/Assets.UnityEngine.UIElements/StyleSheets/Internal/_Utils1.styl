@@ -1,13 +1,13 @@
 // add-view
 add-font(url, size, style)
-    add-style-property 'font-url'                      url
-    add-style-property 'font-definition-url'           url
-    add-style-property 'font-size'                     size
-    add-style-property 'font-style'                    style
+    add-property-internal 'font-url'                      url
+    add-property-internal 'font-definition-url'           url
+    add-property-internal 'font-size'                     size
+    add-property-internal 'font-style'                    style
 add-text(align, outline, shadow)
-    add-style-property 'text-align'                    align
-    add-style-property 'text-outline'                  outline
-    add-style-property 'text-shadow'                   shadow
+    add-property-internal 'text-align'                    align
+    add-property-internal 'text-outline'                  outline
+    add-property-internal 'text-shadow'                   shadow
 
 // add-view
 add-view(color = null, background-color = null, background-image = null, border-color = null, border-radius = null)
@@ -16,30 +16,30 @@ add-view(color = null, background-color = null, background-image = null, border-
     add-view-border                                    border-color border-radius
 add-view-foreground(color)
     color = get-theme-value('color', color)
-    add-style-property 'color'                         color
+    add-property-internal 'color'                         color
 add-view-background(background-color, background-image)
     background-color = get-theme-value('background-color', background-color)
     background-image = get-theme-value('background-image', background-image) if typeof(background-image) != 'object'
-    add-style-property 'background-color'              background-color
-    add-style-property 'background-image-url'          background-image.url          if background-image != null
-    add-style-property 'background-image-color'        background-image.color        if background-image != null
-    add-style-property 'background-image-scale-mode'   background-image.scale-mode   if background-image != null
-    add-style-property 'background-image-slice-left'   background-image.slice-left   if background-image != null
-    add-style-property 'background-image-slice-right'  background-image.slice-right  if background-image != null
-    add-style-property 'background-image-slice-top'    background-image.slice-top    if background-image != null
-    add-style-property 'background-image-slice-bottom' background-image.slice-bottom if background-image != null
-    add-style-property 'background-image-slice-scale'  background-image.slice-scale  if background-image != null
+    add-property-internal 'background-color'              background-color
+    add-property-internal 'background-image-url'          background-image.url          if background-image != null
+    add-property-internal 'background-image-color'        background-image.color        if background-image != null
+    add-property-internal 'background-image-scale-mode'   background-image.scale-mode   if background-image != null
+    add-property-internal 'background-image-slice-left'   background-image.slice-left   if background-image != null
+    add-property-internal 'background-image-slice-right'  background-image.slice-right  if background-image != null
+    add-property-internal 'background-image-slice-top'    background-image.slice-top    if background-image != null
+    add-property-internal 'background-image-slice-bottom' background-image.slice-bottom if background-image != null
+    add-property-internal 'background-image-slice-scale'  background-image.slice-scale  if background-image != null
 add-view-border(border-color, border-radius)
     border-color  = get-theme-value('border-color',  border-color )
     border-radius = get-theme-value('border-radius', border-radius)
-    add-style-property 'border-left-color'             border-color[0]
-    add-style-property 'border-right-color'            border-color[1] or border-color[0]
-    add-style-property 'border-top-color'              border-color[2] or border-color[0]
-    add-style-property 'border-bottom-color'           border-color[3] or border-color[0]
-    add-style-property 'border-top-left-radius'        border-radius[0]
-    add-style-property 'border-top-right-radius'       border-radius[1] or border-radius[0]
-    add-style-property 'border-bottom-left-radius'     border-radius[2] or border-radius[0]
-    add-style-property 'border-bottom-right-radius'    border-radius[3] or border-radius[0]
+    add-property-internal 'border-left-color'             border-color[0]
+    add-property-internal 'border-right-color'            border-color[1] or border-color[0]
+    add-property-internal 'border-top-color'              border-color[2] or border-color[0]
+    add-property-internal 'border-bottom-color'           border-color[3] or border-color[0]
+    add-property-internal 'border-top-left-radius'        border-radius[0]
+    add-property-internal 'border-top-right-radius'       border-radius[1] or border-radius[0]
+    add-property-internal 'border-bottom-left-radius'     border-radius[2] or border-radius[0]
+    add-property-internal 'border-bottom-right-radius'    border-radius[3] or border-radius[0]
 img(url, color, scale-mode, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
     return {
         url:          url,
@@ -58,53 +58,56 @@ add-layout(position = null, width = null, height = null, margin = null, border =
     add-layout-size                          width, height
     add-layout-box                           margin, border, padding
 add-layout-position(position, left = null, right = null, top = null, bottom = null)
-    add-style-property 'position'            position[0]
-    add-style-property 'left'                left   or position[1]
-    add-style-property 'right'               right  or position[2]
-    add-style-property 'top'                 top    or position[3]
-    add-style-property 'bottom'              bottom or position[4]
+    add-property-internal 'position'            position[0]
+    add-property-internal 'left'                left   or position[1]
+    add-property-internal 'right'               right  or position[2]
+    add-property-internal 'top'                 top    or position[3]
+    add-property-internal 'bottom'              bottom or position[4]
 add-layout-size(width, height)
-    add-style-property 'width'               width[0]
-    add-style-property 'min-width'           width[1]
-    add-style-property 'max-width'           width[2]
-    add-style-property 'height'              height[0]
-    add-style-property 'min-height'          height[1]
-    add-style-property 'max-height'          height[2]
+    add-property-internal 'width'               width[0]
+    add-property-internal 'min-width'           width[1]
+    add-property-internal 'max-width'           width[2]
+    add-property-internal 'height'              height[0]
+    add-property-internal 'min-height'          height[1]
+    add-property-internal 'max-height'          height[2]
 add-layout-box(margin, border, padding)
-    add-style-property 'margin-left'         margin[0]
-    add-style-property 'margin-right'        margin[1] or margin[0]
-    add-style-property 'margin-top'          margin[2] or margin[0]
-    add-style-property 'margin-bottom'       margin[3] or margin[0]
-    add-style-property 'border-left-width'   border[0]
-    add-style-property 'border-right-width'  border[1] or border[0]
-    add-style-property 'border-top-width'    border[2] or border[0]
-    add-style-property 'border-bottom-width' border[3] or border[0]
-    add-style-property 'padding-left'        padding[0]
-    add-style-property 'padding-right'       padding[1] or padding[0]
-    add-style-property 'padding-top'         padding[2] or padding[0]
-    add-style-property 'padding-bottom'      padding[3] or padding[0]
+    add-property-internal 'margin-left'         margin[0]
+    add-property-internal 'margin-right'        margin[1] or margin[0]
+    add-property-internal 'margin-top'          margin[2] or margin[0]
+    add-property-internal 'margin-bottom'       margin[3] or margin[0]
+    add-property-internal 'border-left-width'   border[0]
+    add-property-internal 'border-right-width'  border[1] or border[0]
+    add-property-internal 'border-top-width'    border[2] or border[0]
+    add-property-internal 'border-bottom-width' border[3] or border[0]
+    add-property-internal 'padding-left'        padding[0]
+    add-property-internal 'padding-right'       padding[1] or padding[0]
+    add-property-internal 'padding-top'         padding[2] or padding[0]
+    add-property-internal 'padding-bottom'      padding[3] or padding[0]
 
 // add-flex
 add-flex(flex-grow = null, flex-shrink = null, flex-basis = null, align-self = null)
-    add-style-property 'flex-grow'       flex-grow
-    add-style-property 'flex-shrink'     flex-shrink
-    add-style-property 'flex-basis'      flex-basis
-    add-style-property 'align-self'      align-self
+    add-property-internal 'flex-grow'       flex-grow
+    add-property-internal 'flex-shrink'     flex-shrink
+    add-property-internal 'flex-basis'      flex-basis
+    add-property-internal 'align-self'      align-self
 add-flex2(flex-direction = null, justify-content = null, align-items = null)
-    add-style-property 'flex-direction'  flex-direction
-    add-style-property 'justify-content' justify-content
-    add-style-property 'align-items'     align-items
+    add-property-internal 'flex-direction'  flex-direction
+    add-property-internal 'justify-content' justify-content
+    add-property-internal 'align-items'     align-items
 
-// add-style-property
-add-style-property(property, value)
-    property = get-style-property(property)
-    property = get-unity-style-property(property)
+// add-property-internal
+add-property-internal(property, value)
+    property = get-native-property(property)
+    property = get-unity-property(property)
     if value != null
-        value = get-style-value(value, property)
+        // todo: does this support addressables?
+        value = s("url('%s')", unquote(value)) if property == '-unity-font'
+        value = s("url('%s')", unquote(value)) if property == '-unity-font-definition'
+        value = s("url('%s')", unquote(value)) if property == 'background-image'
         add-property property, value
 
-// get-style-property
-get-style-property(property)
+// get-native-property
+get-native-property(property)
     // view
     return 'color'                       if property == 'color'
     // view
@@ -183,8 +186,8 @@ get-style-property(property)
     // misc
     property
 
-// get-unity-style-property
-get-unity-style-property(property)
+// get-unity-property
+get-unity-property(property)
     // view
     return '-unity-' + property if property == 'overflow-clip-box'
     // view
@@ -209,14 +212,6 @@ get-unity-style-property(property)
     // misc
     property
 
-// get-style-value
-get-style-value(value, property)
-    // todo: does this support addressables?
-    return s("url('%s')", unquote(value)) if property == '-unity-font'
-    return s("url('%s')", unquote(value)) if property == '-unity-font-definition'
-    return s("url('%s')", unquote(value)) if property == 'background-image'
-    value
-
 // misc
 get-theme-value(type, key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
     if key != null and key != none
@@ -231,6 +226,7 @@ get-theme-value-internal(key, _hue = null, _saturate = null, _desaturate = null,
     value = darken(value, _darken)         if value != null and _darken     != null
     value = alpha(value, _alpha)           if value != null and _alpha      != null
     value
+
 // misc
 get-key(key0, key1 = null, key2 = null)
     key =              get-string(key0)

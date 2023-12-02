@@ -1,59 +1,56 @@
 @import "../Internal/_Theme"
 
-// card
-selector--card                          = '.card'
-selector--header                        = '.card .header'
-selector--content                       = '.card .content'
-selector--footer                        = '.card .footer'
-// card
-selector--card-----hover                = '.card:hover'
-selector--header---hover                = '.card:hover .header'
-selector--content--hover                = '.card:hover .content'
-selector--footer---hover                = '.card:hover .footer'
+// // selector
+// selector--card                          = '.card'
+// selector--header                        = '.card .header'
+// selector--content                       = '.card .content'
+// selector--footer                        = '.card .footer'
+// // selector
+// selector--dialog-card                   = '.dialog-card'
+// selector--dialog-header                 = '.dialog-card .header'
+// selector--dialog-content                = '.dialog-card .content'
+// selector--dialog-footer                 = '.dialog-card .footer'
+// // selector
+// selector--info-dialog-card              = '.info-dialog-card'
+// selector--info-dialog-header            = '.info-dialog-card .header'
+// selector--info-dialog-content           = '.info-dialog-card .content'
+// selector--info-dialog-footer            = '.info-dialog-card .footer'
+// // selector
+// selector--warning-dialog-card           = '.warning-dialog-card'
+// selector--warning-dialog-header         = '.warning-dialog-card .header'
+// selector--warning-dialog-content        = '.warning-dialog-card .content'
+// selector--warning-dialog-footer         = '.warning-dialog-card .footer'
+// // selector
+// selector--error-dialog-card             = '.error-dialog-card'
+// selector--error-dialog-header           = '.error-dialog-card .header'
+// selector--error-dialog-content          = '.error-dialog-card .content'
+// selector--error-dialog-footer           = '.error-dialog-card .footer'
 
-// dialog-card
-selector--dialog-card                   = '.dialog-card'
-selector--dialog-header                 = '.dialog-card .header'
-selector--dialog-content                = '.dialog-card .content'
-selector--dialog-footer                 = '.dialog-card .footer'
-// dialog-card
-selector--dialog-card-----hover         = '.dialog-card:hover'
-selector--dialog-header---hover         = '.dialog-card:hover .header'
-selector--dialog-content--hover         = '.dialog-card:hover .content'
-selector--dialog-footer---hover         = '.dialog-card:hover .footer'
-
-// info-dialog-card
-selector--info-dialog-card              = '.info-dialog-card'
-selector--info-dialog-header            = '.info-dialog-card .header'
-selector--info-dialog-content           = '.info-dialog-card .content'
-selector--info-dialog-footer            = '.info-dialog-card .footer'
-// info-dialog-card
-selector--info-dialog-card-----hover    = '.info-dialog-card:hover'
-selector--info-dialog-header---hover    = '.info-dialog-card:hover .header'
-selector--info-dialog-content--hover    = '.info-dialog-card:hover .content'
-selector--info-dialog-footer---hover    = '.info-dialog-card:hover .footer'
-
-// warning-dialog-card
-selector--warning-dialog-card           = '.warning-dialog-card'
-selector--warning-dialog-header         = '.warning-dialog-card .header'
-selector--warning-dialog-content        = '.warning-dialog-card .content'
-selector--warning-dialog-footer         = '.warning-dialog-card .footer'
-// warning-dialog-card
-selector--warning-dialog-card-----hover = '.warning-dialog-card:hover'
-selector--warning-dialog-header---hover = '.warning-dialog-card:hover .header'
-selector--warning-dialog-content--hover = '.warning-dialog-card:hover .content'
-selector--warning-dialog-footer---hover = '.warning-dialog-card:hover .footer'
-
-// error-dialog-card
-selector--dialog-card                   = '.error-dialog-card'
-selector--dialog-header                 = '.error-dialog-card .header'
-selector--dialog-content                = '.error-dialog-card .content'
-selector--dialog-footer                 = '.error-dialog-card .footer'
-// error-dialog-card
-selector--dialog-card-----hover         = '.error-dialog-card:hover'
-selector--dialog-header---hover         = '.error-dialog-card:hover .header'
-selector--dialog-content--hover         = '.error-dialog-card:hover .content'
-selector--dialog-footer---hover         = '.error-dialog-card:hover .footer'
+// // selector
+// selector--card-----hover                = '.card:hover'
+// selector--header---hover                = '.card:hover .header'
+// selector--content--hover                = '.card:hover .content'
+// selector--footer---hover                = '.card:hover .footer'
+// // selector
+// selector--dialog-card-----hover         = '.dialog-card:hover'
+// selector--dialog-header---hover         = '.dialog-card:hover .header'
+// selector--dialog-content--hover         = '.dialog-card:hover .content'
+// selector--dialog-footer---hover         = '.dialog-card:hover .footer'
+// // selector
+// selector--info-dialog-card-----hover    = '.info-dialog-card:hover'
+// selector--info-dialog-header---hover    = '.info-dialog-card:hover .header'
+// selector--info-dialog-content--hover    = '.info-dialog-card:hover .content'
+// selector--info-dialog-footer---hover    = '.info-dialog-card:hover .footer'
+// // selector
+// selector--warning-dialog-card-----hover = '.warning-dialog-card:hover'
+// selector--warning-dialog-header---hover = '.warning-dialog-card:hover .header'
+// selector--warning-dialog-content--hover = '.warning-dialog-card:hover .content'
+// selector--warning-dialog-footer---hover = '.warning-dialog-card:hover .footer'
+// // selector
+// selector--error-dialog-card-----hover   = '.error-dialog-card:hover'
+// selector--error-dialog-header---hover   = '.error-dialog-card:hover .header'
+// selector--error-dialog-content--hover   = '.error-dialog-card:hover .content'
+// selector--error-dialog-footer---hover   = '.error-dialog-card:hover .footer'
 
 // view
 view--card                        = create-view(light card                        card                        card                       card               ), create-font(null, 100%, normal)
@@ -148,16 +145,6 @@ flex--dialog-card-footer          = null
     add-skin1 dialog-card-footer
     add-skin2 dialog-card-footer
     add-skin3 dialog-card-footer
-// dialog-card
-.dialog-card:hover
-    add-skin1 dialog-card--hover
-.dialog-card:hover .header
-    add-skin1 dialog-card-header--hover
-.dialog-card:hover .content
-    add-skin1 dialog-card-content--hover
-.dialog-card:hover .footer
-    add-skin1 dialog-card-footer--hover
-
 // info-dialog-card
 .info-dialog-card
     add-skin1 dialog-card
@@ -175,16 +162,6 @@ flex--dialog-card-footer          = null
     add-skin1 dialog-card-footer
     add-skin2 dialog-card-footer
     add-skin3 dialog-card-footer
-// info-dialog-card
-.info-dialog-card:hover
-    add-skin1 dialog-card--hover
-.info-dialog-card:hover .header
-    add-skin1 dialog-card-header--hover
-.info-dialog-card:hover .content
-    add-skin1 dialog-card-content--hover
-.info-dialog-card:hover .footer
-    add-skin1 dialog-card-footer--hover
-
 // warning-dialog-card
 .warning-dialog-card
     add-skin1 dialog-card
@@ -202,16 +179,6 @@ flex--dialog-card-footer          = null
     add-skin1 dialog-card-footer
     add-skin2 dialog-card-footer
     add-skin3 dialog-card-footer
-// warning-dialog-card
-.warning-dialog-card:hover
-    add-skin1 dialog-card--hover
-.warning-dialog-card:hover .header
-    add-skin1 dialog-card-header--hover
-.warning-dialog-card:hover .content
-    add-skin1 dialog-card-content--hover
-.warning-dialog-card:hover .footer
-    add-skin1 dialog-card-footer--hover
-
 // error-dialog-card
 .error-dialog-card
     add-skin1 dialog-card
@@ -229,6 +196,34 @@ flex--dialog-card-footer          = null
     add-skin1 dialog-card-footer
     add-skin2 dialog-card-footer
     add-skin3 dialog-card-footer
+
+// dialog-card
+.dialog-card:hover
+    add-skin1 dialog-card--hover
+.dialog-card:hover .header
+    add-skin1 dialog-card-header--hover
+.dialog-card:hover .content
+    add-skin1 dialog-card-content--hover
+.dialog-card:hover .footer
+    add-skin1 dialog-card-footer--hover
+// info-dialog-card
+.info-dialog-card:hover
+    add-skin1 dialog-card--hover
+.info-dialog-card:hover .header
+    add-skin1 dialog-card-header--hover
+.info-dialog-card:hover .content
+    add-skin1 dialog-card-content--hover
+.info-dialog-card:hover .footer
+    add-skin1 dialog-card-footer--hover
+// warning-dialog-card
+.warning-dialog-card:hover
+    add-skin1 dialog-card--hover
+.warning-dialog-card:hover .header
+    add-skin1 dialog-card-header--hover
+.warning-dialog-card:hover .content
+    add-skin1 dialog-card-content--hover
+.warning-dialog-card:hover .footer
+    add-skin1 dialog-card-footer--hover
 // error-dialog-card
 .error-dialog-card:hover
     add-skin1 dialog-card--hover
