@@ -31,17 +31,31 @@ create-flex2(flex-direction, justify-content, align-items)
     }
 
 // add-style
-add-style(selector, view = null, layout = null, flex = null)
-    +add-selector(selector)
-        add-view-skin(view)
-        add-layout-skin(layout)
-        add-flex-skin(flex)
+add-style(selector)
+    {get-value(get-key('selector', selector))}
         {block}
-
-// add-selector
-add-selector(key)
-    {get-value(get-key('selector', key))}
-        {block}
+// add-view-style
+add-font-style(selector, url, size, style)
+    {get-value(get-key('selector', selector))}
+        add-font(url, size, style)
+add-text-style(selector, align, outline, shadow)
+    {get-value(get-key('selector', selector))}
+        add-text(align, outline, shadow)
+// add-view-style
+add-view-style(selector, color = null, background-color = null, background-image = null, border-color = null, border-radius = null)
+    {get-value(get-key('selector', selector))}
+        add-view(color, background-color, background-image, border-color, border-radius)
+// add-layout-style
+add-layout-style(selector, position = null, width = null, height = null, margin = null, border = null, padding = null)
+    {get-value(get-key('selector', selector))}
+        add-layout(position, width, height, margin, border, padding)
+// add-flex-style
+add-flex-style(selector, flex-grow, flex-shrink, flex-basis, align-self)
+    {get-value(get-key('selector', selector))}
+        add-flex(flex-grow, flex-shrink, flex-basis, align-self)
+add-flex2-style(selector, flex-direction, justify-content, align-items)
+    {get-value(get-key('selector', selector))}
+        add-flex2(flex-direction, justify-content, align-items)
 
 // add-skin
 add-view-skin(key)
