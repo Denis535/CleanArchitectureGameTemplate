@@ -1,4 +1,4 @@
-.unity-toggle .unity-toggle__input .unity-toggle__checkmark {
+.unity-toggle .unity-toggle__input         .unity-toggle__checkmark {
   background-color: #4b4d4e;
   border-left-color: rgba(99,77,54,0.5);
   border-right-color: rgba(99,77,54,0.5);
@@ -8,6 +8,21 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
+}
+.unity-toggle .unity-toggle__input:checked .unity-toggle__checkmark {
+  background-color: #4b4d4e;
+  background-image: url('../../Images/Check.png');
+  -unity-background-image-tint-color: #e6e6e6;
+  border-left-color: rgba(99,77,54,0.5);
+  border-right-color: rgba(99,77,54,0.5);
+  border-top-color: rgba(99,77,54,0.5);
+  border-bottom-color: rgba(99,77,54,0.5);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.unity-toggle .unity-toggle__input         .unity-toggle__checkmark {
   width: 16px;
   height: 16px;
   margin-left: 0px;
@@ -22,21 +37,10 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+}
+.unity-toggle .unity-toggle__input         .unity-toggle__checkmark {
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
   align-self: auto;
-}
-.unity-toggle .unity-toggle__input:checked .unity-toggle__checkmark {
-  background-color: #4b4d4e;
-  background-image: url('../../Images/Check.png');
-  -unity-background-image-tint-color: #e6e6e6;
-  border-left-color: rgba(99,77,54,0.5);
-  border-right-color: rgba(99,77,54,0.5);
-  border-top-color: rgba(99,77,54,0.5);
-  border-bottom-color: rgba(99,77,54,0.5);
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
 }

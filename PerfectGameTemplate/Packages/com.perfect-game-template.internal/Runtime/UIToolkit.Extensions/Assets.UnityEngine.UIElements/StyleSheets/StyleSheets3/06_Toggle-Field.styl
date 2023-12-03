@@ -4,46 +4,24 @@
 selector--field              = '.unity-toggle'
 selector--label              = '.unity-toggle .unity-toggle__label'
 selector--input              = '.unity-toggle .unity-toggle__input'
-selector--checkmark          = '.unity-toggle .unity-toggle__input .unity-toggle__checkmark'
-// selector
+selector--checkmark          = '.unity-toggle .unity-toggle__input         .unity-toggle__checkmark'
 selector--checkmark--checked = '.unity-toggle .unity-toggle__input:checked .unity-toggle__checkmark'
 
 // view
-view--field              = null
-view--field-label        = null
-view--field-input        = null
-view--checkmark          = create-view(null component--dark component--dark       component--dark component)
-view--checkmark--checked = create-view(null component--dark checkmark-icon--light component--dark component)
+add-style(field,              null                                                                                 )
+add-style(label,              null                                                                                 )
+add-style(input,              null                                                                                 )
+add-style(checkmark,          create-view(null, component--dark, component-------dark,  component--dark, component))
+add-style(checkmark--checked, create-view(null, component--dark, checkmark-icon--light, component--dark, component))
 
 // layout
-layout--field            = null
-layout--field-label      = null
-layout--field-input      = null
-layout--checkmark        = create-layout(null 16px 16px (0px) (1px) (0px))
+add-style(field,              null                                                )
+add-style(label,              null                                                )
+add-style(input,              null                                                )
+add-style(checkmark,          create-layout(null, 16px, 16px, (0px), (1px), (0px)))
 
 // flex
-flex--field              = null
-flex--field-label        = null
-flex--field-input        = null
-flex--checkmark          = create-flex(0, 1, auto, auto)
-
-// toggle-field
-.unity-toggle
-    add-skin1 field
-    add-skin2 field
-    add-skin3 field
-.unity-toggle .unity-toggle__label
-    add-skin1 field-label
-    add-skin2 field-label
-    add-skin3 field-label
-.unity-toggle .unity-toggle__input
-    add-skin1 field-input
-    add-skin2 field-input
-    add-skin3 field-input
-.unity-toggle .unity-toggle__input .unity-toggle__checkmark
-    add-skin1 checkmark
-    add-skin2 checkmark
-    add-skin3 checkmark
-// toggle-field
-.unity-toggle .unity-toggle__input:checked .unity-toggle__checkmark
-    add-skin1 checkmark--checked
+add-style(field,              null                         )
+add-style(label,              null                         )
+add-style(input,              null                         )
+add-style(checkmark,          create-flex(0, 1, auto, auto))

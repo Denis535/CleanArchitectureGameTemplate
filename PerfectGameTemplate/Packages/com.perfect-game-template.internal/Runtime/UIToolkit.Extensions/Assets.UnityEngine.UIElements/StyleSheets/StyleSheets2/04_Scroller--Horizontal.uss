@@ -8,27 +8,6 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: auto;
-  align-self: auto;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
 }
 .unity-scroller--horizontal .unity-base-slider {
   background-color: rgba(0,0,0,0);
@@ -40,27 +19,6 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
 }
 .unity-scroller--horizontal .unity-base-slider .unity-base-slider__input {
   background-color: rgba(0,0,0,0);
@@ -72,27 +30,6 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  width: auto;
-  height: auto;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
 }
 .unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container {
   background-color: rgba(0,0,0,0);
@@ -104,27 +41,6 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  width: auto;
-  height: auto;
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
 }
 .unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-tracker {
   background-color: #2a2b2c;
@@ -136,24 +52,6 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  width: auto;
-  height: 24px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
 }
 .unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-dragger {
   background-color: #393b3c;
@@ -165,25 +63,6 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  position: absolute;
-  width: auto;
-  height: 24px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
 }
 .unity-scroller--horizontal #unity-low-button {
   background-color: #393b3c;
@@ -197,24 +76,6 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  width: 24px;
-  height: 24px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: auto;
-  align-self: auto;
 }
 .unity-scroller--horizontal #unity-high-button {
   background-color: #393b3c;
@@ -228,24 +89,6 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  width: 24px;
-  height: 24px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: auto;
-  align-self: auto;
 }
 .unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-tracker:hover {
   background-color: #2a2b2c;
@@ -327,4 +170,193 @@
   border-right-color: #197fe6;
   border-top-color: #197fe6;
   border-bottom-color: #197fe6;
+}
+.unity-scroller--horizontal {
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.unity-scroller--horizontal .unity-base-slider {
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input {
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container {
+  width: auto;
+  height: auto;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-tracker {
+  width: auto;
+  height: 24px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-dragger {
+  position: absolute;
+  width: auto;
+  height: 24px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.unity-scroller--horizontal #unity-low-button {
+  width: 24px;
+  height: 24px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.unity-scroller--horizontal #unity-high-button {
+  width: 24px;
+  height: 24px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.unity-scroller--horizontal {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.unity-scroller--horizontal .unity-base-slider {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-tracker {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+}
+.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-dragger {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+}
+.unity-scroller--horizontal #unity-low-button {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
+}
+.unity-scroller--horizontal #unity-high-button {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  align-self: auto;
 }

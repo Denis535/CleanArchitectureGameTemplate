@@ -14,53 +14,24 @@ selector--label--focus = '.unity-base-field:focus .unity-base-field__label'
 selector--input--focus = '.unity-base-field:focus .unity-base-field__input'
 
 // view
-view--field              = create-view(null  element               element        element               element)
-view--field-label        = create-view(light element--light        element--light element--light        element), create-font(null, null, bold), create-text(middle-left, null, null)
-view--field-input        = create-view(light element--dark         element--dark  element--dark         element), create-font(null, null, null), create-text(middle-left, null, null)
+add-style(field,        create-view(null,  element,               element,        element,               element)                                                                     )
+add-style(label,        create-view(light, element--light,        element--light, element--light,        element), create-font(null, null, bold), create-text(middle-left, null, null))
+add-style(input,        create-view(light, element--dark,         element--dark,  element--dark,         element), create-font(null, null, null), create-text(middle-left, null, null))
 // view
-view--field--------hover = create-view(null  element               null           element               null   )
-view--field-label--hover = create-view(null  element--light        null           element--light--hover null   )
-view--field-input--hover = create-view(null  element--dark         null           element--dark---hover null   )
+add-style(field--hover, create-view(null,  element,               null,           element,               null   )                                                                     )
+add-style(label--hover, create-view(null,  element--light,        null,           element--light--hover, null   )                                                                     )
+add-style(input--hover, create-view(null,  element--dark,         null,           element--dark---hover, null   )                                                                     )
 // view
-view--field--------focus = create-view(null  element--focus        null           element--focus        null   )
-view--field-label--focus = create-view(focus element--light--focus null           element--light--focus null   )
-view--field-input--focus = create-view(null  element--dark--focus  null           element--dark---focus null   )
+add-style(field--focus, create-view(null,  element--focus,        null,           element--focus,        null   )                                                                     )
+add-style(label--focus, create-view(focus, element--light--focus, null,           element--light--focus, null   )                                                                     )
+add-style(input--focus, create-view(null,  element--dark--focus,  null,           element--dark---focus, null   )                                                                     )
 
 // layout
-layout--field            = create-layout(null auto auto (4px            ) (0px) (0px                ))
-layout--field-label      = create-layout(null auto auto (0px 2px 0px 0px) (1px) (12px 12px 10px 10px))
-layout--field-input      = create-layout(null auto auto (0px            ) (1px) (12px 12px 10px 10px))
+add-style(field,        create-layout(null, auto, auto, (4px            ), (0px), (0px                )))
+add-style(label,        create-layout(null, auto, auto, (0px 2px 0px 0px), (1px), (12px 12px 10px 10px)))
+add-style(input,        create-layout(null, auto, auto, (0px            ), (1px), (12px 12px 10px 10px)))
 
 // flex
-flex--field              = create-flex(0, 1, auto, auto), create-flex2(row, flex-start, stretch)
-flex--field-label        = create-flex(0, 1, auto, auto), null
-flex--field-input        = create-flex(1, 1, auto, auto), create-flex2(row, flex-end, stretch)
-
-// field
-.unity-base-field
-    add-skin1 field
-    add-skin2 field
-    add-skin3 field
-.unity-base-field .unity-base-field__label
-    add-skin1 field-label
-    add-skin2 field-label
-    add-skin3 field-label
-.unity-base-field .unity-base-field__input
-    // cursor text
-    add-skin1 field-input
-    add-skin2 field-input
-    add-skin3 field-input
-// field
-.unity-base-field:hover
-    add-skin1 field--hover
-.unity-base-field:hover .unity-base-field__label
-    add-skin1 field-label--hover
-.unity-base-field:hover .unity-base-field__input
-    add-skin1 field-input--hover
-// field
-.unity-base-field:focus
-    add-skin1 field--focus
-.unity-base-field:focus .unity-base-field__label
-    add-skin1 field-label--focus
-.unity-base-field:focus .unity-base-field__input
-    add-skin1 field-input--focus
+add-style(field,        create-flex(0, 1, auto, auto), create-flex2(row, flex-start, stretch))
+add-style(label,        create-flex(0, 1, auto, auto), null                                  )
+add-style(input,        create-flex(1, 1, auto, auto), create-flex2(row, flex-end, stretch)  )

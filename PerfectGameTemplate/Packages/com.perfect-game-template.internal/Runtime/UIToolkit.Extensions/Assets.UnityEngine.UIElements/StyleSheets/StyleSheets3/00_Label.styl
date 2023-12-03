@@ -8,26 +8,13 @@ selector--label--medium = '.unity-label.medium'
 selector--label--large  = '.unity-label.large'
 
 // view
-view--label           = create-view(null element element element element)
+add-style(label,         create-view(null, element, element, element, element))
 
 // layout
-layout--label         = create-layout(null auto auto (4px) (1px) (0px  0px  0px  0px ))
-layout--label--small  = create-layout(null auto auto (4px) (1px) (6px  6px  5px  5px ))
-layout--label--medium = create-layout(null auto auto (4px) (1px) (12px 12px 10px 10px))
-layout--label--large  = create-layout(null auto auto (4px) (1px) (24px 24px 20px 20px))
+add-style(label,         create-layout(null, auto, auto, (4px), (1px), (0px  0px  0px  0px )))
+add-style(label--small,  create-layout(null, auto, auto, (4px), (1px), (6px  6px  5px  5px )))
+add-style(label--medium, create-layout(null, auto, auto, (4px), (1px), (12px 12px 10px 10px)))
+add-style(label--large,  create-layout(null, auto, auto, (4px), (1px), (24px 24px 20px 20px)))
 
 // flex
-flex--label           = create-flex(0, 1, auto, auto)
-
-// label
-.unity-label
-    add-skin1 label
-    add-skin2 label
-    add-skin3 label
-// label
-.unity-label.small
-    add-skin2 label--small
-.unity-label.medium
-    add-skin2 label--medium
-.unity-label.large
-    add-skin2 label--large
+add-style(label,         create-flex(0, 1, auto, auto))

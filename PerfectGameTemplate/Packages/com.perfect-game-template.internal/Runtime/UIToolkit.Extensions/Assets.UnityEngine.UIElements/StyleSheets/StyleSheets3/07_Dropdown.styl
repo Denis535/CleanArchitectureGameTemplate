@@ -7,8 +7,11 @@ selector--viewport-and-vertical-scroller = '.unity-base-dropdown .unity-scroll-v
 selector--viewport                       = '.unity-base-dropdown .unity-scroll-view #unity-content-viewport'
 selector--content                        = '.unity-base-dropdown .unity-scroll-view #unity-content-container'
 selector--dropdown-item                  = '.unity-base-dropdown__item'
-selector--checkmark                      = '.unity-base-dropdown__item .unity-base-dropdown__checkmark'
-selector--text                           = '.unity-base-dropdown__item .unity-base-dropdown__label'
+selector--dropdown-item--checked         = '.unity-base-dropdown__item:checked'
+selector--checkmark                      = '.unity-base-dropdown__item         .unity-base-dropdown__checkmark'
+selector--checkmark------checked         = '.unity-base-dropdown__item:checked .unity-base-dropdown__checkmark'
+selector--text                           = '.unity-base-dropdown__item         .unity-base-dropdown__label'
+selector--text-----------checked         = '.unity-base-dropdown__item:checked .unity-base-dropdown__label'
 // selector
 selector--scroll-view----hover           = '.unity-base-dropdown .unity-scroll-view:hover'
 selector--dropdown-item--hover           = '.unity-base-dropdown__item:hover'
@@ -16,95 +19,41 @@ selector--checkmark------hover           = '.unity-base-dropdown__item:hover .un
 selector--text-----------hover           = '.unity-base-dropdown__item:hover .unity-base-dropdown__label'
 // selector
 selector--scroll-view----focus           = '.unity-base-dropdown .unity-scroll-view:focus'
-// selector
-selector--dropdown-item--checked         = '.unity-base-dropdown__item:checked'
-selector--checkmark------checked         = '.unity-base-dropdown__item:checked .unity-base-dropdown__checkmark'
-selector--text-----------checked         = '.unity-base-dropdown__item:checked .unity-base-dropdown__label'
 
 // view
-view--scroll-view                      = create-view(light dropdown             dropdown              dropdown             dropdown     )
-view--viewport-and-vertical-scroller   = null
-view--viewport                         = null
-view--content                          = null
-view--dropdown-item                    = create-view(light dropdown-item        dropdown-item         dropdown-item        dropdown-item)
-view--checkmark                        = create-view(null  component            component             component            component    )
-view--text                             = create-view(null  element              element               element              element      )
+add-style(dropdown,                       null                                                                                                )
+add-style(scroll-view,                    create-view(light, dropdown,             dropdown,              dropdown,             dropdown     ))
+add-style(viewport-and-vertical-scroller, null                                                                                                )
++add-style(viewport,                      null                                                                                                )
+    overflow hidden
++add-style(content,                       null                                                                                                )
+    overflow scroll
+add-style(dropdown-item,                  create-view(light, dropdown-item,        dropdown-item,         dropdown-item,        dropdown-item))
+add-style(checkmark,                      create-view(null,  component,            component,             component,            component    ))
+add-style(checkmark--checked,             create-view(null,  component,            checkmark-icon--light, component,            component    ))
+add-style(text,                           create-view(null,  element,              element,               element,              element      ))
 // view
-view--scroll-view----hover             = create-view(null  dropdown--hover      null                  dropdown--hover      null         )
-view--dropdown-item--hover             = create-view(null  dropdown-item--hover null                  dropdown-item--hover null         )
+add-style(scroll-view----hover,           create-view(null,  dropdown--hover,      null,                  dropdown--hover,      null         ))
+add-style(dropdown-item--hover,           create-view(null,  dropdown-item--hover, null,                  dropdown-item--hover, null         ))
 // view
-view--scroll-view----focus             = create-view(null  dropdown--focus      null                  dropdown--focus      null         )
-// view
-view--checkmark------checked           = create-view(null  component            checkmark-icon--light component            component    )
+add-style(scroll-view--focus,             create-view(null,  dropdown--focus,      null,                  dropdown--focus,      null         ))
 
 // layout
-layout--scroll-view                    = create-layout(null auto auto (0px             ) (1px            ) (0px                ))
-layout--viewport-and-vertical-scroller = null
-layout--viewport                       = null
-layout--content                        = null
-layout--dropdown-item                  = create-layout(null auto auto (0px             ) (0px 0px 0px 1px) (12px 12px 10px 10px))
-layout--checkmark                      = create-layout(null 16px 16px (0px 12px 0px 0px) (1px            ) (0px                ))
-layout--text                           = create-layout(null auto auto (0px             ) (0px            ) (0px                ))
+add-style(dropdown,                       create-layout(absolute, auto, auto, (0px             ), (0px            ), (0px                )))
+add-style(scroll-view,                    create-layout(null,     auto, auto, (0px             ), (1px            ), (0px                )))
+add-style(viewport-and-vertical-scroller, null                                                                                             )
+add-style(viewport,                       null                                                                                             )
+add-style(content,                        null                                                                                             )
+add-style(dropdown-item,                  create-layout(null,     auto, auto, (0px             ), (0px 0px 0px 1px), (12px 12px 10px 10px)))
+add-style(checkmark,                      create-layout(null,     16px, 16px, (0px 12px 0px 0px), (1px            ), (0px                )))
+add-style(text,                           create-layout(null,     auto, auto, (0px             ), (0px            ), (0px                )))
 
 // flex
-flex--scroll-view                      = null
-flex--viewport-and-vertical-scroller   = null
-flex--viewport                         = null
-flex--content                          = null
-flex--dropdown-item                    = create-flex(0, 1, auto, auto), create-flex2(row, flex-start, stretch)
-flex--checkmark                        = create-flex(0, 1, auto, auto)
-flex--text                             = create-flex(1, 1, auto, auto)
-
-// dropdown
-.unity-base-dropdown
-    add-layout(position: absolute)
-.unity-base-dropdown .unity-scroll-view
-    add-skin1 scroll-view
-    add-skin2 scroll-view
-    add-skin3 scroll-view
-.unity-base-dropdown .unity-scroll-view #unity-content-and-vertical-scroll-container
-    add-skin1 viewport-and-vertical-scroller
-    add-skin2 viewport-and-vertical-scroller
-    add-skin3 viewport-and-vertical-scroller
-.unity-base-dropdown .unity-scroll-view #unity-content-viewport
-    add-skin1 viewport
-    add-skin2 viewport
-    add-skin3 viewport
-.unity-base-dropdown .unity-scroll-view #unity-content-container
-    add-skin1 content
-    add-skin2 content
-    add-skin3 content
-// dropdown
-.unity-base-dropdown .unity-scroll-view:hover
-    add-skin1 scroll-view--hover
-// dropdown
-.unity-base-dropdown .unity-scroll-view:focus
-    add-skin1 scroll-view--focus
-
-// dropdown-item
-.unity-base-dropdown__item
-    add-skin1 dropdown-item
-    add-skin2 dropdown-item
-    add-skin3 dropdown-item
-.unity-base-dropdown__item .unity-base-dropdown__checkmark
-    add-skin1 checkmark
-    add-skin2 checkmark
-    add-skin3 checkmark
-.unity-base-dropdown__item .unity-base-dropdown__label
-    add-skin1 text
-    add-skin2 text
-    add-skin3 text
-// dropdown-item
-.unity-base-dropdown__item:checked
-    add-skin1 none
-.unity-base-dropdown__item:checked .unity-base-dropdown__checkmark
-    add-skin1 checkmark--checked
-.unity-base-dropdown__item:checked .unity-base-dropdown__label
-    add-skin1 none
-// dropdown-item
-.unity-base-dropdown__item:hover
-    add-skin1 dropdown-item--hover
-.unity-base-dropdown__item:hover .unity-base-dropdown__checkmark
-    add-skin1 none
-.unity-base-dropdown__item:hover .unity-base-dropdown__label
-    add-skin1 none
+add-style(dropdown,                       null                                                                 )
+add-style(scroll-view,                    null                                                                 )
+add-style(viewport-and-vertical-scroller, null                                                                 )
+add-style(viewport,                       null                                                                 )
+add-style(content,                        null                                                                 )
+add-style(dropdown-item,                  create-flex(0, 1, auto, auto), create-flex2(row, flex-start, stretch))
+add-style(checkmark,                      create-flex(0, 1, auto, auto)                                        )
+add-style(text,                           create-flex(1, 1, auto, auto)                                        )

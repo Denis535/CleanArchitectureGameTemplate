@@ -2,10 +2,6 @@
 
 // selector
 selector--scroll-view                    = '.unity-scroll-view'
-selector--viewport-and-vertical-scroller = '.unity-scroll-view #unity-content-and-vertical-scroll-container'
-selector--viewport                       = '.unity-scroll-view #unity-content-viewport'
-selector--content                        = '.unity-scroll-view #unity-content-container'
-// selector
 selector--scroll-view--light2            = '.unity-scroll-view.light2'
 selector--scroll-view--light             = '.unity-scroll-view.light'
 selector--scroll-view--gray              = '.unity-scroll-view.gray'
@@ -19,96 +15,47 @@ selector--scroll-view--gray----hover     = '.unity-scroll-view.gray:hover'
 selector--scroll-view--dark----hover     = '.unity-scroll-view.dark:hover'
 selector--scroll-view--dark2---hover     = '.unity-scroll-view.dark2:hover'
 // selector
+selector--viewport-and-vertical-scroller = '.unity-scroll-view         #unity-content-and-vertical-scroll-container'
+selector--viewport                       = '.unity-scroll-view         #unity-content-viewport'
 selector--viewport--reverse              = '.unity-scroll-view.reverse #unity-content-viewport'
-// selector
+selector--content                        = '.unity-scroll-view         #unity-content-container'
 selector--content--small                 = '.unity-scroll-view.small   #unity-content-container'
 selector--content--medium                = '.unity-scroll-view.medium  #unity-content-container'
 selector--content--large                 = '.unity-scroll-view.large   #unity-content-container'
 
 // view
-view--scroll-view                      = create-view(light view                view         view                view)
-view--scroll-view--light2              = create-view(light view--light2        view--light2 view--light2        view)
-view--scroll-view--light               = create-view(light view--light         view--light  view--light         view)
-view--scroll-view--gray                = create-view(light view--gray          view--gray   view--gray          view)
-view--scroll-view--dark                = create-view(light view--dark          view--dark   view--dark          view)
-view--scroll-view--dark2               = create-view(light view--dark2         view--dark2  view--dark2         view)
-view--viewport-and-vertical-scroller   = null
-view--viewport                         = null
-view--content                          = null
+add-style(scroll-view,                    create-view(light, view,                view,         view,                view))
+add-style(scroll-view--light2,            create-view(light, view--light2,        view--light2, view--light2,        view))
+add-style(scroll-view--light,             create-view(light, view--light,         view--light,  view--light,         view))
+add-style(scroll-view--gray,              create-view(light, view--gray,          view--gray,   view--gray,          view))
+add-style(scroll-view--dark,              create-view(light, view--dark,          view--dark,   view--dark,          view))
+add-style(scroll-view--dark2,             create-view(light, view--dark2,         view--dark2,  view--dark2,         view))
 // view
-view--scroll-view----------hover       = create-view(null  view----------hover null         view----------hover null)
-view--scroll-view--light2--hover       = create-view(null  view--light2--hover null         view--light2--hover null)
-view--scroll-view--light---hover       = create-view(null  view--light---hover null         view--light---hover null)
-view--scroll-view--gray----hover       = create-view(null  view--gray----hover null         view--gray----hover null)
-view--scroll-view--dark----hover       = create-view(null  view--dark----hover null         view--dark----hover null)
-view--scroll-view--dark2---hover       = create-view(null  view--dark2---hover null         view--dark2---hover null)
+add-style(scroll-view----------hover,     create-view(null,  view----------hover, null,         view----------hover, null))
+add-style(scroll-view--light2--hover,     create-view(null,  view--light2--hover, null,         view--light2--hover, null))
+add-style(scroll-view--light---hover,     create-view(null,  view--light---hover, null,         view--light---hover, null))
+add-style(scroll-view--gray----hover,     create-view(null,  view--gray----hover, null,         view--gray----hover, null))
+add-style(scroll-view--dark----hover,     create-view(null,  view--dark----hover, null,         view--dark----hover, null))
+add-style(scroll-view--dark2---hover,     create-view(null,  view--dark2---hover, null,         view--dark2---hover, null))
+// view
+add-style(viewport-and-vertical-scroller, null                                                                            )
++add-style(viewport,                      null                                                                            )
+    overflow hidden
++add-style(content,                       null                                                                            )
+    overflow scroll
 
 // layout
-layout--scroll-view                    = create-layout(null auto auto (4px) (1px) (0px                ))
-layout--viewport-and-vertical-scroller = create-layout(null auto auto (0px) (0px) (0px                ))
-layout--viewport                       = create-layout(null auto auto (0px) (0px) (0px                ))
-layout--content                        = create-layout(null auto auto (0px) (0px) (0px                ))
-layout--content--small                 = create-layout(null auto auto (0px) (0px) (6px  6px  5px  5px ))
-layout--content--medium                = create-layout(null auto auto (0px) (0px) (12px 12px 10px 10px))
-layout--content--large                 = create-layout(null auto auto (0px) (0px) (24px 24px 20px 20px))
+add-style(scroll-view,                    create-layout(null, auto, auto, (4px), (1px), (0px                )))
+add-style(viewport-and-vertical-scroller, create-layout(null, auto, auto, (0px), (0px), (0px                )))
+add-style(viewport,                       create-layout(null, auto, auto, (0px), (0px), (0px                )))
+add-style(content,                        create-layout(null, auto, auto, (0px), (0px), (0px                )))
+add-style(content--small,                 create-layout(null, auto, auto, (0px), (0px), (6px  6px  5px  5px )))
+add-style(content--medium,                create-layout(null, auto, auto, (0px), (0px), (12px 12px 10px 10px)))
+add-style(content--large,                 create-layout(null, auto, auto, (0px), (0px), (24px 24px 20px 20px)))
 
 // flex
-flex--scroll-view                      = create-flex(0, 1, auto, auto), create-flex2(column,         flex-start, stretch)
-flex--viewport-and-vertical-scroller   = create-flex(1, 1, auto, auto), create-flex2(row,            flex-start, stretch)
-flex--viewport                         = create-flex(1, 1, auto, auto), create-flex2(column,         flex-start, stretch)
-flex--viewport--reverse                = create-flex(1, 1, auto, auto), create-flex2(column-reverse, flex-start, stretch)
-flex--content                          = create-flex(0, 0, auto, auto), create-flex2(column,         flex-start, stretch)
-
-// scroll-view
-.unity-scroll-view
-    add-skin1 scroll-view
-    add-skin2 scroll-view
-    add-skin3 scroll-view
-.unity-scroll-view #unity-content-and-vertical-scroll-container
-    add-skin1 viewport-and-vertical-scroller
-    add-skin2 viewport-and-vertical-scroller
-    add-skin3 viewport-and-vertical-scroller
-.unity-scroll-view #unity-content-viewport
-    overflow hidden
-    add-skin1 viewport
-    add-skin2 viewport
-    add-skin3 viewport
-.unity-scroll-view #unity-content-container
-    overflow scroll
-    add-skin1 content
-    add-skin2 content
-    add-skin3 content
-// scroll-view
-.unity-scroll-view.light2
-    add-skin1 scroll-view--light2
-.unity-scroll-view.light
-    add-skin1 scroll-view--light
-.unity-scroll-view.gray
-    add-skin1 scroll-view--gray
-.unity-scroll-view.dark
-    add-skin1 scroll-view--dark
-.unity-scroll-view.dark2
-    add-skin1 scroll-view--dark2
-// scroll-view
-.unity-scroll-view:hover
-    add-skin1 scroll-view--hover
-.unity-scroll-view.light2:hover
-    add-skin1 scroll-view--light2--hover
-.unity-scroll-view.light:hover
-    add-skin1 scroll-view--light--hover
-.unity-scroll-view.gray:hover
-    add-skin1 scroll-view--gray--hover
-.unity-scroll-view.dark:hover
-    add-skin1 scroll-view--dark--hover
-.unity-scroll-view.dark2:hover
-    add-skin1 scroll-view--dark2--hover
-// scroll-view
-.unity-scroll-view.small #unity-content-container
-    add-skin2 content--small
-.unity-scroll-view.medium #unity-content-container
-    add-skin2 content--medium
-.unity-scroll-view.large #unity-content-container
-    add-skin2 content--large
-// scroll-view
-.unity-scroll-view.reverse #unity-content-viewport
-    add-skin3 viewport--reverse
+add-style(scroll-view,                    create-flex(0, 1, auto, auto), create-flex2(column,         flex-start, stretch))
+add-style(viewport-and-vertical-scroller, create-flex(1, 1, auto, auto), create-flex2(row,            flex-start, stretch))
+add-style(viewport,                       create-flex(1, 1, auto, auto), create-flex2(column,         flex-start, stretch))
+add-style(viewport--reverse,              create-flex(1, 1, auto, auto), create-flex2(column-reverse, flex-start, stretch))
+add-style(content,                        create-flex(0, 0, auto, auto), create-flex2(column,         flex-start, stretch))

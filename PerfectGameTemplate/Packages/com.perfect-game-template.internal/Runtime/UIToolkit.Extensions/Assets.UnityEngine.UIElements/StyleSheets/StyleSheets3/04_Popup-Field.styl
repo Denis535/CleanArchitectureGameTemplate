@@ -8,44 +8,22 @@ selector--text  = '.unity-base-popup-field .unity-base-popup-field__input .unity
 selector--arrow = '.unity-base-popup-field .unity-base-popup-field__input .unity-base-popup-field__arrow'
 
 // view
-view--field         = null
-view--field-label   = null
-view--field-input   = null
-view--text          = create-view(null element   element                    element   element  )
-view--arrow         = create-view(null component dropdown-arrow-icon--light component component)
+add-style(field, null                                                                          )
+add-style(label, null                                                                          )
+add-style(input, null                                                                          )
+add-style(text,  create-view(null, element,   element,                    element,   element  ))
+add-style(arrow, create-view(null, component, dropdown-arrow-icon--light, component, component))
 
 // layout
-layout--field       = null
-layout--field-label = null
-layout--field-input = null
-layout--text        = create-layout(null auto auto (0px) (0px) (0px))
-layout--arrow       = create-layout(null 12px 12px (2px) (0px) (0px))
+add-style(field, null                                                )
+add-style(label, null                                                )
+add-style(input, null                                                )
+add-style(text,  create-layout(null, auto, auto, (0px), (0px), (0px)))
+add-style(arrow, create-layout(null, 12px, 12px, (2px), (0px), (0px)))
 
 // flex
-flex--field         = null
-flex--field-label   = null
-flex--field-input   = null
-flex--text          = create-flex(1, 1, auto, auto)
-flex--arrow         = create-flex(0, 1, auto, auto)
-
-// popup-field
-.unity-base-popup-field
-    add-skin1 field
-    add-skin2 field
-    add-skin3 field
-.unity-base-popup-field .unity-base-popup-field__label
-    add-skin1 field-label
-    add-skin2 field-label
-    add-skin3 field-label
-.unity-base-popup-field .unity-base-popup-field__input
-    add-skin1 field-input
-    add-skin2 field-input
-    add-skin3 field-input
-.unity-base-popup-field .unity-base-popup-field__input .unity-base-popup-field__text
-    add-skin1 text
-    add-skin2 text
-    add-skin3 text
-.unity-base-popup-field .unity-base-popup-field__input .unity-base-popup-field__arrow
-    add-skin1 arrow
-    add-skin2 arrow
-    add-skin3 arrow
+add-style(field, null                         )
+add-style(label, null                         )
+add-style(input, null                         )
+add-style(text,  create-flex(1, 1, auto, auto))
+add-style(arrow, create-flex(0, 1, auto, auto))

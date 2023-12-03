@@ -1,151 +1,119 @@
 @import "../Internal/_Theme"
 
 // selector
-selector--card                          = '.card'
-selector--header                        = '.card .header'
-selector--content                       = '.card .content'
-selector--footer                        = '.card .footer'
-selector--footer-descendants            = '.card .footer *'
+selector--card                           = '.card'
+selector--header                         = '.card .header'
+selector--content                        = '.card .content'
+selector--footer                         = '.card .footer'
+selector--footer-descendants             = '.card .footer *'
 // selector
-selector--dialog-card                   = '.dialog-card'
-selector--dialog-header                 = '.dialog-card .header'
-selector--dialog-content                = '.dialog-card .content'
-selector--dialog-footer                 = '.dialog-card .footer'
+selector--dialog-card                    = '.dialog-card'
+selector--dialog-header                  = '.dialog-card .header'
+selector--dialog-content                 = '.dialog-card .content'
+selector--dialog-footer                  = '.dialog-card .footer'
 // selector
-selector--dialog-card-----info          = '.info-dialog-card'
-selector--dialog-header---info          = '.info-dialog-card .header'
-selector--dialog-content--info          = '.info-dialog-card .content'
-selector--dialog-footer---info          = '.info-dialog-card .footer'
+selector--dialog-card-----info           = '.info-dialog-card'
+selector--dialog-header---info           = '.info-dialog-card .header'
+selector--dialog-content--info           = '.info-dialog-card .content'
+selector--dialog-footer---info           = '.info-dialog-card .footer'
 // selector
-selector--dialog-card-----warning       = '.warning-dialog-card'
-selector--dialog-header---warning       = '.warning-dialog-card .header'
-selector--dialog-content--warning       = '.warning-dialog-card .content'
-selector--dialog-footer---warning       = '.warning-dialog-card .footer'
+selector--dialog-card-----warning        = '.warning-dialog-card'
+selector--dialog-header---warning        = '.warning-dialog-card .header'
+selector--dialog-content--warning        = '.warning-dialog-card .content'
+selector--dialog-footer---warning        = '.warning-dialog-card .footer'
 // selector
-selector--dialog-card-----error         = '.error-dialog-card'
-selector--dialog-header---error         = '.error-dialog-card .header'
-selector--dialog-content--error         = '.error-dialog-card .content'
-selector--dialog-footer---error         = '.error-dialog-card .footer'
+selector--dialog-card-----error          = '.error-dialog-card'
+selector--dialog-header---error          = '.error-dialog-card .header'
+selector--dialog-content--error          = '.error-dialog-card .content'
+selector--dialog-footer---error          = '.error-dialog-card .footer'
 
 // selector
-selector--card-----hover                 = '.card:hover'
-selector--header---hover                 = '.card:hover .header'
-selector--content--hover                 = '.card:hover .content'
-selector--footer---hover                 = '.card:hover .footer'
+selector--card---------------------hover = '.card:hover'
+selector--header-------------------hover = '.card:hover .header'
+selector--content------------------hover = '.card:hover .content'
+selector--footer-------------------hover = '.card:hover .footer'
 // selector
-selector--dialog-card-----hover          = '.dialog-card:hover'
-selector--dialog-header---hover          = '.dialog-card:hover .header'
-selector--dialog-content--hover          = '.dialog-card:hover .content'
-selector--dialog-footer---hover          = '.dialog-card:hover .footer'
+selector--dialog-card--------------hover = '.dialog-card:hover'
+selector--dialog-header------------hover = '.dialog-card:hover .header'
+selector--dialog-content-----------hover = '.dialog-card:hover .content'
+selector--dialog-footer------------hover = '.dialog-card:hover .footer'
 // selector
-selector--dialog-card-----info--hover    = '.info-dialog-card:hover'
-selector--dialog-header---info--hover    = '.info-dialog-card:hover .header'
-selector--dialog-content--info--hover    = '.info-dialog-card:hover .content'
-selector--dialog-footer---info--hover    = '.info-dialog-card:hover .footer'
+selector--dialog-card-----info-----hover = '.info-dialog-card:hover'
+selector--dialog-header---info-----hover = '.info-dialog-card:hover .header'
+selector--dialog-content--info-----hover = '.info-dialog-card:hover .content'
+selector--dialog-footer---info-----hover = '.info-dialog-card:hover .footer'
 // selector
 selector--dialog-card-----warning--hover = '.warning-dialog-card:hover'
 selector--dialog-header---warning--hover = '.warning-dialog-card:hover .header'
 selector--dialog-content--warning--hover = '.warning-dialog-card:hover .content'
 selector--dialog-footer---warning--hover = '.warning-dialog-card:hover .footer'
 // selector
-selector--dialog-card-----error--hover   = '.error-dialog-card:hover'
-selector--dialog-header---error--hover   = '.error-dialog-card:hover .header'
-selector--dialog-content--error--hover   = '.error-dialog-card:hover .content'
-selector--dialog-footer---error--hover   = '.error-dialog-card:hover .footer'
+selector--dialog-card-----error----hover = '.error-dialog-card:hover'
+selector--dialog-header---error----hover = '.error-dialog-card:hover .header'
+selector--dialog-content--error----hover = '.error-dialog-card:hover .content'
+selector--dialog-footer---error----hover = '.error-dialog-card:hover .footer'
 
 // view
-add-font-style(card,                    null, 100%, normal)
-add-font-style(header,                  null, 130%, bold  )
-add-font-style(content,                 null, 100%, normal)
-add-font-style(footer,                  null, 120%, bold  )
+add-style(card,                           create-view(light, card,                          card,                        card,                       card               ), create-font(null, 100%, normal))
+add-style(header,                         create-view(light, header,                        header,                      header,                     header             ), create-font(null, 130%, bold  ))
+add-style(content,                        create-view(light, content,                       content,                     content,                    content            ), create-font(null, 100%, normal))
+add-style(footer,                         create-view(light, footer,                        footer,                      footer,                     footer             ), create-font(null, 120%, bold  ))
 // view
-add-font-style(dialog-card,             null, null, null  )
-add-font-style(dialog-header,           null, null, null  )
-add-font-style(dialog-content,          null, 120%, bold  )
-add-font-style(dialog-footer,           null, null, null  )
-// view  
-add-font-style(dialog-card-----info,    null, null, null  )
-add-font-style(dialog-header---info,    null, null, null  )
-add-font-style(dialog-content--info,    null, 120%, bold  )
-add-font-style(dialog-footer---info,    null, null, null  )
+add-style(dialog-card,                    create-view(light, dialog-card,                   dialog-card,                 dialog-card,                dialog-card        ), create-font(null, null, null  ))
+add-style(dialog-header,                  create-view(light, dialog-header,                 dialog-header,               dialog-header,              dialog-header      ), create-font(null, null, null  ))
+add-style(dialog-content,                 create-view(light, dialog-content,                dialog-content,              dialog-content,             dialog-content     ), create-font(null, 120%, bold  ))
+add-style(dialog-footer,                  create-view(light, dialog-footer,                 dialog-footer,               dialog-footer,              dialog-footer      ), create-font(null, null, null  ))
 // view
-add-font-style(dialog-card-----warning, null, null, null  )
-add-font-style(dialog-header---warning, null, null, null  )
-add-font-style(dialog-content--warning, null, 120%, bold  )
-add-font-style(dialog-footer---warning, null, null, null  )
+add-style(dialog-card-----info,           create-view(light, dialog-card,                   dialog-card,                 dialog-card,                dialog-card        ), create-font(null, null, null  ))
+add-style(dialog-header---info,           create-view(light, dialog-header--info,           dialog-header--info,         dialog-header,              dialog-header      ), create-font(null, null, null  ))
+add-style(dialog-content--info,           create-view(light, dialog-content,                dialog-content,              dialog-content,             dialog-content     ), create-font(null, 120%, bold  ))
+add-style(dialog-footer---info,           create-view(light, dialog-footer,                 dialog-footer,               dialog-footer,              dialog-footer      ), create-font(null, null, null  ))
 // view
-add-font-style(dialog-card-----error,   null, null, null  )
-add-font-style(dialog-header---error,   null, null, null  )
-add-font-style(dialog-content--error,   null, 120%, bold  )
-add-font-style(dialog-footer---error,   null, null, null  )
+add-style(dialog-card-----warning,        create-view(light, dialog-card,                   dialog-card,                 dialog-card,                dialog-card        ), create-font(null, null, null  ))
+add-style(dialog-header---warning,        create-view(light, dialog-header--warning,        dialog-header--warning,      dialog-header,              dialog-header      ), create-font(null, null, null  ))
+add-style(dialog-content--warning,        create-view(light, dialog-content,                dialog-content,              dialog-content,             dialog-content     ), create-font(null, 120%, bold  ))
+add-style(dialog-footer---warning,        create-view(light, dialog-footer,                 dialog-footer,               dialog-footer,              dialog-footer      ), create-font(null, null, null  ))
+// view
+add-style(dialog-card-----error,          create-view(light, dialog-card,                   dialog-card,                 dialog-card,                dialog-card        ), create-font(null, null, null  ))
+add-style(dialog-header---error,          create-view(light, dialog-header--error,          dialog-header--error,        dialog-header,              dialog-header      ), create-font(null, null, null  ))
+add-style(dialog-content--error,          create-view(light, dialog-content,                dialog-content,              dialog-content,             dialog-content     ), create-font(null, 120%, bold  ))
+add-style(dialog-footer---error,          create-view(light, dialog-footer,                 dialog-footer,               dialog-footer,              dialog-footer      ), create-font(null, null, null  ))
 
 // view
-add-view-style(card,                           light, card,                          card,                        card,                       card               )
-add-view-style(header,                         light, header,                        header,                      header,                     header             )
-add-view-style(content,                        light, content,                       content,                     content,                    content            )
-add-view-style(footer,                         light, footer,                        footer,                      footer,                     footer             )
+add-style(card---------------------hover, create-view(null,  card--------------------hover, null,                        card------------hover,      null               ))
+add-style(header-------------------hover, create-view(null,  header------------------hover, null,                        header----------hover,      null               ))
+add-style(content------------------hover, create-view(null,  content-----------------hover, null,                        content---------hover,      null               ))
+add-style(footer-------------------hover, create-view(null,  footer------------------hover, null,                        footer----------hover,      null               ))
 // view
-add-view-style(dialog-card,                    light, dialog-card,                   dialog-card,                 dialog-card,                dialog-card        )
-add-view-style(dialog-header,                  light, dialog-header,                 dialog-header,               dialog-header,              dialog-header      )
-add-view-style(dialog-content,                 light, dialog-content,                dialog-content,              dialog-content,             dialog-content     )
-add-view-style(dialog-footer,                  light, dialog-footer,                 dialog-footer,               dialog-footer,              dialog-footer      )
+add-style(dialog-card--------------hover, create-view(null,  dialog-card-------------hover, null,                        dialog-card-----hover,      null               ))
+add-style(dialog-header------------hover, create-view(null,  dialog-header-----------hover, null,                        dialog-header---hover,      null               ))
+add-style(dialog-content-----------hover, create-view(null,  dialog-content----------hover, null,                        dialog-content--hover,      null               ))
+add-style(dialog-footer------------hover, create-view(null,  dialog-footer-----------hover, null,                        dialog-footer---hover,      null               ))
 // view
-add-view-style(dialog-card-----info,           light, dialog-card,                   dialog-card,                 dialog-card,                dialog-card        )
-add-view-style(dialog-header---info,           light, dialog-header--info,           dialog-header--info,         dialog-header,              dialog-header      )
-add-view-style(dialog-content--info,           light, dialog-content,                dialog-content,              dialog-content,             dialog-content     )
-add-view-style(dialog-footer---info,           light, dialog-footer,                 dialog-footer,               dialog-footer,              dialog-footer      )
+add-style(dialog-card-----info-----hover, create-view(null,  dialog-card-------------hover, null,                        dialog-card-----hover,      null               ))
+add-style(dialog-header---info-----hover, create-view(null,  dialog-header--info-----hover, null,                        dialog-header---hover,      null               ))
+add-style(dialog-content--info-----hover, create-view(null,  dialog-content----------hover, null,                        dialog-content--hover,      null               ))
+add-style(dialog-footer---info-----hover, create-view(null,  dialog-footer-----------hover, null,                        dialog-footer---hover,      null               ))
 // view
-add-view-style(dialog-card-----warning,        light, dialog-card,                   dialog-card,                 dialog-card,                dialog-card        )
-add-view-style(dialog-header---warning,        light, dialog-header--warning,        dialog-header--warning,      dialog-header,              dialog-header      )
-add-view-style(dialog-content--warning,        light, dialog-content,                dialog-content,              dialog-content,             dialog-content     )
-add-view-style(dialog-footer---warning,        light, dialog-footer,                 dialog-footer,               dialog-footer,              dialog-footer      )
+add-style(dialog-card-----warning--hover, create-view(null,  dialog-card-------------hover, null,                        dialog-card-----hover,      null               ))
+add-style(dialog-header---warning--hover, create-view(null,  dialog-header--warning--hover, null,                        dialog-header---hover,      null               ))
+add-style(dialog-content--warning--hover, create-view(null,  dialog-content----------hover, null,                        dialog-content--hover,      null               ))
+add-style(dialog-footer---warning--hover, create-view(null,  dialog-footer-----------hover, null,                        dialog-footer---hover,      null               ))
 // view
-add-view-style(dialog-card-----error,          light, dialog-card,                   dialog-card,                 dialog-card,                dialog-card        )
-add-view-style(dialog-header---error,          light, dialog-header--error,          dialog-header--error,        dialog-header,              dialog-header      )
-add-view-style(dialog-content--error,          light, dialog-content,                dialog-content,              dialog-content,             dialog-content     )
-add-view-style(dialog-footer---error,          light, dialog-footer,                 dialog-footer,               dialog-footer,              dialog-footer      )
-
-// view
-add-view-style(card-----hover,                 null,  card-----hover,                null,                        card,                       null               )
-add-view-style(header---hover,                 null,  header---hover,                null,                        header,                     null               )
-add-view-style(content--hover,                 null,  content--hover,                null,                        content,                    null               )
-add-view-style(footer---hover,                 null,  footer---hover,                null,                        footer,                     null               )
-// view
-add-view-style(dialog-card-----hover,          null,  dialog-card-----hover,         null,                        dialog-card,                null               )
-add-view-style(dialog-header---hover,          null,  dialog-header---hover,         null,                        dialog-header,              null               )
-add-view-style(dialog-content--hover,          null,  dialog-content--hover,         null,                        dialog-content,             null               )
-add-view-style(dialog-footer---hover,          null,  dialog-footer---hover,         null,                        dialog-footer,              null               )
-// view
-add-view-style(dialog-card-----info--hover,    null,  dialog-card----------hover,    null,                        dialog-card,                null               )
-add-view-style(dialog-header---info--hover,    null,  dialog-header--info--hover,    null,                        dialog-header,              null               )
-add-view-style(dialog-content--info--hover,    null,  dialog-content-------hover,    null,                        dialog-content,             null               )
-add-view-style(dialog-footer---info--hover,    null,  dialog-footer--------hover,    null,                        dialog-footer,              null               )
-// view
-add-view-style(dialog-card-----warning--hover, null,  dialog-card-------------hover, null,                        dialog-card,                null               )
-add-view-style(dialog-header---warning--hover, null,  dialog-header--warning--hover, null,                        dialog-header,              null               )
-add-view-style(dialog-content--warning--hover, null,  dialog-content----------hover, null,                        dialog-content,             null               )
-add-view-style(dialog-footer---warning--hover, null,  dialog-footer-----------hover, null,                        dialog-footer,              null               )
-// view
-add-view-style(dialog-card-----error--hover,   null,  dialog-card-----------hover,   null,                        dialog-card,                null               )
-add-view-style(dialog-header---error--hover,   null,  dialog-header--error--hover,   null,                        dialog-header,              null               )
-add-view-style(dialog-content--error--hover,   null,  dialog-content--------hover,   null,                        dialog-content,             null               )
-add-view-style(dialog-footer---error--hover,   null,  dialog-footer---------hover,   null,                        dialog-footer,              null               )
+add-style(dialog-card-----error----hover, create-view(null,  dialog-card-------------hover, null,                        dialog-card-----hover,      null               ))
+add-style(dialog-header---error----hover, create-view(null,  dialog-header--error----hover, null,                        dialog-header---hover,      null               ))
+add-style(dialog-content--error----hover, create-view(null,  dialog-content----------hover, null,                        dialog-content--hover,      null               ))
+add-style(dialog-footer---error----hover, create-view(null,  dialog-footer-----------hover, null,                        dialog-footer---hover,      null               ))
 
 // layout
-add-layout-style(card,               null, auto, auto, (0px), (1px 1px 1px 1px), (0px  0px  0px  0px ))
-add-layout-style(header,             null, auto, auto, (0px), (0px 0px 0px 1px), (24px 24px 20px 20px))
-add-layout-style(content,            null, auto, auto, (0px), (0px 0px 0px 0px), (24px 24px 20px 20px))
-add-layout-style(footer,             null, auto, auto, (0px), (0px 0px 1px 0px), (24px 24px 20px 20px))
-add-layout-style(footer-descendants, null, 25%,  null, null,  null,              null                 )
+add-style(card,                           create-layout(null, auto, auto, (0px), (1px 1px 1px 1px), (0px  0px  0px  0px )))
+add-style(header,                         create-layout(null, auto, auto, (0px), (0px 0px 0px 1px), (24px 24px 20px 20px)))
+add-style(content,                        create-layout(null, auto, auto, (0px), (0px 0px 0px 0px), (24px 24px 20px 20px)))
+add-style(footer,                         create-layout(null, auto, auto, (0px), (0px 0px 1px 0px), (24px 24px 20px 20px)))
+add-style(footer-descendants,             create-layout(null, 25%,  null, null,  null,              null                 ))
 
 // flex
-add-flex-style(card,    1, 1, auto, auto)
-add-flex-style(header,  0, 0, auto, auto)
-add-flex-style(content, 1, 1, auto, auto)
-add-flex-style(footer,  0, 0, auto, auto)
-
-// flex2
-add-flex2-style(card,    column, flex-start,   stretch)
-add-flex2-style(header,  row,    center,       center )
-add-flex2-style(content, column, flex-start,   stretch)
-add-flex2-style(footer,  row,    space-around, center )
+add-style(card,                           create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch))
+add-style(header,                         create-flex(0, 0, auto, auto), create-flex2(row,    center,       center ))
+add-style(content,                        create-flex(1, 1, auto, auto), create-flex2(column, flex-start,   stretch))
+add-style(footer,                         create-flex(0, 0, auto, auto), create-flex2(row,    space-around, center ))

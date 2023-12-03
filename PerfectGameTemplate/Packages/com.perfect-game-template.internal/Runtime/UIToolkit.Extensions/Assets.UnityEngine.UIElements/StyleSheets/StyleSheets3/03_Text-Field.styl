@@ -7,37 +7,19 @@ selector--input = '.unity-base-text-field .unity-base-text-field__input'
 selector--text  = '.unity-base-text-field .unity-base-text-field__input .unity-text-element'
 
 // view
-view--field         = null
-view--field-label   = null
-view--field-input   = null
-view--text          = create-view(null element element element element)
+add-style(field, null                                                 )
+add-style(label, null                                                 )
+add-style(input, null                                                 )
+add-style(text,  create-view(null, element, element, element, element))
 
 // layout
-layout--field       = null
-layout--field-label = null
-layout--field-input = null
-layout--text        = create-layout(null auto auto (0px) (0px) (0px))
+add-style(field, null                                                )
+add-style(label, null                                                )
+add-style(input, null                                                )
+add-style(text,  create-layout(null, auto, auto, (0px), (0px), (0px)))
 
 // flex
-flex--field         = null
-flex--field-label   = null
-flex--field-input   = null
-flex--text          = create-flex(1, 1, auto, auto)
-
-// text-field
-.unity-base-text-field
-    add-skin1 field
-    add-skin2 field
-    add-skin3 field
-.unity-base-text-field .unity-base-text-field__label
-    add-skin1 field-label
-    add-skin2 field-label
-    add-skin3 field-label
-.unity-base-text-field .unity-base-text-field__input
-    add-skin1 field-input
-    add-skin2 field-input
-    add-skin3 field-input
-.unity-base-text-field .unity-base-text-field__input .unity-text-element
-    add-skin1 text
-    add-skin2 text
-    add-skin3 text
+add-style(field, null                         )
+add-style(label, null                         )
+add-style(input, null                         )
+add-style(text,  create-flex(1, 1, auto, auto))

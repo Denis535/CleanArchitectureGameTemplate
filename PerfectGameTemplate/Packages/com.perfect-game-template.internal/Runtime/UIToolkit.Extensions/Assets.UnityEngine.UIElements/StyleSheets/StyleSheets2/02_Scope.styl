@@ -11,31 +11,14 @@ selector--scope--column = '.scope.column'
 selector--scope--row    = '.scope.row'
 
 // view
-view--scope           = create-view(null null null null null)
+add-style(scope,         create-view(null, null, null, null, null))
 
 // layout
-layout--scope         = create-layout(null auto auto (0px) (0px) (0px                ))
-layout--scope--small  = create-layout(null auto auto (0px) (0px) (6px  6px  5px  5px ))
-layout--scope--medium = create-layout(null auto auto (0px) (0px) (12px 12px 10px 10px))
-layout--scope--large  = create-layout(null auto auto (0px) (0px) (24px 24px 20px 20px))
+add-style(scope,         create-layout(null, auto, auto, (0px), (0px), (0px                )))
+add-style(scope--small,  create-layout(null, auto, auto, (0px), (0px), (6px  6px  5px  5px )))
+add-style(scope--medium, create-layout(null, auto, auto, (0px), (0px), (12px 12px 10px 10px)))
+add-style(scope--large,  create-layout(null, auto, auto, (0px), (0px), (24px 24px 20px 20px)))
 
 // flex
-flex--scope--column   = create-flex(0, 1, auto, auto), create-flex2(column, flex-start, stretch)
-flex--scope--row      = create-flex(0, 1, auto, auto), create-flex2(row,    flex-start, stretch)
-
-// scope
-.scope
-    add-skin1 scope
-    add-skin2 scope
-// scope
-.scope.small
-    add-skin2 scope--small
-.scope.medium
-    add-skin2 scope--medium
-.scope.large
-    add-skin2 scope--large
-// scope
-.scope.column
-    add-skin3 scope--column
-.scope.row
-    add-skin3 scope--row
+add-style(scope--column, create-flex(0, 1, auto, auto), create-flex2(column, flex-start, stretch))
+add-style(scope--row,    create-flex(0, 1, auto, auto), create-flex2(row,    flex-start, stretch))
