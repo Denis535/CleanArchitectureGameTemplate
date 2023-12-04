@@ -31,37 +31,13 @@ create-flex2(flex-direction, justify-content, align-items)
     }
 
 // add-style
-add-style(selector, objects...)
-    {get-value(get-key('selector', selector))}
+add-style(key, objects...)
+    key = get-value(get-key('selector', key))
+    key = replace('(\s+)', ' ', key)
+    {key}
         for object in objects
             {object}
         {block}
-
-// // add-view-style
-// add-font-style(selector, url, size, style)
-//     {get-value(get-key('selector', selector))}
-//         add-font(url, size, style)
-// add-text-style(selector, align, outline, shadow)
-//     {get-value(get-key('selector', selector))}
-//         add-text(align, outline, shadow)
-
-// // add-view-style
-// add-view-style(selector, color, background-color, background-image, border-color, border-radius)
-//     {get-value(get-key('selector', selector))}
-//         add-view(color, background-color, background-image, border-color, border-radius)
-
-// // add-layout-style
-// add-layout-style(selector, position, width, height, margin, border, padding)
-//     {get-value(get-key('selector', selector))}
-//         add-layout(position, width, height, margin, border, padding)
-
-// // add-flex-style
-// add-flex-style(selector, flex-grow, flex-shrink, flex-basis, align-self)
-//     {get-value(get-key('selector', selector))}
-//         add-flex(flex-grow, flex-shrink, flex-basis, align-self)
-// add-flex2-style(selector, flex-direction, justify-content, align-items)
-//     {get-value(get-key('selector', selector))}
-//         add-flex2(flex-direction, justify-content, align-items)
 
 // add-skin
 add-view-skin(key)
@@ -76,8 +52,3 @@ add-flex-skin(key)
     if key != null and key != none
         for object in get-value(get-key('flex', key))
             {object}
-
-// add-skin
-add-skin1 = add-view-skin
-add-skin2 = add-layout-skin
-add-skin3 = add-flex-skin
