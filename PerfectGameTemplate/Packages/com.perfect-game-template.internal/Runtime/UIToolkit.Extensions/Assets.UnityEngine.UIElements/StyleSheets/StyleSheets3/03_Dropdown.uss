@@ -70,12 +70,6 @@
   border-top-color: #5c330a;
   border-bottom-color: #5c330a;
 }
-.unity-base-dropdown .unity-scroll-view:focus {
-  border-left-color: #197fe6;
-  border-right-color: #197fe6;
-  border-top-color: #197fe6;
-  border-bottom-color: #197fe6;
-}
 .unity-base-dropdown {
   position: absolute;
   width: auto;

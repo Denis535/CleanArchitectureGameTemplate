@@ -17,8 +17,6 @@ selector--scroll-view----hover           = '.unity-base-dropdown .unity-scroll-v
 selector--dropdown-item--hover           = '.unity-base-dropdown__item:hover'
 selector--checkmark------hover           = '.unity-base-dropdown__item:hover .unity-base-dropdown__checkmark'
 selector--text-----------hover           = '.unity-base-dropdown__item:hover .unity-base-dropdown__label'
-// selector
-selector--scroll-view----focus           = '.unity-base-dropdown .unity-scroll-view:focus'
 
 // view
 add-style(dropdown,                       null                                                                                                )
@@ -35,8 +33,6 @@ add-style(text,                           create-view(null,  element,           
 // view
 add-style(scroll-view----hover,           create-view(null,  dropdown--hover,      null,                  dropdown--hover,      null         ))
 add-style(dropdown-item--hover,           create-view(null,  dropdown-item--hover, null,                  dropdown-item--hover, null         ))
-// view
-add-style(scroll-view--focus,             create-view(null,  dropdown--focus,      null,                  dropdown--focus,      null         ))
 
 // layout
 add-style(dropdown,                       create-layout(absolute, auto, auto, (0px             ), (0px            ), (0px                )))
