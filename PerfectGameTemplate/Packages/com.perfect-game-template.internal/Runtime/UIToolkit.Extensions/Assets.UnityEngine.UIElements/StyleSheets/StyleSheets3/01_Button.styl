@@ -1,30 +1,42 @@
 @import "../Internal/_Theme"
 
 // selector
-selector---------button         = '.unity-button'
-selector--repeat-button         = '.unity-repeat-button'
+selector---------button                = '.unity-button'
+selector--repeat-button                = '.unity-repeat-button'
 // selector
-selector---------button--hover  = '.unity-button:hover'
-selector--repeat-button--hover  = '.unity-repeat-button:hover'
+selector---------button--hover         = '.unity-button:hover'
+selector--repeat-button--hover         = '.unity-repeat-button:hover'
 // selector
-selector---------button--active = '.unity-button:active'
-selector--repeat-button--active = '.unity-repeat-button:active'
+selector---------button--active        = '.unity-button:active'
+selector--repeat-button--active        = '.unity-repeat-button:active'
 // selector
-selector---------button--focus  = '.unity-button:focus'
-selector--repeat-button--focus  = '.unity-repeat-button:focus'
+selector---------button--focus         = '.unity-button:focus'
+selector--repeat-button--focus         = '.unity-repeat-button:focus'
+// selector
+selector---------button--focus--hover  = '.unity-button:focus:hover'
+selector--repeat-button--focus--hover  = '.unity-repeat-button:focus:hover'
+// selector
+selector---------button--focus--active = '.unity-button:focus:active'
+selector--repeat-button--focus--active = '.unity-repeat-button:focus:active'
 
 // view
-add-style(button,                create-view(light, element--light,         element--light, element--light,         element), create-font(null, null, bold), create-text(middle-center, null, null))
-add-style(repeat-button,         create-view(light, element--light,         element--light, element--light,         element), create-font(null, null, bold), create-text(middle-center, null, null))
+add-style(       button,                create-view(element--normal, element--light--normal, element--light--normal, element--light--normal, element--normal), create-font(null, null, bold), create-text(middle-center, null, null))
+add-style(repeat-button,                create-view(element--normal, element--light--normal, element--light--normal, element--light--normal, element--normal), create-font(null, null, bold), create-text(middle-center, null, null))
 // view
-add-style(button--hover,         create-view(null,  element--light--hover,  null,           element--light--hover,  null   )                                                                       )
-add-style(repeat-button--hover,  create-view(null,  element--light--hover,  null,           element--light--hover,  null   )                                                                       )
+add-style(       button--hover,         create-view(null,            element--light--hover,  null,                   element--light--hover,  null           )                                                                       )
+add-style(repeat-button--hover,         create-view(null,            element--light--hover,  null,                   element--light--hover,  null           )                                                                       )
 // view
-add-style(button--active,        create-view(null,  element--light--active, null,           element--light--active, null   )                                                                       )
-add-style(repeat-button--active, create-view(null,  element--light--active, null,           element--light--active, null   )                                                                       )
-// view
-add-style(button--focus,         create-view(focus, element--light--focus,  null,           element--light--focus,  null   )                                                                       )
-add-style(repeat-button--focus,  create-view(focus, element--light--focus,  null,           element--light--focus,  null   )                                                                       )
+add-style(       button--active,        create-view(null,            element--light--active, null,                   element--light--active, null           )                                                                       )
+add-style(repeat-button--active,        create-view(null,            element--light--active, null,                   element--light--active, null           )                                                                       )
+// // view
+// add-style(       button--focus,         create-view(focus, element--light--focus,  null,           element--light--focus,  null   )                                                                       )
+// add-style(repeat-button--focus,         create-view(focus, element--light--focus,  null,           element--light--focus,  null   )                                                                       )
+// // view
+// add-style(       button--focus--hover,  create-view(focus, element--light--focus--hover,  null,    element--light--hover,  null   )                                                                       )
+// add-style(repeat-button--focus--hover,  create-view(focus, element--light--focus--hover,  null,    element--light--hover,  null   )                                                                       )
+// // view
+// add-style(       button--focus--active, create-view(focus, element--light--focus--active, null,    element--light--active, null   )                                                                       )
+// add-style(repeat-button--focus--active, create-view(focus, element--light--focus--active, null,    element--light--active, null   )                                                                       )
 
 // layout
 add-style(button,                create-layout(null, auto, auto, (4px), (1px), (12px 12px 10px 10px)))

@@ -1,25 +1,25 @@
 // add-view
 add-font(url, size, style)
-    add-property-internal 'font-url'                      url
-    add-property-internal 'font-definition-url'           url
-    add-property-internal 'font-size'                     size
-    add-property-internal 'font-style'                    style
+    add-property-internal 'font-url'            url
+    add-property-internal 'font-definition-url' url
+    add-property-internal 'font-size'           size
+    add-property-internal 'font-style'          style
 add-text(align, outline, shadow)
-    add-property-internal 'text-align'                    align
-    add-property-internal 'text-outline'                  outline
-    add-property-internal 'text-shadow'                   shadow
+    add-property-internal 'text-align'          align
+    add-property-internal 'text-outline'        outline
+    add-property-internal 'text-shadow'         shadow
 
 // add-view
 add-view(color = null, background-color = null, background-image = null, border-color = null, border-radius = null)
-    add-view-foreground                                color
-    add-view-background                                background-color background-image
-    add-view-border                                    border-color border-radius
+    add-view-foreground                                   color
+    add-view-background                                   background-color background-image
+    add-view-border                                       border-color border-radius
 add-view-foreground(color)
-    color = get-theme-value('color', color)
+    color =                                               get-theme-value('color', color)
     add-property-internal 'color'                         color
 add-view-background(background-color, background-image)
-    background-color = get-theme-value('background-color', background-color)
-    background-image = get-theme-value('background-image', background-image) if typeof(background-image) != 'object'
+    background-color =                                    get-theme-value('background-color', background-color)
+    background-image =                                    get-theme-value('background-image', background-image) if typeof(background-image) != 'object'
     add-property-internal 'background-color'              background-color
     add-property-internal 'background-image-url'          background-image.url          if background-image != null
     add-property-internal 'background-image-color'        background-image.color        if background-image != null
@@ -30,8 +30,8 @@ add-view-background(background-color, background-image)
     add-property-internal 'background-image-slice-bottom' background-image.slice-bottom if background-image != null
     add-property-internal 'background-image-slice-scale'  background-image.slice-scale  if background-image != null
 add-view-border(border-color, border-radius)
-    border-color  = get-theme-value('border-color',  border-color )
-    border-radius = get-theme-value('border-radius', border-radius)
+    border-color  =                                       get-theme-value('border-color',  border-color )
+    border-radius =                                       get-theme-value('border-radius', border-radius)
     add-property-internal 'border-left-color'             border-color[0]
     add-property-internal 'border-right-color'            border-color[1] or border-color[0]
     add-property-internal 'border-top-color'              border-color[2] or border-color[0]
@@ -40,23 +40,12 @@ add-view-border(border-color, border-radius)
     add-property-internal 'border-top-right-radius'       border-radius[1] or border-radius[0]
     add-property-internal 'border-bottom-left-radius'     border-radius[2] or border-radius[0]
     add-property-internal 'border-bottom-right-radius'    border-radius[3] or border-radius[0]
-img(url, color, scale-mode, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
-    return {
-        url:          url,
-        color:        color,
-        scale-mode:   scale-mode,
-        slice-left:   slice-left,
-        slice-right:  slice-right,
-        slice-top:    slice-top,
-        slice-bottom: slice-bottom,
-        slice-scale:  slice-scale,
-    }
 
 // add-layout
 add-layout(position = null, width = null, height = null, margin = null, border = null, padding = null)
-    add-layout-position                      position, null, null, null, null
-    add-layout-size                          width, height
-    add-layout-box                           margin, border, padding
+    add-layout-position                         position, null, null, null, null
+    add-layout-size                             width, height
+    add-layout-box                              margin, border, padding
 add-layout-position(position, left = null, right = null, top = null, bottom = null)
     add-property-internal 'position'            position[0]
     add-property-internal 'left'                left   or position[1]
@@ -94,6 +83,19 @@ add-flex2(flex-direction = null, justify-content = null, align-items = null)
     add-property-internal 'flex-direction'  flex-direction
     add-property-internal 'justify-content' justify-content
     add-property-internal 'align-items'     align-items
+
+// utils
+img(url, color, scale-mode, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
+    return {
+        url:          url,
+        color:        color,
+        scale-mode:   scale-mode,
+        slice-left:   slice-left,
+        slice-right:  slice-right,
+        slice-top:    slice-top,
+        slice-bottom: slice-bottom,
+        slice-scale:  slice-scale,
+    }
 
 // add-property-internal
 add-property-internal(property, value)

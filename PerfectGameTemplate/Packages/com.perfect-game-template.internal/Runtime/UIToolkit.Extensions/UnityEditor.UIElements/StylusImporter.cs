@@ -76,14 +76,15 @@ namespace UnityEditor.UIElements {
             const source = FS.readFileSync(src, 'utf8');
 
             Stylus(source)
-                .set('filename',      Path.basename(src)      )
-                .set('paths',         [Path.dirname(src)]     )
-                .define('eval',       evalEx,      raw = false)
-                .define('raw-eval',   rawEvalEx,   raw = true )
-                .define('get-string', getStringEx, raw = true )
-                .define('get-type',   getTypeEx,   raw = true )
-                .define('define',     defineEx,    raw = true )
-                .define('is-defined', isDefinedEx, raw = true )
+                .set('filename',       Path.basename(src)       )
+                .set('paths',          [Path.dirname(src)]      )
+                .define('eval',        evalEx,       raw = false)
+                .define('raw-eval',    rawEvalEx,    raw = true )
+                .define('get-string',  getStringEx,  raw = true )
+                .define('get-type',    getTypeEx,    raw = true )
+                .define('is-defined',  isDefinedEx,  raw = true )
+                .define('get-defines', getDefinesEx, raw = true )
+                .define('define',      defineEx,     raw = true )
                 .render(onComplete);
 
             // onCallback
@@ -141,6 +142,26 @@ namespace UnityEditor.UIElements {
                 }}
             }}
             // extensions
+            function isDefinedEx(name) {{
+                name = Stylus.utils.unwrap(name).nodes[0].string;
+                return new Stylus.nodes.Boolean(this.lookup(name));
+            }}
+            function getDefinesEx(global) {{
+                global = global && global.toBoolean().isTrue;
+                if (global) {{
+                    const result = new Stylus.nodes.Object();
+                    for (const [key, value] of Object.entries(this.global.scope.locals)) {{
+                        result.setValue(key, value);
+                    }}
+                    return result;
+                }} else {{
+                    const result = new Stylus.nodes.Object();
+                    for (const [key, value] of Object.entries(this.currentScope.locals)) {{
+                        result.setValue(key, value);
+                    }}
+                    return result;
+                }}
+            }}
             function defineEx(name, expr, global) {{
                 name = Stylus.utils.unwrap(name).nodes[0].string;
                 expr = Stylus.utils.unwrap(expr);
@@ -152,17 +173,6 @@ namespace UnityEditor.UIElements {
                     const node = new Stylus.nodes.Ident(name, expr);
                     this.currentScope.add(node);
                 }}
-            }}
-            function isDefinedEx(expr) {{
-                expr = Stylus.utils.unwrap(expr);
-                if (expr.nodes.length == 1) {{
-                    const value = expr.nodes[0];
-                    if (value.constructor.name == 'String')  return new Stylus.nodes.Boolean( this.lookup(value.string ?? value.toString()) );
-                    if (value.constructor.name == 'Literal') return new Stylus.nodes.Boolean( this.lookup(value.string ?? value.toString()) );
-                    if (value.constructor.name == 'Ident')   return new Stylus.nodes.Boolean( this.lookup(value.string ?? value.toString()) );
-                    throw new Error( ""Argument is invalid: "" + value );
-                }}
-                throw new Error( ""Argument is invalid: "" + expr );
             }}
             " );
         }

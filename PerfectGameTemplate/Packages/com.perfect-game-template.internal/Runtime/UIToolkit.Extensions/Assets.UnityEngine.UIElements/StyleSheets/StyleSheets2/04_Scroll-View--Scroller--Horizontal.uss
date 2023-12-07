@@ -91,7 +91,6 @@
   border-bottom-right-radius: 4px;
 }
 .unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-tracker:hover {
-  background-color: #2a2b2c;
   border-left-color: #92704f;
   border-right-color: #92704f;
   border-top-color: #92704f;
@@ -118,58 +117,30 @@
   border-top-color: #92704f;
   border-bottom-color: #92704f;
 }
-.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container:active #unity-tracker {
-  background-color: #2a2b2c;
-  border-left-color: #634d36;
-  border-right-color: #634d36;
-  border-top-color: #634d36;
-  border-bottom-color: #634d36;
-}
 .unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container:active #unity-dragger {
   background-color: #373839;
-  border-left-color: #463625;
-  border-right-color: #463625;
-  border-top-color: #463625;
-  border-bottom-color: #463625;
+  border-left-color: #503d2b;
+  border-right-color: #503d2b;
+  border-top-color: #503d2b;
+  border-bottom-color: #503d2b;
 }
 .unity-scroller--horizontal #unity-low-button:active {
   background-color: #373839;
-  border-left-color: #463625;
-  border-right-color: #463625;
-  border-top-color: #463625;
-  border-bottom-color: #463625;
+  background-image: url('../../Images/Arrow_Left.png');
+  -unity-background-image-tint-color: #808080;
+  border-left-color: #503d2b;
+  border-right-color: #503d2b;
+  border-top-color: #503d2b;
+  border-bottom-color: #503d2b;
 }
 .unity-scroller--horizontal #unity-high-button:active {
   background-color: #373839;
-  border-left-color: #463625;
-  border-right-color: #463625;
-  border-top-color: #463625;
-  border-bottom-color: #463625;
-}
-.unity-scroller--horizontal .unity-base-slider:focus .unity-base-slider__input #unity-drag-container #unity-tracker {
-  background-color: #2a2b2c;
-  border-left-color: #634d36;
-  border-right-color: #634d36;
-  border-top-color: #634d36;
-  border-bottom-color: #634d36;
-}
-.unity-scroller--horizontal .unity-base-slider:focus .unity-base-slider__input #unity-drag-container #unity-dragger {
-  border-left-color: #197fe6;
-  border-right-color: #197fe6;
-  border-top-color: #197fe6;
-  border-bottom-color: #197fe6;
-}
-.unity-scroller--horizontal #unity-low-button:focus {
-  border-left-color: #197fe6;
-  border-right-color: #197fe6;
-  border-top-color: #197fe6;
-  border-bottom-color: #197fe6;
-}
-.unity-scroller--horizontal #unity-high-button:focus {
-  border-left-color: #197fe6;
-  border-right-color: #197fe6;
-  border-top-color: #197fe6;
-  border-bottom-color: #197fe6;
+  background-image: url('../../Images/Arrow_Right.png');
+  -unity-background-image-tint-color: #808080;
+  border-left-color: #503d2b;
+  border-right-color: #503d2b;
+  border-top-color: #503d2b;
+  border-bottom-color: #503d2b;
 }
 .unity-scroller--horizontal {
   width: auto;

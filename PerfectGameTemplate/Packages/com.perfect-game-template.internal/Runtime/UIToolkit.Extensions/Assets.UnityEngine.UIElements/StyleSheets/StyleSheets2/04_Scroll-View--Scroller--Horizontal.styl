@@ -26,29 +26,29 @@ selector--low-button---focus  = '.unity-scroller--horizontal #unity-low-button:f
 selector--high-button--focus  = '.unity-scroller--horizontal #unity-high-button:focus'
 
 // view
-add-style(scroller,            create-view(null, element,                element,                 element,                element))
-add-style(field,               create-view(null, element,                element,                 element,                element))
-add-style(input,               create-view(null, element,                element,                 element,                element))
-add-style(container,           create-view(null, element,                element,                 element,                element))
-add-style(tracker,             create-view(null, element--dark,          element-----------dark,  element--dark,          element))
-add-style(dragger,             create-view(null, element--light,         element-----------light, element--light,         element))
-add-style(low-button,          create-view(null, element--light,         left-arrow-icon---light, element--light,         element))
-add-style(high-button,         create-view(null, element--light,         right-arrow-icon--light, element--light,         element))
+add-style(scroller,            create-view(null, element---------normal, element------------------normal, element---------normal, element--normal))
+add-style(field,               create-view(null, element---------normal, element------------------normal, element---------normal, element--normal))
+add-style(input,               create-view(null, element---------normal, element------------------normal, element---------normal, element--normal))
+add-style(container,           create-view(null, element---------normal, element------------------normal, element---------normal, element--normal))
+add-style(tracker,             create-view(null, element--dark---normal, element-----------dark---normal, element--dark---normal, element--normal))
+add-style(dragger,             create-view(null, element--light--normal, element-----------light--normal, element--light--normal, element--normal))
+add-style(low-button,          create-view(null, element--light--normal, left-arrow-icon---light,         element--light--normal, element--normal))
+add-style(high-button,         create-view(null, element--light--normal, right-arrow-icon--light,         element--light--normal, element--normal))
 // view
-add-style(tracker------hover,  create-view(null, element--dark,          null,                    element--dark---hover,  null   ))
-add-style(dragger------hover,  create-view(null, element--light--hover,  null,                    element--light--hover,  null   ))
-add-style(low-button---hover,  create-view(null, element--light--hover,  null,                    element--light--hover,  null   ))
-add-style(high-button--hover,  create-view(null, element--light--hover,  null,                    element--light--hover,  null   ))
+add-style(tracker------hover,  create-view(null, null,                   null,                            element--dark---hover,  null           ))
+add-style(dragger------hover,  create-view(null, element--light--hover,  null,                            element--light--hover,  null           ))
+add-style(low-button---hover,  create-view(null, element--light--hover,  null,                            element--light--hover,  null           ))
+add-style(high-button--hover,  create-view(null, element--light--hover,  null,                            element--light--hover,  null           ))
 // view
-add-style(tracker------active, create-view(null, element--dark,          null,                    element--dark,          null   ))
-add-style(dragger------active, create-view(null, element--light--active, null,                    element--light--active, null   ))
-add-style(low-button---active, create-view(null, element--light--active, null,                    element--light--active, null   ))
-add-style(high-button--active, create-view(null, element--light--active, null,                    element--light--active, null   ))
-// view
-add-style(tracker------focus,  create-view(null, element--dark,          null,                    element--dark,          null   ))
-add-style(dragger------focus,  create-view(null, element--light--focus,  null,                    element--light--focus,  null   ))
-add-style(low-button---focus,  create-view(null, element--light--focus,  null,                    element--light--focus,  null   ))
-add-style(high-button--focus,  create-view(null, element--light--focus,  null,                    element--light--focus,  null   ))
+add-style(tracker------active, create-view(null, null,                   null,                            null,                   null           ))
+add-style(dragger------active, create-view(null, element--light--active, null,                            element--light--active, null           ))
+add-style(low-button---active, create-view(null, element--light--active, left-arrow-icon---gray,          element--light--active, null           ))
+add-style(high-button--active, create-view(null, element--light--active, right-arrow-icon--gray,          element--light--active, null           ))
+// // view
+// add-style(tracker------focus,  create-view(null, null,                   null,                            null,                   null           ))
+// add-style(dragger------focus,  create-view(null, element--light--focus,  null,                            element--light--focus,  null           ))
+// add-style(low-button---focus,  create-view(null, element--light--focus,  null,                            element--light--focus,  null           ))
+// add-style(high-button--focus,  create-view(null, element--light--focus,  null,                            element--light--focus,  null           ))
 
 // layout
 add-style(scroller,            create-layout(null,     auto, auto, (0px            ), (0px), (0px)))
