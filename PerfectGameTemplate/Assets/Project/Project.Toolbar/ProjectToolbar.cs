@@ -127,27 +127,25 @@ namespace Project.Toolbar {
         [MenuItem( "Project/Open Assets (UIWidget)", priority = 1002 )]
         internal static void OpenAssets_UIWidget() {
             OpenAssetsReverse(
-                "Assets/Project.UI/Project.UI/           (*WidgetBase.cs|*Widget.cs|*Widget2.cs)",
-                "Assets/Project.UI/Project.UI.Common/    (*WidgetBase.cs|*Widget.cs|*Widget2.cs)",
-                "Assets/Project.UI/Project.UI.MainScreen/(*WidgetBase.cs|*Widget.cs|*Widget2.cs)",
-                "Assets/Project.UI/Project.UI.GameScreen/(*WidgetBase.cs|*Widget.cs|*Widget2.cs)"
+                "Assets/Project.UI/Project.UI/           (*WidgetBase.cs|*Widget.cs)",
+                "Assets/Project.UI/Project.UI.Common/    (*WidgetBase.cs|*Widget.cs)",
+                "Assets/Project.UI/Project.UI.MainScreen/(*WidgetBase.cs|*Widget.cs)",
+                "Assets/Project.UI/Project.UI.GameScreen/(*WidgetBase.cs|*Widget.cs)"
                 );
         }
         [MenuItem( "Project/Open Assets (UIView)", priority = 1003 )]
         internal static void OpenAssets_UIView() {
             OpenAssetsReverse(
-                "Assets/Project.UI/Project.UI/           (*ViewBase.cs|*View.cs|*View2.cs)",
-                "Assets/Project.UI/Project.UI.Common/    (*ViewBase.cs|*View.cs|*View2.cs)",
-                "Assets/Project.UI/Project.UI.MainScreen/(*ViewBase.cs|*View.cs|*View2.cs)",
-                "Assets/Project.UI/Project.UI.GameScreen/(*ViewBase.cs|*View.cs|*View2.cs)"
+                "Assets/Project.UI/Project.UI/           (*ViewBase.cs|*View.cs)",
+                "Assets/Project.UI/Project.UI.Common/    (*ViewBase.cs|*View.cs)",
+                "Assets/Project.UI/Project.UI.MainScreen/(*ViewBase.cs|*View.cs)",
+                "Assets/Project.UI/Project.UI.GameScreen/(*ViewBase.cs|*View.cs)"
                 );
         }
         [MenuItem( "Project/Open Assets (StyleSheet)", priority = 1004 )]
         internal static void OpenAssets_StyleSheet() {
-            OpenAssets(
-                "Assets/Project.UI/Assets.Project.UI/(*.stylus|*.styl)",
-                "Packages/com.perfect-game-template.internal/Runtime/UIToolkit.Extensions/Assets.UnityEngine.UIElements/(*.stylus|*.styl)"
-                );
+            OpenAssets( "Assets/(*.stylus|*.styl)" );
+            OpenAssets( "Packages/(*.stylus|*.styl)" );
         }
 
         // OpenDialog
@@ -191,14 +189,18 @@ namespace Project.Toolbar {
         // Helpers
         private static void OpenAssets(params string[] patterns) {
             foreach (var path in GetMatches( GetPaths(), patterns )) {
-                AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
-                Thread.Sleep( 500 );
+                if (!Path.GetFileName( path ).StartsWith( "_" )) {
+                    AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
+                    Thread.Sleep( 500 );
+                }
             }
         }
         private static void OpenAssetsReverse(params string[] patterns) {
             foreach (var path in GetMatches( GetPaths(), patterns ).Reverse()) {
-                AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
-                Thread.Sleep( 500 );
+                if (!Path.GetFileName( path ).StartsWith( "_" )) {
+                    AssetDatabase.OpenAsset( AssetDatabase.LoadAssetAtPath<Object>( path ) );
+                    Thread.Sleep( 500 );
+                }
             }
         }
         // Helpers
