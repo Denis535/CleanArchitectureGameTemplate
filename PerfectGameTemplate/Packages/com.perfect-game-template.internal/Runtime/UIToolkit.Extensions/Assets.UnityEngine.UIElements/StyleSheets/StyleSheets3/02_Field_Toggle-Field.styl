@@ -8,20 +8,23 @@ selector--checkmark          = '.unity-toggle .unity-toggle__input         .unit
 selector--checkmark--checked = '.unity-toggle .unity-toggle__input:checked .unity-toggle__checkmark'
 
 // view
-add-style(field,              null                                                                                                                )
-add-style(label,              null                                                                                                                )
-add-style(input,              null                                                                                                                )
-add-style(checkmark,          create-view(null, component--dark--normal, component-------dark--normal, component--dark--normal, component--normal))
-add-style(checkmark--checked, create-view(null, component--dark--normal, checkmark-icon--light,        component--dark--normal, component--normal))
+style(field             )
+style(label             )
+style(input             )
+style(checkmark         ) view(null, component--dark--normal, component-------dark--normal, component--dark--normal, component--normal)
+style(checkmark--checked) view(null, component--dark--normal, checkmark-icon--light,        component--dark--normal, component--normal)
+flush()
 
 // layout
-add-style(field,              null                                                )
-add-style(label,              null                                                )
-add-style(input,              null                                                )
-add-style(checkmark,          create-layout(null, 16px, 16px, (0px), (1px), (0px)))
+style(field             )
+style(label             )
+style(input             )
+style(checkmark         ) layout(null, 16px, 16px, (0px), (1px), (0px))
+flush()
 
 // flex
-add-style(field,              null                         )
-add-style(label,              null                         )
-add-style(input,              null                         )
-add-style(checkmark,          create-flex(0, 1, auto, auto))
+style(field             )
+style(label             )
+style(input             )
+style(checkmark         ) flex(0, 1, auto, auto)
+flush()

@@ -8,22 +8,25 @@ selector--text  = '.unity-base-popup-field .unity-base-popup-field__input .unity
 selector--arrow = '.unity-base-popup-field .unity-base-popup-field__input .unity-base-popup-field__arrow'
 
 // view
-add-style(field, null                                                                                                  )
-add-style(label, null                                                                                                  )
-add-style(input, null                                                                                                  )
-add-style(text,  create-view(null, element----normal, element--normal,            element----normal, element----normal))
-add-style(arrow, create-view(null, component--normal, dropdown-arrow-icon--light, component--normal, component--normal))
+style(field)
+style(label)
+style(input)
+style(text ) view(null, element----normal, element--normal,            element----normal, element----normal)
+style(arrow) view(null, component--normal, dropdown-arrow-icon--light, component--normal, component--normal)
+flush()
 
 // layout
-add-style(field, null                                                )
-add-style(label, null                                                )
-add-style(input, null                                                )
-add-style(text,  create-layout(null, auto, auto, (0px), (0px), (0px)))
-add-style(arrow, create-layout(null, 12px, 12px, (2px), (0px), (0px)))
+style(field)
+style(label)
+style(input)
+style(text ) layout(null, auto, auto, (0px), (0px), (0px))
+style(arrow) layout(null, 12px, 12px, (2px), (0px), (0px))
+flush()
 
 // flex
-add-style(field, null                         )
-add-style(label, null                         )
-add-style(input, null                         )
-add-style(text,  create-flex(1, 1, auto, auto))
-add-style(arrow, create-flex(0, 1, auto, auto))
+style(field)
+style(label)
+style(input)
+style(text ) flex(1, 1, auto, auto)
+style(arrow) flex(0, 1, auto, auto)
+flush()

@@ -54,57 +54,30 @@ selector--dialog-content--error----hover = '.error-dialog-card:hover .content'
 selector--dialog-footer---error----hover = '.error-dialog-card:hover .footer'
 
 // view
-style(card                          ) font(null, 100%, normal)
-style(header                        ) font(null, 130%, bold  )
-style(content                       ) font(null, 100%, normal)
-style(footer                        ) font(null, 120%, bold  )
+style(card                          ) view(card---------normal, card--------------------normal, card--------------------normal, card------------normal, card------------normal) font(null, 100%, normal)
+style(header                        ) view(card---------normal, header------------------normal, header------------------normal, header----------normal, header----------normal) font(null, 130%, bold  )
+style(content                       ) view(card---------normal, content-----------------normal, content-----------------normal, content---------normal, content---------normal) font(null, 100%, normal)
+style(footer                        ) view(card---------normal, footer------------------normal, footer------------------normal, footer----------normal, footer----------normal) font(null, 120%, bold  )
 // view
-style(dialog-card                   ) font(null, null, null  )
-style(dialog-header                 ) font(null, null, null  )
-style(dialog-content                ) font(null, 120%, bold  )
-style(dialog-footer                 ) font(null, null, null  )
+style(dialog-card                   ) view(dialog-card--normal, dialog-card-------------normal, dialog-card-------------normal, dialog-card-----normal, dialog-card-----normal) font(null, null, null  )
+style(dialog-header                 ) view(dialog-card--normal, dialog-header-----------normal, dialog-header-----------normal, dialog-header---normal, dialog-header---normal) font(null, null, null  )
+style(dialog-content                ) view(dialog-card--normal, dialog-content----------normal, dialog-content----------normal, dialog-content--normal, dialog-content--normal) font(null, 120%, bold  )
+style(dialog-footer                 ) view(dialog-card--normal, dialog-footer-----------normal, dialog-footer-----------normal, dialog-footer---normal, dialog-footer---normal) font(null, null, null  )
 // view
-style(dialog-card-----info          ) font(null, null, null  )
-style(dialog-header---info          ) font(null, null, null  )
-style(dialog-content--info          ) font(null, 120%, bold  )
-style(dialog-footer---info          ) font(null, null, null  )
+style(dialog-card-----info          ) view(dialog-card--normal, dialog-card-------------normal, dialog-card-------------normal, dialog-card-----normal, dialog-card-----normal) font(null, null, null  )
+style(dialog-header---info          ) view(dialog-card--normal, dialog-header--info-----normal, dialog-header--info-----normal, dialog-header---normal, dialog-header---normal) font(null, null, null  )
+style(dialog-content--info          ) view(dialog-card--normal, dialog-content----------normal, dialog-content----------normal, dialog-content--normal, dialog-content--normal) font(null, 120%, bold  )
+style(dialog-footer---info          ) view(dialog-card--normal, dialog-footer-----------normal, dialog-footer-----------normal, dialog-footer---normal, dialog-footer---normal) font(null, null, null  )
 // view
-style(dialog-card-----warning       ) font(null, null, null  )
-style(dialog-header---warning       ) font(null, null, null  )
-style(dialog-content--warning       ) font(null, 120%, bold  )
-style(dialog-footer---warning       ) font(null, null, null  )
+style(dialog-card-----warning       ) view(dialog-card--normal, dialog-card-------------normal, dialog-card-------------normal, dialog-card-----normal, dialog-card-----normal) font(null, null, null  )
+style(dialog-header---warning       ) view(dialog-card--normal, dialog-header--warning--normal, dialog-header--warning--normal, dialog-header---normal, dialog-header---normal) font(null, null, null  )
+style(dialog-content--warning       ) view(dialog-card--normal, dialog-content----------normal, dialog-content----------normal, dialog-content--normal, dialog-content--normal) font(null, 120%, bold  )
+style(dialog-footer---warning       ) view(dialog-card--normal, dialog-footer-----------normal, dialog-footer-----------normal, dialog-footer---normal, dialog-footer---normal) font(null, null, null  )
 // view
-style(dialog-card-----error         ) font(null, null, null  )
-style(dialog-header---error         ) font(null, null, null  )
-style(dialog-content--error         ) font(null, 120%, bold  )
-style(dialog-footer---error         ) font(null, null, null  )
-flush()
-
-// view
-style(card                          ) view(card---------normal, card--------------------normal, card--------------------normal, card------------normal, card------------normal)
-style(header                        ) view(card---------normal, header------------------normal, header------------------normal, header----------normal, header----------normal)
-style(content                       ) view(card---------normal, content-----------------normal, content-----------------normal, content---------normal, content---------normal)
-style(footer                        ) view(card---------normal, footer------------------normal, footer------------------normal, footer----------normal, footer----------normal)
-// view
-style(dialog-card                   ) view(dialog-card--normal, dialog-card-------------normal, dialog-card-------------normal, dialog-card-----normal, dialog-card-----normal)
-style(dialog-header                 ) view(dialog-card--normal, dialog-header-----------normal, dialog-header-----------normal, dialog-header---normal, dialog-header---normal)
-style(dialog-content                ) view(dialog-card--normal, dialog-content----------normal, dialog-content----------normal, dialog-content--normal, dialog-content--normal)
-style(dialog-footer                 ) view(dialog-card--normal, dialog-footer-----------normal, dialog-footer-----------normal, dialog-footer---normal, dialog-footer---normal)
-// view
-style(dialog-card-----info          ) view(dialog-card--normal, dialog-card-------------normal, dialog-card-------------normal, dialog-card-----normal, dialog-card-----normal)
-style(dialog-header---info          ) view(dialog-card--normal, dialog-header--info-----normal, dialog-header--info-----normal, dialog-header---normal, dialog-header---normal)
-style(dialog-content--info          ) view(dialog-card--normal, dialog-content----------normal, dialog-content----------normal, dialog-content--normal, dialog-content--normal)
-style(dialog-footer---info          ) view(dialog-card--normal, dialog-footer-----------normal, dialog-footer-----------normal, dialog-footer---normal, dialog-footer---normal)
-// view
-style(dialog-card-----warning       ) view(dialog-card--normal, dialog-card-------------normal, dialog-card-------------normal, dialog-card-----normal, dialog-card-----normal)
-style(dialog-header---warning       ) view(dialog-card--normal, dialog-header--warning--normal, dialog-header--warning--normal, dialog-header---normal, dialog-header---normal)
-style(dialog-content--warning       ) view(dialog-card--normal, dialog-content----------normal, dialog-content----------normal, dialog-content--normal, dialog-content--normal)
-style(dialog-footer---warning       ) view(dialog-card--normal, dialog-footer-----------normal, dialog-footer-----------normal, dialog-footer---normal, dialog-footer---normal)
-// view
-style(dialog-card-----error         ) view(dialog-card--normal, dialog-card-------------normal, dialog-card-------------normal, dialog-card-----normal, dialog-card-----normal)
-style(dialog-header---error         ) view(dialog-card--normal, dialog-header--error----normal, dialog-header--error----normal, dialog-header---normal, dialog-header---normal)
-style(dialog-content--error         ) view(dialog-card--normal, dialog-content----------normal, dialog-content----------normal, dialog-content--normal, dialog-content--normal)
-style(dialog-footer---error         ) view(dialog-card--normal, dialog-footer-----------normal, dialog-footer-----------normal, dialog-footer---normal, dialog-footer---normal)
+style(dialog-card-----error         ) view(dialog-card--normal, dialog-card-------------normal, dialog-card-------------normal, dialog-card-----normal, dialog-card-----normal) font(null, null, null  )
+style(dialog-header---error         ) view(dialog-card--normal, dialog-header--error----normal, dialog-header--error----normal, dialog-header---normal, dialog-header---normal) font(null, null, null  )
+style(dialog-content--error         ) view(dialog-card--normal, dialog-content----------normal, dialog-content----------normal, dialog-content--normal, dialog-content--normal) font(null, 120%, bold  )
+style(dialog-footer---error         ) view(dialog-card--normal, dialog-footer-----------normal, dialog-footer-----------normal, dialog-footer---normal, dialog-footer---normal) font(null, null, null  )
 flush()
 
 // view

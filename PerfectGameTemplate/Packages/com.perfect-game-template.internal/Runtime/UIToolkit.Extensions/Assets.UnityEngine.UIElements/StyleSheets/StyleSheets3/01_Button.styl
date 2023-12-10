@@ -20,28 +20,24 @@ selector---------button--focus--active = '.unity-button:focus:active'
 selector--repeat-button--focus--active = '.unity-repeat-button:focus:active'
 
 // view
-add-style(       button,                create-view(element--normal, element--light--normal, element--light--normal, element--light--normal, element--normal), create-font(null, null, bold), create-text(middle-center, null, null))
-add-style(repeat-button,                create-view(element--normal, element--light--normal, element--light--normal, element--light--normal, element--normal), create-font(null, null, bold), create-text(middle-center, null, null))
+style(       button        ) view(element--normal, element--light--normal, element--light--normal, element--light--normal, element--normal) font(null, null, bold) text(middle-center, null, null)
+style(repeat-button        ) view(element--normal, element--light--normal, element--light--normal, element--light--normal, element--normal) font(null, null, bold) text(middle-center, null, null)
+flush()
 // view
-add-style(       button--hover,         create-view(null,            element--light--hover,  null,                   element--light--hover,  null           )                                                                       )
-add-style(repeat-button--hover,         create-view(null,            element--light--hover,  null,                   element--light--hover,  null           )                                                                       )
+style(       button--hover ) view(null,            element--light--hover,  null,                   element--light--hover,  null           )
+style(repeat-button--hover ) view(null,            element--light--hover,  null,                   element--light--hover,  null           )
+flush()
 // view
-add-style(       button--active,        create-view(null,            element--light--active, null,                   element--light--active, null           )                                                                       )
-add-style(repeat-button--active,        create-view(null,            element--light--active, null,                   element--light--active, null           )                                                                       )
-// // view
-// add-style(       button--focus,         create-view(focus, element--light--focus,  null,           element--light--focus,  null   )                                                                       )
-// add-style(repeat-button--focus,         create-view(focus, element--light--focus,  null,           element--light--focus,  null   )                                                                       )
-// // view
-// add-style(       button--focus--hover,  create-view(focus, element--light--focus--hover,  null,    element--light--hover,  null   )                                                                       )
-// add-style(repeat-button--focus--hover,  create-view(focus, element--light--focus--hover,  null,    element--light--hover,  null   )                                                                       )
-// // view
-// add-style(       button--focus--active, create-view(focus, element--light--focus--active, null,    element--light--active, null   )                                                                       )
-// add-style(repeat-button--focus--active, create-view(focus, element--light--focus--active, null,    element--light--active, null   )                                                                       )
+style(       button--active) view(null,            element--light--active, null,                   element--light--active, null           )
+style(repeat-button--active) view(null,            element--light--active, null,                   element--light--active, null           )
+flush()
 
 // layout
-add-style(button,                create-layout(null, auto, auto, (4px), (1px), (12px 12px 10px 10px)))
-add-style(repeat-button,         create-layout(null, auto, auto, (4px), (1px), (12px 12px 10px 10px)))
+style(button               ) layout(null, auto, auto, (4px), (1px), (12px 12px 10px 10px))
+style(repeat-button        ) layout(null, auto, auto, (4px), (1px), (12px 12px 10px 10px))
+flush()
 
 // flex
-add-style(button,                create-flex(0, 1, auto, auto))
-add-style(repeat-button,         create-flex(0, 1, auto, auto))
+style(button               ) flex(0, 1, auto, auto)
+style(repeat-button        ) flex(0, 1, auto, auto)
+flush()

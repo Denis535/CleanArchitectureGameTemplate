@@ -1,57 +1,57 @@
-// create-view
-create-font(url, size, style)
-    return @block {
-        add-font(url, size, style)
-    }
-create-text(align, outline, shadow)
-    return @block {
-        add-text(align, outline, shadow)
-    }
+// // create-view
+// create-font(url, size, style)
+//     return @block {
+//         add-font(url, size, style)
+//     }
+// create-text(align, outline, shadow)
+//     return @block {
+//         add-text(align, outline, shadow)
+//     }
 
-// create-view
-create-view(color, background-color, background-image, border-color, border-radius)
-    return @block {
-        add-view(color, background-color, background-image, border-color, border-radius)
-    }
+// // create-view
+// create-view(color, background-color, background-image, border-color, border-radius)
+//     return @block {
+//         add-view(color, background-color, background-image, border-color, border-radius)
+//     }
 
-// create-layout
-create-layout(position, width, height, margin, border, padding)
-    return @block {
-        add-layout(position, width, height, margin, border, padding)
-    }
+// // create-layout
+// create-layout(position, width, height, margin, border, padding)
+//     return @block {
+//         add-layout(position, width, height, margin, border, padding)
+//     }
 
-// create-flex
-create-flex(flex-grow, flex-shrink, flex-basis, align-self)
-    return @block {
-        add-flex(flex-grow, flex-shrink, flex-basis, align-self)
-    }
-create-flex2(flex-direction, justify-content, align-items)
-    return @block {
-        add-flex2(flex-direction, justify-content, align-items)
-    }
+// // create-flex
+// create-flex(flex-grow, flex-shrink, flex-basis, align-self)
+//     return @block {
+//         add-flex(flex-grow, flex-shrink, flex-basis, align-self)
+//     }
+// create-flex2(flex-direction, justify-content, align-items)
+//     return @block {
+//         add-flex2(flex-direction, justify-content, align-items)
+//     }
 
-// add-style
-add-style(key, objects...)
-    key = get-value(get-key('selector', key))
-    key = replace('(\s+)', ' ', key)
-    {key}
-        for object in objects
-            {object}
-        {block}
+// // add-style
+// add-style(key, objects...)
+//     key = get-value(get-key('selector', key))
+//     key = replace('(\s+)', ' ', key)
+//     {key}
+//         for object in objects
+//             {object}
+//         {block}
 
-// add-skin
-add-view-skin(key)
-    if key != null and key != none
-        for object in get-value(get-key('view', key))
-            {object}
-add-layout-skin(key)
-    if key != null and key != none
-        for object in get-value(get-key('layout', key))
-            {object}
-add-flex-skin(key)
-    if key != null and key != none
-        for object in get-value(get-key('flex', key))
-            {object}
+// // add-skin
+// add-view-skin(key)
+//     if key != null and key != none
+//         for object in get-value(get-key('view', key))
+//             {object}
+// add-layout-skin(key)
+//     if key != null and key != none
+//         for object in get-value(get-key('layout', key))
+//             {object}
+// add-flex-skin(key)
+//     if key != null and key != none
+//         for object in get-value(get-key('flex', key))
+//             {object}
 
 // style
 style(selector)
@@ -64,11 +64,11 @@ property(name, value)
         add-property(name, value)
     })
 // style
-font(url = null, size = null, style = null)
+font(url, size, style)
     push(context--styles, @block {
         add-font(url, size, style)
     })
-text(align = null, outline = null, shadow = null)
+text(align, outline, shadow)
     push(context--styles, @block {
         add-text(align, outline, shadow)
     })
@@ -93,7 +93,7 @@ flex2(flex-direction, justify-content, align-items)
     })
 // style
 flush()
-    if is-defined('context--selector', true) and context--selector != null
+    if context--selector is defined and context--selector != null
         selector = replace('(\s+)', ' ', get-value(get-key('selector', context--selector)))
         styles   = context--styles
         {selector}
