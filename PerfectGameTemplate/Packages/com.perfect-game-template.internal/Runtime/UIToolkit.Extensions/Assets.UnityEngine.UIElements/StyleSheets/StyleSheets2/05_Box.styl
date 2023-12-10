@@ -20,25 +20,29 @@ selector--box--medium        = '.unity-box.medium'
 selector--box--large         = '.unity-box.large'
 
 // view
-add-style(box,                create-view(box--normal, box----------normal, box----------normal, box----------normal, box--normal))
-add-style(box--light2,        create-view(box--normal, box--light2--normal, box--light2--normal, box--light2--normal, box--normal))
-add-style(box--light,         create-view(box--normal, box--light---normal, box--light---normal, box--light---normal, box--normal))
-add-style(box--gray,          create-view(box--normal, box--gray----normal, box--gray----normal, box--gray----normal, box--normal))
-add-style(box--dark,          create-view(box--normal, box--dark----normal, box--dark----normal, box--dark----normal, box--normal))
-add-style(box--dark2,         create-view(box--normal, box--dark2---normal, box--dark2---normal, box--dark2---normal, box--normal))
+style(box               ) view(box--normal, box----------normal, box----------normal, box----------normal, box--normal)
+style(box--light2       ) view(box--normal, box--light2--normal, box--light2--normal, box--light2--normal, box--normal)
+style(box--light        ) view(box--normal, box--light---normal, box--light---normal, box--light---normal, box--normal)
+style(box--gray         ) view(box--normal, box--gray----normal, box--gray----normal, box--gray----normal, box--normal)
+style(box--dark         ) view(box--normal, box--dark----normal, box--dark----normal, box--dark----normal, box--normal)
+style(box--dark2        ) view(box--normal, box--dark2---normal, box--dark2---normal, box--dark2---normal, box--normal)
+flush()
 // view
-add-style(box----------hover, create-view(null,        box----------hover,  null,                box----------hover,  null       ))
-add-style(box--light2--hover, create-view(null,        box--light2--hover,  null,                box--light2--hover,  null       ))
-add-style(box--light---hover, create-view(null,        box--light---hover,  null,                box--light---hover,  null       ))
-add-style(box--gray----hover, create-view(null,        box--gray----hover,  null,                box--gray----hover,  null       ))
-add-style(box--dark----hover, create-view(null,        box--dark----hover,  null,                box--dark----hover,  null       ))
-add-style(box--dark2---hover, create-view(null,        box--dark2---hover,  null,                box--dark2---hover,  null       ))
+style(box----------hover) view(null,        box----------hover,  null,                box----------hover,  null       )
+style(box--light2--hover) view(null,        box--light2--hover,  null,                box--light2--hover,  null       )
+style(box--light---hover) view(null,        box--light---hover,  null,                box--light---hover,  null       )
+style(box--gray----hover) view(null,        box--gray----hover,  null,                box--gray----hover,  null       )
+style(box--dark----hover) view(null,        box--dark----hover,  null,                box--dark----hover,  null       )
+style(box--dark2---hover) view(null,        box--dark2---hover,  null,                box--dark2---hover,  null       )
+flush()
 
 // layout
-add-style(box,                create-layout(null, auto, auto, (4px), (1px), (0px                )))
-add-style(box--small,         create-layout(null, auto, auto, (4px), (1px), (6px  6px  5px  5px )))
-add-style(box--medium,        create-layout(null, auto, auto, (4px), (1px), (12px 12px 10px 10px)))
-add-style(box--large,         create-layout(null, auto, auto, (4px), (1px), (24px 24px 20px 20px)))
+style(box               ) layout(null, auto, auto, (4px), (1px), (0px                ))
+style(box--small        ) layout(null, auto, auto, (4px), (1px), (6px  6px  5px  5px ))
+style(box--medium       ) layout(null, auto, auto, (4px), (1px), (12px 12px 10px 10px))
+style(box--large        ) layout(null, auto, auto, (4px), (1px), (24px 24px 20px 20px))
+flush()
 
 // flex
-add-style(box,                create-flex(0, 1, auto, auto), create-flex2(column, flex-start, stretch))
+style(box               ) flex(0, 1, auto, auto) flex2(column, flex-start, stretch)
+flush()
