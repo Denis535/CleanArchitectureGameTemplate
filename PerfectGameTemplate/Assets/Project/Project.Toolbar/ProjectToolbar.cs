@@ -152,40 +152,32 @@ namespace Project.Toolbar {
         [MenuItem( "Project/Open Dialog", priority = 1100 )]
         internal static void OpenDialog() {
             if (Application.isPlaying) {
-                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
-                var widget = screen.Widget;
-                var dialog = new DialogWidget( "Dialog", "This is dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
-                widget?.AttachChild( dialog );
+                GetScreen().Widget!.AttachChild( new DialogWidget( "Dialog", "This is dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null ) );
             }
         }
         [MenuItem( "Project/Open Info Dialog", priority = 1101 )]
         internal static void OpenInfoDialog() {
             if (Application.isPlaying) {
-                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
-                var widget = screen.Widget;
-                var dialog = new InfoDialogWidget( "Info Dialog", "This is info dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
-                widget?.AttachChild( dialog );
+                GetScreen().Widget!.AttachChild( new InfoDialogWidget( "Info Dialog", "This is info dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null ) );
             }
         }
         [MenuItem( "Project/Open Warning Dialog", priority = 1102 )]
         internal static void OpenWarningDialog() {
             if (Application.isPlaying) {
-                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
-                var widget = screen.Widget;
-                var dialog = new WarningDialogWidget( "Warning Dialog", "This is warning dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
-                widget?.AttachChild( dialog );
+                GetScreen().Widget!.AttachChild( new WarningDialogWidget( "Warning Dialog", "This is warning dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null ) );
             }
         }
         [MenuItem( "Project/Open Error Dialog", priority = 1103 )]
         internal static void OpenErrorDialog() {
             if (Application.isPlaying) {
-                var screen = GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
-                var widget = screen.Widget;
-                var dialog = new ErrorDialogWidget( "Error Dialog", "This is error dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null );
-                widget?.AttachChild( dialog );
+                GetScreen().Widget!.AttachChild( new ErrorDialogWidget( "Error Dialog", "This is error dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null ) );
             }
         }
 
+        // Helpers
+        private static UIScreen GetScreen() {
+            return GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
+        }
         // Helpers
         private static void OpenAssets(params string[] patterns) {
             foreach (var path in GetMatches( GetPaths(), patterns )) {

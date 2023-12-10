@@ -106,7 +106,7 @@ add-property-internal(property, value)
         value = s("url('%s')", unquote(value)) if property == '-unity-font'
         value = s("url('%s')", unquote(value)) if property == '-unity-font-definition'
         value = s("url('%s')", unquote(value)) if property == 'background-image'
-        add-property property, value
+        add-property(property, value)
 
 // get-native-property
 get-native-property(property)
@@ -215,12 +215,12 @@ get-unity-property(property)
     property
 
 // misc
-get-theme-value(type, key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
+get-theme-value(section, key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
     if key != null and key != none
-        return get-theme-value-internal(get-key('theme', type, key), hue, saturate, desaturate, lighten, darken, alpha)
+        return get-theme-value-internal(section, key, hue, saturate, desaturate, lighten, darken, alpha)
     null
-get-theme-value-internal(key, _hue = null, _saturate = null, _desaturate = null, _lighten = null, _darken = null, _alpha = null)
-    value = get-value(key)
+get-theme-value-internal(section, key, _hue, _saturate, _desaturate, _lighten, _darken, _alpha)
+    value = get-value(get-key('theme', section, key))
     value = hue(value, _hue)               if value != null and _hue        != null
     value = saturate(value, _saturate)     if value != null and _saturate   != null
     value = desaturate(value, _desaturate) if value != null and _desaturate != null
@@ -230,12 +230,12 @@ get-theme-value-internal(key, _hue = null, _saturate = null, _desaturate = null,
     value
 
 // misc
-get-key(key0, key1 = null, key2 = null)
-    key =              get-string(key0)
-    key = key + '--' + get-string(key1) if key1 != null
-    key = key + '--' + get-string(key2) if key2 != null
-    replace('(--)(-*)', '--', key)
+get-key(key...)
+    result =         get-string(key[0])
+    result += '--' + get-string(key[1]) if key[1] != null
+    result += '--' + get-string(key[2]) if key[2] != null
+    result
 get-value(key)
-    if is-defined(key)
-        return lookup(key)
+    if is-defined(get-string(key))
+        return get-definition(get-string(key))
     error('Value is undefined: ' + key)
