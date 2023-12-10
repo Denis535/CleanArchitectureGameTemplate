@@ -124,20 +124,20 @@ namespace UnityEngine.AddressableAssets {
                         public const string @Card = "Project.UI/StyleSheets/StyleSheets2/01_Card.uss";
                         public const string @Scope = "Project.UI/StyleSheets/StyleSheets2/02_Scope.uss";
                         public const string @Group = "Project.UI/StyleSheets/StyleSheets2/03_Group.uss";
-                        public const string @Scroller__Horizontal = "Project.UI/StyleSheets/StyleSheets2/04_Scroller--Horizontal.uss";
-                        public const string @Scroller__Vertical = "Project.UI/StyleSheets/StyleSheets2/04_Scroller--Vertical.uss";
                         public const string @Scroll_View = "Project.UI/StyleSheets/StyleSheets2/04_Scroll-View.uss";
+                        public const string @Scroll_View_Scroller_Horizontal = "Project.UI/StyleSheets/StyleSheets2/04_Scroll-View_Scroller_Horizontal.uss";
+                        public const string @Scroll_View_Scroller_Vertical = "Project.UI/StyleSheets/StyleSheets2/04_Scroll-View_Scroller_Vertical.uss";
                         public const string @Box = "Project.UI/StyleSheets/StyleSheets2/05_Box.uss";
                     }
                     public static class @StyleSheets3 {
                         public const string @Label = "Project.UI/StyleSheets/StyleSheets3/00_Label.uss";
                         public const string @Button = "Project.UI/StyleSheets/StyleSheets3/01_Button.uss";
                         public const string @Field = "Project.UI/StyleSheets/StyleSheets3/02_Field.uss";
-                        public const string @Text_Field = "Project.UI/StyleSheets/StyleSheets3/03_Text-Field.uss";
-                        public const string @Popup_Field = "Project.UI/StyleSheets/StyleSheets3/04_Popup-Field.uss";
-                        public const string @Slider_Field = "Project.UI/StyleSheets/StyleSheets3/05_Slider-Field.uss";
-                        public const string @Toggle_Field = "Project.UI/StyleSheets/StyleSheets3/06_Toggle-Field.uss";
-                        public const string @Dropdown = "Project.UI/StyleSheets/StyleSheets3/07_Dropdown.uss";
+                        public const string @Field_Popup_Field = "Project.UI/StyleSheets/StyleSheets3/02_Field_Popup-Field.uss";
+                        public const string @Field_Slider_Field = "Project.UI/StyleSheets/StyleSheets3/02_Field_Slider-Field.uss";
+                        public const string @Field_Text_Field = "Project.UI/StyleSheets/StyleSheets3/02_Field_Text-Field.uss";
+                        public const string @Field_Toggle_Field = "Project.UI/StyleSheets/StyleSheets3/02_Field_Toggle-Field.uss";
+                        public const string @Dropdown = "Project.UI/StyleSheets/StyleSheets3/03_Dropdown.uss";
                     }
                     public const string @ThemeStyleSheet = "Project.UI/StyleSheets/ThemeStyleSheet.uss";
                 }

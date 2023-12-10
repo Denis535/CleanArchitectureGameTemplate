@@ -29,8 +29,6 @@
 }
 .unity-base-dropdown__item:checked .unity-base-dropdown__checkmark {
   background-color: rgba(0,0,0,0);
-  background-image: url('../../Images/Check.png');
-  -unity-background-image-tint-color: #e6e6e6;
   border-left-color: rgba(0,0,0,0);
   border-right-color: rgba(0,0,0,0);
   border-top-color: rgba(0,0,0,0);
@@ -39,6 +37,8 @@
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
+  background-image: url('../../Images/Check.png');
+  -unity-background-image-tint-color: #e6e6e6;
 }
 .unity-base-dropdown__item .unity-base-dropdown__label {
   background-color: rgba(0,0,0,0);
