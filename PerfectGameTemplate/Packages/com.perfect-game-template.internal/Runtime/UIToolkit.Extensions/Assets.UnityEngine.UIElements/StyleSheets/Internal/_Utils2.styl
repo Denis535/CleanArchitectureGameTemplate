@@ -1,69 +1,16 @@
-// // create-view
-// create-font(url, size, style)
-//     return @block {
-//         add-font(url, size, style)
-//     }
-// create-text(align, outline, shadow)
-//     return @block {
-//         add-text(align, outline, shadow)
-//     }
-
-// // create-view
-// create-view(color, background-color, background-image, border-color, border-radius)
-//     return @block {
-//         add-view(color, background-color, background-image, border-color, border-radius)
-//     }
-
-// // create-layout
-// create-layout(position, width, height, margin, border, padding)
-//     return @block {
-//         add-layout(position, width, height, margin, border, padding)
-//     }
-
-// // create-flex
-// create-flex(flex-grow, flex-shrink, flex-basis, align-self)
-//     return @block {
-//         add-flex(flex-grow, flex-shrink, flex-basis, align-self)
-//     }
-// create-flex2(flex-direction, justify-content, align-items)
-//     return @block {
-//         add-flex2(flex-direction, justify-content, align-items)
-//     }
-
-// // add-style
-// add-style(key, objects...)
-//     key = get-value(get-key('selector', key))
-//     key = replace('(\s+)', ' ', key)
-//     {key}
-//         for object in objects
-//             {object}
-//         {block}
-
-// // add-skin
-// add-view-skin(key)
-//     if key != null and key != none
-//         for object in get-value(get-key('view', key))
-//             {object}
-// add-layout-skin(key)
-//     if key != null and key != none
-//         for object in get-value(get-key('layout', key))
-//             {object}
-// add-flex-skin(key)
-//     if key != null and key != none
-//         for object in get-value(get-key('flex', key))
-//             {object}
-
 // style
 style(selector)
     flush()
     define('context--selector', selector, true)
     define('context--styles',   (),       true)
-// style
+
+// property
 property(name, value)
     push(context--styles, @block {
         add-property(name, value)
     })
-// style
+
+// view
 font(url, size, style)
     push(context--styles, @block {
         add-font(url, size, style)
@@ -72,17 +19,24 @@ text(align, outline, shadow)
     push(context--styles, @block {
         add-text(align, outline, shadow)
     })
-// style
+
+// view
 view(color, background-color, background-image, border-color, border-radius)
     push(context--styles, @block {
         add-view(color, background-color, background-image, border-color, border-radius)
     })
-// style
+image(background-image)
+    push(context--styles, @block {
+        add-view(null, null, background-image, null, null)
+    })
+
+// layout
 layout(position, width, height, margin, border, padding)
     push(context--styles, @block {
         add-layout(position, width, height, margin, border, padding)
     })
-// style
+
+// flex
 flex(flex-grow, flex-shrink, flex-basis, align-self)
     push(context--styles, @block {
         add-flex(flex-grow, flex-shrink, flex-basis, align-self)
@@ -91,7 +45,8 @@ flex2(flex-direction, justify-content, align-items)
     push(context--styles, @block {
         add-flex2(flex-direction, justify-content, align-items)
     })
-// style
+
+// flush
 flush()
     if context--selector is defined and context--selector != null
         selector = replace('(\s+)', ' ', get-value(get-key('selector', context--selector)))

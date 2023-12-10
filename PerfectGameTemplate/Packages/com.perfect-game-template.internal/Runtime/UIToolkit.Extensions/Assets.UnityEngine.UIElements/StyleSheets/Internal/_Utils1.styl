@@ -1,88 +1,88 @@
 // add-view
 add-font(url, size, style)
-    add-property-internal 'font-url'            url
-    add-property-internal 'font-definition-url' url
-    add-property-internal 'font-size'           size
-    add-property-internal 'font-style'          style
+    add-property2 'font-url'            url
+    add-property2 'font-definition-url' url
+    add-property2 'font-size'           size
+    add-property2 'font-style'          style
 add-text(align, outline, shadow)
-    add-property-internal 'text-align'          align
-    add-property-internal 'text-outline'        outline
-    add-property-internal 'text-shadow'         shadow
+    add-property2 'text-align'          align
+    add-property2 'text-outline'        outline
+    add-property2 'text-shadow'         shadow
 
 // add-view
 add-view(color = null, background-color = null, background-image = null, border-color = null, border-radius = null)
-    add-view-foreground                                   color
-    add-view-background                                   background-color background-image
-    add-view-border                                       border-color border-radius
+    add-view-foreground                           color
+    add-view-background                           background-color background-image
+    add-view-border                               border-color border-radius
 add-view-foreground(color)
-    color =                                               get-theme-value('color', color)
-    add-property-internal 'color'                         color
+    color =                                       get-theme-value('color', color)
+    add-property2 'color'                         color
 add-view-background(background-color, background-image)
-    background-color =                                    get-theme-value('background-color', background-color)
-    background-image =                                    get-theme-value('background-image', background-image) if typeof(background-image) != 'object'
-    add-property-internal 'background-color'              background-color
-    add-property-internal 'background-image-url'          background-image.url          if background-image != null
-    add-property-internal 'background-image-color'        background-image.color        if background-image != null
-    add-property-internal 'background-image-scale-mode'   background-image.scale-mode   if background-image != null
-    add-property-internal 'background-image-slice-left'   background-image.slice-left   if background-image != null
-    add-property-internal 'background-image-slice-right'  background-image.slice-right  if background-image != null
-    add-property-internal 'background-image-slice-top'    background-image.slice-top    if background-image != null
-    add-property-internal 'background-image-slice-bottom' background-image.slice-bottom if background-image != null
-    add-property-internal 'background-image-slice-scale'  background-image.slice-scale  if background-image != null
+    background-color =                            get-theme-value('background-color', background-color)
+    background-image =                            get-theme-value('background-image', background-image) if typeof(background-image) != 'object'
+    add-property2 'background-color'              background-color
+    add-property2 'background-image-url'          background-image.url          if background-image != null
+    add-property2 'background-image-color'        background-image.color        if background-image != null
+    add-property2 'background-image-scale-mode'   background-image.scale-mode   if background-image != null
+    add-property2 'background-image-slice-left'   background-image.slice-left   if background-image != null
+    add-property2 'background-image-slice-right'  background-image.slice-right  if background-image != null
+    add-property2 'background-image-slice-top'    background-image.slice-top    if background-image != null
+    add-property2 'background-image-slice-bottom' background-image.slice-bottom if background-image != null
+    add-property2 'background-image-slice-scale'  background-image.slice-scale  if background-image != null
 add-view-border(border-color, border-radius)
-    border-color  =                                       get-theme-value('border-color',  border-color )
-    border-radius =                                       get-theme-value('border-radius', border-radius)
-    add-property-internal 'border-left-color'             border-color[0]
-    add-property-internal 'border-right-color'            border-color[1] or border-color[0]
-    add-property-internal 'border-top-color'              border-color[2] or border-color[0]
-    add-property-internal 'border-bottom-color'           border-color[3] or border-color[0]
-    add-property-internal 'border-top-left-radius'        border-radius[0]
-    add-property-internal 'border-top-right-radius'       border-radius[1] or border-radius[0]
-    add-property-internal 'border-bottom-left-radius'     border-radius[2] or border-radius[0]
-    add-property-internal 'border-bottom-right-radius'    border-radius[3] or border-radius[0]
+    border-color  =                               get-theme-value('border-color',  border-color )
+    border-radius =                               get-theme-value('border-radius', border-radius)
+    add-property2 'border-left-color'             border-color[0]
+    add-property2 'border-right-color'            border-color[1] or border-color[0]
+    add-property2 'border-top-color'              border-color[2] or border-color[0]
+    add-property2 'border-bottom-color'           border-color[3] or border-color[0]
+    add-property2 'border-top-left-radius'        border-radius[0]
+    add-property2 'border-top-right-radius'       border-radius[1] or border-radius[0]
+    add-property2 'border-bottom-left-radius'     border-radius[2] or border-radius[0]
+    add-property2 'border-bottom-right-radius'    border-radius[3] or border-radius[0]
 
 // add-layout
 add-layout(position = null, width = null, height = null, margin = null, border = null, padding = null)
-    add-layout-position                         position, null, null, null, null
-    add-layout-size                             width, height
-    add-layout-box                              margin, border, padding
+    add-layout-position                 position, null, null, null, null
+    add-layout-size                     width, height
+    add-layout-box                      margin, border, padding
 add-layout-position(position, left = null, right = null, top = null, bottom = null)
-    add-property-internal 'position'            position[0]
-    add-property-internal 'left'                left   or position[1]
-    add-property-internal 'right'               right  or position[2]
-    add-property-internal 'top'                 top    or position[3]
-    add-property-internal 'bottom'              bottom or position[4]
+    add-property2 'position'            position[0]
+    add-property2 'left'                left   or position[1]
+    add-property2 'right'               right  or position[2]
+    add-property2 'top'                 top    or position[3]
+    add-property2 'bottom'              bottom or position[4]
 add-layout-size(width, height)
-    add-property-internal 'width'               width[0]
-    add-property-internal 'min-width'           width[1]
-    add-property-internal 'max-width'           width[2]
-    add-property-internal 'height'              height[0]
-    add-property-internal 'min-height'          height[1]
-    add-property-internal 'max-height'          height[2]
+    add-property2 'width'               width[0]
+    add-property2 'min-width'           width[1]
+    add-property2 'max-width'           width[2]
+    add-property2 'height'              height[0]
+    add-property2 'min-height'          height[1]
+    add-property2 'max-height'          height[2]
 add-layout-box(margin, border, padding)
-    add-property-internal 'margin-left'         margin[0]
-    add-property-internal 'margin-right'        margin[1] or margin[0]
-    add-property-internal 'margin-top'          margin[2] or margin[0]
-    add-property-internal 'margin-bottom'       margin[3] or margin[0]
-    add-property-internal 'border-left-width'   border[0]
-    add-property-internal 'border-right-width'  border[1] or border[0]
-    add-property-internal 'border-top-width'    border[2] or border[0]
-    add-property-internal 'border-bottom-width' border[3] or border[0]
-    add-property-internal 'padding-left'        padding[0]
-    add-property-internal 'padding-right'       padding[1] or padding[0]
-    add-property-internal 'padding-top'         padding[2] or padding[0]
-    add-property-internal 'padding-bottom'      padding[3] or padding[0]
+    add-property2 'margin-left'         margin[0]
+    add-property2 'margin-right'        margin[1] or margin[0]
+    add-property2 'margin-top'          margin[2] or margin[0]
+    add-property2 'margin-bottom'       margin[3] or margin[0]
+    add-property2 'border-left-width'   border[0]
+    add-property2 'border-right-width'  border[1] or border[0]
+    add-property2 'border-top-width'    border[2] or border[0]
+    add-property2 'border-bottom-width' border[3] or border[0]
+    add-property2 'padding-left'        padding[0]
+    add-property2 'padding-right'       padding[1] or padding[0]
+    add-property2 'padding-top'         padding[2] or padding[0]
+    add-property2 'padding-bottom'      padding[3] or padding[0]
 
 // add-flex
 add-flex(flex-grow = null, flex-shrink = null, flex-basis = null, align-self = null)
-    add-property-internal 'flex-grow'       flex-grow
-    add-property-internal 'flex-shrink'     flex-shrink
-    add-property-internal 'flex-basis'      flex-basis
-    add-property-internal 'align-self'      align-self
+    add-property2 'flex-grow'       flex-grow
+    add-property2 'flex-shrink'     flex-shrink
+    add-property2 'flex-basis'      flex-basis
+    add-property2 'align-self'      align-self
 add-flex2(flex-direction = null, justify-content = null, align-items = null)
-    add-property-internal 'flex-direction'  flex-direction
-    add-property-internal 'justify-content' justify-content
-    add-property-internal 'align-items'     align-items
+    add-property2 'flex-direction'  flex-direction
+    add-property2 'justify-content' justify-content
+    add-property2 'align-items'     align-items
 
 // utils
 img(url, color, scale-mode, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
@@ -97,8 +97,8 @@ img(url, color, scale-mode, slice-left = null, slice-right = null, slice-top = n
         slice-scale:  slice-scale,
     }
 
-// add-property-internal
-add-property-internal(property, value)
+// add-property2
+add-property2(property, value)
     property = get-native-property(property)
     property = get-unity-property(property)
     if value != null
