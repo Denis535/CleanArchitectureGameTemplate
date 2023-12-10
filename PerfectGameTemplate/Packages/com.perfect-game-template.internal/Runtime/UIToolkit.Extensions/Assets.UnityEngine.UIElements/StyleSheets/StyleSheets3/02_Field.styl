@@ -14,24 +14,24 @@ selector--label--focus = '.unity-base-field:focus .unity-base-field__label'
 selector--input--focus = '.unity-base-field:focus .unity-base-field__input'
 
 // view
-style(field       ) view(null,            element---------normal, element---------normal, element---------normal, element--normal)
-style(label       ) view(element--normal, element--light--normal, element--light--normal, element--light--normal, element--normal) font(null, null, bold) text(middle-left, null, null)
-style(input       ) view(element--normal, element--dark---normal, element--dark---normal, element--dark---normal, element--normal) font(null, null, null) text(middle-left, null, null)
+add-style(field       ) view(null,            element---------normal, element---------normal, element---------normal, element--normal)
+add-style(label       ) view(element--normal, element--light--normal, element--light--normal, element--light--normal, element--normal) font(null, null, bold) text(middle-left, null, null)
+add-style(input       ) view(element--normal, element--dark---normal, element--dark---normal, element--dark---normal, element--normal) font(null, null, null) text(middle-left, null, null)
 flush()
 // view
-style(field--hover) view(null,            null,                   null,                   null,                   null           )
-style(label--hover) view(null,            null,                   null,                   element--light--hover,  null           )
-style(input--hover) view(null,            null,                   null,                   element--dark---hover,  null           )
+add-style(field--hover) view(null,            null,                   null,                   null,                   null           )
+add-style(label--hover) view(null,            null,                   null,                   element--light--hover,  null           )
+add-style(input--hover) view(null,            null,                   null,                   element--dark---hover,  null           )
 flush()
 
 // layout
-style(field       ) layout(null, auto, auto, (4px            ), (0px), (0px                ))
-style(label       ) layout(null, auto, auto, (0px 2px 0px 0px), (1px), (12px 12px 10px 10px))
-style(input       ) layout(null, auto, auto, (0px            ), (1px), (12px 12px 10px 10px))
+add-style(field       ) layout(null, auto, auto, (4px            ), (0px), (0px                ))
+add-style(label       ) layout(null, auto, auto, (0px 2px 0px 0px), (1px), (12px 12px 10px 10px))
+add-style(input       ) layout(null, auto, auto, (0px            ), (1px), (12px 12px 10px 10px))
 flush()
 
 // flex
-style(field       ) flex(0, 1, auto, auto) flex2(row, flex-start, stretch)
-style(label       ) flex(0, 1, auto, auto)
-style(input       ) flex(1, 1, auto, auto) flex2(row, flex-end, stretch)
+add-style(field       ) flex(0, 1, auto, auto) flex2(row, flex-start, stretch)
+add-style(label       ) flex(0, 1, auto, auto)
+add-style(input       ) flex(1, 1, auto, auto) flex2(row, flex-end, stretch)
 flush()

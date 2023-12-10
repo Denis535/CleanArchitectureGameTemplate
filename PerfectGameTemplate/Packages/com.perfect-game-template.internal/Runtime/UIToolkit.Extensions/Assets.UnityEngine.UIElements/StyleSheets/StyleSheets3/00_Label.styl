@@ -8,16 +8,16 @@ selector--label--medium = '.unity-label.medium'
 selector--label--large  = '.unity-label.large'
 
 // view
-style(label        ) view(null, element--normal, element--normal, element--normal, element--normal)
+add-style(label        ) view(null, element--normal, element--normal, element--normal, element--normal)
 flush()
 
 // layout
-style(label        ) layout(null, auto, auto, (4px), (1px), (0px  0px  0px  0px ))
-style(label--small ) layout(null, auto, auto, (4px), (1px), (6px  6px  5px  5px ))
-style(label--medium) layout(null, auto, auto, (4px), (1px), (12px 12px 10px 10px))
-style(label--large ) layout(null, auto, auto, (4px), (1px), (24px 24px 20px 20px))
+add-style(label        ) layout(null, auto, auto, (4px), (1px), (0px  0px  0px  0px ))
+add-style(label--small ) layout(null, auto, auto, (4px), (1px), (6px  6px  5px  5px ))
+add-style(label--medium) layout(null, auto, auto, (4px), (1px), (12px 12px 10px 10px))
+add-style(label--large ) layout(null, auto, auto, (4px), (1px), (24px 24px 20px 20px))
 flush()
 
 // flex
-style(label        ) flex(0, 1, auto, auto)
+add-style(label        ) flex(0, 1, auto, auto)
 flush()

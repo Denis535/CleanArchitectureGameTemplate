@@ -11,17 +11,17 @@ selector--scope--column = '.scope.column'
 selector--scope--row    = '.scope.row'
 
 // view
-style(scope        ) view(null, null, null, null, null)
+add-style(scope        ) view(null, null, null, null, null)
 flush()
 
 // layout
-style(scope        ) layout(null, auto, auto, (0px), (0px), (0px                ))
-style(scope--small ) layout(null, auto, auto, (0px), (0px), (6px  6px  5px  5px ))
-style(scope--medium) layout(null, auto, auto, (0px), (0px), (12px 12px 10px 10px))
-style(scope--large ) layout(null, auto, auto, (0px), (0px), (24px 24px 20px 20px))
+add-style(scope        ) layout(null, auto, auto, (0px), (0px), (0px                ))
+add-style(scope--small ) layout(null, auto, auto, (0px), (0px), (6px  6px  5px  5px ))
+add-style(scope--medium) layout(null, auto, auto, (0px), (0px), (12px 12px 10px 10px))
+add-style(scope--large ) layout(null, auto, auto, (0px), (0px), (24px 24px 20px 20px))
 flush()
 
 // flex
-style(scope--column) flex(0, 1, auto, auto) flex2(column, flex-start, stretch)
-style(scope--row   ) flex(0, 1, auto, auto) flex2(row,    flex-start, stretch)
+add-style(scope--column) flex(0, 1, auto, auto) flex2(column, flex-start, stretch)
+add-style(scope--row   ) flex(0, 1, auto, auto) flex2(row,    flex-start, stretch)
 flush()

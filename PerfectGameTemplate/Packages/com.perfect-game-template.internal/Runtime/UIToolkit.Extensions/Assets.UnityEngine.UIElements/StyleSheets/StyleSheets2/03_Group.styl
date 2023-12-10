@@ -23,30 +23,30 @@ selector--group--column        = '.group.column'
 selector--group--row           = '.group.row'
 
 // view
-style(group               ) view(view--normal, view----------normal, view----------normal, view----------normal, view--normal)
-style(group--light2       ) view(view--normal, view--light2--normal, view--light2--normal, view--light2--normal, view--normal)
-style(group--light        ) view(view--normal, view--light---normal, view--light---normal, view--light---normal, view--normal)
-style(group--gray         ) view(view--normal, view--gray----normal, view--gray----normal, view--gray----normal, view--normal)
-style(group--dark         ) view(view--normal, view--dark----normal, view--dark----normal, view--dark----normal, view--normal)
-style(group--dark2        ) view(view--normal, view--dark2---normal, view--dark2---normal, view--dark2---normal, view--normal)
+add-style(group               ) view(view--normal, view----------normal, view----------normal, view----------normal, view--normal)
+add-style(group--light2       ) view(view--normal, view--light2--normal, view--light2--normal, view--light2--normal, view--normal)
+add-style(group--light        ) view(view--normal, view--light---normal, view--light---normal, view--light---normal, view--normal)
+add-style(group--gray         ) view(view--normal, view--gray----normal, view--gray----normal, view--gray----normal, view--normal)
+add-style(group--dark         ) view(view--normal, view--dark----normal, view--dark----normal, view--dark----normal, view--normal)
+add-style(group--dark2        ) view(view--normal, view--dark2---normal, view--dark2---normal, view--dark2---normal, view--normal)
 flush()
 // view
-style(group----------hover) view(null,         view----------hover,  null,                 view----------hover,  null        )
-style(group--light2--hover) view(null,         view--light2--hover,  null,                 view--light2--hover,  null        )
-style(group--light---hover) view(null,         view--light---hover,  null,                 view--light---hover,  null        )
-style(group--gray----hover) view(null,         view--gray----hover,  null,                 view--gray----hover,  null        )
-style(group--dark----hover) view(null,         view--dark----hover,  null,                 view--dark----hover,  null        )
-style(group--dark2---hover) view(null,         view--dark2---hover,  null,                 view--dark2---hover,  null        )
+add-style(group----------hover) view(null,         view----------hover,  null,                 view----------hover,  null        )
+add-style(group--light2--hover) view(null,         view--light2--hover,  null,                 view--light2--hover,  null        )
+add-style(group--light---hover) view(null,         view--light---hover,  null,                 view--light---hover,  null        )
+add-style(group--gray----hover) view(null,         view--gray----hover,  null,                 view--gray----hover,  null        )
+add-style(group--dark----hover) view(null,         view--dark----hover,  null,                 view--dark----hover,  null        )
+add-style(group--dark2---hover) view(null,         view--dark2---hover,  null,                 view--dark2---hover,  null        )
 flush()
 
 // layout
-style(group               ) layout(null, auto, auto, (4px), (1px), (0px                ))
-style(group--small        ) layout(null, auto, auto, (4px), (1px), (6px  6px  5px  5px ))
-style(group--medium       ) layout(null, auto, auto, (4px), (1px), (12px 12px 10px 10px))
-style(group--large        ) layout(null, auto, auto, (4px), (1px), (24px 24px 20px 20px))
+add-style(group               ) layout(null, auto, auto, (4px), (1px), (0px                ))
+add-style(group--small        ) layout(null, auto, auto, (4px), (1px), (6px  6px  5px  5px ))
+add-style(group--medium       ) layout(null, auto, auto, (4px), (1px), (12px 12px 10px 10px))
+add-style(group--large        ) layout(null, auto, auto, (4px), (1px), (24px 24px 20px 20px))
 flush()
 
 // flex
-style(group--column       ) flex(0, 1, auto, auto) flex2(column, flex-start, stretch)
-style(group--row          ) flex(0, 1, auto, auto) flex2(row,    flex-start, stretch)
+add-style(group--column       ) flex(0, 1, auto, auto) flex2(column, flex-start, stretch)
+add-style(group--row          ) flex(0, 1, auto, auto) flex2(row,    flex-start, stretch)
 flush()
