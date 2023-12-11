@@ -10,6 +10,12 @@ property(name, value)
         add-property(name, value)
     })
 
+// theme
+theme(key)
+    push(context--styles, @block {
+        add-theme(key)
+    })
+
 // view
 font(url, size, style)
     push(context--styles, @block {

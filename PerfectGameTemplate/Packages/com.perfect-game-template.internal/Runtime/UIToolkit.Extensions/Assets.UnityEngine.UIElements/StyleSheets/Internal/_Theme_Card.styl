@@ -1,78 +1,53 @@
 @import "_Utils"
 
 // theme
-theme--color-------------card--------------------normal = hsla(  0,   0%,  90%, 1.00)
+theme--card---------------------normal = hsla(0, 0%, 90%, 1.00) hsla(210,  4%, 25%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px)
+theme--header-------------------normal = hsla(0, 0%, 90%, 1.00) hsla(210,  4%, 20%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px 6px 0px 0px)
+theme--content------------------normal = hsla(0, 0%, 90%, 1.00) hsla(  0, 0%,   0%, 0.00) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px)
+theme--footer-------------------normal = hsla(0, 0%, 90%, 1.00) hsla(210,  4%, 15%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (0px 0px 6px 6px)
 // theme
-theme--background-color--card--------------------normal = hsla(210,   4%,  25%, 0.90)
-theme--background-color--header------------------normal = hsla(210,   4%,  20%, 0.90)
-theme--background-color--content-----------------normal = hsla(210,   4%,   0%, 0.00)
-theme--background-color--footer------------------normal = hsla(210,   4%,  15%, 0.90)
+theme--dialog-card--------------normal = hsla(0, 0%, 90%, 1.00) hsla(210,  4%, 25%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px)
+theme--dialog-header------------normal = hsla(0, 0%, 90%, 1.00) hsla(210,  4%, 20%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px 6px 0px 0px)
+theme--dialog-content-----------normal = hsla(0, 0%, 90%, 1.00) hsla(  0, 0%,   0%, 0.00) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px)
+theme--dialog-footer------------normal = hsla(0, 0%, 90%, 1.00) hsla(210,  4%, 15%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (0px 0px 6px 6px)
 // theme
-theme--background-image--card--------------------normal = img(null, null, null)
-theme--background-image--header------------------normal = img(null, null, null)
-theme--background-image--content-----------------normal = img(null, null, null)
-theme--background-image--footer------------------normal = img(null, null, null)
+theme--dialog-card-----info-----normal = hsla(0, 0%, 90%, 1.00) hsla(210,  4%, 25%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px)
+theme--dialog-header---info-----normal = hsla(0, 0%, 90%, 1.00) hsla(240, 50%, 20%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px 6px 0px 0px)
+theme--dialog-content--info-----normal = hsla(0, 0%, 90%, 1.00) hsla(  0, 0%,   0%, 0.00) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px)
+theme--dialog-footer---info-----normal = hsla(0, 0%, 90%, 1.00) hsla(210,  4%, 15%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (0px 0px 6px 6px)
 // theme
-theme--border-color------card--------------------normal = hsla( 30,  30%,  50%, 1.00)
-theme--border-color------header------------------normal = hsla( 30,  30%,  50%, 1.00)
-theme--border-color------content-----------------normal = hsla( 30,  30%,  50%, 1.00)
-theme--border-color------footer------------------normal = hsla( 30,  30%,  50%, 1.00)
+theme--dialog-card-----warning--normal = hsla(0, 0%, 90%, 1.00) hsla(210,  4%, 25%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px)
+theme--dialog-header---warning--normal = hsla(0, 0%, 90%, 1.00) hsla( 60, 50%, 20%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px 6px 0px 0px)
+theme--dialog-content--warning--normal = hsla(0, 0%, 90%, 1.00) hsla(  0, 0%,   0%, 0.00) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px)
+theme--dialog-footer---warning--normal = hsla(0, 0%, 90%, 1.00) hsla(210,  4%, 15%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (0px 0px 6px 6px)
 // theme
-theme--border-radius-----card--------------------normal = 6px
-theme--border-radius-----header------------------normal = 6px 6px 0px 0px
-theme--border-radius-----content-----------------normal = 6px
-theme--border-radius-----footer------------------normal = 0px 0px 6px 6px
+theme--dialog-card-----error----normal = hsla(0, 0%, 90%, 1.00) hsla(210,  4%, 25%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px)
+theme--dialog-header---error----normal = hsla(0, 0%, 90%, 1.00) hsla(  0, 50%, 20%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px 6px 0px 0px)
+theme--dialog-content--error----normal = hsla(0, 0%, 90%, 1.00) hsla(  0, 0%,   0%, 0.00) img(null, null, null) hsla(30, 30%, 50%, 1.00) (6px)
+theme--dialog-footer---error----normal = hsla(0, 0%, 90%, 1.00) hsla(210,  4%, 15%, 0.90) img(null, null, null) hsla(30, 30%, 50%, 1.00) (0px 0px 6px 6px)
 
 // theme
-theme--color-------------dialog-card-------------normal = hsla(  0,   0%,  90%, 1.00)
+theme--card---------------------hover  = null
+theme--header-------------------hover  = null
+theme--content------------------hover  = null
+theme--footer-------------------hover  = null
 // theme
-theme--background-color--dialog-card-------------normal = null
-theme--background-color--dialog-header-----------normal = null
-theme--background-color--dialog-header--info-----normal = hsla(240,  50%,  20%, 0.90)
-theme--background-color--dialog-header--warning--normal = hsla( 60,  50%,  20%, 0.90)
-theme--background-color--dialog-header--error----normal = hsla(  0,  50%,  20%, 0.90)
-theme--background-color--dialog-content----------normal = null
-theme--background-color--dialog-footer-----------normal = null
+theme--dialog-card--------------hover  = null
+theme--dialog-header------------hover  = null
+theme--dialog-content-----------hover  = null
+theme--dialog-footer------------hover  = null
 // theme
-theme--background-image--dialog-card-------------normal = img(null, null, null)
-theme--background-image--dialog-header-----------normal = img(null, null, null)
-theme--background-image--dialog-header--info-----normal = img(null, null, null)
-theme--background-image--dialog-header--warning--normal = img(null, null, null)
-theme--background-image--dialog-header--error----normal = img(null, null, null)
-theme--background-image--dialog-content----------normal = img(null, null, null)
-theme--background-image--dialog-footer-----------normal = img(null, null, null)
+theme--dialog-card-----info-----hover  = null
+theme--dialog-header---info-----hover  = null
+theme--dialog-content--info-----hover  = null
+theme--dialog-footer---info-----hover  = null
 // theme
-theme--border-color------dialog-card-------------normal = hsla( 30,  30%,  30%, 1.00)
-theme--border-color------dialog-header-----------normal = hsla( 30,  30%,  30%, 1.00)
-theme--border-color------dialog-content----------normal = hsla( 30,  30%,  30%, 1.00)
-theme--border-color------dialog-footer-----------normal = hsla( 30,  30%,  30%, 1.00)
+theme--dialog-card-----warning--hover  = null
+theme--dialog-header---warning--hover  = null
+theme--dialog-content--warning--hover  = null
+theme--dialog-footer---warning--hover  = null
 // theme
-theme--border-radius-----dialog-card-------------normal = 6px
-theme--border-radius-----dialog-header-----------normal = 6px 6px 0px 0px
-theme--border-radius-----dialog-content----------normal = 6px
-theme--border-radius-----dialog-footer-----------normal = 0px 0px 6px 6px
-
-// theme
-theme--background-color--card--------------------hover  = null
-theme--background-color--header------------------hover  = null
-theme--background-color--content-----------------hover  = null
-theme--background-color--footer------------------hover  = null
-// theme
-theme--border-color------card--------------------hover  = null
-theme--border-color------header------------------hover  = null
-theme--border-color------content-----------------hover  = null
-theme--border-color------footer------------------hover  = null
-
-// theme
-theme--background-color--dialog-card-------------hover  = null
-theme--background-color--dialog-header-----------hover  = null
-theme--background-color--dialog-header--info-----hover  = null
-theme--background-color--dialog-header--warning--hover  = null
-theme--background-color--dialog-header--error----hover  = null
-theme--background-color--dialog-content----------hover  = null
-theme--background-color--dialog-footer-----------hover  = null
-// theme
-theme--border-color------dialog-card-------------hover  = null
-theme--border-color------dialog-header-----------hover  = null
-theme--border-color------dialog-content----------hover  = null
-theme--border-color------dialog-footer-----------hover  = null
+theme--dialog-card-----error----hover  = null
+theme--dialog-header---error----hover  = null
+theme--dialog-content--error----hover  = null
+theme--dialog-footer---error----hover  = null

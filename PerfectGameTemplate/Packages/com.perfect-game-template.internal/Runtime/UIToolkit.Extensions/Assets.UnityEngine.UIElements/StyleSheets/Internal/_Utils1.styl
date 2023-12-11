@@ -1,3 +1,9 @@
+// add-theme
+add-theme(key)
+    if key != null
+        theme = get-value(get-key('theme', key))
+        add-view(theme[0], theme[1], theme[2], theme[3], theme[4])
+
 // add-view
 add-font(url, size, style)
     add-property2 'font-url'            url
@@ -15,11 +21,11 @@ add-view(color = null, background-color = null, background-image = null, border-
     add-view-background                           background-color background-image
     add-view-border                               border-color border-radius
 add-view-foreground(color)
-    color =                                       get-theme-value('color', color)
+    // color =                                       get-theme-value('color', color)
     add-property2 'color'                         color
 add-view-background(background-color, background-image)
-    background-color =                            get-theme-value('background-color', background-color)
-    background-image =                            get-theme-value('background-image', background-image) if typeof(background-image) != 'object'
+    // background-color =                            get-theme-value('background-color', background-color)
+    // background-image =                            get-theme-value('background-image', background-image) if typeof(background-image) != 'object'
     add-property2 'background-color'              background-color
     add-property2 'background-image-url'          background-image.url          if background-image != null
     add-property2 'background-image-color'        background-image.color        if background-image != null
@@ -30,8 +36,8 @@ add-view-background(background-color, background-image)
     add-property2 'background-image-slice-bottom' background-image.slice-bottom if background-image != null
     add-property2 'background-image-slice-scale'  background-image.slice-scale  if background-image != null
 add-view-border(border-color, border-radius)
-    border-color  =                               get-theme-value('border-color',  border-color )
-    border-radius =                               get-theme-value('border-radius', border-radius)
+    // border-color  =                               get-theme-value('border-color',  border-color )
+    // border-radius =                               get-theme-value('border-radius', border-radius)
     add-property2 'border-left-color'             border-color[0]
     add-property2 'border-right-color'            border-color[1] or border-color[0]
     add-property2 'border-top-color'              border-color[2] or border-color[0]
