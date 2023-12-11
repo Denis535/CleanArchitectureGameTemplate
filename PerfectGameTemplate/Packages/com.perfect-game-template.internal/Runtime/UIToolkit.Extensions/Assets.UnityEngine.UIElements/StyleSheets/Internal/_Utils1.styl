@@ -5,12 +5,12 @@ add-theme(key)
         add-view(theme[0], theme[1], theme[2], theme[3], theme[4])
 
 // add-view
-add-font(url, size, style)
+add-font(url = null, size = null, style = null)
     add-property2 'font-url'            url
     add-property2 'font-definition-url' url
     add-property2 'font-size'           size
     add-property2 'font-style'          style
-add-text(align, outline, shadow)
+add-text(align = null, outline = null, shadow = null)
     add-property2 'text-align'          align
     add-property2 'text-outline'        outline
     add-property2 'text-shadow'         shadow
@@ -20,12 +20,9 @@ add-view(color = null, background-color = null, background-image = null, border-
     add-view-foreground                           color
     add-view-background                           background-color background-image
     add-view-border                               border-color border-radius
-add-view-foreground(color)
-    // color =                                       get-theme-value('color', color)
+add-view-foreground(color = null)
     add-property2 'color'                         color
-add-view-background(background-color, background-image)
-    // background-color =                            get-theme-value('background-color', background-color)
-    // background-image =                            get-theme-value('background-image', background-image) if typeof(background-image) != 'object'
+add-view-background(background-color = null, background-image = null)
     add-property2 'background-color'              background-color
     add-property2 'background-image-url'          background-image.url          if background-image != null
     add-property2 'background-image-color'        background-image.color        if background-image != null
@@ -35,9 +32,7 @@ add-view-background(background-color, background-image)
     add-property2 'background-image-slice-top'    background-image.slice-top    if background-image != null
     add-property2 'background-image-slice-bottom' background-image.slice-bottom if background-image != null
     add-property2 'background-image-slice-scale'  background-image.slice-scale  if background-image != null
-add-view-border(border-color, border-radius)
-    // border-color  =                               get-theme-value('border-color',  border-color )
-    // border-radius =                               get-theme-value('border-radius', border-radius)
+add-view-border(border-color = null, border-radius = null)
     add-property2 'border-left-color'             border-color[0]
     add-property2 'border-right-color'            border-color[1] or border-color[0]
     add-property2 'border-top-color'              border-color[2] or border-color[0]
@@ -52,20 +47,20 @@ add-layout(position = null, width = null, height = null, margin = null, border =
     add-layout-position                 position, null, null, null, null
     add-layout-size                     width, height
     add-layout-box                      margin, border, padding
-add-layout-position(position, left = null, right = null, top = null, bottom = null)
+add-layout-position(position = null, left = null, right = null, top = null, bottom = null)
     add-property2 'position'            position[0]
     add-property2 'left'                left   or position[1]
     add-property2 'right'               right  or position[2]
     add-property2 'top'                 top    or position[3]
     add-property2 'bottom'              bottom or position[4]
-add-layout-size(width, height)
+add-layout-size(width = null, height = null)
     add-property2 'width'               width[0]
     add-property2 'min-width'           width[1]
     add-property2 'max-width'           width[2]
     add-property2 'height'              height[0]
     add-property2 'min-height'          height[1]
     add-property2 'max-height'          height[2]
-add-layout-box(margin, border, padding)
+add-layout-box(margin = null, border = null, padding = null)
     add-property2 'margin-left'         margin[0]
     add-property2 'margin-right'        margin[1] or margin[0]
     add-property2 'margin-top'          margin[2] or margin[0]
@@ -90,7 +85,7 @@ add-flex2(flex-direction = null, justify-content = null, align-items = null)
     add-property2 'justify-content' justify-content
     add-property2 'align-items'     align-items
 
-// utils
+// img
 img(url, color, scale-mode, slice-left = null, slice-right = null, slice-top = null, slice-bottom = null, slice-scale = null)
     return {
         url:          url,
@@ -219,21 +214,6 @@ get-unity-property(property)
     return '-unity-' + property if property == 'slice-scale'
     // misc
     property
-
-// misc
-get-theme-value(section, key, hue = null, saturate = null, desaturate = null, lighten = null, darken = null, alpha = null)
-    if key != null and key != none
-        return get-theme-value-internal(section, key, hue, saturate, desaturate, lighten, darken, alpha)
-    null
-get-theme-value-internal(section, key, _hue, _saturate, _desaturate, _lighten, _darken, _alpha)
-    value = get-value(get-key('theme', section, key))
-    value = hue(value, _hue)               if value != null and _hue        != null
-    value = saturate(value, _saturate)     if value != null and _saturate   != null
-    value = desaturate(value, _desaturate) if value != null and _desaturate != null
-    value = lighten(value, _lighten)       if value != null and _lighten    != null
-    value = darken(value, _darken)         if value != null and _darken     != null
-    value = alpha(value, _alpha)           if value != null and _alpha      != null
-    value
 
 // misc
 get-key(key...)

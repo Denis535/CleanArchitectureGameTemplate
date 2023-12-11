@@ -14,14 +14,14 @@ selector--label--focus = '.unity-base-field:focus .unity-base-field__label'
 selector--input--focus = '.unity-base-field:focus .unity-base-field__input'
 
 // view
-add-style(field       ) view(null,            element---------normal, element---------normal, element---------normal, element--normal)
-add-style(label       ) view(element--normal, element--light--normal, element--light--normal, element--light--normal, element--normal) font(null, null, bold) text(middle-left, null, null)
-add-style(input       ) view(element--normal, element--dark---normal, element--dark---normal, element--dark---normal, element--normal) font(null, null, null) text(middle-left, null, null)
+add-style(field       ) theme(element---------normal)
+add-style(label       ) theme(element--light--normal) font(null, null, bold) text(middle-left, null, null)
+add-style(input       ) theme(element--dark---normal) font(null, null, null) text(middle-left, null, null)
 flush()
 // view
-add-style(field--hover) view(null,            null,                   null,                   null,                   null           )
-add-style(label--hover) view(null,            null,                   null,                   element--light--hover,  null           )
-add-style(input--hover) view(null,            null,                   null,                   element--dark---hover,  null           )
+add-style(field--hover) theme(element---------hover)
+add-style(label--hover) theme(element--light--hover)
+add-style(input--hover) theme(element--dark---hover)
 flush()
 
 // layout

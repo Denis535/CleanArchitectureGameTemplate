@@ -1,6 +1,6 @@
 .unity-base-dropdown .unity-scroll-view {
   color: #e6e6e6;
-  background-color: rgba(38,39,40,0.97);
+  background-color: rgba(37,38,39,0.97);
   border-left-color: #634d36;
   border-right-color: #634d36;
   border-top-color: #634d36;

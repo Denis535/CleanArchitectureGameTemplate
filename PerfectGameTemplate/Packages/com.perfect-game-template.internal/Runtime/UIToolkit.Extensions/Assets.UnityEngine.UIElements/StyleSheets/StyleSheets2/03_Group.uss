@@ -1,5 +1,4 @@
 .group {
-  color: #e6e6e6;
   background-color: rgba(0,0,0,0);
   border-left-color: #a68059;
   border-right-color: #a68059;

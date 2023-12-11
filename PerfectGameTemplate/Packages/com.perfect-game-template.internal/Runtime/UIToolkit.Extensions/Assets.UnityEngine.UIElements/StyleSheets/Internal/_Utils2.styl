@@ -4,12 +4,6 @@ add-style(selector)
     define('context--selector', selector, true)
     define('context--styles',   (),       true)
 
-// property
-property(name, value)
-    push(context--styles, @block {
-        add-property(name, value)
-    })
-
 // theme
 theme(key)
     push(context--styles, @block {
@@ -31,10 +25,6 @@ view(color, background-color, background-image, border-color, border-radius)
     push(context--styles, @block {
         add-view(color, background-color, background-image, border-color, border-radius)
     })
-image(background-image)
-    push(context--styles, @block {
-        add-view(null, null, background-image, null, null)
-    })
 
 // layout
 layout(position, width, height, margin, border, padding)
@@ -50,6 +40,12 @@ flex(flex-grow, flex-shrink, flex-basis, align-self)
 flex2(flex-direction, justify-content, align-items)
     push(context--styles, @block {
         add-flex2(flex-direction, justify-content, align-items)
+    })
+
+// property
+property(name, value)
+    push(context--styles, @block {
+        add-property(name, value)
     })
 
 // flush
