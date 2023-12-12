@@ -36,6 +36,12 @@
   border-bottom-right-radius: 4px;
   -unity-text-align: middle-left;
 }
+.unity-base-field:hover {
+  border-left-color: #856647;
+  border-right-color: #856647;
+  border-top-color: #856647;
+  border-bottom-color: #856647;
+}
 .unity-base-field:hover .unity-base-field__label {
   border-left-color: #856647;
   border-right-color: #856647;

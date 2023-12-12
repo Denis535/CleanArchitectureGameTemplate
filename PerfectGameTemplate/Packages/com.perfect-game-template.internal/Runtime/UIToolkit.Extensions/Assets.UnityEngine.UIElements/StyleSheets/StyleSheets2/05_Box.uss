@@ -70,40 +70,40 @@
   border-bottom-right-radius: 4px;
 }
 .unity-box:hover {
-  border-left-color: #92704f;
-  border-right-color: #92704f;
-  border-top-color: #92704f;
-  border-bottom-color: #92704f;
+  border-left-color: #a68059;
+  border-right-color: #a68059;
+  border-top-color: #a68059;
+  border-bottom-color: #a68059;
 }
 .unity-box.light2:hover {
-  border-left-color: #92704f;
-  border-right-color: #92704f;
-  border-top-color: #92704f;
-  border-bottom-color: #92704f;
+  border-left-color: #a68059;
+  border-right-color: #a68059;
+  border-top-color: #a68059;
+  border-bottom-color: #a68059;
 }
 .unity-box.light:hover {
-  border-left-color: #92704f;
-  border-right-color: #92704f;
-  border-top-color: #92704f;
-  border-bottom-color: #92704f;
+  border-left-color: #a68059;
+  border-right-color: #a68059;
+  border-top-color: #a68059;
+  border-bottom-color: #a68059;
 }
 .unity-box.gray:hover {
-  border-left-color: #92704f;
-  border-right-color: #92704f;
-  border-top-color: #92704f;
-  border-bottom-color: #92704f;
+  border-left-color: #a68059;
+  border-right-color: #a68059;
+  border-top-color: #a68059;
+  border-bottom-color: #a68059;
 }
 .unity-box.dark:hover {
-  border-left-color: #92704f;
-  border-right-color: #92704f;
-  border-top-color: #92704f;
-  border-bottom-color: #92704f;
+  border-left-color: #a68059;
+  border-right-color: #a68059;
+  border-top-color: #a68059;
+  border-bottom-color: #a68059;
 }
 .unity-box.dark2:hover {
-  border-left-color: #92704f;
-  border-right-color: #92704f;
-  border-top-color: #92704f;
-  border-bottom-color: #92704f;
+  border-left-color: #a68059;
+  border-right-color: #a68059;
+  border-top-color: #a68059;
+  border-bottom-color: #a68059;
 }
 .unity-box {
   width: auto;

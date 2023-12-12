@@ -1,37 +1,37 @@
 @import "../Internal/_Theme"
 
 // selector
-selector--field        = '.unity-base-field'
-selector--label        = '.unity-base-field .unity-base-field__label'
-selector--input        = '.unity-base-field .unity-base-field__input'
+selector--field              = '.unity-base-field'
+selector--field-label        = '.unity-base-field .unity-base-field__label'
+selector--field-input        = '.unity-base-field .unity-base-field__input'
 // selector
-selector--field--hover = '.unity-base-field:hover'
-selector--label--hover = '.unity-base-field:hover .unity-base-field__label'
-selector--input--hover = '.unity-base-field:hover .unity-base-field__input'
+selector--field--------hover = '.unity-base-field:hover'
+selector--field-label--hover = '.unity-base-field:hover .unity-base-field__label'
+selector--field-input--hover = '.unity-base-field:hover .unity-base-field__input'
 // selector
-selector--field--focus = '.unity-base-field:focus'
-selector--label--focus = '.unity-base-field:focus .unity-base-field__label'
-selector--input--focus = '.unity-base-field:focus .unity-base-field__input'
+selector--field--------focus = '.unity-base-field:focus'
+selector--field-label--focus = '.unity-base-field:focus .unity-base-field__label'
+selector--field-input--focus = '.unity-base-field:focus .unity-base-field__input'
 
 // view
-add-style(field       ) theme(element---------normal)
-add-style(label       ) theme(element--light--normal) font(null, null, bold) text(middle-left, null, null)
-add-style(input       ) theme(element--dark---normal) font(null, null, null) text(middle-left, null, null)
+add-style(field             ) theme(field---------normal)
+add-style(field-label       ) theme(field-label---normal) font(null, null, bold) text(middle-left, null, null)
+add-style(field-input       ) theme(field-input---normal) font(null, null, null) text(middle-left, null, null)
 flush()
 // view
-add-style(field--hover) theme(element---------hover)
-add-style(label--hover) theme(element--light--hover)
-add-style(input--hover) theme(element--dark---hover)
+add-style(field--------hover) theme(field---------hover)
+add-style(field-label--hover) theme(field-label---hover)
+add-style(field-input--hover) theme(field-input---hover)
 flush()
 
 // layout
-add-style(field       ) layout(null, auto, auto, (4px            ), (0px), (0px                ))
-add-style(label       ) layout(null, auto, auto, (0px 2px 0px 0px), (1px), (12px 12px 10px 10px))
-add-style(input       ) layout(null, auto, auto, (0px            ), (1px), (12px 12px 10px 10px))
+add-style(field             ) layout(null, auto, auto, (4px            ), (0px), (0px                ))
+add-style(field-label       ) layout(null, auto, auto, (0px 2px 0px 0px), (1px), (12px 12px 10px 10px))
+add-style(field-input       ) layout(null, auto, auto, (0px            ), (1px), (12px 12px 10px 10px))
 flush()
 
 // flex
-add-style(field       ) flex(0, 1, auto, auto) flex2(row, flex-start, stretch)
-add-style(label       ) flex(0, 1, auto, auto)
-add-style(input       ) flex(1, 1, auto, auto) flex2(row, flex-end, stretch)
+add-style(field             ) flex(0, 1, auto, auto) flex2(row, flex-start, stretch)
+add-style(field-label       ) flex(0, 1, auto, auto)
+add-style(field-input       ) flex(1, 1, auto, auto) flex2(row, flex-end, stretch)
 flush()

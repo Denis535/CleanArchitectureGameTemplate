@@ -19,11 +19,11 @@ selector--checkmark------hover           = '.unity-base-dropdown__item:hover .un
 selector--text-----------hover           = '.unity-base-dropdown__item:hover .unity-base-dropdown__label'
 
 // view
-add-style(dropdown                      )
+add-style(dropdown                      ) theme(null                 )
 add-style(scroll-view                   ) theme(dropdown-------normal)
-add-style(viewport-and-vertical-scroller)
-add-style(viewport                      ) property(overflow, hidden)
-add-style(content                       ) property(overflow, scroll)
+add-style(viewport-and-vertical-scroller) theme(null                 )
+add-style(viewport                      ) theme(null                 ) property(overflow, hidden)
+add-style(content                       ) theme(null                 ) property(overflow, scroll)
 add-style(dropdown-item                 ) theme(dropdown-item--normal)
 add-style(checkmark                     ) theme(component------normal)
 add-style(checkmark--checked            ) theme(component------normal) theme(checkmark-icon--light)
@@ -46,7 +46,7 @@ add-style(text                          ) layout(null,     auto, auto, (0px     
 flush()
 
 // flex
-add-style(dropdown                      )
+add-style(dropdown                      ) flex(0, 1, auto, auto) flex2(column, flex-start, stretch)
 add-style(scroll-view                   )
 add-style(viewport-and-vertical-scroller)
 add-style(viewport                      )

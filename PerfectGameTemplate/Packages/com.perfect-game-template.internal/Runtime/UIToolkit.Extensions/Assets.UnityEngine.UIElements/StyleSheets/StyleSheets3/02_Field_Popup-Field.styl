@@ -1,32 +1,32 @@
 @import "../Internal/_Theme"
 
 // selector
-selector--field = '.unity-base-popup-field'
-selector--label = '.unity-base-popup-field .unity-base-popup-field__label'
-selector--input = '.unity-base-popup-field .unity-base-popup-field__input'
-selector--text  = '.unity-base-popup-field .unity-base-popup-field__input .unity-base-popup-field__text'
-selector--arrow = '.unity-base-popup-field .unity-base-popup-field__input .unity-base-popup-field__arrow'
+selector--field       = '.unity-base-popup-field'
+selector--field-label = '.unity-base-popup-field .unity-base-popup-field__label'
+selector--field-input = '.unity-base-popup-field .unity-base-popup-field__input'
+selector--text        = '.unity-base-popup-field .unity-base-popup-field__input .unity-base-popup-field__text'
+selector--arrow       = '.unity-base-popup-field .unity-base-popup-field__input .unity-base-popup-field__arrow'
 
 // view
-add-style(field)
-add-style(label)
-add-style(input)
-add-style(text ) theme(element----normal)
-add-style(arrow) theme(component--normal) theme(dropdown-arrow-icon--light)
+add-style(field      )
+add-style(field-label)
+add-style(field-input)
+add-style(text       ) theme(element----normal)
+add-style(arrow      ) theme(component--normal) theme(dropdown-arrow-icon--light)
 flush()
 
 // layout
-add-style(field)
-add-style(label)
-add-style(input)
-add-style(text ) layout(null, auto, auto, (0px), (0px), (0px))
-add-style(arrow) layout(null, 12px, 12px, (2px), (0px), (0px))
+add-style(field      )
+add-style(field-label)
+add-style(field-input)
+add-style(text       ) layout(null, auto, auto, (0px), (0px), (0px))
+add-style(arrow      ) layout(null, 12px, 12px, (2px), (0px), (0px))
 flush()
 
 // flex
-add-style(field)
-add-style(label)
-add-style(input)
-add-style(text ) flex(1, 1, auto, auto)
-add-style(arrow) flex(0, 1, auto, auto)
+add-style(field      )
+add-style(field-label)
+add-style(field-input)
+add-style(text       ) flex(1, 1, auto, auto)
+add-style(arrow      ) flex(0, 1, auto, auto)
 flush()

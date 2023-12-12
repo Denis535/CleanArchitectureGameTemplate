@@ -1,28 +1,28 @@
 @import "../Internal/_Theme"
 
 // selector
-selector--field = '.unity-base-text-field'
-selector--label = '.unity-base-text-field .unity-base-text-field__label'
-selector--input = '.unity-base-text-field .unity-base-text-field__input'
-selector--text  = '.unity-base-text-field .unity-base-text-field__input .unity-text-element'
+selector--field       = '.unity-base-text-field'
+selector--field-label = '.unity-base-text-field .unity-base-text-field__label'
+selector--field-input = '.unity-base-text-field .unity-base-text-field__input'
+selector--text        = '.unity-base-text-field .unity-base-text-field__input .unity-text-element'
 
 // view
-add-style(field)
-add-style(label)
-add-style(input)
-add-style(text ) theme(element--normal)
+add-style(field      )
+add-style(field-label)
+add-style(field-input)
+add-style(text       ) theme(element--normal)
 flush()
 
 // layout
-add-style(field)
-add-style(label)
-add-style(input)
-add-style(text ) layout(null, auto, auto, (0px), (0px), (0px))
+add-style(field      )
+add-style(field-label)
+add-style(field-input)
+add-style(text       ) layout(null, auto, auto, (0px), (0px), (0px))
 flush()
 
 // flex
-add-style(field)
-add-style(label)
-add-style(input)
-add-style(text ) flex(1, 1, auto, auto)
+add-style(field      )
+add-style(field-label)
+add-style(field-input)
+add-style(text       ) flex(1, 1, auto, auto)
 flush()

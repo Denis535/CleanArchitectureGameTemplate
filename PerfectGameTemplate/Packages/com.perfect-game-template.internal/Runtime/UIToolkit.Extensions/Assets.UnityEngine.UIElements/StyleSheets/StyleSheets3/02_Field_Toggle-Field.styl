@@ -2,29 +2,29 @@
 
 // selector
 selector--field              = '.unity-toggle'
-selector--label              = '.unity-toggle .unity-toggle__label'
-selector--input              = '.unity-toggle .unity-toggle__input'
+selector--field-label        = '.unity-toggle .unity-toggle__label'
+selector--field-input        = '.unity-toggle .unity-toggle__input'
 selector--checkmark          = '.unity-toggle .unity-toggle__input         .unity-toggle__checkmark'
 selector--checkmark--checked = '.unity-toggle .unity-toggle__input:checked .unity-toggle__checkmark'
 
 // view
 add-style(field             )
-add-style(label             )
-add-style(input             )
+add-style(field-label       )
+add-style(field-input       )
 add-style(checkmark         ) theme(component--light--normal)
 add-style(checkmark--checked) theme(component--light--normal) theme(checkmark-icon--dark)
 flush()
 
 // layout
 add-style(field             )
-add-style(label             )
-add-style(input             )
+add-style(field-label       )
+add-style(field-input       )
 add-style(checkmark         ) layout(null, 16px, 16px, (0px), (1px), (0px))
 flush()
 
 // flex
 add-style(field             )
-add-style(label             )
-add-style(input             )
+add-style(field-label       )
+add-style(field-input       )
 add-style(checkmark         ) flex(0, 1, auto, auto)
 flush()

@@ -17,6 +17,7 @@
   overflow: scroll;
 }
 .unity-base-dropdown__item {
+  color: #e6e6e6;
   background-color: rgba(0,0,0,0);
   border-left-color: rgba(0,0,0,0);
   border-right-color: rgba(0,0,0,0);
@@ -151,6 +152,15 @@
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+}
+.unity-base-dropdown {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 .unity-base-dropdown__item {
   flex-grow: 0;
