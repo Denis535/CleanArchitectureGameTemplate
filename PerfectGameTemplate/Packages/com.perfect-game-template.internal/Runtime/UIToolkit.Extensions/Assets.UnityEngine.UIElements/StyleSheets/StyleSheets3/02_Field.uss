@@ -36,26 +36,17 @@
   border-bottom-right-radius: 4px;
   -unity-text-align: middle-left;
 }
-.unity-base-field:hover {
-  background-color: rgba(13,13,13,0);
-  border-left-color: rgba(51,51,51,0);
-  border-right-color: rgba(51,51,51,0);
-  border-top-color: rgba(51,51,51,0);
-  border-bottom-color: rgba(51,51,51,0);
-}
 .unity-base-field:hover .unity-base-field__label {
-  background-color: #434446;
-  border-left-color: #92704f;
-  border-right-color: #92704f;
-  border-top-color: #92704f;
-  border-bottom-color: #92704f;
+  border-left-color: #856647;
+  border-right-color: #856647;
+  border-top-color: #856647;
+  border-bottom-color: #856647;
 }
 .unity-base-field:hover .unity-base-field__input {
-  background-color: #353637;
-  border-left-color: #92704f;
-  border-right-color: #92704f;
-  border-top-color: #92704f;
-  border-bottom-color: #92704f;
+  border-left-color: #856647;
+  border-right-color: #856647;
+  border-top-color: #856647;
+  border-bottom-color: #856647;
 }
 .unity-base-field {
   width: auto;

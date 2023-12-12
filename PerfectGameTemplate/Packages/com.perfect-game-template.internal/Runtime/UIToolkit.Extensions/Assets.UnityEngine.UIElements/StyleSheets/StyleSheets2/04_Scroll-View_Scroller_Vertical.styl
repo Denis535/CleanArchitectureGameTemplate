@@ -10,8 +10,8 @@ selector--dragger             = '.unity-scroller--vertical .unity-base-slider .u
 selector--low-button          = '.unity-scroller--vertical #unity-low-button'
 selector--high-button         = '.unity-scroller--vertical #unity-high-button'
 // selector
-selector--tracker------hover  = '.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-tracker:hover'
-selector--dragger------hover  = '.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-dragger:hover'
+selector--tracker------hover  = '.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-drag-container:hover #unity-tracker'
+selector--dragger------hover  = '.unity-scroller--vertical .unity-base-slider .unity-base-slider__input #unity-drag-container:hover #unity-dragger:hover'
 selector--low-button---hover  = '.unity-scroller--vertical #unity-low-button:hover'
 selector--high-button--hover  = '.unity-scroller--vertical #unity-high-button:hover'
 // selector
@@ -26,33 +26,33 @@ selector--low-button---focus  = '.unity-scroller--vertical #unity-low-button:foc
 selector--high-button--focus  = '.unity-scroller--vertical #unity-high-button:focus'
 
 // view
-add-style(scroller           ) theme(element---------normal)
-add-style(field              ) theme(element---------normal)
-add-style(input              ) theme(element---------normal)
-add-style(container          ) theme(element---------normal)
-add-style(tracker            ) theme(element--dark---normal)
-add-style(dragger            ) theme(element--light--normal)
-add-style(low-button         ) theme(element--light--normal) theme(up-arrow-icon--light)
-add-style(high-button        ) theme(element--light--normal) theme(down-arrow-icon--light)
+add-style(scroller           ) theme(element--------normal)
+add-style(field              ) theme(element--------normal)
+add-style(input              ) theme(element--------normal)
+add-style(container          ) theme(element--------normal)
+add-style(tracker            ) theme(element--dark--normal)
+add-style(dragger            ) theme(button---------normal)
+add-style(low-button         ) theme(button---------normal) theme(up-arrow-icon--light)
+add-style(high-button        ) theme(button---------normal) theme(down-arrow-icon--light)
 flush()
 // view
-add-style(tracker------hover ) theme(element--dark---hover)
-add-style(dragger------hover ) theme(element--light--hover)
-add-style(low-button---hover ) theme(element--light--hover)
-add-style(high-button--hover ) theme(element--light--hover)
+add-style(tracker------hover ) theme(element--dark--hover)
+add-style(dragger------hover ) theme(button---------hover)
+add-style(low-button---hover ) theme(button---------hover)
+add-style(high-button--hover ) theme(button---------hover)
 flush()
 // view
-add-style(tracker------active) theme(element--dark---active)
-add-style(dragger------active) theme(element--light--active)
-add-style(low-button---active) theme(element--light--active)
-add-style(high-button--active) theme(element--light--active)
+add-style(tracker------active) theme(element--dark--active)
+add-style(dragger------active) theme(button---------active)
+add-style(low-button---active) theme(button---------active)
+add-style(high-button--active) theme(button---------active)
 flush()
 
 // layout
 add-style(scroller           ) layout(null,     auto, auto, (0px            ), (0px), (0px))
 add-style(field              ) layout(null,     auto, auto, (0px            ), (0px), (0px))
 add-style(input              ) layout(null,     auto, auto, (0px            ), (0px), (0px))
-add-style(container          ) layout(null,     auto, auto, (0px 0px 2px 2px), (0px), (0px))
+add-style(container          ) layout(null,     auto, auto, (0px            ), (0px), (0px))
 add-style(tracker            ) layout(null,     24px, auto, (0px            ), (1px), (0px))
 add-style(dragger            ) layout(absolute, 24px, auto, (0px            ), (1px), (0px))
 add-style(low-button         ) layout(null,     24px, 24px, (0px            ), (1px), (0px))
