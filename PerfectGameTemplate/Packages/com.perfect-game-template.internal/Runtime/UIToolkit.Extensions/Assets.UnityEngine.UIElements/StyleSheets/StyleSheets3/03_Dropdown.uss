@@ -1,5 +1,4 @@
 .unity-base-dropdown .unity-scroll-view {
-  color: #e6e6e6;
   background-color: rgba(37,38,39,0.97);
   border-left-color: #634d36;
   border-right-color: #634d36;
@@ -64,12 +63,13 @@
   border-bottom-right-radius: 4px;
 }
 .unity-base-dropdown .unity-scroll-view:hover {
-  border-left-color: #856647;
-  border-right-color: #856647;
-  border-top-color: #856647;
-  border-bottom-color: #856647;
+  border-left-color: #a68059;
+  border-right-color: #a68059;
+  border-top-color: #a68059;
+  border-bottom-color: #a68059;
 }
 .unity-base-dropdown__item:hover {
+  color: #fff;
   background-color: #b86614;
 }
 .unity-base-dropdown {

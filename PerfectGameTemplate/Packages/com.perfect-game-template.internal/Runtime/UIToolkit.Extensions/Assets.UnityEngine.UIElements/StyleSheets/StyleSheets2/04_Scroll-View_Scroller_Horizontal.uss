@@ -95,54 +95,62 @@
   -unity-background-image-tint-color: #e6e6e6;
 }
 .unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container:hover #unity-tracker {
-  border-left-color: #856647;
-  border-right-color: #856647;
-  border-top-color: #856647;
-  border-bottom-color: #856647;
+  color: #fff;
+  border-left-color: #a68059;
+  border-right-color: #a68059;
+  border-top-color: #a68059;
+  border-bottom-color: #a68059;
 }
 .unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container:hover #unity-dragger:hover {
+  color: #fff;
   background-color: #3e4041;
-  border-left-color: #856647;
-  border-right-color: #856647;
-  border-top-color: #856647;
-  border-bottom-color: #856647;
+  border-left-color: #a68059;
+  border-right-color: #a68059;
+  border-top-color: #a68059;
+  border-bottom-color: #a68059;
 }
 .unity-scroller--horizontal #unity-low-button:hover {
+  color: #fff;
   background-color: #3e4041;
-  border-left-color: #856647;
-  border-right-color: #856647;
-  border-top-color: #856647;
-  border-bottom-color: #856647;
+  border-left-color: #a68059;
+  border-right-color: #a68059;
+  border-top-color: #a68059;
+  border-bottom-color: #a68059;
 }
 .unity-scroller--horizontal #unity-high-button:hover {
+  color: #fff;
   background-color: #3e4041;
-  border-left-color: #856647;
-  border-right-color: #856647;
-  border-top-color: #856647;
-  border-bottom-color: #856647;
+  border-left-color: #a68059;
+  border-right-color: #a68059;
+  border-top-color: #a68059;
+  border-bottom-color: #a68059;
 }
 .unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container:active #unity-tracker {
+  color: #808080;
   border-left-color: #423324;
   border-right-color: #423324;
   border-top-color: #423324;
   border-bottom-color: #423324;
 }
 .unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container:active #unity-dragger {
-  background-color: #343637;
+  color: #808080;
+  background-color: #373839;
   border-left-color: #423324;
   border-right-color: #423324;
   border-top-color: #423324;
   border-bottom-color: #423324;
 }
 .unity-scroller--horizontal #unity-low-button:active {
-  background-color: #343637;
+  color: #808080;
+  background-color: #373839;
   border-left-color: #423324;
   border-right-color: #423324;
   border-top-color: #423324;
   border-bottom-color: #423324;
 }
 .unity-scroller--horizontal #unity-high-button:active {
-  background-color: #343637;
+  color: #808080;
+  background-color: #373839;
   border-left-color: #423324;
   border-right-color: #423324;
   border-top-color: #423324;

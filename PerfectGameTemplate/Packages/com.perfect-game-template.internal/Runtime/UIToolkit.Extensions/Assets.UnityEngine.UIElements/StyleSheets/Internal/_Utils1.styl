@@ -98,7 +98,7 @@ img(url, color, scale-mode, slice-left = null, slice-right = null, slice-top = n
         slice-scale:  slice-scale,
     }
 
-// add-property2
+// misc
 add-property2(property, value)
     property = get-native-property(property)
     property = get-unity-property(property)
@@ -109,7 +109,7 @@ add-property2(property, value)
         value = s("url('%s')", unquote(value)) if property == 'background-image'
         add-property(property, value)
 
-// get-native-property
+// misc
 get-native-property(property)
     // view
     return 'color'                       if property == 'color'
@@ -189,7 +189,7 @@ get-native-property(property)
     // misc
     property
 
-// get-unity-property
+// misc
 get-unity-property(property)
     // view
     return '-unity-' + property if property == 'overflow-clip-box'

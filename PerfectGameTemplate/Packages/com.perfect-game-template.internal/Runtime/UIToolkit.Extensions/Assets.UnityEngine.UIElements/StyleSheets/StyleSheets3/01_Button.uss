@@ -27,32 +27,162 @@
   -unity-text-align: middle-center;
 }
 .unity-button:hover {
+  color: #fff;
   background-color: #3e4041;
-  border-left-color: #856647;
-  border-right-color: #856647;
-  border-top-color: #856647;
-  border-bottom-color: #856647;
+  border-left-color: #a68059;
+  border-right-color: #a68059;
+  border-top-color: #a68059;
+  border-bottom-color: #a68059;
 }
 .unity-repeat-button:hover {
+  color: #fff;
   background-color: #3e4041;
-  border-left-color: #856647;
-  border-right-color: #856647;
-  border-top-color: #856647;
-  border-bottom-color: #856647;
+  border-left-color: #a68059;
+  border-right-color: #a68059;
+  border-top-color: #a68059;
+  border-bottom-color: #a68059;
 }
 .unity-button:active {
-  background-color: #343637;
+  color: #808080;
+  background-color: #373839;
   border-left-color: #423324;
   border-right-color: #423324;
   border-top-color: #423324;
   border-bottom-color: #423324;
 }
 .unity-repeat-button:active {
-  background-color: #343637;
+  color: #808080;
+  background-color: #373839;
   border-left-color: #423324;
   border-right-color: #423324;
   border-top-color: #423324;
   border-bottom-color: #423324;
+}
+.unity-button.invalid {
+  color: #e61919;
+  border-left-color: #8a0f0f;
+  border-right-color: #8a0f0f;
+  border-top-color: #8a0f0f;
+  border-bottom-color: #8a0f0f;
+}
+.unity-repeat-button.invalid {
+  color: #e61919;
+  border-left-color: #8a0f0f;
+  border-right-color: #8a0f0f;
+  border-top-color: #8a0f0f;
+  border-bottom-color: #8a0f0f;
+}
+.unity-button.invalid:hover {
+  color: #f33;
+  border-left-color: #e61919;
+  border-right-color: #e61919;
+  border-top-color: #e61919;
+  border-bottom-color: #e61919;
+}
+.unity-repeat-button.invalid:hover {
+  color: #f33;
+  border-left-color: #e61919;
+  border-right-color: #e61919;
+  border-top-color: #e61919;
+  border-bottom-color: #e61919;
+}
+.unity-button.invalid:active {
+  color: #a32929;
+  border-left-color: #5c0a0a;
+  border-right-color: #5c0a0a;
+  border-top-color: #5c0a0a;
+  border-bottom-color: #5c0a0a;
+}
+.unity-repeat-button.invalid:active {
+  color: #a32929;
+  border-left-color: #5c0a0a;
+  border-right-color: #5c0a0a;
+  border-top-color: #5c0a0a;
+  border-bottom-color: #5c0a0a;
+}
+.unity-button:focus {
+  color: #197fe6;
+  border-left-color: #0f4c8a;
+  border-right-color: #0f4c8a;
+  border-top-color: #0f4c8a;
+  border-bottom-color: #0f4c8a;
+}
+.unity-repeat-button:focus {
+  color: #197fe6;
+  border-left-color: #0f4c8a;
+  border-right-color: #0f4c8a;
+  border-top-color: #0f4c8a;
+  border-bottom-color: #0f4c8a;
+}
+.unity-button:focus:hover {
+  color: #39f;
+  border-left-color: #197fe6;
+  border-right-color: #197fe6;
+  border-top-color: #197fe6;
+  border-bottom-color: #197fe6;
+}
+.unity-repeat-button:focus:hover {
+  color: #39f;
+  border-left-color: #197fe6;
+  border-right-color: #197fe6;
+  border-top-color: #197fe6;
+  border-bottom-color: #197fe6;
+}
+.unity-button:focus:active {
+  color: #2966a3;
+  border-left-color: #0a335c;
+  border-right-color: #0a335c;
+  border-top-color: #0a335c;
+  border-bottom-color: #0a335c;
+}
+.unity-repeat-button:focus:active {
+  color: #2966a3;
+  border-left-color: #0a335c;
+  border-right-color: #0a335c;
+  border-top-color: #0a335c;
+  border-bottom-color: #0a335c;
+}
+.unity-button.invalid:focus {
+  color: #e61919;
+  border-left-color: #0f4c8a;
+  border-right-color: #0f4c8a;
+  border-top-color: #0f4c8a;
+  border-bottom-color: #0f4c8a;
+}
+.unity-repeat-button.invalid:focus {
+  color: #e61919;
+  border-left-color: #0f4c8a;
+  border-right-color: #0f4c8a;
+  border-top-color: #0f4c8a;
+  border-bottom-color: #0f4c8a;
+}
+.unity-button.invalid:focus:hover {
+  color: #f33;
+  border-left-color: #197fe6;
+  border-right-color: #197fe6;
+  border-top-color: #197fe6;
+  border-bottom-color: #197fe6;
+}
+.unity-repeat-button.invalid:focus:hover {
+  color: #f33;
+  border-left-color: #197fe6;
+  border-right-color: #197fe6;
+  border-top-color: #197fe6;
+  border-bottom-color: #197fe6;
+}
+.unity-button.invalid:focus:active {
+  color: #a32929;
+  border-left-color: #0a335c;
+  border-right-color: #0a335c;
+  border-top-color: #0a335c;
+  border-bottom-color: #0a335c;
+}
+.unity-repeat-button.invalid:focus:active {
+  color: #a32929;
+  border-left-color: #0a335c;
+  border-right-color: #0a335c;
+  border-top-color: #0a335c;
+  border-bottom-color: #0a335c;
 }
 .unity-button {
   width: auto;
