@@ -1,60 +1,60 @@
 // add-style
 add-style(selector)
     flush()
-    define('context--selector', selector, true)
-    define('context--styles',   (),       true)
+    define('context', {}, true)
+    context.selector = replace('(\s+)', ' ', get-value(get-key('selector', selector)))
+    context.styles   = ()
 
 // theme
 theme(key = null)
-    push(context--styles, @block {
+    push(context.styles, @block {
         add-theme(key)
     })
 
 // view
 font(url = null, size = null, style = null)
-    push(context--styles, @block {
+    push(context.styles, @block {
         add-font(url, size, style)
     })
 text(align = null, outline = null, shadow = null)
-    push(context--styles, @block {
+    push(context.styles, @block {
         add-text(align, outline, shadow)
     })
 
 // view
 view(color = null, background-color = null, background-image = null, border-color = null, border-radius = null)
-    push(context--styles, @block {
+    push(context.styles, @block {
         add-view(color, background-color, background-image, border-color, border-radius)
     })
 
 // layout
 layout(position = null, width = null, height = null, margin = null, border = null, padding = null)
-    push(context--styles, @block {
+    push(context.styles, @block {
         add-layout(position, width, height, margin, border, padding)
     })
 
 // flex
 flex(flex-grow = null, flex-shrink = null, flex-basis = null, align-self = null)
-    push(context--styles, @block {
+    push(context.styles, @block {
         add-flex(flex-grow, flex-shrink, flex-basis, align-self)
     })
 flex2(flex-direction = null, justify-content = null, align-items = null)
-    push(context--styles, @block {
+    push(context.styles, @block {
         add-flex2(flex-direction, justify-content, align-items)
     })
 
 // property
 property(name, value)
-    push(context--styles, @block {
+    push(context.styles, @block {
         add-property(name, value)
     })
 
 // flush
 flush()
-    if context--selector is defined and context--selector != null
-        selector = replace('(\s+)', ' ', get-value(get-key('selector', context--selector)))
-        styles   = context--styles
+    if context is defined and context != null
+        selector = context.selector
+        styles   = context.styles
         {selector}
             for style in styles
                 {style}
-    define('context--selector', null, true)
-    define('context--styles',   null, true)
+    define('context', null, true)
