@@ -1,71 +1,99 @@
 @import "../Internal/_Theme"
 
 // selector
-selector--scroller            = '.unity-scroller--horizontal'
-selector--field               = '.unity-scroller--horizontal .unity-base-slider'
-selector--input               = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input'
-selector--container           = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container'
-selector--tracker             = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-tracker'
-selector--dragger             = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-dragger'
-selector--low-button          = '.unity-scroller--horizontal #unity-low-button'
-selector--high-button         = '.unity-scroller--horizontal #unity-high-button'
+selector--scroller                   = '.unity-scroller--horizontal'
+selector--field                      = '.unity-scroller--horizontal .unity-base-slider'
+selector--field-input                = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input'
+selector--container                  = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container'
+selector--tracker                    = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-tracker'
+selector--dragger                    = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container #unity-dragger'
+selector--low-button                 = '.unity-scroller--horizontal #unity-low-button'
+selector--high-button                = '.unity-scroller--horizontal #unity-high-button'
 // selector
-selector--tracker------hover  = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container:hover #unity-tracker'
-selector--dragger------hover  = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container:hover #unity-dragger:hover'
-selector--low-button---hover  = '.unity-scroller--horizontal #unity-low-button:hover'
-selector--high-button--hover  = '.unity-scroller--horizontal #unity-high-button:hover'
+selector--tracker------hover         = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container:hover #unity-tracker'
+selector--dragger------hover         = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container:hover #unity-dragger:hover'
+selector--low-button---hover         = '.unity-scroller--horizontal #unity-low-button:hover'
+selector--high-button--hover         = '.unity-scroller--horizontal #unity-high-button:hover'
 // selector
-selector--tracker------active = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container:active #unity-tracker'
-selector--dragger------active = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container:active #unity-dragger'
-selector--low-button---active = '.unity-scroller--horizontal #unity-low-button:active'
-selector--high-button--active = '.unity-scroller--horizontal #unity-high-button:active'
+selector--tracker------active        = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container:active #unity-tracker'
+selector--dragger------active        = '.unity-scroller--horizontal .unity-base-slider .unity-base-slider__input #unity-drag-container:active #unity-dragger:active'
+selector--low-button---active        = '.unity-scroller--horizontal #unity-low-button:active'
+selector--high-button--active        = '.unity-scroller--horizontal #unity-high-button:active'
 // selector
-selector--tracker------focus  = '.unity-scroller--horizontal .unity-base-slider:focus .unity-base-slider__input #unity-drag-container #unity-tracker'
-selector--dragger------focus  = '.unity-scroller--horizontal .unity-base-slider:focus .unity-base-slider__input #unity-drag-container #unity-dragger'
-selector--low-button---focus  = '.unity-scroller--horizontal #unity-low-button:focus'
-selector--high-button--focus  = '.unity-scroller--horizontal #unity-high-button:focus'
+selector--tracker------focus         = '.unity-scroller--horizontal .unity-base-slider:focus .unity-base-slider__input #unity-drag-container #unity-tracker'
+selector--dragger------focus         = '.unity-scroller--horizontal .unity-base-slider:focus .unity-base-slider__input #unity-drag-container #unity-dragger'
+selector--low-button---focus         = '.unity-scroller--horizontal #unity-low-button:focus'
+selector--high-button--focus         = '.unity-scroller--horizontal #unity-high-button:focus'
+// selector
+selector--tracker------focus--hover  = '.unity-scroller--horizontal .unity-base-slider:focus .unity-base-slider__input #unity-drag-container:hover #unity-tracker'
+selector--dragger------focus--hover  = '.unity-scroller--horizontal .unity-base-slider:focus .unity-base-slider__input #unity-drag-container:hover #unity-dragger:hover'
+selector--low-button---focus--hover  = '.unity-scroller--horizontal #unity-low-button:focus:hover'
+selector--high-button--focus--hover  = '.unity-scroller--horizontal #unity-high-button:focus:hover'
+// selector
+selector--tracker------focus--active = '.unity-scroller--horizontal .unity-base-slider:focus .unity-base-slider__input #unity-drag-container:active #unity-tracker'
+selector--dragger------focus--active = '.unity-scroller--horizontal .unity-base-slider:focus .unity-base-slider__input #unity-drag-container:active #unity-dragger:active'
+selector--low-button---focus--active = '.unity-scroller--horizontal #unity-low-button:focus:active'
+selector--high-button--focus--active = '.unity-scroller--horizontal #unity-high-button:focus:active'
 
 // view
-add-style(scroller           ) theme(element--------normal)
-add-style(field              ) theme(element--------normal)
-add-style(input              ) theme(element--------normal)
-add-style(container          ) theme(element--------normal)
-add-style(tracker            ) theme(element--dark--normal)
-add-style(dragger            ) theme(button---------normal)
-add-style(low-button         ) theme(button---------normal) theme(left-arrow-icon--light)
-add-style(high-button        ) theme(button---------normal) theme(right-arrow-icon--light)
+add-style(scroller                  ) theme(element---------normal)
+add-style(field                     ) theme(element---------normal)
+add-style(field-input               ) theme(element---------normal)
+add-style(container                 ) theme(element---------normal)
+add-style(tracker                   ) theme(element--dark---normal)
+add-style(dragger                   ) theme(element--light--normal)
+add-style(low-button                ) theme(button----------normal) theme(left-arrow-icon--light)
+add-style(high-button               ) theme(button----------normal) theme(right-arrow-icon--light)
 flush()
 // view
-add-style(tracker------hover ) theme(element--dark--hover)
-add-style(dragger------hover ) theme(button---------hover)
-add-style(low-button---hover ) theme(button---------hover)
-add-style(high-button--hover ) theme(button---------hover)
+add-style(tracker------hover        ) theme(element--dark---hover)
+add-style(dragger------hover        ) theme(element--light--hover)
+add-style(low-button---hover        ) theme(button----------hover)
+add-style(high-button--hover        ) theme(button----------hover)
 flush()
 // view
-add-style(tracker------active) theme(element--dark--active)
-add-style(dragger------active) theme(button---------active)
-add-style(low-button---active) theme(button---------active)
-add-style(high-button--active) theme(button---------active)
+add-style(tracker------active       ) theme(element--dark---active)
+add-style(dragger------active       ) theme(element--light--active)
+add-style(low-button---active       ) theme(button----------active)
+add-style(high-button--active       ) theme(button----------active)
+flush()
+// view
+add-style(tracker------focus        ) theme(element--dark---focus--normal)
+add-style(dragger------focus        ) theme(element--light--focus--normal)
+add-style(low-button---focus        ) theme(button----------focus--normal)
+add-style(high-button--focus        ) theme(button----------focus--normal)
+flush()
+// view
+add-style(tracker------focus--hover ) theme(element--dark---focus--hover)
+add-style(dragger------focus--hover ) theme(element--light--focus--hover)
+add-style(low-button---focus--hover ) theme(button----------focus--hover)
+add-style(high-button--focus--hover ) theme(button----------focus--hover)
+flush()
+// view
+add-style(tracker------focus--active) theme(element--dark---focus--active)
+add-style(dragger------focus--active) theme(element--light--focus--active)
+add-style(low-button---focus--active) theme(button----------focus--active)
+add-style(high-button--focus--active) theme(button----------focus--active)
 flush()
 
 // layout
-add-style(scroller           ) layout(null,     auto, auto, (0px            ), (0px), (0px))
-add-style(field              ) layout(null,     auto, auto, (0px            ), (0px), (0px))
-add-style(input              ) layout(null,     auto, auto, (0px            ), (0px), (0px))
-add-style(container          ) layout(null,     auto, auto, (0px            ), (0px), (0px))
-add-style(tracker            ) layout(null,     auto, 24px, (0px            ), (1px), (0px))
-add-style(dragger            ) layout(absolute, auto, 24px, (0px            ), (1px), (0px))
-add-style(low-button         ) layout(null,     24px, 24px, (0px            ), (1px), (0px))
-add-style(high-button        ) layout(null,     24px, 24px, (0px            ), (1px), (0px))
+add-style(scroller                  ) layout(null,     auto, auto, (0px            ), (0px), (0px))
+add-style(field                     ) layout(null,     auto, auto, (0px            ), (0px), (0px))
+add-style(field-input               ) layout(null,     auto, auto, (0px            ), (0px), (0px))
+add-style(container                 ) layout(null,     auto, auto, (0px            ), (0px), (0px))
+add-style(tracker                   ) layout(null,     auto, 24px, (0px            ), (1px), (0px))
+add-style(dragger                   ) layout(absolute, auto, 24px, (0px            ), (1px), (0px))
+add-style(low-button                ) layout(null,     24px, 24px, (0px            ), (1px), (0px))
+add-style(high-button               ) layout(null,     24px, 24px, (0px            ), (1px), (0px))
 flush()
 
 // flex
-add-style(scroller           ) flex(0, 0, auto, auto) flex2(row, flex-start, center)
-add-style(field              ) flex(1, 1, auto, auto) flex2(row, flex-start, center)
-add-style(input              ) flex(1, 1, auto, auto) flex2(row, flex-start, center)
-add-style(container          ) flex(1, 1, auto, auto) flex2(row, flex-start, center)
-add-style(tracker            ) flex(1, 1, auto, auto)
-add-style(dragger            ) flex(0, 1, auto, auto)
-add-style(low-button         ) flex(0, 0, auto, auto)
-add-style(high-button        ) flex(0, 0, auto, auto)
+add-style(scroller                  ) flex(0, 0, auto, auto) flex2(row, flex-start, center)
+add-style(field                     ) flex(1, 1, auto, auto) flex2(row, flex-start, center)
+add-style(field-input               ) flex(1, 1, auto, auto) flex2(row, flex-start, center)
+add-style(container                 ) flex(1, 1, auto, auto) flex2(row, flex-start, center)
+add-style(tracker                   ) flex(1, 1, auto, auto)
+add-style(dragger                   ) flex(0, 1, auto, auto)
+add-style(low-button                ) flex(0, 0, auto, auto)
+add-style(high-button               ) flex(0, 0, auto, auto)
 flush()

@@ -8,23 +8,23 @@ selector--checkmark          = '.unity-toggle .unity-toggle__input         .unit
 selector--checkmark--checked = '.unity-toggle .unity-toggle__input:checked .unity-toggle__checkmark'
 
 // view
-add-style(field             )
-add-style(field-label       )
-add-style(field-input       )
+add-style(field             ) theme()
+add-style(field-label       ) theme()
+add-style(field-input       ) theme()
 add-style(checkmark         ) theme(component--light--normal)
-add-style(checkmark--checked) theme(component--light--normal) theme(checkmark-icon--dark)
+add-style(checkmark--checked) theme(                        ) theme(checkmark-icon--dark)
 flush()
 
 // layout
-add-style(field             )
-add-style(field-label       )
-add-style(field-input       )
+add-style(field             ) layout()
+add-style(field-label       ) layout()
+add-style(field-input       ) layout()
 add-style(checkmark         ) layout(null, 16px, 16px, (0px), (1px), (0px))
 flush()
 
 // flex
-add-style(field             )
-add-style(field-label       )
-add-style(field-input       )
+add-style(field             ) flex()
+add-style(field-label       ) flex()
+add-style(field-input       ) flex()
 add-style(checkmark         ) flex(0, 1, auto, auto)
 flush()

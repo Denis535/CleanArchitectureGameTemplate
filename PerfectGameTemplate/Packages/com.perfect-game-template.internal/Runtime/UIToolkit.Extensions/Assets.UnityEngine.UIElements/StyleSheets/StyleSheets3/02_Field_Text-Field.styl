@@ -7,22 +7,22 @@ selector--field-input = '.unity-base-text-field .unity-base-text-field__input'
 selector--text        = '.unity-base-text-field .unity-base-text-field__input .unity-text-element'
 
 // view
-add-style(field      )
-add-style(field-label)
-add-style(field-input)
+add-style(field      ) theme()
+add-style(field-label) theme()
+add-style(field-input) theme()
 add-style(text       ) theme(element--normal)
 flush()
 
 // layout
-add-style(field      )
-add-style(field-label)
-add-style(field-input)
+add-style(field      ) layout()
+add-style(field-label) layout()
+add-style(field-input) layout()
 add-style(text       ) layout(null, auto, auto, (0px), (0px), (0px))
 flush()
 
 // flex
-add-style(field      )
-add-style(field-label)
-add-style(field-input)
+add-style(field      ) flex()
+add-style(field-label) flex()
+add-style(field-input) flex()
 add-style(text       ) flex(1, 1, auto, auto)
 flush()

@@ -9,27 +9,27 @@ selector--tracker     = '.unity-base-slider .unity-base-slider__input #unity-dra
 selector--dragger     = '.unity-base-slider .unity-base-slider__input #unity-drag-container #unity-dragger'
 
 // view
-add-style(field      )
-add-style(field-label)
-add-style(field-input)
+add-style(field      ) theme()
+add-style(field-label) theme()
+add-style(field-input) theme()
 add-style(container  ) theme(element-----------normal)
 add-style(tracker    ) theme(component--dark---normal)
 add-style(dragger    ) theme(component--light--normal)
 flush()
 
 // layout
-add-style(field      )
-add-style(field-label)
-add-style(field-input)
+add-style(field      ) layout()
+add-style(field-label) layout()
+add-style(field-input) layout()
 add-style(container  ) layout(null,     auto, auto, (0px), (0px), (0px))
 add-style(tracker    ) layout(null,     auto,  8px, (0px), (1px), (0px))
 add-style(dragger    ) layout(absolute, 8px,  24px, (0px), (1px), (0px))
 flush()
 
 // flex
-add-style(field      )
-add-style(field-label)
-add-style(field-input)
+add-style(field      ) flex()
+add-style(field-label) flex()
+add-style(field-input) flex()
 add-style(container  ) flex(1, 1, auto, auto) flex2(row, flex-start, center)
 add-style(tracker    ) flex(1, 1, auto, auto)
 add-style(dragger    ) flex(0, 1, auto, auto)
