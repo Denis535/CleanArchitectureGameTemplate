@@ -1,8 +1,8 @@
 // add-style
-add-style(selector)
+add-style(selector, format = '%s')
     flush()
     define('context', {}, true)
-    context.selector = replace('(\s+)', ' ', get-value(get-key('selector', selector)))
+    context.selector = s(format, unquote(replace('(\s+)', ' ', get-value(get-key('selector', selector)))))
     context.styles   = ()
 
 // theme
