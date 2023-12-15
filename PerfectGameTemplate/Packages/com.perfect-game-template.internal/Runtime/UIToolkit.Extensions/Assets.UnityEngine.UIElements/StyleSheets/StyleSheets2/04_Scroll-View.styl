@@ -1,64 +1,64 @@
 @import "../Internal/_Theme"
 
 // selector
-selector--scroll-view                    = '.unity-scroll-view'
-selector--scroll-view--light2            = '.unity-scroll-view.light2'
-selector--scroll-view--light             = '.unity-scroll-view.light'
-selector--scroll-view--gray              = '.unity-scroll-view.gray'
-selector--scroll-view--dark              = '.unity-scroll-view.dark'
-selector--scroll-view--dark2             = '.unity-scroll-view.dark2'
+selector-----------scroll-view                    = '.unity-scroll-view'
+selector--light2---scroll-view                    = '.unity-scroll-view.light2'
+selector--light----scroll-view                    = '.unity-scroll-view.light'
+selector--gray-----scroll-view                    = '.unity-scroll-view.gray'
+selector--dark-----scroll-view                    = '.unity-scroll-view.dark'
+selector--dark2----scroll-view                    = '.unity-scroll-view.dark2'
 // selector
-selector--scroll-view----------hover     = '.unity-scroll-view:hover'
-selector--scroll-view--light2--hover     = '.unity-scroll-view.light2:hover'
-selector--scroll-view--light---hover     = '.unity-scroll-view.light:hover'
-selector--scroll-view--gray----hover     = '.unity-scroll-view.gray:hover'
-selector--scroll-view--dark----hover     = '.unity-scroll-view.dark:hover'
-selector--scroll-view--dark2---hover     = '.unity-scroll-view.dark2:hover'
+selector-----------scroll-view--hover             = '.unity-scroll-view:hover'
+selector--light2---scroll-view--hover             = '.unity-scroll-view.light2:hover'
+selector--light----scroll-view--hover             = '.unity-scroll-view.light:hover'
+selector--gray-----scroll-view--hover             = '.unity-scroll-view.gray:hover'
+selector--dark-----scroll-view--hover             = '.unity-scroll-view.dark:hover'
+selector--dark2----scroll-view--hover             = '.unity-scroll-view.dark2:hover'
 // selector
-selector--viewport-and-vertical-scroller = '.unity-scroll-view         #unity-content-and-vertical-scroll-container'
-selector--viewport                       = '.unity-scroll-view         #unity-content-viewport'
-selector--viewport--reverse              = '.unity-scroll-view.reverse #unity-content-viewport'
-selector--content                        = '.unity-scroll-view         #unity-content-container'
-selector--content--small                 = '.unity-scroll-view.small   #unity-content-container'
-selector--content--medium                = '.unity-scroll-view.medium  #unity-content-container'
-selector--content--large                 = '.unity-scroll-view.large   #unity-content-container'
+selector-----------viewport-and-vertical-scroller = '.unity-scroll-view         #unity-content-and-vertical-scroll-container'
+selector-----------viewport                       = '.unity-scroll-view         #unity-content-viewport'
+selector--reverse--viewport                       = '.unity-scroll-view.reverse #unity-content-viewport'
+selector-----------content                        = '.unity-scroll-view         #unity-content-container'
+selector--small----content                        = '.unity-scroll-view.small   #unity-content-container'
+selector--medium---content                        = '.unity-scroll-view.medium  #unity-content-container'
+selector--large----content                        = '.unity-scroll-view.large   #unity-content-container'
 
 // view
-add-style(scroll-view                   ) theme(view----------normal)
-add-style(scroll-view--light2           ) theme(view--light2--normal)
-add-style(scroll-view--light            ) theme(view--light---normal)
-add-style(scroll-view--gray             ) theme(view--gray----normal)
-add-style(scroll-view--dark             ) theme(view--dark----normal)
-add-style(scroll-view--dark2            ) theme(view--dark2---normal)
+add-style(        scroll-view                    ) theme(        view--normal)
+add-style(light2--scroll-view                    ) theme(light2--view--normal)
+add-style(light---scroll-view                    ) theme(light---view--normal)
+add-style(gray----scroll-view                    ) theme(gray----view--normal)
+add-style(dark----scroll-view                    ) theme(dark----view--normal)
+add-style(dark2---scroll-view                    ) theme(dark2---view--normal)
 flush()
 // view
-add-style(scroll-view----------hover    ) theme(view----------hover)
-add-style(scroll-view--light2--hover    ) theme(view--light2--hover)
-add-style(scroll-view--light---hover    ) theme(view--light---hover)
-add-style(scroll-view--gray----hover    ) theme(view--gray----hover)
-add-style(scroll-view--dark----hover    ) theme(view--dark----hover)
-add-style(scroll-view--dark2---hover    ) theme(view--dark2---hover)
+add-style(        scroll-view--hover             ) theme(        view--hover)
+add-style(light2--scroll-view--hover             ) theme(light2--view--hover)
+add-style(light---scroll-view--hover             ) theme(light---view--hover)
+add-style(gray----scroll-view--hover             ) theme(gray----view--hover)
+add-style(dark----scroll-view--hover             ) theme(dark----view--hover)
+add-style(dark2---scroll-view--hover             ) theme(dark2---view--hover)
 flush()
 // view
-add-style(viewport-and-vertical-scroller) theme(null) 
-add-style(viewport                      ) theme(null) property(overflow, hidden)
-add-style(content                       ) theme(null) property(overflow, scroll)
+add-style(        viewport-and-vertical-scroller ) theme(null) 
+add-style(        viewport                       ) theme(null) property(overflow, hidden)
+add-style(        content                        ) theme(null) property(overflow, scroll)
 flush()
 
 // layout
-add-style(scroll-view                   ) layout(null, auto, auto, (4px), (1px), (0px                ))
-add-style(viewport-and-vertical-scroller) layout(null, auto, auto, (0px), (0px), (0px                ))
-add-style(viewport                      ) layout(null, auto, auto, (0px), (0px), (0px                ))
-add-style(content                       ) layout(null, auto, auto, (0px), (0px), (0px                ))
-add-style(content--small                ) layout(null, auto, auto, (0px), (0px), (6px  6px  5px  5px ))
-add-style(content--medium               ) layout(null, auto, auto, (0px), (0px), (12px 12px 10px 10px))
-add-style(content--large                ) layout(null, auto, auto, (0px), (0px), (24px 24px 20px 20px))
+add-style(         scroll-view                   ) layout(null, auto, auto, (4px), (1px), (0px                ))
+add-style(         viewport-and-vertical-scroller) layout(null, auto, auto, (0px), (0px), (0px                ))
+add-style(         viewport                      ) layout(null, auto, auto, (0px), (0px), (0px                ))
+add-style(         content                       ) layout(null, auto, auto, (0px), (0px), (0px                ))
+add-style(small----content                       ) layout(null, auto, auto, (0px), (0px), (6px  6px  5px  5px ))
+add-style(medium---content                       ) layout(null, auto, auto, (0px), (0px), (12px 12px 10px 10px))
+add-style(large----content                       ) layout(null, auto, auto, (0px), (0px), (24px 24px 20px 20px))
 flush()
 
 // flex
-add-style(scroll-view                   ) flex(0, 1, auto, auto) flex2(column,         flex-start, stretch)
-add-style(viewport-and-vertical-scroller) flex(1, 1, auto, auto) flex2(row,            flex-start, stretch)
-add-style(viewport                      ) flex(1, 1, auto, auto) flex2(column,         flex-start, stretch)
-add-style(viewport--reverse             ) flex(1, 1, auto, auto) flex2(column-reverse, flex-start, stretch)
-add-style(content                       ) flex(0, 0, auto, auto) flex2(column,         flex-start, stretch)
+add-style(         scroll-view                   ) flex(0, 1, auto, auto) flex2(column,         flex-start, stretch)
+add-style(         viewport-and-vertical-scroller) flex(1, 1, auto, auto) flex2(row,            flex-start, stretch)
+add-style(         viewport                      ) flex(1, 1, auto, auto) flex2(column,         flex-start, stretch)
+add-style(reverse--viewport                      ) flex(1, 1, auto, auto) flex2(column-reverse, flex-start, stretch)
+add-style(         content                       ) flex(0, 0, auto, auto) flex2(column,         flex-start, stretch)
 flush()

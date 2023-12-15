@@ -1,23 +1,23 @@
 @import "../Internal/_Theme"
 
 // selector
-selector--label         = '.unity-label'
+selector----------label = '.unity-label'
 // selector
-selector--label--small  = '.unity-label.small'
-selector--label--medium = '.unity-label.medium'
-selector--label--large  = '.unity-label.large'
+selector--small---label = '.unity-label.small'
+selector--medium--label = '.unity-label.medium'
+selector--large---label = '.unity-label.large'
 
 // view
-add-style(label        ) theme()
+add-style(        label) theme()
 flush()
 
 // layout
-add-style(label        ) layout(null, auto, auto, (4px), (1px), (0px  0px  0px  0px ))
-add-style(label--small ) layout(null, auto, auto, (4px), (1px), (6px  6px  5px  5px ))
-add-style(label--medium) layout(null, auto, auto, (4px), (1px), (12px 12px 10px 10px))
-add-style(label--large ) layout(null, auto, auto, (4px), (1px), (24px 24px 20px 20px))
+add-style(        label) layout(null, auto, auto, (4px), (1px), (0px  0px  0px  0px ))
+add-style(small---label) layout(null, auto, auto, (4px), (1px), (6px  6px  5px  5px ))
+add-style(medium--label) layout(null, auto, auto, (4px), (1px), (12px 12px 10px 10px))
+add-style(large---label) layout(null, auto, auto, (4px), (1px), (24px 24px 20px 20px))
 flush()
 
 // flex
-add-style(label        ) flex(0, 1, auto, auto)
+add-style(        label) flex(0, 1, auto, auto)
 flush()
