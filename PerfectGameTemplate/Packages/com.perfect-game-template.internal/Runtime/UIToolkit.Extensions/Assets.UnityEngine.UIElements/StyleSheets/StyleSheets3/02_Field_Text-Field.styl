@@ -1,28 +1,64 @@
 @import "../Internal/_Theme"
 
 // selector
-selector--field       = '.unity-base-text-field'
-selector--field-label = '.unity-base-text-field .unity-base-text-field__label'
-selector--field-input = '.unity-base-text-field .unity-base-text-field__input'
-selector--text        = '.unity-base-text-field .unity-base-text-field__input .unity-text-element'
+selector--field------------------------normal = '.unity-base-text-field'
+selector--field------------------------hover  = '.unity-base-text-field:hover'
+selector--field------------------------active = '.unity-base-text-field:active'
+selector--field--------invalid---------normal = '.unity-base-text-field.invalid'
+selector--field--------invalid---------hover  = '.unity-base-text-field.invalid:hover'
+selector--field--------invalid---------active = '.unity-base-text-field.invalid:active'
+selector--field-----------------focus--normal = '.unity-base-text-field:focus'
+selector--field-----------------focus--hover  = '.unity-base-text-field:focus:hover'
+selector--field-----------------focus--active = '.unity-base-text-field:focus:active'
+selector--field--------invalid--focus--normal = '.unity-base-text-field.invalid:focus'
+selector--field--------invalid--focus--hover  = '.unity-base-text-field.invalid:focus:hover'
+selector--field--------invalid--focus--active = '.unity-base-text-field.invalid:focus:active'
+// selector
+selector--field-label------------------normal = '.unity-base-text-field                      .unity-base-text-field__label'
+selector--field-label------------------hover  = '.unity-base-text-field:hover                .unity-base-text-field__label'
+selector--field-label------------------active = '.unity-base-text-field:active               .unity-base-text-field__label'
+selector--field-label--invalid---------normal = '.unity-base-text-field.invalid              .unity-base-text-field__label'
+selector--field-label--invalid---------hover  = '.unity-base-text-field.invalid:hover        .unity-base-text-field__label'
+selector--field-label--invalid---------active = '.unity-base-text-field.invalid:active       .unity-base-text-field__label'
+selector--field-label-----------focus--normal = '.unity-base-text-field:focus                .unity-base-text-field__label'
+selector--field-label-----------focus--hover  = '.unity-base-text-field:focus:hover          .unity-base-text-field__label'
+selector--field-label-----------focus--active = '.unity-base-text-field:focus:active         .unity-base-text-field__label'
+selector--field-label--invalid--focus--normal = '.unity-base-text-field.invalid:focus        .unity-base-text-field__label'
+selector--field-label--invalid--focus--hover  = '.unity-base-text-field.invalid:focus:hover  .unity-base-text-field__label'
+selector--field-label--invalid--focus--active = '.unity-base-text-field.invalid:focus:active .unity-base-text-field__label'
+// selector
+selector--field-input------------------normal = '.unity-base-text-field                      .unity-base-text-field__input'
+selector--field-input------------------hover  = '.unity-base-text-field:hover                .unity-base-text-field__input'
+selector--field-input------------------active = '.unity-base-text-field:active               .unity-base-text-field__input'
+selector--field-input--invalid---------normal = '.unity-base-text-field.invalid              .unity-base-text-field__input'
+selector--field-input--invalid---------hover  = '.unity-base-text-field.invalid:hover        .unity-base-text-field__input'
+selector--field-input--invalid---------active = '.unity-base-text-field.invalid:active       .unity-base-text-field__input'
+selector--field-input-----------focus--normal = '.unity-base-text-field:focus                .unity-base-text-field__input'
+selector--field-input-----------focus--hover  = '.unity-base-text-field:focus:hover          .unity-base-text-field__input'
+selector--field-input-----------focus--active = '.unity-base-text-field:focus:active         .unity-base-text-field__input'
+selector--field-input--invalid--focus--normal = '.unity-base-text-field.invalid:focus        .unity-base-text-field__input'
+selector--field-input--invalid--focus--hover  = '.unity-base-text-field.invalid:focus:hover  .unity-base-text-field__input'
+selector--field-input--invalid--focus--active = '.unity-base-text-field.invalid:focus:active .unity-base-text-field__input'
+// selector
+selector--text-------------------------normal = '.unity-base-text-field                      .unity-base-text-field__input .unity-text-element'
 
 // view
-add-style(field      ) theme()
-add-style(field-label) theme()
-add-style(field-input) theme()
-add-style(text       ) theme(element--normal)
+add-style(field--------normal) theme()
+add-style(field-label--normal) theme()
+add-style(field-input--normal) theme()
+add-style(text---------normal) theme(element--normal)
 flush()
 
 // layout
-add-style(field      ) layout()
-add-style(field-label) layout()
-add-style(field-input) layout()
-add-style(text       ) layout(null, auto, auto, (0px), (0px), (0px))
+add-style(field--------normal) layout()
+add-style(field-label--normal) layout()
+add-style(field-input--normal) layout()
+add-style(text---------normal) layout(null, auto, auto, (0px), (0px), (0px))
 flush()
 
 // flex
-add-style(field      ) flex()
-add-style(field-label) flex()
-add-style(field-input) flex()
-add-style(text       ) flex(1, 1, auto, auto)
+add-style(field--------normal) flex()
+add-style(field-label--normal) flex()
+add-style(field-input--normal) flex()
+add-style(text---------normal) flex(1, 1, auto, auto)
 flush()

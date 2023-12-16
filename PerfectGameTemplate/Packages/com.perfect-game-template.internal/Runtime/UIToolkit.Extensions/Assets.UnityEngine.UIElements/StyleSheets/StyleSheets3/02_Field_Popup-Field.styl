@@ -1,32 +1,68 @@
 @import "../Internal/_Theme"
 
 // selector
-selector--field       = '.unity-base-popup-field'
-selector--field-label = '.unity-base-popup-field .unity-base-popup-field__label'
-selector--field-input = '.unity-base-popup-field .unity-base-popup-field__input'
-selector--text        = '.unity-base-popup-field .unity-base-popup-field__input .unity-base-popup-field__text'
-selector--arrow       = '.unity-base-popup-field .unity-base-popup-field__input .unity-base-popup-field__arrow'
+selector--field------------------------normal = '.unity-base-popup-field'
+selector--field------------------------hover  = '.unity-base-popup-field:hover'
+selector--field------------------------active = '.unity-base-popup-field:active'
+selector--field--------invalid---------normal = '.unity-base-popup-field.invalid'
+selector--field--------invalid---------hover  = '.unity-base-popup-field.invalid:hover'
+selector--field--------invalid---------active = '.unity-base-popup-field.invalid:active'
+selector--field-----------------focus--normal = '.unity-base-popup-field:focus'
+selector--field-----------------focus--hover  = '.unity-base-popup-field:focus:hover'
+selector--field-----------------focus--active = '.unity-base-popup-field:focus:active'
+selector--field--------invalid--focus--normal = '.unity-base-popup-field.invalid:focus'
+selector--field--------invalid--focus--hover  = '.unity-base-popup-field.invalid:focus:hover'
+selector--field--------invalid--focus--active = '.unity-base-popup-field.invalid:focus:active'
+// selector
+selector--field-label------------------normal = '.unity-base-popup-field                      .unity-base-popup-field__label'
+selector--field-label------------------hover  = '.unity-base-popup-field:hover                .unity-base-popup-field__label'
+selector--field-label------------------active = '.unity-base-popup-field:active               .unity-base-popup-field__label'
+selector--field-label--invalid---------normal = '.unity-base-popup-field.invalid              .unity-base-popup-field__label'
+selector--field-label--invalid---------hover  = '.unity-base-popup-field.invalid:hover        .unity-base-popup-field__label'
+selector--field-label--invalid---------active = '.unity-base-popup-field.invalid:active       .unity-base-popup-field__label'
+selector--field-label-----------focus--normal = '.unity-base-popup-field:focus                .unity-base-popup-field__label'
+selector--field-label-----------focus--hover  = '.unity-base-popup-field:focus:hover          .unity-base-popup-field__label'
+selector--field-label-----------focus--active = '.unity-base-popup-field:focus:active         .unity-base-popup-field__label'
+selector--field-label--invalid--focus--normal = '.unity-base-popup-field.invalid:focus        .unity-base-popup-field__label'
+selector--field-label--invalid--focus--hover  = '.unity-base-popup-field.invalid:focus:hover  .unity-base-popup-field__label'
+selector--field-label--invalid--focus--active = '.unity-base-popup-field.invalid:focus:active .unity-base-popup-field__label'
+// selector
+selector--field-input------------------normal = '.unity-base-popup-field                      .unity-base-popup-field__input'
+selector--field-input------------------hover  = '.unity-base-popup-field:hover                .unity-base-popup-field__input'
+selector--field-input------------------active = '.unity-base-popup-field:active               .unity-base-popup-field__input'
+selector--field-input--invalid---------normal = '.unity-base-popup-field.invalid              .unity-base-popup-field__input'
+selector--field-input--invalid---------hover  = '.unity-base-popup-field.invalid:hover        .unity-base-popup-field__input'
+selector--field-input--invalid---------active = '.unity-base-popup-field.invalid:active       .unity-base-popup-field__input'
+selector--field-input-----------focus--normal = '.unity-base-popup-field:focus                .unity-base-popup-field__input'
+selector--field-input-----------focus--hover  = '.unity-base-popup-field:focus:hover          .unity-base-popup-field__input'
+selector--field-input-----------focus--active = '.unity-base-popup-field:focus:active         .unity-base-popup-field__input'
+selector--field-input--invalid--focus--normal = '.unity-base-popup-field.invalid:focus        .unity-base-popup-field__input'
+selector--field-input--invalid--focus--hover  = '.unity-base-popup-field.invalid:focus:hover  .unity-base-popup-field__input'
+selector--field-input--invalid--focus--active = '.unity-base-popup-field.invalid:focus:active .unity-base-popup-field__input'
+// selector
+selector--text-------------------------normal = '.unity-base-popup-field                      .unity-base-popup-field__input .unity-base-popup-field__text'
+selector--arrow------------------------normal = '.unity-base-popup-field                      .unity-base-popup-field__input .unity-base-popup-field__arrow'
 
 // view
-add-style(field      ) theme()
-add-style(field-label) theme()
-add-style(field-input) theme()
-add-style(text       ) theme(element----normal)
-add-style(arrow      ) theme(component--normal) theme(light--dropdown-arrow-icon)
+add-style(field--------normal) theme()
+add-style(field-label--normal) theme()
+add-style(field-input--normal) theme()
+add-style(text---------normal) theme(element----normal)
+add-style(arrow--------normal) theme(component--normal) theme(light--dropdown-arrow-icon)
 flush()
 
 // layout
-add-style(field      ) layout()
-add-style(field-label) layout()
-add-style(field-input) layout()
-add-style(text       ) layout(null, auto, auto, (0px), (0px), (0px))
-add-style(arrow      ) layout(null, 12px, 12px, (2px), (0px), (0px))
+add-style(field--------normal) layout()
+add-style(field-label--normal) layout()
+add-style(field-input--normal) layout()
+add-style(text---------normal) layout(null, auto, auto, (0px), (0px), (0px))
+add-style(arrow--------normal) layout(null, 12px, 12px, (2px), (0px), (0px))
 flush()
 
 // flex
-add-style(field      ) flex()
-add-style(field-label) flex()
-add-style(field-input) flex()
-add-style(text       ) flex(1, 1, auto, auto)
-add-style(arrow      ) flex(0, 1, auto, auto)
+add-style(field--------normal) flex()
+add-style(field-label--normal) flex()
+add-style(field-input--normal) flex()
+add-style(text---------normal) flex(1, 1, auto, auto)
+add-style(arrow--------normal) flex(0, 1, auto, auto)
 flush()

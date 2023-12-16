@@ -1,36 +1,72 @@
 @import "../Internal/_Theme"
 
 // selector
-selector--field       = '.unity-base-slider'
-selector--field-label = '.unity-base-slider .unity-base-slider__label'
-selector--field-input = '.unity-base-slider .unity-base-slider__input'
-selector--container   = '.unity-base-slider .unity-base-slider__input #unity-drag-container'
-selector--tracker     = '.unity-base-slider .unity-base-slider__input #unity-drag-container #unity-tracker'
-selector--dragger     = '.unity-base-slider .unity-base-slider__input #unity-drag-container #unity-dragger'
+selector--field------------------------normal = '.unity-base-slider'
+selector--field------------------------hover  = '.unity-base-slider:hover'
+selector--field------------------------active = '.unity-base-slider:active'
+selector--field--------invalid---------normal = '.unity-base-slider.invalid'
+selector--field--------invalid---------hover  = '.unity-base-slider.invalid:hover'
+selector--field--------invalid---------active = '.unity-base-slider.invalid:active'
+selector--field-----------------focus--normal = '.unity-base-slider:focus'
+selector--field-----------------focus--hover  = '.unity-base-slider:focus:hover'
+selector--field-----------------focus--active = '.unity-base-slider:focus:active'
+selector--field--------invalid--focus--normal = '.unity-base-slider.invalid:focus'
+selector--field--------invalid--focus--hover  = '.unity-base-slider.invalid:focus:hover'
+selector--field--------invalid--focus--active = '.unity-base-slider.invalid:focus:active'
+// selector
+selector--field-label------------------normal = '.unity-base-slider                      .unity-base-slider__label'
+selector--field-label------------------hover  = '.unity-base-slider:hover                .unity-base-slider__label'
+selector--field-label------------------active = '.unity-base-slider:active               .unity-base-slider__label'
+selector--field-label--invalid---------normal = '.unity-base-slider.invalid              .unity-base-slider__label'
+selector--field-label--invalid---------hover  = '.unity-base-slider.invalid:hover        .unity-base-slider__label'
+selector--field-label--invalid---------active = '.unity-base-slider.invalid:active       .unity-base-slider__label'
+selector--field-label-----------focus--normal = '.unity-base-slider:focus                .unity-base-slider__label'
+selector--field-label-----------focus--hover  = '.unity-base-slider:focus:hover          .unity-base-slider__label'
+selector--field-label-----------focus--active = '.unity-base-slider:focus:active         .unity-base-slider__label'
+selector--field-label--invalid--focus--normal = '.unity-base-slider.invalid:focus        .unity-base-slider__label'
+selector--field-label--invalid--focus--hover  = '.unity-base-slider.invalid:focus:hover  .unity-base-slider__label'
+selector--field-label--invalid--focus--active = '.unity-base-slider.invalid:focus:active .unity-base-slider__label'
+// selector
+selector--field-input------------------normal = '.unity-base-slider                      .unity-base-slider__input'
+selector--field-input------------------hover  = '.unity-base-slider:hover                .unity-base-slider__input'
+selector--field-input------------------active = '.unity-base-slider:active               .unity-base-slider__input'
+selector--field-input--invalid---------normal = '.unity-base-slider.invalid              .unity-base-slider__input'
+selector--field-input--invalid---------hover  = '.unity-base-slider.invalid:hover        .unity-base-slider__input'
+selector--field-input--invalid---------active = '.unity-base-slider.invalid:active       .unity-base-slider__input'
+selector--field-input-----------focus--normal = '.unity-base-slider:focus                .unity-base-slider__input'
+selector--field-input-----------focus--hover  = '.unity-base-slider:focus:hover          .unity-base-slider__input'
+selector--field-input-----------focus--active = '.unity-base-slider:focus:active         .unity-base-slider__input'
+selector--field-input--invalid--focus--normal = '.unity-base-slider.invalid:focus        .unity-base-slider__input'
+selector--field-input--invalid--focus--hover  = '.unity-base-slider.invalid:focus:hover  .unity-base-slider__input'
+selector--field-input--invalid--focus--active = '.unity-base-slider.invalid:focus:active .unity-base-slider__input'
+// selector
+selector--container--------------------normal = '.unity-base-slider                      .unity-base-slider__input #unity-drag-container'
+selector--tracker----------------------normal = '.unity-base-slider                      .unity-base-slider__input #unity-drag-container #unity-tracker'
+selector--dragger----------------------normal = '.unity-base-slider                      .unity-base-slider__input #unity-drag-container #unity-dragger'
 
 // view
-add-style(field      ) theme()
-add-style(field-label) theme()
-add-style(field-input) theme()
-add-style(container  ) theme(element-----------normal)
-add-style(tracker    ) theme(dark---component--normal)
-add-style(dragger    ) theme(light--component--normal)
+add-style(field--------normal) theme()
+add-style(field-label--normal) theme()
+add-style(field-input--normal) theme()
+add-style(container----normal) theme(       element----normal)
+add-style(tracker------normal) theme(dark---component--normal)
+add-style(dragger------normal) theme(light--component--normal)
 flush()
 
 // layout
-add-style(field      ) layout()
-add-style(field-label) layout()
-add-style(field-input) layout()
-add-style(container  ) layout(null,     auto, auto, (0px), (0px), (0px))
-add-style(tracker    ) layout(null,     auto,  8px, (0px), (1px), (0px))
-add-style(dragger    ) layout(absolute, 8px,  24px, (0px), (1px), (0px))
+add-style(field--------normal) layout()
+add-style(field-label--normal) layout()
+add-style(field-input--normal) layout()
+add-style(container----normal) layout(null,     auto, auto, (0px), (0px), (0px))
+add-style(tracker------normal) layout(null,     auto,  8px, (0px), (1px), (0px))
+add-style(dragger------normal) layout(absolute, 8px,  24px, (0px), (1px), (0px))
 flush()
 
 // flex
-add-style(field      ) flex()
-add-style(field-label) flex()
-add-style(field-input) flex()
-add-style(container  ) flex(1, 1, auto, auto) flex2(row, flex-start, center)
-add-style(tracker    ) flex(1, 1, auto, auto)
-add-style(dragger    ) flex(0, 1, auto, auto)
+add-style(field--------normal) flex()
+add-style(field-label--normal) flex()
+add-style(field-input--normal) flex()
+add-style(container----normal) flex(1, 1, auto, auto) flex2(row, flex-start, center)
+add-style(tracker------normal) flex(1, 1, auto, auto)
+add-style(dragger------normal) flex(0, 1, auto, auto)
 flush()

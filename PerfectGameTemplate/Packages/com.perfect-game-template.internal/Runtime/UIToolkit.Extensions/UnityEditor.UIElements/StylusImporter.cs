@@ -66,7 +66,8 @@ namespace UnityEditor.UIElements {
 
             Stylus.nodes.Ident = new Proxy(Stylus.nodes.Ident, {{
                 construct: function(target, args) {{
-                    args[0] = args[0].replaceAll(/(__)(_*)/g, '__').replaceAll(/(--)(-*)/g, '--');
+                    args[0] = args[0].replaceAll(/(_)(_*)/g, '_');
+                    args[0] = args[0].replaceAll(/(-)(-*)/g, '-');
                     return new target(...args);
                 }}
             }});
