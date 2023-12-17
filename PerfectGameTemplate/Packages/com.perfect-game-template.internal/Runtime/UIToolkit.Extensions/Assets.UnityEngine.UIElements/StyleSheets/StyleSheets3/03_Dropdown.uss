@@ -30,6 +30,10 @@
 .unity-base-dropdown .unity-base-dropdown__item:hover {
   color: #fff;
   background-color: #b86614;
+  border-left-color: #e68019;
+  border-right-color: #e68019;
+  border-top-color: #e68019;
+  border-bottom-color: #e68019;
 }
 .unity-base-dropdown .unity-base-dropdown__item .unity-base-dropdown__checkmark {
   background-color: rgba(0,0,0,0);
