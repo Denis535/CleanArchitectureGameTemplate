@@ -40,10 +40,10 @@
 }
 .unity-scroller--vertical .unity-base-slider:focus .unity-base-slider__input #unity-drag-container #unity-dragger {
   color: #197fe6;
-  border-left-color: #0f4c8a;
-  border-right-color: #0f4c8a;
-  border-top-color: #0f4c8a;
-  border-bottom-color: #0f4c8a;
+  border-left-color: #1466b8;
+  border-right-color: #1466b8;
+  border-top-color: #1466b8;
+  border-bottom-color: #1466b8;
 }
 .unity-scroller--vertical .unity-base-slider:focus .unity-base-slider__input #unity-drag-container:hover #unity-dragger:hover {
   color: #39f;
@@ -60,8 +60,8 @@
   border-bottom-color: #0a335c;
 }
 .unity-scroller--vertical #unity-low-button {
-  color: #e6e6e6;
-  background-color: #393b3c;
+  background-image: url('../../Images/Arrow_Up.png');
+  -unity-background-image-tint-color: #e6e6e6;
   border-left-color: #634d36;
   border-right-color: #634d36;
   border-top-color: #634d36;
@@ -70,49 +70,49 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-image: url('../../Images/Arrow_Up.png');
-  -unity-background-image-tint-color: #e6e6e6;
 }
 .unity-scroller--vertical #unity-low-button:hover {
-  color: #fff;
-  background-color: #3e4041;
+  -unity-background-image-tint-color: #fff;
   border-left-color: #a68059;
   border-right-color: #a68059;
   border-top-color: #a68059;
   border-bottom-color: #a68059;
 }
 .unity-scroller--vertical #unity-low-button:active {
-  color: #808080;
-  background-color: #373839;
+  -unity-background-image-tint-color: #808080;
   border-left-color: #423324;
   border-right-color: #423324;
   border-top-color: #423324;
   border-bottom-color: #423324;
 }
 .unity-scroller--vertical #unity-low-button:focus {
-  color: #197fe6;
-  border-left-color: #0f4c8a;
-  border-right-color: #0f4c8a;
-  border-top-color: #0f4c8a;
-  border-bottom-color: #0f4c8a;
+  -unity-background-image-tint-color: #197fe6;
+  border-left-color: #1466b8;
+  border-right-color: #1466b8;
+  border-top-color: #1466b8;
+  border-bottom-color: #1466b8;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 .unity-scroller--vertical #unity-low-button:focus:hover {
-  color: #39f;
+  -unity-background-image-tint-color: #39f;
   border-left-color: #197fe6;
   border-right-color: #197fe6;
   border-top-color: #197fe6;
   border-bottom-color: #197fe6;
 }
 .unity-scroller--vertical #unity-low-button:focus:active {
-  color: #1466b8;
+  -unity-background-image-tint-color: #1466b8;
   border-left-color: #0a335c;
   border-right-color: #0a335c;
   border-top-color: #0a335c;
   border-bottom-color: #0a335c;
 }
 .unity-scroller--vertical #unity-high-button {
-  color: #e6e6e6;
-  background-color: #393b3c;
+  background-image: url('../../Images/Arrow_Down.png');
+  -unity-background-image-tint-color: #e6e6e6;
   border-left-color: #634d36;
   border-right-color: #634d36;
   border-top-color: #634d36;
@@ -121,41 +121,42 @@
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-image: url('../../Images/Arrow_Down.png');
-  -unity-background-image-tint-color: #e6e6e6;
 }
 .unity-scroller--vertical #unity-high-button:hover {
-  color: #fff;
-  background-color: #3e4041;
+  -unity-background-image-tint-color: #fff;
   border-left-color: #a68059;
   border-right-color: #a68059;
   border-top-color: #a68059;
   border-bottom-color: #a68059;
 }
 .unity-scroller--vertical #unity-high-button:active {
-  color: #808080;
-  background-color: #373839;
+  -unity-background-image-tint-color: #808080;
   border-left-color: #423324;
   border-right-color: #423324;
   border-top-color: #423324;
   border-bottom-color: #423324;
 }
 .unity-scroller--vertical #unity-high-button:focus {
-  color: #197fe6;
-  border-left-color: #0f4c8a;
-  border-right-color: #0f4c8a;
-  border-top-color: #0f4c8a;
-  border-bottom-color: #0f4c8a;
+  background-image: url('../../Images/Arrow_Down.png');
+  -unity-background-image-tint-color: #197fe6;
+  border-left-color: #1466b8;
+  border-right-color: #1466b8;
+  border-top-color: #1466b8;
+  border-bottom-color: #1466b8;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 .unity-scroller--vertical #unity-high-button:focus:hover {
-  color: #39f;
+  -unity-background-image-tint-color: #39f;
   border-left-color: #197fe6;
   border-right-color: #197fe6;
   border-top-color: #197fe6;
   border-bottom-color: #197fe6;
 }
 .unity-scroller--vertical #unity-high-button:focus:active {
-  color: #1466b8;
+  -unity-background-image-tint-color: #1466b8;
   border-left-color: #0a335c;
   border-right-color: #0a335c;
   border-top-color: #0a335c;
@@ -165,9 +166,9 @@
   width: auto;
   height: auto;
   margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
   border-left-width: 0px;
   border-right-width: 0px;
   border-top-width: 0px;
@@ -182,8 +183,8 @@
   height: auto;
   margin-left: 0px;
   margin-right: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 2px;
+  margin-bottom: 2px;
   border-left-width: 0px;
   border-right-width: 0px;
   border-top-width: 0px;

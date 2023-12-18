@@ -30,10 +30,10 @@
 }
 .unity-button:focus {
   color: #197fe6;
-  border-left-color: #0f4c8a;
-  border-right-color: #0f4c8a;
-  border-top-color: #0f4c8a;
-  border-bottom-color: #0f4c8a;
+  border-left-color: #1466b8;
+  border-right-color: #1466b8;
+  border-top-color: #1466b8;
+  border-bottom-color: #1466b8;
 }
 .unity-button:focus:hover {
   color: #39f;
@@ -51,10 +51,10 @@
 }
 .unity-button.invalid {
   color: #e61919;
-  border-left-color: #8a0f0f;
-  border-right-color: #8a0f0f;
-  border-top-color: #8a0f0f;
-  border-bottom-color: #8a0f0f;
+  border-left-color: #b81414;
+  border-right-color: #b81414;
+  border-top-color: #b81414;
+  border-bottom-color: #b81414;
 }
 .unity-button.invalid:hover {
   color: #f33;
@@ -72,10 +72,10 @@
 }
 .unity-button.invalid:focus {
   color: #e61919;
-  border-left-color: #0f4c8a;
-  border-right-color: #0f4c8a;
-  border-top-color: #0f4c8a;
-  border-bottom-color: #0f4c8a;
+  border-left-color: #1466b8;
+  border-right-color: #1466b8;
+  border-top-color: #1466b8;
+  border-bottom-color: #1466b8;
 }
 .unity-button.invalid:focus:hover {
   color: #f33;
@@ -123,10 +123,10 @@
 }
 .unity-repeat-button:focus {
   color: #197fe6;
-  border-left-color: #0f4c8a;
-  border-right-color: #0f4c8a;
-  border-top-color: #0f4c8a;
-  border-bottom-color: #0f4c8a;
+  border-left-color: #1466b8;
+  border-right-color: #1466b8;
+  border-top-color: #1466b8;
+  border-bottom-color: #1466b8;
 }
 .unity-repeat-button:focus:hover {
   color: #39f;
@@ -144,10 +144,10 @@
 }
 .unity-repeat-button.invalid {
   color: #e61919;
-  border-left-color: #8a0f0f;
-  border-right-color: #8a0f0f;
-  border-top-color: #8a0f0f;
-  border-bottom-color: #8a0f0f;
+  border-left-color: #b81414;
+  border-right-color: #b81414;
+  border-top-color: #b81414;
+  border-bottom-color: #b81414;
 }
 .unity-repeat-button.invalid:hover {
   color: #f33;
@@ -165,10 +165,10 @@
 }
 .unity-repeat-button.invalid:focus {
   color: #e61919;
-  border-left-color: #0f4c8a;
-  border-right-color: #0f4c8a;
-  border-top-color: #0f4c8a;
-  border-bottom-color: #0f4c8a;
+  border-left-color: #1466b8;
+  border-right-color: #1466b8;
+  border-top-color: #1466b8;
+  border-bottom-color: #1466b8;
 }
 .unity-repeat-button.invalid:focus:hover {
   color: #f33;
