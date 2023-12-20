@@ -80,31 +80,53 @@ namespace Project.Toolbar {
         }
         [MenuItem( "Project/Build Development", priority = 201 )]
         internal static void BuildDevelopment() {
-            new ProjectBuilder2().BuildDevelopment();
+            var path = $"Build/Development/{PlayerSettings.productName}.exe";
+            new ProjectBuilder2().BuildDevelopment( path );
+            EditorApplication.Beep();
+            EditorUtility.RevealInFinder( path );
         }
         [MenuItem( "Project/Build Production", priority = 202 )]
         internal static void BuildProduction() {
-            new ProjectBuilder2().BuildProduction();
+            var path = $"Build/Production/{PlayerSettings.productName}.exe";
+            new ProjectBuilder2().BuildProduction( path );
+            EditorApplication.Beep();
+            EditorUtility.RevealInFinder( path );
+        }
+
+        // ExportPackage
+        [MenuItem( "Project/Export Package", priority = 300 )]
+        internal static void ExportPackage() {
+            var paths = GetPaths()
+                .Where( i => i.StartsWith( "Assets" ) || i.StartsWith( "Packages" ) || i.StartsWith( "ProjectSettings" ) )
+                .Where( i => !i.StartsWith( "Packages/com.unity.asset-store-tools" ) )
+                .ToArray();
+            var path = $"Temp/{Application.productName}-{DateTime.UtcNow.Ticks}.unitypackage";
+            AssetDatabase.ExportPackage( paths, path, ExportPackageOptions.Default );
+            EditorApplication.Beep();
+            EditorUtility.RevealInFinder( path );
         }
 
         // TakeScreenshot
-        [MenuItem( "Project/Take Screenshot (Game) _F12", priority = 300 )]
+        [MenuItem( "Project/Take Screenshot (Game) _F12", priority = 400 )]
         internal static void TakeScreenshot_Game() {
-            ScreenCapture.CaptureScreenshot( $"Screenshots/Screenshot-{DateTime.UtcNow.Ticks}.png", 1 );
+            var path = $"Screenshots/{Application.productName}-{DateTime.UtcNow.Ticks}.png";
+            ScreenCapture.CaptureScreenshot( path, 1 );
             EditorApplication.Beep();
+            EditorUtility.RevealInFinder( path );
         }
-        [MenuItem( "Project/Take Screenshot (Editor) &F12", priority = 301 )]
+        [MenuItem( "Project/Take Screenshot (Editor) &F12", priority = 401 )]
         internal static void TakeScreenshot_Editor() {
             var position = EditorGUIUtility.GetMainWindowPosition();
             var texture = new Texture2D( (int) position.width, (int) position.height );
             texture.SetPixels( InternalEditorUtility.ReadScreenPixel( position.position, (int) position.width, (int) position.height ) );
-            var png = texture.EncodeToPNG();
+            var bytes = texture.EncodeToPNG();
             Object.DestroyImmediate( texture );
 
-            var path = $"Screenshots/Screenshot-{DateTime.UtcNow.Ticks}.png";
+            var path = $"Screenshots/{Application.productName}-{DateTime.UtcNow.Ticks}.png";
             Directory.CreateDirectory( Path.GetDirectoryName( path ) );
-            File.WriteAllBytes( path, png );
+            File.WriteAllBytes( path, bytes );
             EditorApplication.Beep();
+            EditorUtility.RevealInFinder( path );
         }
 
         // OpenAssets
@@ -142,8 +164,8 @@ namespace Project.Toolbar {
                 "Assets/Project.UI/Project.UI.GameScreen/(*ViewBase.cs|*View.cs)"
                 );
         }
-        [MenuItem( "Project/Open Assets (StyleSheet)", priority = 1004 )]
-        internal static void OpenAssets_StyleSheet() {
+        [MenuItem( "Project/Open Assets (UIStyleSheet)", priority = 1004 )]
+        internal static void OpenAssets_UIStyleSheet() {
             OpenAssets( "Assets/(*.stylus|*.styl)" );
             OpenAssets( "Packages/(*.stylus|*.styl)" );
         }
@@ -152,32 +174,42 @@ namespace Project.Toolbar {
         [MenuItem( "Project/Open Dialog", priority = 1100 )]
         internal static void OpenDialog() {
             if (Application.isPlaying) {
-                GetScreen().Widget!.AttachChild( new DialogWidget( "Dialog", "This is dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null ) );
+                GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude )
+                .Widget!
+                .AttachChild( new DialogWidget( "Dialog", "This is dialog example." )
+                .OnSubmit( "Ok", null )
+                .OnCancel( "Cancel", null ) );
             }
         }
         [MenuItem( "Project/Open Info Dialog", priority = 1101 )]
         internal static void OpenInfoDialog() {
             if (Application.isPlaying) {
-                GetScreen().Widget!.AttachChild( new InfoDialogWidget( "Info Dialog", "This is info dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null ) );
+                GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude )
+                .Widget!
+                .AttachChild( new InfoDialogWidget( "Info Dialog", "This is info dialog example." )
+                .OnSubmit( "Ok", null )
+                .OnCancel( "Cancel", null ) );
             }
         }
         [MenuItem( "Project/Open Warning Dialog", priority = 1102 )]
         internal static void OpenWarningDialog() {
             if (Application.isPlaying) {
-                GetScreen().Widget!.AttachChild( new WarningDialogWidget( "Warning Dialog", "This is warning dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null ) );
+                GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude )
+                .Widget!
+                .AttachChild( new WarningDialogWidget( "Warning Dialog", "This is warning dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null ) );
             }
         }
         [MenuItem( "Project/Open Error Dialog", priority = 1103 )]
         internal static void OpenErrorDialog() {
             if (Application.isPlaying) {
-                GetScreen().Widget!.AttachChild( new ErrorDialogWidget( "Error Dialog", "This is error dialog example." ).OnSubmit( "Ok", null ).OnCancel( "Cancel", null ) );
+                GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude )
+                .Widget!
+                .AttachChild( new ErrorDialogWidget( "Error Dialog", "This is error dialog example." )
+                .OnSubmit( "Ok", null )
+                .OnCancel( "Cancel", null ) );
             }
         }
 
-        // Helpers
-        private static UIScreen GetScreen() {
-            return GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude );
-        }
         // Helpers
         private static void OpenAssets(params string[] patterns) {
             foreach (var path in GetMatches( GetPaths(), patterns )) {

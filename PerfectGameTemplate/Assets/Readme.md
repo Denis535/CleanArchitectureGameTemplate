@@ -68,6 +68,36 @@ The project encapsulates everything rarely viewed and changed (third party, libr
 - ProjectWindow - project window with folders and assets painted in special colors.
 
 # Setup
+- Set up project dependencies in `Packages/manifest.json`.
+```
+{
+  "dependencies": {
+    "com.unity.2d.sprite": "1.0.0",
+    "com.unity.addressables": "1.21.19",
+    "com.unity.ide.visualstudio": "2.0.22",
+    "com.unity.inputsystem": "1.7.0",
+    "com.unity.nuget.mono-cecil": "1.11.4",
+    "com.unity.render-pipelines.universal": "16.0.4",
+    "com.unity.services.lobby": "1.1.2",
+    "com.unity.services.matchmaker": "1.1.2",
+    "com.unity.services.qos": "1.2.1",
+    "com.unity.test-framework": "1.3.9",
+    "com.unity.ui": "2.0.0",
+    "com.unity.modules.accessibility": "1.0.0",
+    "com.unity.modules.animation": "1.0.0",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.imageconversion": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0",
+    "com.unity.modules.particlesystem": "1.0.0",
+    "com.unity.modules.physics": "1.0.0",
+    "com.unity.modules.screencapture": "1.0.0",
+    "com.unity.modules.terrain": "1.0.0",
+    "com.unity.modules.terrainphysics": "1.0.0",
+    "com.unity.modules.umbra": "1.0.0",
+    "com.unity.modules.unityanalytics": "1.0.0"
+  }
+}
+```
 - Link project with Unity Gaming Services.
 
 # Build
@@ -75,4 +105,4 @@ The project encapsulates everything rarely viewed and changed (third party, libr
 - Build your project (Toolbar / Project / Build).
 
 # Links
-https://u3d.as/39eY
+- https://u3d.as/39eY

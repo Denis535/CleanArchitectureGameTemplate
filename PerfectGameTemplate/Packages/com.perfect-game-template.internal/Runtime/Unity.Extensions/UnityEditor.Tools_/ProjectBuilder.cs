@@ -14,28 +14,11 @@ namespace UnityEditor.Tools_ {
         }
 
         // Build/Development
-        public virtual void BuildDevelopment() {
-            PreBuild();
-            BuildPipeline.BuildPlayer(
-                EditorBuildSettings.scenes,
-                $"Build/Development/{PlayerSettings.productName}.exe",
-                BuildTarget.StandaloneWindows64,
-                BuildOptions.Development |
-                BuildOptions.AllowDebugging |
-                BuildOptions.ShowBuiltPlayer
-                );
+        public virtual void BuildDevelopment(string path) {
         }
 
         // Build/Production
-        public virtual void BuildProduction() {
-            PreBuild();
-            BuildPipeline.BuildPlayer(
-                EditorBuildSettings.scenes,
-                $"Build/Production/{PlayerSettings.productName}.exe",
-                BuildTarget.StandaloneWindows64,
-                BuildOptions.CleanBuildCache |
-                BuildOptions.ShowBuiltPlayer
-                );
+        public virtual void BuildProduction(string path) {
         }
 
     }

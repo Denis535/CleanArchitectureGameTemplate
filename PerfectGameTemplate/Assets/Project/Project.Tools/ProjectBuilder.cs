@@ -20,13 +20,28 @@ namespace Project.Tools {
         }
 
         // Build/Development
-        public override void BuildDevelopment() {
-            base.BuildDevelopment();
+        public override void BuildDevelopment(string path) {
+            PreBuild();
+            BuildPipeline.BuildPlayer(
+                EditorBuildSettings.scenes,
+                path,
+                BuildTarget.StandaloneWindows64,
+                BuildOptions.Development |
+                BuildOptions.AllowDebugging |
+                BuildOptions.ShowBuiltPlayer
+                );
         }
 
         // Build/Production
-        public override void BuildProduction() {
-            base.BuildProduction();
+        public override void BuildProduction(string path) {
+            PreBuild();
+            BuildPipeline.BuildPlayer(
+                EditorBuildSettings.scenes,
+                path,
+                BuildTarget.StandaloneWindows64,
+                BuildOptions.CleanBuildCache |
+                BuildOptions.ShowBuiltPlayer
+                );
         }
 
     }
