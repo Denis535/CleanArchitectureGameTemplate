@@ -1,4 +1,4 @@
-@import url("/Packages/com.perfect-game-template.internal/Runtime/UIToolkit.Extensions/Assets.UnityEngine.UIElements/StyleSheets/StyleSheet.uss");
+@import url("/Assets/UIToolkit.Extensions/Assets.UnityEngine.UIElements/StyleSheets/StyleSheet.uss");
 #main-widget-view {
   background-image: url('project://database/Assets/Project.UI/Assets.Project.UI.MainScreen/Images/Background.png');
   -unity-background-scale-mode: scale-and-crop;

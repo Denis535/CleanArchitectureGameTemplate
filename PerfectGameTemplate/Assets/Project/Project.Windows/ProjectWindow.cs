@@ -35,7 +35,7 @@ namespace Project.Windows {
 
         // IsModule
         public override bool IsModule(string path) {
-            return base.IsModule( path );
+            return path.StartsWith( "Project" ) || path.StartsWith( "Unity" ) || path.StartsWith( "UIToolkit" );
         }
         public override bool IsAssets(string path) {
             return base.IsAssets( path );

@@ -1,13 +1,5 @@
 {
   "dependencies": {
-    "com.perfect-game-template.internal": {
-      "version": "file:com.perfect-game-template.internal",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "com.unity.addressables": "0.0.0"
-      }
-    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

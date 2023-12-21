@@ -1,8 +1,0 @@
-{
-    "name": "com.perfect-game-template.internal",
-    "version": "0.0.0",
-    "displayName": "PerfectGameTemplate.Internal",
-    "dependencies": {
-        "com.unity.addressables": "0.0.0"
-    }
-}
