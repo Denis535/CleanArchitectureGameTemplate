@@ -79,15 +79,15 @@ namespace UnityEditor.Tools_ {
         }
         public virtual int? GetExecutionOrder_Game(MonoScript script) {
             // Game
-            if (script.CanConfigure( typeof( GameBase ) )) return ScriptExecutionOrders.Game;
-            if (script.CanConfigure( typeof( PlayerBase ) )) return ScriptExecutionOrders.Player;
+            if (script.CanConfigure( typeof( GameBase ) )) return ScriptExecutionOrders.Game + 00;
+            if (script.CanConfigure( typeof( PlayerBase ) )) return ScriptExecutionOrders.Player + 00;
             // World
-            if (script.CanConfigure( typeof( WorldBase ) )) return ScriptExecutionOrders.World;
-            if (script.CanConfigure( typeof( WorldViewBase ) )) return ScriptExecutionOrders.World - 10;
+            if (script.CanConfigure( typeof( WorldBase ) )) return ScriptExecutionOrders.World + 10;
+            if (script.CanConfigure( typeof( WorldViewBase ) )) return ScriptExecutionOrders.World + 00;
             // Entity
-            if (script.CanConfigure( typeof( EntityBase ) )) return ScriptExecutionOrders.Entity;
-            if (script.CanConfigure( typeof( EntityViewBase ) )) return ScriptExecutionOrders.Entity - 10;
-            if (script.CanConfigure( typeof( EntityBodyBase ) )) return ScriptExecutionOrders.Entity - 20;
+            if (script.CanConfigure( typeof( EntityBase ) )) return ScriptExecutionOrders.Entity + 20;
+            if (script.CanConfigure( typeof( EntityViewBase ) )) return ScriptExecutionOrders.Entity + 10;
+            if (script.CanConfigure( typeof( EntityBodyBase ) )) return ScriptExecutionOrders.Entity + 00;
             return null;
         }
 
