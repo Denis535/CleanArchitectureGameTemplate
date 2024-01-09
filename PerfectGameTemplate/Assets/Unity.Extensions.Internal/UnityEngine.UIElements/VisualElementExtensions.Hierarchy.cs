@@ -3,7 +3,6 @@ namespace UnityEngine.UIElements {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
     using UnityEngine;
 
     public static partial class VisualElementExtensions {
@@ -123,36 +122,17 @@ namespace UnityEngine.UIElements {
                 element.Remove( child );
             }
         }
+        public static void RemoveAt(this VisualElement element, int index, int count) {
+            for (var i = 0; i < count; i++) {
+                element.RemoveAt( index );
+            }
+        }
         public static void Replace(this VisualElement element, VisualElement oldChild, params VisualElement[] newChildren) {
             var index = element.IndexOf( oldChild );
             element.RemoveAt( index );
             foreach (var child in newChildren) {
                 element.Insert( index++, child );
             }
-        }
-
-        // FindElement
-        [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static T FindElement<T>(this VisualElement element, string? name, params string[] classes) where T : VisualElement {
-            return element.Query<T>( name, classes ).First();
-        }
-        [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static T[] FindElements<T>(this VisualElement element, string? name, params string[] classes) where T : VisualElement {
-            return element.Query<T>( name, classes ).ToList().ToArray();
-        }
-
-        // RequireElement
-        [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static T RequireElement<T>(this VisualElement element, string? name, params string[] classes) where T : VisualElement {
-            var result = element.Query<T>( name, classes ).First();
-            Assert.Operation.Message( $"Element {typeof( T )} ({name}, {classes}) was not found" ).Valid( result != null );
-            return result;
-        }
-        [MethodImpl( MethodImplOptions.AggressiveInlining )]
-        public static T[] RequireElements<T>(this VisualElement element, string? name, params string[] classes) where T : VisualElement {
-            var result = element.Query<T>( name, classes ).ToList().ToArray().NullIfEmpty();
-            Assert.Operation.Message( $"Elements {typeof( T )} ({name}, {classes}) was not found" ).Valid( result != null );
-            return result;
         }
 
     }

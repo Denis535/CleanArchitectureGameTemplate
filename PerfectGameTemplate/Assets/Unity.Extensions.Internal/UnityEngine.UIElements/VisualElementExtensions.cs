@@ -3,6 +3,7 @@ namespace UnityEngine.UIElements {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Runtime.CompilerServices;
     using UnityEngine;
 
     public static partial class VisualElementExtensions {
@@ -48,10 +49,6 @@ namespace UnityEngine.UIElements {
         }
 
         // SetUp
-        public static T Text<T>(this T element, string? text) where T : TextElement {
-            element.text = text;
-            return element;
-        }
         public static T Name<T>(this T element, string? name) where T : VisualElement {
             element.name = name;
             return element;
@@ -62,10 +59,26 @@ namespace UnityEngine.UIElements {
             }
             return element;
         }
+        public static T Style<T>(this T element, Action<IStyle> callback) where T : VisualElement {
+            callback( element.style );
+            return element;
+        }
+
+        // SetUp
+        public static T Text<T>(this T element, string? text) where T : TextElement {
+            element.text = text;
+            return element;
+        }
         public static T UserData<T>(this T element, object? userData) where T : VisualElement {
             element.userData = userData;
             return element;
         }
+        //public static T Pipe<T>(this T element, Action<T> callback) where T : VisualElement {
+        //    callback( element );
+        //    return element;
+        //}
+
+        // SetUp
         public static T Parent<T>(this T element, VisualElement? parent) where T : VisualElement {
             if (parent != null) {
                 parent.Add( element );
@@ -79,6 +92,30 @@ namespace UnityEngine.UIElements {
                 element.Add( child );
             }
             return element;
+        }
+
+        // FindElement
+        [MethodImpl( MethodImplOptions.AggressiveInlining )]
+        public static T FindElement<T>(this VisualElement element, string? name, params string[] classes) where T : VisualElement {
+            return element.Query<T>( name, classes ).First();
+        }
+        [MethodImpl( MethodImplOptions.AggressiveInlining )]
+        public static T[] FindElements<T>(this VisualElement element, string? name, params string[] classes) where T : VisualElement {
+            return element.Query<T>( name, classes ).ToList().ToArray();
+        }
+
+        // RequireElement
+        [MethodImpl( MethodImplOptions.AggressiveInlining )]
+        public static T RequireElement<T>(this VisualElement element, string? name, params string[] classes) where T : VisualElement {
+            var result = element.Query<T>( name, classes ).First();
+            Assert.Operation.Message( $"Element {typeof( T )} ({name}, {classes}) was not found" ).Valid( result != null );
+            return result;
+        }
+        [MethodImpl( MethodImplOptions.AggressiveInlining )]
+        public static T[] RequireElements<T>(this VisualElement element, string? name, params string[] classes) where T : VisualElement {
+            var result = element.Query<T>( name, classes ).ToList().ToArray().NullIfEmpty();
+            Assert.Operation.Message( $"Elements {typeof( T )} ({name}, {classes}) was not found" ).Valid( result != null );
+            return result;
         }
 
         // OnEvent/TrickleDown
