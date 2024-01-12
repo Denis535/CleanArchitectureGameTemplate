@@ -31,7 +31,7 @@ namespace Project.UI.MainScreen {
         private static View CreateVisualElement(out View view, out Label loading) {
             using (UIFactory.Widget( "loading-widget-view" ).AsScope( out view )) {
                 using (UIFactory.ColumnScope().Classes( "padding-2pc", "grow-1", "justify-content-end", "align-items-center" ).AsScope()) {
-                    loading = UIFactory.Label( "Loading..." ).Name( "loading" ).Classes( "color-light", "font-size-200pc", "font-style-bold" );
+                    VisualElementScope.Add( loading = UIFactory.Label( "Loading..." ).Name( "loading" ).Classes( "color-light", "font-size-200pc", "font-style-bold" ) );
                 }
             }
             return view;

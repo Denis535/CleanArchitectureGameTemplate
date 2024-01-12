@@ -41,21 +41,21 @@ namespace Project.UI.MainScreen {
             using (UIFactory.LargeWidget( "create-game-widget-view" ).AsScope( out view )) {
                 using (UIFactory.Card().AsScope()) {
                     using (UIFactory.Header().AsScope()) {
-                        title = UIFactory.Label( "Create Game" ).Name( "title" );
+                        VisualElementScope.Add( title = UIFactory.Label( "Create Game" ).Name( "title" ) );
                     }
                     using (UIFactory.Content().AsScope()) {
                         using (UIFactory.RowScope().Name( "game-and-player-scope" ).Classes( "grow-0", "basis-40pc" ).AsScope()) {
-                            gameSlot = UIFactory.Slot().Name( "game-slot" ).Classes( "grow-1", "basis-0pc" );
-                            playerSlot = UIFactory.Slot().Name( "player-slot" ).Classes( "grow-1", "basis-0pc" );
+                            VisualElementScope.Add( gameSlot = UIFactory.Slot().Name( "game-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( playerSlot = UIFactory.Slot().Name( "player-slot" ).Classes( "grow-1", "basis-0pc" ) );
                         }
                         using (UIFactory.RowScope().Name( "lobby-and-chat-scope" ).Classes( "grow-1", "basis-auto" ).AsScope()) {
-                            lobbySlot = UIFactory.Slot().Name( "lobby-slot" ).Classes( "grow-1", "basis-0pc" );
-                            chatSlot = UIFactory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" );
+                            VisualElementScope.Add( lobbySlot = UIFactory.Slot().Name( "lobby-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( chatSlot = UIFactory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" ) );
                         }
                     }
                     using (UIFactory.Footer().AsScope()) {
-                        okey = UIFactory.Button( "Ok" ).Name( "okey" );
-                        back = UIFactory.Button( "Back" ).Name( "back" );
+                        VisualElementScope.Add( okey = UIFactory.Button( "Ok" ).Name( "okey" ) );
+                        VisualElementScope.Add( back = UIFactory.Button( "Back" ).Name( "back" ) );
                     }
                 }
             }
@@ -93,14 +93,14 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> mode, out PopupField<object?> world, out Toggle isPrivate) {
             using (UIFactory.ColumnGroup().Name( "game-view" ).Classes( "gray", "medium", "grow-1" ).AsScope( out view )) {
-                title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "medium" );
+                VisualElementScope.Add( title = UIFactory.Label( "Game" ).Name( "title" ).Classes( "medium" ) );
                 using (UIFactory.RowScope().AsScope()) {
-                    name = UIFactory.TextField( null, 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" );
+                    VisualElementScope.Add( name = UIFactory.TextField( null, 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" ) );
                 }
                 using (UIFactory.RowScope().AsScope()) {
-                    mode = UIFactory.PopupField( "Mode" ).Name( "game-mode" ).Classes( "label-width-150px", "grow-1" );
-                    world = UIFactory.PopupField( "World" ).Name( "game-world" ).Classes( "label-width-150px", "grow-1" );
-                    isPrivate = UIFactory.Toggle( "Private" ).Name( "is-game-private" ).Classes( "label-width-150px", "grow-0" );
+                    VisualElementScope.Add( mode = UIFactory.PopupField( "Mode" ).Name( "game-mode" ).Classes( "label-width-150px", "grow-1" ) );
+                    VisualElementScope.Add( world = UIFactory.PopupField( "World" ).Name( "game-world" ).Classes( "label-width-150px", "grow-1" ) );
+                    VisualElementScope.Add( isPrivate = UIFactory.Toggle( "Private" ).Name( "is-game-private" ).Classes( "label-width-150px", "grow-0" ) );
                 }
             }
             return view;
@@ -134,13 +134,13 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out TextField name, out PopupField<object?> role, out Toggle isReady) {
             using (UIFactory.ColumnGroup().Name( "player-view" ).Classes( "gray", "medium", "grow-1" ).AsScope( out view )) {
-                title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "medium" );
+                VisualElementScope.Add( title = UIFactory.Label( "Player" ).Name( "title" ).Classes( "medium" ) );
                 using (UIFactory.RowScope().AsScope()) {
-                    name = UIFactory.TextFieldReadOnly( null, 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" );
+                    VisualElementScope.Add( name = UIFactory.TextFieldReadOnly( null, 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" ) );
                 }
                 using (UIFactory.RowScope().AsScope()) {
-                    role = UIFactory.PopupField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" );
-                    isReady = UIFactory.Toggle( "Ready" ).Name( "is-player-ready" ).Classes( "label-width-150px", "grow-0" );
+                    VisualElementScope.Add( role = UIFactory.PopupField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" ) );
+                    VisualElementScope.Add( isReady = UIFactory.Toggle( "Ready" ).Name( "is-player-ready" ).Classes( "label-width-150px", "grow-0" ) );
                 }
             }
             return view;
@@ -173,8 +173,8 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out ScrollView players) {
             using (UIFactory.ColumnGroup().Name( "lobby-view" ).Classes( "gray", "medium", "grow-1" ).AsScope( out view )) {
-                title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "medium", "shrink-0" );
-                players = UIFactory.ScrollView().Name( "players-view" ).Classes( "dark2", "medium", "reverse", "grow-1" );
+                VisualElementScope.Add( title = UIFactory.Label( "Lobby" ).Name( "title" ).Classes( "medium", "shrink-0" ) );
+                VisualElementScope.Add( players = UIFactory.ScrollView().Name( "players-view" ).Classes( "dark2", "medium", "reverse", "grow-1" ) );
             }
             return view;
         }
@@ -188,7 +188,7 @@ namespace Project.UI.MainScreen {
                 _ => throw Exceptions.Internal.Exception( null )
             };
             using (UIFactory.Box().Name( "player" ).Classes( style, "medium", "grow-1" ).Pipe( i => i.style.width = 2000 ).AsScope( out var view )) {
-                UIFactory.Label( text ).Classes( "font-style-bold" );
+                VisualElementScope.Add( UIFactory.Label( text ).Classes( "font-style-bold" ) );
                 return view;
             }
         }
@@ -224,11 +224,11 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static ColumnGroup CreateVisualElement(out ColumnGroup view, out Label title, out ScrollView messages, out TextField text, out Button send) {
             using (UIFactory.ColumnGroup().Name( "chat-view" ).Classes( "gray", "medium", "grow-1" ).AsScope( out view )) {
-                title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "medium", "shrink-0" );
-                messages = UIFactory.ScrollView().Name( "messages-view" ).Classes( "dark", "medium", "reverse", "grow-1" );
+                VisualElementScope.Add( title = UIFactory.Label( "Chat" ).Name( "title" ).Classes( "medium", "shrink-0" ) );
+                VisualElementScope.Add( messages = UIFactory.ScrollView().Name( "messages-view" ).Classes( "dark", "medium", "reverse", "grow-1" ) );
                 using (UIFactory.RowScope().Name( "input-text-scope" ).Classes( "shrink-0" ).AsScope()) {
-                    text = UIFactory.TextField( null, 128, false ).Name( "input-text" ).Classes( "grow-1" );
-                    send = UIFactory.Button( "Send" ).Name( "send" );
+                    VisualElementScope.Add( text = UIFactory.TextField( null, 128, false ).Name( "input-text" ).Classes( "grow-1" ) );
+                    VisualElementScope.Add( send = UIFactory.Button( "Send" ).Name( "send" ) );
                 }
             }
             return view;
@@ -243,7 +243,7 @@ namespace Project.UI.MainScreen {
                 _ => throw Exceptions.Internal.Exception( null )
             };
             using (UIFactory.Box().Name( "message" ).Classes( style, "medium", "grow-1" ).Pipe( i => i.style.width = 2000 ).AsScope( out var view )) {
-                UIFactory.Label( text );
+                VisualElementScope.Add( UIFactory.Label( text ) );
                 return view;
             }
         }

@@ -6,7 +6,6 @@ namespace Project.UI.Common {
     using UnityEngine;
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
-    using UnityEngine.UIElements.Experimental;
 
     public abstract class DialogWidgetViewBase : UIWidgetViewBase, IUIModalWidgetView {
 
@@ -23,7 +22,7 @@ namespace Project.UI.Common {
         // Constructor
         public DialogWidgetViewBase(UIWidgetBase widget) : base( widget ) {
             VisualElement = CreateVisualElement( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
-            VisualElement.OnAttachToPanel( evt => PlayAppearanceAnimation( VisualElement ) );
+            //VisualElement.OnAttachToPanel( evt => PlayAppearanceAnimation( VisualElement ) );
             View = view.Wrap();
             Card = card.Wrap();
             Header = header.Wrap().Pipe( i => i.IsDisplayed = false );
@@ -58,20 +57,20 @@ namespace Project.UI.Common {
 
         // Heleprs
         protected abstract View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message);
-        private static void PlayAppearanceAnimation(VisualElement view) {
-            var animation = ValueAnimation<float>.Create( view, Mathf.LerpUnclamped );
-            animation.valueUpdated = (view, t) => {
-                var tx = Easing.OutBack( Easing.InPower( t, 2 ), 4 );
-                var ty = Easing.OutBack( Easing.OutPower( t, 2 ), 4 );
-                var x = Mathf.LerpUnclamped( 0.8f, 1f, tx );
-                var y = Mathf.LerpUnclamped( 0.8f, 1f, ty );
-                view.transform.scale = new Vector3( x, y, 1 );
-            };
-            animation.from = 0;
-            animation.to = 1;
-            animation.durationMs = 500;
-            animation.Start();
-        }
+        //private static void PlayAppearanceAnimation(VisualElement view) {
+        //    var animation = ValueAnimation<float>.Create( view, Mathf.LerpUnclamped );
+        //    animation.valueUpdated = (view, t) => {
+        //        var tx = Easing.OutBack( Easing.InPower( t, 2 ), 4 );
+        //        var ty = Easing.OutBack( Easing.OutPower( t, 2 ), 4 );
+        //        var x = Mathf.LerpUnclamped( 0.8f, 1f, tx );
+        //        var y = Mathf.LerpUnclamped( 0.8f, 1f, ty );
+        //        view.transform.scale = new Vector3( x, y, 1 );
+        //    };
+        //    animation.from = 0;
+        //    animation.to = 1;
+        //    animation.durationMs = 500;
+        //    animation.Start();
+        //}
 
     }
     // Dialog
@@ -89,11 +88,11 @@ namespace Project.UI.Common {
             using (UIFactory.DialogWidget().AsScope( out view )) {
                 using (UIFactory.DialogCard().AsScope( out card )) {
                     using (UIFactory.Header().AsScope( out header )) {
-                        title = UIFactory.Label( null ).Name( "title" );
+                        VisualElementScope.Add( title = UIFactory.Label( null ).Name( "title" ) );
                     }
                     using (UIFactory.Content().AsScope( out content )) {
                         using (UIFactory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
-                            message = UIFactory.Label( null ).Name( "message" );
+                            VisualElementScope.Add( message = UIFactory.Label( null ).Name( "message" ) );
                         }
                     }
                     using (UIFactory.Footer().AsScope( out footer )) {
@@ -119,11 +118,11 @@ namespace Project.UI.Common {
             using (UIFactory.InfoDialogWidget().AsScope( out view )) {
                 using (UIFactory.InfoDialogCard().AsScope( out card )) {
                     using (UIFactory.Header().AsScope( out header )) {
-                        title = UIFactory.Label( null ).Name( "title" );
+                        VisualElementScope.Add( title = UIFactory.Label( null ).Name( "title" ) );
                     }
                     using (UIFactory.Content().AsScope( out content )) {
                         using (UIFactory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
-                            message = UIFactory.Label( null ).Name( "message" );
+                            VisualElementScope.Add( message = UIFactory.Label( null ).Name( "message" ) );
                         }
                     }
                     using (UIFactory.Footer().AsScope( out footer )) {
@@ -149,11 +148,11 @@ namespace Project.UI.Common {
             using (UIFactory.WarningDialogWidget().AsScope( out view )) {
                 using (UIFactory.WarningDialogCard().AsScope( out card )) {
                     using (UIFactory.Header().AsScope( out header )) {
-                        title = UIFactory.Label( null ).Name( "title" );
+                        VisualElementScope.Add( title = UIFactory.Label( null ).Name( "title" ) );
                     }
                     using (UIFactory.Content().AsScope( out content )) {
                         using (UIFactory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
-                            message = UIFactory.Label( null ).Name( "message" );
+                            VisualElementScope.Add( message = UIFactory.Label( null ).Name( "message" ) );
                         }
                     }
                     using (UIFactory.Footer().AsScope( out footer )) {
@@ -179,11 +178,11 @@ namespace Project.UI.Common {
             using (UIFactory.ErrorDialogWidget().AsScope( out view )) {
                 using (UIFactory.ErrorDialogCard().AsScope( out card )) {
                     using (UIFactory.Header().AsScope( out header )) {
-                        title = UIFactory.Label( null ).Name( "title" );
+                        VisualElementScope.Add( title = UIFactory.Label( null ).Name( "title" ) );
                     }
                     using (UIFactory.Content().AsScope( out content )) {
                         using (UIFactory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
-                            message = UIFactory.Label( null ).Name( "message" );
+                            VisualElementScope.Add( message = UIFactory.Label( null ).Name( "message" ) );
                         }
                     }
                     using (UIFactory.Footer().AsScope( out footer )) {

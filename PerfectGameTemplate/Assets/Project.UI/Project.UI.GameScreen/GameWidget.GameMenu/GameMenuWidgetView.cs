@@ -35,12 +35,12 @@ namespace Project.UI.GameScreen {
             using (UIFactory.LeftWidget( "game-menu-widget-view" ).AsScope( out view )) {
                 using (UIFactory.Card().AsScope()) {
                     using (UIFactory.Header().AsScope()) {
-                        title = UIFactory.Label( "Game Menu" ).Name( "title" );
+                        VisualElementScope.Add( title = UIFactory.Label( "Game Menu" ).Name( "title" ) );
                     }
                     using (UIFactory.Content().AsScope()) {
-                        resume = UIFactory.Button( "Resume" ).Name( "resume" );
-                        settings = UIFactory.Button( "Settings" ).Name( "settings" );
-                        back = UIFactory.Button( "Back To Main Menu" ).Name( "back" );
+                        VisualElementScope.Add( resume = UIFactory.Button( "Resume" ).Name( "resume" ) );
+                        VisualElementScope.Add( settings = UIFactory.Button( "Settings" ).Name( "settings" ) );
+                        VisualElementScope.Add( back = UIFactory.Button( "Back To Main Menu" ).Name( "back" ) );
                     }
                 }
             }

@@ -8,7 +8,6 @@ namespace Project {
     using Project.UI;
     using UnityEngine;
     using UnityEngine.Framework;
-    using UnityEngine.UIElements;
 
     public class Program : ProgramBase {
 
@@ -26,7 +25,7 @@ namespace Project {
             //    Screen.fullScreen = false;
             //    Screen.SetResolution( 1280, 720, false );
             //}
-            UIFactory.GetDisplayString = GetDisplayString;
+            UIFactory.StringSelector = GetDisplayString;
         }
 
         // Awake

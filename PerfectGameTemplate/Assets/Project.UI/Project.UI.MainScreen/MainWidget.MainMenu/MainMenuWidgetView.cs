@@ -37,13 +37,13 @@ namespace Project.UI.MainScreen {
             using (UIFactory.LeftWidget( "main-menu-widget-view" ).AsScope( out view )) {
                 using (UIFactory.Card().AsScope()) {
                     using (UIFactory.Header().AsScope()) {
-                        title = UIFactory.Label( "Main Menu" ).Name( "main-menu" );
+                        VisualElementScope.Add( title = UIFactory.Label( "Main Menu" ).Name( "main-menu" ) );
                     }
                     using (UIFactory.Content().AsScope()) {
-                        createGame = UIFactory.Button( "Create Game" ).Name( "create-game" );
-                        joinGame = UIFactory.Button( "Join Game" ).Name( "join-game" );
-                        settings = UIFactory.Button( "Settings" ).Name( "settings" );
-                        quit = UIFactory.Button( "Quit" ).Name( "quit" );
+                        VisualElementScope.Add( createGame = UIFactory.Button( "Create Game" ).Name( "create-game" ) );
+                        VisualElementScope.Add( joinGame = UIFactory.Button( "Join Game" ).Name( "join-game" ) );
+                        VisualElementScope.Add( settings = UIFactory.Button( "Settings" ).Name( "settings" ) );
+                        VisualElementScope.Add( quit = UIFactory.Button( "Quit" ).Name( "quit" ) );
                     }
                 }
             }

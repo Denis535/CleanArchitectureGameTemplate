@@ -35,16 +35,16 @@ namespace Project.UI.Common {
             using (UIFactory.MediumWidget( "player-profile-widget-view" ).AsScope( out view )) {
                 using (UIFactory.Card().AsScope()) {
                     using (UIFactory.Header().AsScope()) {
-                        title = UIFactory.Label( "Player Profile" ).Name( "title" );
+                        VisualElementScope.Add( title = UIFactory.Label( "Player Profile" ).Name( "title" ) );
                     }
                     using (UIFactory.Content().AsScope()) {
                         using (UIFactory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
-                            name = UIFactory.TextField( "Name", 16, false ).Name( "name" ).Classes( "label-width-25pc" );
+                            VisualElementScope.Add( name = UIFactory.TextField( "Name", 16, false ).Name( "name" ).Classes( "label-width-25pc" ) );
                         }
                     }
                     using (UIFactory.Footer().AsScope()) {
-                        okey = UIFactory.Button( "Ok" ).Name( "okey" );
-                        back = UIFactory.Button( "Back" ).Name( "back" );
+                        VisualElementScope.Add( okey = UIFactory.Button( "Ok" ).Name( "okey" ) );
+                        VisualElementScope.Add( back = UIFactory.Button( "Back" ).Name( "back" ) );
                     }
                 }
             }

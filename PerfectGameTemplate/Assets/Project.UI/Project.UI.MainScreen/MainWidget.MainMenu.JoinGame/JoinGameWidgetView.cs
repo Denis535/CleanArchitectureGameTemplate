@@ -41,21 +41,21 @@ namespace Project.UI.MainScreen {
             using (UIFactory.LargeWidget( "join-game-widget-view" ).AsScope( out view )) {
                 using (UIFactory.Card().AsScope()) {
                     using (UIFactory.Header().AsScope()) {
-                        title = UIFactory.Label( "Join Game" ).Name( "title" );
+                        VisualElementScope.Add( title = UIFactory.Label( "Join Game" ).Name( "title" ) );
                     }
                     using (UIFactory.Content().AsScope()) {
                         using (UIFactory.RowScope().Name( "game-and-player-scope" ).Classes( "grow-0", "basis-40pc" ).AsScope()) {
-                            gameSlot = UIFactory.Slot().Name( "game-slot" ).Classes( "grow-1", "basis-0pc" );
-                            playerSlot = UIFactory.Slot().Name( "player-slot" ).Classes( "grow-1", "basis-0pc" );
+                            VisualElementScope.Add( gameSlot = UIFactory.Slot().Name( "game-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( playerSlot = UIFactory.Slot().Name( "player-slot" ).Classes( "grow-1", "basis-0pc" ) );
                         }
                         using (UIFactory.RowScope().Name( "lobby-and-chat-scope" ).Classes( "grow-1", "basis-auto" ).AsScope()) {
-                            lobbySlot = UIFactory.Slot().Name( "lobby-slot" ).Classes( "grow-1", "basis-0pc" );
-                            chatSlot = UIFactory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" );
+                            VisualElementScope.Add( lobbySlot = UIFactory.Slot().Name( "lobby-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( chatSlot = UIFactory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" ) );
                         }
                     }
                     using (UIFactory.Footer().AsScope()) {
-                        okey = UIFactory.Button( "Ok" ).Name( "okey" );
-                        back = UIFactory.Button( "Back" ).Name( "back" );
+                        VisualElementScope.Add( okey = UIFactory.Button( "Ok" ).Name( "okey" ) );
+                        VisualElementScope.Add( back = UIFactory.Button( "Back" ).Name( "back" ) );
                     }
                 }
             }
