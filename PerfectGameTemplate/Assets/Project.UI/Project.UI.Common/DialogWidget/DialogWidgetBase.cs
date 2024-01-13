@@ -9,24 +9,53 @@ namespace Project.UI.Common {
 
     public abstract class DialogWidgetBase<TView> : UIWidgetBase<TView>, IUIModalWidget where TView : DialogWidgetViewBase {
 
+        // Globals
+        private UIFactory Factory { get; }
         // View
+        public override TView View { get; }
         public string? Title {
             get => View.Title.Text;
             set {
-                View.Title.Text = value;
                 View.Header.IsDisplayed = value != null;
+                View.Title.Text = value;
             }
         }
         public string? Message {
             get => View.Message.Text;
             set {
-                View.Message.Text = value;
                 View.Content.IsDisplayed = value != null;
+                View.Message.Text = value;
             }
         }
 
         // Constructor
-        public DialogWidgetBase() {
+        public DialogWidgetBase(string? title, string? message) {
+            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
+            if (this is DialogWidget) {
+                View = (TView) (object) new DialogWidgetView( (DialogWidget) (object) this, Factory );
+                View.Header.IsDisplayed = false;
+                View.Content.IsDisplayed = false;
+                View.Footer.IsDisplayed = false;
+            } else if (this is InfoDialogWidget) {
+                View = (TView) (object) new InfoDialogWidgetView( (InfoDialogWidget) (object) this, Factory );
+                View.Header.IsDisplayed = false;
+                View.Content.IsDisplayed = false;
+                View.Footer.IsDisplayed = false;
+            } else if (this is WarningDialogWidget) {
+                View = (TView) (object) new WarningDialogWidgetView( (WarningDialogWidget) (object) this, Factory );
+                View.Header.IsDisplayed = false;
+                View.Content.IsDisplayed = false;
+                View.Footer.IsDisplayed = false;
+            } else if (this is ErrorDialogWidget) {
+                View = (TView) (object) new ErrorDialogWidgetView( (ErrorDialogWidget) (object) this, Factory );
+                View.Header.IsDisplayed = false;
+                View.Content.IsDisplayed = false;
+                View.Footer.IsDisplayed = false;
+            } else {
+                throw Exceptions.Internal.NotImplemented( $"DialogWidgetBase {this} is not implemented" );
+            }
+            Title = title;
+            Message = message;
         }
         public override void Dispose() {
             base.Dispose();
@@ -44,19 +73,19 @@ namespace Project.UI.Common {
 
         // OnSubmit
         public DialogWidgetBase<TView> OnSubmit(string text, Action? callback) {
+            View.Footer.IsDisplayed = true;
             View.OnSubmit( text, () => {
                 callback?.Invoke();
                 this.DetachSelf();
             } );
-            View.Footer.IsDisplayed = true;
             return this;
         }
         public DialogWidgetBase<TView> OnCancel(string text, Action? callback) {
+            View.Footer.IsDisplayed = true;
             View.OnCancel( text, () => {
                 callback?.Invoke();
                 this.DetachSelf();
             } );
-            View.Footer.IsDisplayed = true;
             return this;
         }
 
@@ -102,17 +131,8 @@ namespace Project.UI.Common {
     // Dialog
     public class DialogWidget : DialogWidgetBase<DialogWidgetView> {
 
-        // Globals
-        private UIFactory Factory { get; }
-        // View
-        public override DialogWidgetView View { get; }
-
         // Constructor
-        public DialogWidget(string? title, string? message) {
-            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
-            View = new DialogWidgetView( this, Factory );
-            Title = title;
-            Message = message;
+        public DialogWidget(string? title, string? message) : base( title, message ) {
         }
         public override void Dispose() {
             base.Dispose();
@@ -138,17 +158,8 @@ namespace Project.UI.Common {
     // InfoDialog
     public class InfoDialogWidget : DialogWidgetBase<InfoDialogWidgetView> {
 
-        // Globals
-        private UIFactory Factory { get; }
-        // View
-        public override InfoDialogWidgetView View { get; }
-
         // Constructor
-        public InfoDialogWidget(string? title, string? message) {
-            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
-            View = new InfoDialogWidgetView( this, Factory );
-            Title = title;
-            Message = message;
+        public InfoDialogWidget(string? title, string? message) : base( title, message ) {
         }
         public override void Dispose() {
             base.Dispose();
@@ -174,17 +185,8 @@ namespace Project.UI.Common {
     // WarningDialog
     public class WarningDialogWidget : DialogWidgetBase<WarningDialogWidgetView> {
 
-        // Globals
-        private UIFactory Factory { get; }
-        // View
-        public override WarningDialogWidgetView View { get; }
-
         // Constructor
-        public WarningDialogWidget(string? title, string? message) {
-            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
-            View = new WarningDialogWidgetView( this, Factory );
-            Title = title;
-            Message = message;
+        public WarningDialogWidget(string? title, string? message) : base( title, message ) {
         }
         public override void Dispose() {
             base.Dispose();
@@ -210,17 +212,8 @@ namespace Project.UI.Common {
     // ErrorDialog
     public class ErrorDialogWidget : DialogWidgetBase<ErrorDialogWidgetView> {
 
-        // Globals
-        private UIFactory Factory { get; }
-        // View
-        public override ErrorDialogWidgetView View { get; }
-
         // Constructor
-        public ErrorDialogWidget(string? title, string? message) {
-            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
-            View = new ErrorDialogWidgetView( this, Factory );
-            Title = title;
-            Message = message;
+        public ErrorDialogWidget(string? title, string? message) : base( title, message ) {
         }
         public override void Dispose() {
             base.Dispose();

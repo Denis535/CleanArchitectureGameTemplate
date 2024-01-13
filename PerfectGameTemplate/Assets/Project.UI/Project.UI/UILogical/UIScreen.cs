@@ -15,6 +15,7 @@ namespace Project.UI {
         private readonly Tracker<UIScreenState> stateTracker = new Tracker<UIScreenState>();
 
         // Globals
+        private UIFactory Factory { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
         // State
         public UIScreenState State => GetState( Application.State );
@@ -24,8 +25,9 @@ namespace Project.UI {
         // Awake
         public new void Awake() {
             base.Awake();
+            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
-            View = new UIScreenView( this );
+            View = new UIScreenView( this, Factory );
             AddView( Document, View );
         }
         public new void OnDestroy() {
