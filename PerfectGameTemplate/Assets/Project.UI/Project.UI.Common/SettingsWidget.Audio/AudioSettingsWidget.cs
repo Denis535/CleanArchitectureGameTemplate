@@ -11,14 +11,16 @@ namespace Project.UI.Common {
     public class AudioSettingsWidget : UIWidgetBase<AudioSettingsWidgetView> {
 
         // Globals
+        private UIFactory Factory { get; }
         private Globals.AudioSettings AudioSettings { get; }
         // View
         public override AudioSettingsWidgetView View { get; }
 
         // Constructor
         public AudioSettingsWidget() {
+            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             AudioSettings = this.GetDependencyContainer().Resolve<Globals.AudioSettings>( null );
-            View = CreateView( this, AudioSettings );
+            View = CreateView( this, Factory, AudioSettings );
         }
         public override void Dispose() {
             base.Dispose();
@@ -40,8 +42,8 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static AudioSettingsWidgetView CreateView(AudioSettingsWidget widget, Globals.AudioSettings audioSettings) {
-            var view = new AudioSettingsWidgetView( widget );
+        private static AudioSettingsWidgetView CreateView(AudioSettingsWidget widget, UIFactory factory, Globals.AudioSettings audioSettings) {
+            var view = new AudioSettingsWidgetView( widget, factory );
             view.MasterVolume.OnChange( (i, masterVolume) => {
                 audioSettings.MasterVolume = masterVolume;
             } );

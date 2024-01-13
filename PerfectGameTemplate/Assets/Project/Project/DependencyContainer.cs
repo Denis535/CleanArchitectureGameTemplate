@@ -17,12 +17,14 @@ namespace Project {
 
         [SerializeField] private UITheme theme = default!;
         [SerializeField] private UIScreen screen = default!;
+        [SerializeField] private UIFactory factory = default!;
         [SerializeField] private UIRouter router = default!;
         [SerializeField] private Application2 application = default!;
 
         // Globals
         private UITheme Theme => theme;
         private UIScreen Screen => screen;
+        private UIFactory Factory => factory;
         private UIRouter Router => router;
         private Application2 Application => application;
         private Globals Globals { get; set; } = default!;
@@ -60,6 +62,11 @@ namespace Project {
                 Assert.Object.Message( $"Object {Screen} must be awakened" ).Valid( Screen.didAwake );
                 Assert.Object.Message( $"Object {Screen} must be alive" ).Alive( Screen );
                 return Screen;
+            }
+            if (type == typeof( UIFactory )) {
+                Assert.Object.Message( $"Object {Factory} must be awakened" ).Valid( Factory.didAwake );
+                Assert.Object.Message( $"Object {Factory} must be alive" ).Alive( Factory );
+                return Factory;
             }
             if (type == typeof( UIRouter )) {
                 Assert.Object.Message( $"Object {Router} must be awakened" ).Valid( Router.didAwake );

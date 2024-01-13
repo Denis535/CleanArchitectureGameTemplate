@@ -4,16 +4,20 @@ namespace Project.UI.Common {
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
+    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
     public class SettingsWidget : UIWidgetBase<SettingsWidgetView> {
 
+        // Globals
+        private UIFactory Factory { get; }
         // View
         public override SettingsWidgetView View { get; }
 
         // Constructor
         public SettingsWidget() {
-            View = CreateView( this );
+            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
+            View = CreateView( this, Factory );
         }
         public override void Dispose() {
             base.Dispose();
@@ -30,8 +34,8 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static SettingsWidgetView CreateView(SettingsWidget widget) {
-            var view = new SettingsWidgetView( widget );
+        private static SettingsWidgetView CreateView(SettingsWidget widget, UIFactory factory) {
+            var view = new SettingsWidgetView( widget, factory );
             view.PlayerProfile.OnClick( i => {
                 widget.AttachChild( new PlayerProfileWidget() );
             } );

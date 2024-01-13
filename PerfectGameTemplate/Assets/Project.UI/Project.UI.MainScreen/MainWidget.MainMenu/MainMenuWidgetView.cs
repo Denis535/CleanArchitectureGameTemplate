@@ -9,6 +9,8 @@ namespace Project.UI.MainScreen {
 
     public class MainMenuWidgetView : UIWidgetViewBase {
 
+        // Factory
+        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -19,8 +21,9 @@ namespace Project.UI.MainScreen {
         public ButtonWrapper Quit { get; }
 
         // Constructor
-        public MainMenuWidgetView(MainMenuWidget widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view, out var title, out var createGame, out var joinGame, out var settings, out var quit );
+        public MainMenuWidgetView(MainMenuWidget widget, UIFactory factory) : base( widget ) {
+            Factory = factory;
+            VisualElement = CreateVisualElement( Factory, out var view, out var title, out var createGame, out var joinGame, out var settings, out var quit );
             View = view.Wrap();
             Title = title.Wrap();
             CreateGame = createGame.Wrap();
@@ -33,17 +36,17 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static View CreateVisualElement(out View view, out Label title, out Button createGame, out Button joinGame, out Button settings, out Button quit) {
-            using (UIFactory.LeftWidget( "main-menu-widget-view" ).AsScope( out view )) {
-                using (UIFactory.Card().AsScope()) {
-                    using (UIFactory.Header().AsScope()) {
-                        VisualElementScope.Add( title = UIFactory.Label( "Main Menu" ).Name( "main-menu" ) );
+        private static View CreateVisualElement(UIFactory factory, out View view, out Label title, out Button createGame, out Button joinGame, out Button settings, out Button quit) {
+            using (factory.LeftWidget( "main-menu-widget-view" ).AsScope( out view )) {
+                using (factory.Card().AsScope()) {
+                    using (factory.Header().AsScope()) {
+                        VisualElementScope.Add( title = factory.Label( "Main Menu" ).Name( "main-menu" ) );
                     }
-                    using (UIFactory.Content().AsScope()) {
-                        VisualElementScope.Add( createGame = UIFactory.Button( "Create Game" ).Name( "create-game" ) );
-                        VisualElementScope.Add( joinGame = UIFactory.Button( "Join Game" ).Name( "join-game" ) );
-                        VisualElementScope.Add( settings = UIFactory.Button( "Settings" ).Name( "settings" ) );
-                        VisualElementScope.Add( quit = UIFactory.Button( "Quit" ).Name( "quit" ) );
+                    using (factory.Content().AsScope()) {
+                        VisualElementScope.Add( createGame = factory.Button( "Create Game" ).Name( "create-game" ) );
+                        VisualElementScope.Add( joinGame = factory.Button( "Join Game" ).Name( "join-game" ) );
+                        VisualElementScope.Add( settings = factory.Button( "Settings" ).Name( "settings" ) );
+                        VisualElementScope.Add( quit = factory.Button( "Quit" ).Name( "quit" ) );
                     }
                 }
             }

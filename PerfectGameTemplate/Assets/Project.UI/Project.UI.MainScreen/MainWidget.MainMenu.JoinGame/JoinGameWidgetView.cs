@@ -9,6 +9,8 @@ namespace Project.UI.MainScreen {
 
     public class JoinGameWidgetView : UIWidgetViewBase {
 
+        // Factory
+        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -21,8 +23,9 @@ namespace Project.UI.MainScreen {
         public ButtonWrapper Back { get; }
 
         // Constructor
-        public JoinGameWidgetView(JoinGameWidget widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
+        public JoinGameWidgetView(JoinGameWidget widget, UIFactory factory) : base( widget ) {
+            Factory = factory;
+            VisualElement = CreateVisualElement( Factory, out var view, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             GameSlot = gameSlot.AsSlot();
@@ -37,25 +40,25 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static View CreateVisualElement(out View view, out Label title, out Slot gameSlot, out Slot playerSlot, out Slot lobbySlot, out Slot chatSlot, out Button okey, out Button back) {
-            using (UIFactory.LargeWidget( "join-game-widget-view" ).AsScope( out view )) {
-                using (UIFactory.Card().AsScope()) {
-                    using (UIFactory.Header().AsScope()) {
-                        VisualElementScope.Add( title = UIFactory.Label( "Join Game" ).Name( "title" ) );
+        private static View CreateVisualElement(UIFactory factory, out View view, out Label title, out Slot gameSlot, out Slot playerSlot, out Slot lobbySlot, out Slot chatSlot, out Button okey, out Button back) {
+            using (factory.LargeWidget( "join-game-widget-view" ).AsScope( out view )) {
+                using (factory.Card().AsScope()) {
+                    using (factory.Header().AsScope()) {
+                        VisualElementScope.Add( title = factory.Label( "Join Game" ).Name( "title" ) );
                     }
-                    using (UIFactory.Content().AsScope()) {
-                        using (UIFactory.RowScope().Name( "game-and-player-scope" ).Classes( "grow-0", "basis-40pc" ).AsScope()) {
-                            VisualElementScope.Add( gameSlot = UIFactory.Slot().Name( "game-slot" ).Classes( "grow-1", "basis-0pc" ) );
-                            VisualElementScope.Add( playerSlot = UIFactory.Slot().Name( "player-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                    using (factory.Content().AsScope()) {
+                        using (factory.RowScope().Name( "game-and-player-scope" ).Classes( "grow-0", "basis-40pc" ).AsScope()) {
+                            VisualElementScope.Add( gameSlot = factory.Slot().Name( "game-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( playerSlot = factory.Slot().Name( "player-slot" ).Classes( "grow-1", "basis-0pc" ) );
                         }
-                        using (UIFactory.RowScope().Name( "lobby-and-chat-scope" ).Classes( "grow-1", "basis-auto" ).AsScope()) {
-                            VisualElementScope.Add( lobbySlot = UIFactory.Slot().Name( "lobby-slot" ).Classes( "grow-1", "basis-0pc" ) );
-                            VisualElementScope.Add( chatSlot = UIFactory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                        using (factory.RowScope().Name( "lobby-and-chat-scope" ).Classes( "grow-1", "basis-auto" ).AsScope()) {
+                            VisualElementScope.Add( lobbySlot = factory.Slot().Name( "lobby-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( chatSlot = factory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" ) );
                         }
                     }
-                    using (UIFactory.Footer().AsScope()) {
-                        VisualElementScope.Add( okey = UIFactory.Button( "Ok" ).Name( "okey" ) );
-                        VisualElementScope.Add( back = UIFactory.Button( "Back" ).Name( "back" ) );
+                    using (factory.Footer().AsScope()) {
+                        VisualElementScope.Add( okey = factory.Button( "Ok" ).Name( "okey" ) );
+                        VisualElementScope.Add( back = factory.Button( "Back" ).Name( "back" ) );
                     }
                 }
             }

@@ -11,14 +11,16 @@ namespace Project.UI.Common {
     public class PlayerProfileWidget : UIWidgetBase<PlayerProfileWidgetView> {
 
         // Globals
+        private UIFactory Factory { get; }
         private Globals.PlayerProfile PlayerProfile { get; }
         // View
         public override PlayerProfileWidgetView View { get; }
 
         // Constructor
         public PlayerProfileWidget() {
+            Factory = Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             PlayerProfile = this.GetDependencyContainer().Resolve<Globals.PlayerProfile>( null );
-            View = CreateView( this, PlayerProfile );
+            View = CreateView( this, Factory, PlayerProfile );
         }
         public override void Dispose() {
             base.Dispose();
@@ -39,8 +41,8 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static PlayerProfileWidgetView CreateView(PlayerProfileWidget widget, Globals.PlayerProfile playerProfile) {
-            var view = new PlayerProfileWidgetView( widget );
+        private static PlayerProfileWidgetView CreateView(PlayerProfileWidget widget, UIFactory factory, Globals.PlayerProfile playerProfile) {
+            var view = new PlayerProfileWidgetView( widget, factory );
             view.Name.OnChange( (i, name) => {
                 view.Name.IsValid = Globals.PlayerProfile.IsNameValid( name! );
                 view.Okey.IsValid = Globals.PlayerProfile.IsNameValid( name! );

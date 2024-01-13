@@ -9,6 +9,8 @@ namespace Project.UI.Common {
 
     public class AudioSettingsWidgetView : UIWidgetViewBase {
 
+        // Factory
+        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -21,8 +23,9 @@ namespace Project.UI.Common {
         public ButtonWrapper Back { get; }
 
         // Constructor
-        public AudioSettingsWidgetView(AudioSettingsWidget widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view, out var title, out var masterVolume, out var musicVolume, out var sfxVolume, out var gameVolume, out var okey, out var back );
+        public AudioSettingsWidgetView(AudioSettingsWidget widget, UIFactory factory) : base( widget ) {
+            Factory = factory;
+            VisualElement = CreateVisualElement( Factory, out var view, out var title, out var masterVolume, out var musicVolume, out var sfxVolume, out var gameVolume, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             MasterVolume = masterVolume.Wrap();
@@ -37,23 +40,23 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static View CreateVisualElement(out View view, out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
-            using (UIFactory.MediumWidget( "audio-settings-widget-view" ).AsScope( out view )) {
-                using (UIFactory.Card().AsScope()) {
-                    using (UIFactory.Header().AsScope()) {
-                        VisualElementScope.Add( title = UIFactory.Label( "Audio Settings" ).Name( "title" ) );
+        private static View CreateVisualElement(UIFactory factory, out View view, out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
+            using (factory.MediumWidget( "audio-settings-widget-view" ).AsScope( out view )) {
+                using (factory.Card().AsScope()) {
+                    using (factory.Header().AsScope()) {
+                        VisualElementScope.Add( title = factory.Label( "Audio Settings" ).Name( "title" ) );
                     }
-                    using (UIFactory.Content().AsScope()) {
-                        using (UIFactory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
-                            VisualElementScope.Add( masterVolume = UIFactory.Slider( "Master Volume" ).Name( "master-volume" ).Classes( "label-width-25pc" ) );
-                            VisualElementScope.Add( musicVolume = UIFactory.Slider( "Music Volume" ).Name( "music-volume" ).Classes( "label-width-25pc" ) );
-                            VisualElementScope.Add( sfxVolume = UIFactory.Slider( "Sfx Volume" ).Name( "sfx-volume" ).Classes( "label-width-25pc" ) );
-                            VisualElementScope.Add( gameVolume = UIFactory.Slider( "Game Volume" ).Name( "game-volume" ).Classes( "label-width-25pc" ) );
+                    using (factory.Content().AsScope()) {
+                        using (factory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
+                            VisualElementScope.Add( masterVolume = factory.Slider( "Master Volume" ).Name( "master-volume" ).Classes( "label-width-25pc" ) );
+                            VisualElementScope.Add( musicVolume = factory.Slider( "Music Volume" ).Name( "music-volume" ).Classes( "label-width-25pc" ) );
+                            VisualElementScope.Add( sfxVolume = factory.Slider( "Sfx Volume" ).Name( "sfx-volume" ).Classes( "label-width-25pc" ) );
+                            VisualElementScope.Add( gameVolume = factory.Slider( "Game Volume" ).Name( "game-volume" ).Classes( "label-width-25pc" ) );
                         }
                     }
-                    using (UIFactory.Footer().AsScope()) {
-                        VisualElementScope.Add( okey = UIFactory.Button( "Ok" ).Name( "okey" ) );
-                        VisualElementScope.Add( back = UIFactory.Button( "Back" ).Name( "back" ) );
+                    using (factory.Footer().AsScope()) {
+                        VisualElementScope.Add( okey = factory.Button( "Ok" ).Name( "okey" ) );
+                        VisualElementScope.Add( back = factory.Button( "Back" ).Name( "back" ) );
                     }
                 }
             }

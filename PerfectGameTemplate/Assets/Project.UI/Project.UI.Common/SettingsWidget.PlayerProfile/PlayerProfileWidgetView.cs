@@ -9,6 +9,8 @@ namespace Project.UI.Common {
 
     public class PlayerProfileWidgetView : UIWidgetViewBase {
 
+        // Factory
+        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -18,8 +20,9 @@ namespace Project.UI.Common {
         public ButtonWrapper Back { get; }
 
         // Constructor
-        public PlayerProfileWidgetView(PlayerProfileWidget widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view, out var title, out var name, out var okey, out var back );
+        public PlayerProfileWidgetView(PlayerProfileWidget widget, UIFactory factory) : base( widget ) {
+            Factory = factory;
+            VisualElement = CreateVisualElement( Factory, out var view, out var title, out var name, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             Name = name.Wrap();
@@ -31,20 +34,20 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static View CreateVisualElement(out View view, out Label title, out TextField name, out Button okey, out Button back) {
-            using (UIFactory.MediumWidget( "player-profile-widget-view" ).AsScope( out view )) {
-                using (UIFactory.Card().AsScope()) {
-                    using (UIFactory.Header().AsScope()) {
-                        VisualElementScope.Add( title = UIFactory.Label( "Player Profile" ).Name( "title" ) );
+        private static View CreateVisualElement(UIFactory factory, out View view, out Label title, out TextField name, out Button okey, out Button back) {
+            using (factory.MediumWidget( "player-profile-widget-view" ).AsScope( out view )) {
+                using (factory.Card().AsScope()) {
+                    using (factory.Header().AsScope()) {
+                        VisualElementScope.Add( title = factory.Label( "Player Profile" ).Name( "title" ) );
                     }
-                    using (UIFactory.Content().AsScope()) {
-                        using (UIFactory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
-                            VisualElementScope.Add( name = UIFactory.TextField( "Name", 16, false ).Name( "name" ).Classes( "label-width-25pc" ) );
+                    using (factory.Content().AsScope()) {
+                        using (factory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
+                            VisualElementScope.Add( name = factory.TextField( "Name", 16, false ).Name( "name" ).Classes( "label-width-25pc" ) );
                         }
                     }
-                    using (UIFactory.Footer().AsScope()) {
-                        VisualElementScope.Add( okey = UIFactory.Button( "Ok" ).Name( "okey" ) );
-                        VisualElementScope.Add( back = UIFactory.Button( "Back" ).Name( "back" ) );
+                    using (factory.Footer().AsScope()) {
+                        VisualElementScope.Add( okey = factory.Button( "Ok" ).Name( "okey" ) );
+                        VisualElementScope.Add( back = factory.Button( "Back" ).Name( "back" ) );
                     }
                 }
             }

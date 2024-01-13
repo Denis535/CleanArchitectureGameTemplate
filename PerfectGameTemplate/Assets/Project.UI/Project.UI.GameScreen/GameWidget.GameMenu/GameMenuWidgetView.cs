@@ -9,6 +9,8 @@ namespace Project.UI.GameScreen {
 
     public class GameMenuWidgetView : UIWidgetViewBase {
 
+        // Factory
+        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -18,8 +20,9 @@ namespace Project.UI.GameScreen {
         public ButtonWrapper Back { get; }
 
         // Constructor
-        public GameMenuWidgetView(GameMenuWidget widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view, out var title, out var resume, out var settings, out var back );
+        public GameMenuWidgetView(GameMenuWidget widget, UIFactory factory) : base( widget ) {
+            Factory = factory;
+            VisualElement = CreateVisualElement( Factory, out var view, out var title, out var resume, out var settings, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             Resume = resume.Wrap();
@@ -31,16 +34,16 @@ namespace Project.UI.GameScreen {
         }
 
         // Helpers
-        private static View CreateVisualElement(out View view, out Label title, out Button resume, out Button settings, out Button back) {
-            using (UIFactory.LeftWidget( "game-menu-widget-view" ).AsScope( out view )) {
-                using (UIFactory.Card().AsScope()) {
-                    using (UIFactory.Header().AsScope()) {
-                        VisualElementScope.Add( title = UIFactory.Label( "Game Menu" ).Name( "title" ) );
+        private static View CreateVisualElement(UIFactory factory, out View view, out Label title, out Button resume, out Button settings, out Button back) {
+            using (factory.LeftWidget( "game-menu-widget-view" ).AsScope( out view )) {
+                using (factory.Card().AsScope()) {
+                    using (factory.Header().AsScope()) {
+                        VisualElementScope.Add( title = factory.Label( "Game Menu" ).Name( "title" ) );
                     }
-                    using (UIFactory.Content().AsScope()) {
-                        VisualElementScope.Add( resume = UIFactory.Button( "Resume" ).Name( "resume" ) );
-                        VisualElementScope.Add( settings = UIFactory.Button( "Settings" ).Name( "settings" ) );
-                        VisualElementScope.Add( back = UIFactory.Button( "Back To Main Menu" ).Name( "back" ) );
+                    using (factory.Content().AsScope()) {
+                        VisualElementScope.Add( resume = factory.Button( "Resume" ).Name( "resume" ) );
+                        VisualElementScope.Add( settings = factory.Button( "Settings" ).Name( "settings" ) );
+                        VisualElementScope.Add( back = factory.Button( "Back To Main Menu" ).Name( "back" ) );
                     }
                 }
             }

@@ -9,6 +9,8 @@ namespace Project.UI.Common {
 
     public abstract class DialogWidgetViewBase : UIWidgetViewBase, IUIModalWidgetView {
 
+        // Factory
+        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -20,9 +22,9 @@ namespace Project.UI.Common {
         public LabelWrapper Message { get; }
 
         // Constructor
-        public DialogWidgetViewBase(UIWidgetBase widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
-            //VisualElement.OnAttachToPanel( evt => PlayAppearanceAnimation( VisualElement ) );
+        public DialogWidgetViewBase(UIWidgetBase widget, UIFactory factory) : base( widget ) {
+            Factory = factory;
+            VisualElement = CreateVisualElement( Factory, out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
             View = view.Wrap();
             Card = card.Wrap();
             Header = header.Wrap().Pipe( i => i.IsDisplayed = false );
@@ -37,7 +39,7 @@ namespace Project.UI.Common {
 
         // OnSubmit
         public void OnSubmit(string text, Action? callback) {
-            var button = UIFactory.Button( text ).Name( "submit" );
+            var button = Factory.Button( text ).Name( "submit" );
             button.OnClick( evt => {
                 if (button.IsValid()) {
                     callback?.Invoke();
@@ -46,7 +48,7 @@ namespace Project.UI.Common {
             Footer.VisualElement.Add( button );
         }
         public void OnCancel(string text, Action? callback) {
-            var button = UIFactory.Button( text ).Name( "cancel" );
+            var button = Factory.Button( text ).Name( "cancel" );
             button.OnClick( evt => {
                 if (button.IsValid()) {
                     callback?.Invoke();
@@ -56,46 +58,32 @@ namespace Project.UI.Common {
         }
 
         // Heleprs
-        protected abstract View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message);
-        //private static void PlayAppearanceAnimation(VisualElement view) {
-        //    var animation = ValueAnimation<float>.Create( view, Mathf.LerpUnclamped );
-        //    animation.valueUpdated = (view, t) => {
-        //        var tx = Easing.OutBack( Easing.InPower( t, 2 ), 4 );
-        //        var ty = Easing.OutBack( Easing.OutPower( t, 2 ), 4 );
-        //        var x = Mathf.LerpUnclamped( 0.8f, 1f, tx );
-        //        var y = Mathf.LerpUnclamped( 0.8f, 1f, ty );
-        //        view.transform.scale = new Vector3( x, y, 1 );
-        //    };
-        //    animation.from = 0;
-        //    animation.to = 1;
-        //    animation.durationMs = 500;
-        //    animation.Start();
-        //}
+        protected abstract View CreateVisualElement(UIFactory factory, out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message);
 
     }
     // Dialog
     public class DialogWidgetView : DialogWidgetViewBase {
 
         // Constructor
-        public DialogWidgetView(DialogWidget widget) : base( widget ) {
+        public DialogWidgetView(DialogWidget widget, UIFactory factory) : base( widget, factory ) {
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            using (UIFactory.DialogWidget().AsScope( out view )) {
-                using (UIFactory.DialogCard().AsScope( out card )) {
-                    using (UIFactory.Header().AsScope( out header )) {
-                        VisualElementScope.Add( title = UIFactory.Label( null ).Name( "title" ) );
+        protected override View CreateVisualElement(UIFactory factory, out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            using (factory.DialogWidget().AsScope( out view )) {
+                using (factory.DialogCard().AsScope( out card )) {
+                    using (factory.Header().AsScope( out header )) {
+                        VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
                     }
-                    using (UIFactory.Content().AsScope( out content )) {
-                        using (UIFactory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
-                            VisualElementScope.Add( message = UIFactory.Label( null ).Name( "message" ) );
+                    using (factory.Content().AsScope( out content )) {
+                        using (factory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                            VisualElementScope.Add( message = factory.Label( null ).Name( "message" ) );
                         }
                     }
-                    using (UIFactory.Footer().AsScope( out footer )) {
+                    using (factory.Footer().AsScope( out footer )) {
                     }
                 }
             }
@@ -107,25 +95,25 @@ namespace Project.UI.Common {
     public class InfoDialogWidgetView : DialogWidgetViewBase {
 
         // Constructor
-        public InfoDialogWidgetView(InfoDialogWidget widget) : base( widget ) {
+        public InfoDialogWidgetView(InfoDialogWidget widget, UIFactory factory) : base( widget, factory ) {
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            using (UIFactory.InfoDialogWidget().AsScope( out view )) {
-                using (UIFactory.InfoDialogCard().AsScope( out card )) {
-                    using (UIFactory.Header().AsScope( out header )) {
-                        VisualElementScope.Add( title = UIFactory.Label( null ).Name( "title" ) );
+        protected override View CreateVisualElement(UIFactory factory, out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            using (factory.InfoDialogWidget().AsScope( out view )) {
+                using (factory.InfoDialogCard().AsScope( out card )) {
+                    using (factory.Header().AsScope( out header )) {
+                        VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
                     }
-                    using (UIFactory.Content().AsScope( out content )) {
-                        using (UIFactory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
-                            VisualElementScope.Add( message = UIFactory.Label( null ).Name( "message" ) );
+                    using (factory.Content().AsScope( out content )) {
+                        using (factory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                            VisualElementScope.Add( message = factory.Label( null ).Name( "message" ) );
                         }
                     }
-                    using (UIFactory.Footer().AsScope( out footer )) {
+                    using (factory.Footer().AsScope( out footer )) {
                     }
                 }
             }
@@ -137,25 +125,25 @@ namespace Project.UI.Common {
     public class WarningDialogWidgetView : DialogWidgetViewBase {
 
         // Constructor
-        public WarningDialogWidgetView(WarningDialogWidget widget) : base( widget ) {
+        public WarningDialogWidgetView(WarningDialogWidget widget, UIFactory factory) : base( widget, factory ) {
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            using (UIFactory.WarningDialogWidget().AsScope( out view )) {
-                using (UIFactory.WarningDialogCard().AsScope( out card )) {
-                    using (UIFactory.Header().AsScope( out header )) {
-                        VisualElementScope.Add( title = UIFactory.Label( null ).Name( "title" ) );
+        protected override View CreateVisualElement(UIFactory factory, out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            using (factory.WarningDialogWidget().AsScope( out view )) {
+                using (factory.WarningDialogCard().AsScope( out card )) {
+                    using (factory.Header().AsScope( out header )) {
+                        VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
                     }
-                    using (UIFactory.Content().AsScope( out content )) {
-                        using (UIFactory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
-                            VisualElementScope.Add( message = UIFactory.Label( null ).Name( "message" ) );
+                    using (factory.Content().AsScope( out content )) {
+                        using (factory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                            VisualElementScope.Add( message = factory.Label( null ).Name( "message" ) );
                         }
                     }
-                    using (UIFactory.Footer().AsScope( out footer )) {
+                    using (factory.Footer().AsScope( out footer )) {
                     }
                 }
             }
@@ -167,25 +155,25 @@ namespace Project.UI.Common {
     public class ErrorDialogWidgetView : DialogWidgetViewBase {
 
         // Constructor
-        public ErrorDialogWidgetView(ErrorDialogWidget widget) : base( widget ) {
+        public ErrorDialogWidgetView(ErrorDialogWidget widget, UIFactory factory) : base( widget, factory ) {
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // Helpers
-        protected override View CreateVisualElement(out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            using (UIFactory.ErrorDialogWidget().AsScope( out view )) {
-                using (UIFactory.ErrorDialogCard().AsScope( out card )) {
-                    using (UIFactory.Header().AsScope( out header )) {
-                        VisualElementScope.Add( title = UIFactory.Label( null ).Name( "title" ) );
+        protected override View CreateVisualElement(UIFactory factory, out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            using (factory.ErrorDialogWidget().AsScope( out view )) {
+                using (factory.ErrorDialogCard().AsScope( out card )) {
+                    using (factory.Header().AsScope( out header )) {
+                        VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
                     }
-                    using (UIFactory.Content().AsScope( out content )) {
-                        using (UIFactory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
-                            VisualElementScope.Add( message = UIFactory.Label( null ).Name( "message" ) );
+                    using (factory.Content().AsScope( out content )) {
+                        using (factory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                            VisualElementScope.Add( message = factory.Label( null ).Name( "message" ) );
                         }
                     }
-                    using (UIFactory.Footer().AsScope( out footer )) {
+                    using (factory.Footer().AsScope( out footer )) {
                     }
                 }
             }

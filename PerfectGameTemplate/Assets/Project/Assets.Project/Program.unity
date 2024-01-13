@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,13 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
-  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -226,6 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theme: {fileID: 243093304}
   screen: {fileID: 938585823}
+  factory: {fileID: 938585824}
   router: {fileID: 3160590370860231193}
   application: {fileID: 3512483430981800128}
 --- !u!114 &305890572
@@ -449,7 +449,7 @@ GameObject:
   - component: {fileID: 856803556}
   - component: {fileID: 856803557}
   m_Layer: 0
-  m_Name: SfxAudioSource
+  m_Name: AudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -482,6 +482,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3836653020449519504, guid: 90e2823520b580a47b2e95e06eac4ab7,
     type: 2}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -577,6 +578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 938585821}
   - component: {fileID: 938585823}
+  - component: {fileID: 938585824}
   m_Layer: 0
   m_Name: UIScreen
   m_TagString: Untagged
@@ -613,6 +615,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d58ba5a6a0654648bf96ae5f39e2592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &938585824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938585815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51dac7d15e25ced4589e40b229c2ce9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1331180745
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +638,7 @@ GameObject:
   - component: {fileID: 1331180746}
   - component: {fileID: 1331180747}
   m_Layer: 0
-  m_Name: MusicAudioSource
+  m_Name: AudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -657,6 +671,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4058561266782860380, guid: 90e2823520b580a47b2e95e06eac4ab7,
     type: 2}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

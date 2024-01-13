@@ -11,14 +11,17 @@ namespace Project.UI.MainScreen {
 
     public class LoadingWidgetView : UIWidgetViewBase {
 
+        // Factory
+        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
         public LabelWrapper Loading { get; }
 
         // Constructor
-        public LoadingWidgetView(LoadingWidget widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view, out var loading );
+        public LoadingWidgetView(LoadingWidget widget, UIFactory factory) : base( widget ) {
+            Factory = factory;
+            VisualElement = CreateVisualElement( Factory, out var view, out var loading );
             VisualElement.OnAttachToPanel( i => PlayLoadingAnimation( loading ) );
             View = view.Wrap();
             Loading = loading.Wrap();
@@ -28,10 +31,10 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static View CreateVisualElement(out View view, out Label loading) {
-            using (UIFactory.Widget( "loading-widget-view" ).AsScope( out view )) {
-                using (UIFactory.ColumnScope().Classes( "padding-2pc", "grow-1", "justify-content-end", "align-items-center" ).AsScope()) {
-                    VisualElementScope.Add( loading = UIFactory.Label( "Loading..." ).Name( "loading" ).Classes( "color-light", "font-size-200pc", "font-style-bold" ) );
+        private static View CreateVisualElement(UIFactory factory, out View view, out Label loading) {
+            using (factory.Widget( "loading-widget-view" ).AsScope( out view )) {
+                using (factory.ColumnScope().Classes( "padding-2pc", "grow-1", "justify-content-end", "align-items-center" ).AsScope()) {
+                    VisualElementScope.Add( loading = factory.Label( "Loading..." ).Name( "loading" ).Classes( "color-light", "font-size-200pc", "font-style-bold" ) );
                 }
             }
             return view;

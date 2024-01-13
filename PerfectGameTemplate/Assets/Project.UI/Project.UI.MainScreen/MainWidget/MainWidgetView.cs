@@ -10,13 +10,16 @@ namespace Project.UI.MainScreen {
 
     public class MainWidgetView : UIWidgetViewBase {
 
+        // Factory
+        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
 
         // Constructor
-        public MainWidgetView(MainWidget widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view );
+        public MainWidgetView(MainWidget widget, UIFactory factory) : base( widget ) {
+            Factory = factory;
+            VisualElement = CreateVisualElement( Factory, out var view );
             View = view.Wrap();
         }
         public override void Dispose() {
@@ -31,8 +34,8 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static View CreateVisualElement(out View view) {
-            using (UIFactory.Widget( "main-widget-view" ).AsScope( out view )) {
+        private static View CreateVisualElement(UIFactory factory, out View view) {
+            using (factory.Widget( "main-widget-view" ).AsScope( out view )) {
             }
             return view;
         }

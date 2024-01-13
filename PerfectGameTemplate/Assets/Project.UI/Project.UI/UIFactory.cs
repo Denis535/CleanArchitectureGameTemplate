@@ -6,114 +6,114 @@ namespace Project.UI {
     using UnityEngine;
     using UnityEngine.UIElements;
 
-    public static class UIFactory {
+    public class UIFactory : MonoBehaviour {
 
         public static Func<object?, string?>? StringSelector { get; set; }
 
         // Widget
-        public static View Widget(string name) {
+        public View Widget(string name) {
             var result = Create<View>( name, "widget-view" );
             return result;
         }
-        public static View LeftWidget(string name) {
+        public View LeftWidget(string name) {
             var result = Create<View>( name, "left-widget-view" );
             return result;
         }
-        public static View SmallWidget(string name) {
+        public View SmallWidget(string name) {
             var result = Create<View>( name, "small-widget-view" );
             return result;
         }
-        public static View MediumWidget(string name) {
+        public View MediumWidget(string name) {
             var result = Create<View>( name, "medium-widget-view" );
             return result;
         }
-        public static View LargeWidget(string name) {
+        public View LargeWidget(string name) {
             var result = Create<View>( name, "large-widget-view" );
             return result;
         }
 
         // Widget
-        public static View DialogWidget() {
+        public View DialogWidget() {
             var result = Create<View>( null, "dialog-widget-view" );
             return result;
         }
-        public static View InfoDialogWidget() {
+        public View InfoDialogWidget() {
             var result = Create<View>( null, "info-dialog-widget-view" );
             return result;
         }
-        public static View WarningDialogWidget() {
+        public View WarningDialogWidget() {
             var result = Create<View>( null, "warning-dialog-widget-view" );
             return result;
         }
-        public static View ErrorDialogWidget() {
+        public View ErrorDialogWidget() {
             var result = Create<View>( null, "error-dialog-widget-view" );
             return result;
         }
 
         // Card
-        public static Card Card() {
+        public Card Card() {
             var result = Create<Card>( null );
             return result;
         }
-        public static Header Header() {
+        public Header Header() {
             var result = Create<Header>( null );
             return result;
         }
-        public static Content Content() {
+        public Content Content() {
             var result = Create<Content>( null );
             return result;
         }
-        public static Footer Footer() {
+        public Footer Footer() {
             var result = Create<Footer>( null );
             return result;
         }
 
         // Card
-        public static Card DialogCard() {
+        public Card DialogCard() {
             var result = Create<Card>( null, "dialog-card" );
             return result;
         }
-        public static Card InfoDialogCard() {
+        public Card InfoDialogCard() {
             var result = Create<Card>( null, "info-dialog-card" );
             return result;
         }
-        public static Card WarningDialogCard() {
+        public Card WarningDialogCard() {
             var result = Create<Card>( null, "warning-dialog-card" );
             return result;
         }
-        public static Card ErrorDialogCard() {
+        public Card ErrorDialogCard() {
             var result = Create<Card>( null, "error-dialog-card" );
             return result;
         }
 
         // Slot
-        public static Slot Slot() {
+        public Slot Slot() {
             var result = Create<Slot>( null );
             return result;
         }
 
         // Scope
-        public static ColumnScope ColumnScope() {
+        public ColumnScope ColumnScope() {
             var result = Create<ColumnScope>( null );
             return result;
         }
-        public static RowScope RowScope() {
+        public RowScope RowScope() {
             var result = Create<RowScope>( null );
             return result;
         }
 
         // Group
-        public static ColumnGroup ColumnGroup() {
+        public ColumnGroup ColumnGroup() {
             var result = Create<ColumnGroup>( null );
             return result;
         }
-        public static RowGroup RowGroup() {
+        public RowGroup RowGroup() {
             var result = Create<RowGroup>( null );
             return result;
         }
 
         // ScrollView
-        public static ScrollView ScrollView() {
+        public ScrollView ScrollView() {
             var result = Create<ScrollView>( null );
             {
                 result.horizontalScroller.highButton.BringToFront();
@@ -123,13 +123,13 @@ namespace Project.UI {
         }
 
         // Box
-        public static Box Box() {
+        public Box Box() {
             var result = Create<Box>( null );
             return result;
         }
 
         // Label
-        public static Label Label(string? text) {
+        public Label Label(string? text) {
             var result = Create<Label>( null );
             {
                 result.text = text;
@@ -137,14 +137,14 @@ namespace Project.UI {
             return result;
         }
         // Button
-        public static Button Button(string? text) {
+        public Button Button(string? text) {
             var result = Create<Button>( null );
             {
                 result.text = text;
             }
             return result;
         }
-        public static RepeatButton RepeatButton(string? text) {
+        public RepeatButton RepeatButton(string? text) {
             var result = Create<RepeatButton>( null );
             {
                 result.text = text;
@@ -152,7 +152,7 @@ namespace Project.UI {
             return result;
         }
         // Field
-        public static TextField TextField(string? label, int maxLength, bool isMultiline) {
+        public TextField TextField(string? label, int maxLength, bool isMultiline) {
             var result = Create<TextField>( null );
             {
                 result.label = label;
@@ -162,7 +162,7 @@ namespace Project.UI {
             }
             return result;
         }
-        public static TextField TextFieldReadOnly(string? label, int maxLength, bool isMultiline) {
+        public TextField TextFieldReadOnly(string? label, int maxLength, bool isMultiline) {
             var result = Create<TextField>( null );
             {
                 result.label = label;
@@ -172,7 +172,7 @@ namespace Project.UI {
             }
             return result;
         }
-        public static PopupField<object?> PopupField(string? label) {
+        public PopupField<object?> PopupField(string? label) {
             var result = Create<PopupField<object?>>( null );
             {
                 result.label = label;
@@ -181,7 +181,7 @@ namespace Project.UI {
             }
             return result;
         }
-        public static DropdownField DropdownField(string? label) {
+        public DropdownField DropdownField(string? label) {
             var result = Create<DropdownField>( null );
             {
                 result.label = label;
@@ -190,21 +190,21 @@ namespace Project.UI {
             }
             return result;
         }
-        public static Slider Slider(string? label) {
+        public Slider Slider(string? label) {
             var result = Create<Slider>( null );
             {
                 result.label = label;
             }
             return result;
         }
-        public static SliderInt SliderInt(string? label) {
+        public SliderInt SliderInt(string? label) {
             var result = Create<SliderInt>( null );
             {
                 result.label = label;
             }
             return result;
         }
-        public static Toggle Toggle(string? label) {
+        public Toggle Toggle(string? label) {
             var result = Create<Toggle>( null );
             {
                 result.label = label;

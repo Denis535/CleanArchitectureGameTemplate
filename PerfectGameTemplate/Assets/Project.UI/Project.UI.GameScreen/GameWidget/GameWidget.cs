@@ -12,17 +12,19 @@ namespace Project.UI.GameScreen {
     public class GameWidget : UIWidgetBase<GameWidgetView> {
 
         // Globals
+        private UIFactory Factory { get; }
         private Application2 Application { get; }
-        // Actions
-        private InputActions Actions { get; }
         // View
         public override GameWidgetView View { get; }
+        // Actions
+        private InputActions Actions { get; }
 
         // Constructor
         public GameWidget() {
+            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
+            View = CreateView( this, Factory );
             Actions = new InputActions();
-            View = CreateView( this );
         }
         public override void Dispose() {
             Actions.Dispose();
@@ -71,8 +73,8 @@ namespace Project.UI.GameScreen {
         }
 
         // Helpers
-        private static GameWidgetView CreateView(GameWidget widget) {
-            var view = new GameWidgetView( widget );
+        private static GameWidgetView CreateView(GameWidget widget, UIFactory factory) {
+            var view = new GameWidgetView( widget, factory );
             return view;
         }
 

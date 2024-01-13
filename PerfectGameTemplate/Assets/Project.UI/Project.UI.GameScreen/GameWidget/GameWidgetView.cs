@@ -9,13 +9,16 @@ namespace Project.UI.GameScreen {
 
     public class GameWidgetView : UIWidgetViewBase {
 
+        // Factory
+        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
 
         // Constructor
-        public GameWidgetView(GameWidget widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view );
+        public GameWidgetView(GameWidget widget, UIFactory factory) : base( widget ) {
+            Factory = factory;
+            VisualElement = CreateVisualElement( Factory, out var view );
             View = view.Wrap();
         }
         public override void Dispose() {
@@ -23,8 +26,8 @@ namespace Project.UI.GameScreen {
         }
 
         // Helpers
-        private static View CreateVisualElement(out View view) {
-            using (UIFactory.Widget( "game-widget-view" ).AsScope( out view )) {
+        private static View CreateVisualElement(UIFactory factory, out View view) {
+            using (factory.Widget( "game-widget-view" ).AsScope( out view )) {
             }
             return view;
         }

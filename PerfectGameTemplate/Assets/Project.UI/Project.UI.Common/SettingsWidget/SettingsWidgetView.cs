@@ -9,6 +9,8 @@ namespace Project.UI.Common {
 
     public class SettingsWidgetView : UIWidgetViewBase {
 
+        // Factory
+        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -19,8 +21,9 @@ namespace Project.UI.Common {
         public ButtonWrapper Back { get; }
 
         // Constructor
-        public SettingsWidgetView(SettingsWidget widget) : base( widget ) {
-            VisualElement = CreateVisualElement( out var view, out var title, out var playerProfile, out var videoSettings, out var audioSettings, out var back );
+        public SettingsWidgetView(SettingsWidget widget, UIFactory factory) : base( widget ) {
+            Factory = factory;
+            VisualElement = CreateVisualElement( Factory, out var view, out var title, out var playerProfile, out var videoSettings, out var audioSettings, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             PlayerProfile = playerProfile.Wrap();
@@ -33,21 +36,21 @@ namespace Project.UI.Common {
         }
 
         // Helpers
-        private static View CreateVisualElement(out View view, out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
-            using (UIFactory.MediumWidget( "settings-widget-view" ).AsScope( out view )) {
-                using (UIFactory.Card().AsScope()) {
-                    using (UIFactory.Header().AsScope()) {
-                        VisualElementScope.Add( title = UIFactory.Label( "Settings" ).Name( "title" ) );
+        private static View CreateVisualElement(UIFactory factory, out View view, out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
+            using (factory.MediumWidget( "settings-widget-view" ).AsScope( out view )) {
+                using (factory.Card().AsScope()) {
+                    using (factory.Header().AsScope()) {
+                        VisualElementScope.Add( title = factory.Label( "Settings" ).Name( "title" ) );
                     }
-                    using (UIFactory.Content().AsScope()) {
-                        using (UIFactory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
-                            VisualElementScope.Add( playerProfile = UIFactory.Button( "Player Profile" ).Name( "player-profile" ).Classes( "width-50pc", "align-self-center" ) );
-                            VisualElementScope.Add( videoSettings = UIFactory.Button( "Video Settings" ).Name( "video-settings" ).Classes( "width-50pc", "align-self-center" ) );
-                            VisualElementScope.Add( audioSettings = UIFactory.Button( "Audio Settings" ).Name( "audio-settings" ).Classes( "width-50pc", "align-self-center" ) );
+                    using (factory.Content().AsScope()) {
+                        using (factory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
+                            VisualElementScope.Add( playerProfile = factory.Button( "Player Profile" ).Name( "player-profile" ).Classes( "width-50pc", "align-self-center" ) );
+                            VisualElementScope.Add( videoSettings = factory.Button( "Video Settings" ).Name( "video-settings" ).Classes( "width-50pc", "align-self-center" ) );
+                            VisualElementScope.Add( audioSettings = factory.Button( "Audio Settings" ).Name( "audio-settings" ).Classes( "width-50pc", "align-self-center" ) );
                         }
                     }
-                    using (UIFactory.Footer().AsScope()) {
-                        VisualElementScope.Add( back = UIFactory.Button( "Back" ).Name( "back" ) );
+                    using (factory.Footer().AsScope()) {
+                        VisualElementScope.Add( back = factory.Button( "Back" ).Name( "back" ) );
                     }
                 }
             }

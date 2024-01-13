@@ -17,6 +17,7 @@ namespace Project.UI.MainScreen {
 
         // Globals
         private UIRouter Router { get; }
+        private UIFactory Factory { get; }
         private Application2 Application { get; }
         private Globals Globals { get; set; } = default!;
         private IAuthenticationService AuthenticationService => Unity.Services.Authentication.AuthenticationService.Instance;
@@ -26,9 +27,10 @@ namespace Project.UI.MainScreen {
         // Constructor
         public MainWidget() {
             Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
+            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
             Globals = this.GetDependencyContainer().Resolve<Globals>( null );
-            View = CreateView( this );
+            View = CreateView( this, Factory );
         }
         public override void Dispose() {
             base.Dispose();
@@ -97,8 +99,8 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static MainWidgetView CreateView(MainWidget widget) {
-            var view = new MainWidgetView( widget );
+        private static MainWidgetView CreateView(MainWidget widget, UIFactory factory) {
+            var view = new MainWidgetView( widget, factory );
             return view;
         }
 
