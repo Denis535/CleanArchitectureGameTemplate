@@ -24,8 +24,6 @@ namespace Project.UI {
         //private readonly AudioClip cancelSelect;
         //private readonly AudioClip invalidSelect;
         //private readonly AudioClip tik;
-        // Factory
-        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -46,9 +44,8 @@ namespace Project.UI {
             //cancelSelect = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select_Cancel ).GetResult();
             //invalidSelect = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select_Invalid ).GetResult();
             //tik = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Tick ).GetResult();
-            Factory = factory;
             // View
-            VisualElement = Factory.ScreenView( out var view, out var viewsContainer, out var modalViewsContainer );
+            VisualElement = factory.ScreenView( out var view, out var viewsContainer, out var modalViewsContainer );
             View = view.Wrap();
             ViewsContainer = viewsContainer.Wrap();
             ModalViewsContainer = modalViewsContainer.Wrap();

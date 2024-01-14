@@ -9,8 +9,6 @@ namespace Project.UI.Common {
 
     public class AudioSettingsWidgetView : UIWidgetViewBase {
 
-        // Globals
-        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -24,8 +22,7 @@ namespace Project.UI.Common {
 
         // Constructor
         public AudioSettingsWidgetView(AudioSettingsWidget widget, UIFactory factory) : base( widget ) {
-            Factory = factory;
-            VisualElement = Factory.AudioSettingsView( out var view, out var title, out var masterVolume, out var musicVolume, out var sfxVolume, out var gameVolume, out var okey, out var back );
+            VisualElement = factory.AudioSettingsView( out var view, out var title, out var masterVolume, out var musicVolume, out var sfxVolume, out var gameVolume, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             MasterVolume = masterVolume.Wrap();

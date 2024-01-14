@@ -11,8 +11,6 @@ namespace Project.UI.MainScreen {
 
     public class LoadingWidgetView : UIWidgetViewBase {
 
-        // Globals
-        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -20,8 +18,7 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public LoadingWidgetView(LoadingWidget widget, UIFactory factory) : base( widget ) {
-            Factory = factory;
-            VisualElement = Factory.LoadingWidgetView( out var view, out var loading );
+            VisualElement = factory.LoadingWidgetView( out var view, out var loading );
             VisualElement.OnAttachToPanel( i => PlayLoadingAnimation( loading ) );
             View = view.Wrap();
             Loading = loading.Wrap();

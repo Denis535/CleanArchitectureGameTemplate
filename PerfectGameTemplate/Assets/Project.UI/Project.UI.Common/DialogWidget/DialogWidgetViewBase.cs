@@ -6,11 +6,10 @@ namespace Project.UI.Common {
     using UnityEngine;
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
+    using UnityEngine.UIElements.Experimental;
 
     public abstract class DialogWidgetViewBase : UIWidgetViewBase, IUIModalWidgetView {
 
-        // Globals
-        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -23,10 +22,10 @@ namespace Project.UI.Common {
 
         // Constructor
         public DialogWidgetViewBase(UIWidgetBase widget, UIFactory factory) : base( widget ) {
-            Factory = factory;
             if (this is DialogWidgetView) {
-                VisualElement = Factory.DialogWidgetView( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
-                View = (VisualElement = view).Wrap();
+                VisualElement = factory.DialogWidgetView( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
+                VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
+                View = view.Wrap();
                 Card = card.Wrap();
                 Header = header.Wrap();
                 Content = content.Wrap();
@@ -34,8 +33,9 @@ namespace Project.UI.Common {
                 Title = title.Wrap();
                 Message = message.Wrap();
             } else if (this is InfoDialogWidgetView) {
-                VisualElement = Factory.InfoDialogWidgetView( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
-                View = (VisualElement = view).Wrap();
+                VisualElement = factory.InfoDialogWidgetView( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
+                VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
+                View = view.Wrap();
                 Card = card.Wrap();
                 Header = header.Wrap();
                 Content = content.Wrap();
@@ -43,8 +43,9 @@ namespace Project.UI.Common {
                 Title = title.Wrap();
                 Message = message.Wrap();
             } else if (this is WarningDialogWidgetView) {
-                VisualElement = Factory.WarningDialogWidgetView( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
-                View = (VisualElement = view).Wrap();
+                VisualElement = factory.WarningDialogWidgetView( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
+                VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
+                View = view.Wrap();
                 Card = card.Wrap();
                 Header = header.Wrap();
                 Content = content.Wrap();
@@ -52,8 +53,9 @@ namespace Project.UI.Common {
                 Title = title.Wrap();
                 Message = message.Wrap();
             } else if (this is ErrorDialogWidgetView) {
-                VisualElement = Factory.ErrorDialogWidgetView( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
-                View = (VisualElement = view).Wrap();
+                VisualElement = factory.ErrorDialogWidgetView( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
+                VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
+                View = view.Wrap();
                 Card = card.Wrap();
                 Header = header.Wrap();
                 Content = content.Wrap();
@@ -69,8 +71,8 @@ namespace Project.UI.Common {
         }
 
         // OnSubmit
-        public void OnSubmit(string text, Action? callback) {
-            var button = Factory.Button( text ).Name( "submit" );
+        public void OnSubmit(UIFactory factory, string text, Action? callback) {
+            var button = factory.Button( text ).Name( "submit" );
             button.OnClick( evt => {
                 if (button.IsValid()) {
                     callback?.Invoke();
@@ -78,14 +80,30 @@ namespace Project.UI.Common {
             } );
             Footer.VisualElement.Add( button );
         }
-        public void OnCancel(string text, Action? callback) {
-            var button = Factory.Button( text ).Name( "cancel" );
+        public void OnCancel(UIFactory factory, string text, Action? callback) {
+            var button = factory.Button( text ).Name( "cancel" );
             button.OnClick( evt => {
                 if (button.IsValid()) {
                     callback?.Invoke();
                 }
             } );
             Footer.VisualElement.Add( button );
+        }
+
+        // Helpers
+        private static void PlayAppearance(VisualElement element) {
+            var animation = ValueAnimation<float>.Create( element, Mathf.LerpUnclamped );
+            animation.valueUpdated = (view, t) => {
+                var tx = Easing.OutBack( Easing.InPower( t, 2 ), 4 );
+                var ty = Easing.OutBack( Easing.OutPower( t, 2 ), 4 );
+                var x = Mathf.LerpUnclamped( 0.8f, 1f, tx );
+                var y = Mathf.LerpUnclamped( 0.8f, 1f, ty );
+                view.transform.scale = new Vector3( x, y, 1 );
+            };
+            animation.from = 0;
+            animation.to = 1;
+            animation.durationMs = 500;
+            animation.Start();
         }
 
     }

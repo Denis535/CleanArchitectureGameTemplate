@@ -9,8 +9,6 @@ namespace Project.UI.GameScreen {
 
     public class GameMenuWidgetView : UIWidgetViewBase {
 
-        // Globals
-        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -21,8 +19,7 @@ namespace Project.UI.GameScreen {
 
         // Constructor
         public GameMenuWidgetView(GameMenuWidget widget, UIFactory factory) : base( widget ) {
-            Factory = factory;
-            VisualElement = Factory.GameMenuWidgetView( out var view, out var title, out var resume, out var settings, out var back );
+            VisualElement = factory.GameMenuWidgetView( out var view, out var title, out var resume, out var settings, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             Resume = resume.Wrap();

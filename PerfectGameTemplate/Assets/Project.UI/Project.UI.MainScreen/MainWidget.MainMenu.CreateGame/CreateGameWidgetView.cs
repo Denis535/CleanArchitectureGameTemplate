@@ -9,8 +9,6 @@ namespace Project.UI.MainScreen {
 
     public class CreateGameWidgetView : UIWidgetViewBase {
 
-        // Globals
-        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -24,8 +22,7 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public CreateGameWidgetView(CreateGameWidget widget, UIFactory factory) : base( widget ) {
-            Factory = factory;
-            VisualElement = Factory.CreateGameWidgetView( out var view, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
+            VisualElement = factory.CreateGameWidgetView( out var view, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             GameSlot = gameSlot.AsSlot();
@@ -40,7 +37,6 @@ namespace Project.UI.MainScreen {
         }
 
     }
-
     // GameView
     public class GameView : UISubViewBase {
 

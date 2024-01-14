@@ -9,8 +9,6 @@ namespace Project.UI.Common {
 
     public class VideoSettingsWidgetView : UIWidgetViewBase {
 
-        // Globals
-        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -23,8 +21,7 @@ namespace Project.UI.Common {
 
         // Constructor
         public VideoSettingsWidgetView(VideoSettingsWidget widget, UIFactory factory) : base( widget ) {
-            Factory = factory;
-            VisualElement = Factory.VideoSettingsView( out var view, out var title, out var isFullScreen, out var screenResolution, out var isVSync, out var okey, out var back );
+            VisualElement = factory.VideoSettingsView( out var view, out var title, out var isFullScreen, out var screenResolution, out var isVSync, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             IsFullScreen = isFullScreen.Wrap();

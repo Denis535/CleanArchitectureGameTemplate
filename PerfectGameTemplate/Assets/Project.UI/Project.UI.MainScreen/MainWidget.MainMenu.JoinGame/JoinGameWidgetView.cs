@@ -9,8 +9,6 @@ namespace Project.UI.MainScreen {
 
     public class JoinGameWidgetView : UIWidgetViewBase {
 
-        // Globals
-        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -24,8 +22,7 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public JoinGameWidgetView(JoinGameWidget widget, UIFactory factory) : base( widget ) {
-            Factory = factory;
-            VisualElement = Factory.JoinGameWidgetView( out var view, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
+            VisualElement = factory.JoinGameWidgetView( out var view, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             GameSlot = gameSlot.AsSlot();

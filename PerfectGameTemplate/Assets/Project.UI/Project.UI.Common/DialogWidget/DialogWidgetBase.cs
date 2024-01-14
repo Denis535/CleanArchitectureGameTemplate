@@ -16,15 +16,15 @@ namespace Project.UI.Common {
         public string? Title {
             get => View.Title.Text;
             set {
-                View.Header.IsDisplayed = value != null;
                 View.Title.Text = value;
+                View.Header.IsDisplayed = value != null;
             }
         }
         public string? Message {
             get => View.Message.Text;
             set {
-                View.Content.IsDisplayed = value != null;
                 View.Message.Text = value;
+                View.Content.IsDisplayed = value != null;
             }
         }
 
@@ -33,29 +33,18 @@ namespace Project.UI.Common {
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             if (this is DialogWidget) {
                 View = (TView) (object) new DialogWidgetView( (DialogWidget) (object) this, Factory );
-                View.Header.IsDisplayed = false;
-                View.Content.IsDisplayed = false;
-                View.Footer.IsDisplayed = false;
             } else if (this is InfoDialogWidget) {
                 View = (TView) (object) new InfoDialogWidgetView( (InfoDialogWidget) (object) this, Factory );
-                View.Header.IsDisplayed = false;
-                View.Content.IsDisplayed = false;
-                View.Footer.IsDisplayed = false;
             } else if (this is WarningDialogWidget) {
                 View = (TView) (object) new WarningDialogWidgetView( (WarningDialogWidget) (object) this, Factory );
-                View.Header.IsDisplayed = false;
-                View.Content.IsDisplayed = false;
-                View.Footer.IsDisplayed = false;
             } else if (this is ErrorDialogWidget) {
                 View = (TView) (object) new ErrorDialogWidgetView( (ErrorDialogWidget) (object) this, Factory );
-                View.Header.IsDisplayed = false;
-                View.Content.IsDisplayed = false;
-                View.Footer.IsDisplayed = false;
             } else {
                 throw Exceptions.Internal.NotImplemented( $"DialogWidgetBase {this} is not implemented" );
             }
             Title = title;
             Message = message;
+            View.Footer.IsDisplayed = false;
         }
         public override void Dispose() {
             base.Dispose();
@@ -73,19 +62,19 @@ namespace Project.UI.Common {
 
         // OnSubmit
         public DialogWidgetBase<TView> OnSubmit(string text, Action? callback) {
-            View.Footer.IsDisplayed = true;
-            View.OnSubmit( text, () => {
+            View.OnSubmit( Factory, text, () => {
                 callback?.Invoke();
                 this.DetachSelf();
             } );
+            View.Footer.IsDisplayed = true;
             return this;
         }
         public DialogWidgetBase<TView> OnCancel(string text, Action? callback) {
-            View.Footer.IsDisplayed = true;
-            View.OnCancel( text, () => {
+            View.OnCancel( Factory, text, () => {
                 callback?.Invoke();
                 this.DetachSelf();
             } );
+            View.Footer.IsDisplayed = true;
             return this;
         }
 

@@ -9,8 +9,6 @@ namespace Project.UI.Common {
 
     public class PlayerProfileWidgetView : UIWidgetViewBase {
 
-        // Globals
-        private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
         public ElementWrapper View { get; }
@@ -21,8 +19,7 @@ namespace Project.UI.Common {
 
         // Constructor
         public PlayerProfileWidgetView(PlayerProfileWidget widget, UIFactory factory) : base( widget ) {
-            Factory = factory;
-            VisualElement = Factory.PlayerProfileView( out var view, out var title, out var name, out var okey, out var back );
+            VisualElement = factory.PlayerProfileView( out var view, out var title, out var name, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             Name = name.Wrap();
