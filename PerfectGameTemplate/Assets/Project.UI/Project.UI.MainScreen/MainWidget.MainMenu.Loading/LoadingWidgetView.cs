@@ -11,7 +11,7 @@ namespace Project.UI.MainScreen {
 
     public class LoadingWidgetView : UIWidgetViewBase {
 
-        // Factory
+        // Globals
         private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
@@ -21,7 +21,7 @@ namespace Project.UI.MainScreen {
         // Constructor
         public LoadingWidgetView(LoadingWidget widget, UIFactory factory) : base( widget ) {
             Factory = factory;
-            VisualElement = CreateVisualElement( Factory, out var view, out var loading );
+            VisualElement = Factory.LoadingWidgetView( out var view, out var loading );
             VisualElement.OnAttachToPanel( i => PlayLoadingAnimation( loading ) );
             View = view.Wrap();
             Loading = loading.Wrap();
@@ -30,15 +30,6 @@ namespace Project.UI.MainScreen {
             base.Dispose();
         }
 
-        // Helpers
-        private static View CreateVisualElement(UIFactory factory, out View view, out Label loading) {
-            using (factory.Widget( "loading-widget-view" ).AsScope( out view )) {
-                using (factory.ColumnScope().Classes( "padding-2pc", "grow-1", "justify-content-end", "align-items-center" ).AsScope()) {
-                    VisualElementScope.Add( loading = factory.Label( "Loading..." ).Name( "loading" ).Classes( "color-light", "font-size-200pc", "font-style-bold" ) );
-                }
-            }
-            return view;
-        }
         // Helpers
         private static void PlayLoadingAnimation(Label label) {
             var animation = ValueAnimation<float>.Create( label, Mathf.Lerp );

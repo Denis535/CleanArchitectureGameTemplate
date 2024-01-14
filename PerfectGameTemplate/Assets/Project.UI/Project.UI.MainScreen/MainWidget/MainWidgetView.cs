@@ -10,7 +10,7 @@ namespace Project.UI.MainScreen {
 
     public class MainWidgetView : UIWidgetViewBase {
 
-        // Factory
+        // Globals
         private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
@@ -19,7 +19,7 @@ namespace Project.UI.MainScreen {
         // Constructor
         public MainWidgetView(MainWidget widget, UIFactory factory) : base( widget ) {
             Factory = factory;
-            VisualElement = CreateVisualElement( Factory, out var view );
+            VisualElement = Factory.MainWidgetView( out var view );
             View = view.Wrap();
         }
         public override void Dispose() {
@@ -31,13 +31,6 @@ namespace Project.UI.MainScreen {
             var t = Easing.OutPower( Mathf.InverseLerp( 1, 8, value ), 2 );
             VisualElement.transform.scale = Vector3.LerpUnclamped( new Vector3( 1, 1, 1 ), new Vector3( 2, 2, 1 ), t );
             VisualElement.style.unityBackgroundImageTintColor = Color.LerpUnclamped( new Color( 1, 1, 1, 1 ), new Color( 0, 0, 0, 1 ), t );
-        }
-
-        // Helpers
-        private static View CreateVisualElement(UIFactory factory, out View view) {
-            using (factory.Widget( "main-widget-view" ).AsScope( out view )) {
-            }
-            return view;
         }
 
     }

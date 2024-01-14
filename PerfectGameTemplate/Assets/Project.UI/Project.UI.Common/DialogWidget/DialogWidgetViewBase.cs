@@ -9,7 +9,7 @@ namespace Project.UI.Common {
 
     public abstract class DialogWidgetViewBase : UIWidgetViewBase, IUIModalWidgetView {
 
-        // Factory
+        // Globals
         private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }

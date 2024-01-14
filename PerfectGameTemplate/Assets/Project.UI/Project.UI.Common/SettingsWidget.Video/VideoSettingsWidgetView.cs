@@ -9,7 +9,7 @@ namespace Project.UI.Common {
 
     public class VideoSettingsWidgetView : UIWidgetViewBase {
 
-        // Factory
+        // Globals
         private UIFactory Factory { get; }
         // View
         public override VisualElement VisualElement { get; }
@@ -24,7 +24,7 @@ namespace Project.UI.Common {
         // Constructor
         public VideoSettingsWidgetView(VideoSettingsWidget widget, UIFactory factory) : base( widget ) {
             Factory = factory;
-            VisualElement = CreateVisualElement( Factory, out var view, out var title, out var isFullScreen, out var screenResolution, out var isVSync, out var okey, out var back );
+            VisualElement = Factory.VideoSettingsView( out var view, out var title, out var isFullScreen, out var screenResolution, out var isVSync, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             IsFullScreen = isFullScreen.Wrap();
@@ -35,29 +35,6 @@ namespace Project.UI.Common {
         }
         public override void Dispose() {
             base.Dispose();
-        }
-
-        // Helpers
-        private static View CreateVisualElement(UIFactory factory, out View view, out Label title, out Toggle isFullScreen, out PopupField<object?> screenResolution, out Toggle isVSync, out Button okey, out Button back) {
-            using (factory.MediumWidget( "video-settings-widget-view" ).AsScope( out view )) {
-                using (factory.Card().AsScope()) {
-                    using (factory.Header().AsScope()) {
-                        VisualElementScope.Add( title = factory.Label( "Video Settings" ).Name( "title" ) );
-                    }
-                    using (factory.Content().AsScope()) {
-                        using (factory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
-                            VisualElementScope.Add( isFullScreen = factory.Toggle( "Full Screen" ).Name( "is-full-screen" ).Classes( "label-width-25pc" ) );
-                            VisualElementScope.Add( screenResolution = factory.PopupField( "Screen Resolution" ).Name( "screen-resolution" ).Classes( "label-width-25pc" ) );
-                            VisualElementScope.Add( isVSync = factory.Toggle( "V-Sync" ).Name( "is-v-sync" ).Classes( "label-width-25pc" ) );
-                        }
-                    }
-                    using (factory.Footer().AsScope()) {
-                        VisualElementScope.Add( okey = factory.Button( "Ok" ).Name( "okey" ) );
-                        VisualElementScope.Add( back = factory.Button( "Back" ).Name( "back" ) );
-                    }
-                }
-            }
-            return view;
         }
 
     }
