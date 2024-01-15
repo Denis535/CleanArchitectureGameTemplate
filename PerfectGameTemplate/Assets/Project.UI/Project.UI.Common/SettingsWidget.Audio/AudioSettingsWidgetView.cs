@@ -22,7 +22,7 @@ namespace Project.UI.Common {
 
         // Constructor
         public AudioSettingsWidgetView(AudioSettingsWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.AudioSettingsWidgetView( out var view, out var title, out var masterVolume, out var musicVolume, out var sfxVolume, out var gameVolume, out var okey, out var back );
+            VisualElement = factory.AudioSettingsWidget( out var view, out var title, out var masterVolume, out var musicVolume, out var sfxVolume, out var gameVolume, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             MasterVolume = masterVolume.Wrap();

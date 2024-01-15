@@ -7,16 +7,16 @@ namespace Project.UI {
 
     public static class UIFactoryExtensions_GameWidget {
 
-        // GameWidgetView
-        public static Widget GameWidgetView(this UIFactory factory, out Widget view) {
-            using (factory.Widget( "game-widget" ).AsScope( out view )) {
+        // GameWidget
+        public static Widget GameWidget(this UIFactory factory, out Widget widget) {
+            using (factory.Widget( "game-widget" ).AsScope( out widget )) {
             }
-            return view;
+            return widget;
         }
 
-        // GameMenuWidgetView
-        public static Widget GameMenuWidgetView(this UIFactory factory, out Widget view, out Label title, out Button resume, out Button settings, out Button back) {
-            using (factory.LeftWidget( "game-menu-widget" ).AsScope( out view )) {
+        // GameMenuWidget
+        public static Widget GameMenuWidget(this UIFactory factory, out Widget widget, out Label title, out Button resume, out Button settings, out Button back) {
+            using (factory.LeftWidget( "game-menu-widget" ).AsScope( out widget )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
                         VisualElementScope.Add( title = factory.Label( "Game Menu" ).Name( "title" ) );
@@ -28,7 +28,7 @@ namespace Project.UI {
                     }
                 }
             }
-            return view;
+            return widget;
         }
 
     }

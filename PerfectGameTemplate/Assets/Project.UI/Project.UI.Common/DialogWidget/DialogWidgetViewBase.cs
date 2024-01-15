@@ -23,7 +23,7 @@ namespace Project.UI.Common {
         // Constructor
         public DialogWidgetViewBase(UIWidgetBase widget, UIFactory factory) : base( widget ) {
             if (this is DialogWidgetView) {
-                VisualElement = factory.DialogWidgetView( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
+                VisualElement = factory.DialogWidget( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
                 VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
                 View = view.Wrap();
                 Card = card.Wrap();
@@ -33,7 +33,7 @@ namespace Project.UI.Common {
                 Title = title.Wrap();
                 Message = message.Wrap();
             } else if (this is InfoDialogWidgetView) {
-                VisualElement = factory.InfoDialogWidgetView( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
+                VisualElement = factory.InfoDialogWidget( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
                 VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
                 View = view.Wrap();
                 Card = card.Wrap();
@@ -43,7 +43,7 @@ namespace Project.UI.Common {
                 Title = title.Wrap();
                 Message = message.Wrap();
             } else if (this is WarningDialogWidgetView) {
-                VisualElement = factory.WarningDialogWidgetView( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
+                VisualElement = factory.WarningDialogWidget( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
                 VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
                 View = view.Wrap();
                 Card = card.Wrap();
@@ -53,7 +53,7 @@ namespace Project.UI.Common {
                 Title = title.Wrap();
                 Message = message.Wrap();
             } else if (this is ErrorDialogWidgetView) {
-                VisualElement = factory.ErrorDialogWidgetView( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
+                VisualElement = factory.ErrorDialogWidget( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
                 VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
                 View = view.Wrap();
                 Card = card.Wrap();

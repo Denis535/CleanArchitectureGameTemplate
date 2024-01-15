@@ -15,7 +15,7 @@ namespace Project.UI.GameScreen {
 
         // Constructor
         public GameWidgetView(GameWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.GameWidgetView( out var view );
+            VisualElement = factory.GameWidget( out var view );
             View = view.Wrap();
         }
         public override void Dispose() {

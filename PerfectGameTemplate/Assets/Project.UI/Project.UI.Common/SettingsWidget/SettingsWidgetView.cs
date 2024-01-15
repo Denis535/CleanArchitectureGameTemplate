@@ -20,7 +20,7 @@ namespace Project.UI.Common {
 
         // Constructor
         public SettingsWidgetView(SettingsWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.SettingsWidgetView( out var view, out var title, out var playerProfile, out var videoSettings, out var audioSettings, out var back );
+            VisualElement = factory.SettingsWidget( out var view, out var title, out var playerProfile, out var videoSettings, out var audioSettings, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             PlayerProfile = playerProfile.Wrap();

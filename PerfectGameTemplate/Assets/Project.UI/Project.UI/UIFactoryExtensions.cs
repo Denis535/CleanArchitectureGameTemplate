@@ -8,8 +8,8 @@ namespace Project.UI {
     public static class UIFactoryExtensions {
 
         // ScreenView
-        public static VisualElement ScreenView(this UIFactory factory, out VisualElement view, out VisualElement container, out VisualElement modalContainer) {
-            var visualElement = view = new VisualElement();
+        public static VisualElement Screen(this UIFactory factory, out VisualElement screen, out VisualElement container, out VisualElement modalContainer) {
+            var visualElement = screen = new VisualElement();
             visualElement.name = "screen";
             visualElement.AddToClassList( "screen" );
             visualElement.pickingMode = PickingMode.Ignore;

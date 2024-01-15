@@ -20,7 +20,7 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public MainMenuWidgetView(MainMenuWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.MainMenuWidgetView( out var view, out var title, out var createGame, out var joinGame, out var settings, out var quit );
+            VisualElement = factory.MainMenuWidget( out var view, out var title, out var createGame, out var joinGame, out var settings, out var quit );
             View = view.Wrap();
             Title = title.Wrap();
             CreateGame = createGame.Wrap();

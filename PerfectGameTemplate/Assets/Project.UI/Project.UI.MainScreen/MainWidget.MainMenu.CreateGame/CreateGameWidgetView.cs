@@ -22,7 +22,7 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public CreateGameWidgetView(CreateGameWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.CreateGameWidgetView( out var view, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
+            VisualElement = factory.CreateGameWidget( out var view, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             GameSlot = gameSlot.AsSlot();
@@ -54,7 +54,7 @@ namespace Project.UI.MainScreen {
         // Constructor
         public GameView(UIWidgetBase widget, UIFactory factory) : base( widget ) {
             Factory = factory;
-            VisualElement = Factory.GameView( out var view, out var title, out var name, out var mode, out var world, out var isPrivate );
+            VisualElement = Factory.GameGroup( out var view, out var title, out var name, out var mode, out var world, out var isPrivate );
             View = view.Wrap();
             Title = title.Wrap();
             Name = name.Wrap();
@@ -83,7 +83,7 @@ namespace Project.UI.MainScreen {
         // Constructor
         public PlayerView(UIWidgetBase widget, UIFactory factory) : base( widget ) {
             Factory = factory;
-            VisualElement = Factory.PlayerView( out var view, out var title, out var name, out var role, out var isReady );
+            VisualElement = Factory.PlayerGroup( out var view, out var title, out var name, out var role, out var isReady );
             View = view.Wrap();
             Title = title.Wrap();
             Name = name.Wrap();
@@ -109,12 +109,12 @@ namespace Project.UI.MainScreen {
         // Constructor
         public LobbyView(UIWidgetBase widget, UIFactory factory) : base( widget ) {
             Factory = factory;
-            VisualElement = Factory.LobbyView( out var view, out var title, out var players );
+            VisualElement = Factory.LobbyGroup( out var view, out var title, out var players );
             View = view.Wrap();
             Title = title.Wrap();
             Players = players.AsSlot();
             for (var i = 1; i <= 32; i++) {
-                Players.Add( Factory.LobbyView_PlayerView( $"Player: {i}", i - 1 ) );
+                Players.Add( Factory.PlayerItem( $"Player: {i}", i - 1 ) );
             }
         }
         public override void Dispose() {
@@ -138,14 +138,14 @@ namespace Project.UI.MainScreen {
         // Constructor
         public ChatView(UIWidgetBase widget, UIFactory factory) : base( widget ) {
             Factory = factory;
-            VisualElement = Factory.ChatView( out var view, out var title, out var messages, out var text, out var send );
+            VisualElement = Factory.ChatGroup( out var view, out var title, out var messages, out var text, out var send );
             View = view.Wrap();
             Title = title.Wrap();
             Messages = messages.AsSlot();
             Text = text.Wrap();
             Send = send.Wrap();
             for (var i = 1; i <= 32; i++) {
-                Messages.Add( Factory.ChatView_MessageView( $"Message: {i}", i - 1 ) );
+                Messages.Add( Factory.MessageItem( $"Message: {i}", i - 1 ) );
             }
         }
         public override void Dispose() {

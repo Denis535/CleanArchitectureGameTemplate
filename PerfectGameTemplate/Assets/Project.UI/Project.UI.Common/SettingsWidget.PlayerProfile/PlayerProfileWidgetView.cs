@@ -19,7 +19,7 @@ namespace Project.UI.Common {
 
         // Constructor
         public PlayerProfileWidgetView(PlayerProfileWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.PlayerProfileWidgetView( out var view, out var title, out var name, out var okey, out var back );
+            VisualElement = factory.PlayerProfileWidget( out var view, out var title, out var name, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             Name = name.Wrap();

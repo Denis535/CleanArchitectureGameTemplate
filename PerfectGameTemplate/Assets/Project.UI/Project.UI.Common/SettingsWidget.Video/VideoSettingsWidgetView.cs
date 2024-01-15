@@ -21,7 +21,7 @@ namespace Project.UI.Common {
 
         // Constructor
         public VideoSettingsWidgetView(VideoSettingsWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.VideoSettingsWidgetView( out var view, out var title, out var isFullScreen, out var screenResolution, out var isVSync, out var okey, out var back );
+            VisualElement = factory.VideoSettingsWidget( out var view, out var title, out var isFullScreen, out var screenResolution, out var isVSync, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             IsFullScreen = isFullScreen.Wrap();

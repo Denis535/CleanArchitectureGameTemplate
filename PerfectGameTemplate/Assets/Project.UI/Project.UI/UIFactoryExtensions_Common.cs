@@ -7,9 +7,9 @@ namespace Project.UI {
     
     public static class UIFactoryExtensions_Common {
 
-        // DialogWidgetView
-        public static Widget DialogWidgetView(this UIFactory factory, out Widget view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            using (factory.DialogWidget().AsScope( out view )) {
+        // DialogWidget
+        public static Widget DialogWidget(this UIFactory factory, out Widget widget, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            using (factory.DialogWidget().AsScope( out widget )) {
                 using (factory.DialogCard().AsScope( out card )) {
                     using (factory.Header().AsScope( out header )) {
                         VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
@@ -23,10 +23,10 @@ namespace Project.UI {
                     }
                 }
             }
-            return view;
+            return widget;
         }
-        public static Widget InfoDialogWidgetView(this UIFactory factory, out Widget view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            using (factory.InfoDialogWidget().AsScope( out view )) {
+        public static Widget InfoDialogWidget(this UIFactory factory, out Widget widget, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            using (factory.InfoDialogWidget().AsScope( out widget )) {
                 using (factory.InfoDialogCard().AsScope( out card )) {
                     using (factory.Header().AsScope( out header )) {
                         VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
@@ -40,10 +40,10 @@ namespace Project.UI {
                     }
                 }
             }
-            return view;
+            return widget;
         }
-        public static Widget WarningDialogWidgetView(this UIFactory factory, out Widget view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            using (factory.WarningDialogWidget().AsScope( out view )) {
+        public static Widget WarningDialogWidget(this UIFactory factory, out Widget widget, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            using (factory.WarningDialogWidget().AsScope( out widget )) {
                 using (factory.WarningDialogCard().AsScope( out card )) {
                     using (factory.Header().AsScope( out header )) {
                         VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
@@ -57,10 +57,10 @@ namespace Project.UI {
                     }
                 }
             }
-            return view;
+            return widget;
         }
-        public static Widget ErrorDialogWidgetView(this UIFactory factory, out Widget view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
-            using (factory.ErrorDialogWidget().AsScope( out view )) {
+        public static Widget ErrorDialogWidget(this UIFactory factory, out Widget widget, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+            using (factory.ErrorDialogWidget().AsScope( out widget )) {
                 using (factory.ErrorDialogCard().AsScope( out card )) {
                     using (factory.Header().AsScope( out header )) {
                         VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
@@ -74,12 +74,12 @@ namespace Project.UI {
                     }
                 }
             }
-            return view;
+            return widget;
         }
 
-        // SettingsWidgetView
-        public static Widget SettingsWidgetView(this UIFactory factory, out Widget view, out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
-            using (factory.MediumWidget( "settings-widget" ).AsScope( out view )) {
+        // SettingsWidget
+        public static Widget SettingsWidget(this UIFactory factory, out Widget widget, out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
+            using (factory.MediumWidget( "settings-widget" ).AsScope( out widget )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
                         VisualElementScope.Add( title = factory.Label( "Settings" ).Name( "title" ) );
@@ -96,12 +96,12 @@ namespace Project.UI {
                     }
                 }
             }
-            return view;
+            return widget;
         }
 
-        // PlayerProfileWidgetView
-        public static Widget PlayerProfileWidgetView(this UIFactory factory, out Widget view, out Label title, out TextField name, out Button okey, out Button back) {
-            using (factory.MediumWidget( "player-profile-widget" ).AsScope( out view )) {
+        // PlayerProfileWidget
+        public static Widget PlayerProfileWidget(this UIFactory factory, out Widget widget, out Label title, out TextField name, out Button okey, out Button back) {
+            using (factory.MediumWidget( "player-profile-widget" ).AsScope( out widget )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
                         VisualElementScope.Add( title = factory.Label( "Player Profile" ).Name( "title" ) );
@@ -117,12 +117,12 @@ namespace Project.UI {
                     }
                 }
             }
-            return view;
+            return widget;
         }
 
-        // VideoSettingsWidgetView
-        public static Widget VideoSettingsWidgetView(this UIFactory factory, out Widget view, out Label title, out Toggle isFullScreen, out PopupField<object?> screenResolution, out Toggle isVSync, out Button okey, out Button back) {
-            using (factory.MediumWidget( "video-settings-widget" ).AsScope( out view )) {
+        // VideoSettingsWidget
+        public static Widget VideoSettingsWidget(this UIFactory factory, out Widget widget, out Label title, out Toggle isFullScreen, out PopupField<object?> screenResolution, out Toggle isVSync, out Button okey, out Button back) {
+            using (factory.MediumWidget( "video-settings-widget" ).AsScope( out widget )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
                         VisualElementScope.Add( title = factory.Label( "Video Settings" ).Name( "title" ) );
@@ -140,12 +140,12 @@ namespace Project.UI {
                     }
                 }
             }
-            return view;
+            return widget;
         }
 
-        // AudioSettingsWidgetView
-        public static Widget AudioSettingsWidgetView(this UIFactory factory, out Widget view, out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
-            using (factory.MediumWidget( "audio-settings-widget" ).AsScope( out view )) {
+        // AudioSettingsWidget
+        public static Widget AudioSettingsWidget(this UIFactory factory, out Widget widget, out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
+            using (factory.MediumWidget( "audio-settings-widget" ).AsScope( out widget )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
                         VisualElementScope.Add( title = factory.Label( "Audio Settings" ).Name( "title" ) );
@@ -164,7 +164,7 @@ namespace Project.UI {
                     }
                 }
             }
-            return view;
+            return widget;
         }
 
     }

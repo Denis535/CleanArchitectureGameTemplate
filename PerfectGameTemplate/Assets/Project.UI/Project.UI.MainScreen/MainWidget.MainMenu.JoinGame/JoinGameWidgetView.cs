@@ -22,7 +22,7 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public JoinGameWidgetView(JoinGameWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.JoinGameWidgetView( out var view, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
+            VisualElement = factory.JoinGameWidget( out var view, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
             View = view.Wrap();
             Title = title.Wrap();
             GameSlot = gameSlot.AsSlot();

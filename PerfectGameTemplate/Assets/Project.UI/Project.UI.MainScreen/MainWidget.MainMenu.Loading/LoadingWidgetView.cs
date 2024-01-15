@@ -18,7 +18,7 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public LoadingWidgetView(LoadingWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.LoadingWidgetView( out var view, out var loading );
+            VisualElement = factory.LoadingWidget( out var view, out var loading );
             VisualElement.OnAttachToPanel( i => PlayLoadingAnimation( loading ) );
             View = view.Wrap();
             Loading = loading.Wrap();

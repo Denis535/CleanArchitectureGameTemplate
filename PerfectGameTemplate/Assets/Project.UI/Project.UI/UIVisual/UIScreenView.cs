@@ -45,7 +45,7 @@ namespace Project.UI {
             //invalidSelect = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select_Invalid ).GetResult();
             //tik = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Tick ).GetResult();
             // View
-            VisualElement = factory.ScreenView( out var view, out var viewsContainer, out var modalViewsContainer );
+            VisualElement = factory.Screen( out var view, out var viewsContainer, out var modalViewsContainer );
             View = view.Wrap();
             ViewsContainer = viewsContainer.Wrap();
             ModalViewsContainer = modalViewsContainer.Wrap();
