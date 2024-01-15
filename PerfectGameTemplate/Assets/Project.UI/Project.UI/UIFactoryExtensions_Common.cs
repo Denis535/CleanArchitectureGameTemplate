@@ -8,7 +8,7 @@ namespace Project.UI {
     public static class UIFactoryExtensions_Common {
 
         // DialogWidgetView
-        public static View DialogWidgetView(this UIFactory factory, out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+        public static Widget DialogWidgetView(this UIFactory factory, out Widget view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             using (factory.DialogWidget().AsScope( out view )) {
                 using (factory.DialogCard().AsScope( out card )) {
                     using (factory.Header().AsScope( out header )) {
@@ -25,7 +25,7 @@ namespace Project.UI {
             }
             return view;
         }
-        public static View InfoDialogWidgetView(this UIFactory factory, out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+        public static Widget InfoDialogWidgetView(this UIFactory factory, out Widget view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             using (factory.InfoDialogWidget().AsScope( out view )) {
                 using (factory.InfoDialogCard().AsScope( out card )) {
                     using (factory.Header().AsScope( out header )) {
@@ -42,7 +42,7 @@ namespace Project.UI {
             }
             return view;
         }
-        public static View WarningDialogWidgetView(this UIFactory factory, out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+        public static Widget WarningDialogWidgetView(this UIFactory factory, out Widget view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             using (factory.WarningDialogWidget().AsScope( out view )) {
                 using (factory.WarningDialogCard().AsScope( out card )) {
                     using (factory.Header().AsScope( out header )) {
@@ -59,7 +59,7 @@ namespace Project.UI {
             }
             return view;
         }
-        public static View ErrorDialogWidgetView(this UIFactory factory, out View view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
+        public static Widget ErrorDialogWidgetView(this UIFactory factory, out Widget view, out Card card, out Header header, out Content content, out Footer footer, out Label title, out Label message) {
             using (factory.ErrorDialogWidget().AsScope( out view )) {
                 using (factory.ErrorDialogCard().AsScope( out card )) {
                     using (factory.Header().AsScope( out header )) {
@@ -77,9 +77,9 @@ namespace Project.UI {
             return view;
         }
 
-        // SettingsView
-        public static View SettingsView(this UIFactory factory, out View view, out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
-            using (factory.MediumWidget( "settings-widget-view" ).AsScope( out view )) {
+        // SettingsWidgetView
+        public static Widget SettingsWidgetView(this UIFactory factory, out Widget view, out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
+            using (factory.MediumWidget( "settings-widget" ).AsScope( out view )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
                         VisualElementScope.Add( title = factory.Label( "Settings" ).Name( "title" ) );
@@ -99,9 +99,9 @@ namespace Project.UI {
             return view;
         }
 
-        // PlayerProfileView
-        public static View PlayerProfileView(this UIFactory factory, out View view, out Label title, out TextField name, out Button okey, out Button back) {
-            using (factory.MediumWidget( "player-profile-widget-view" ).AsScope( out view )) {
+        // PlayerProfileWidgetView
+        public static Widget PlayerProfileWidgetView(this UIFactory factory, out Widget view, out Label title, out TextField name, out Button okey, out Button back) {
+            using (factory.MediumWidget( "player-profile-widget" ).AsScope( out view )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
                         VisualElementScope.Add( title = factory.Label( "Player Profile" ).Name( "title" ) );
@@ -120,9 +120,9 @@ namespace Project.UI {
             return view;
         }
 
-        // VideoSettingsView
-        public static View VideoSettingsView(this UIFactory factory, out View view, out Label title, out Toggle isFullScreen, out PopupField<object?> screenResolution, out Toggle isVSync, out Button okey, out Button back) {
-            using (factory.MediumWidget( "video-settings-widget-view" ).AsScope( out view )) {
+        // VideoSettingsWidgetView
+        public static Widget VideoSettingsWidgetView(this UIFactory factory, out Widget view, out Label title, out Toggle isFullScreen, out PopupField<object?> screenResolution, out Toggle isVSync, out Button okey, out Button back) {
+            using (factory.MediumWidget( "video-settings-widget" ).AsScope( out view )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
                         VisualElementScope.Add( title = factory.Label( "Video Settings" ).Name( "title" ) );
@@ -143,9 +143,9 @@ namespace Project.UI {
             return view;
         }
 
-        // AudioSettingsView
-        public static View AudioSettingsView(this UIFactory factory, out View view, out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
-            using (factory.MediumWidget( "audio-settings-widget-view" ).AsScope( out view )) {
+        // AudioSettingsWidgetView
+        public static Widget AudioSettingsWidgetView(this UIFactory factory, out Widget view, out Label title, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume, out Button okey, out Button back) {
+            using (factory.MediumWidget( "audio-settings-widget" ).AsScope( out view )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
                         VisualElementScope.Add( title = factory.Label( "Audio Settings" ).Name( "title" ) );

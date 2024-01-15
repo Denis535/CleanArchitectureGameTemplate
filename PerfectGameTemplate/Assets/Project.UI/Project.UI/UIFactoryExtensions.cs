@@ -8,24 +8,24 @@ namespace Project.UI {
     public static class UIFactoryExtensions {
 
         // ScreenView
-        public static VisualElement ScreenView(this UIFactory factory, out VisualElement view, out VisualElement viewsContainer, out VisualElement modalViewsContainer) {
+        public static VisualElement ScreenView(this UIFactory factory, out VisualElement view, out VisualElement container, out VisualElement modalContainer) {
             var visualElement = view = new VisualElement();
-            visualElement.name = "screen-view";
-            visualElement.AddToClassList( "screen-view" );
+            visualElement.name = "screen";
+            visualElement.AddToClassList( "screen" );
             visualElement.pickingMode = PickingMode.Ignore;
             {
-                viewsContainer = new VisualElement();
-                viewsContainer.name = "views-container";
-                viewsContainer.AddToClassList( "views-container" );
-                viewsContainer.pickingMode = PickingMode.Ignore;
-                visualElement.Add( viewsContainer );
+                container = new VisualElement();
+                container.name = "container";
+                container.AddToClassList( "container" );
+                container.pickingMode = PickingMode.Ignore;
+                visualElement.Add( container );
             }
             {
-                modalViewsContainer = new VisualElement();
-                modalViewsContainer.name = "modal-views-container";
-                modalViewsContainer.AddToClassList( "modal-views-container" );
-                modalViewsContainer.pickingMode = PickingMode.Ignore;
-                visualElement.Add( modalViewsContainer );
+                modalContainer = new VisualElement();
+                modalContainer.name = "modal-container";
+                modalContainer.AddToClassList( "modal-container" );
+                modalContainer.pickingMode = PickingMode.Ignore;
+                visualElement.Add( modalContainer );
             }
             return visualElement;
         }

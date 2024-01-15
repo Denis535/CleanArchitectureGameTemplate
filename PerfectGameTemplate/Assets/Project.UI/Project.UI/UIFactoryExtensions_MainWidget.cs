@@ -8,15 +8,15 @@ namespace Project.UI {
     public static class UIFactoryExtensions_MainWidget {
 
         // MainWidgetView
-        public static View MainWidgetView(this UIFactory factory, out View view) {
-            using (factory.Widget( "main-widget-view" ).AsScope( out view )) {
+        public static Widget MainWidgetView(this UIFactory factory, out Widget view) {
+            using (factory.Widget( "main-widget" ).AsScope( out view )) {
             }
             return view;
         }
 
         // MainMenuWidgetView
-        public static View MainMenuWidgetView(this UIFactory factory, out View view, out Label title, out Button createGame, out Button joinGame, out Button settings, out Button quit) {
-            using (factory.LeftWidget( "main-menu-widget-view" ).AsScope( out view )) {
+        public static Widget MainMenuWidgetView(this UIFactory factory, out Widget view, out Label title, out Button createGame, out Button joinGame, out Button settings, out Button quit) {
+            using (factory.LeftWidget( "main-menu-widget" ).AsScope( out view )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
                         VisualElementScope.Add( title = factory.Label( "Main Menu" ).Name( "main-menu" ) );
@@ -33,8 +33,8 @@ namespace Project.UI {
         }
 
         // CreateGameWidgetView
-        public static View CreateGameWidgetView(this UIFactory factory, out View view, out Label title, out Slot gameSlot, out Slot playerSlot, out Slot lobbySlot, out Slot chatSlot, out Button okey, out Button back) {
-            using (factory.LargeWidget( "create-game-widget-view" ).AsScope( out view )) {
+        public static Widget CreateGameWidgetView(this UIFactory factory, out Widget view, out Label title, out Slot gameSlot, out Slot playerSlot, out Slot lobbySlot, out Slot chatSlot, out Button okey, out Button back) {
+            using (factory.LargeWidget( "create-game-widget" ).AsScope( out view )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
                         VisualElementScope.Add( title = factory.Label( "Create Game" ).Name( "title" ) );
@@ -100,7 +100,7 @@ namespace Project.UI {
                 4 => "dark2",
                 _ => throw Exceptions.Internal.Exception( null )
             };
-            using (factory.Box().Name( "player" ).Classes( style, "medium", "grow-1" ).Pipe( i => i.style.width = 2000 ).AsScope( out var view )) {
+            using (factory.Box().Name( "player" ).Classes( style, "medium", "grow-1", "shrink-0" ).Pipe( i => i.style.width = 2000 ).AsScope( out var view )) {
                 VisualElementScope.Add( factory.Label( text ).Classes( "font-style-bold" ) );
                 return view;
             }
@@ -125,15 +125,15 @@ namespace Project.UI {
                 4 => "dark2",
                 _ => throw Exceptions.Internal.Exception( null )
             };
-            using (factory.Box().Name( "message" ).Classes( style, "medium", "grow-1" ).Pipe( i => i.style.width = 2000 ).AsScope( out var view )) {
+            using (factory.Box().Name( "message" ).Classes( style, "medium", "grow-1", "shrink-0" ).Pipe( i => i.style.width = 2000 ).AsScope( out var view )) {
                 VisualElementScope.Add( factory.Label( text ) );
                 return view;
             }
         }
 
         // JoinGameWidgetView
-        public static View JoinGameWidgetView(this UIFactory factory, out View view, out Label title, out Slot gameSlot, out Slot playerSlot, out Slot lobbySlot, out Slot chatSlot, out Button okey, out Button back) {
-            using (factory.LargeWidget( "join-game-widget-view" ).AsScope( out view )) {
+        public static Widget JoinGameWidgetView(this UIFactory factory, out Widget view, out Label title, out Slot gameSlot, out Slot playerSlot, out Slot lobbySlot, out Slot chatSlot, out Button okey, out Button back) {
+            using (factory.LargeWidget( "join-game-widget" ).AsScope( out view )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
                         VisualElementScope.Add( title = factory.Label( "Join Game" ).Name( "title" ) );
@@ -158,8 +158,8 @@ namespace Project.UI {
         }
 
         // LoadingWidgetView
-        public static View LoadingWidgetView(this UIFactory factory, out View view, out Label loading) {
-            using (factory.Widget( "loading-widget-view" ).AsScope( out view )) {
+        public static Widget LoadingWidgetView(this UIFactory factory, out Widget view, out Label loading) {
+            using (factory.Widget( "loading-widget" ).AsScope( out view )) {
                 using (factory.ColumnScope().Classes( "padding-2pc", "grow-1", "justify-content-end", "align-items-center" ).AsScope()) {
                     VisualElementScope.Add( loading = factory.Label( "Loading..." ).Name( "loading" ).Classes( "color-light", "font-size-200pc", "font-style-bold" ) );
                 }

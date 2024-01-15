@@ -11,60 +11,60 @@ namespace Project.UI {
         public static Func<object?, string?>? StringSelector { get; set; }
 
         // Widget
-        public View Widget(string name) {
-            var result = Create<View>( name, "widget-view" );
+        public Widget Widget(string name) {
+            var result = Create<Widget>( name, "widget" );
             return result;
         }
-        public View LeftWidget(string name) {
-            var result = Create<View>( name, "left-widget-view" );
+        public Widget LeftWidget(string name) {
+            var result = Create<Widget>( name, "left-widget" );
             return result;
         }
-        public View SmallWidget(string name) {
-            var result = Create<View>( name, "small-widget-view" );
+        public Widget SmallWidget(string name) {
+            var result = Create<Widget>( name, "small-widget" );
             return result;
         }
-        public View MediumWidget(string name) {
-            var result = Create<View>( name, "medium-widget-view" );
+        public Widget MediumWidget(string name) {
+            var result = Create<Widget>( name, "medium-widget" );
             return result;
         }
-        public View LargeWidget(string name) {
-            var result = Create<View>( name, "large-widget-view" );
+        public Widget LargeWidget(string name) {
+            var result = Create<Widget>( name, "large-widget" );
             return result;
         }
 
         // Widget
-        public View DialogWidget() {
-            var result = Create<View>( null, "dialog-widget-view" );
+        public Widget DialogWidget() {
+            var result = Create<Widget>( null, "dialog-widget" );
             return result;
         }
-        public View InfoDialogWidget() {
-            var result = Create<View>( null, "info-dialog-widget-view" );
+        public Widget InfoDialogWidget() {
+            var result = Create<Widget>( null, "info-dialog-widget" );
             return result;
         }
-        public View WarningDialogWidget() {
-            var result = Create<View>( null, "warning-dialog-widget-view" );
+        public Widget WarningDialogWidget() {
+            var result = Create<Widget>( null, "warning-dialog-widget" );
             return result;
         }
-        public View ErrorDialogWidget() {
-            var result = Create<View>( null, "error-dialog-widget-view" );
+        public Widget ErrorDialogWidget() {
+            var result = Create<Widget>( null, "error-dialog-widget" );
             return result;
         }
 
         // Card
         public Card Card() {
-            var result = Create<Card>( null );
+            var result = Create<Card>( null, "card" );
             return result;
         }
         public Header Header() {
-            var result = Create<Header>( null );
+            var result = Create<Header>( null, "header" );
             return result;
         }
         public Content Content() {
-            var result = Create<Content>( null );
+            var result = Create<Content>( null, "content" );
             return result;
         }
         public Footer Footer() {
-            var result = Create<Footer>( null );
+            var result = Create<Footer>( null, "footer" );
             return result;
         }
 

@@ -1,5 +1,15 @@
 {
   "dependencies": {
+    "com.uitoolkit-theme-style-sheet": {
+      "version": "https://github.com/Denis535/UIToolkitThemeStyleSheet.git?path=/Packages/com.uitoolkit-theme-style-sheet#v1.0.4",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.modules.ui": "1.0.0",
+        "com.unity.modules.uielements": "1.0.0"
+      },
+      "hash": "7ada97d3546eadd6febbacc7bf741c53383df2c7"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -93,7 +103,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
-      "version": "16.0.4",
+      "version": "16.0.5",
       "depth": 1,
       "source": "builtin",
       "dependencies": {
@@ -106,14 +116,14 @@
       }
     },
     "com.unity.render-pipelines.universal": {
-      "version": "16.0.4",
+      "version": "16.0.5",
       "depth": 0,
       "source": "builtin",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
         "com.unity.burst": "1.8.9",
-        "com.unity.render-pipelines.core": "16.0.4",
-        "com.unity.shadergraph": "16.0.4"
+        "com.unity.render-pipelines.core": "16.0.5",
+        "com.unity.shadergraph": "16.0.5"
       }
     },
     "com.unity.rendering.light-transport": {
@@ -221,11 +231,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.shadergraph": {
-      "version": "16.0.4",
+      "version": "16.0.5",
       "depth": 1,
       "source": "builtin",
       "dependencies": {
-        "com.unity.render-pipelines.core": "16.0.4",
+        "com.unity.render-pipelines.core": "16.0.5",
         "com.unity.searcher": "4.9.2"
       }
     },
@@ -346,7 +356,7 @@
     },
     "com.unity.modules.ui": {
       "version": "1.0.0",
-      "depth": 2,
+      "depth": 1,
       "source": "builtin",
       "dependencies": {}
     },
