@@ -95,15 +95,6 @@ namespace UnityEditor.Tools_ {
                 type.Namespace( "UnityEngine.Framework.UI", $"{@namespace}.UI" );
                 type.Name( "*WidgetView" );
             }
-            // Observable
-            if (type.CanAnalyze( typeof( UICommand<> ) )) {
-                type.Namespace( "UnityEngine.Framework.UI", $"{@namespace}.UI" );
-                type.Name( "*Command" );
-            }
-            if (type.CanAnalyze( typeof( UIEvent<> ) )) {
-                type.Namespace( "UnityEngine.Framework.UI", $"{@namespace}.UI" );
-                type.Name( "*Event" );
-            }
             // Misc
             if (type.CanAnalyze( typeof( UIRouterBase ) )) {
                 type.Namespace( "UnityEngine.Framework.UI", $"{@namespace}.UI" );
