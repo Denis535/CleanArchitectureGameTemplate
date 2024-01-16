@@ -22,9 +22,9 @@ namespace Project.UI {
                         VisualElementScope.Add( title = factory.Label( "Game Menu" ).Name( "title" ) );
                     }
                     using (factory.Content().AsScope()) {
-                        VisualElementScope.Add( resume = factory.Button( "Resume" ).Name( "resume" ) );
-                        VisualElementScope.Add( settings = factory.Button( "Settings" ).Name( "settings" ) );
-                        VisualElementScope.Add( back = factory.Button( "Back To Main Menu" ).Name( "back" ) );
+                        VisualElementScope.Add( resume = factory.Select( "Resume" ).Name( "resume" ) );
+                        VisualElementScope.Add( settings = factory.Select( "Settings" ).Name( "settings" ) );
+                        VisualElementScope.Add( back = factory.Select( "Back To Main Menu" ).Name( "back" ) );
                     }
                 }
             }

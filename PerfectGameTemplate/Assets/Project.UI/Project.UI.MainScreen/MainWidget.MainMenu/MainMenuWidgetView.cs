@@ -9,9 +9,9 @@ namespace Project.UI.MainScreen {
 
     public class MainMenuWidgetView : UIWidgetViewBase {
 
-        // View
+        // VisualElement
         public override VisualElement VisualElement { get; }
-        public ElementWrapper View { get; }
+        public ElementWrapper Widget { get; }
         public LabelWrapper Title { get; }
         public ButtonWrapper CreateGame { get; }
         public ButtonWrapper JoinGame { get; }
@@ -19,9 +19,9 @@ namespace Project.UI.MainScreen {
         public ButtonWrapper Quit { get; }
 
         // Constructor
-        public MainMenuWidgetView(MainMenuWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.MainMenuWidget( out var view, out var title, out var createGame, out var joinGame, out var settings, out var quit );
-            View = view.Wrap();
+        public MainMenuWidgetView(UIFactory factory) {
+            VisualElement = factory.MainMenuWidget( out var widget, out var title, out var createGame, out var joinGame, out var settings, out var quit );
+            Widget = widget.Wrap();
             Title = title.Wrap();
             CreateGame = createGame.Wrap();
             JoinGame = joinGame.Wrap();

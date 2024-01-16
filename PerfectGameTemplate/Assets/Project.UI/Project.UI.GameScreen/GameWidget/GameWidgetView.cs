@@ -9,14 +9,14 @@ namespace Project.UI.GameScreen {
 
     public class GameWidgetView : UIWidgetViewBase {
 
-        // View
+        // VisualElement
         public override VisualElement VisualElement { get; }
-        public ElementWrapper View { get; }
+        public ElementWrapper Widget { get; }
 
         // Constructor
-        public GameWidgetView(GameWidget widget, UIFactory factory) : base( widget ) {
+        public GameWidgetView(UIFactory factory) {
             VisualElement = factory.GameWidget( out var view );
-            View = view.Wrap();
+            Widget = view.Wrap();
         }
         public override void Dispose() {
             base.Dispose();

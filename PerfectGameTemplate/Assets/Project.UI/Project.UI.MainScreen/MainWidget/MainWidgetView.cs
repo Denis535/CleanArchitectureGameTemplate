@@ -10,14 +10,14 @@ namespace Project.UI.MainScreen {
 
     public class MainWidgetView : UIWidgetViewBase {
 
-        // View
+        // VisualElement
         public override VisualElement VisualElement { get; }
-        public ElementWrapper View { get; }
+        public ElementWrapper Widget { get; }
 
         // Constructor
-        public MainWidgetView(MainWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.MainWidget( out var view );
-            View = view.Wrap();
+        public MainWidgetView(UIFactory factory) {
+            VisualElement = factory.MainWidget( out var widget );
+            Widget = widget.Wrap();
         }
         public override void Dispose() {
             base.Dispose();

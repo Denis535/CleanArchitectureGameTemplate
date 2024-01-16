@@ -9,9 +9,9 @@ namespace Project.UI.Common {
 
     public class VideoSettingsWidgetView : UIWidgetViewBase {
 
-        // View
+        // VisualElement
         public override VisualElement VisualElement { get; }
-        public ElementWrapper View { get; }
+        public ElementWrapper Widget { get; }
         public LabelWrapper Title { get; }
         public ToggleFieldWrapper<bool> IsFullScreen { get; }
         public PopupFieldWrapper<object> ScreenResolution { get; }
@@ -20,9 +20,9 @@ namespace Project.UI.Common {
         public ButtonWrapper Back { get; }
 
         // Constructor
-        public VideoSettingsWidgetView(VideoSettingsWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.VideoSettingsWidget( out var view, out var title, out var isFullScreen, out var screenResolution, out var isVSync, out var okey, out var back );
-            View = view.Wrap();
+        public VideoSettingsWidgetView(UIFactory factory) {
+            VisualElement = factory.VideoSettingsWidget( out var widget, out var title, out var isFullScreen, out var screenResolution, out var isVSync, out var okey, out var back );
+            Widget = widget.Wrap();
             Title = title.Wrap();
             IsFullScreen = isFullScreen.Wrap();
             ScreenResolution = screenResolution.Wrap();

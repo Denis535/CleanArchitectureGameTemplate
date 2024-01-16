@@ -9,9 +9,9 @@ namespace Project.UI.MainScreen {
 
     public class JoinGameWidgetView : UIWidgetViewBase {
 
-        // View
+        // VisualElement
         public override VisualElement VisualElement { get; }
-        public ElementWrapper View { get; }
+        public ElementWrapper Widget { get; }
         public LabelWrapper Title { get; }
         public SlotWrapper GameSlot { get; }
         public SlotWrapper PlayerSlot { get; }
@@ -21,9 +21,9 @@ namespace Project.UI.MainScreen {
         public ButtonWrapper Back { get; }
 
         // Constructor
-        public JoinGameWidgetView(JoinGameWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.JoinGameWidget( out var view, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
-            View = view.Wrap();
+        public JoinGameWidgetView(UIFactory factory) {
+            VisualElement = factory.JoinGameWidget( out var widget, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
+            Widget = widget.Wrap();
             Title = title.Wrap();
             GameSlot = gameSlot.AsSlot();
             PlayerSlot = playerSlot.AsSlot();

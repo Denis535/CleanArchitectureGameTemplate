@@ -10,9 +10,9 @@ namespace Project.UI.Common {
 
     public abstract class DialogWidgetViewBase : UIWidgetViewBase, IUIModalWidgetView {
 
-        // View
+        // VisualElement
         public override VisualElement VisualElement { get; }
-        public ElementWrapper View { get; }
+        public ElementWrapper Widget { get; }
         public ElementWrapper Card { get; }
         public ElementWrapper Header { get; }
         public ElementWrapper Content { get; }
@@ -21,11 +21,11 @@ namespace Project.UI.Common {
         public LabelWrapper Message { get; }
 
         // Constructor
-        public DialogWidgetViewBase(UIWidgetBase widget, UIFactory factory) : base( widget ) {
+        public DialogWidgetViewBase(UIFactory factory) {
             if (this is DialogWidgetView) {
-                VisualElement = factory.DialogWidget( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
+                VisualElement = factory.DialogWidget( out var widget, out var card, out var header, out var content, out var footer, out var title, out var message );
                 VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
-                View = view.Wrap();
+                Widget = widget.Wrap();
                 Card = card.Wrap();
                 Header = header.Wrap();
                 Content = content.Wrap();
@@ -33,9 +33,9 @@ namespace Project.UI.Common {
                 Title = title.Wrap();
                 Message = message.Wrap();
             } else if (this is InfoDialogWidgetView) {
-                VisualElement = factory.InfoDialogWidget( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
+                VisualElement = factory.InfoDialogWidget( out var widget, out var card, out var header, out var content, out var footer, out var title, out var message );
                 VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
-                View = view.Wrap();
+                Widget = widget.Wrap();
                 Card = card.Wrap();
                 Header = header.Wrap();
                 Content = content.Wrap();
@@ -43,9 +43,9 @@ namespace Project.UI.Common {
                 Title = title.Wrap();
                 Message = message.Wrap();
             } else if (this is WarningDialogWidgetView) {
-                VisualElement = factory.WarningDialogWidget( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
+                VisualElement = factory.WarningDialogWidget( out var widget, out var card, out var header, out var content, out var footer, out var title, out var message );
                 VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
-                View = view.Wrap();
+                Widget = widget.Wrap();
                 Card = card.Wrap();
                 Header = header.Wrap();
                 Content = content.Wrap();
@@ -53,9 +53,9 @@ namespace Project.UI.Common {
                 Title = title.Wrap();
                 Message = message.Wrap();
             } else if (this is ErrorDialogWidgetView) {
-                VisualElement = factory.ErrorDialogWidget( out var view, out var card, out var header, out var content, out var footer, out var title, out var message );
+                VisualElement = factory.ErrorDialogWidget( out var widget, out var card, out var header, out var content, out var footer, out var title, out var message );
                 VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
-                View = view.Wrap();
+                Widget = widget.Wrap();
                 Card = card.Wrap();
                 Header = header.Wrap();
                 Content = content.Wrap();
@@ -72,7 +72,7 @@ namespace Project.UI.Common {
 
         // OnSubmit
         public void OnSubmit(UIFactory factory, string text, Action? callback) {
-            var button = factory.Button( text ).Name( "submit" );
+            var button = factory.Submit( text ).Name( "submit" );
             button.OnClick( evt => {
                 if (button.IsValid()) {
                     callback?.Invoke();
@@ -81,7 +81,7 @@ namespace Project.UI.Common {
             Footer.VisualElement.Add( button );
         }
         public void OnCancel(UIFactory factory, string text, Action? callback) {
-            var button = factory.Button( text ).Name( "cancel" );
+            var button = factory.Cancel( text ).Name( "cancel" );
             button.OnClick( evt => {
                 if (button.IsValid()) {
                     callback?.Invoke();
@@ -111,7 +111,7 @@ namespace Project.UI.Common {
     public class DialogWidgetView : DialogWidgetViewBase {
 
         // Constructor
-        public DialogWidgetView(DialogWidget widget, UIFactory factory) : base( widget, factory ) {
+        public DialogWidgetView(UIFactory factory) : base( factory ) {
         }
         public override void Dispose() {
             base.Dispose();
@@ -122,7 +122,7 @@ namespace Project.UI.Common {
     public class InfoDialogWidgetView : DialogWidgetViewBase {
 
         // Constructor
-        public InfoDialogWidgetView(InfoDialogWidget widget, UIFactory factory) : base( widget, factory ) {
+        public InfoDialogWidgetView(UIFactory factory) : base( factory ) {
         }
         public override void Dispose() {
             base.Dispose();
@@ -133,7 +133,7 @@ namespace Project.UI.Common {
     public class WarningDialogWidgetView : DialogWidgetViewBase {
 
         // Constructor
-        public WarningDialogWidgetView(WarningDialogWidget widget, UIFactory factory) : base( widget, factory ) {
+        public WarningDialogWidgetView(UIFactory factory) : base( factory ) {
         }
         public override void Dispose() {
             base.Dispose();
@@ -144,7 +144,7 @@ namespace Project.UI.Common {
     public class ErrorDialogWidgetView : DialogWidgetViewBase {
 
         // Constructor
-        public ErrorDialogWidgetView(ErrorDialogWidget widget, UIFactory factory) : base( widget, factory ) {
+        public ErrorDialogWidgetView(UIFactory factory) : base( factory ) {
         }
         public override void Dispose() {
             base.Dispose();

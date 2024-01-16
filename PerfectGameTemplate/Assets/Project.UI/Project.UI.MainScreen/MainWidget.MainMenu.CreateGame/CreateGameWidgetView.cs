@@ -9,9 +9,9 @@ namespace Project.UI.MainScreen {
 
     public class CreateGameWidgetView : UIWidgetViewBase {
 
-        // View
+        // VisualElement
         public override VisualElement VisualElement { get; }
-        public ElementWrapper View { get; }
+        public ElementWrapper Widget { get; }
         public LabelWrapper Title { get; }
         public SlotWrapper GameSlot { get; }
         public SlotWrapper PlayerSlot { get; }
@@ -21,9 +21,9 @@ namespace Project.UI.MainScreen {
         public ButtonWrapper Back { get; }
 
         // Constructor
-        public CreateGameWidgetView(CreateGameWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.CreateGameWidget( out var view, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
-            View = view.Wrap();
+        public CreateGameWidgetView(UIFactory factory) {
+            VisualElement = factory.CreateGameWidget( out var widget, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
+            Widget = widget.Wrap();
             Title = title.Wrap();
             GameSlot = gameSlot.AsSlot();
             PlayerSlot = playerSlot.AsSlot();
@@ -40,11 +40,9 @@ namespace Project.UI.MainScreen {
     // GameView
     public class GameView : UISubViewBase {
 
-        // Globals
-        private UIFactory Factory { get; }
-        // View
+        // VisualElement
         public override VisualElement VisualElement { get; }
-        public ElementWrapper View { get; }
+        public ElementWrapper Group { get; }
         public LabelWrapper Title { get; }
         public TextFieldWrapper<string> Name { get; }
         public PopupFieldWrapper<object> Mode { get; }
@@ -52,10 +50,9 @@ namespace Project.UI.MainScreen {
         public ToggleFieldWrapper<bool> IsPrivate { get; }
 
         // Constructor
-        public GameView(UIWidgetBase widget, UIFactory factory) : base( widget ) {
-            Factory = factory;
-            VisualElement = Factory.GameGroup( out var view, out var title, out var name, out var mode, out var world, out var isPrivate );
-            View = view.Wrap();
+        public GameView(UIFactory factory) {
+            VisualElement = factory.GameGroup( out var group, out var title, out var name, out var mode, out var world, out var isPrivate );
+            Group = group.Wrap();
             Title = title.Wrap();
             Name = name.Wrap();
             Mode = mode.Wrap();
@@ -70,21 +67,18 @@ namespace Project.UI.MainScreen {
     // PlayerView
     public class PlayerView : UISubViewBase {
 
-        // Globals
-        private UIFactory Factory { get; }
-        // View
+        // VisualElement
         public override VisualElement VisualElement { get; }
-        public ElementWrapper View { get; }
+        public ElementWrapper Group { get; }
         public LabelWrapper Title { get; }
         public TextFieldWrapper<string> Name { get; }
         public PopupFieldWrapper<object> Role { get; }
         public ToggleFieldWrapper<bool> IsReady { get; }
 
         // Constructor
-        public PlayerView(UIWidgetBase widget, UIFactory factory) : base( widget ) {
-            Factory = factory;
-            VisualElement = Factory.PlayerGroup( out var view, out var title, out var name, out var role, out var isReady );
-            View = view.Wrap();
+        public PlayerView(UIFactory factory) {
+            VisualElement = factory.PlayerGroup( out var group, out var title, out var name, out var role, out var isReady );
+            Group = group.Wrap();
             Title = title.Wrap();
             Name = name.Wrap();
             Role = role.Wrap();
@@ -98,23 +92,20 @@ namespace Project.UI.MainScreen {
     // LobbyView
     public class LobbyView : UISubViewBase {
 
-        // Globals
-        private UIFactory Factory { get; }
-        // View
+        // VisualElement
         public override VisualElement VisualElement { get; }
-        public ElementWrapper View { get; }
+        public ElementWrapper Group { get; }
         public LabelWrapper Title { get; }
         public SlotWrapper Players { get; }
 
         // Constructor
-        public LobbyView(UIWidgetBase widget, UIFactory factory) : base( widget ) {
-            Factory = factory;
-            VisualElement = Factory.LobbyGroup( out var view, out var title, out var players );
-            View = view.Wrap();
+        public LobbyView(UIFactory factory) {
+            VisualElement = factory.LobbyGroup( out var group, out var title, out var players );
+            Group = group.Wrap();
             Title = title.Wrap();
             Players = players.AsSlot();
             for (var i = 1; i <= 32; i++) {
-                Players.Add( Factory.PlayerItem( $"Player: {i}", i - 1 ) );
+                Players.Add( factory.PlayerItem( $"Player: {i}", i - 1 ) );
             }
         }
         public override void Dispose() {
@@ -125,27 +116,24 @@ namespace Project.UI.MainScreen {
     // ChatView
     public class ChatView : UISubViewBase {
 
-        // Globals
-        private UIFactory Factory { get; }
-        // View
+        // VisualElement
         public override VisualElement VisualElement { get; }
-        public ElementWrapper View { get; }
+        public ElementWrapper Group { get; }
         public LabelWrapper Title { get; }
         public SlotWrapper Messages { get; }
         public TextFieldWrapper<string> Text { get; }
         public ButtonWrapper Send { get; }
 
         // Constructor
-        public ChatView(UIWidgetBase widget, UIFactory factory) : base( widget ) {
-            Factory = factory;
-            VisualElement = Factory.ChatGroup( out var view, out var title, out var messages, out var text, out var send );
-            View = view.Wrap();
+        public ChatView(UIFactory factory)  {
+            VisualElement = factory.ChatGroup( out var group, out var title, out var messages, out var text, out var send );
+            Group = group.Wrap();
             Title = title.Wrap();
             Messages = messages.AsSlot();
             Text = text.Wrap();
             Send = send.Wrap();
             for (var i = 1; i <= 32; i++) {
-                Messages.Add( Factory.MessageItem( $"Message: {i}", i - 1 ) );
+                Messages.Add( factory.MessageItem( $"Message: {i}", i - 1 ) );
             }
         }
         public override void Dispose() {

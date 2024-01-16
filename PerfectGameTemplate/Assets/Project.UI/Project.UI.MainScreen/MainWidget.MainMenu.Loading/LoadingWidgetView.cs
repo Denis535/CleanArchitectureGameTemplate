@@ -11,16 +11,16 @@ namespace Project.UI.MainScreen {
 
     public class LoadingWidgetView : UIWidgetViewBase {
 
-        // View
+        // VisualElement
         public override VisualElement VisualElement { get; }
-        public ElementWrapper View { get; }
+        public ElementWrapper Widget { get; }
         public LabelWrapper Loading { get; }
 
         // Constructor
-        public LoadingWidgetView(LoadingWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.LoadingWidget( out var view, out var loading );
+        public LoadingWidgetView(UIFactory factory) {
+            VisualElement = factory.LoadingWidget( out var widget, out var loading );
             VisualElement.OnAttachToPanel( i => PlayLoadingAnimation( loading ) );
-            View = view.Wrap();
+            Widget = widget.Wrap();
             Loading = loading.Wrap();
         }
         public override void Dispose() {

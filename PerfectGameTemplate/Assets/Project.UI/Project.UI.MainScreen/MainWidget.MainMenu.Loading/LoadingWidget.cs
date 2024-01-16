@@ -35,7 +35,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static LoadingWidgetView CreateView(LoadingWidget widget, UIFactory factory) {
-            var view = new LoadingWidgetView( widget, factory );
+            var view = new LoadingWidgetView( factory );
             return view;
         }
 

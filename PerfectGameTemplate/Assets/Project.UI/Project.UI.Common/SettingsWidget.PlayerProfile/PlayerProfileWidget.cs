@@ -42,7 +42,7 @@ namespace Project.UI.Common {
 
         // Helpers
         private static PlayerProfileWidgetView CreateView(PlayerProfileWidget widget, UIFactory factory, Globals.PlayerProfile playerProfile) {
-            var view = new PlayerProfileWidgetView( widget, factory );
+            var view = new PlayerProfileWidgetView( factory );
             view.Name.OnChange( (i, name) => {
                 view.Name.IsValid = Globals.PlayerProfile.IsNameValid( name! );
                 view.Okey.IsValid = Globals.PlayerProfile.IsNameValid( name! );

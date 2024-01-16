@@ -14,8 +14,8 @@ namespace Project.UI.MainScreen {
     public class JoinGameWidget : UIWidgetBase<JoinGameWidgetView> {
 
         // Globals
-        private UIRouter Router { get; }
         private UIFactory Factory { get; }
+        private UIRouter Router { get; }
         private Application2 Application { get; }
         private Globals.PlayerProfile PlayerProfile { get; }
         //private ILobbyService LobbyService { get; }
@@ -28,8 +28,8 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public JoinGameWidget() {
-            Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
+            Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
             PlayerProfile = this.GetDependencyContainer().Resolve<Globals.PlayerProfile>( null );
             //LobbyService = this.GetDependencyContainer().Resolve<ILobbyService>();
@@ -80,7 +80,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static JoinGameWidgetView CreateView(JoinGameWidget widget, UIFactory factory, UIRouter router) {
-            var view = new JoinGameWidgetView( widget, factory );
+            var view = new JoinGameWidgetView( factory );
             view.Okey.OnClick( i => {
                 var gameName = widget.GameView.Name.Value!;
                 var gameMode = (GameMode) widget.GameView.Mode.Value!;
@@ -102,19 +102,19 @@ namespace Project.UI.MainScreen {
             return view;
         }
         private static GameView CreateGameView(JoinGameWidget widget, UIFactory factory) {
-            var view = new GameView( widget, factory );
+            var view = new GameView( factory );
             return view;
         }
         private static PlayerView CreatePlayerView(JoinGameWidget widget, UIFactory factory) {
-            var view = new PlayerView( widget, factory );
+            var view = new PlayerView( factory );
             return view;
         }
         private static LobbyView CreateLobbyView(JoinGameWidget widget, UIFactory factory) {
-            var view = new LobbyView( widget, factory );
+            var view = new LobbyView( factory );
             return view;
         }
         private static ChatView CreateChatView(JoinGameWidget widget, UIFactory factory) {
-            var view = new ChatView( widget, factory );
+            var view = new ChatView( factory );
             return view;
         }
 

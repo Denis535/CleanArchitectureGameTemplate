@@ -27,12 +27,12 @@ namespace Project.UI {
             base.Awake();
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
-            View = new UIScreenView( this, Factory );
-            AddView( Document, View );
+            View = new UIScreenView( Factory );
+            AddScreen( Document, View.VisualElement );
         }
         public new void OnDestroy() {
             Widget?.DetachSelf();
-            //RemoveView( Document, View );
+            //RemoveScreen( Document, View );
             View.Dispose();
             base.OnDestroy();
         }
@@ -42,7 +42,7 @@ namespace Project.UI {
         }
         public void Update() {
 #if UNITY_EDITOR
-            AddViewIfNeeded( Document, View );
+            AddScreenIfNeeded( Document, View.VisualElement );
 #endif
             if (stateTracker.IsChanged( State )) {
                 if (IsMainScreen) {

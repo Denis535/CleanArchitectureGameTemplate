@@ -40,13 +40,13 @@ namespace Project.UI.MainScreen {
         public override void OnBeforeAttach() {
         }
         public override async void OnAttach() {
-            // MainScene
+            // await MainScene
             if (!Application.IsMainSceneLoaded) {
                 while (!Application.IsMainSceneLoaded) {
                     await Task.Yield();
                 }
             }
-            // UnityServices
+            // await UnityServices
             if (UnityServices.State != ServicesInitializationState.Initialized) {
                 try {
                     var options = new InitializationOptions();
@@ -58,7 +58,7 @@ namespace Project.UI.MainScreen {
                     return;
                 }
             }
-            // AuthenticationService
+            // await AuthenticationService
             if (!AuthenticationService.IsSignedIn) {
                 try {
                     var options = new SignInOptions();
@@ -100,7 +100,7 @@ namespace Project.UI.MainScreen {
 
         // Helpers
         private static MainWidgetView CreateView(MainWidget widget, UIFactory factory) {
-            var view = new MainWidgetView( widget, factory );
+            var view = new MainWidgetView( factory );
             return view;
         }
 

@@ -1,5 +1,16 @@
 {
   "dependencies": {
+    "com.architecture-game-framework": {
+      "version": "https://github.com/Denis535/ArchitectureGameFramework.git?path=Packages/com.architecture-game-framework",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.addressables": "1.*.*",
+        "com.unity.modules.ui": "1.0.0",
+        "com.unity.modules.uielements": "1.0.0"
+      },
+      "hash": "805e6de769f4001948f09c3dfbe77e2d313bd874"
+    },
     "com.uitoolkit-theme-style-sheet": {
       "version": "https://github.com/Denis535/UIToolkitThemeStyleSheet.git?path=/Packages/com.uitoolkit-theme-style-sheet#v1.0.4",
       "depth": 0,

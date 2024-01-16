@@ -22,10 +22,10 @@ namespace Project.UI {
                         VisualElementScope.Add( title = factory.Label( "Main Menu" ).Name( "main-menu" ) );
                     }
                     using (factory.Content().AsScope()) {
-                        VisualElementScope.Add( createGame = factory.Button( "Create Game" ).Name( "create-game" ) );
-                        VisualElementScope.Add( joinGame = factory.Button( "Join Game" ).Name( "join-game" ) );
-                        VisualElementScope.Add( settings = factory.Button( "Settings" ).Name( "settings" ) );
-                        VisualElementScope.Add( quit = factory.Button( "Quit" ).Name( "quit" ) );
+                        VisualElementScope.Add( createGame = factory.Select( "Create Game" ).Name( "create-game" ) );
+                        VisualElementScope.Add( joinGame = factory.Select( "Join Game" ).Name( "join-game" ) );
+                        VisualElementScope.Add( settings = factory.Select( "Settings" ).Name( "settings" ) );
+                        VisualElementScope.Add( quit = factory.Select( "Quit" ).Name( "quit" ) );
                     }
                 }
             }
@@ -50,8 +50,8 @@ namespace Project.UI {
                         }
                     }
                     using (factory.Footer().AsScope()) {
-                        VisualElementScope.Add( okey = factory.Button( "Ok" ).Name( "okey" ) );
-                        VisualElementScope.Add( back = factory.Button( "Back" ).Name( "back" ) );
+                        VisualElementScope.Add( okey = factory.Submit( "Ok" ).Name( "okey" ) );
+                        VisualElementScope.Add( back = factory.Cancel( "Back" ).Name( "back" ) );
                     }
                 }
             }
@@ -76,8 +76,8 @@ namespace Project.UI {
                         }
                     }
                     using (factory.Footer().AsScope()) {
-                        VisualElementScope.Add( okey = factory.Button( "Ok" ).Name( "okey" ) );
-                        VisualElementScope.Add( back = factory.Button( "Back" ).Name( "back" ) );
+                        VisualElementScope.Add( okey = factory.Submit( "Ok" ).Name( "okey" ) );
+                        VisualElementScope.Add( back = factory.Cancel( "Back" ).Name( "back" ) );
                     }
                 }
             }
@@ -99,12 +99,12 @@ namespace Project.UI {
             using (factory.ColumnGroup().Name( "game-view" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 VisualElementScope.Add( title = factory.Label( "Game" ).Name( "title" ).Classes( "medium" ) );
                 using (factory.RowScope().AsScope()) {
-                    VisualElementScope.Add( name = factory.TextField( null, 100, false ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" ) );
+                    VisualElementScope.Add( name = factory.TextField( null, null, 64 ).Name( "game-name" ).Classes( "label-width-150px", "grow-1" ) );
                 }
                 using (factory.RowScope().AsScope()) {
-                    VisualElementScope.Add( mode = factory.PopupField( "Mode" ).Name( "game-mode" ).Classes( "label-width-150px", "grow-1" ) );
-                    VisualElementScope.Add( world = factory.PopupField( "World" ).Name( "game-world" ).Classes( "label-width-150px", "grow-1" ) );
-                    VisualElementScope.Add( isPrivate = factory.Toggle( "Private" ).Name( "is-game-private" ).Classes( "label-width-150px", "grow-0" ) );
+                    VisualElementScope.Add( mode = factory.PopupField( "Mode", null ).Name( "game-mode" ).Classes( "label-width-150px", "grow-1" ) );
+                    VisualElementScope.Add( world = factory.PopupField( "World", null ).Name( "game-world" ).Classes( "label-width-150px", "grow-1" ) );
+                    VisualElementScope.Add( isPrivate = factory.ToggleField( "Private", false ).Name( "is-game-private" ).Classes( "label-width-150px", "grow-0" ) );
                 }
             }
             return group;
@@ -113,11 +113,11 @@ namespace Project.UI {
             using (factory.ColumnGroup().Name( "player-view" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 VisualElementScope.Add( title = factory.Label( "Player" ).Name( "title" ).Classes( "medium" ) );
                 using (factory.RowScope().AsScope()) {
-                    VisualElementScope.Add( name = factory.TextFieldReadOnly( null, 100, false ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" ) );
+                    VisualElementScope.Add( name = factory.TextField( null, null, 64 ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" ) );
                 }
                 using (factory.RowScope().AsScope()) {
-                    VisualElementScope.Add( role = factory.PopupField( "Role" ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" ) );
-                    VisualElementScope.Add( isReady = factory.Toggle( "Ready" ).Name( "is-player-ready" ).Classes( "label-width-150px", "grow-0" ) );
+                    VisualElementScope.Add( role = factory.PopupField( "Role", null ).Name( "player-role" ).Classes( "label-width-150px", "grow-1" ) );
+                    VisualElementScope.Add( isReady = factory.ToggleField( "Ready", false ).Name( "is-player-ready" ).Classes( "label-width-150px", "grow-0" ) );
                 }
             }
             return group;
@@ -134,8 +134,8 @@ namespace Project.UI {
                 VisualElementScope.Add( title = factory.Label( "Chat" ).Name( "title" ).Classes( "medium", "shrink-0" ) );
                 VisualElementScope.Add( messages = factory.ScrollView().Name( "messages-view" ).Classes( "dark", "medium", "reverse", "grow-1" ) );
                 using (factory.RowScope().Name( "input-text-scope" ).Classes( "shrink-0" ).AsScope()) {
-                    VisualElementScope.Add( text = factory.TextField( null, 128, false ).Name( "input-text" ).Classes( "grow-1" ) );
-                    VisualElementScope.Add( send = factory.Button( "Send" ).Name( "send" ) );
+                    VisualElementScope.Add( text = factory.TextField( null, null, 128 ).Name( "input-text" ).Classes( "grow-1" ) );
+                    VisualElementScope.Add( send = factory.Submit( "Send" ).Name( "send" ) );
                 }
             }
             return group;

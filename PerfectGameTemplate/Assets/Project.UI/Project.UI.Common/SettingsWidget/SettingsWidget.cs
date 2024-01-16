@@ -35,7 +35,7 @@ namespace Project.UI.Common {
 
         // Helpers
         private static SettingsWidgetView CreateView(SettingsWidget widget, UIFactory factory) {
-            var view = new SettingsWidgetView( widget, factory );
+            var view = new SettingsWidgetView( factory );
             view.PlayerProfile.OnClick( i => {
                 widget.AttachChild( new PlayerProfileWidget() );
             } );

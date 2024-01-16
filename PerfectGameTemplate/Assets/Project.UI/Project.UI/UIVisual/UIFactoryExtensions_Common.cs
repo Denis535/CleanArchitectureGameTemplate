@@ -4,7 +4,7 @@ namespace Project.UI {
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.UIElements;
-    
+
     public static class UIFactoryExtensions_Common {
 
         // DialogWidget
@@ -86,13 +86,13 @@ namespace Project.UI {
                     }
                     using (factory.Content().AsScope()) {
                         using (factory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
-                            VisualElementScope.Add( playerProfile = factory.Button( "Player Profile" ).Name( "player-profile" ).Classes( "width-50pc", "align-self-center" ) );
-                            VisualElementScope.Add( videoSettings = factory.Button( "Video Settings" ).Name( "video-settings" ).Classes( "width-50pc", "align-self-center" ) );
-                            VisualElementScope.Add( audioSettings = factory.Button( "Audio Settings" ).Name( "audio-settings" ).Classes( "width-50pc", "align-self-center" ) );
+                            VisualElementScope.Add( playerProfile = factory.Select( "Player Profile" ).Name( "player-profile" ).Classes( "width-50pc", "align-self-center" ) );
+                            VisualElementScope.Add( videoSettings = factory.Select( "Video Settings" ).Name( "video-settings" ).Classes( "width-50pc", "align-self-center" ) );
+                            VisualElementScope.Add( audioSettings = factory.Select( "Audio Settings" ).Name( "audio-settings" ).Classes( "width-50pc", "align-self-center" ) );
                         }
                     }
                     using (factory.Footer().AsScope()) {
-                        VisualElementScope.Add( back = factory.Button( "Back" ).Name( "back" ) );
+                        VisualElementScope.Add( back = factory.Cancel( "Back" ).Name( "back" ) );
                     }
                 }
             }
@@ -108,12 +108,12 @@ namespace Project.UI {
                     }
                     using (factory.Content().AsScope()) {
                         using (factory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
-                            VisualElementScope.Add( name = factory.TextField( "Name", 16, false ).Name( "name" ).Classes( "label-width-25pc" ) );
+                            VisualElementScope.Add( name = factory.TextField( "Name", null, 16 ).Name( "name" ).Classes( "label-width-25pc" ) );
                         }
                     }
                     using (factory.Footer().AsScope()) {
-                        VisualElementScope.Add( okey = factory.Button( "Ok" ).Name( "okey" ) );
-                        VisualElementScope.Add( back = factory.Button( "Back" ).Name( "back" ) );
+                        VisualElementScope.Add( okey = factory.Submit( "Ok" ).Name( "okey" ) );
+                        VisualElementScope.Add( back = factory.Cancel( "Back" ).Name( "back" ) );
                     }
                 }
             }
@@ -129,14 +129,14 @@ namespace Project.UI {
                     }
                     using (factory.Content().AsScope()) {
                         using (factory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
-                            VisualElementScope.Add( isFullScreen = factory.Toggle( "Full Screen" ).Name( "is-full-screen" ).Classes( "label-width-25pc" ) );
-                            VisualElementScope.Add( screenResolution = factory.PopupField( "Screen Resolution" ).Name( "screen-resolution" ).Classes( "label-width-25pc" ) );
-                            VisualElementScope.Add( isVSync = factory.Toggle( "V-Sync" ).Name( "is-v-sync" ).Classes( "label-width-25pc" ) );
+                            VisualElementScope.Add( isFullScreen = factory.ToggleField( "Full Screen", false ).Name( "is-full-screen" ).Classes( "label-width-25pc" ) );
+                            VisualElementScope.Add( screenResolution = factory.PopupField( "Screen Resolution", null ).Name( "screen-resolution" ).Classes( "label-width-25pc" ) );
+                            VisualElementScope.Add( isVSync = factory.ToggleField( "V-Sync", false ).Name( "is-v-sync" ).Classes( "label-width-25pc" ) );
                         }
                     }
                     using (factory.Footer().AsScope()) {
-                        VisualElementScope.Add( okey = factory.Button( "Ok" ).Name( "okey" ) );
-                        VisualElementScope.Add( back = factory.Button( "Back" ).Name( "back" ) );
+                        VisualElementScope.Add( okey = factory.Submit( "Ok" ).Name( "okey" ) );
+                        VisualElementScope.Add( back = factory.Cancel( "Back" ).Name( "back" ) );
                     }
                 }
             }
@@ -152,15 +152,15 @@ namespace Project.UI {
                     }
                     using (factory.Content().AsScope()) {
                         using (factory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
-                            VisualElementScope.Add( masterVolume = factory.Slider( "Master Volume" ).Name( "master-volume" ).Classes( "label-width-25pc" ) );
-                            VisualElementScope.Add( musicVolume = factory.Slider( "Music Volume" ).Name( "music-volume" ).Classes( "label-width-25pc" ) );
-                            VisualElementScope.Add( sfxVolume = factory.Slider( "Sfx Volume" ).Name( "sfx-volume" ).Classes( "label-width-25pc" ) );
-                            VisualElementScope.Add( gameVolume = factory.Slider( "Game Volume" ).Name( "game-volume" ).Classes( "label-width-25pc" ) );
+                            VisualElementScope.Add( masterVolume = factory.SliderField( "Master Volume", 0, 0, 1 ).Name( "master-volume" ).Classes( "label-width-25pc" ) );
+                            VisualElementScope.Add( musicVolume = factory.SliderField( "Music Volume", 0, 0, 1 ).Name( "music-volume" ).Classes( "label-width-25pc" ) );
+                            VisualElementScope.Add( sfxVolume = factory.SliderField( "Sfx Volume", 0, 0, 1 ).Name( "sfx-volume" ).Classes( "label-width-25pc" ) );
+                            VisualElementScope.Add( gameVolume = factory.SliderField( "Game Volume", 0, 0, 1 ).Name( "game-volume" ).Classes( "label-width-25pc" ) );
                         }
                     }
                     using (factory.Footer().AsScope()) {
-                        VisualElementScope.Add( okey = factory.Button( "Ok" ).Name( "okey" ) );
-                        VisualElementScope.Add( back = factory.Button( "Back" ).Name( "back" ) );
+                        VisualElementScope.Add( okey = factory.Submit( "Ok" ).Name( "okey" ) );
+                        VisualElementScope.Add( back = factory.Cancel( "Back" ).Name( "back" ) );
                     }
                 }
             }

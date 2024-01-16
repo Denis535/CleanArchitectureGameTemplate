@@ -9,18 +9,18 @@ namespace Project.UI.GameScreen {
 
     public class GameMenuWidgetView : UIWidgetViewBase {
 
-        // View
+        // VisualElement
         public override VisualElement VisualElement { get; }
-        public ElementWrapper View { get; }
+        public ElementWrapper Widget { get; }
         public LabelWrapper Title { get; }
         public ButtonWrapper Resume { get; }
         public ButtonWrapper Settings { get; }
         public ButtonWrapper Back { get; }
 
         // Constructor
-        public GameMenuWidgetView(GameMenuWidget widget, UIFactory factory) : base( widget ) {
-            VisualElement = factory.GameMenuWidget( out var view, out var title, out var resume, out var settings, out var back );
-            View = view.Wrap();
+        public GameMenuWidgetView(UIFactory factory) {
+            VisualElement = factory.GameMenuWidget( out var widget, out var title, out var resume, out var settings, out var back );
+            Widget = widget.Wrap();
             Title = title.Wrap();
             Resume = resume.Wrap();
             Settings = settings.Wrap();

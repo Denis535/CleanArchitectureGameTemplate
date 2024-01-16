@@ -32,13 +32,13 @@ namespace Project.UI.Common {
         public DialogWidgetBase(string? title, string? message) {
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             if (this is DialogWidget) {
-                View = (TView) (object) new DialogWidgetView( (DialogWidget) (object) this, Factory );
+                View = (TView) (object) new DialogWidgetView( Factory );
             } else if (this is InfoDialogWidget) {
-                View = (TView) (object) new InfoDialogWidgetView( (InfoDialogWidget) (object) this, Factory );
+                View = (TView) (object) new InfoDialogWidgetView( Factory );
             } else if (this is WarningDialogWidget) {
-                View = (TView) (object) new WarningDialogWidgetView( (WarningDialogWidget) (object) this, Factory );
+                View = (TView) (object) new WarningDialogWidgetView( Factory );
             } else if (this is ErrorDialogWidget) {
-                View = (TView) (object) new ErrorDialogWidgetView( (ErrorDialogWidget) (object) this, Factory );
+                View = (TView) (object) new ErrorDialogWidgetView( Factory );
             } else {
                 throw Exceptions.Internal.NotImplemented( $"DialogWidgetBase {this} is not implemented" );
             }
