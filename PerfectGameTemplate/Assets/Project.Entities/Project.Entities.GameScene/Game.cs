@@ -4,7 +4,7 @@ namespace Project.Entities.GameScene {
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-    using UnityEngine.Framework.Game;
+    using UnityEngine.Framework.Entities;
 
     public class Game : GameBase {
 

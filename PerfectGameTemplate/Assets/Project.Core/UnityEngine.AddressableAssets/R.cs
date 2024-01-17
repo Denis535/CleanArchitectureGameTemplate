@@ -9,7 +9,6 @@ namespace UnityEngine.AddressableAssets {
                 public const string @AudioMixer__Sfx = "UnityEngine.Audio/AudioMixer.mixer[Sfx]";
                 public const string @AudioMixer__Snapshot = "UnityEngine.Audio/AudioMixer.mixer[Snapshot]";
             }
-            public const string @LightingSettings = "UnityEngine/LightingSettings.lighting";
             public static class @UIElements {
                 public static class @Fonts {
                     public static class @Inter {
@@ -29,24 +28,6 @@ namespace UnityEngine.AddressableAssets {
                         public const string @Inter_Small__Font_Material = "UnityEngine.UIElements/Fonts/Inter/Inter-Small.ttf[Font Material]";
                         public const string @Inter_Small__Font_Texture = "UnityEngine.UIElements/Fonts/Inter/Inter-Small.ttf[Font Texture]";
                     }
-                    public const string @Lucida_Grande = "UnityEngine.UIElements/Fonts/Lucida Grande.ttf";
-                    public const string @Lucida_Grande_Big = "UnityEngine.UIElements/Fonts/Lucida Grande Big.ttf";
-                    public const string @Lucida_Grande_Big__Font_Material = "UnityEngine.UIElements/Fonts/Lucida Grande Big.ttf[Font Material]";
-                    public const string @Lucida_Grande_Big__Font_Texture = "UnityEngine.UIElements/Fonts/Lucida Grande Big.ttf[Font Texture]";
-                    public const string @Lucida_Grande_Bold = "UnityEngine.UIElements/Fonts/Lucida Grande Bold.ttf";
-                    public const string @Lucida_Grande_Bold__Font_Material = "UnityEngine.UIElements/Fonts/Lucida Grande Bold.ttf[Font Material]";
-                    public const string @Lucida_Grande_Bold__Font_Texture = "UnityEngine.UIElements/Fonts/Lucida Grande Bold.ttf[Font Texture]";
-                    public const string @Lucida_Grande_small = "UnityEngine.UIElements/Fonts/Lucida Grande small.ttf";
-                    public const string @Lucida_Grande_small_bold = "UnityEngine.UIElements/Fonts/Lucida Grande small bold.ttf";
-                    public const string @Lucida_Grande_small_bold__Font_Material = "UnityEngine.UIElements/Fonts/Lucida Grande small bold.ttf[Font Material]";
-                    public const string @Lucida_Grande_small_bold__Font_Texture = "UnityEngine.UIElements/Fonts/Lucida Grande small bold.ttf[Font Texture]";
-                    public const string @Lucida_Grande_small__Font_Material = "UnityEngine.UIElements/Fonts/Lucida Grande small.ttf[Font Material]";
-                    public const string @Lucida_Grande_small__Font_Texture = "UnityEngine.UIElements/Fonts/Lucida Grande small.ttf[Font Texture]";
-                    public const string @Lucida_Grande_Warning = "UnityEngine.UIElements/Fonts/Lucida Grande Warning.ttf";
-                    public const string @Lucida_Grande_Warning__Font_Material = "UnityEngine.UIElements/Fonts/Lucida Grande Warning.ttf[Font Material]";
-                    public const string @Lucida_Grande_Warning__Font_Texture = "UnityEngine.UIElements/Fonts/Lucida Grande Warning.ttf[Font Texture]";
-                    public const string @Lucida_Grande__Font_Material = "UnityEngine.UIElements/Fonts/Lucida Grande.ttf[Font Material]";
-                    public const string @Lucida_Grande__Font_Texture = "UnityEngine.UIElements/Fonts/Lucida Grande.ttf[Font Texture]";
                     public static class @NotInter {
                         public const string @NotInter_Regular = "UnityEngine.UIElements/Fonts/NotInter/NotInter-Regular.ttf";
                         public const string @NotInter_Regular__Font_Material = "UnityEngine.UIElements/Fonts/NotInter/NotInter-Regular.ttf[Font Material]";
@@ -66,6 +47,24 @@ namespace UnityEngine.AddressableAssets {
                         public const string @RobotoMono_Regular__Font_Material = "UnityEngine.UIElements/Fonts/RobotoMono/RobotoMono-Regular.ttf[Font Material]";
                         public const string @RobotoMono_Regular__Font_Texture = "UnityEngine.UIElements/Fonts/RobotoMono/RobotoMono-Regular.ttf[Font Texture]";
                     }
+                    public const string @Lucida_Grande = "UnityEngine.UIElements/Fonts/Lucida Grande.ttf";
+                    public const string @Lucida_Grande_Big = "UnityEngine.UIElements/Fonts/Lucida Grande Big.ttf";
+                    public const string @Lucida_Grande_Big__Font_Material = "UnityEngine.UIElements/Fonts/Lucida Grande Big.ttf[Font Material]";
+                    public const string @Lucida_Grande_Big__Font_Texture = "UnityEngine.UIElements/Fonts/Lucida Grande Big.ttf[Font Texture]";
+                    public const string @Lucida_Grande_Bold = "UnityEngine.UIElements/Fonts/Lucida Grande Bold.ttf";
+                    public const string @Lucida_Grande_Bold__Font_Material = "UnityEngine.UIElements/Fonts/Lucida Grande Bold.ttf[Font Material]";
+                    public const string @Lucida_Grande_Bold__Font_Texture = "UnityEngine.UIElements/Fonts/Lucida Grande Bold.ttf[Font Texture]";
+                    public const string @Lucida_Grande_small = "UnityEngine.UIElements/Fonts/Lucida Grande small.ttf";
+                    public const string @Lucida_Grande_small_bold = "UnityEngine.UIElements/Fonts/Lucida Grande small bold.ttf";
+                    public const string @Lucida_Grande_small_bold__Font_Material = "UnityEngine.UIElements/Fonts/Lucida Grande small bold.ttf[Font Material]";
+                    public const string @Lucida_Grande_small_bold__Font_Texture = "UnityEngine.UIElements/Fonts/Lucida Grande small bold.ttf[Font Texture]";
+                    public const string @Lucida_Grande_small__Font_Material = "UnityEngine.UIElements/Fonts/Lucida Grande small.ttf[Font Material]";
+                    public const string @Lucida_Grande_small__Font_Texture = "UnityEngine.UIElements/Fonts/Lucida Grande small.ttf[Font Texture]";
+                    public const string @Lucida_Grande_Warning = "UnityEngine.UIElements/Fonts/Lucida Grande Warning.ttf";
+                    public const string @Lucida_Grande_Warning__Font_Material = "UnityEngine.UIElements/Fonts/Lucida Grande Warning.ttf[Font Material]";
+                    public const string @Lucida_Grande_Warning__Font_Texture = "UnityEngine.UIElements/Fonts/Lucida Grande Warning.ttf[Font Texture]";
+                    public const string @Lucida_Grande__Font_Material = "UnityEngine.UIElements/Fonts/Lucida Grande.ttf[Font Material]";
+                    public const string @Lucida_Grande__Font_Texture = "UnityEngine.UIElements/Fonts/Lucida Grande.ttf[Font Texture]";
                 }
                 public static class @Images {
                     public const string @Arrow_Down = "UnityEngine.UIElements/Images/Arrow_Down.png";
@@ -95,7 +94,6 @@ namespace UnityEngine.AddressableAssets {
                     public const string @Tick = "UnityEngine.UIElements/Sounds/Tick.wav";
                 }
                 public static class @StyleSheets {
-                    public const string @LibraryStyleSheet = "UnityEngine.UIElements/StyleSheets/LibraryStyleSheet.uss";
                     public static class @StyleSheets1 {
                         public const string @_Widget = "UnityEngine.UIElements/StyleSheets/StyleSheets1/00_Widget.uss";
                         public const string @_Card = "UnityEngine.UIElements/StyleSheets/StyleSheets1/01_Card.uss";
@@ -117,12 +115,14 @@ namespace UnityEngine.AddressableAssets {
                         public const string @_Field__Toggle_Field = "UnityEngine.UIElements/StyleSheets/StyleSheets2/02_Field__Toggle-Field.uss";
                         public const string @_Dropdown = "UnityEngine.UIElements/StyleSheets/StyleSheets2/03_Dropdown.uss";
                     }
+                    public const string @LibraryStyleSheet = "UnityEngine.UIElements/StyleSheets/LibraryStyleSheet.uss";
                     public const string @ThemeStyleSheet = "UnityEngine.UIElements/StyleSheets/ThemeStyleSheet.uss";
                 }
                 public static class @ThemeStyleSheets {
                     public const string @ThemeStyleSheet = "UnityEngine.UIElements/ThemeStyleSheets/ThemeStyleSheet.tss";
                 }
             }
+            public const string @LightingSettings = "UnityEngine/LightingSettings.lighting";
         }
         public static class @Project {
             public static class @UI {
@@ -142,13 +142,13 @@ namespace UnityEngine.AddressableAssets {
                         public const string @Theme_3 = "Project.UI.GameScreen/Music/Theme 3 #Black Paper - Bottom Line.flac";
                     }
                 }
-                public const string @PanelSettings = "Project.UI/PanelSettings.asset";
                 public static class @StyleSheets {
                     public const string @ThemeStyleSheet = "Project.UI/StyleSheets/ThemeStyleSheet.uss";
                 }
                 public static class @ThemeStyleSheets {
                     public const string @ThemeStyleSheet = "Project.UI/ThemeStyleSheets/ThemeStyleSheet.tss";
                 }
+                public const string @PanelSettings = "Project.UI/PanelSettings.asset";
             }
             public const string @Program = "Project/Program.unity";
             public const string @MainScene = "Project/MainScene.unity";

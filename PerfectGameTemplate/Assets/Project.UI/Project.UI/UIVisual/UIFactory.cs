@@ -5,22 +5,24 @@ namespace Project.UI {
     using System.Collections.Generic;
     using System.Linq;
     using UnityEngine;
+    using UnityEngine.AddressableAssets;
+    using UnityEngine.ResourceManagement.AsyncOperations;
     using UnityEngine.UIElements;
 
     public class UIFactory : MonoBehaviour {
 
         // Assets
-        //[SerializeField] private AudioClip appearance = default!;
-        //[SerializeField] private AudioClip infoAppearance = default!;
-        //[SerializeField] private AudioClip warningAppearance = default!;
-        //[SerializeField] private AudioClip errorAppearance = default!;
-        //[SerializeField] private AudioClip focus = default!;
-        //[SerializeField] private AudioClip click = default!;
-        //[SerializeField] private AudioClip selectClick = default!;
-        //[SerializeField] private AudioClip submitClick = default!;
-        //[SerializeField] private AudioClip cancelClick = default!;
-        //[SerializeField] private AudioClip invalidClick = default!;
-        //[SerializeField] private AudioClip tik = default!;
+        private AudioClip appearance = default!;
+        private AudioClip infoAppearance = default!;
+        private AudioClip warningAppearance = default!;
+        private AudioClip errorAppearance = default!;
+        private AudioClip focus = default!;
+        private AudioClip click = default!;
+        private AudioClip selectClick = default!;
+        private AudioClip submitClick = default!;
+        private AudioClip cancelClick = default!;
+        private AudioClip invalidClick = default!;
+        private AudioClip tik = default!;
 
         // System
         public static Func<object?, string?>? StringSelector { get; set; }
@@ -29,9 +31,34 @@ namespace Project.UI {
 
         // Awake
         public void Awake() {
+            // Assets
+            appearance = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Appearance ).GetResult();
+            infoAppearance = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Appearance_Info ).GetResult();
+            warningAppearance = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Appearance_Warning ).GetResult();
+            errorAppearance = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Appearance_Error ).GetResult();
+            focus = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Focus ).GetResult();
+            click = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Click ).GetResult();
+            selectClick = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Click_Select ).GetResult();
+            submitClick = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Click_Submit ).GetResult();
+            cancelClick = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Click_Cancel ).GetResult();
+            invalidClick = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Click_Invalid ).GetResult();
+            tik = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Tick ).GetResult();
+            // Globals
             AudioSource = GetComponentInChildren<AudioSource>();
         }
         public void OnDestroy() {
+            // Assets
+            Addressables2.Release( appearance );
+            Addressables2.Release( infoAppearance );
+            Addressables2.Release( warningAppearance );
+            Addressables2.Release( errorAppearance );
+            Addressables2.Release( focus );
+            Addressables2.Release( click );
+            Addressables2.Release( selectClick );
+            Addressables2.Release( submitClick );
+            Addressables2.Release( cancelClick );
+            Addressables2.Release( invalidClick );
+            Addressables2.Release( tik );
         }
 
         // VisualElement
@@ -289,69 +316,69 @@ namespace Project.UI {
 
         // Helpers
         private void PlayAppearance(AttachToPanelEvent evt) {
-            //AudioSource.PlayOneShot( appearance );
+            AudioSource.PlayOneShot( appearance );
         }
         private void PlayInfoAppearance(AttachToPanelEvent evt) {
-            //AudioSource.PlayOneShot( infoAppearance );
+            AudioSource.PlayOneShot( infoAppearance );
         }
         private void PlayWarningAppearance(AttachToPanelEvent evt) {
-            //AudioSource.PlayOneShot( warningAppearance );
+            AudioSource.PlayOneShot( warningAppearance );
         }
         private void PlayErrorAppearance(AttachToPanelEvent evt) {
-            //AudioSource.PlayOneShot( errorAppearance );
+            AudioSource.PlayOneShot( errorAppearance );
         }
         // Helpers
         private void PlayFocus(FocusEvent evt) {
-            //if (evt.direction != FocusChangeDirection.none && evt.direction != FocusChangeDirection.unspecified) {
-            //    AudioSource.PlayOneShot( focus );
-            //}
+            if (evt.direction != FocusChangeDirection.none && evt.direction != FocusChangeDirection.unspecified) {
+                AudioSource.PlayOneShot( focus );
+            }
         }
         // Helpers
         private void PlayClick(MouseDownEvent evt) {
-            //var target = (VisualElement) evt.target;
-            //AudioSource.PlayOneShot( target.IsValid() ? click : invalidClick );
+            var target = (VisualElement) evt.target;
+            AudioSource.PlayOneShot( target.IsValid() ? click : invalidClick );
         }
         private void PlayClick(ClickEvent evt) {
-            //var target = (VisualElement) evt.target;
-            //AudioSource.PlayOneShot( target.IsValid() ? click : invalidClick );
+            var target = (VisualElement) evt.target;
+            AudioSource.PlayOneShot( target.IsValid() ? click : invalidClick );
         }
         private void PlaySelect(ClickEvent evt) {
-            //var target = (VisualElement) evt.target;
-            //AudioSource.PlayOneShot( target.IsValid() ? selectClick : invalidClick );
+            var target = (VisualElement) evt.target;
+            AudioSource.PlayOneShot( target.IsValid() ? selectClick : invalidClick );
         }
         private void PlaySubmit(ClickEvent evt) {
-            //var target = (VisualElement) evt.target;
-            //AudioSource.PlayOneShot( target.IsValid() ? submitClick : invalidClick );
+            var target = (VisualElement) evt.target;
+            AudioSource.PlayOneShot( target.IsValid() ? submitClick : invalidClick );
         }
         private void PlayCancel(ClickEvent evt) {
-            //var target = (VisualElement) evt.target;
-            //AudioSource.PlayOneShot( target.IsValid() ? cancelClick : invalidClick );
+            var target = (VisualElement) evt.target;
+            AudioSource.PlayOneShot( target.IsValid() ? cancelClick : invalidClick );
         }
         // Helpers
         private void PlayChange(ChangeEvent<object?> evt) {
-            //if (evt.newValue != evt.previousValue) {
-            //    AudioSource.PlayOneShot( tik );
-            //}
+            if (evt.newValue != evt.previousValue) {
+                AudioSource.PlayOneShot( tik );
+            }
         }
         private void PlayChange(ChangeEvent<string?> evt) {
-            //if (evt.newValue != evt.previousValue) {
-            //    AudioSource.PlayOneShot( tik );
-            //}
+            if (evt.newValue != evt.previousValue) {
+                AudioSource.PlayOneShot( tik );
+            }
         }
         private void PlayChange(ChangeEvent<float> evt) {
-            //if (Mathf.FloorToInt( evt.newValue * 100 ) != Mathf.FloorToInt( evt.previousValue * 100 )) {
-            //    AudioSource.PlayOneShot( tik );
-            //}
+            if (Mathf.FloorToInt( evt.newValue * 100 ) != Mathf.FloorToInt( evt.previousValue * 100 )) {
+                AudioSource.PlayOneShot( tik );
+            }
         }
         private void PlayChange(ChangeEvent<int> evt) {
-            //if (evt.newValue != evt.previousValue) {
-            //    AudioSource.PlayOneShot( tik );
-            //}
+            if (evt.newValue != evt.previousValue) {
+                AudioSource.PlayOneShot( tik );
+            }
         }
         private void PlayChange(ChangeEvent<bool> evt) {
-            //if (evt.newValue != evt.previousValue) {
-            //AudioSource.PlayOneShot( tik );
-            //}
+            if (evt.newValue != evt.previousValue) {
+                AudioSource.PlayOneShot( tik );
+            }
         }
         // Helpers
         private static T Create<T>(string? name, string? @class = null) where T : VisualElement, new() {

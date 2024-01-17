@@ -70,27 +70,5 @@ namespace Project.UI {
             }
         }
 
-        // OnSubmit
-        //private void OnSubmit(NavigationSubmitEvent evt) {
-        //    if (evt.target is Button button) {
-        //        using (var click = ClickEvent.GetPooled()) {
-        //            click.target = button;
-        //            button.SendEvent( click );
-        //        }
-        //        evt.StopPropagation();
-        //    }
-        //}
-        //private void OnCancel(NavigationCancelEvent evt) {
-        //    var view = (VisualElement) evt.currentTarget;
-        //    var button = view.Query<Button>().Where( i => i.IsCancel() || i.IsQuit() || i.name == "resume" ).First();
-        //    if (button != null) {
-        //        using (var click = ClickEvent.GetPooled()) {
-        //            click.target = button;
-        //            button.SendEvent( click );
-        //        }
-        //        evt.StopPropagation();
-        //    }
-        //}
-
     }
 }
