@@ -9,7 +9,6 @@ namespace Project.Toolbar {
     using System.Text;
     using System.Text.RegularExpressions;
     using System.Threading;
-    using Project.Tools;
     using Project.UI;
     using Project.UI.Common;
     using UnityEditor;
@@ -20,7 +19,7 @@ namespace Project.Toolbar {
     using UnityEngine.SceneManagement;
     using Object = UnityEngine.Object;
 
-    public static class Toolbar {
+    public static class ProjectToolbar {
 
         // OnLoad
         [InitializeOnLoadMethod]
@@ -76,19 +75,19 @@ namespace Project.Toolbar {
         // Build
         [MenuItem( "Project/Pre Build", priority = 200 )]
         internal static void PreBuild() {
-            new ProjectBuilder2().PreBuild();
+            ProjectBuilder.PreBuild();
         }
         [MenuItem( "Project/Build Development", priority = 201 )]
         internal static void BuildDevelopment() {
             var path = $"Build/Development/{PlayerSettings.productName}.exe";
-            new ProjectBuilder2().BuildDevelopment( path );
+            ProjectBuilder.BuildDevelopment( path );
             EditorApplication.Beep();
             EditorUtility.RevealInFinder( path );
         }
         [MenuItem( "Project/Build Production", priority = 202 )]
         internal static void BuildProduction() {
             var path = $"Build/Production/{PlayerSettings.productName}.exe";
-            new ProjectBuilder2().BuildProduction( path );
+            ProjectBuilder.BuildProduction( path );
             EditorApplication.Beep();
             EditorUtility.RevealInFinder( path );
         }

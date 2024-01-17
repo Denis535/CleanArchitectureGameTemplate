@@ -7,7 +7,7 @@
       "dependencies": {
         "com.unity.addressables": "1.0.0"
       },
-      "hash": "543522b0987ebdc1134d3edced385fe8e41922be"
+      "hash": "c851bce2529d0e876e1df118e414d085d95bc62f"
     },
     "com.architecture-game-framework": {
       "version": "https://github.com/Denis535/ArchitectureGameFramework.git?path=Packages/com.architecture-game-framework",
@@ -18,14 +18,14 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.uielements": "1.0.0"
       },
-      "hash": "543522b0987ebdc1134d3edced385fe8e41922be"
+      "hash": "c851bce2529d0e876e1df118e414d085d95bc62f"
     },
     "com.colorful-project-window": {
       "version": "https://github.com/Denis535/ArchitectureGameFramework.git?path=Packages/com.colorful-project-window",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "543522b0987ebdc1134d3edced385fe8e41922be"
+      "hash": "c851bce2529d0e876e1df118e414d085d95bc62f"
     },
     "com.uitoolkit-theme-style-sheet": {
       "version": "https://github.com/Denis535/UIToolkitThemeStyleSheet.git?path=/Packages/com.uitoolkit-theme-style-sheet",
