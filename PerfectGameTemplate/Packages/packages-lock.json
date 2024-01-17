@@ -1,18 +1,34 @@
 {
   "dependencies": {
+    "com.addressables-source-generator": {
+      "version": "https://github.com/Denis535/ArchitectureGameFramework.git?path=Packages/com.addressables-source-generator",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.addressables": "1.0.0"
+      },
+      "hash": "543522b0987ebdc1134d3edced385fe8e41922be"
+    },
     "com.architecture-game-framework": {
       "version": "https://github.com/Denis535/ArchitectureGameFramework.git?path=Packages/com.architecture-game-framework",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.unity.addressables": "1.*.*",
+        "com.unity.addressables": "1.0.0",
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.uielements": "1.0.0"
       },
-      "hash": "805e6de769f4001948f09c3dfbe77e2d313bd874"
+      "hash": "543522b0987ebdc1134d3edced385fe8e41922be"
+    },
+    "com.colorful-project-window": {
+      "version": "https://github.com/Denis535/ArchitectureGameFramework.git?path=Packages/com.colorful-project-window",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "543522b0987ebdc1134d3edced385fe8e41922be"
     },
     "com.uitoolkit-theme-style-sheet": {
-      "version": "https://github.com/Denis535/UIToolkitThemeStyleSheet.git?path=/Packages/com.uitoolkit-theme-style-sheet#v1.0.4",
+      "version": "https://github.com/Denis535/UIToolkitThemeStyleSheet.git?path=/Packages/com.uitoolkit-theme-style-sheet",
       "depth": 0,
       "source": "git",
       "dependencies": {

@@ -29,21 +29,21 @@ namespace Project.UI {
             base.Dispose();
         }
 
-        // ShowView
-        public override void ShowView(UIWidgetViewBase view, UIWidgetViewBase[] shadowed) {
+        // ShowWidget
+        public override void ShowWidget(UIWidgetViewBase widget, UIWidgetViewBase[] shadowed) {
             var shadowed_ = shadowed.LastOrDefault();
             if (shadowed_ is MainWidgetView or GameWidgetView || shadowed_.IsModal()) {
-                ShowWidget( view, null );
+                ShowWidget( widget, null );
             } else {
-                ShowWidget( view, shadowed_ );
+                ShowWidget( widget, shadowed_ );
             }
         }
-        public override void HideView(UIWidgetViewBase view, UIWidgetViewBase[] unshadowed) {
+        public override void HideWidget(UIWidgetViewBase widget, UIWidgetViewBase[] unshadowed) {
             var unshadowed_ = unshadowed.LastOrDefault();
             if (unshadowed_ is MainWidgetView or GameWidgetView || unshadowed_.IsModal()) {
-                HideWidget( view, null );
+                HideWidget( widget, null );
             } else {
-                HideWidget( view, unshadowed_ );
+                HideWidget( widget, unshadowed_ );
             }
         }
 
