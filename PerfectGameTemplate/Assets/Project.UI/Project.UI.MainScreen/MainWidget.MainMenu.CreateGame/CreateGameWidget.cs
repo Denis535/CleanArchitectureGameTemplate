@@ -48,7 +48,7 @@ namespace Project.UI.MainScreen {
         }
 
         // OnAttach
-        public override void OnBeforeAttach() {
+        public override void OnAttach() {
             GameView.Name.Value = "Anonymous";
             GameView.Mode.ValueChoices = (GameMode._1x4, Enum2.GetValues<GameMode>().Cast<object?>().ToArray());
             GameView.World.ValueChoices = (GameWorld.TestWorld1, Enum2.GetValues<GameWorld>().Cast<object?>().ToArray());
@@ -57,11 +57,7 @@ namespace Project.UI.MainScreen {
             PlayerView.Role.ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>().Cast<object?>().ToArray());
             PlayerView.IsReady.Value = false;
         }
-        public override void OnAttach() {
-        }
         public override void OnDetach() {
-        }
-        public override void OnAfterDetach() {
         }
 
         // OnDescendantAttach

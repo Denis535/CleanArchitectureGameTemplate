@@ -32,15 +32,11 @@ namespace Project.UI.GameScreen {
         }
 
         // OnAttach
-        public override void OnBeforeAttach() {
-        }
         public override void OnAttach() {
             Actions.Enable();
         }
         public override void OnDetach() {
             Actions.Disable();
-        }
-        public override void OnAfterDetach() {
         }
 
         // OnDescendantWidgetAttach

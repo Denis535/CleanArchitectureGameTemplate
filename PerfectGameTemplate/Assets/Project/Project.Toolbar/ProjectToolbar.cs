@@ -23,7 +23,7 @@ namespace Project.Toolbar {
 
         // OnLoad
         [InitializeOnLoadMethod]
-        internal static void OnLoad() {
+        public static void OnLoad() {
             if (!EditorApplication.isPlaying) {
                 EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>( "Assets/Project/Assets.Project/Program.unity" );
                 //EditorSceneManager.playModeStartScene = null;
@@ -32,7 +32,7 @@ namespace Project.Toolbar {
 
         // OnEnterPlaymode
         [InitializeOnEnterPlayMode]
-        internal static void OnEnterPlaymode() {
+        public static void OnEnterPlaymode() {
             var scene = SceneManager.GetActiveScene();
             if (scene.name == "Launcher") {
             } else
@@ -46,46 +46,46 @@ namespace Project.Toolbar {
 
         // LoadScene
         [MenuItem( "Project/Launcher", priority = 0 )]
-        internal static void LoadLauncher() {
+        public static void LoadLauncher() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/Launcher.unity" );
         }
         [MenuItem( "Project/Program", priority = 1 )]
-        internal static void LoadProgram() {
+        public static void LoadProgram() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/Program.unity" );
         }
         [MenuItem( "Project/Main Scene", priority = 2 )]
-        internal static void LoadMainScene() {
+        public static void LoadMainScene() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/MainScene.unity" );
         }
         [MenuItem( "Project/Game Scene", priority = 3 )]
-        internal static void LoadGameScene() {
+        public static void LoadGameScene() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/GameScene.unity" );
         }
 
         // LoadScene
         [MenuItem( "Project/Test World Scene 1", priority = 100 )]
-        internal static void LoadTestWorldScene_1() {
+        public static void LoadTestWorldScene_1() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/TestWorldScene_1.unity" );
         }
         [MenuItem( "Project/Test World Scene 2", priority = 101 )]
-        internal static void LoadTestWorldScene_2() {
+        public static void LoadTestWorldScene_2() {
             EditorSceneManager.OpenScene( "Assets/Project/Assets.Project/TestWorldScene_2.unity" );
         }
 
         // Build
         [MenuItem( "Project/Pre Build", priority = 200 )]
-        internal static void PreBuild() {
+        public static void PreBuild() {
             ProjectBuilder.PreBuild();
         }
         [MenuItem( "Project/Build Development", priority = 201 )]
-        internal static void BuildDevelopment() {
+        public static void BuildDevelopment() {
             var path = $"Build/Development/{PlayerSettings.productName}.exe";
             ProjectBuilder.BuildDevelopment( path );
             EditorApplication.Beep();
             EditorUtility.RevealInFinder( path );
         }
         [MenuItem( "Project/Build Production", priority = 202 )]
-        internal static void BuildProduction() {
+        public static void BuildProduction() {
             var path = $"Build/Production/{PlayerSettings.productName}.exe";
             ProjectBuilder.BuildProduction( path );
             EditorApplication.Beep();
@@ -94,14 +94,14 @@ namespace Project.Toolbar {
 
         // TakeScreenshot
         [MenuItem( "Project/Take Screenshot (Game) _F12", priority = 300 )]
-        internal static void TakeScreenshot_Game() {
+        public static void TakeScreenshot_Game() {
             var path = $"Screenshots/{Application.productName}-{DateTime.UtcNow.Ticks}.png";
             ScreenCapture.CaptureScreenshot( path, 1 );
             EditorApplication.Beep();
             EditorUtility.RevealInFinder( path );
         }
         [MenuItem( "Project/Take Screenshot (Editor) &F12", priority = 301 )]
-        internal static void TakeScreenshot_Editor() {
+        public static void TakeScreenshot_Editor() {
             var position = EditorGUIUtility.GetMainWindowPosition();
             var texture = new Texture2D( (int) position.width, (int) position.height );
             texture.SetPixels( InternalEditorUtility.ReadScreenPixel( position.position, (int) position.width, (int) position.height ) );
@@ -117,7 +117,7 @@ namespace Project.Toolbar {
 
         // ExportPackage
         [MenuItem( "Project/Export Package", priority = 400 )]
-        internal static void ExportPackage() {
+        public static void ExportPackage() {
             var paths = GetPaths()
                 .Where( i => i.StartsWith( "Assets" ) || i.StartsWith( "Packages" ) || i.StartsWith( "ProjectSettings" ) )
                 .Where( i => !i.StartsWith( "Packages/com.unity.asset-store-tools" ) )
@@ -128,9 +128,15 @@ namespace Project.Toolbar {
             EditorUtility.RevealInFinder( path );
         }
 
+        // EmbedPackage
+        [MenuItem( "Project/Embed Package (UIToolkit Theme Style Sheet)", priority = 401 )]
+        public static void EmbedPackage_UIToolkitThemeStyleSheet() {
+            UnityEditor.PackageManager.Client.Embed( "com.uitoolkit-theme-style-sheet" );
+        }
+
         // OpenAssets
         [MenuItem( "Project/Open Assets (UIAudioTheme)", priority = 1000 )]
-        internal static void OpenAssets_UIAudioTheme() {
+        public static void OpenAssets_UIAudioTheme() {
             OpenAssetsReverse(
                 "Assets/Project.UI/Project.UI/           (*Theme.cs)",
                 "Assets/Project.UI/Project.UI.MainScreen/(*Theme.cs)",
@@ -138,7 +144,7 @@ namespace Project.Toolbar {
                 );
         }
         [MenuItem( "Project/Open Assets (UIScreen)", priority = 1001 )]
-        internal static void OpenAssets_UIScreen() {
+        public static void OpenAssets_UIScreen() {
             OpenAssetsReverse(
                 "Assets/Project.UI/Project.UI/           (*Screen.cs)",
                 "Assets/Project.UI/Project.UI.MainScreen/(*Screen.cs)",
@@ -146,7 +152,7 @@ namespace Project.Toolbar {
                 );
         }
         [MenuItem( "Project/Open Assets (UIWidget)", priority = 1002 )]
-        internal static void OpenAssets_UIWidget() {
+        public static void OpenAssets_UIWidget() {
             OpenAssetsReverse(
                 "Assets/Project.UI/Project.UI/           (*WidgetBase.cs|*Widget.cs)",
                 "Assets/Project.UI/Project.UI.Common/    (*WidgetBase.cs|*Widget.cs)",
@@ -155,7 +161,7 @@ namespace Project.Toolbar {
                 );
         }
         [MenuItem( "Project/Open Assets (UIView)", priority = 1003 )]
-        internal static void OpenAssets_UIView() {
+        public static void OpenAssets_UIView() {
             OpenAssetsReverse(
                 "Assets/Project.UI/Project.UI/           (*ViewBase.cs|*View.cs)",
                 "Assets/Project.UI/Project.UI.Common/    (*ViewBase.cs|*View.cs)",
@@ -164,14 +170,14 @@ namespace Project.Toolbar {
                 );
         }
         [MenuItem( "Project/Open Assets (UIStyleSheet)", priority = 1004 )]
-        internal static void OpenAssets_UIStyleSheet() {
+        public static void OpenAssets_UIStyleSheet() {
             OpenAssets( "Assets/(*.stylus|*.styl)" );
             OpenAssets( "Packages/(*.stylus|*.styl)" );
         }
 
         // OpenDialog
         [MenuItem( "Project/Open Dialog Widget", priority = 2000 )]
-        internal static void OpenDialog() {
+        public static void OpenDialog() {
             if (Application.isPlaying) {
                 GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude )
                 .Widget!
@@ -181,7 +187,7 @@ namespace Project.Toolbar {
             }
         }
         [MenuItem( "Project/Open Info Dialog Widget", priority = 2001 )]
-        internal static void OpenInfoDialog() {
+        public static void OpenInfoDialog() {
             if (Application.isPlaying) {
                 GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude )
                 .Widget!
@@ -191,7 +197,7 @@ namespace Project.Toolbar {
             }
         }
         [MenuItem( "Project/Open Warning Dialog Widget", priority = 2002 )]
-        internal static void OpenWarningDialog() {
+        public static void OpenWarningDialog() {
             if (Application.isPlaying) {
                 GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude )
                 .Widget!
@@ -199,7 +205,7 @@ namespace Project.Toolbar {
             }
         }
         [MenuItem( "Project/Open Error Dialog Widget", priority = 2003 )]
-        internal static void OpenErrorDialog() {
+        public static void OpenErrorDialog() {
             if (Application.isPlaying) {
                 GameObject2.RequireAnyObjectByType<UIScreen>( FindObjectsInactive.Exclude )
                 .Widget!

@@ -24,13 +24,9 @@ namespace Project.UI.MainScreen {
         }
 
         // OnAttach
-        public override void OnBeforeAttach() {
-        }
         public override void OnAttach() {
         }
         public override void OnDetach() {
-        }
-        public override void OnAfterDetach() {
         }
 
         // Helpers

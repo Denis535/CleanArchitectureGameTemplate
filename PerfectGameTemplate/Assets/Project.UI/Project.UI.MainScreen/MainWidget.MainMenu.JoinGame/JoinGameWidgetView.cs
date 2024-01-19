@@ -7,7 +7,7 @@ namespace Project.UI.MainScreen {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class JoinGameWidgetView : UIWidgetViewBase {
+    public class JoinGameWidgetView : UIViewBase {
 
         // VisualElement
         public override VisualElement VisualElement { get; }

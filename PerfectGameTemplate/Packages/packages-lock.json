@@ -18,7 +18,7 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.uielements": "1.0.0"
       },
-      "hash": "ca9f26f850da4393782bf57b07ba6f9d464aebbd"
+      "hash": "0da3c4e641baf0a86a5efa21ccb5708ea54a97e6"
     },
     "com.colorful-project-window": {
       "version": "https://github.com/Denis535/ArchitectureGameFramework.git?path=Packages/com.colorful-project-window",
@@ -28,14 +28,13 @@
       "hash": "ca9f26f850da4393782bf57b07ba6f9d464aebbd"
     },
     "com.uitoolkit-theme-style-sheet": {
-      "version": "https://github.com/Denis535/UIToolkitThemeStyleSheet.git?path=/Packages/com.uitoolkit-theme-style-sheet",
+      "version": "file:com.uitoolkit-theme-style-sheet",
       "depth": 0,
-      "source": "git",
+      "source": "embedded",
       "dependencies": {
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.uielements": "1.0.0"
-      },
-      "hash": "52154583aa4beb55a9cc665100c7b62d63299377"
+      }
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",

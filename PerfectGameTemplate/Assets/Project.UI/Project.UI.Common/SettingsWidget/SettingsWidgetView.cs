@@ -7,7 +7,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class SettingsWidgetView : UIWidgetViewBase {
+    public class SettingsWidgetView : UIViewBase {
 
         // VisualElement
         public override VisualElement VisualElement { get; }

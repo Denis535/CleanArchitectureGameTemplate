@@ -7,7 +7,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class PlayerProfileWidgetView : UIWidgetViewBase {
+    public class PlayerProfileWidgetView : UIViewBase {
 
         // VisualElement
         public override VisualElement VisualElement { get; }

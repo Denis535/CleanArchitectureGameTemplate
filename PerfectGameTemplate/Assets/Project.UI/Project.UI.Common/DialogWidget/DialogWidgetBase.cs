@@ -7,7 +7,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
-    public abstract class DialogWidgetBase<TView> : UIWidgetBase<TView>, IUIModalWidget where TView : DialogWidgetViewBase {
+    public abstract class DialogWidgetBase<TView> : UIWidgetBase<TView>, IModalWidget where TView : DialogWidgetViewBase {
 
         // Globals
         private UIFactory Factory { get; }
@@ -51,13 +51,9 @@ namespace Project.UI.Common {
         }
 
         // OnAttach
-        public override void OnBeforeAttach() {
-        }
         public override void OnAttach() {
         }
         public override void OnDetach() {
-        }
-        public override void OnAfterDetach() {
         }
 
         // OnSubmit

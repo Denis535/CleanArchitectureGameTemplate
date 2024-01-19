@@ -1,4 +1,4 @@
-.screen {
+.root-widget {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -15,8 +15,8 @@
   padding-top: 0px;
   padding-bottom: 0px;
 }
-.screen .container,
-.screen .modal-container {
+.root-widget .widget-slot,
+.root-widget .modal-widget-slot {
   position: absolute;
   width: 100%;
   height: 100%;

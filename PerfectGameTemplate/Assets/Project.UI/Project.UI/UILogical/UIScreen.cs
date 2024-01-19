@@ -10,12 +10,11 @@ namespace Project.UI {
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
-    public class UIScreen : UIScreenBase<UIScreenView> {
+    public class UIScreen : UIScreenBase {
 
         private readonly Tracker<UIScreenState> stateTracker = new Tracker<UIScreenState>();
 
         // Globals
-        private UIFactory Factory { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
         // State
         public UIScreenState State => GetState( Application.State );
@@ -25,15 +24,13 @@ namespace Project.UI {
         // Awake
         public new void Awake() {
             base.Awake();
-            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
-            View = new UIScreenView( Factory );
-            AddScreen( Document, View.VisualElement );
+            this.AttachWidget( new RootWidget() );
+            AddRootWidgetView( Document, Widget!.View!.VisualElement );
         }
         public new void OnDestroy() {
+            RemoveRootWidgetView( Document, Widget!.View!.VisualElement );
             Widget?.DetachSelf();
-            //RemoveScreen( Document, View );
-            View.Dispose();
             base.OnDestroy();
         }
 
@@ -42,21 +39,20 @@ namespace Project.UI {
         }
         public void Update() {
 #if UNITY_EDITOR
-            AddScreenIfNeeded( Document, View.VisualElement );
+            //AddRootWidgetViewIfNeeded( Document, Widget!.View!.VisualElement );
 #endif
             if (stateTracker.IsChanged( State )) {
+                Widget!.DetachChildren();
                 if (IsMainScreen) {
-                    Widget?.DetachSelf();
-                    this.AttachWidget( new MainWidget() );
+                    Widget!.AttachChild( new MainWidget() );
                 } else if (IsGameScreen) {
-                    Widget?.DetachSelf();
-                    this.AttachWidget( new GameWidget() );
-                } else {
-                    Widget?.DetachSelf();
+                    Widget!.AttachChild( new GameWidget() );
                 }
             }
-            (Widget as MainWidget)?.Update();
-            (Widget as GameWidget)?.Update();
+            foreach (var descendant in Widget!.Descendants) {
+                (descendant as MainWidget)?.Update();
+                (descendant as GameWidget)?.Update();
+            }
         }
 
         // AttachWidget
@@ -65,28 +61,6 @@ namespace Project.UI {
         }
         protected override void __DetachWidget__(UIWidgetBase widget) {
             base.__DetachWidget__( widget );
-        }
-
-        // ShowWidget
-        public override void ShowWidget(UIWidgetBase widget) {
-            base.ShowWidget( widget );
-        }
-        public override void HideWidget(UIWidgetBase widget) {
-            base.HideWidget( widget );
-        }
-
-        // OnDescendantWidgetAttach
-        public override void OnBeforeDescendantWidgetAttach(UIWidgetBase descendant) {
-            base.OnBeforeDescendantWidgetAttach( descendant );
-        }
-        public override void OnAfterDescendantWidgetAttach(UIWidgetBase descendant) {
-            base.OnAfterDescendantWidgetAttach( descendant );
-        }
-        public override void OnBeforeDescendantWidgetDetach(UIWidgetBase descendant) {
-            base.OnBeforeDescendantWidgetDetach( descendant );
-        }
-        public override void OnAfterDescendantWidgetDetach(UIWidgetBase descendant) {
-            base.OnAfterDescendantWidgetDetach( descendant );
         }
 
         // Helpers

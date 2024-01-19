@@ -28,16 +28,12 @@ namespace Project.UI.Common {
         }
 
         // OnAttach
-        public override void OnBeforeAttach() {
+        public override void OnAttach() {
             View.IsFullScreen.Value = VideoSettings.IsFullScreen;
             View.ScreenResolution.ValueChoices = (VideoSettings.ScreenResolution, VideoSettings.ScreenResolutions.Cast<object?>().ToArray());
             View.IsVSync.Value = VideoSettings.IsVSync;
         }
-        public override void OnAttach() {
-        }
         public override void OnDetach() {
-        }
-        public override void OnAfterDetach() {
             VideoSettings.Load();
         }
 

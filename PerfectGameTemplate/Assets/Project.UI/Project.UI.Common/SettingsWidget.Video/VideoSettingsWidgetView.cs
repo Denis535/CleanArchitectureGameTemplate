@@ -7,7 +7,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class VideoSettingsWidgetView : UIWidgetViewBase {
+    public class VideoSettingsWidgetView : UIViewBase {
 
         // VisualElement
         public override VisualElement VisualElement { get; }

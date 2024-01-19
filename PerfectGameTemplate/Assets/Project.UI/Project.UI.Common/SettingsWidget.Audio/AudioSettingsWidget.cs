@@ -27,17 +27,13 @@ namespace Project.UI.Common {
         }
 
         // OnAttach
-        public override void OnBeforeAttach() {
+        public override void OnAttach() {
             View.MasterVolume.ValueMinMax = (AudioSettings.MasterVolume, 0, 1);
             View.MusicVolume.ValueMinMax = (AudioSettings.MusicVolume, 0, 1);
             View.SfxVolume.ValueMinMax = (AudioSettings.SfxVolume, 0, 1);
             View.GameVolume.ValueMinMax = (AudioSettings.GameVolume, 0, 1);
         }
-        public override void OnAttach() {
-        }
         public override void OnDetach() {
-        }
-        public override void OnAfterDetach() {
             AudioSettings.Load();
         }
 

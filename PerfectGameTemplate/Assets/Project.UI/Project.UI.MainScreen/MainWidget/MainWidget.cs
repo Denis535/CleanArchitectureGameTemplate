@@ -37,8 +37,6 @@ namespace Project.UI.MainScreen {
         }
 
         // OnAttach
-        public override void OnBeforeAttach() {
-        }
         public override async void OnAttach() {
             // await MainScene
             if (!Application.IsMainSceneLoaded) {
@@ -74,8 +72,6 @@ namespace Project.UI.MainScreen {
             this.AttachChild( new MainMenuWidget() );
         }
         public override void OnDetach() {
-        }
-        public override void OnAfterDetach() {
         }
 
         // OnDescendantAttach

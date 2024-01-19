@@ -9,7 +9,7 @@ namespace Project.UI.MainScreen {
     using UnityEngine.UIElements;
     using UnityEngine.UIElements.Experimental;
 
-    public class LoadingWidgetView : UIWidgetViewBase {
+    public class LoadingWidgetView : UIViewBase {
 
         // VisualElement
         public override VisualElement VisualElement { get; }

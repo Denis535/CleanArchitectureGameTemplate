@@ -7,7 +7,7 @@ namespace Project.UI.MainScreen {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class CreateGameWidgetView : UIWidgetViewBase {
+    public class CreateGameWidgetView : UIViewBase {
 
         // VisualElement
         public override VisualElement VisualElement { get; }
@@ -38,7 +38,7 @@ namespace Project.UI.MainScreen {
 
     }
     // GameView
-    public class GameView : UISubViewBase {
+    public class GameView : UIViewBase {
 
         // VisualElement
         public override VisualElement VisualElement { get; }
@@ -65,7 +65,7 @@ namespace Project.UI.MainScreen {
 
     }
     // PlayerView
-    public class PlayerView : UISubViewBase {
+    public class PlayerView : UIViewBase {
 
         // VisualElement
         public override VisualElement VisualElement { get; }
@@ -90,7 +90,7 @@ namespace Project.UI.MainScreen {
 
     }
     // LobbyView
-    public class LobbyView : UISubViewBase {
+    public class LobbyView : UIViewBase {
 
         // VisualElement
         public override VisualElement VisualElement { get; }
@@ -114,7 +114,7 @@ namespace Project.UI.MainScreen {
 
     }
     // ChatView
-    public class ChatView : UISubViewBase {
+    public class ChatView : UIViewBase {
 
         // VisualElement
         public override VisualElement VisualElement { get; }

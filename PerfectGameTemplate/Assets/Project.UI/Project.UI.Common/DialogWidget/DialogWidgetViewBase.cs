@@ -8,7 +8,7 @@ namespace Project.UI.Common {
     using UnityEngine.UIElements;
     using UnityEngine.UIElements.Experimental;
 
-    public abstract class DialogWidgetViewBase : UIWidgetViewBase, IUIModalWidgetView {
+    public abstract class DialogWidgetViewBase : UIViewBase, IModalWidgetView {
 
         // VisualElement
         public override VisualElement VisualElement { get; }

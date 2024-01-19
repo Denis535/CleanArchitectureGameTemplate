@@ -7,7 +7,7 @@ namespace Project.UI.GameScreen {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class GameMenuWidgetView : UIWidgetViewBase {
+    public class GameMenuWidgetView : UIViewBase {
 
         // VisualElement
         public override VisualElement VisualElement { get; }
