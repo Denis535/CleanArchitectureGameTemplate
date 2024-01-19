@@ -18,7 +18,7 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.uielements": "1.0.0"
       },
-      "hash": "0da3c4e641baf0a86a5efa21ccb5708ea54a97e6"
+      "hash": "aa7f9ca4ed1ae6f56110dc99798c89bf7f82bd62"
     },
     "com.colorful-project-window": {
       "version": "https://github.com/Denis535/ArchitectureGameFramework.git?path=Packages/com.colorful-project-window",
