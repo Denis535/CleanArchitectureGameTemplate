@@ -104,9 +104,6 @@ namespace Project.UI.MainScreen {
             Group = group.Wrap();
             Title = title.Wrap();
             Players = players.AsSlot();
-            for (var i = 1; i <= 32; i++) {
-                Players.Add( factory.PlayerItem( $"Player: {i}", i - 1 ) );
-            }
         }
         public override void Dispose() {
             base.Dispose();
@@ -132,9 +129,6 @@ namespace Project.UI.MainScreen {
             Messages = messages.AsSlot();
             Text = text.Wrap();
             Send = send.Wrap();
-            for (var i = 1; i <= 32; i++) {
-                Messages.Add( factory.MessageItem( $"Message: {i}", i - 1 ) );
-            }
         }
         public override void Dispose() {
             base.Dispose();

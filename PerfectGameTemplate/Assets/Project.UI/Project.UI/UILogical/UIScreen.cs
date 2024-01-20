@@ -26,10 +26,8 @@ namespace Project.UI {
             base.Awake();
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
             this.AttachWidget( new RootWidget() );
-            AddRootWidgetView( Document, Widget!.View!.VisualElement );
         }
         public new void OnDestroy() {
-            RemoveRootWidgetView( Document, Widget!.View!.VisualElement );
             Widget?.DetachSelf();
             base.OnDestroy();
         }
@@ -39,7 +37,7 @@ namespace Project.UI {
         }
         public void Update() {
 #if UNITY_EDITOR
-            //AddRootWidgetViewIfNeeded( Document, Widget!.View!.VisualElement );
+            //ShowWidgetViewIfNeeded( Document, Widget!.View!.VisualElement );
 #endif
             if (stateTracker.IsChanged( State )) {
                 Widget!.DetachChildren();
@@ -58,8 +56,10 @@ namespace Project.UI {
         // AttachWidget
         protected override void __AttachWidget__(UIWidgetBase widget) {
             base.__AttachWidget__( widget );
+            ShowWidgetView( Document, Widget!.View!.VisualElement );
         }
         protected override void __DetachWidget__(UIWidgetBase widget) {
+            HideWidgetView( Document, Widget!.View!.VisualElement );
             base.__DetachWidget__( widget );
         }
 

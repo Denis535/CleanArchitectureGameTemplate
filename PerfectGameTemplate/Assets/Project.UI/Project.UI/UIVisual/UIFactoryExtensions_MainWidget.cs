@@ -151,7 +151,7 @@ namespace Project.UI {
                 4 => "dark2",
                 _ => throw Exceptions.Internal.Exception( null )
             };
-            using (factory.Box().Name( "player" ).Classes( style, "medium", "grow-1", "shrink-0" ).Pipe( i => i.style.width = 2000 ).AsScope( out var view )) {
+            using (factory.Box().Name( "player" ).Classes( style, "medium", "grow-1", "shrink-0" ).AsScope( out var view )) {
                 VisualElementScope.Add( factory.Label( text ).Classes( "font-style-bold" ) );
                 return view;
             }
@@ -165,7 +165,7 @@ namespace Project.UI {
                 4 => "dark2",
                 _ => throw Exceptions.Internal.Exception( null )
             };
-            using (factory.Box().Name( "message" ).Classes( style, "medium", "grow-1", "shrink-0" ).Pipe( i => i.style.width = 2000 ).AsScope( out var view )) {
+            using (factory.Box().Name( "message" ).Classes( style, "medium", "grow-1", "shrink-0" ).AsScope( out var view )) {
                 VisualElementScope.Add( factory.Label( text ) );
                 return view;
             }
