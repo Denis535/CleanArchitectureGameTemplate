@@ -4,6 +4,7 @@ namespace Project.UI {
     using System.Collections;
     using System.Collections.Generic;
     using Project.App;
+    using Project.UI.Common;
     using Project.UI.GameScreen;
     using Project.UI.MainScreen;
     using UnityEngine;
@@ -25,7 +26,7 @@ namespace Project.UI {
         public new void Awake() {
             base.Awake();
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
-            this.AttachWidget( new RootWidget() );
+            this.AttachWidget( new RootWidget2() );
         }
         public new void OnDestroy() {
             Widget?.DetachSelf();
@@ -56,10 +57,10 @@ namespace Project.UI {
         // AttachWidget
         protected override void __AttachWidget__(UIWidgetBase widget) {
             base.__AttachWidget__( widget );
-            ShowWidgetView( Document, Widget!.View!.VisualElement );
+            ShowWidget( Document, widget );
         }
         protected override void __DetachWidget__(UIWidgetBase widget) {
-            HideWidgetView( Document, Widget!.View!.VisualElement );
+            HideWidget( Document, widget );
             base.__DetachWidget__( widget );
         }
 

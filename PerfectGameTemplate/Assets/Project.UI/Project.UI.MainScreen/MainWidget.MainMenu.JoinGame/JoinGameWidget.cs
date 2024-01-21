@@ -107,10 +107,16 @@ namespace Project.UI.MainScreen {
         }
         private static LobbyView CreateLobbyView(JoinGameWidget widget, UIFactory factory) {
             var view = new LobbyView( factory );
+            for (var i = 1; i <= 32; i++) {
+                view.Players.Add( factory.PlayerItem( $"Player: {i}", i - 1 ) );
+            }
             return view;
         }
         private static ChatView CreateChatView(JoinGameWidget widget, UIFactory factory) {
             var view = new ChatView( factory );
+            for (var i = 1; i <= 32; i++) {
+                view.Messages.Add( factory.MessageItem( $"Message: {i}", i - 1 ) );
+            }
             return view;
         }
 
