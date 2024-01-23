@@ -6,7 +6,7 @@ namespace UnityEngine.Framework.UI {
     using System.Linq;
     using UnityEngine;
     using UnityEngine.UIElements;
- 
+
     public abstract class RootWidgetBase<TView> : UIWidgetBase<TView> where TView : RootWidgetViewBase {
 
         // Constructor
