@@ -9,6 +9,7 @@ namespace Project.Toolbar {
     using System.Text;
     using System.Text.RegularExpressions;
     using System.Threading;
+    using System.Threading.Tasks;
     using Project.UI;
     using Project.UI.Common;
     using UnityEditor;
@@ -129,9 +130,19 @@ namespace Project.Toolbar {
         }
 
         // EmbedPackage
-        [MenuItem( "Project/Embed Package (UIToolkit Theme Style Sheet)", priority = 401 )]
-        public static void EmbedPackage_UIToolkitThemeStyleSheet() {
-            UnityEditor.PackageManager.Client.Embed( "com.uitoolkit-theme-style-sheet" );
+        [MenuItem( "Project/Embed Packages", priority = 401 )]
+        public static async void EmbedPackages() {
+            var request = UnityEditor.PackageManager.Client.Embed( "com.clean-architecture-game-framework" );
+            while (!request.IsCompleted) await Task.Yield();
+
+            request = UnityEditor.PackageManager.Client.Embed( "com.addressables-source-generator" );
+            while (!request.IsCompleted) await Task.Yield();
+
+            request = UnityEditor.PackageManager.Client.Embed( "com.colorful-project-window" );
+            while (!request.IsCompleted) await Task.Yield();
+
+            request = UnityEditor.PackageManager.Client.Embed( "com.uitoolkit-theme-style-sheet" );
+            while (!request.IsCompleted) await Task.Yield();
         }
 
         // OpenAssets
