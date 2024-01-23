@@ -43,8 +43,8 @@ namespace Project.UI.Common {
                 view.Name.IsValid = Globals.PlayerProfile.IsNameValid( name! );
                 view.Okey.IsValid = Globals.PlayerProfile.IsNameValid( name! );
             } );
-            view.Okey.OnClick( i => {
-                if (i.IsValid) {
+            view.Okey.OnClick( () => {
+                if (view.Okey.IsValid) {
                     playerProfile.PlayerName = view.Name.Value!;
                     playerProfile.Save();
                     widget.DetachSelf();
@@ -58,7 +58,7 @@ namespace Project.UI.Common {
                     }
                 }
             } );
-            view.Back.OnClick( i => {
+            view.Back.OnClick( () => {
                 widget.DetachSelf();
             } );
             return view;

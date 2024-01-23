@@ -52,7 +52,7 @@ namespace Project.UI.Common {
             view.GameVolume.OnChange( (i, gameVolume) => {
                 audioSettings.GameVolume = gameVolume;
             } );
-            view.Okey.OnClick( i => {
+            view.Okey.OnClick( () => {
                 audioSettings.MasterVolume = view.MasterVolume.Value;
                 audioSettings.MusicVolume = view.MusicVolume.Value;
                 audioSettings.SfxVolume = view.SfxVolume.Value;
@@ -60,7 +60,7 @@ namespace Project.UI.Common {
                 audioSettings.Save();
                 widget.DetachSelf();
             } );
-            view.Back.OnClick( i => {
+            view.Back.OnClick( () => {
                 widget.DetachSelf();
             } );
             return view;

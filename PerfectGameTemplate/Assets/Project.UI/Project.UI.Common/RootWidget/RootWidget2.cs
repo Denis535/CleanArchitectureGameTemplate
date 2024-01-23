@@ -12,6 +12,26 @@ namespace Project.UI.Common {
 
         // Constructor
         public RootWidget2() {
+            View.Widget.OnEventTrickleDown<NavigationSubmitEvent>( evt => {
+                if (evt.target is Button button) {
+                    using (var click = ClickEvent.GetPooled()) {
+                        click.target = button;
+                        button.SendEvent( click );
+                    }
+                    evt.StopPropagation();
+                }
+            } );
+            View.Widget.OnEventTrickleDown<NavigationCancelEvent>( evt => {
+                var widget = ((VisualElement) evt.target).GetAncestorsAndSelf().OfType<Widget>().FirstOrDefault();
+                var button = widget?.Query<Button>().Where( i => i.name is "resume" or "cancel" or "cancellation" or "back" or "no" or "quit" ).First();
+                if (button != null) {
+                    using (var click = ClickEvent.GetPooled()) {
+                        click.target = button;
+                        button.SendEvent( click );
+                    }
+                    evt.StopPropagation();
+                }
+            } );
         }
         public override void Dispose() {
             base.Dispose();

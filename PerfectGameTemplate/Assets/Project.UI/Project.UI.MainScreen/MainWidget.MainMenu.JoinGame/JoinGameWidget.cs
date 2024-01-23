@@ -77,7 +77,7 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static JoinGameWidgetView CreateView(JoinGameWidget widget, UIFactory factory, UIRouter router) {
             var view = new JoinGameWidgetView( factory );
-            view.Okey.OnClick( i => {
+            view.Okey.OnClick( () => {
                 var gameName = widget.GameView.Name.Value!;
                 var gameMode = (GameMode) widget.GameView.Mode.Value!;
                 var gameWorld = (GameWorld) widget.GameView.World.Value!;
@@ -92,7 +92,7 @@ namespace Project.UI.MainScreen {
                     widget.AttachChild( new LoadingWidget() );
                 }
             } );
-            view.Back.OnClick( i => {
+            view.Back.OnClick( () => {
                 widget.DetachSelf();
             } );
             return view;
