@@ -1,16 +1,16 @@
 {
   "dependencies": {
     "com.addressables-source-generator": {
-      "version": "https://github.com/Denis535/ArchitectureGameFramework.git?path=Packages/com.addressables-source-generator",
+      "version": "https://github.com/Denis535/CleanArchitectureGameFramework.git?path=Packages/com.addressables-source-generator",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.addressables": "1.0.0"
       },
-      "hash": "ca9f26f850da4393782bf57b07ba6f9d464aebbd"
+      "hash": "73a19d7c887a184d2a1902559909760d4632fc35"
     },
-    "com.architecture-game-framework": {
-      "version": "https://github.com/Denis535/ArchitectureGameFramework.git?path=Packages/com.architecture-game-framework",
+    "com.clean-architecture-game-framework": {
+      "version": "https://github.com/Denis535/CleanArchitectureGameFramework.git?path=Packages/com.clean-architecture-game-framework",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -18,23 +18,24 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.uielements": "1.0.0"
       },
-      "hash": "d9a1abba9bca2fef3c9befbc67ab5782a87c8bcc"
+      "hash": "73a19d7c887a184d2a1902559909760d4632fc35"
     },
     "com.colorful-project-window": {
-      "version": "https://github.com/Denis535/ArchitectureGameFramework.git?path=Packages/com.colorful-project-window",
+      "version": "https://github.com/Denis535/CleanArchitectureGameFramework.git?path=Packages/com.colorful-project-window",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "ca9f26f850da4393782bf57b07ba6f9d464aebbd"
+      "hash": "73a19d7c887a184d2a1902559909760d4632fc35"
     },
     "com.uitoolkit-theme-style-sheet": {
-      "version": "file:com.uitoolkit-theme-style-sheet",
+      "version": "https://github.com/Denis535/UIToolkitThemeStyleSheet.git?path=/Packages/com.uitoolkit-theme-style-sheet",
       "depth": 0,
-      "source": "embedded",
+      "source": "git",
       "dependencies": {
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.uielements": "1.0.0"
-      }
+      },
+      "hash": "88146aa69783eda7ee89b924589787eac882e391"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",

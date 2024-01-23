@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "com.architecture-game-framework": "https://github.com/Denis535/ArchitectureGameFramework.git?path=Packages/com.architecture-game-framework",
-    "com.addressables-source-generator": "https://github.com/Denis535/ArchitectureGameFramework.git?path=Packages/com.addressables-source-generator",
-    "com.colorful-project-window": "https://github.com/Denis535/ArchitectureGameFramework.git?path=Packages/com.colorful-project-window",
+    "com.clean-architecture-game-framework": "https://github.com/Denis535/CleanArchitectureGameFramework.git?path=Packages/com.clean-architecture-game-framework",
+    "com.addressables-source-generator": "https://github.com/Denis535/CleanArchitectureGameFramework.git?path=Packages/com.addressables-source-generator",
+    "com.colorful-project-window": "https://github.com/Denis535/CleanArchitectureGameFramework.git?path=Packages/com.colorful-project-window",
     "com.uitoolkit-theme-style-sheet": "https://github.com/Denis535/UIToolkitThemeStyleSheet.git?path=/Packages/com.uitoolkit-theme-style-sheet",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.addressables": "1.21.19",
