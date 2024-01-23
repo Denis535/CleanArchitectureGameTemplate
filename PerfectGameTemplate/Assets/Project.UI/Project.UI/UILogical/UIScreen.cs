@@ -57,10 +57,10 @@ namespace Project.UI {
         // AttachWidget
         protected override void __AttachWidget__(UIWidgetBase widget) {
             base.__AttachWidget__( widget );
-            ShowWidget( Document, widget );
+            AddWidgetView( Document, widget.View!.VisualElement );
         }
         protected override void __DetachWidget__(UIWidgetBase widget) {
-            HideWidget( Document, widget );
+            RemoveWidgetView( Document, widget.View!.VisualElement );
             base.__DetachWidget__( widget );
         }
 

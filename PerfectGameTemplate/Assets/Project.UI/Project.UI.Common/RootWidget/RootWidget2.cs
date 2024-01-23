@@ -70,11 +70,11 @@ namespace Project.UI.Common {
         // OnShowWidget
         protected override void OnShowWidget(UIWidgetBase widget) {
             if (!widget.IsModal()) {
-                SetFocus( widget );
+                SetFocus( widget.View!.VisualElement );
                 var covered = View.WidgetSlot.Children.SkipLast( 1 ).LastOrDefault();
                 if (covered?.name is not "main-widget" and not "game-widget") covered?.SetDisplayed( false );
             } else {
-                SetFocus( widget );
+                SetFocus( widget.View!.VisualElement );
                 View.WidgetSlot.IsEnabled = false;
                 var covered = View.ModalWidgetSlot.Children.SkipLast( 1 ).LastOrDefault();
                 covered?.SetDisplayed( false );
@@ -82,11 +82,11 @@ namespace Project.UI.Common {
         }
         protected override void OnHideWidget(UIWidgetBase widget) {
             if (!widget.IsModal()) {
-                SetFocus( widget );
+                SetFocus( widget.View!.VisualElement );
                 var uncovered = View.WidgetSlot.Children.SkipLast( 1 ).LastOrDefault();
                 if (uncovered?.name is not "main-widget" and not "game-widget") uncovered?.SetDisplayed( true );
             } else {
-                SetFocus( widget );
+                SetFocus( widget.View!.VisualElement );
                 View.WidgetSlot.IsEnabled = !View.ModalWidgetSlot.Children.Any( i => i != widget.View!.VisualElement );
                 var uncovered = View.ModalWidgetSlot.Children.SkipLast( 1 ).LastOrDefault();
                 uncovered?.SetDisplayed( true );
