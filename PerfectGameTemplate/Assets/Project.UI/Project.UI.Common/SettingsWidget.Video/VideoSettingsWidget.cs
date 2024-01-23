@@ -40,13 +40,13 @@ namespace Project.UI.Common {
         // Helpers
         private static VideoSettingsWidgetView CreateView(VideoSettingsWidget widget, UIFactory factory, Globals.VideoSettings videoSettings) {
             var view = new VideoSettingsWidgetView( factory );
-            view.IsFullScreen.OnChange( (i, isFullScreen) => {
+            view.IsFullScreen.OnChange( (isFullScreen) => {
                 videoSettings.IsFullScreen = isFullScreen;
             } );
-            view.ScreenResolution.OnChange( (i, screenResolution) => {
+            view.ScreenResolution.OnChange( (screenResolution) => {
                 videoSettings.ScreenResolution = (Resolution) screenResolution!;
             } );
-            view.IsVSync.OnChange( (i, isVSync) => {
+            view.IsVSync.OnChange( (isVSync) => {
                 videoSettings.IsVSync = isVSync;
             } );
             view.Okey.OnClick( () => {

@@ -40,16 +40,16 @@ namespace Project.UI.Common {
         // Helpers
         private static AudioSettingsWidgetView CreateView(AudioSettingsWidget widget, UIFactory factory, Globals.AudioSettings audioSettings) {
             var view = new AudioSettingsWidgetView( factory );
-            view.MasterVolume.OnChange( (i, masterVolume) => {
+            view.MasterVolume.OnChange( (masterVolume) => {
                 audioSettings.MasterVolume = masterVolume;
             } );
-            view.MusicVolume.OnChange( (i, musicVolume) => {
+            view.MusicVolume.OnChange( (musicVolume) => {
                 audioSettings.MusicVolume = musicVolume;
             } );
-            view.SfxVolume.OnChange( (i, sfxVolume) => {
+            view.SfxVolume.OnChange( (sfxVolume) => {
                 audioSettings.SfxVolume = sfxVolume;
             } );
-            view.GameVolume.OnChange( (i, gameVolume) => {
+            view.GameVolume.OnChange( (gameVolume) => {
                 audioSettings.GameVolume = gameVolume;
             } );
             view.Okey.OnClick( () => {
