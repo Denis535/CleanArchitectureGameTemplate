@@ -61,44 +61,74 @@ namespace Project.UI.Common {
 
         // ShowWidget
         protected override void ShowWidget(UIWidgetBase widget) {
-            base.ShowWidget( widget );
-        }
-        protected override void HideWidget(UIWidgetBase widget) {
-            base.HideWidget( widget );
-        }
-
-        // OnShowWidget
-        protected override void OnShowWidget(UIWidgetBase widget) {
+            // cover last widget
             if (!widget.IsModal()) {
-                SetFocus( widget.View!.VisualElement );
-                var covered = View.WidgetSlot.Children.SkipLast( 1 ).LastOrDefault();
-                if (covered != null) {
-                    if (covered.name is not "main-widget" and not "game-widget") covered.SetDisplayed( false );
-                    SaveFocus( covered );
+                // cover last normal widget
+                var last = (VisualElement?) View.WidgetSlot.Children.LastOrDefault();
+                if (last != null) {
+                    SaveFocus( last );
+                    if (last.name is not "main-widget" and not "game-widget") last.SetDisplayed( false );
                 }
             } else {
-                SetFocus( widget.View!.VisualElement );
-                View.WidgetSlot.IsEnabled = false;
-                var covered = View.ModalWidgetSlot.Children.SkipLast( 1 ).LastOrDefault();
-                if (covered != null) {
-                    covered.SetDisplayed( false );
-                    SaveFocus( covered );
+                // if you have any modal widget
+                // then cover last modal widget
+                // otherwise cover last normal widget
+                if (View.ModalWidgetSlot.Children.Any()) {
+                    var last = (VisualElement?) View.ModalWidgetSlot.Children.LastOrDefault();
+                    if (last != null) {
+                        SaveFocus( last );
+                        last.SetDisplayed( false );
+                    }
+                } else {
+                    var last = (VisualElement?) View.WidgetSlot.Children.LastOrDefault();
+                    if (last != null) {
+                        SaveFocus( last );
+                        if (last.name is not "main-widget" and not "game-widget") last.SetEnabled( false );
+                    }
                 }
             }
-        }
-        protected override void OnHideWidget(UIWidgetBase widget) {
+            // show widget
             if (!widget.IsModal()) {
-                var uncovered = View.WidgetSlot.Children.SkipLast( 1 ).LastOrDefault();
-                if (uncovered != null) {
-                    if (uncovered.name is not "main-widget" and not "game-widget") uncovered.SetDisplayed( true );
-                    LoadFocus( uncovered );
+                View.WidgetSlot.Add( widget.View!.VisualElement );
+                SetFocus( widget.View!.VisualElement );
+            } else {
+                View.ModalWidgetSlot.Add( widget.View!.VisualElement );
+                SetFocus( widget.View!.VisualElement );
+            }
+        }
+        protected override void HideWidget(UIWidgetBase widget) {
+            // hide widget
+            if (!widget.IsModal()) {
+                Assert.Operation.Message( $"You can remove only last widget in widget slot" ).Valid( View.WidgetSlot.Children.LastOrDefault() == widget.View!.VisualElement );
+                View.WidgetSlot.Remove( widget.View.VisualElement );
+            } else {
+                Assert.Operation.Message( $"You can remove only last widget in modal widget slot" ).Valid( View.ModalWidgetSlot.Children.LastOrDefault() == widget.View!.VisualElement );
+                View.ModalWidgetSlot.Remove( widget.View.VisualElement );
+            }
+            // uncover last widget
+            if (!widget.IsModal()) {
+                // uncover last normal widget
+                var last = (VisualElement?) View.WidgetSlot.Children.LastOrDefault();
+                if (last != null) {
+                    if (last.name is not "main-widget" and not "game-widget") last.SetDisplayed( true );
+                    LoadFocus( last );
                 }
             } else {
-                View.WidgetSlot.IsEnabled = !View.ModalWidgetSlot.Children.Any( i => i != widget.View!.VisualElement );
-                var uncovered = View.ModalWidgetSlot.Children.SkipLast( 1 ).LastOrDefault();
-                if (uncovered != null) {
-                    uncovered.SetDisplayed( true );
-                    LoadFocus( uncovered );
+                // if you have any modal widget
+                // then uncover last modal widget
+                // otherwise uncover last normal widget
+                if (View.ModalWidgetSlot.Children.Any()) {
+                    var last = (VisualElement?) View.ModalWidgetSlot.Children.LastOrDefault();
+                    if (last != null) {
+                        last.SetDisplayed( true );
+                        LoadFocus( last );
+                    }
+                } else {
+                    var last = (VisualElement?) View.WidgetSlot.Children.LastOrDefault();
+                    if (last != null) {
+                        if (last.name is not "main-widget" and not "game-widget") last.SetEnabled( true );
+                        LoadFocus( last );
+                    }
                 }
             }
         }

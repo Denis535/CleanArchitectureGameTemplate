@@ -38,7 +38,7 @@ namespace Project.UI {
         }
         public void Update() {
 #if UNITY_EDITOR
-            //ShowWidgetViewIfNeeded( Document, Widget!.View!.VisualElement );
+            //AddViewIfNeeded( Document, Widget!.View!.VisualElement );
 #endif
             if (stateTracker.IsChanged( State )) {
                 Widget!.DetachChildren();
@@ -57,10 +57,10 @@ namespace Project.UI {
         // AttachWidget
         protected override void __AttachWidget__(UIWidgetBase widget) {
             base.__AttachWidget__( widget );
-            AddWidgetView( Document, widget.View!.VisualElement );
+            AddView( Document, widget.View!.VisualElement );
         }
         protected override void __DetachWidget__(UIWidgetBase widget) {
-            RemoveWidgetView( Document, widget.View!.VisualElement );
+            RemoveView( Document, widget.View!.VisualElement );
             base.__DetachWidget__( widget );
         }
 
