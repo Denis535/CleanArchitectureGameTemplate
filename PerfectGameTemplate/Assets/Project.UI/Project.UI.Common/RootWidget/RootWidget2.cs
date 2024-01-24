@@ -8,10 +8,14 @@ namespace Project.UI.Common {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class RootWidget2 : RootWidget {
+    public class RootWidget2 : RootWidgetBase<RootWidgetView> {
+
+        // View
+        public override RootWidgetView View { get; }
 
         // Constructor
         public RootWidget2() {
+            View = new RootWidgetView();
             View.Widget.OnEventTrickleDown<NavigationSubmitEvent>( evt => {
                 if (evt.target is Button button) {
                     using (var click = ClickEvent.GetPooled()) {
