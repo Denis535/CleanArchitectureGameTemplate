@@ -15,17 +15,17 @@ namespace Project {
 
     public class DependencyContainer : MonoBehaviour, IDependencyContainer {
 
-        [SerializeField] private UITheme theme = default!;
-        [SerializeField] private UIScreen screen = default!;
-        [SerializeField] private UIFactory factory = default!;
-        [SerializeField] private UIRouter router = default!;
+        [SerializeField] private UITheme uiTheme = default!;
+        [SerializeField] private UIScreen uiScreen = default!;
+        [SerializeField] private UIFactory uiFactory = default!;
+        [SerializeField] private UIRouter uiRouter = default!;
         [SerializeField] private Application2 application = default!;
 
         // Globals
-        private UITheme Theme => theme;
-        private UIScreen Screen => screen;
-        private UIFactory Factory => factory;
-        private UIRouter Router => router;
+        private UITheme UITheme => uiTheme;
+        private UIScreen UIScreen => uiScreen;
+        private UIFactory UIFactory => uiFactory;
+        private UIRouter UIRouter => uiRouter;
         private Application2 Application => application;
         private Globals Globals { get; set; } = default!;
         private Globals.PlayerProfile PlayerProfile { get; set; } = default!;
@@ -54,24 +54,24 @@ namespace Project {
             Assert.Object.Message( $"Object {this} must be alive" ).Alive( this );
             // UI
             if (type == typeof( UITheme )) {
-                Assert.Object.Message( $"Object {Theme} must be awakened" ).Valid( Theme.didAwake );
-                Assert.Object.Message( $"Object {Theme} must be alive" ).Alive( Theme );
-                return Theme;
+                Assert.Object.Message( $"Object {UITheme} must be awakened" ).Valid( UITheme.didAwake );
+                Assert.Object.Message( $"Object {UITheme} must be alive" ).Alive( UITheme );
+                return UITheme;
             }
             if (type == typeof( UIScreen )) {
-                Assert.Object.Message( $"Object {Screen} must be awakened" ).Valid( Screen.didAwake );
-                Assert.Object.Message( $"Object {Screen} must be alive" ).Alive( Screen );
-                return Screen;
+                Assert.Object.Message( $"Object {UIScreen} must be awakened" ).Valid( UIScreen.didAwake );
+                Assert.Object.Message( $"Object {UIScreen} must be alive" ).Alive( UIScreen );
+                return UIScreen;
             }
             if (type == typeof( UIFactory )) {
-                Assert.Object.Message( $"Object {Factory} must be awakened" ).Valid( Factory.didAwake );
-                Assert.Object.Message( $"Object {Factory} must be alive" ).Alive( Factory );
-                return Factory;
+                Assert.Object.Message( $"Object {UIFactory} must be awakened" ).Valid( UIFactory.didAwake );
+                Assert.Object.Message( $"Object {UIFactory} must be alive" ).Alive( UIFactory );
+                return UIFactory;
             }
             if (type == typeof( UIRouter )) {
-                Assert.Object.Message( $"Object {Router} must be awakened" ).Valid( Router.didAwake );
-                Assert.Object.Message( $"Object {Router} must be alive" ).Alive( Router );
-                return Router;
+                Assert.Object.Message( $"Object {UIRouter} must be awakened" ).Valid( UIRouter.didAwake );
+                Assert.Object.Message( $"Object {UIRouter} must be alive" ).Alive( UIRouter );
+                return UIRouter;
             }
             // App
             if (type == typeof( Application2 )) {

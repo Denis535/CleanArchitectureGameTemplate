@@ -11,11 +11,11 @@ This package provides you with clean architecture framework that helping you to 
   * IDependencyContainer
   * Program
 * Framework.UI
- * UIAudioTheme - audible component
- * UIScreen - logical component
- * UIWidget - logical component
- * UIView - visual component
- * UIRouter - application state router
+  * UIAudioTheme - audible component
+  * UIScreen - logical component
+  * UIWidget - logical component
+  * UIView - visual component
+  * UIRouter - application state router
 * Framework.App
   * Application
   * Globals - global variables and constants.
@@ -42,7 +42,7 @@ This package (Colorful Project Window) gives you the more comfortable and colorf
 This package provides you with beautiful theme style sheets and some additions and tools for UIToolkit.
 
 # Setup
-- Install dependency packages.
+- Install embedded packages.
 - Link project with Unity Gaming Services.
 
 # Build
