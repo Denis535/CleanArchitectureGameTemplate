@@ -60,7 +60,7 @@ namespace Project.UI {
             AddView( Document, widget.View!.VisualElement );
         }
         protected override void __DetachWidget__(UIWidgetBase widget) {
-            RemoveView( Document, widget.View!.VisualElement );
+            //RemoveView( Document, widget.View!.VisualElement ); // NullReferenceException: Object reference not set to an instance of an object
             base.__DetachWidget__( widget );
         }
 

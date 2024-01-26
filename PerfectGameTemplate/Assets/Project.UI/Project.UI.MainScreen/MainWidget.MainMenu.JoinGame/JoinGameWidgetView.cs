@@ -13,21 +13,22 @@ namespace Project.UI.MainScreen {
         public override VisualElement VisualElement { get; }
         public ElementWrapper Widget { get; }
         public LabelWrapper Title { get; }
-        public SlotWrapper GameSlot { get; }
-        public SlotWrapper PlayerSlot { get; }
-        public SlotWrapper LobbySlot { get; }
+        public SlotWrapper GameDescSlot { get; }
+        public SlotWrapper PlayerDescSlot { get; }
+        //public SlotWrapper LobbySlot { get; }
+        public SlotWrapper RoomSlot { get; }
         public SlotWrapper ChatSlot { get; }
         public ButtonWrapper Okey { get; }
         public ButtonWrapper Back { get; }
 
         // Constructor
         public JoinGameWidgetView(UIFactory factory) {
-            VisualElement = factory.JoinGameWidget( out var widget, out var title, out var gameSlot, out var playerSlot, out var lobbySlot, out var chatSlot, out var okey, out var back );
+            VisualElement = factory.JoinGameWidget( out var widget, out var title, out var gameDescSlot, out var playerDescSlot, out var roomSlot, out var chatSlot, out var okey, out var back );
             Widget = widget.Wrap();
             Title = title.Wrap();
-            GameSlot = gameSlot.AsSlot();
-            PlayerSlot = playerSlot.AsSlot();
-            LobbySlot = lobbySlot.AsSlot();
+            GameDescSlot = gameDescSlot.AsSlot();
+            PlayerDescSlot = playerDescSlot.AsSlot();
+            RoomSlot = roomSlot.AsSlot();
             ChatSlot = chatSlot.AsSlot();
             Okey = okey.Wrap();
             Back = back.Wrap();
