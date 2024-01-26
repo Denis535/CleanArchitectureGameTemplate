@@ -4,33 +4,9 @@ namespace Project.UI.MainScreen {
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class GameDescWidget : UIWidgetBase<GameDescWidgetView> {
-
-        // Globals
-        private UIFactory Factory { get; }
-        // View
-        public override GameDescWidgetView View { get; }
-
-        // Constructor
-        public GameDescWidget() {
-            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
-            View = new GameDescWidgetView( Factory );
-        }
-        public override void Dispose() {
-            base.Dispose();
-        }
-
-        // OnAttach
-        public override void OnAttach() {
-        }
-        public override void OnDetach() {
-        }
-
-    }
     public class GameDescWidgetView : UIViewBase {
 
         // VisualElement

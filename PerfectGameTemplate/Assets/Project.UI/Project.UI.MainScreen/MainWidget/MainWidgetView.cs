@@ -25,7 +25,8 @@ namespace Project.UI.MainScreen {
 
         // SetEffect
         public void SetEffect(int value) {
-            var t = Easing.OutPower( Mathf.InverseLerp( 1, 8, value ), 2 );
+            var t = Mathf.InverseLerp( 2, 6, value );
+            t = Easing.OutPower( t, 2 );
             VisualElement.transform.scale = Vector3.LerpUnclamped( new Vector3( 1, 1, 1 ), new Vector3( 2, 2, 1 ), t );
             VisualElement.style.unityBackgroundImageTintColor = Color.LerpUnclamped( new Color( 1, 1, 1, 1 ), new Color( 0, 0, 0, 1 ), t );
         }

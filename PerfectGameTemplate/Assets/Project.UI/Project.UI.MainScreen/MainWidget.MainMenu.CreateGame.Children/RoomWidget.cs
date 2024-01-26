@@ -6,7 +6,6 @@ namespace Project.UI.MainScreen {
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
-    using UnityEngine.UIElements;
 
     public class RoomWidget : UIWidgetBase<RoomWidgetView> {
 
@@ -26,28 +25,11 @@ namespace Project.UI.MainScreen {
 
         // OnAttach
         public override void OnAttach() {
+            for (var i = 1; i <= 32; i++) {
+                View.Players.Add( Factory.PlayerItem( $"Player: {i}", i - 1 ) );
+            }
         }
         public override void OnDetach() {
-        }
-
-    }
-    public class RoomWidgetView : UIViewBase {
-
-        // VisualElement
-        public override VisualElement VisualElement { get; }
-        public ElementWrapper Group { get; }
-        public LabelWrapper Title { get; }
-        public SlotWrapper Players { get; }
-
-        // Constructor
-        public RoomWidgetView(UIFactory factory) {
-            VisualElement = factory.RoomWidget( out var group, out var title, out var players );
-            Group = group.Wrap();
-            Title = title.Wrap();
-            Players = players.AsSlot();
-        }
-        public override void Dispose() {
-            base.Dispose();
         }
 
     }

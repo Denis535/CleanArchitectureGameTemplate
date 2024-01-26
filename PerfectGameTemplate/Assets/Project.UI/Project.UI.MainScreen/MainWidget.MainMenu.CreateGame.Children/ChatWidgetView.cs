@@ -4,33 +4,9 @@ namespace Project.UI.MainScreen {
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class ChatWidget : UIWidgetBase<ChatWidgetView> {
-
-        // Globals
-        private UIFactory Factory { get; }
-        // View
-        public override ChatWidgetView View { get; }
-
-        // Constructor
-        public ChatWidget() {
-            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
-            View = new ChatWidgetView( Factory );
-        }
-        public override void Dispose() {
-            base.Dispose();
-        }
-
-        // OnAttach
-        public override void OnAttach() {
-        }
-        public override void OnDetach() {
-        }
-
-    }
     public class ChatWidgetView : UIViewBase {
 
         // VisualElement

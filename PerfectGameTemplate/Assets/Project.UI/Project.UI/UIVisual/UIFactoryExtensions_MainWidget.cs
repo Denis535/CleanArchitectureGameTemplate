@@ -124,8 +124,8 @@ namespace Project.UI {
         }
         public static ColumnGroup RoomWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView players) {
             using (factory.ColumnGroup().Name( "lobby-view" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
-                VisualElementScope.Add( title = factory.Label( "Lobby" ).Name( "title" ).Classes( "medium", "shrink-0" ) );
-                VisualElementScope.Add( players = factory.ScrollView().Name( "players-view" ).Classes( "dark2", "medium", "reverse", "grow-1" ) );
+                VisualElementScope.Add( title = factory.Label( "Room" ).Name( "title" ).Classes( "medium", "shrink-0" ) );
+                VisualElementScope.Add( players = factory.ScrollView().Name( "players-view" ).Classes( "dark", "medium", "reverse", "grow-1" ) );
             }
             return group;
         }

@@ -3,7 +3,6 @@ namespace Project.UI.MainScreen {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using Project.App;
     using Project.UI.Common;
@@ -77,7 +76,7 @@ namespace Project.UI.MainScreen {
         // OnDescendantAttach
         public override void OnBeforeDescendantAttach(UIWidgetBase descendant) {
             base.OnBeforeDescendantAttach( descendant );
-            View.SetEffect( Descendants.Where( i => !i.IsModal() ).Where( i => i.IsViewable ).Count() );
+            View.SetEffect( ((RootWidget2) Parent!).View.WidgetSlot.Children.Count );
         }
         public override void OnAfterDescendantAttach(UIWidgetBase descendant) {
             base.OnAfterDescendantAttach( descendant );
@@ -86,8 +85,8 @@ namespace Project.UI.MainScreen {
             base.OnBeforeDescendantDetach( descendant );
         }
         public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
-            View.SetEffect( Descendants.Where( i => !i.IsModal() ).Where( i => i.IsViewable ).Where( i => i != descendant ).Count() );
             base.OnAfterDescendantDetach( descendant );
+            View.SetEffect( ((RootWidget2) Parent!).View.WidgetSlot.Children.Count );
         }
 
         // Update
