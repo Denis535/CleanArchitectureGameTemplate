@@ -74,27 +74,21 @@ namespace UnityEngine.Framework.UI {
         }
 
         // OnAttach
-        public abstract void OnAttach();
-        public abstract void OnDetach();
-
-        // OnAttach
-        private void OnBeforeAttach() {
+        public virtual void OnBeforeAttach() {
             Parent?.OnBeforeDescendantAttachEvent?.Invoke( this );
             Parent?.OnBeforeDescendantAttach( this );
-            OnBeforeAttachEvent?.Invoke();
         }
-        private void OnAfterAttach() {
-            OnAfterAttachEvent?.Invoke();
+        public abstract void OnAttach();
+        public virtual void OnAfterAttach() {
             Parent?.OnAfterDescendantAttach( this );
             Parent?.OnAfterDescendantAttachEvent?.Invoke( this );
         }
-        private void OnBeforeDetach() {
+        public virtual void OnBeforeDetach() {
             Parent?.OnBeforeDescendantDetachEvent?.Invoke( this );
             Parent?.OnBeforeDescendantDetach( this );
-            OnBeforeDetachEvent?.Invoke();
         }
-        private void OnAfterDetach() {
-            OnAfterDetachEvent?.Invoke();
+        public abstract void OnDetach();
+        public virtual void OnAfterDetach() {
             Parent?.OnAfterDescendantDetach( this );
             Parent?.OnAfterDescendantDetachEvent?.Invoke( this );
         }
@@ -155,14 +149,16 @@ namespace UnityEngine.Framework.UI {
             Assert.Argument.Message( $"Argument 'screen' must be non-null" ).NotNull( screen is not null );
             widget.State = UIWidgetState.Attaching;
             widget.Screen = screen;
+            widget.OnBeforeAttachEvent?.Invoke();
+            widget.OnBeforeAttach();
             {
-                widget.OnBeforeAttach();
                 widget.OnAttach();
                 foreach (var child in widget.Children) {
                     AttachToScreen( child, screen );
                 }
-                widget.OnAfterAttach();
             }
+            widget.OnAfterAttach();
+            widget.OnAfterAttachEvent?.Invoke();
             widget.State = UIWidgetState.Attached;
         }
         [MethodImpl( MethodImplOptions.AggressiveInlining )]
@@ -173,14 +169,16 @@ namespace UnityEngine.Framework.UI {
             Assert.Argument.Message( $"Argument 'widget' {widget} must be valid" ).Valid( widget.Screen == screen );
             Assert.Argument.Message( $"Argument 'screen' must be non-null" ).NotNull( screen is not null );
             widget.State = UIWidgetState.Detaching;
+            widget.OnBeforeDetachEvent?.Invoke();
+            widget.OnBeforeDetach();
             {
-                widget.OnBeforeDetach();
                 foreach (var child in widget.Children.Reverse()) {
                     DetachFromScreen( child, screen );
                 }
                 widget.OnDetach();
-                widget.OnAfterDetach();
             }
+            widget.OnAfterDetach();
+            widget.OnAfterDetachEvent?.Invoke();
             widget.Screen = null;
             widget.State = UIWidgetState.Detached;
         }
@@ -200,6 +198,20 @@ namespace UnityEngine.Framework.UI {
             Assert.Object.Message( $"Widget {this} must be non-attached" ).Valid( IsNonAttached );
             View.Dispose();
             base.Dispose();
+        }
+
+        // OnAttach
+        public override void OnBeforeAttach() {
+            base.OnBeforeAttach();
+        }
+        public override void OnAfterAttach() {
+            base.OnAfterAttach();
+        }
+        public override void OnBeforeDetach() {
+            base.OnBeforeDetach();
+        }
+        public override void OnAfterDetach() {
+            base.OnAfterDetach();
         }
 
         // AttachChild
