@@ -1,0 +1,28 @@
+{
+  "name": "com.clean-architecture-game-framework",
+  "displayName": "Clean Architecture Game Framework",
+  "version": "1.0.0",
+  "description": "This package provides you with clean architecture framework that helping you to develop your project.",
+  "author": {
+    "name": "Denis535",
+    "url": "https://github.com/Denis535/CleanArchitectureGameFramework"
+  },
+  "unity": "2023.2",
+  "dependencies": {
+    "com.unity.addressables": "1.0.0",
+    "com.unity.modules.ui": "1.0.0",
+    "com.unity.modules.uielements": "1.0.0"
+  },
+  "keywords": [
+    "Architecture",
+    "Clean Architecture",
+    "Game Architecture",
+    "Framework",
+    "Game Framework",
+    "UI",
+    "GUI",
+    "Best Practices",
+    "Uber Ribs"
+  ],
+  "_fingerprint": "34077ee03c8c8d813bfbea4cb36c207b92834000"
+}
