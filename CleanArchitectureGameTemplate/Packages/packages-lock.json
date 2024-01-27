@@ -1,31 +1,28 @@
 {
   "dependencies": {
     "com.addressables-source-generator": {
-      "version": "https://github.com/Denis535/CleanArchitectureGameFramework.git?path=Packages/com.addressables-source-generator",
+      "version": "file:com.addressables-source-generator",
       "depth": 0,
-      "source": "git",
+      "source": "embedded",
       "dependencies": {
         "com.unity.addressables": "1.0.0"
-      },
-      "hash": "23a9b65a05ea149a90a5ac9f7888a70c9b5ecea6"
+      }
     },
     "com.clean-architecture-game-framework": {
-      "version": "https://github.com/Denis535/CleanArchitectureGameFramework.git?path=Packages/com.clean-architecture-game-framework",
+      "version": "file:com.clean-architecture-game-framework",
       "depth": 0,
-      "source": "git",
+      "source": "embedded",
       "dependencies": {
         "com.unity.addressables": "1.0.0",
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.uielements": "1.0.0"
-      },
-      "hash": "23a9b65a05ea149a90a5ac9f7888a70c9b5ecea6"
+      }
     },
     "com.colorful-project-window": {
-      "version": "https://github.com/Denis535/CleanArchitectureGameFramework.git?path=Packages/com.colorful-project-window",
+      "version": "file:com.colorful-project-window",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "23a9b65a05ea149a90a5ac9f7888a70c9b5ecea6"
+      "source": "embedded",
+      "dependencies": {}
     },
     "com.uitoolkit-theme-style-sheet": {
       "version": "https://github.com/Denis535/UIToolkitThemeStyleSheet.git?path=/Packages/com.uitoolkit-theme-style-sheet",

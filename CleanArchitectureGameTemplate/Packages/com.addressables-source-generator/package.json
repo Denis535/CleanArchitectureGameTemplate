@@ -1,0 +1,23 @@
+{
+  "name": "com.addressables-source-generator",
+  "displayName": "Addressables Source Generator",
+  "version": "1.0.0",
+  "description": "This package provides gives you an ability to generate a hierarchical list of all addressable assets and its labels.",
+  "author": {
+    "name": "Denis535",
+    "url": "https://github.com/Denis535/CleanArchitectureGameFramework"
+  },
+  "unity": "2023.2",
+  "dependencies": {
+    "com.unity.addressables": "1.0.0"
+  },
+  "keywords": [
+    "Editor",
+    "Tools",
+    "Extensions",
+    "Addressables",
+    "Source Generator",
+    "Addressables Source Generator"
+  ],
+  "_fingerprint": "e796d4c213ad14b728106eb23ac971be9d76fc0c"
+}
