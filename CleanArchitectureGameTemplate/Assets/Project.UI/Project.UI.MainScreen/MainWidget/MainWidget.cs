@@ -75,11 +75,11 @@ namespace Project.UI.MainScreen {
 
         protected override void ShowWidget(UIWidgetBase widget) {
             base.ShowWidget( widget );
-            View.SetEffect( ((RootWidget2) Parent!).WidgetCount - 2 );
+            View.SetEffect( ((RootWidget2) Parent!).Widgets.Count - 2 );
         }
         protected override void HideWidget(UIWidgetBase widget) {
             base.HideWidget( widget );
-            View.SetEffect( ((RootWidget2) Parent!).WidgetCount - 2 );
+            View.SetEffect( ((RootWidget2) Parent!).Widgets.Count - 2 );
         }
 
         // Update
