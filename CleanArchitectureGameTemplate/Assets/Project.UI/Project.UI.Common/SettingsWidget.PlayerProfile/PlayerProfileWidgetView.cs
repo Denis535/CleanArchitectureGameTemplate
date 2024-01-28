@@ -10,7 +10,7 @@ namespace Project.UI.Common {
     public class PlayerProfileWidgetView : UIViewBase {
 
         // VisualElement
-        public override VisualElement VisualElement { get; }
+        protected override VisualElement VisualElement { get; }
         public ElementWrapper Widget { get; }
         public LabelWrapper Title { get; }
         public TextFieldWrapper<string> Name { get; }

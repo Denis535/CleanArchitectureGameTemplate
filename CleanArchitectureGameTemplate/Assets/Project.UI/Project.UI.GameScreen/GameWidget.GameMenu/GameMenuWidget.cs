@@ -15,7 +15,7 @@ namespace Project.UI.GameScreen {
         private UIFactory Factory { get; }
         private UIRouter Router { get; }
         // View
-        public override GameMenuWidgetView View { get; }
+        protected override GameMenuWidgetView View { get; }
 
         // Constructor
         public GameMenuWidget() {

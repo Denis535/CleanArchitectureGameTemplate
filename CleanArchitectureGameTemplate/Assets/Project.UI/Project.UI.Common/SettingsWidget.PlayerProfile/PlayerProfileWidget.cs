@@ -14,7 +14,7 @@ namespace Project.UI.Common {
         private UIFactory Factory { get; }
         private Globals.PlayerProfile PlayerProfile { get; }
         // View
-        public override PlayerProfileWidgetView View { get; }
+        protected override PlayerProfileWidgetView View { get; }
 
         // Constructor
         public PlayerProfileWidget() {

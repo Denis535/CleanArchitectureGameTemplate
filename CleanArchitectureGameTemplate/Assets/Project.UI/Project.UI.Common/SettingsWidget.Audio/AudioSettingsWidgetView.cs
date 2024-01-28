@@ -10,7 +10,7 @@ namespace Project.UI.Common {
     public class AudioSettingsWidgetView : UIViewBase {
 
         // VisualElement
-        public override VisualElement VisualElement { get; }
+        protected override VisualElement VisualElement { get; }
         public ElementWrapper Widget { get; }
         public LabelWrapper Title { get; }
         public SliderFieldWrapper<float> MasterVolume { get; }

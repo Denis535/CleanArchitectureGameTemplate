@@ -10,7 +10,7 @@ namespace Project.UI.MainScreen {
     public class GameDescWidgetView : UIViewBase {
 
         // VisualElement
-        public override VisualElement VisualElement { get; }
+        protected override VisualElement VisualElement { get; }
         public ElementWrapper Group { get; }
         public LabelWrapper Title { get; }
         public TextFieldWrapper<string> Name { get; }

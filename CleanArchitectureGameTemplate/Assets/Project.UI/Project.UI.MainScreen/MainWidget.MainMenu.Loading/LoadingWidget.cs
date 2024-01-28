@@ -12,7 +12,7 @@ namespace Project.UI.MainScreen {
         // Globals
         private UIFactory Factory { get; }
         // View
-        public override LoadingWidgetView View { get; }
+        protected override LoadingWidgetView View { get; }
 
         // Constructor
         public LoadingWidget() {

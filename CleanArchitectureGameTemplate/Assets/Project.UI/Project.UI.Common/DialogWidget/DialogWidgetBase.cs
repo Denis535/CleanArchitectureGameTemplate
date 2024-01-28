@@ -12,7 +12,7 @@ namespace Project.UI.Common {
         // Globals
         private UIFactory Factory { get; }
         // View
-        public override TView View { get; }
+        protected override TView View { get; }
         public string? Title {
             get => View.Title.Text;
             set {

@@ -12,7 +12,7 @@ namespace Project.UI.MainScreen {
         // Globals
         private UIFactory Factory { get; }
         // View
-        public override ChatWidgetView View { get; }
+        protected override ChatWidgetView View { get; }
 
         // Constructor
         public ChatWidget() {

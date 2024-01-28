@@ -57,10 +57,10 @@ namespace Project.UI {
         // AttachWidget
         protected override void __AttachWidget__(UIWidgetBase widget) {
             base.__AttachWidget__( widget );
-            AddView( Document, widget.View!.VisualElement );
+            AddView( Document, widget.GetVisualElement()! );
         }
         protected override void __DetachWidget__(UIWidgetBase widget) {
-            //RemoveView( Document, widget.View!.VisualElement ); // NullReferenceException: Object reference not set to an instance of an object
+            //RemoveView( Document, widget.GetVisualElement()! ); // NullReferenceException: Object reference not set to an instance of an object
             base.__DetachWidget__( widget );
         }
 

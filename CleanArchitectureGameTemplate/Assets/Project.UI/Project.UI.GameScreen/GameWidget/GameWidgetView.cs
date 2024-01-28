@@ -10,7 +10,7 @@ namespace Project.UI.GameScreen {
     public class GameWidgetView : UIViewBase {
 
         // VisualElement
-        public override VisualElement VisualElement { get; }
+        protected override VisualElement VisualElement { get; }
         public ElementWrapper Widget { get; }
 
         // Constructor

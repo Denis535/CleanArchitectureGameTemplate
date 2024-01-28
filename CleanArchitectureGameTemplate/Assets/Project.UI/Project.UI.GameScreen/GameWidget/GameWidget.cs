@@ -15,7 +15,7 @@ namespace Project.UI.GameScreen {
         private UIFactory Factory { get; }
         private Application2 Application { get; }
         // View
-        public override GameWidgetView View { get; }
+        protected override GameWidgetView View { get; }
         // Actions
         private InputActions Actions { get; }
 

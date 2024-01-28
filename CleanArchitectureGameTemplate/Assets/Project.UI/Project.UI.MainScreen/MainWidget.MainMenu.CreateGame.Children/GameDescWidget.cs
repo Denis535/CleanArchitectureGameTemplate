@@ -14,7 +14,11 @@ namespace Project.UI.MainScreen {
         // Globals
         private UIFactory Factory { get; }
         // View
-        public override GameDescWidgetView View { get; }
+        protected override GameDescWidgetView View { get; }
+        public string Name => View.Name.Value!;
+        public GameMode Mode => (GameMode) View.Mode.Value!;
+        public GameWorld World => (GameWorld) View.World.Value!;
+        public bool IsPrivate => View.IsPrivate.Value;
 
         // Constructor
         public GameDescWidget() {

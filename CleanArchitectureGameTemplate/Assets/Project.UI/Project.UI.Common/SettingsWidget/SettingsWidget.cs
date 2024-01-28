@@ -12,7 +12,7 @@ namespace Project.UI.Common {
         // Globals
         private UIFactory Factory { get; }
         // View
-        public override SettingsWidgetView View { get; }
+        protected override SettingsWidgetView View { get; }
 
         // Constructor
         public SettingsWidget() {

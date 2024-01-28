@@ -21,7 +21,7 @@ namespace Project.UI.MainScreen {
         private Globals Globals { get; set; } = default!;
         private IAuthenticationService AuthenticationService => Unity.Services.Authentication.AuthenticationService.Instance;
         // View
-        public override MainWidgetView View { get; }
+        protected override MainWidgetView View { get; }
 
         // Constructor
         public MainWidget() {
@@ -73,20 +73,13 @@ namespace Project.UI.MainScreen {
         public override void OnDetach() {
         }
 
-        // OnDescendantAttach
-        public override void OnBeforeDescendantAttach(UIWidgetBase descendant) {
-            base.OnBeforeDescendantAttach( descendant );
-            View.SetEffect( ((RootWidget2) Parent!).View.WidgetSlot.Children.Count );
+        protected override void ShowWidget(UIWidgetBase widget) {
+            base.ShowWidget( widget );
+            View.SetEffect( ((RootWidget2) Parent!).WidgetCount - 2 );
         }
-        public override void OnAfterDescendantAttach(UIWidgetBase descendant) {
-            base.OnAfterDescendantAttach( descendant );
-        }
-        public override void OnBeforeDescendantDetach(UIWidgetBase descendant) {
-            base.OnBeforeDescendantDetach( descendant );
-        }
-        public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
-            base.OnAfterDescendantDetach( descendant );
-            View.SetEffect( ((RootWidget2) Parent!).View.WidgetSlot.Children.Count );
+        protected override void HideWidget(UIWidgetBase widget) {
+            base.HideWidget( widget );
+            View.SetEffect( ((RootWidget2) Parent!).WidgetCount - 2 );
         }
 
         // Update

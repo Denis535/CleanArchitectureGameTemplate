@@ -10,7 +10,7 @@ namespace Project.UI.MainScreen {
     public class LobbyWidgetView : UIViewBase {
 
         // VisualElement
-        public override VisualElement VisualElement { get; }
+        protected override VisualElement VisualElement { get; }
 
         // Constructor
         public LobbyWidgetView(UIFactory factory) {
