@@ -38,49 +38,64 @@ namespace Project.UI.Common {
         // ShowWidget
         protected override void ShowWidget(UIWidgetBase widget) {
             if (widget.IsViewable) {
-                OnShowWidget( widget );
-                OnChanged();
+                if (widget.IsModal()) {
+                    ModalWidgets_.Add( widget );
+                    View.ModalWidgetSlot.Add( widget.GetVisualElement()! );
+                } else {
+                    Widgets_.Add( widget );
+                    View.WidgetSlot.Add( widget.GetVisualElement()! );
+                }
+                {
+                    var covered = (UIWidgetBase?) Widgets.Concat( ModalWidgets ).SkipLast( 1 ).LastOrDefault();
+                    if (covered != null) SaveFocus( covered.GetVisualElement()! );
+                    RecalcVisibility();
+                    var newWidget = (UIWidgetBase?) Widgets.Concat( ModalWidgets ).LastOrDefault();
+                    if (newWidget != null) Focus( newWidget.GetVisualElement()! );
+                }
             }
         }
         protected override void HideWidget(UIWidgetBase widget) {
             if (widget.IsViewable) {
-                OnHideWidget( widget );
-                OnChanged();
-            }
-        }
-
-        // OnShowWidget
-        private void OnShowWidget(UIWidgetBase widget) {
-            if (widget.IsModal()) {
-                ModalWidgets_.Add( widget );
-                View.ModalWidgetSlot.Add( widget.GetVisualElement()! );
-            } else {
-                Widgets_.Add( widget );
-                View.WidgetSlot.Add( widget.GetVisualElement()! );
-            }
-        }
-        private void OnHideWidget(UIWidgetBase widget) {
-            if (widget.IsModal()) {
-                Assert.Operation.Message( $"Widget {widget} must be last" ).Valid( widget == ModalWidgets.LastOrDefault() );
-                ModalWidgets_.Remove( widget );
-                View.ModalWidgetSlot.Remove( widget.GetVisualElement()! );
-            } else {
-                Assert.Operation.Message( $"Widget {widget} must be last" ).Valid( widget == Widgets.LastOrDefault() );
-                Widgets_.Remove( widget );
-                View.WidgetSlot.Remove( widget.GetVisualElement()! );
-            }
-        }
-
-        // OnChanged
-        private void OnChanged() {
-            foreach (var widget in Widgets) {
-                if (widget is not MainWidget and not GameWidget) {
-                    widget.GetVisualElement()!.SetEnabled( !ModalWidgets.Any() );
-                    widget.GetVisualElement()!.SetDisplayed( widget == Widgets.LastOrDefault() );
+                if (widget.IsModal()) {
+                    Assert.Operation.Message( $"Widget {widget} must be last" ).Valid( widget == ModalWidgets.LastOrDefault() );
+                    ModalWidgets_.Remove( widget );
+                    View.ModalWidgetSlot.Remove( widget.GetVisualElement()! );
+                } else {
+                    Assert.Operation.Message( $"Widget {widget} must be last" ).Valid( widget == Widgets.LastOrDefault() );
+                    Widgets_.Remove( widget );
+                    View.WidgetSlot.Remove( widget.GetVisualElement()! );
+                }
+                {
+                    RecalcVisibility();
+                    var uncovered = (UIWidgetBase?) Widgets.Concat( ModalWidgets ).LastOrDefault();
+                    if (uncovered != null) Focus( uncovered.GetVisualElement()! );
                 }
             }
-            foreach (var widget in ModalWidgets) {
-                widget.GetVisualElement()!.SetDisplayed( widget == ModalWidgets.LastOrDefault() );
+        }
+
+        // RecalcVisibility
+        private void RecalcVisibility() {
+            foreach (var widget in Widgets.SkipLast( 1 )) {
+                // hide covered widgets
+                widget.GetVisualElement()!.SetEnabled( true );
+                if (widget is not MainWidget and not GameWidget) widget.GetVisualElement()!.SetDisplayed( false );
+            }
+            if (Widgets.Any()) {
+                // show new widget or unhide uncover widget
+                var widget = Widgets.Last();
+                widget.GetVisualElement()!.SetEnabled( !ModalWidgets.Any() );
+                if (widget is not MainWidget and not GameWidget) widget.GetVisualElement()!.SetDisplayed( true );
+            }
+            foreach (var widget in ModalWidgets.SkipLast( 1 )) {
+                // hide covered widgets
+                widget.GetVisualElement()!.SetEnabled( true );
+                widget.GetVisualElement()!.SetDisplayed( false );
+            }
+            if (ModalWidgets.Any()) {
+                // show new widget or unhide uncover widget
+                var widget = ModalWidgets.Last();
+                widget.GetVisualElement()!.SetEnabled( true );
+                widget.GetVisualElement()!.SetDisplayed( true );
             }
         }
 
