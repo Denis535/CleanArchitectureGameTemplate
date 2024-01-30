@@ -23,7 +23,7 @@ namespace Project.UI.MainScreen {
         // Constructor
         public GameDescWidget() {
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
-            View = new GameDescWidgetView( Factory );
+            View = CreateView( Factory );
         }
         public override void Dispose() {
             base.Dispose();
@@ -37,6 +37,12 @@ namespace Project.UI.MainScreen {
             View.IsPrivate.Value = true;
         }
         public override void OnDetach() {
+        }
+
+        // Helpers
+        private static GameDescWidgetView CreateView(UIFactory factory) {
+            var view = new GameDescWidgetView( factory );
+            return view;
         }
 
     }

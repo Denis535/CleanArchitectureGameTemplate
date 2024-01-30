@@ -25,7 +25,7 @@ namespace Project.UI.MainScreen {
         public PlayerDescWidget() {
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             PlayerProfile = this.GetDependencyContainer().Resolve<Globals.PlayerProfile>( null );
-            View = new PlayerDescWidgetView( Factory );
+            View = CreateView( Factory );
         }
         public override void Dispose() {
             base.Dispose();
@@ -38,6 +38,12 @@ namespace Project.UI.MainScreen {
             View.IsReady.Value = false;
         }
         public override void OnDetach() {
+        }
+
+        // Helpers
+        private static PlayerDescWidgetView CreateView(UIFactory factory) {
+            var view = new PlayerDescWidgetView( factory );
+            return view;
         }
 
     }

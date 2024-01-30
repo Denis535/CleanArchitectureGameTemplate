@@ -3,6 +3,7 @@ namespace Project.UI.MainScreen {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
@@ -17,7 +18,7 @@ namespace Project.UI.MainScreen {
         // Constructor
         public RoomWidget() {
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
-            View = new RoomWidgetView( Factory );
+            View = CreateView( Factory );
         }
         public override void Dispose() {
             base.Dispose();
@@ -25,11 +26,24 @@ namespace Project.UI.MainScreen {
 
         // OnAttach
         public override void OnAttach() {
-            for (var i = 1; i <= 32; i++) {
-                View.Players.Add( Factory.PlayerItem( $"Player: {i}", i - 1 ) );
+        }
+        public override async void OnAfterAttach() {
+            base.OnAfterAttach();
+            while (IsAttaching || IsAttached) {
+                View.Players.Add( Factory.PlayerItem( $"Player: {View.Players.Children.Count + 1}", View.Players.Children.Count ) );
+                await Task.Delay( 2000 );
             }
         }
+        public override void OnBeforeDetach() {
+            base.OnBeforeDetach();
+        }
         public override void OnDetach() {
+        }
+
+        // Helpers
+        private static RoomWidgetView CreateView(UIFactory factory) {
+            var view = new RoomWidgetView( factory );
+            return view;
         }
 
     }

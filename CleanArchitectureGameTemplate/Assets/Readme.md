@@ -42,7 +42,7 @@ This package (Colorful Project Window) gives you the more comfortable and colorf
 This package provides you with beautiful theme style sheets and some additions and tools for UIToolkit.
 
 # Setup
-- Install embedded packages.
+- Install "Embedded-dependencies" package.
 - Link project with Unity Gaming Services.
 
 # Build
