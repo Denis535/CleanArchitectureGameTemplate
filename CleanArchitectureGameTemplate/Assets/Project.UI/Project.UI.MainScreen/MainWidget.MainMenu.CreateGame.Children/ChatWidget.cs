@@ -42,8 +42,10 @@ namespace Project.UI.MainScreen {
         private static ChatWidgetView CreateView(UIFactory factory) {
             var view = new ChatWidgetView( factory );
             view.Send.OnClick( () => {
-                view.Messages.Add( factory.MessageItem( view.Text.Value!, view.Messages.Children.Count ) );
-                view.Text.Value = null;
+                if (!string.IsNullOrWhiteSpace( view.Text.Value )) {
+                    view.Messages.Add( factory.MessageItem( view.Text.Value, view.Messages.Children.Count ) );
+                    view.Text.Value = null;
+                }
             } );
             return view;
         }
