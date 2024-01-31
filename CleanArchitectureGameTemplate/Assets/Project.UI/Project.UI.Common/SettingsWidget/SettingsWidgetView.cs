@@ -16,16 +16,18 @@ namespace Project.UI.Common {
         public SlotWrapper AccountSettingsSlot { get; }
         public SlotWrapper VideoSettingsSlot { get; }
         public SlotWrapper AudioSettingsSlot { get; }
+        public ButtonWrapper Okey { get; }
         public ButtonWrapper Back { get; }
 
         // Constructor
         public SettingsWidgetView(UIFactory factory) {
-            VisualElement = factory.SettingsWidget( out var widget, out var title, out var accountSettingsSlot, out var videoSettingsSlot, out var audioSettingsSlot, out var back );
+            VisualElement = factory.SettingsWidget( out var widget, out var title, out var accountSettingsSlot, out var videoSettingsSlot, out var audioSettingsSlot, out var okey, out var back );
             Widget = widget.Wrap();
             Title = title.Wrap();
             AccountSettingsSlot = accountSettingsSlot.AsSlot();
             VideoSettingsSlot = videoSettingsSlot.AsSlot();
             AudioSettingsSlot = audioSettingsSlot.AsSlot();
+            Okey = okey.Wrap();
             Back = back.Wrap();
         }
         public override void Dispose() {

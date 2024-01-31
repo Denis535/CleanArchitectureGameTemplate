@@ -18,6 +18,7 @@ namespace Project.UI.Common {
         public SettingsWidget() {
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             View = CreateView( this, Factory );
+            this.AttachChild( new AccountSettingsWidget() );
         }
         public override void Dispose() {
             base.Dispose();
@@ -29,9 +30,28 @@ namespace Project.UI.Common {
         public override void OnDetach() {
         }
 
+        // ShowWidget
+        protected override void ShowWidget(UIWidgetBase widget) {
+            if (widget is AccountSettingsWidget) {
+                View.AccountSettingsSlot.Add( widget.GetVisualElement()! );
+                return;
+            }
+            base.ShowWidget( widget );
+        }
+        protected override void HideWidget(UIWidgetBase widget) {
+            if (widget is AccountSettingsWidget) {
+                View.AccountSettingsSlot.Remove( widget.GetVisualElement()! );
+                return;
+            }
+            base.HideWidget( widget );
+        }
+
         // Helpers
         private static SettingsWidgetView CreateView(SettingsWidget widget, UIFactory factory) {
             var view = new SettingsWidgetView( factory );
+            view.Okey.OnClick( () => {
+                widget.DetachSelf();
+            } );
             view.Back.OnClick( () => {
                 widget.DetachSelf();
             } );

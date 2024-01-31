@@ -79,39 +79,17 @@ namespace Project.UI {
         }
 
         // SettingsWidget
-        public static Widget SettingsWidget(this UIFactory factory, out Widget widget, out Label title, out Tab accountSettingsSlot, out Tab videoSettingsSlot, out Tab audioSettingsSlot, out Button back) {
+        public static Widget SettingsWidget(this UIFactory factory, out Widget widget, out Label title, out Tab accountSettingsSlot, out Tab videoSettingsSlot, out Tab audioSettingsSlot, out Button okey, out Button back) {
             using (factory.MediumWidget( "settings-widget" ).AsScope( out widget )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
                         VisualElementScope.Add( title = factory.Label( "Settings" ).Name( "title" ) );
                     }
                     using (factory.Content().AsScope()) {
-                        using (factory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
-                            using (factory.TabView().Classes( "grow-1" ).AsScope()) {
-                                VisualElementScope.Add( accountSettingsSlot = factory.Tab( "Account Settings" ).Name( "account-settings" ) );
-                                VisualElementScope.Add( videoSettingsSlot = factory.Tab( "Video Settings" ).Name( "video-settings" ) );
-                                VisualElementScope.Add( audioSettingsSlot = factory.Tab( "Audio Settings" ).Name( "audio-settings" ) );
-                            }
-                        }
-                    }
-                    using (factory.Footer().AsScope()) {
-                        VisualElementScope.Add( back = factory.Cancel( "Back" ).Name( "back" ) );
-                    }
-                }
-            }
-            return widget;
-        }
-
-        // PlayerProfileWidget
-        public static Widget PlayerProfileWidget(this UIFactory factory, out Widget widget, out Label title, out TextField name, out Button okey, out Button back) {
-            using (factory.MediumWidget( "player-profile-widget" ).AsScope( out widget )) {
-                using (factory.Card().AsScope()) {
-                    using (factory.Header().AsScope()) {
-                        VisualElementScope.Add( title = factory.Label( "Player Profile" ).Name( "title" ) );
-                    }
-                    using (factory.Content().AsScope()) {
-                        using (factory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
-                            VisualElementScope.Add( name = factory.TextField( "Name", null, 16 ).Name( "name" ).Classes( "label-width-25pc" ) );
+                        using (factory.TabView().Classes( "medium", "grow-1" ).AsScope()) {
+                            VisualElementScope.Add( accountSettingsSlot = factory.Tab( "Account Settings" ).Name( "account-settings" ) );
+                            VisualElementScope.Add( videoSettingsSlot = factory.Tab( "Video Settings" ).Name( "video-settings" ) );
+                            VisualElementScope.Add( audioSettingsSlot = factory.Tab( "Audio Settings" ).Name( "audio-settings" ) );
                         }
                     }
                     using (factory.Footer().AsScope()) {
@@ -121,6 +99,13 @@ namespace Project.UI {
                 }
             }
             return widget;
+        }
+        // SettingsWidget/AccountSettingsWidget
+        public static ColumnScope AccountSettingsWidget(this UIFactory factory, out ColumnScope scope, out TextField name) {
+            using (factory.ColumnScope().Classes( "grow-1" ).AsScope( out scope )) {
+                VisualElementScope.Add( name = factory.TextField( "Name", null, 16 ).Name( "name" ).Classes( "label-width-25pc" ) );
+            }
+            return scope;
         }
 
         // VideoSettingsWidget
