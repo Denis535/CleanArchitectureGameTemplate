@@ -2,10 +2,10 @@
   "name": "com.uitoolkit-theme-style-sheet",
   "displayName": "UIToolkit Theme Style Sheet",
   "version": "1.0.0",
-  "description": "This package provides you with beautiful theme style sheets and some additions and tools for UIToolkit.",
+  "description": "This package provides you with beautiful theme style sheets and some UIToolkit additions and tools.",
   "author": {
     "name": "Denis535",
-    "url": "https://github.com/Denis535"
+    "url": "https://youtu.be/tardralpxdA"
   },
   "unity": "2023.2",
   "dependencies": {
@@ -17,6 +17,7 @@
     "UIElements",
     "UIToolkit",
     "GUI",
+    "Style Sheet",
     "Theme Style Sheet",
     "Dark Theme Style Sheet",
     "USS",
@@ -26,5 +27,5 @@
     "Stylus",
     "Pug"
   ],
-  "_fingerprint": "c7e1fc5ad52c4b4e709453812f8976a6f013d022"
+  "_fingerprint": "14de29d12b534ade42c9855bb6cb7ad9d8f0fc37"
 }
