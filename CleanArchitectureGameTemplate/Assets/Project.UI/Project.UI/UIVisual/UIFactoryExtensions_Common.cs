@@ -79,7 +79,7 @@ namespace Project.UI {
         }
 
         // SettingsWidget
-        public static Widget SettingsWidget(this UIFactory factory, out Widget widget, out Label title, out Button playerProfile, out Button videoSettings, out Button audioSettings, out Button back) {
+        public static Widget SettingsWidget(this UIFactory factory, out Widget widget, out Label title, out Tab accountSettingsSlot, out Tab videoSettingsSlot, out Tab audioSettingsSlot, out Button back) {
             using (factory.MediumWidget( "settings-widget" ).AsScope( out widget )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
@@ -87,9 +87,11 @@ namespace Project.UI {
                     }
                     using (factory.Content().AsScope()) {
                         using (factory.ColumnGroup().Classes( "gray", "large", "grow-1" ).AsScope()) {
-                            VisualElementScope.Add( playerProfile = factory.Select( "Player Profile" ).Name( "player-profile" ).Classes( "width-50pc", "align-self-center" ) );
-                            VisualElementScope.Add( videoSettings = factory.Select( "Video Settings" ).Name( "video-settings" ).Classes( "width-50pc", "align-self-center" ) );
-                            VisualElementScope.Add( audioSettings = factory.Select( "Audio Settings" ).Name( "audio-settings" ).Classes( "width-50pc", "align-self-center" ) );
+                            using (factory.TabView().Classes( "grow-1" ).AsScope()) {
+                                VisualElementScope.Add( accountSettingsSlot = factory.Tab( "Account Settings" ).Name( "account-settings" ) );
+                                VisualElementScope.Add( videoSettingsSlot = factory.Tab( "Video Settings" ).Name( "video-settings" ) );
+                                VisualElementScope.Add( audioSettingsSlot = factory.Tab( "Audio Settings" ).Name( "audio-settings" ) );
+                            }
                         }
                     }
                     using (factory.Footer().AsScope()) {

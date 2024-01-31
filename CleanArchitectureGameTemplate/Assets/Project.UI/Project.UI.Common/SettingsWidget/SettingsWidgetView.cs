@@ -13,19 +13,19 @@ namespace Project.UI.Common {
         protected override VisualElement VisualElement { get; }
         public ElementWrapper Widget { get; }
         public LabelWrapper Title { get; }
-        public ButtonWrapper PlayerProfile { get; }
-        public ButtonWrapper VideoSettings { get; }
-        public ButtonWrapper AudioSettings { get; }
+        public SlotWrapper AccountSettingsSlot { get; }
+        public SlotWrapper VideoSettingsSlot { get; }
+        public SlotWrapper AudioSettingsSlot { get; }
         public ButtonWrapper Back { get; }
 
         // Constructor
         public SettingsWidgetView(UIFactory factory) {
-            VisualElement = factory.SettingsWidget( out var widget, out var title, out var playerProfile, out var videoSettings, out var audioSettings, out var back );
+            VisualElement = factory.SettingsWidget( out var widget, out var title, out var accountSettingsSlot, out var videoSettingsSlot, out var audioSettingsSlot, out var back );
             Widget = widget.Wrap();
             Title = title.Wrap();
-            PlayerProfile = playerProfile.Wrap();
-            VideoSettings = videoSettings.Wrap();
-            AudioSettings = audioSettings.Wrap();
+            AccountSettingsSlot = accountSettingsSlot.AsSlot();
+            VideoSettingsSlot = videoSettingsSlot.AsSlot();
+            AudioSettingsSlot = audioSettingsSlot.AsSlot();
             Back = back.Wrap();
         }
         public override void Dispose() {
