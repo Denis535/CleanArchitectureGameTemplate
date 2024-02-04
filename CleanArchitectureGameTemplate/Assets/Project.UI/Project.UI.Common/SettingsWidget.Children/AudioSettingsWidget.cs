@@ -52,17 +52,17 @@ namespace Project.UI.Common {
             view.GameVolume.OnChange( (gameVolume) => {
                 audioSettings.GameVolume = gameVolume;
             } );
-            view.Okey.OnClick( () => {
-                audioSettings.MasterVolume = view.MasterVolume.Value;
-                audioSettings.MusicVolume = view.MusicVolume.Value;
-                audioSettings.SfxVolume = view.SfxVolume.Value;
-                audioSettings.GameVolume = view.GameVolume.Value;
-                audioSettings.Save();
-                widget.DetachSelf();
-            } );
-            view.Back.OnClick( () => {
-                widget.DetachSelf();
-            } );
+            //view.Okey.OnClick( () => {
+            //    audioSettings.MasterVolume = view.MasterVolume.Value;
+            //    audioSettings.MusicVolume = view.MusicVolume.Value;
+            //    audioSettings.SfxVolume = view.SfxVolume.Value;
+            //    audioSettings.GameVolume = view.GameVolume.Value;
+            //    audioSettings.Save();
+            //    widget.DetachSelf();
+            //} );
+            //view.Back.OnClick( () => {
+            //    widget.DetachSelf();
+            //} );
             return view;
         }
 

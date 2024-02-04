@@ -24,13 +24,13 @@ namespace Project.UI.MainScreen {
             Title = title.Wrap();
             Messages = messages.AsSlot();
             Messages.OnAdded( message => { // dirty hack
-                var view = (ScrollView) Messages.VisualElement;
+                var view = (ScrollView) Messages.GetVisualElement();
                 using var evt = GeometryChangedEvent.GetPooled( Rect.zero, view.contentContainer.layout );
                 evt.target = view.contentContainer;
                 view.contentContainer.SendEvent( evt );
             } );
             Messages.OnRemoved( message => { // dirty hack
-                var view = (ScrollView) Messages.VisualElement;
+                var view = (ScrollView) Messages.GetVisualElement();
                 using var evt = GeometryChangedEvent.GetPooled( Rect.zero, view.contentContainer.layout );
                 evt.target = view.contentContainer;
                 view.contentContainer.SendEvent( evt );

@@ -2,7 +2,7 @@
   "name": "com.clean-architecture-game-framework",
   "displayName": "Clean Architecture Game Framework",
   "version": "1.0.0",
-  "description": "This package provides you with clean architecture framework that helping you to develop your project following the best practices (like Clean Architecture and Uber Ribs).",
+  "description": "This package provides you with the architecture game framework that helping you to develop your project following the best practices (like Clean Architecture and Uber Ribs).",
   "author": {
     "name": "Denis535",
     "url": "https://github.com/Denis535/CleanArchitectureGameFramework"
@@ -26,5 +26,5 @@
     "Best Practices",
     "Uber Ribs"
   ],
-  "_fingerprint": "a17befbcd6a000a73dc0ea90f564c13cafd2a7cf"
+  "_fingerprint": "cc5a0fb9f40cc9b812f259c3f2c334773854590d"
 }

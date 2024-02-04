@@ -78,7 +78,7 @@ namespace Project.UI.Common {
                     callback?.Invoke();
                 }
             } );
-            Footer.VisualElement.Add( button );
+            Footer.GetVisualElement().Add( button );
         }
         public void OnCancel(UIFactory factory, string text, Action? callback) {
             var button = factory.Cancel( text ).Name( "cancel" );
@@ -87,7 +87,7 @@ namespace Project.UI.Common {
                     callback?.Invoke();
                 }
             } );
-            Footer.VisualElement.Add( button );
+            Footer.GetVisualElement().Add( button );
         }
 
         // Helpers

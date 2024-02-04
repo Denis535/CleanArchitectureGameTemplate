@@ -49,16 +49,16 @@ namespace Project.UI.Common {
             view.IsVSync.OnChange( (isVSync) => {
                 videoSettings.IsVSync = isVSync;
             } );
-            view.Okey.OnClick( () => {
-                videoSettings.IsFullScreen = view.IsFullScreen.Value;
-                videoSettings.ScreenResolution = (Resolution) view.ScreenResolution.Value!;
-                videoSettings.IsVSync = view.IsVSync.Value;
-                videoSettings.Save();
-                widget.DetachSelf();
-            } );
-            view.Back.OnClick( () => {
-                widget.DetachSelf();
-            } );
+            //view.Okey.OnClick( () => {
+            //    videoSettings.IsFullScreen = view.IsFullScreen.Value;
+            //    videoSettings.ScreenResolution = (Resolution) view.ScreenResolution.Value!;
+            //    videoSettings.IsVSync = view.IsVSync.Value;
+            //    videoSettings.Save();
+            //    widget.DetachSelf();
+            //} );
+            //view.Back.OnClick( () => {
+            //    widget.DetachSelf();
+            //} );
             return view;
         }
 
