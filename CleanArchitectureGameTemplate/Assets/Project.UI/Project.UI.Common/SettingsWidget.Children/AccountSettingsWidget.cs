@@ -30,10 +30,17 @@ namespace Project.UI.Common {
         public override void OnAttach() {
             View.Name.Value = PlayerProfile.PlayerName;
             View.Name.IsValid = Globals.PlayerProfile.IsNameValid( View.Name.Value );
-            //View.Okey.IsValid = Globals.PlayerProfile.IsNameValid( View.Name.Value );
         }
         public override void OnDetach() {
             PlayerProfile.Load();
+        }
+
+        // Submit
+        public void Submit() {
+            PlayerProfile.PlayerName = View.Name.Value!;
+            PlayerProfile.Save();
+        }
+        public void Cancel() {
         }
 
         // Helpers
@@ -41,26 +48,8 @@ namespace Project.UI.Common {
             var view = new AccountSettingsWidgetView( factory );
             view.Name.OnChange( (name) => {
                 view.Name.IsValid = Globals.PlayerProfile.IsNameValid( name! );
-                //view.Okey.IsValid = Globals.PlayerProfile.IsNameValid( name! );
+                //playerProfile.PlayerName = view.Name.Value!;
             } );
-            //view.Okey.OnClick( () => {
-            //    if (view.Okey.IsValid) {
-            //        playerProfile.PlayerName = view.Name.Value!;
-            //        playerProfile.Save();
-            //        widget.DetachSelf();
-            //    } else {
-            //        if (string.IsNullOrWhiteSpace( view.Name.Value )) {
-            //            var dialog = new WarningDialogWidget( "Warning", $"Name is empty" ).OnSubmit( "Ok", null );
-            //            widget.AttachChild( dialog );
-            //        } else {
-            //            var dialog = new WarningDialogWidget( "Warning", $"Name \"{view.Name.Value}\" is invalid" ).OnSubmit( "Ok", null );
-            //            widget.AttachChild( dialog );
-            //        }
-            //    }
-            //} );
-            //view.Back.OnClick( () => {
-            //    widget.DetachSelf();
-            //} );
             return view;
         }
 

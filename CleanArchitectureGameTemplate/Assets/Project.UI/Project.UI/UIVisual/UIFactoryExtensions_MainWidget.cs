@@ -58,44 +58,6 @@ namespace Project.UI {
             }
             return widget;
         }
-
-        // JoinGameWidget
-        public static Widget JoinGameWidget(this UIFactory factory, out Widget widget, out Label title, out Slot gameDescSlot, out Slot playerDescSlot, out Slot roomSlot, out Slot chatSlot, out Button okey, out Button back) {
-            using (factory.LargeWidget( "join-game-widget" ).AsScope( out widget )) {
-                using (factory.Card().AsScope()) {
-                    using (factory.Header().AsScope()) {
-                        VisualElementScope.Add( title = factory.Label( "Join Game" ).Name( "title" ) );
-                    }
-                    using (factory.Content().AsScope()) {
-                        using (factory.RowScope().Classes( "grow-0", "basis-40pc" ).AsScope()) {
-                            VisualElementScope.Add( gameDescSlot = factory.Slot().Name( "game-desc-slot" ).Classes( "grow-1", "basis-0pc" ) );
-                            VisualElementScope.Add( playerDescSlot = factory.Slot().Name( "player-desc-slot" ).Classes( "grow-1", "basis-0pc" ) );
-                        }
-                        using (factory.RowScope().Classes( "grow-1", "basis-auto" ).AsScope()) {
-                            VisualElementScope.Add( roomSlot = factory.Slot().Name( "room-slot" ).Classes( "grow-1", "basis-0pc" ) );
-                            VisualElementScope.Add( chatSlot = factory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" ) );
-                        }
-                    }
-                    using (factory.Footer().AsScope()) {
-                        VisualElementScope.Add( okey = factory.Submit( "Ok" ).Name( "okey" ) );
-                        VisualElementScope.Add( back = factory.Cancel( "Back" ).Name( "back" ) );
-                    }
-                }
-            }
-            return widget;
-        }
-
-        // LoadingWidget
-        public static Widget LoadingWidget(this UIFactory factory, out Widget widget, out Label loading) {
-            using (factory.Widget( "loading-widget" ).AsScope( out widget )) {
-                using (factory.ColumnScope().Classes( "padding-2pc", "grow-1", "justify-content-end", "align-items-center" ).AsScope()) {
-                    VisualElementScope.Add( loading = factory.Label( "Loading..." ).Name( "loading" ).Classes( "color-light", "font-size-200pc", "font-style-bold" ) );
-                }
-            }
-            return widget;
-        }
-
-        // Misc
         public static ColumnGroup GameDescWidget(this UIFactory factory, out ColumnGroup group, out Label title, out TextField name, out PopupField<object?> mode, out PopupField<object?> world, out Toggle isPrivate) {
             using (factory.ColumnGroup().Name( "game-desc" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 VisualElementScope.Add( title = factory.Label( "Game" ).Name( "title" ).Classes( "medium" ) );
@@ -141,8 +103,6 @@ namespace Project.UI {
             }
             return group;
         }
-
-        // Misc
         public static Box PlayerItem(this UIFactory factory, string text, int id) {
             var style = (int) Mathf.PingPong( id, 4 ) switch {
                 0 => "light2",
@@ -170,6 +130,42 @@ namespace Project.UI {
                 VisualElementScope.Add( factory.Label( text ) );
                 return view;
             }
+        }
+
+        // JoinGameWidget
+        public static Widget JoinGameWidget(this UIFactory factory, out Widget widget, out Label title, out Slot gameDescSlot, out Slot playerDescSlot, out Slot roomSlot, out Slot chatSlot, out Button okey, out Button back) {
+            using (factory.LargeWidget( "join-game-widget" ).AsScope( out widget )) {
+                using (factory.Card().AsScope()) {
+                    using (factory.Header().AsScope()) {
+                        VisualElementScope.Add( title = factory.Label( "Join Game" ).Name( "title" ) );
+                    }
+                    using (factory.Content().AsScope()) {
+                        using (factory.RowScope().Classes( "grow-0", "basis-40pc" ).AsScope()) {
+                            VisualElementScope.Add( gameDescSlot = factory.Slot().Name( "game-desc-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( playerDescSlot = factory.Slot().Name( "player-desc-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                        }
+                        using (factory.RowScope().Classes( "grow-1", "basis-auto" ).AsScope()) {
+                            VisualElementScope.Add( roomSlot = factory.Slot().Name( "room-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( chatSlot = factory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                        }
+                    }
+                    using (factory.Footer().AsScope()) {
+                        VisualElementScope.Add( okey = factory.Submit( "Ok" ).Name( "okey" ) );
+                        VisualElementScope.Add( back = factory.Cancel( "Back" ).Name( "back" ) );
+                    }
+                }
+            }
+            return widget;
+        }
+
+        // LoadingWidget
+        public static Widget LoadingWidget(this UIFactory factory, out Widget widget, out Label loading) {
+            using (factory.Widget( "loading-widget" ).AsScope( out widget )) {
+                using (factory.ColumnScope().Classes( "padding-2pc", "grow-1", "justify-content-end", "align-items-center" ).AsScope()) {
+                    VisualElementScope.Add( loading = factory.Label( "Loading..." ).Name( "loading" ).Classes( "color-light", "font-size-200pc", "font-style-bold" ) );
+                }
+            }
+            return widget;
         }
 
     }

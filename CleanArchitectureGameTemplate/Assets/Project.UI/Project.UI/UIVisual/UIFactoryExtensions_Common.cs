@@ -100,16 +100,12 @@ namespace Project.UI {
             }
             return widget;
         }
-
-        // AccountSettingsWidget
         public static ColumnScope AccountSettingsWidget(this UIFactory factory, out ColumnScope scope, out TextField name) {
             using (factory.ColumnScope().Classes( "gray", "grow-1" ).AsScope( out scope )) {
                 VisualElementScope.Add( name = factory.TextField( "Name", null, 16 ).Name( "name" ).Classes( "label-width-25pc" ) );
             }
             return scope;
         }
-
-        // VideoSettingsWidget
         public static ColumnScope VideoSettingsWidget(this UIFactory factory, out ColumnScope scope, out Toggle isFullScreen, out PopupField<object?> screenResolution, out Toggle isVSync) {
             using (factory.ColumnScope().Classes( "gray", "grow-1" ).AsScope( out scope )) {
                 VisualElementScope.Add( isFullScreen = factory.ToggleField( "Full Screen", false ).Name( "is-full-screen" ).Classes( "label-width-25pc" ) );
@@ -118,8 +114,6 @@ namespace Project.UI {
             }
             return scope;
         }
-
-        // AudioSettingsWidget
         public static ColumnScope AudioSettingsWidget(this UIFactory factory, out ColumnScope scope, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume) {
             using (factory.ColumnScope().Classes( "gray", "grow-1" ).AsScope( out scope )) {
                 VisualElementScope.Add( masterVolume = factory.SliderField( "Master Volume", 0, 0, 1 ).Name( "master-volume" ).Classes( "label-width-25pc" ) );

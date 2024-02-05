@@ -37,6 +37,17 @@ namespace Project.UI.Common {
             AudioSettings.Load();
         }
 
+        // Submit
+        public void Submit() {
+            AudioSettings.MasterVolume = View.MasterVolume.Value;
+            AudioSettings.MusicVolume = View.MusicVolume.Value;
+            AudioSettings.SfxVolume = View.SfxVolume.Value;
+            AudioSettings.GameVolume = View.GameVolume.Value;
+            AudioSettings.Save();
+        }
+        public void Cancel() {
+        }
+
         // Helpers
         private static AudioSettingsWidgetView CreateView(AudioSettingsWidget widget, UIFactory factory, Globals.AudioSettings audioSettings) {
             var view = new AudioSettingsWidgetView( factory );
@@ -52,17 +63,6 @@ namespace Project.UI.Common {
             view.GameVolume.OnChange( (gameVolume) => {
                 audioSettings.GameVolume = gameVolume;
             } );
-            //view.Okey.OnClick( () => {
-            //    audioSettings.MasterVolume = view.MasterVolume.Value;
-            //    audioSettings.MusicVolume = view.MusicVolume.Value;
-            //    audioSettings.SfxVolume = view.SfxVolume.Value;
-            //    audioSettings.GameVolume = view.GameVolume.Value;
-            //    audioSettings.Save();
-            //    widget.DetachSelf();
-            //} );
-            //view.Back.OnClick( () => {
-            //    widget.DetachSelf();
-            //} );
             return view;
         }
 

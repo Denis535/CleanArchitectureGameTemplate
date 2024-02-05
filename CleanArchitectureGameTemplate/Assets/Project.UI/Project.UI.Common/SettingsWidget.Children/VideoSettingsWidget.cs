@@ -37,6 +37,16 @@ namespace Project.UI.Common {
             VideoSettings.Load();
         }
 
+        // Submit
+        public void Submit() {
+            VideoSettings.IsFullScreen = View.IsFullScreen.Value;
+            VideoSettings.ScreenResolution = (Resolution) View.ScreenResolution.Value!;
+            VideoSettings.IsVSync = View.IsVSync.Value;
+            VideoSettings.Save();
+        }
+        public void Cancel() {
+        }
+
         // Helpers
         private static VideoSettingsWidgetView CreateView(VideoSettingsWidget widget, UIFactory factory, Globals.VideoSettings videoSettings) {
             var view = new VideoSettingsWidgetView( factory );
@@ -49,16 +59,6 @@ namespace Project.UI.Common {
             view.IsVSync.OnChange( (isVSync) => {
                 videoSettings.IsVSync = isVSync;
             } );
-            //view.Okey.OnClick( () => {
-            //    videoSettings.IsFullScreen = view.IsFullScreen.Value;
-            //    videoSettings.ScreenResolution = (Resolution) view.ScreenResolution.Value!;
-            //    videoSettings.IsVSync = view.IsVSync.Value;
-            //    videoSettings.Save();
-            //    widget.DetachSelf();
-            //} );
-            //view.Back.OnClick( () => {
-            //    widget.DetachSelf();
-            //} );
             return view;
         }
 

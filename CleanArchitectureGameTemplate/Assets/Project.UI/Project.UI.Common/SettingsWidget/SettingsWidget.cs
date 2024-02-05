@@ -72,9 +72,15 @@ namespace Project.UI.Common {
         private static SettingsWidgetView CreateView(SettingsWidget widget, UIFactory factory) {
             var view = new SettingsWidgetView( factory );
             view.Okey.OnClick( () => {
+                widget.AccountSettingsWidget.Submit();
+                widget.VideoSettingsWidget.Submit();
+                widget.AudioSettingsWidget.Submit();
                 widget.DetachSelf();
             } );
             view.Back.OnClick( () => {
+                widget.AccountSettingsWidget.Cancel();
+                widget.VideoSettingsWidget.Cancel();
+                widget.AudioSettingsWidget.Cancel();
                 widget.DetachSelf();
             } );
             return view;
