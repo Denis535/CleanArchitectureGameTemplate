@@ -1,0 +1,14 @@
+The "Clean Architecture Game Template" project contains the third-party files under their own respective licenses:
+- Images:
+    - Background
+- Music:
+    - Black Paper - Pulse
+    - Black Paper - Inside My Head
+    - Black Paper - I'm with You
+    - Black Paper - Bottom Line
+
+Also this project depends on the third-party packages under their own respective licenses:
+- Clean Architecture Game Framework
+- Addressables Source Generator
+- Colorful Project Window
+- UIToolkit Theme Style Sheet
