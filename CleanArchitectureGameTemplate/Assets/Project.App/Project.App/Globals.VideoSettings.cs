@@ -43,12 +43,12 @@ namespace Project.App {
                 Load();
             }
 
-            // Load
-            public void Load() {
-                IsVSync = Load( "VideoSettings.IsVSync", true );
-            }
+            // Save
             public void Save() {
                 Save( "VideoSettings.IsVSync", IsVSync );
+            }
+            public void Load() {
+                IsVSync = Load( "VideoSettings.IsVSync", true );
             }
 
         }

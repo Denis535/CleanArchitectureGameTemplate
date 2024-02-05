@@ -14,7 +14,7 @@ namespace Project.UI.MainScreen {
 
         // Globals
         private UIFactory Factory { get; }
-        private Globals.PlayerProfile PlayerProfile { get; }
+        private Globals.AccountSettings PlayerProfile { get; }
         // View
         protected override PlayerDescWidgetView View { get; }
         public string Name => View.Name.Value!;
@@ -24,7 +24,7 @@ namespace Project.UI.MainScreen {
         // Constructor
         public PlayerDescWidget() {
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
-            PlayerProfile = this.GetDependencyContainer().Resolve<Globals.PlayerProfile>( null );
+            PlayerProfile = this.GetDependencyContainer().Resolve<Globals.AccountSettings>( null );
             View = CreateView( Factory );
         }
         public override void Dispose() {

@@ -29,12 +29,8 @@ namespace Project.UI.Common {
 
         // OnAttach
         public override void OnAttach() {
-            View.IsFullScreen.Value = VideoSettings.IsFullScreen;
-            View.ScreenResolution.ValueChoices = (VideoSettings.ScreenResolution, VideoSettings.ScreenResolutions.Cast<object?>().ToArray());
-            View.IsVSync.Value = VideoSettings.IsVSync;
         }
         public override void OnDetach() {
-            VideoSettings.Load();
         }
 
         // Submit
@@ -45,11 +41,17 @@ namespace Project.UI.Common {
             VideoSettings.Save();
         }
         public void Cancel() {
+            VideoSettings.Load();
         }
 
         // Helpers
         private static VideoSettingsWidgetView CreateView(VideoSettingsWidget widget, UIFactory factory, Globals.VideoSettings videoSettings) {
             var view = new VideoSettingsWidgetView( factory );
+            view.Scope.OnAttachToPanel( () => {
+                view.IsFullScreen.Value = videoSettings.IsFullScreen;
+                view.ScreenResolution.ValueChoices = (videoSettings.ScreenResolution, videoSettings.ScreenResolutions.Cast<object?>().ToArray());
+                view.IsVSync.Value = videoSettings.IsVSync;
+            } );
             view.IsFullScreen.OnChange( (isFullScreen) => {
                 videoSettings.IsFullScreen = isFullScreen;
             } );

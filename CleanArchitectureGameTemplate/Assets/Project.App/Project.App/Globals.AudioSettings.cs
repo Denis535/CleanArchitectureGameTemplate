@@ -54,18 +54,18 @@ namespace Project.App {
                 Load();
             }
 
-            // Load
-            public void Load() {
-                MasterVolume = Load( "AudioSettings.MasterVolume", 0.5f );
-                MusicVolume = Load( "AudioSettings.MusicVolume", 0.5f );
-                SfxVolume = Load( "AudioSettings.SfxVolume", 0.5f );
-                GameVolume = Load( "AudioSettings.GameVolume", 0.5f );
-            }
+            // Save
             public void Save() {
                 Save( "AudioSettings.MasterVolume", MasterVolume );
                 Save( "AudioSettings.MusicVolume", MusicVolume );
                 Save( "AudioSettings.SfxVolume", SfxVolume );
                 Save( "AudioSettings.GameVolume", GameVolume );
+            }
+            public void Load() {
+                MasterVolume = Load( "AudioSettings.MasterVolume", 0.5f );
+                MusicVolume = Load( "AudioSettings.MusicVolume", 0.5f );
+                SfxVolume = Load( "AudioSettings.SfxVolume", 0.5f );
+                GameVolume = Load( "AudioSettings.GameVolume", 0.5f );
             }
 
             // Helpers

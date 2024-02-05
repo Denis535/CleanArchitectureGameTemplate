@@ -28,13 +28,8 @@ namespace Project.UI.Common {
 
         // OnAttach
         public override void OnAttach() {
-            View.MasterVolume.ValueMinMax = (AudioSettings.MasterVolume, 0, 1);
-            View.MusicVolume.ValueMinMax = (AudioSettings.MusicVolume, 0, 1);
-            View.SfxVolume.ValueMinMax = (AudioSettings.SfxVolume, 0, 1);
-            View.GameVolume.ValueMinMax = (AudioSettings.GameVolume, 0, 1);
         }
         public override void OnDetach() {
-            AudioSettings.Load();
         }
 
         // Submit
@@ -46,11 +41,18 @@ namespace Project.UI.Common {
             AudioSettings.Save();
         }
         public void Cancel() {
+            AudioSettings.Load();
         }
 
         // Helpers
         private static AudioSettingsWidgetView CreateView(AudioSettingsWidget widget, UIFactory factory, Globals.AudioSettings audioSettings) {
             var view = new AudioSettingsWidgetView( factory );
+            view.Scope.OnAttachToPanel( () => {
+                view.MasterVolume.ValueMinMax = (audioSettings.MasterVolume, 0, 1);
+                view.MusicVolume.ValueMinMax = (audioSettings.MusicVolume, 0, 1);
+                view.SfxVolume.ValueMinMax = (audioSettings.SfxVolume, 0, 1);
+                view.GameVolume.ValueMinMax = (audioSettings.GameVolume, 0, 1);
+            } );
             view.MasterVolume.OnChange( (masterVolume) => {
                 audioSettings.MasterVolume = masterVolume;
             } );

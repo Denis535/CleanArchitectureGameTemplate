@@ -12,14 +12,14 @@ namespace Project.UI.Common {
 
         // Globals
         private UIFactory Factory { get; }
-        private Globals.PlayerProfile PlayerProfile { get; }
+        private Globals.AccountSettings PlayerProfile { get; }
         // View
         protected override AccountSettingsWidgetView View { get; }
 
         // Constructor
         public AccountSettingsWidget() {
             Factory = Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
-            PlayerProfile = this.GetDependencyContainer().Resolve<Globals.PlayerProfile>( null );
+            PlayerProfile = this.GetDependencyContainer().Resolve<Globals.AccountSettings>( null );
             View = CreateView( this, Factory, PlayerProfile );
         }
         public override void Dispose() {
@@ -28,11 +28,8 @@ namespace Project.UI.Common {
 
         // OnAttach
         public override void OnAttach() {
-            View.Name.Value = PlayerProfile.PlayerName;
-            View.Name.IsValid = Globals.PlayerProfile.IsNameValid( View.Name.Value );
         }
         public override void OnDetach() {
-            PlayerProfile.Load();
         }
 
         // Submit
@@ -41,14 +38,18 @@ namespace Project.UI.Common {
             PlayerProfile.Save();
         }
         public void Cancel() {
+            PlayerProfile.Load();
         }
 
         // Helpers
-        private static AccountSettingsWidgetView CreateView(AccountSettingsWidget widget, UIFactory factory, Globals.PlayerProfile playerProfile) {
+        private static AccountSettingsWidgetView CreateView(AccountSettingsWidget widget, UIFactory factory, Globals.AccountSettings playerProfile) {
             var view = new AccountSettingsWidgetView( factory );
+            view.Scope.OnAttachToPanel( () => {
+                view.Name.Value = playerProfile.PlayerName;
+                view.Name.IsValid = Globals.AccountSettings.IsNameValid( view.Name.Value );
+            } );
             view.Name.OnChange( (name) => {
-                view.Name.IsValid = Globals.PlayerProfile.IsNameValid( name! );
-                //playerProfile.PlayerName = view.Name.Value!;
+                view.Name.IsValid = Globals.AccountSettings.IsNameValid( name! );
             } );
             return view;
         }

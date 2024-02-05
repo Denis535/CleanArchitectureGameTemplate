@@ -8,7 +8,7 @@ namespace Project.App {
     using UnityEngine.Framework.App;
 
     public partial class Globals {
-        public class PlayerProfile : GlobalsBase {
+        public class AccountSettings : GlobalsBase {
 
             // Fields
             private string playerName = default!;
@@ -19,23 +19,20 @@ namespace Project.App {
                 set {
                     Assert.Argument.Message( $"Argument 'value' ({value}) is invalid" ).Valid( IsNameValid( value ) );
                     playerName = value;
-#if DEBUG
-                    //SetWindowText( $"{Application.productName} ({value})" );
-#endif
                 }
             }
 
             // Constructor
-            public PlayerProfile() {
+            public AccountSettings() {
                 Load();
             }
 
-            // Load
-            public void Load() {
-                PlayerName = Load( "PlayerProfile.PlayerName", "Anonymous" );
-            }
+            // Save
             public void Save() {
-                Save( "PlayerProfile.PlayerName", PlayerName );
+                Save( "AccountSettings.PlayerName", PlayerName );
+            }
+            public void Load() {
+                PlayerName = Load( "AccountSettings.PlayerName", "Anonymous" );
             }
 
             // Utils
@@ -46,16 +43,6 @@ namespace Project.App {
                     char.IsLetterOrDigit( value.Last() ) &&
                     value.All( i => char.IsLetterOrDigit( i ) || (i is ' ' or '_' or '-') );
             }
-#if DEBUG
-            // Helpers
-            //private static void SetWindowText(string value) {
-            //    SetWindowText( GetActiveWindow(), value );
-            //}
-            //[DllImport( "user32.dll" )]
-            //private static extern IntPtr GetActiveWindow();
-            //[DllImport( "user32.dll", EntryPoint = "SetWindowText" )]
-            //private static extern bool SetWindowText(IntPtr hwnd, string value);
-#endif
 
         }
     }
