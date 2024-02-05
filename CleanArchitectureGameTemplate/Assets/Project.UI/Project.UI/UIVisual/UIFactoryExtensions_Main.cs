@@ -6,7 +6,7 @@ namespace Project.UI {
     using UnityEngine;
     using UnityEngine.UIElements;
 
-    public static class UIFactoryExtensions_MainWidget {
+    public static class UIFactoryExtensions_Main {
 
         // MainWidget
         public static Widget MainWidget(this UIFactory factory, out Widget widget) {

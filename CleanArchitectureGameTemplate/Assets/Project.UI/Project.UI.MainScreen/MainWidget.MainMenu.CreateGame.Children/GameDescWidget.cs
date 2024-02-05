@@ -31,10 +31,6 @@ namespace Project.UI.MainScreen {
 
         // OnAttach
         public override void OnAttach() {
-            View.Name.Value = "Anonymous";
-            View.Mode.ValueChoices = (GameMode._1x4, Enum2.GetValues<GameMode>().Cast<object?>().ToArray());
-            View.World.ValueChoices = (GameWorld.TestWorld1, Enum2.GetValues<GameWorld>().Cast<object?>().ToArray());
-            View.IsPrivate.Value = true;
         }
         public override void OnDetach() {
         }
@@ -42,6 +38,12 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static GameDescWidgetView CreateView(UIFactory factory) {
             var view = new GameDescWidgetView( factory );
+            view.Group.OnAttachToPanel( () => {
+                view.Name.Value = "Anonymous";
+                view.Mode.ValueChoices = (GameMode._1x4, Enum2.GetValues<GameMode>().Cast<object?>().ToArray());
+                view.World.ValueChoices = (GameWorld.TestWorld1, Enum2.GetValues<GameWorld>().Cast<object?>().ToArray());
+                view.IsPrivate.Value = true;
+            } );
             return view;
         }
 

@@ -67,7 +67,7 @@ namespace Project.UI.MainScreen {
                     return;
                 }
             }
-            // MainMenuWidget
+            // Children
             this.AttachChild( new MainMenuWidget() );
         }
         public override void OnDetach() {

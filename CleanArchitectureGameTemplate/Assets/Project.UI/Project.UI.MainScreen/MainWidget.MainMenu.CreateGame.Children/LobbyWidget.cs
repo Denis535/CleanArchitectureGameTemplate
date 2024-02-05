@@ -17,7 +17,7 @@ namespace Project.UI.MainScreen {
         // Constructor
         public LobbyWidget() {
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
-            View = CreateView( Factory );
+            View = CreateView( this, Factory );
         }
         public override void Dispose() {
             base.Dispose();
@@ -30,7 +30,7 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static LobbyWidgetView CreateView(UIFactory factory) {
+        private static LobbyWidgetView CreateView(LobbyWidget widget, UIFactory factory) {
             var view = new LobbyWidgetView( factory );
             return view;
         }

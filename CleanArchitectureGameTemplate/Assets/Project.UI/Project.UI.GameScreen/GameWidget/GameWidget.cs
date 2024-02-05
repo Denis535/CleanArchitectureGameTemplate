@@ -23,7 +23,7 @@ namespace Project.UI.GameScreen {
         public GameWidget() {
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
-            View = CreateView( Factory );
+            View = CreateView( this, Factory );
             Actions = new InputActions();
         }
         public override void Dispose() {
@@ -69,7 +69,7 @@ namespace Project.UI.GameScreen {
         }
 
         // Helpers
-        private static GameWidgetView CreateView(UIFactory factory) {
+        private static GameWidgetView CreateView(GameWidget widget, UIFactory factory) {
             var view = new GameWidgetView( factory );
             return view;
         }

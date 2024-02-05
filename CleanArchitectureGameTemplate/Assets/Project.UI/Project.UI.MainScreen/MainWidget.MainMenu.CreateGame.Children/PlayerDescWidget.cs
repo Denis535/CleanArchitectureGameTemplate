@@ -25,7 +25,7 @@ namespace Project.UI.MainScreen {
         public PlayerDescWidget() {
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             PlayerProfile = this.GetDependencyContainer().Resolve<Globals.AccountSettings>( null );
-            View = CreateView( Factory );
+            View = CreateView( Factory, PlayerProfile );
         }
         public override void Dispose() {
             base.Dispose();
@@ -33,16 +33,18 @@ namespace Project.UI.MainScreen {
 
         // OnAttach
         public override void OnAttach() {
-            View.Name.Value = PlayerProfile.PlayerName;
-            View.Role.ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>().Cast<object?>().ToArray());
-            View.IsReady.Value = false;
         }
         public override void OnDetach() {
         }
 
         // Helpers
-        private static PlayerDescWidgetView CreateView(UIFactory factory) {
+        private static PlayerDescWidgetView CreateView(UIFactory factory, Globals.AccountSettings playerProfile) {
             var view = new PlayerDescWidgetView( factory );
+            view.Group.OnAttachToPanel( () => {
+                view.Name.Value = playerProfile.PlayerName;
+                view.Role.ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>().Cast<object?>().ToArray());
+                view.IsReady.Value = false;
+            } );
             return view;
         }
 
