@@ -47,23 +47,23 @@ namespace Project.UI.Common {
         // Helpers
         private static AudioSettingsWidgetView CreateView(AudioSettingsWidget widget, UIFactory factory, Globals.AudioSettings audioSettings) {
             var view = new AudioSettingsWidgetView( factory );
-            view.Scope.OnAttachToPanel( () => {
+            view.Scope.OnAttachToPanel( evt => {
                 view.MasterVolume.ValueMinMax = (audioSettings.MasterVolume, 0, 1);
                 view.MusicVolume.ValueMinMax = (audioSettings.MusicVolume, 0, 1);
                 view.SfxVolume.ValueMinMax = (audioSettings.SfxVolume, 0, 1);
                 view.GameVolume.ValueMinMax = (audioSettings.GameVolume, 0, 1);
             } );
-            view.MasterVolume.OnChange( (masterVolume) => {
-                audioSettings.MasterVolume = masterVolume;
+            view.MasterVolume.OnChange( evt => {
+                audioSettings.MasterVolume = evt.newValue;
             } );
-            view.MusicVolume.OnChange( (musicVolume) => {
-                audioSettings.MusicVolume = musicVolume;
+            view.MusicVolume.OnChange( evt => {
+                audioSettings.MusicVolume = evt.newValue;
             } );
-            view.SfxVolume.OnChange( (sfxVolume) => {
-                audioSettings.SfxVolume = sfxVolume;
+            view.SfxVolume.OnChange( evt => {
+                audioSettings.SfxVolume = evt.newValue;
             } );
-            view.GameVolume.OnChange( (gameVolume) => {
-                audioSettings.GameVolume = gameVolume;
+            view.GameVolume.OnChange( evt => {
+                audioSettings.GameVolume = evt.newValue;
             } );
             return view;
         }

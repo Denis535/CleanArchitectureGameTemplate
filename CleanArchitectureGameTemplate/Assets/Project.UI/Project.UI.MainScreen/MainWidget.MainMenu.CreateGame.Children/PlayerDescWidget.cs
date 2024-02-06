@@ -40,7 +40,7 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static PlayerDescWidgetView CreateView(UIFactory factory, Globals.AccountSettings accountSettings) {
             var view = new PlayerDescWidgetView( factory );
-            view.Group.OnAttachToPanel( () => {
+            view.Group.OnAttachToPanel( evt => {
                 view.Name.Value = accountSettings.PlayerName;
                 view.Role.ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>().Cast<object?>().ToArray());
                 view.IsReady.Value = false;

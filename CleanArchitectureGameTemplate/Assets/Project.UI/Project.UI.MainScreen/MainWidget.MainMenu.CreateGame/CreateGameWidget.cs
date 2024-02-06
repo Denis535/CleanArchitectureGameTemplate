@@ -87,7 +87,7 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static CreateGameWidgetView CreateView(CreateGameWidget widget, UIFactory factory, UIRouter router) {
             var view = new CreateGameWidgetView( factory );
-            view.Okey.OnClick( () => {
+            view.Okey.OnClick( evt => {
                 var gameName = widget.GameDescWidget.Name;
                 var gameMode = widget.GameDescWidget.Mode;
                 var gameWorld = widget.GameDescWidget.World;
@@ -102,7 +102,7 @@ namespace Project.UI.MainScreen {
                     widget.AttachChild( new LoadingWidget() );
                 }
             } );
-            view.Back.OnClick( () => {
+            view.Back.OnClick( evt => {
                 widget.DetachSelf();
             } );
             return view;

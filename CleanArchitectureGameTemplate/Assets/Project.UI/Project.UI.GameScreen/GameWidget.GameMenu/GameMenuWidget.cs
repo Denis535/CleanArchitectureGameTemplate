@@ -36,13 +36,13 @@ namespace Project.UI.GameScreen {
         // Helpers
         private static GameMenuWidgetView CreateView(GameMenuWidget widget, UIFactory factory, UIRouter router) {
             var view = new GameMenuWidgetView( factory );
-            view.Resume.OnClick( () => {
+            view.Resume.OnClick( evt => {
                 widget.DetachSelf();
             } );
-            view.Settings.OnClick( () => {
+            view.Settings.OnClick( evt => {
                 widget.AttachChild( new SettingsWidget() );
             } );
-            view.Back.OnClick( () => {
+            view.Back.OnClick( evt => {
                 var dialog = new DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => router.LoadMainSceneAsync( default ).Throw() ).OnCancel( "No", null );
                 widget.AttachChild( dialog );
             } );

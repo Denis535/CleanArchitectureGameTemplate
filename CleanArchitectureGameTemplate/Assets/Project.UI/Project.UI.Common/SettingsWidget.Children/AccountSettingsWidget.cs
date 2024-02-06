@@ -44,12 +44,12 @@ namespace Project.UI.Common {
         // Helpers
         private static AccountSettingsWidgetView CreateView(AccountSettingsWidget widget, UIFactory factory, Globals.AccountSettings accountSettings) {
             var view = new AccountSettingsWidgetView( factory );
-            view.Scope.OnAttachToPanel( () => {
+            view.Scope.OnAttachToPanel( evt => {
                 view.Name.Value = accountSettings.PlayerName;
                 view.Name.IsValid = accountSettings.IsNameValid( view.Name.Value );
             } );
-            view.Name.OnChange( (name) => {
-                view.Name.IsValid = accountSettings.IsNameValid( name! );
+            view.Name.OnChange( evt => {
+                view.Name.IsValid = accountSettings.IsNameValid( evt.newValue! );
             } );
             return view;
         }

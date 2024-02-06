@@ -3,9 +3,11 @@ namespace Project.UI.Common {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
+    using UnityEngine.UIElements;
 
     public class SettingsWidget : UIWidgetBase<SettingsWidgetView> {
 
@@ -71,13 +73,21 @@ namespace Project.UI.Common {
         // Helpers
         private static SettingsWidgetView CreateView(SettingsWidget widget, UIFactory factory) {
             var view = new SettingsWidgetView( factory );
-            view.Okey.OnClick( () => {
-                widget.AccountSettingsWidget.Submit();
-                widget.VideoSettingsWidget.Submit();
-                widget.AudioSettingsWidget.Submit();
-                widget.DetachSelf();
+            view.Widget.OnChangeAny( evt => {
+                view.Okey.IsValid =
+                    view.AccountSettingsSlot.GetVisualElement().GetDescendants().All( i => i.IsValid() ) &&
+                    view.VideoSettingsSlot.GetVisualElement().GetDescendants().All( i => i.IsValid() ) &&
+                    view.AudioSettingsSlot.GetVisualElement().GetDescendants().All( i => i.IsValid() );
             } );
-            view.Back.OnClick( () => {
+            view.Okey.OnClick( evt => {
+                if (view.Okey.IsValid) {
+                    widget.AccountSettingsWidget.Submit();
+                    widget.VideoSettingsWidget.Submit();
+                    widget.AudioSettingsWidget.Submit();
+                    widget.DetachSelf();
+                }
+            } );
+            view.Back.OnClick( evt => {
                 widget.AccountSettingsWidget.Cancel();
                 widget.VideoSettingsWidget.Cancel();
                 widget.AudioSettingsWidget.Cancel();

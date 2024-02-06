@@ -35,16 +35,16 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static MainMenuWidgetView CreateView(MainMenuWidget widget, UIFactory factory, UIRouter router) {
             var view = new MainMenuWidgetView( factory );
-            view.CreateGame.OnClick( () => {
+            view.CreateGame.OnClick( evt => {
                 widget.AttachChild( new CreateGameWidget() );
             } );
-            view.JoinGame.OnClick( () => {
+            view.JoinGame.OnClick( evt => {
                 widget.AttachChild( new JoinGameWidget() );
             } );
-            view.Settings.OnClick( () => {
+            view.Settings.OnClick( evt => {
                 widget.AttachChild( new SettingsWidget() );
             } );
-            view.Quit.OnClick( () => {
+            view.Quit.OnClick( evt => {
                 var dialog = new DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => router.Quit() ).OnCancel( "No", null );
                 widget.AttachChild( dialog );
             } );

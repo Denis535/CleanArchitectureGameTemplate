@@ -102,7 +102,7 @@ namespace Project.UI.Common {
         // Helpers
         private static RootWidgetView CreateView() {
             var view = new RootWidgetView();
-            view.Widget.OnEventTrickleDown<NavigationSubmitEvent>( evt => {
+            view.Widget.OnEvent<NavigationSubmitEvent>( evt => {
                 if (evt.target is Button button) {
                     using (var click = ClickEvent.GetPooled()) {
                         click.target = button;
@@ -110,8 +110,8 @@ namespace Project.UI.Common {
                     }
                     evt.StopPropagation();
                 }
-            } );
-            view.Widget.OnEventTrickleDown<NavigationCancelEvent>( evt => {
+            }, TrickleDown.NoTrickleDown );
+            view.Widget.OnEvent<NavigationCancelEvent>( evt => {
                 var widget = ((VisualElement) evt.target).GetAncestorsAndSelf().OfType<Widget>().FirstOrDefault();
                 var button = widget?.Query<Button>().Where( i => i.name is "resume" or "cancel" or "cancellation" or "back" or "no" or "quit" ).First();
                 if (button != null) {
@@ -121,7 +121,7 @@ namespace Project.UI.Common {
                     }
                     evt.StopPropagation();
                 }
-            } );
+            }, TrickleDown.NoTrickleDown );
             return view;
         }
 

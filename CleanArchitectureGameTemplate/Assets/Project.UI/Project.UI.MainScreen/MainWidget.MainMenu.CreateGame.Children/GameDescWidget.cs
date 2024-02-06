@@ -38,7 +38,7 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static GameDescWidgetView CreateView(UIFactory factory) {
             var view = new GameDescWidgetView( factory );
-            view.Group.OnAttachToPanel( () => {
+            view.Group.OnAttachToPanel( evt => {
                 view.Name.Value = "Anonymous";
                 view.Mode.ValueChoices = (GameMode._1x4, Enum2.GetValues<GameMode>().Cast<object?>().ToArray());
                 view.World.ValueChoices = (GameWorld.TestWorld1, Enum2.GetValues<GameWorld>().Cast<object?>().ToArray());

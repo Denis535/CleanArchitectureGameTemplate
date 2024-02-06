@@ -32,7 +32,7 @@ namespace Project.UI.MainScreen {
         // Helpers
         private static RoomWidgetView CreateView(RoomWidget widget, UIFactory factory) {
             var view = new RoomWidgetView( factory );
-            view.Group.OnAttachToPanel( () => {
+            view.Group.OnAttachToPanel( evt => {
                 for (var i = 1; i <= 32; i++) {
                     view.Players.Add( factory.PlayerItem( $"Player: {view.Players.Children.Count + 1}", view.Players.Children.Count ) );
                 }
