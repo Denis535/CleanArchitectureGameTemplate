@@ -14,7 +14,7 @@ namespace Project.UI.MainScreen {
 
         // Globals
         private UIFactory Factory { get; }
-        private Globals.AccountSettings PlayerProfile { get; }
+        private Globals.AccountSettings AccountSettings { get; }
         // View
         protected override PlayerDescWidgetView View { get; }
         public string Name => View.Name.Value!;
@@ -24,8 +24,8 @@ namespace Project.UI.MainScreen {
         // Constructor
         public PlayerDescWidget() {
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
-            PlayerProfile = this.GetDependencyContainer().Resolve<Globals.AccountSettings>( null );
-            View = CreateView( Factory, PlayerProfile );
+            AccountSettings = this.GetDependencyContainer().Resolve<Globals.AccountSettings>( null );
+            View = CreateView( Factory, AccountSettings );
         }
         public override void Dispose() {
             base.Dispose();
@@ -38,10 +38,10 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static PlayerDescWidgetView CreateView(UIFactory factory, Globals.AccountSettings playerProfile) {
+        private static PlayerDescWidgetView CreateView(UIFactory factory, Globals.AccountSettings accountSettings) {
             var view = new PlayerDescWidgetView( factory );
             view.Group.OnAttachToPanel( () => {
-                view.Name.Value = playerProfile.PlayerName;
+                view.Name.Value = accountSettings.PlayerName;
                 view.Role.ValueChoices = (PlayerRole.Human, Enum2.GetValues<PlayerRole>().Cast<object?>().ToArray());
                 view.IsReady.Value = false;
             } );

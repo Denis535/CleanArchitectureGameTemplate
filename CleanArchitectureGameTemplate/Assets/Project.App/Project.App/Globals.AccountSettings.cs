@@ -36,7 +36,7 @@ namespace Project.App {
             }
 
             // Utils
-            public static bool IsNameValid(string value) {
+            public bool IsNameValid(string value) {
                 return
                     value.Length >= 3 &&
                     char.IsLetterOrDigit( value.First() ) &&
