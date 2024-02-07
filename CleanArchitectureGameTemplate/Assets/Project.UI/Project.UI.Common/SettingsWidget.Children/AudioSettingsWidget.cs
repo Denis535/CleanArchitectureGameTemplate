@@ -27,21 +27,18 @@ namespace Project.UI.Common {
         }
 
         // OnAttach
-        public override void OnAttach() {
+        public override void OnAttach(object? argument) {
         }
-        public override void OnDetach() {
-        }
-
-        // Submit
-        public void Submit() {
-            AudioSettings.MasterVolume = View.MasterVolume.Value;
-            AudioSettings.MusicVolume = View.MusicVolume.Value;
-            AudioSettings.SfxVolume = View.SfxVolume.Value;
-            AudioSettings.GameVolume = View.GameVolume.Value;
-            AudioSettings.Save();
-        }
-        public void Cancel() {
-            AudioSettings.Load();
+        public override void OnDetach(object? argument) {
+            if (argument is DetachReason.Submit) {
+                AudioSettings.MasterVolume = View.MasterVolume.Value;
+                AudioSettings.MusicVolume = View.MusicVolume.Value;
+                AudioSettings.SfxVolume = View.SfxVolume.Value;
+                AudioSettings.GameVolume = View.GameVolume.Value;
+                AudioSettings.Save();
+            } else {
+                AudioSettings.Load();
+            }
         }
 
         // Helpers

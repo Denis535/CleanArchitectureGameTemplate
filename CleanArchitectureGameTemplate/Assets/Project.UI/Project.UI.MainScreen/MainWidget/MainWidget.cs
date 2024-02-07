@@ -36,7 +36,7 @@ namespace Project.UI.MainScreen {
         }
 
         // OnAttach
-        public override async void OnAttach() {
+        public override async void OnAttach(object? argument) {
             // await MainScene
             if (!Application.IsMainSceneLoaded) {
                 while (!Application.IsMainSceneLoaded) {
@@ -70,7 +70,7 @@ namespace Project.UI.MainScreen {
             // Children
             this.AttachChild( new MainMenuWidget() );
         }
-        public override void OnDetach() {
+        public override void OnDetach(object? argument) {
         }
 
         protected override void ShowWidget(UIWidgetBase widget) {

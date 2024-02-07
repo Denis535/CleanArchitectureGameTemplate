@@ -51,9 +51,9 @@ namespace Project.UI.Common {
         }
 
         // OnAttach
-        public override void OnAttach() {
+        public override void OnAttach(object? argument) {
         }
-        public override void OnDetach() {
+        public override void OnDetach(object? argument) {
         }
 
         // OnSubmit

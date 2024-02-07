@@ -27,18 +27,15 @@ namespace Project.UI.Common {
         }
 
         // OnAttach
-        public override void OnAttach() {
+        public override void OnAttach(object? argument) {
         }
-        public override void OnDetach() {
-        }
-
-        // Submit
-        public void Submit() {
-            AccountSettings.PlayerName = View.Name.Value!;
-            AccountSettings.Save();
-        }
-        public void Cancel() {
-            AccountSettings.Load();
+        public override void OnDetach(object? argument) {
+            if (argument is DetachReason.Submit) {
+                AccountSettings.PlayerName = View.Name.Value!;
+                AccountSettings.Save();
+            } else {
+                AccountSettings.Load();
+            }
         }
 
         // Helpers

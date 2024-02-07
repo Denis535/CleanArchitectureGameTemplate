@@ -28,11 +28,11 @@ namespace Project.UI.Common {
         }
 
         // OnAttach
-        public override void OnAttach() {
-            base.OnAttach();
+        public override void OnAttach(object? argument) {
+            base.OnAttach( argument );
         }
-        public override void OnDetach() {
-            base.OnDetach();
+        public override void OnDetach(object? argument) {
+            base.OnDetach( argument );
         }
 
         // ShowWidget

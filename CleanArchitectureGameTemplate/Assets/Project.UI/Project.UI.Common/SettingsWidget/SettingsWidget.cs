@@ -15,27 +15,23 @@ namespace Project.UI.Common {
         private UIFactory Factory { get; }
         // View
         protected override SettingsWidgetView View { get; }
-        // Children
-        private AccountSettingsWidget AccountSettingsWidget { get; }
-        private VideoSettingsWidget VideoSettingsWidget { get; }
-        private AudioSettingsWidget AudioSettingsWidget { get; }
 
         // Constructor
         public SettingsWidget() {
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             View = CreateView( this, Factory );
-            this.AttachChild( AccountSettingsWidget = new AccountSettingsWidget() );
-            this.AttachChild( VideoSettingsWidget = new VideoSettingsWidget() );
-            this.AttachChild( AudioSettingsWidget = new AudioSettingsWidget() );
+            this.AttachChild( new AccountSettingsWidget() );
+            this.AttachChild( new VideoSettingsWidget() );
+            this.AttachChild( new AudioSettingsWidget() );
         }
         public override void Dispose() {
             base.Dispose();
         }
 
         // OnAttach
-        public override void OnAttach() {
+        public override void OnAttach(object? argument) {
         }
-        public override void OnDetach() {
+        public override void OnDetach(object? argument) {
         }
 
         // ShowWidget
@@ -81,17 +77,11 @@ namespace Project.UI.Common {
             } );
             view.Okey.OnClick( evt => {
                 if (view.Okey.IsValid) {
-                    widget.AccountSettingsWidget.Submit();
-                    widget.VideoSettingsWidget.Submit();
-                    widget.AudioSettingsWidget.Submit();
-                    widget.DetachSelf();
+                    widget.DetachSelf( DetachReason.Submit );
                 }
             } );
             view.Back.OnClick( evt => {
-                widget.AccountSettingsWidget.Cancel();
-                widget.VideoSettingsWidget.Cancel();
-                widget.AudioSettingsWidget.Cancel();
-                widget.DetachSelf();
+                widget.DetachSelf( DetachReason.Cancel );
             } );
             return view;
         }

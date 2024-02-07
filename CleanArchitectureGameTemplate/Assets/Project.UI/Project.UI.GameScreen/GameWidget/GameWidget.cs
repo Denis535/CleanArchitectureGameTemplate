@@ -32,10 +32,10 @@ namespace Project.UI.GameScreen {
         }
 
         // OnAttach
-        public override void OnAttach() {
+        public override void OnAttach(object? argument) {
             Actions.Enable();
         }
-        public override void OnDetach() {
+        public override void OnDetach(object? argument) {
             Actions.Disable();
         }
 
