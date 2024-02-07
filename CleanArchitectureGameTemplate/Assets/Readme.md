@@ -1,5 +1,5 @@
 # Overview
-The "Clean Architecture Game Template" project is well designed the game template allowing you to quickly and efficiently start developing your project with the best practices (like Clean Architecture and Uber Ribs).
+This project is well designed game template allowing you to quickly and efficiently start developing your project with the best practices (like Clean Architecture and Uber Ribs).
 
 # Reference
 The project consists of the following modules:
@@ -23,3 +23,6 @@ The project depends on the following packages:
 # Build
 - Prepare your project for build (Toolbar / Project / Pre Build).
 - Build your project (Toolbar / Project / Build).
+
+# Link
+- https://assetstore.unity.com/publishers/90787
