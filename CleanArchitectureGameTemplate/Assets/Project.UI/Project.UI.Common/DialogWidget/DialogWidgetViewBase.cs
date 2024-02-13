@@ -6,7 +6,6 @@ namespace Project.UI.Common {
     using UnityEngine;
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
-    using UnityEngine.UIElements.Experimental;
 
     public abstract class DialogWidgetViewBase : UIViewBase, IModalWidgetView {
 
@@ -24,7 +23,6 @@ namespace Project.UI.Common {
         public DialogWidgetViewBase(UIFactory factory) {
             if (this is DialogWidgetView) {
                 VisualElement = factory.DialogWidget( out var widget, out var card, out var header, out var content, out var footer, out var title, out var message );
-                VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
                 Widget = widget.Wrap();
                 Card = card.Wrap();
                 Header = header.Wrap();
@@ -34,7 +32,6 @@ namespace Project.UI.Common {
                 Message = message.Wrap();
             } else if (this is InfoDialogWidgetView) {
                 VisualElement = factory.InfoDialogWidget( out var widget, out var card, out var header, out var content, out var footer, out var title, out var message );
-                VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
                 Widget = widget.Wrap();
                 Card = card.Wrap();
                 Header = header.Wrap();
@@ -44,7 +41,6 @@ namespace Project.UI.Common {
                 Message = message.Wrap();
             } else if (this is WarningDialogWidgetView) {
                 VisualElement = factory.WarningDialogWidget( out var widget, out var card, out var header, out var content, out var footer, out var title, out var message );
-                VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
                 Widget = widget.Wrap();
                 Card = card.Wrap();
                 Header = header.Wrap();
@@ -54,7 +50,6 @@ namespace Project.UI.Common {
                 Message = message.Wrap();
             } else if (this is ErrorDialogWidgetView) {
                 VisualElement = factory.ErrorDialogWidget( out var widget, out var card, out var header, out var content, out var footer, out var title, out var message );
-                VisualElement.OnAttachToPanel( i => PlayAppearance( VisualElement ) );
                 Widget = widget.Wrap();
                 Card = card.Wrap();
                 Header = header.Wrap();
@@ -88,22 +83,6 @@ namespace Project.UI.Common {
                 }
             } );
             Footer.GetVisualElement().Add( button );
-        }
-
-        // Helpers
-        private static void PlayAppearance(VisualElement element) {
-            var animation = ValueAnimation<float>.Create( element, Mathf.LerpUnclamped );
-            animation.valueUpdated = (view, t) => {
-                var tx = Easing.OutBack( Easing.InPower( t, 2 ), 4 );
-                var ty = Easing.OutBack( Easing.OutPower( t, 2 ), 4 );
-                var x = Mathf.LerpUnclamped( 0.8f, 1f, tx );
-                var y = Mathf.LerpUnclamped( 0.8f, 1f, ty );
-                view.transform.scale = new Vector3( x, y, 1 );
-            };
-            animation.from = 0;
-            animation.to = 1;
-            animation.durationMs = 500;
-            animation.Start();
         }
 
     }
