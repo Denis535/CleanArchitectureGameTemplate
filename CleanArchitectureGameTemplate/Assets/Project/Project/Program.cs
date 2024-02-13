@@ -7,7 +7,6 @@ namespace Project {
     using Project.Entities.GameScene;
     using Project.UI;
     using UnityEditor;
-    using UnityEditor.SceneManagement;
     using UnityEngine;
     using UnityEngine.Framework;
 
@@ -33,14 +32,16 @@ namespace Project {
         //    }
         //}
 
+#if UNITY_EDITOR
         // OnLoad
         [InitializeOnLoadMethod]
         internal static void OnLoad() {
             if (!EditorApplication.isPlaying) {
-                EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>( "Assets/Project/Assets.Project/Launcher.unity" );
+                UnityEditor.SceneManagement.EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>( "Assets/Project/Assets.Project/Launcher.unity" );
                 //EditorSceneManager.playModeStartScene = null;
             }
         }
+#endif
 
         // OnLoad
         [RuntimeInitializeOnLoadMethod( RuntimeInitializeLoadType.BeforeSplashScreen )]
