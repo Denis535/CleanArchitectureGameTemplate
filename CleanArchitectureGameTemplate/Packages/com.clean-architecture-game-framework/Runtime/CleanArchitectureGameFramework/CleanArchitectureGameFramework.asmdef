@@ -1,0 +1,19 @@
+{
+    "name": "CleanArchitectureGameFramework",
+    "rootNamespace": "UnityEngine",
+    "references": [
+        "Unity.ResourceManager",
+        "Unity.Addressables",
+        "CleanArchitectureGameFramework.Internal",
+        "CleanArchitectureGameFramework.Core"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

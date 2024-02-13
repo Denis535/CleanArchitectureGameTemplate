@@ -1,0 +1,24 @@
+{
+  "name": "com.colorful-project-window",
+  "displayName": "Colorful Project Window",
+  "version": "1.0.0",
+  "description": "This package makes the project window much more convenient.",
+  "author": {
+    "name": "Denis535",
+    "url": "https://assetstore.unity.com/publishers/90787"
+  },
+  "unity": "2023.2",
+  "dependencies": {},
+  "keywords": [
+    "Editor",
+    "Tools",
+    "Extensions",
+    "Utilities",
+    "Project",
+    "Window",
+    "Project Window",
+    "Custom Project Window",
+    "Colorful Project Window"
+  ],
+  "_fingerprint": "74e53abcb2c39061ff12ac11d8ecf7d167a60fdf"
+}

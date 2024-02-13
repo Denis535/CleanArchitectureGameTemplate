@@ -80,15 +80,6 @@ namespace UnityEngine.AddressableAssets {
                     public const string @DropdownArrow = "UnityEngine.UIElements/Images/DropdownArrow.png";
                     public const string @DropdownArrow_2x = "UnityEngine.UIElements/Images/DropdownArrow@2x.png";
                 }
-                public static class @Sounds {
-                    public const string @Click = "UnityEngine.UIElements/Sounds/Click.wav";
-                    public const string @ErrorDialog = "UnityEngine.UIElements/Sounds/ErrorDialog.wav";
-                    public const string @InfoDialog = "UnityEngine.UIElements/Sounds/InfoDialog.wav";
-                    public const string @Invalid = "UnityEngine.UIElements/Sounds/Invalid.wav";
-                    public const string @Select = "UnityEngine.UIElements/Sounds/Select.wav";
-                    public const string @Tik = "UnityEngine.UIElements/Sounds/Tik.wav";
-                    public const string @WarningDialog = "UnityEngine.UIElements/Sounds/WarningDialog.wav";
-                }
                 public static class @StyleSheets {
                     public static class @StyleSheets1 {
                         public const string @_Widget = "UnityEngine.UIElements/StyleSheets/StyleSheets1/00_Widget.uss";
@@ -137,6 +128,15 @@ namespace UnityEngine.AddressableAssets {
                         public const string @Theme_2 = "Project.UI.GameScreen/Music/Theme 2 #Black Paper - I'm with You.flac";
                         public const string @Theme_3 = "Project.UI.GameScreen/Music/Theme 3 #Black Paper - Bottom Line.flac";
                     }
+                }
+                public static class @Sounds {
+                    public const string @Click = "Project.UI/Sounds/Click.wav";
+                    public const string @ErrorDialog = "Project.UI/Sounds/ErrorDialog.wav";
+                    public const string @InfoDialog = "Project.UI/Sounds/InfoDialog.wav";
+                    public const string @Invalid = "Project.UI/Sounds/Invalid.wav";
+                    public const string @Select = "Project.UI/Sounds/Select.wav";
+                    public const string @Tik = "Project.UI/Sounds/Tik.wav";
+                    public const string @WarningDialog = "Project.UI/Sounds/WarningDialog.wav";
                 }
                 public static class @StyleSheets {
                     public const string @ThemeStyleSheet = "Project.UI/StyleSheets/ThemeStyleSheet.uss";

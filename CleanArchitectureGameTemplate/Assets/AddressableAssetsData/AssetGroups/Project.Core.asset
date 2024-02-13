@@ -33,37 +33,37 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 11d538b2d033b16439607951dae1c32a
-    m_Address: UnityEngine.UIElements/Sounds/InfoDialog.wav
+    m_Address: Project.UI/Sounds/InfoDialog.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3bce236784db4104d91cd1707e7f2718
-    m_Address: UnityEngine.UIElements/Sounds/WarningDialog.wav
+    m_Address: Project.UI/Sounds/WarningDialog.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2424bd6c688d3714b9c85791b80ef10f
-    m_Address: UnityEngine.UIElements/Sounds/ErrorDialog.wav
+    m_Address: Project.UI/Sounds/ErrorDialog.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e53d7a0f0ee27d545a9000fbaf933adf
-    m_Address: UnityEngine.UIElements/Sounds/Tik.wav
+    m_Address: Project.UI/Sounds/Tik.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 899e2efa04c07f74b93c2f05fa70cf6e
-    m_Address: UnityEngine.UIElements/Sounds/Click.wav
+    m_Address: Project.UI/Sounds/Click.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 675350ebb1bea2e42ab16071fc62bd57
-    m_Address: UnityEngine.UIElements/Sounds/Select.wav
+    m_Address: Project.UI/Sounds/Select.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 88ef72ac3ff2fb64da725a9d82a42345
-    m_Address: UnityEngine.UIElements/Sounds/Invalid.wav
+    m_Address: Project.UI/Sounds/Invalid.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
