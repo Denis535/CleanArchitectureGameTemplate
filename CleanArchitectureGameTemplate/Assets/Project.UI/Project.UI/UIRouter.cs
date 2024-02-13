@@ -18,13 +18,13 @@ namespace Project.UI {
 
     public class UIRouter : UIRouterBase {
 
+        private static readonly Lock @lock = new Lock();
+
         private static AsyncOperationHandle<SceneInstance> programOperationHandle;
         private AsyncOperationHandle<SceneInstance> mainSceneOperationHandle;
         private AsyncOperationHandle<SceneInstance> gameSceneOperationHandle;
         private AsyncOperationHandle<SceneInstance> worldSceneOperationHandle;
 
-        // System
-        private Lock Lock { get; } = new Lock();
         // Globals
         private Application2 Application { get; set; } = default!;
 
@@ -32,9 +32,6 @@ namespace Project.UI {
         public new void Awake() {
             base.Awake();
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
-#if !UNITY_EDITOR
-            UnityEngine.Application.wantsToQuit += OnQuit;
-#endif
         }
         public new void OnDestroy() {
             base.OnDestroy();
@@ -49,7 +46,7 @@ namespace Project.UI {
         }
         public async Task LoadMainSceneAsync(CancellationToken cancellationToken) {
             Release.LogFormat( "LoadMainScene" );
-            using (Lock.Enter()) {
+            using (@lock.Enter()) {
                 if (Application.IsGameSceneLoaded) {
                     // StopGame
                     Application.Game!.StopGame();
@@ -68,7 +65,7 @@ namespace Project.UI {
         }
         public async Task LoadGameSceneAsync(GameDesc gameDesc, PlayerDesc playerDesc, CancellationToken cancellationToken) {
             Release.LogFormat( "LoadGameScene: {0}, {1}", gameDesc, playerDesc );
-            using (Lock.Enter()) {
+            using (@lock.Enter()) {
                 if (Application.IsMainSceneLoaded) {
                     // UnloadMainScene
                     Application.SetMainSceneUnloading();
@@ -87,22 +84,25 @@ namespace Project.UI {
             }
         }
 
-#if UNITY_EDITOR
         // Quit
         public async void Quit() {
-            using (Lock.Enter()) {
+#if UNITY_EDITOR
+            Release.Log( "Quit" );
+            using (@lock.Enter()) {
                 Application.SetQuitting();
-                await UnloadMainSceneInternalAsync( default );
+                if (Application.IsMainSceneLoaded) {
+                    await UnloadMainSceneInternalAsync( default );
+                }
                 await UnloadProgramInternalAsync( default );
                 Application.SetQuited();
             }
             EditorApplication.ExitPlaymode();
-        }
 #else
-        // Quit
-        public void Quit() {
             Release.Log( "Quit" );
+            UnityEngine.Application.wantsToQuit -= OnQuit;
+            UnityEngine.Application.wantsToQuit += OnQuit;
             UnityEngine.Application.Quit();
+#endif
         }
         private bool OnQuit() {
             Release.Log( "OnQuit: " + Application.IsQuited );
@@ -113,7 +113,7 @@ namespace Project.UI {
             return true;
         }
         private async void OnQuitAsync() {
-            using (Lock.Enter()) {
+            using (@lock.Enter()) {
                 Application.SetQuitting();
                 if (Application.IsMainSceneLoaded) {
                     await UnloadMainSceneInternalAsync( default );
@@ -123,7 +123,6 @@ namespace Project.UI {
             }
             UnityEngine.Application.Quit();
         }
-#endif
 
         // Helpers/LoadScene
         private static async Task LoadProgramInternalAsync(CancellationToken cancellationToken) {

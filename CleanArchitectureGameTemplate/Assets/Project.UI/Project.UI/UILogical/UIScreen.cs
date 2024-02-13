@@ -60,8 +60,13 @@ namespace Project.UI {
             AddView( Document, widget.GetVisualElement()! );
         }
         protected override void __DetachWidget__(UIWidgetBase widget, object? argument) {
-            //RemoveView( Document, widget.GetVisualElement()! ); // NullReferenceException: Object reference not set to an instance of an object
-            base.__DetachWidget__( widget, argument );
+            if (Document && Document.rootVisualElement != null) {
+                RemoveView( Document, widget.GetVisualElement()! ); // NullReferenceException: Object reference not set to an instance of an object
+                base.__DetachWidget__( widget, argument );
+            } else {
+                if (Document) Debug.LogWarning( "UIDocument must be alive" );
+                if (Document.rootVisualElement != null) Debug.LogWarning( "UIDocument must have rootVisualElement" );
+            }
         }
 
         // Helpers

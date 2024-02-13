@@ -6,6 +6,8 @@ namespace Project {
     using Project.App;
     using Project.Entities.GameScene;
     using Project.UI;
+    using UnityEditor;
+    using UnityEditor.SceneManagement;
     using UnityEngine;
     using UnityEngine.Framework;
 
@@ -17,9 +19,32 @@ namespace Project {
         private UIRouter Router { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
 
+        // OnEnterPlaymode
+        //[InitializeOnEnterPlayMode]
+        //public static void OnEnterPlaymode() {
+        //    var scene = SceneManager.GetActiveScene();
+        //    if (scene.name == "Launcher") {
+        //    } else
+        //    if (scene.name == "Program") {
+        //    } else
+        //    if (scene.name == "MainScene") {
+        //    } else
+        //    if (scene.name == "GameScene") {
+        //    }
+        //}
+
+        // OnLoad
+        [InitializeOnLoadMethod]
+        internal static void OnLoad() {
+            if (!EditorApplication.isPlaying) {
+                EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>( "Assets/Project/Assets.Project/Launcher.unity" );
+                //EditorSceneManager.playModeStartScene = null;
+            }
+        }
+
         // OnLoad
         [RuntimeInitializeOnLoadMethod( RuntimeInitializeLoadType.BeforeSplashScreen )]
-        internal static void OnLoad() {
+        internal static void OnLoad2() {
             UnityEngine.Application.logMessageReceived += OnLog;
             //if (Debug.isDebugBuild) {
             //    Screen.fullScreen = false;
@@ -58,13 +83,10 @@ namespace Project {
 
         // Helpers/GetDisplayString
         private static string GetDisplayString<T>(T value) {
-            // GameDesc
+            if (value is Resolution resolution) return GetDisplayString( resolution );
             if (value is GameMode gameMode) return GetDisplayString( gameMode );
             if (value is GameWorld gameWorld) return GetDisplayString( gameWorld );
-            // PlayerDesc
             if (value is PlayerRole playerRole) return GetDisplayString( playerRole );
-            // Misc
-            if (value is Resolution resolution) return GetDisplayString( resolution );
             return value?.ToString() ?? "Null";
         }
         // Helpers/GetDisplayString/GameDesc

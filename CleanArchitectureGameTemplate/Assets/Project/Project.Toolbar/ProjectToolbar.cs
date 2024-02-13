@@ -17,33 +17,9 @@ namespace Project.Toolbar {
     using UnityEditorInternal;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.SceneManagement;
     using Object = UnityEngine.Object;
 
     public static class ProjectToolbar {
-
-        // OnLoad
-        [InitializeOnLoadMethod]
-        public static void OnLoad() {
-            if (!EditorApplication.isPlaying) {
-                EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>( "Assets/Project/Assets.Project/Program.unity" );
-                //EditorSceneManager.playModeStartScene = null;
-            }
-        }
-
-        // OnEnterPlaymode
-        [InitializeOnEnterPlayMode]
-        public static void OnEnterPlaymode() {
-            var scene = SceneManager.GetActiveScene();
-            if (scene.name == "Launcher") {
-            } else
-            if (scene.name == "Program") {
-            } else
-            if (scene.name == "MainScene") {
-            } else
-            if (scene.name == "GameScene") {
-            }
-        }
 
         // LoadScene
         [MenuItem( "Project/Launcher", priority = 0 )]

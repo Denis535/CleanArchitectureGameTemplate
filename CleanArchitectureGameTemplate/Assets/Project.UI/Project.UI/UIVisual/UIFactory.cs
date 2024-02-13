@@ -388,7 +388,7 @@ namespace Project.UI {
         private void PlaySound(AudioClip clip) {
             if (AudioSource.isPlaying) {
                 if (AudioSource.clip == clip) {
-                    if (AudioSource.time > 0.25f) {
+                    if (AudioSource.time > 0.1f) {
                         AudioSource.clip = clip;
                         AudioSource.Play();
                     }
