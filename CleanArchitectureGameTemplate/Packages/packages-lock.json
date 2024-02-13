@@ -1,37 +1,41 @@
 {
   "dependencies": {
     "com.addressables-source-generator": {
-      "version": "file:com.addressables-source-generator",
+      "version": "https://github.com/Denis535/CleanArchitectureGameFramework.git?path=Packages/com.addressables-source-generator",
       "depth": 0,
-      "source": "embedded",
+      "source": "git",
       "dependencies": {
         "com.unity.addressables": "1.0.0"
-      }
+      },
+      "hash": "77424e43ac092e7442be4ae8e2b5932f8aa3d2a9"
     },
     "com.clean-architecture-game-framework": {
-      "version": "file:com.clean-architecture-game-framework",
+      "version": "https://github.com/Denis535/CleanArchitectureGameFramework.git?path=Packages/com.clean-architecture-game-framework",
       "depth": 0,
-      "source": "embedded",
+      "source": "git",
       "dependencies": {
         "com.unity.addressables": "1.0.0",
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.uielements": "1.0.0"
-      }
+      },
+      "hash": "77424e43ac092e7442be4ae8e2b5932f8aa3d2a9"
     },
     "com.colorful-project-window": {
-      "version": "file:com.colorful-project-window",
+      "version": "https://github.com/Denis535/CleanArchitectureGameFramework.git?path=Packages/com.colorful-project-window",
       "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "77424e43ac092e7442be4ae8e2b5932f8aa3d2a9"
     },
     "com.uitoolkit-theme-style-sheet": {
-      "version": "file:com.uitoolkit-theme-style-sheet",
+      "version": "https://github.com/Denis535/UIToolkitThemeStyleSheet.git?path=/Packages/com.uitoolkit-theme-style-sheet",
       "depth": 0,
-      "source": "embedded",
+      "source": "git",
       "dependencies": {
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.uielements": "1.0.0"
-      }
+      },
+      "hash": "d54afb1820e7aea8539105c457c0396daac9e7ef"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
@@ -40,11 +44,11 @@
       "dependencies": {}
     },
     "com.unity.addressables": {
-      "version": "1.21.19",
+      "version": "1.21.20",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.scriptablebuildpipeline": "1.21.21",
+        "com.unity.scriptablebuildpipeline": "1.21.22",
         "com.unity.modules.assetbundle": "1.0.0",
         "com.unity.modules.imageconversion": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0",
@@ -151,7 +155,7 @@
       }
     },
     "com.unity.rendering.light-transport": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "depth": 2,
       "source": "builtin",
       "dependencies": {
@@ -161,7 +165,7 @@
       }
     },
     "com.unity.scriptablebuildpipeline": {
-      "version": "1.21.21",
+      "version": "1.21.22",
       "depth": 1,
       "source": "registry",
       "dependencies": {},

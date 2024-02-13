@@ -12,17 +12,17 @@ namespace Project.UI {
     public class UIFactory : MonoBehaviour {
 
         // Assets
-        private AudioClip appearance = default!;
-        private AudioClip infoAppearance = default!;
-        private AudioClip warningAppearance = default!;
-        private AudioClip errorAppearance = default!;
-        private AudioClip focus = default!;
         private AudioClip click = default!;
         private AudioClip selectClick = default!;
         private AudioClip submitClick = default!;
         private AudioClip cancelClick = default!;
         private AudioClip invalidClick = default!;
         private AudioClip tik = default!;
+        private AudioClip focus = default!;
+        private AudioClip dialog = default!;
+        private AudioClip infoDialog = default!;
+        private AudioClip warningDialog = default!;
+        private AudioClip errorDialog = default!;
 
         // System
         public static Func<object?, string?>? StringSelector { get; set; }
@@ -32,26 +32,26 @@ namespace Project.UI {
         // Awake
         public void Awake() {
             // Assets
-            appearance = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Appearance ).GetResult();
-            infoAppearance = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Appearance_Info ).GetResult();
-            warningAppearance = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Appearance_Warning ).GetResult();
-            errorAppearance = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Appearance_Error ).GetResult();
-            focus = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Focus ).GetResult();
             click = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Click ).GetResult();
-            selectClick = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Click_Select ).GetResult();
-            submitClick = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Click_Submit ).GetResult();
-            cancelClick = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Click_Cancel ).GetResult();
-            invalidClick = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Click_Invalid ).GetResult();
-            tik = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Tick ).GetResult();
+            selectClick = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Select ).GetResult();
+            submitClick = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Select ).GetResult();
+            cancelClick = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Select ).GetResult();
+            invalidClick = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Invalid ).GetResult();
+            tik = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Tik ).GetResult();
+            focus = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.Tik ).GetResult();
+            dialog = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.InfoDialog ).GetResult();
+            infoDialog = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.InfoDialog ).GetResult();
+            warningDialog = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.WarningDialog ).GetResult();
+            errorDialog = Addressables2.LoadAssetAsync<AudioClip>( R.UnityEngine.UIElements.Sounds.ErrorDialog ).GetResult();
             // Globals
             AudioSource = GetComponentInChildren<AudioSource>();
         }
         public void OnDestroy() {
             // Assets
-            Addressables2.Release( appearance );
-            Addressables2.Release( infoAppearance );
-            Addressables2.Release( warningAppearance );
-            Addressables2.Release( errorAppearance );
+            Addressables2.Release( dialog );
+            Addressables2.Release( infoDialog );
+            Addressables2.Release( warningDialog );
+            Addressables2.Release( errorDialog );
             Addressables2.Release( focus );
             Addressables2.Release( click );
             Addressables2.Release( selectClick );
@@ -92,22 +92,22 @@ namespace Project.UI {
         // Widget
         public Widget DialogWidget() {
             var result = Create<Widget>( "dialog-widget", "dialog-widget" );
-            result.OnAttachToPanel( PlayAppearance );
+            result.OnAttachToPanel( PlayDialog );
             return result;
         }
         public Widget InfoDialogWidget() {
             var result = Create<Widget>( "info-dialog-widget", "info-dialog-widget" );
-            result.OnAttachToPanel( PlayInfoAppearance );
+            result.OnAttachToPanel( PlayInfoDialog );
             return result;
         }
         public Widget WarningDialogWidget() {
             var result = Create<Widget>( "warning-dialog-widget", "warning-dialog-widget" );
-            result.OnAttachToPanel( PlayWarningAppearance );
+            result.OnAttachToPanel( PlayWarningDialog );
             return result;
         }
         public Widget ErrorDialogWidget() {
             var result = Create<Widget>( "error-dialog-widget", "error-dialog-widget" );
-            result.OnAttachToPanel( PlayErrorAppearance );
+            result.OnAttachToPanel( PlayErrorDialog );
             return result;
         }
 
@@ -315,25 +315,6 @@ namespace Project.UI {
         }
 
         // Helpers
-        private void PlayAppearance(AttachToPanelEvent evt) {
-            AudioSource.PlayOneShot( appearance );
-        }
-        private void PlayInfoAppearance(AttachToPanelEvent evt) {
-            AudioSource.PlayOneShot( infoAppearance );
-        }
-        private void PlayWarningAppearance(AttachToPanelEvent evt) {
-            AudioSource.PlayOneShot( warningAppearance );
-        }
-        private void PlayErrorAppearance(AttachToPanelEvent evt) {
-            AudioSource.PlayOneShot( errorAppearance );
-        }
-        // Helpers
-        private void PlayFocus(FocusEvent evt) {
-            if (evt.direction != FocusChangeDirection.none && evt.direction != FocusChangeDirection.unspecified) {
-                AudioSource.PlayOneShot( focus );
-            }
-        }
-        // Helpers
         private void PlayClick(MouseDownEvent evt) {
             var target = (VisualElement) evt.target;
             AudioSource.PlayOneShot( target.IsValid() ? click : invalidClick );
@@ -354,7 +335,6 @@ namespace Project.UI {
             var target = (VisualElement) evt.target;
             AudioSource.PlayOneShot( target.IsValid() ? cancelClick : invalidClick );
         }
-        // Helpers
         private void PlayChange(ChangeEvent<object?> evt) {
             if (evt.newValue != evt.previousValue) {
                 AudioSource.PlayOneShot( tik );
@@ -379,6 +359,25 @@ namespace Project.UI {
             if (evt.newValue != evt.previousValue) {
                 AudioSource.PlayOneShot( tik );
             }
+        }
+        // Helpers
+        private void PlayFocus(FocusEvent evt) {
+            if (evt.direction != FocusChangeDirection.none && evt.direction != FocusChangeDirection.unspecified) {
+                AudioSource.PlayOneShot( focus );
+            }
+        }
+        // Helpers
+        private void PlayDialog(AttachToPanelEvent evt) {
+            AudioSource.PlayOneShot( dialog );
+        }
+        private void PlayInfoDialog(AttachToPanelEvent evt) {
+            AudioSource.PlayOneShot( infoDialog );
+        }
+        private void PlayWarningDialog(AttachToPanelEvent evt) {
+            AudioSource.PlayOneShot( warningDialog );
+        }
+        private void PlayErrorDialog(AttachToPanelEvent evt) {
+            AudioSource.PlayOneShot( errorDialog );
         }
         // Helpers
         private static T Create<T>(string? name, string? @class = null) where T : VisualElement, new() {

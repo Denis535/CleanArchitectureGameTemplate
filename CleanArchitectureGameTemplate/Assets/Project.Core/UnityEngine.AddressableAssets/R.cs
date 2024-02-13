@@ -81,17 +81,13 @@ namespace UnityEngine.AddressableAssets {
                     public const string @DropdownArrow_2x = "UnityEngine.UIElements/Images/DropdownArrow@2x.png";
                 }
                 public static class @Sounds {
-                    public const string @Appearance = "UnityEngine.UIElements/Sounds/Appearance.wav";
-                    public const string @Appearance_Error = "UnityEngine.UIElements/Sounds/Appearance_Error.wav";
-                    public const string @Appearance_Info = "UnityEngine.UIElements/Sounds/Appearance_Info.wav";
-                    public const string @Appearance_Warning = "UnityEngine.UIElements/Sounds/Appearance_Warning.wav";
                     public const string @Click = "UnityEngine.UIElements/Sounds/Click.wav";
-                    public const string @Click_Cancel = "UnityEngine.UIElements/Sounds/Click_Cancel.wav";
-                    public const string @Click_Invalid = "UnityEngine.UIElements/Sounds/Click_Invalid.wav";
-                    public const string @Click_Select = "UnityEngine.UIElements/Sounds/Click_Select.wav";
-                    public const string @Click_Submit = "UnityEngine.UIElements/Sounds/Click_Submit.wav";
-                    public const string @Focus = "UnityEngine.UIElements/Sounds/Focus.wav";
-                    public const string @Tick = "UnityEngine.UIElements/Sounds/Tick.wav";
+                    public const string @ErrorDialog = "UnityEngine.UIElements/Sounds/ErrorDialog.wav";
+                    public const string @InfoDialog = "UnityEngine.UIElements/Sounds/InfoDialog.wav";
+                    public const string @Invalid = "UnityEngine.UIElements/Sounds/Invalid.wav";
+                    public const string @Select = "UnityEngine.UIElements/Sounds/Select.wav";
+                    public const string @Tik = "UnityEngine.UIElements/Sounds/Tik.wav";
+                    public const string @WarningDialog = "UnityEngine.UIElements/Sounds/WarningDialog.wav";
                 }
                 public static class @StyleSheets {
                     public static class @StyleSheets1 {
