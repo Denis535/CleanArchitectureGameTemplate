@@ -18,10 +18,8 @@ namespace UnityEngine.Framework {
         // Game
         public const int Game        = 10_600;
         public const int Player      = 10_500;
-        // World
         public const int World       = 10_400;
         public const int World_View  = 10_300;
-        // Entity
         public const int Entity      = 10_200;
         public const int Entity_View = 10_100;
         public const int Entity_Body = 10_000;
