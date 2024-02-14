@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Project.Entities
+  m_Name: Project.UI.GameScene
   m_EditorClassIdentifier: 
-  m_GroupName: Project.Entities
+  m_GroupName: Project.UI.GameScene
   m_Data:
     m_SerializedData: []
-  m_GUID: 58b3a6db067ddc740aa6614fd2ea5a1f
+  m_GUID: 0f26f6595730d9044ae380c6b7f7711f
   m_SerializeEntries:
-  - m_GUID: c0e9054c239152c44a3085c14fc749c5
-    m_Address: Project.Entities.Common
+  - m_GUID: 8251838560314614e9a9acfabad511f5
+    m_Address: Project.UI.GameScreen
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -26,5 +26,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 8c8417ae2abb549498500522f9dbf026, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 8f74f980a4e71a4428eb612976877e59, type: 2}
-    - {fileID: 11400000, guid: 4aafdff37704614479ade007e3a508e8, type: 2}
+    - {fileID: 11400000, guid: 0676096e3284fb044a6032d4ef9e0d14, type: 2}
+    - {fileID: 11400000, guid: db216ac22075c2c419f0e5a2e0e6a491, type: 2}

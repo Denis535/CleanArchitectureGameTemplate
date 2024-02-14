@@ -1,14 +1,29 @@
 This package contains the third-party packages under their own respective licenses:
-- Clean Architecture Game Framework
-- Addressables Source Generator
-- Colorful Project Window
-- UIToolkit Theme Style Sheet
-- JDSherbert - Ultimate UI SFX Pack
 
-And also this package contains the third-party files under their own respective licenses:
-- Assets/Project.UI/Assets.Project.UI.MainScreen:
-    - Black Paper - Pulse
-- Assets/Project.UI/Assets.Project.UI.GameScreen:
-    - Black Paper - Inside My Head
-    - Black Paper - I'm with You
-    - Black Paper - Bottom Line
+- Clean Architecture Game Framework
+This package is developed by me (https://assetstore.unity.com/publishers/90787).
+It's licensed under the Unity licence.
+
+- Addressables Source Generator
+This package is developed by me (https://assetstore.unity.com/publishers/90787).
+It's licensed under the Unity licence.
+
+- Colorful Project Window
+This package is developed by me (https://assetstore.unity.com/publishers/90787).
+It's licensed under the Unity licence.
+
+- UIToolkit Theme Style Sheet
+This package is developed by me (https://assetstore.unity.com/publishers/90787).
+It's licensed under the Unity licence.
+
+- JDSherbert - Ultimate UI SFX Pack
+This package is developed by JDSherber (https://jdsherbert.itch.io/).
+It's licensed under the individual licence which you can see: https://jdsherbert.itch.io/license (JDSherbert - Ultimate UI SFX Pack/LICENSE.pdf).
+Link: https://itch.io/queue/c/2618629/sound-effect-sfx-packs?game_id=1631353
+Note: This third-party package is used as an example only, so if you want to use this in your project then you have to buy this.
+
+- JDSherbert - Ambiences Music Pack [FREE]
+This package is developed by JDSherber (https://jdsherbert.itch.io/).
+It's licensed under the individual licence which you can see: https://jdsherbert.itch.io/license (JDSherbert - Ambiences Music Pack [FREE]/LICENSE.txt).
+Link: https://itch.io/queue/c/2618614/music-bgm-packs?game_id=1659708
+Note: This third-party package is used as an example only.
