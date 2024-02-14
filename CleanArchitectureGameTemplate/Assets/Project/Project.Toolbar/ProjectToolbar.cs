@@ -69,28 +69,28 @@ namespace Project.Toolbar {
             EditorUtility.RevealInFinder( path );
         }
 
-        // TakeScreenshot
-        [MenuItem( "Project/Take Screenshot (Game) _F12", priority = 300 )]
-        public static void TakeScreenshot_Game() {
-            var path = $"Screenshots/{Application.productName}-{DateTime.UtcNow.Ticks}.png";
-            ScreenCapture.CaptureScreenshot( path, 1 );
-            EditorApplication.Beep();
-            EditorUtility.RevealInFinder( path );
-        }
-        [MenuItem( "Project/Take Screenshot (Editor) &F12", priority = 301 )]
-        public static void TakeScreenshot_Editor() {
-            var position = EditorGUIUtility.GetMainWindowPosition();
-            var texture = new Texture2D( (int) position.width, (int) position.height );
-            texture.SetPixels( InternalEditorUtility.ReadScreenPixel( position.position, (int) position.width, (int) position.height ) );
-            var bytes = texture.EncodeToPNG();
-            Object.DestroyImmediate( texture );
+        //// TakeScreenshot
+        //[MenuItem( "Project/Take Screenshot (Game) _F12", priority = 300 )]
+        //public static void TakeScreenshot_Game() {
+        //    var path = $"Screenshots/{Application.productName}-{DateTime.UtcNow.Ticks}.png";
+        //    ScreenCapture.CaptureScreenshot( path, 1 );
+        //    EditorApplication.Beep();
+        //    EditorUtility.RevealInFinder( path );
+        //}
+        //[MenuItem( "Project/Take Screenshot (Editor) &F12", priority = 301 )]
+        //public static void TakeScreenshot_Editor() {
+        //    var position = EditorGUIUtility.GetMainWindowPosition();
+        //    var texture = new Texture2D( (int) position.width, (int) position.height );
+        //    texture.SetPixels( InternalEditorUtility.ReadScreenPixel( position.position, (int) position.width, (int) position.height ) );
+        //    var bytes = texture.EncodeToPNG();
+        //    Object.DestroyImmediate( texture );
 
-            var path = $"Screenshots/{Application.productName}-{DateTime.UtcNow.Ticks}.png";
-            Directory.CreateDirectory( Path.GetDirectoryName( path ) );
-            File.WriteAllBytes( path, bytes );
-            EditorApplication.Beep();
-            EditorUtility.RevealInFinder( path );
-        }
+        //    var path = $"Screenshots/{Application.productName}-{DateTime.UtcNow.Ticks}.png";
+        //    Directory.CreateDirectory( Path.GetDirectoryName( path ) );
+        //    File.WriteAllBytes( path, bytes );
+        //    EditorApplication.Beep();
+        //    EditorUtility.RevealInFinder( path );
+        //}
 
         // ExportPackage
         [MenuItem( "Project/Export Package", priority = 400 )]
