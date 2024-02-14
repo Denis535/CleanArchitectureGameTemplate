@@ -24,5 +24,5 @@ The project has the following dependencies:
 - Prepare your project for build (Toolbar / Project / Pre Build).
 - Build your project (Toolbar / Project / Build).
 
-# Link
+# Links
 - https://assetstore.unity.com/publishers/90787
