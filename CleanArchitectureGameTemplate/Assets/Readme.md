@@ -2,19 +2,19 @@
 This project is well designed game template allowing you to quickly and efficiently start developing your project with the best practices (like Clean Architecture and Uber Ribs).
 
 # Reference
-The project consists of the following modules:
-- Project - startup and global.
-- Project.UI - presentation.
-- Project.App - application.
-- Project.Entities - domain.
-- Project.Core - common.
+The project has the following modules:
+- Project - responsible for startup and global logic and assets.
+- Project.UI - responsible for presentation logic and assets.
+- Project.App - responsible for application logic and assets.
+- Project.Entities - responsible for domain logic and assets.
+- Project.Core - responsible for any common logic and assets.
 
 # Dependencies
-The project depends on the following packages: 
-- Clean Architecture Game Framework
-- Addressables Source Generator
-- Colorful Project Window
-- UIToolkit Theme Style Sheet
+The project has the following dependencies:
+- Clean Architecture Game Framework - the architecture game framework that helping you to develop your project following the best practices (like Clean Architecture and Uber Ribs).
+- Addressables Source Generator - the addition to Addressables giving you the ability to reference assets in a very convenient way.
+- Colorful Project Window - the much more convenient project window.
+- UIToolkit Theme Style Sheet - the beautiful UIToolkit theme style sheets and some additions and tools.
 
 # Setup
 - Install "Embedded Dependencies" package.
