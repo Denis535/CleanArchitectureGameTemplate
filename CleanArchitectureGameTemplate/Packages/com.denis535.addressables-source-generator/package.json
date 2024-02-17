@@ -1,7 +1,7 @@
 {
   "name": "com.denis535.addressables-source-generator",
   "displayName": "Addressables Source Generator",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "This package is addition to Addressables giving you the ability to reference assets in a very convenient way",
   "author": {
     "name": "Denis535",
@@ -20,5 +20,5 @@
     "Source Generator",
     "Addressables Source Generator"
   ],
-  "_fingerprint": "83e8998ba3b091ef4e891a238aa8f9844383f554"
+  "_fingerprint": "f8d78525d357038a66662e7f85d54608e569e257"
 }

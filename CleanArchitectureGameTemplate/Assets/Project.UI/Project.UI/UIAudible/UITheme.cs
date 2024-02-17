@@ -62,7 +62,7 @@ namespace Project.UI {
                     (Themes, Index) = (null, 0);
                 }
             }
-            if (IsPlaying && IsUnPausing && !AudioSource.isPlaying) {
+            if (IsPlaying && IsUnPaused && !AudioSource.isPlaying) {
                 StopTheme();
                 if (Themes != null) {
                     Index = (Index + 1) % Themes!.Length;
