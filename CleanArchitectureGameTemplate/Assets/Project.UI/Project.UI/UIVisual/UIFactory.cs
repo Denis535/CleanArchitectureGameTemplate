@@ -338,33 +338,33 @@ namespace Project.UI {
         }
         private void PlayChange(ChangeEvent<object?> evt) {
             if (evt.newValue != evt.previousValue) {
-                PlaySound( tik, false );
+                PlaySound( tik );
             }
         }
         private void PlayChange(ChangeEvent<string?> evt) {
             if (evt.newValue != evt.previousValue) {
-                PlaySound( tik, false );
+                PlaySound( tik );
             }
         }
         private void PlayChange(ChangeEvent<float> evt) {
             if (Mathf.FloorToInt( evt.newValue * 100 ) != Mathf.FloorToInt( evt.previousValue * 100 )) {
-                PlaySound( tik, false );
+                PlaySound( tik );
             }
         }
         private void PlayChange(ChangeEvent<int> evt) {
             if (evt.newValue != evt.previousValue) {
-                PlaySound( tik, false );
+                PlaySound( tik );
             }
         }
         private void PlayChange(ChangeEvent<bool> evt) {
             if (evt.newValue != evt.previousValue) {
-                PlaySound( tik, false );
+                PlaySound( tik );
             }
         }
         // Helpers
         private void PlayFocus(FocusEvent evt) {
             if (evt.direction != FocusChangeDirection.none && evt.direction != FocusChangeDirection.unspecified) {
-                PlaySound( focus, false );
+                PlaySound( focus );
             }
         }
         // Helpers
@@ -385,12 +385,12 @@ namespace Project.UI {
             PlayAppearance( (VisualElement) evt.target );
         }
         // Helpers
-        private void PlaySound(AudioClip clip, bool force) {
-            if (force) {
+        private void PlaySound(AudioClip clip, bool isPriority = false) {
+            if (isPriority) {
                 AudioSource.clip = clip;
                 AudioSource.Play();
             } else {
-                if (!AudioSource.isPlaying) {
+                if (!AudioSource.isPlaying || AudioSource.clip == clip) {
                     AudioSource.clip = clip;
                     AudioSource.Play();
                 }

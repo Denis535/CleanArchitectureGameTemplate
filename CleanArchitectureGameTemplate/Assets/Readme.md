@@ -25,4 +25,7 @@ The project has the following dependencies:
 - Build your project (Toolbar / Project / Build).
 
 # Links
+- https://denis535.github.io
+- https://youtu.be/lva7KKOQ71k
+- https://openupm.com/packages/?sort=downloads&q=denis535
 - https://assetstore.unity.com/publishers/90787
