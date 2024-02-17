@@ -79,11 +79,12 @@ namespace Project.UI {
 
         // PlayTheme
         private void PlayTheme(string[] themes) {
-            PlayTheme( themes.First() );
+            PlayTheme( GetNextValue( themes, AudioSource.clip?.name ) );
         }
         private async void PlayTheme(string theme) {
             StopTheme();
             var clip = await Addressables2.LoadAssetAsync<AudioClip>( theme ).GetResultAsync( destroyCancellationToken, null, Addressables2.Release );
+            clip.name = theme;
             Play( clip );
             Volume = 1;
         }
