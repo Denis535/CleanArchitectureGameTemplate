@@ -19,7 +19,7 @@ namespace UnityEngine.AddressableAssets {
                         public const string @Background__Background = "Project.UI.MainScreen/Images/Background.png[Background]";
                     }
                     public static class @Music {
-                        public const string @Theme = "Project.UI.MainScreen/Music/Theme #Black Paper  - Pulse.flac";
+                        public const string @Theme = "Project.UI.MainScreen/Music/Theme #Black Paper - Pulse.flac";
                     }
                 }
                 public static class @GameScreen {

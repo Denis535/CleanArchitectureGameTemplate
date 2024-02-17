@@ -3,6 +3,7 @@ namespace Project.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using Project.App;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
@@ -12,17 +13,16 @@ namespace Project.UI {
 
     public class UITheme : UIAudioThemeBase {
 
-        private static readonly string[] MainThemes = GetShuffled( new string[] {
+        private static readonly string[] MainThemes = GetShuffled( new[] {
             R.Project.UI.MainScreen.Music.Theme,
         } );
-        private static readonly string[] GameThemes = GetShuffled( new string[] {
+        private static readonly string[] GameThemes = GetShuffled( new[] {
             R.Project.UI.GameScreen.Music.Theme_1,
             R.Project.UI.GameScreen.Music.Theme_2,
             R.Project.UI.GameScreen.Music.Theme_3,
         } );
 
         private readonly Tracker<UIThemeState> stateTracker = new Tracker<UIThemeState>();
-        private AsyncOperationHandle<AudioClip> themeOperationHandle;
 
         // Globals
         private Application2 Application { get; set; } = default!;
@@ -30,9 +30,6 @@ namespace Project.UI {
         public UIThemeState State => GetState( Application.State );
         public bool IsMainTheme => State == UIThemeState.MainTheme;
         public bool IsGameTheme => State == UIThemeState.GameTheme;
-        // Themes
-        private string[]? Themes { get; set; }
-        private int Index { get; set; }
 
         // Awake
         public new void Awake() {
@@ -50,50 +47,51 @@ namespace Project.UI {
         public void Update() {
             if (stateTracker.IsChanged( State )) {
                 if (IsMainTheme) {
-                    StopTheme();
-                    (Themes, Index) = (MainThemes, 0);
-                    PlayTheme( Themes[ Index ] );
-                } else if (IsGameTheme) {
-                    StopTheme();
-                    (Themes, Index) = (GameThemes, 0);
-                    PlayTheme( Themes[ Index ] );
-                } else {
-                    StopTheme();
-                    (Themes, Index) = (null, 0);
+                    PlayTheme( MainThemes );
+                    return;
                 }
-            }
-            if (IsPlaying && IsUnPaused && !AudioSource.isPlaying) {
-                StopTheme();
-                if (Themes != null) {
-                    Index = (Index + 1) % Themes!.Length;
-                    PlayTheme( Themes[ Index ] );
+                if (IsGameTheme) {
+                    PlayTheme( GameThemes );
+                    return;
+                }
+                {
+                    StopTheme();
+                    return;
                 }
             }
             if (IsMainTheme) {
+                if (!AudioSource.isPlaying && IsPlaying && IsUnPaused) {
+                    PlayTheme( MainThemes );
+                }
                 if (Application.IsMainSceneUnloading || Application.IsGameSceneLoading) {
-                    Volume = Mathf.MoveTowards( Volume, 0, Volume * 0.5f * UnityEngine.Time.deltaTime );
+                    Volume = Mathf.MoveTowards( Volume, 0, Volume * UnityEngine.Time.deltaTime * 0.5f );
                 }
-            } else if (IsGameTheme) {
-                if (Application.Game!.IsPaused) {
-                    Pause();
-                } else if (Application.Game!.IsUnPaused) {
-                    UnPause();
+                return;
+            }
+            if (IsGameTheme) {
+                if (!AudioSource.isPlaying && IsPlaying && IsUnPaused) {
+                    PlayTheme( GameThemes );
                 }
+                SetPaused( Application.Game!.IsPaused );
+                return;
             }
         }
 
         // PlayTheme
+        private void PlayTheme(string[] themes) {
+            PlayTheme( themes.First() );
+        }
         private async void PlayTheme(string theme) {
-            Assert.Operation.Message( $"ThemeOperationHandle {themeOperationHandle} must not exist" ).Valid( !themeOperationHandle.IsValid() );
-            themeOperationHandle = Addressables2.LoadAssetAsync<AudioClip>( theme );
-            Play( await themeOperationHandle.GetResultAsync( default ) );
+            StopTheme();
+            var clip = await Addressables2.LoadAssetAsync<AudioClip>( theme ).GetResultAsync( destroyCancellationToken, null, Addressables2.Release );
+            Play( clip );
             Volume = 1;
         }
         private void StopTheme() {
-            Stop();
-            if (themeOperationHandle.IsValid()) {
-                Addressables2.Release( themeOperationHandle );
-                themeOperationHandle = default;
+            if (AudioSource.clip != null) {
+                var clip = AudioSource.clip;
+                Stop();
+                Addressables2.Release( clip );
             }
         }
 
