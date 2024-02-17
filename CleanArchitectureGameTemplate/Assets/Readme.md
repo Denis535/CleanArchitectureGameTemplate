@@ -7,7 +7,7 @@ The project has the following modules:
 - Project.UI - responsible for presentation logic and assets.
 - Project.App - responsible for application logic and assets.
 - Project.Entities - responsible for domain logic and assets.
-- Project.Core - responsible for any common logic and assets.
+- Project.Common - responsible for any common logic and assets.
 
 # Dependencies
 The project has the following dependencies:

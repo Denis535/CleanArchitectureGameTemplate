@@ -14,7 +14,6 @@ namespace Project.Toolbar {
     using Project.UI.Common;
     using UnityEditor;
     using UnityEditor.SceneManagement;
-    using UnityEditorInternal;
     using UnityEngine;
     using UnityEngine.Framework.UI;
     using Object = UnityEngine.Object;
@@ -93,17 +92,17 @@ namespace Project.Toolbar {
         //}
 
         // ExportPackage
-        [MenuItem( "Project/Export Package", priority = 400 )]
-        public static void ExportPackage() {
-            var paths = GetPaths()
-                .Where( i => i.StartsWith( "Assets" ) || i.StartsWith( "Packages" ) || i.StartsWith( "ProjectSettings" ) )
-                .Where( i => !i.StartsWith( "Packages/com.unity.asset-store-tools" ) )
-                .ToArray();
-            var path = $"Temp/{Application.productName}-{DateTime.UtcNow.Ticks}.unitypackage";
-            AssetDatabase.ExportPackage( paths, path, ExportPackageOptions.Default );
-            EditorApplication.Beep();
-            EditorUtility.RevealInFinder( path );
-        }
+        //[MenuItem( "Project/Export Package", priority = 400 )]
+        //public static void ExportPackage() {
+        //    var paths = GetPaths()
+        //        .Where( i => i.StartsWith( "Assets" ) || i.StartsWith( "Packages" ) || i.StartsWith( "ProjectSettings" ) )
+        //        .Where( i => !i.StartsWith( "Packages/com.unity.asset-store-tools" ) )
+        //        .ToArray();
+        //    var path = $"Temp/{Application.productName}-{DateTime.UtcNow.Ticks}.unitypackage";
+        //    AssetDatabase.ExportPackage( paths, path, ExportPackageOptions.Default );
+        //    EditorApplication.Beep();
+        //    EditorUtility.RevealInFinder( path );
+        //}
 
         // EmbedPackage
         [MenuItem( "Project/Embed Packages", priority = 401 )]

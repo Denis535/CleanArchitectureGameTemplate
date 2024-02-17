@@ -12,8 +12,8 @@ namespace Project.Toolbar {
 
         // Build/Pre
         public static void PreBuild() {
-            new ResourcesSourceGenerator().Generate( AddressableAssetSettingsDefaultObject.Settings, "Assets/Project.Core/UnityEngine.AddressableAssets/R.cs", "UnityEngine.AddressableAssets", "R" );
-            new LabelsSourceGenerator().Generate( AddressableAssetSettingsDefaultObject.Settings, "Assets/Project.Core/UnityEngine.AddressableAssets/L.cs", "UnityEngine.AddressableAssets", "L" );
+            new ResourcesSourceGenerator().Generate( AddressableAssetSettingsDefaultObject.Settings, "Assets/Project.Common/UnityEngine.AddressableAssets/R.cs", "UnityEngine.AddressableAssets", "R" );
+            new LabelsSourceGenerator().Generate( AddressableAssetSettingsDefaultObject.Settings, "Assets/Project.Common/UnityEngine.AddressableAssets/L.cs", "UnityEngine.AddressableAssets", "L" );
         }
 
         // Build/Development
