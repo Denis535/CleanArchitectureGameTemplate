@@ -38,7 +38,7 @@ namespace Project.UI {
         }
         public void Update() {
 #if UNITY_EDITOR
-            //AddViewIfNeeded( Document, Widget!.View!.VisualElement );
+            //AddVisualElementIfNeeded( Document, Widget!.View!.VisualElement );
 #endif
             if (stateTracker.IsChanged( State )) {
                 Widget!.DetachChildren();
@@ -61,7 +61,7 @@ namespace Project.UI {
         }
         protected override void __DetachWidget__(UIWidgetBase widget, object? argument) {
             if (Document && Document.rootVisualElement != null) {
-                RemoveVisualElement( Document, widget.GetVisualElement()! ); // NullReferenceException: Object reference not set to an instance of an object
+                RemoveVisualElement( Document, widget.GetVisualElement()! );
                 base.__DetachWidget__( widget, argument );
             } else {
                 if (Document) Debug.LogWarning( "UIDocument must be alive" );

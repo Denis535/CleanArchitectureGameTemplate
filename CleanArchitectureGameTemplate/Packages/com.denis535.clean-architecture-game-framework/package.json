@@ -26,5 +26,8 @@
     "Best Practices",
     "Uber Ribs"
   ],
-  "_fingerprint": "07aeea1167436b3c3001deafb201d9a2d132b897"
+  "publishConfig": {
+    "registry": "https://package.openupm.com"
+  },
+  "_fingerprint": "4386fbb02e5db8c4c0be2f80c595acfdccba6d8f"
 }

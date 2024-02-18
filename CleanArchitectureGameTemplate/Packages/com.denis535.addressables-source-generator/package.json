@@ -20,5 +20,8 @@
     "Source Generator",
     "Addressables Source Generator"
   ],
-  "_fingerprint": "f8d78525d357038a66662e7f85d54608e569e257"
+  "publishConfig": {
+    "registry": "https://package.openupm.com"
+  },
+  "_fingerprint": "ab2a1ca4b8e56522ae1643a6fc1714ee955f321a"
 }

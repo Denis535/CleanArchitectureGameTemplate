@@ -47,46 +47,39 @@ namespace Project.UI {
         public void Update() {
             if (stateTracker.IsChanged( State )) {
                 if (IsMainTheme) {
-                    PlayTheme( MainThemes );
-                    return;
-                }
+                    PlayTheme( MainThemes.First() );
+                } else
                 if (IsGameTheme) {
-                    PlayTheme( GameThemes );
-                    return;
-                }
-                {
+                    PlayTheme( GameThemes.First() );
+                } else {
                     StopTheme();
-                    return;
                 }
             }
             if (IsMainTheme) {
                 if (!AudioSource.isPlaying && IsPlaying && IsUnPaused) {
-                    PlayTheme( MainThemes );
+                    PlayNextTheme( MainThemes );
                 }
                 if (Application.IsMainSceneUnloading || Application.IsGameSceneLoading) {
                     Volume = Mathf.MoveTowards( Volume, 0, Volume * UnityEngine.Time.deltaTime * 0.5f );
                 }
-                return;
-            }
-            if (IsGameTheme) {
+            } else if (IsGameTheme) {
                 if (!AudioSource.isPlaying && IsPlaying && IsUnPaused) {
-                    PlayTheme( GameThemes );
+                    PlayNextTheme( GameThemes );
                 }
                 SetPaused( Application.Game!.IsPaused );
-                return;
             }
         }
 
         // PlayTheme
-        private void PlayTheme(string[] themes) {
-            PlayTheme( GetNextValue( themes, AudioSource.clip?.name ) );
-        }
         private async void PlayTheme(string theme) {
             StopTheme();
             var clip = await Addressables2.LoadAssetAsync<AudioClip>( theme ).GetResultAsync( destroyCancellationToken, null, Addressables2.Release );
             clip.name = theme;
             Play( clip );
             Volume = 1;
+        }
+        private void PlayNextTheme(string[] themes) {
+            PlayTheme( GetNextValue( themes, AudioSource.clip?.name ) );
         }
         private void StopTheme() {
             if (AudioSource.clip != null) {
