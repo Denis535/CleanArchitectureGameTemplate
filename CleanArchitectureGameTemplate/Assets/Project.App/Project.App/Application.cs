@@ -11,12 +11,17 @@ namespace Project.App {
 
         // State
         public AppState State { get; private set; } = AppState.None;
+        // State/MainScene
         public bool IsMainSceneLoading => State == AppState.MainSceneLoading;
         public bool IsMainSceneLoaded => State == AppState.MainSceneLoaded;
         public bool IsMainSceneUnloading => State == AppState.MainSceneUnloading;
+        public bool IsMainSceneUnloaded => State == AppState.MainSceneUnloaded;
+        // State/GameScene
         public bool IsGameSceneLoading => State == AppState.GameSceneLoading;
         public bool IsGameSceneLoaded => State == AppState.GameSceneLoaded;
         public bool IsGameSceneUnloading => State == AppState.GameSceneUnloading;
+        public bool IsGameSceneUnloaded => State == AppState.GameSceneUnloaded;
+        // State/Quit
         public bool IsQuitting => State == AppState.Quitting;
         public bool IsQuited => State == AppState.Quited;
         // Game
@@ -31,55 +36,75 @@ namespace Project.App {
         }
 
         // SetState
-        public void SetMainSceneLoading() {
-            Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.None or AppState.GameSceneUnloading );
-            State = AppState.MainSceneLoading;
-        }
-        public void SetMainSceneLoaded() {
-            Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.MainSceneLoading );
-            State = AppState.MainSceneLoaded;
-        }
-        public void SetMainSceneUnloading() {
-            Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.MainSceneLoaded );
-            State = AppState.MainSceneUnloading;
-        }
-
-        // SetState
-        public void SetGameSceneLoading() {
-            Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.None or AppState.MainSceneUnloading );
-            State = AppState.GameSceneLoading;
-        }
-        public void SetGameSceneLoaded() {
-            Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.GameSceneLoading );
-            State = AppState.GameSceneLoaded;
-            Game = GameObject2.RequireAnyObjectByType<Game>( FindObjectsInactive.Exclude );
-        }
-        public void SetGameSceneUnloading() {
-            Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.GameSceneLoaded );
-            State = AppState.GameSceneUnloading;
-            Game = null;
-        }
-
-        // SetState
-        public void SetQuitting() {
-            Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.MainSceneLoaded or AppState.GameSceneLoaded );
-            State = AppState.Quitting;
-        }
-        public void SetQuited() {
-            Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.Quitting );
-            State = AppState.Quited;
+        public void SetState(AppState state) {
+            switch (state) {
+                // MainScene
+                case AppState.MainSceneLoading:
+                    Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.None or AppState.GameSceneUnloaded );
+                    State = state;
+                    break;
+                case AppState.MainSceneLoaded:
+                    Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.MainSceneLoading );
+                    State = state;
+                    break;
+                case AppState.MainSceneUnloading:
+                    Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.MainSceneLoaded );
+                    State = state;
+                    break;
+                case AppState.MainSceneUnloaded:
+                    Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.MainSceneUnloading );
+                    State = state;
+                    break;
+                // GameScene
+                case AppState.GameSceneLoading:
+                    Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.MainSceneUnloaded );
+                    State = state;
+                    break;
+                case AppState.GameSceneLoaded:
+                    Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.GameSceneLoading );
+                    State = state;
+                    Game = GameObject2.RequireAnyObjectByType<Game>( FindObjectsInactive.Exclude );
+                    break;
+                case AppState.GameSceneUnloading:
+                    Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.GameSceneLoaded );
+                    State = state;
+                    Game = null;
+                    break;
+                case AppState.GameSceneUnloaded:
+                    Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.GameSceneUnloading );
+                    State = state;
+                    break;
+                // Quit
+                case AppState.Quitting:
+                    Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.MainSceneLoaded or AppState.GameSceneLoaded );
+                    State = state;
+                    Game = null;
+                    break;
+                case AppState.Quited:
+                    Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.Quitting );
+                    State = state;
+                    break;
+                // Misc
+                default:
+                    throw Exceptions.Internal.NotSupported( $"State {state} is not supported" );
+            }
         }
 
     }
     // AppState
     public enum AppState {
         None,
+        // MainScene
         MainSceneLoading,
         MainSceneLoaded,
         MainSceneUnloading,
+        MainSceneUnloaded,
+        // GameScene
         GameSceneLoading,
         GameSceneLoaded,
         GameSceneUnloading,
+        GameSceneUnloaded,
+        // Quit
         Quitting,
         Quited,
     }

@@ -56,15 +56,16 @@ namespace Project.UI {
                 }
                 // UnloadGameScene
                 if (Application.IsGameSceneLoaded) {
-                    Application.SetGameSceneUnloading();
+                    Application.SetState( AppState.GameSceneUnloading );
                     await UnloadGameSceneInternalAsync( cancellationToken );
                     await UnloadWorldSceneInternalAsync( cancellationToken );
+                    Application.SetState( AppState.GameSceneUnloaded );
                 }
                 // LoadMainScene
                 {
-                    Application.SetMainSceneLoading();
+                    Application.SetState( AppState.MainSceneLoading );
                     await LoadMainSceneInternalAsync( cancellationToken );
-                    Application.SetMainSceneLoaded();
+                    Application.SetState( AppState.MainSceneLoaded );
                 }
             }
         }
@@ -73,16 +74,17 @@ namespace Project.UI {
             using (@lock.Enter()) {
                 // UnloadMainScene
                 if (Application.IsMainSceneLoaded) {
-                    Application.SetMainSceneUnloading();
+                    Application.SetState( AppState.MainSceneUnloading );
                     await UnloadMainSceneInternalAsync( cancellationToken );
+                    Application.SetState( AppState.MainSceneUnloaded );
                 }
                 // LoadGameScene
                 {
-                    Application.SetGameSceneLoading();
+                    Application.SetState( AppState.GameSceneLoading );
                     await Task.Delay( 3_000 );
                     await LoadWorldSceneInternalAsync( GetWorldAddress( gameDesc.World ), cancellationToken );
                     await LoadGameSceneInternalAsync( cancellationToken );
-                    Application.SetGameSceneLoaded();
+                    Application.SetState( AppState.GameSceneLoaded );
                 }
                 // StartGame
                 {
@@ -110,18 +112,25 @@ namespace Project.UI {
         }
         private async void OnQuitAsync() {
             using (@lock.Enter()) {
-                Application.SetQuitting();
+                Application.SetState( AppState.Quitting );
+                // StopGame
+                if (Application.Game != null) {
+                    Application.Game.StopGame();
+                }
+                // UnloadGameScene
+                if (Application.IsGameSceneLoaded) {
+                    await UnloadGameSceneInternalAsync( default );
+                    await UnloadWorldSceneInternalAsync( default );
+                }
+                // UnloadMainScene
                 if (Application.IsMainSceneLoaded) {
                     await UnloadMainSceneInternalAsync( default );
                 }
-                if (Application.IsGameSceneLoaded) {
-                    Application.Game!.StopGame();
-                    await UnloadGameSceneInternalAsync( default );
-                }
+                // UnloadProgram
                 {
                     await UnloadProgramInternalAsync( default );
                 }
-                Application.SetQuited();
+                Application.SetState( AppState.Quited );
             }
 #if UNITY_EDITOR
             EditorApplication.ExitPlaymode();
