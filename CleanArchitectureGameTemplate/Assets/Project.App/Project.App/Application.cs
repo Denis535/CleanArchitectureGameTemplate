@@ -43,6 +43,8 @@ namespace Project.App {
             Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.MainSceneLoaded );
             State = AppState.MainSceneUnloading;
         }
+
+        // SetState
         public void SetGameSceneLoading() {
             Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.None or AppState.MainSceneUnloading );
             State = AppState.GameSceneLoading;
@@ -57,8 +59,10 @@ namespace Project.App {
             State = AppState.GameSceneUnloading;
             Game = null;
         }
+
+        // SetState
         public void SetQuitting() {
-            Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.MainSceneLoaded );
+            Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.MainSceneLoaded or AppState.GameSceneLoaded );
             State = AppState.Quitting;
         }
         public void SetQuited() {

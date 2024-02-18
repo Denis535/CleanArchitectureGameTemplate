@@ -42,24 +42,26 @@ namespace Project.UI {
 
         // LoadScene
         public static async Task LoadProgramAsync(CancellationToken cancellationToken) {
-            Release.LogFormat( "LoadProgram" );
+            Release.LogFormat( "Load: Program" );
             {
                 await LoadProgramInternalAsync( cancellationToken );
             }
         }
         public async Task LoadMainSceneAsync(CancellationToken cancellationToken) {
-            Release.LogFormat( "LoadMainScene" );
+            Release.LogFormat( "Load: MainScene" );
             using (@lock.Enter()) {
+                // StopGame
+                if (Application.Game != null) {
+                    Application.Game.StopGame();
+                }
+                // UnloadGameScene
                 if (Application.IsGameSceneLoaded) {
-                    // StopGame
-                    Application.Game!.StopGame();
-                    // UnloadGameScene
                     Application.SetGameSceneUnloading();
                     await UnloadGameSceneInternalAsync( cancellationToken );
                     await UnloadWorldSceneInternalAsync( cancellationToken );
                 }
+                // LoadMainScene
                 {
-                    // LoadMainScene
                     Application.SetMainSceneLoading();
                     await LoadMainSceneInternalAsync( cancellationToken );
                     Application.SetMainSceneLoaded();
@@ -67,46 +69,39 @@ namespace Project.UI {
             }
         }
         public async Task LoadGameSceneAsync(GameDesc gameDesc, PlayerDesc playerDesc, CancellationToken cancellationToken) {
-            Release.LogFormat( "LoadGameScene: {0}, {1}", gameDesc, playerDesc );
+            Release.LogFormat( "Load: GameScene: {0}, {1}", gameDesc, playerDesc );
             using (@lock.Enter()) {
+                // UnloadMainScene
                 if (Application.IsMainSceneLoaded) {
-                    // UnloadMainScene
                     Application.SetMainSceneUnloading();
                     await UnloadMainSceneInternalAsync( cancellationToken );
                 }
+                // LoadGameScene
                 {
-                    // LoadGameScene
                     Application.SetGameSceneLoading();
                     await Task.Delay( 3_000 );
                     await LoadWorldSceneInternalAsync( GetWorldAddress( gameDesc.World ), cancellationToken );
                     await LoadGameSceneInternalAsync( cancellationToken );
                     Application.SetGameSceneLoaded();
-                    // StartGame
+                }
+                // StartGame
+                {
                     Application.Game!.StartGame( gameDesc, playerDesc );
                 }
             }
         }
 
         // Quit
-        public async void Quit() {
+        public void Quit() {
 #if UNITY_EDITOR
             Release.Log( "Quit" );
-            using (@lock.Enter()) {
-                Application.SetQuitting();
-                if (Application.IsMainSceneLoaded) {
-                    await UnloadMainSceneInternalAsync( default );
-                }
-                await UnloadProgramInternalAsync( default );
-                Application.SetQuited();
-            }
-            EditorApplication.ExitPlaymode();
+            OnQuitAsync();
 #else
             Release.Log( "Quit" );
             UnityEngine.Application.Quit();
 #endif
         }
         private bool OnQuit() {
-            Release.Log( "OnQuit: " + Application.IsQuited );
             if (!Application.IsQuited) {
                 OnQuitAsync();
                 return false;
@@ -119,10 +114,20 @@ namespace Project.UI {
                 if (Application.IsMainSceneLoaded) {
                     await UnloadMainSceneInternalAsync( default );
                 }
-                await UnloadProgramInternalAsync( default );
+                if (Application.IsGameSceneLoaded) {
+                    Application.Game!.StopGame();
+                    await UnloadGameSceneInternalAsync( default );
+                }
+                {
+                    await UnloadProgramInternalAsync( default );
+                }
                 Application.SetQuited();
             }
+#if UNITY_EDITOR
+            EditorApplication.ExitPlaymode();
+#else
             UnityEngine.Application.Quit();
+#endif
         }
 
         // Helpers/LoadScene

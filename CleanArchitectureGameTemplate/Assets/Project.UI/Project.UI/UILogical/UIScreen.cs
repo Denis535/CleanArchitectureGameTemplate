@@ -60,13 +60,16 @@ namespace Project.UI {
             AddVisualElement( Document, widget.GetVisualElement()! );
         }
         protected override void __DetachWidget__(UIWidgetBase widget, object? argument) {
-            if (Document && Document.rootVisualElement != null) {
-                RemoveVisualElement( Document, widget.GetVisualElement()! );
-                base.__DetachWidget__( widget, argument );
-            } else {
-                if (Document) Debug.LogWarning( "UIDocument must be alive" );
-                if (Document.rootVisualElement != null) Debug.LogWarning( "UIDocument must have rootVisualElement" );
+            if (Document) {
+                Debug.LogWarning( $"You are trying to detach '{widget}' widget but UIDocument is destroyed" );
+                return;
             }
+            if (Document.rootVisualElement != null) {
+                Debug.LogWarning( $"You are trying to detach '{widget}' widget but UIDocument's rootVisualElement is null" );
+                return;
+            }
+            RemoveVisualElement( Document, widget.GetVisualElement()! );
+            base.__DetachWidget__( widget, argument );
         }
 
         // Helpers
