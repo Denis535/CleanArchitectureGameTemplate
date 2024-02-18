@@ -32,6 +32,9 @@ namespace Project.UI {
         public new void Awake() {
             base.Awake();
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
+#if !UNITY_EDITOR
+            UnityEngine.Application.wantsToQuit += OnQuit;
+#endif
         }
         public new void OnDestroy() {
             base.OnDestroy();
@@ -99,8 +102,6 @@ namespace Project.UI {
             EditorApplication.ExitPlaymode();
 #else
             Release.Log( "Quit" );
-            UnityEngine.Application.wantsToQuit -= OnQuit;
-            UnityEngine.Application.wantsToQuit += OnQuit;
             UnityEngine.Application.Quit();
 #endif
         }
