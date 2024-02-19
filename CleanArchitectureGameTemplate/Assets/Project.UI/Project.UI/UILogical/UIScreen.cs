@@ -16,7 +16,7 @@ namespace Project.UI {
         // Globals
         private Application2 Application { get; set; } = default!;
         // State
-        private ValueTracker<UIScreenState> StateTracker { get; } = new ValueTracker<UIScreenState>();
+        private ValueTracker2<UIScreenState> StateTracker { get; } = new ValueTracker2<UIScreenState>();
         public UIScreenState State => GetState( Application.State );
         public bool IsMainScreen => State == UIScreenState.MainScreen;
         public bool IsGameScreen => State == UIScreenState.GameScreen;

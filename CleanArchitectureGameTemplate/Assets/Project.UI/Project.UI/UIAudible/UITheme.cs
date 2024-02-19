@@ -25,7 +25,7 @@ namespace Project.UI {
         // Globals
         private Application2 Application { get; set; } = default!;
         // State
-        private ValueTracker<UIThemeState> StateTracker { get; } = new ValueTracker<UIThemeState>();
+        private ValueTracker2<UIThemeState> StateTracker { get; } = new ValueTracker2<UIThemeState>();
         public UIThemeState State => GetState( Application.State );
         public bool IsMainTheme => State == UIThemeState.MainTheme;
         public bool IsGameTheme => State == UIThemeState.GameTheme;
