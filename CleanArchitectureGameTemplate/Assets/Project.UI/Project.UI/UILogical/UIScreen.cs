@@ -16,7 +16,7 @@ namespace Project.UI {
         // Globals
         private Application2 Application { get; set; } = default!;
         // State
-        private ValueTracker2<UIScreenState> StateTracker { get; } = new ValueTracker2<UIScreenState>();
+        private ValueTracker2<UIScreenState, UIScreen> StateTracker { get; } = new ValueTracker2<UIScreenState, UIScreen>( i => i.State );
         public UIScreenState State => GetState( Application.State );
         public bool IsMainScreen => State == UIScreenState.MainScreen;
         public bool IsGameScreen => State == UIScreenState.GameScreen;
@@ -39,7 +39,7 @@ namespace Project.UI {
 #if UNITY_EDITOR
             //AddVisualElementIfNeeded( Document, Widget!.GetVisualElement()! );
 #endif
-            if (StateTracker.IsChanged( State )) {
+            if (StateTracker.IsChanged( this )) {
                 Widget!.DetachChildren();
                 if (IsMainScreen) {
                     Widget!.AttachChild( new MainWidget() );
