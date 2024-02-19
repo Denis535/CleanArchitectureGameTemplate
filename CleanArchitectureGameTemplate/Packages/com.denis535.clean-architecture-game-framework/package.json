@@ -1,7 +1,7 @@
 {
   "name": "com.denis535.clean-architecture-game-framework",
   "displayName": "Clean Architecture Game Framework",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "This package provides you with the architecture game framework that helping you to develop your project following the best practices (like Clean Architecture and Uber Ribs).",
   "author": {
     "name": "Denis535",
@@ -29,5 +29,5 @@
   "publishConfig": {
     "registry": "https://package.openupm.com"
   },
-  "_fingerprint": "4386fbb02e5db8c4c0be2f80c595acfdccba6d8f"
+  "_fingerprint": "70d1420cf3c1f2395f4a13bbe07fcb0180082677"
 }

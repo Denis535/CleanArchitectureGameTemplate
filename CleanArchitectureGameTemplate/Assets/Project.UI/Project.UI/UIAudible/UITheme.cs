@@ -22,11 +22,10 @@ namespace Project.UI {
             R.Project.UI.GameScreen.Music.Theme_3,
         } );
 
-        private readonly Tracker<UIThemeState> stateTracker = new Tracker<UIThemeState>();
-
         // Globals
         private Application2 Application { get; set; } = default!;
         // State
+        private ValueTracker<UIThemeState> StateTracker { get; } = new ValueTracker<UIThemeState>();
         public UIThemeState State => GetState( Application.State );
         public bool IsMainTheme => State == UIThemeState.MainTheme;
         public bool IsGameTheme => State == UIThemeState.GameTheme;
@@ -37,7 +36,7 @@ namespace Project.UI {
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
         }
         public new void OnDestroy() {
-            StopTheme();
+            Stop();
             base.OnDestroy();
         }
 
@@ -45,46 +44,46 @@ namespace Project.UI {
         public void Start() {
         }
         public void Update() {
-            if (stateTracker.IsChanged( State )) {
+            if (StateTracker.IsChanged( State )) {
                 if (IsMainTheme) {
-                    PlayTheme( MainThemes.First() );
+                    Play( MainThemes.First() );
                 } else
                 if (IsGameTheme) {
-                    PlayTheme( GameThemes.First() );
+                    Play( GameThemes.First() );
                 } else {
-                    StopTheme();
+                    Stop();
                 }
             }
             if (IsMainTheme) {
                 if (!AudioSource.isPlaying && IsPlaying && IsUnPaused) {
-                    PlayNextTheme( MainThemes );
+                    PlayNext( MainThemes );
                 }
                 if (Application.IsMainSceneUnloading || Application.IsGameSceneLoading) {
                     Volume = Mathf.MoveTowards( Volume, 0, Volume * UnityEngine.Time.deltaTime * 0.5f );
                 }
             } else if (IsGameTheme) {
                 if (!AudioSource.isPlaying && IsPlaying && IsUnPaused) {
-                    PlayNextTheme( GameThemes );
+                    PlayNext( GameThemes );
                 }
                 SetPaused( Application.Game!.IsPaused );
             }
         }
 
-        // PlayTheme
-        private async void PlayTheme(string theme) {
-            StopTheme();
+        // Play
+        private async void Play(string theme) {
+            Stop();
             var clip = await Addressables2.LoadAssetAsync<AudioClip>( theme ).GetResultAsync( destroyCancellationToken, null, Addressables2.Release );
             clip.name = theme;
             Play( clip );
             Volume = 1;
         }
-        private void PlayNextTheme(string[] themes) {
-            PlayTheme( GetNextValue( themes, AudioSource.clip?.name ) );
+        private void PlayNext(string[] themes) {
+            Play( GetNextValue( themes, Clip?.name ) );
         }
-        private void StopTheme() {
+        private new void Stop() {
             if (AudioSource.clip != null) {
                 var clip = AudioSource.clip;
-                Stop();
+                base.Stop();
                 Addressables2.Release( clip );
             }
         }
