@@ -19,23 +19,14 @@ namespace UnityEngine.AddressableAssets {
                         public const string @Background__Background = "Project.UI.MainScreen/Images/Background.png[Background]";
                     }
                     public static class @Music {
-                        public const string @Theme = "Project.UI.MainScreen/Music/Theme #Slowly Building Motif.wav";
+                        public const string @Theme = "Project.UI.MainScreen.Music.Theme.wav";
                     }
                 }
                 public static class @GameScreen {
                     public static class @Music {
-                        public const string @Theme_1 = "Project.UI.GameScreen/Music/Theme_1 #Long Calm Ambience.wav";
-                        public const string @Theme_2 = "Project.UI.GameScreen/Music/Theme_2 #Warm Guitar Swells.wav";
+                        public const string @Theme_1 = "Project.UI.GameScreen.Music.Theme_1.wav";
+                        public const string @Theme_2 = "Project.UI.GameScreen.Music.Theme_2.wav";
                     }
-                }
-                public static class @Sounds {
-                    public const string @Click = "Project.UI/Sounds/Click.wav";
-                    public const string @ErrorDialog = "Project.UI/Sounds/ErrorDialog.wav";
-                    public const string @InfoDialog = "Project.UI/Sounds/InfoDialog.wav";
-                    public const string @Invalid = "Project.UI/Sounds/Invalid.wav";
-                    public const string @Select = "Project.UI/Sounds/Select.wav";
-                    public const string @Tik = "Project.UI/Sounds/Tik.wav";
-                    public const string @WarningDialog = "Project.UI/Sounds/WarningDialog.wav";
                 }
                 public static class @StyleSheets {
                     public const string @ThemeStyleSheet = "Project.UI/StyleSheets/ThemeStyleSheet.uss";

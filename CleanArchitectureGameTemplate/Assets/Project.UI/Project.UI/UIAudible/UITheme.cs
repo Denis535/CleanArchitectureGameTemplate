@@ -71,8 +71,7 @@ namespace Project.UI {
         // Play
         private async void Play(string key) {
             Stop();
-            var clip = await Addressables2.LoadAssetAsync<AudioClip>( key ).GetResultAsync( destroyCancellationToken, null, Addressables2.Release );
-            clip.name = key;
+            var clip = await Addressables2.LoadAssetAsync<AudioClip>( key ).GetResultAsync( destroyCancellationToken, i => i.Result.name = key, (i, ex) => Addressables2.Release( i ) );
             Play( clip );
             Volume = 1;
         }

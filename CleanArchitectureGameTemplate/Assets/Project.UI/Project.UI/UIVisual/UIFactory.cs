@@ -33,33 +33,33 @@ namespace Project.UI {
         // Awake
         public void Awake() {
             // Assets
-            click = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Click ).GetResult();
-            selectClick = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select ).GetResult();
-            submitClick = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select ).GetResult();
-            cancelClick = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select ).GetResult();
-            invalidClick = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Invalid ).GetResult();
-            tik = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Tik ).GetResult();
-            focus = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Tik ).GetResult();
-            dialog = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.InfoDialog ).GetResult();
-            infoDialog = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.InfoDialog ).GetResult();
-            warningDialog = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.WarningDialog ).GetResult();
-            errorDialog = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.ErrorDialog ).GetResult();
+            //click = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Click ).GetResult();
+            //selectClick = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select ).GetResult();
+            //submitClick = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select ).GetResult();
+            //cancelClick = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Select ).GetResult();
+            //invalidClick = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Invalid ).GetResult();
+            //tik = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Tik ).GetResult();
+            //focus = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.Tik ).GetResult();
+            //dialog = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.InfoDialog ).GetResult();
+            //infoDialog = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.InfoDialog ).GetResult();
+            //warningDialog = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.WarningDialog ).GetResult();
+            //errorDialog = Addressables2.LoadAssetAsync<AudioClip>( R.Project.UI.Sounds.ErrorDialog ).GetResult();
             // Globals
             AudioSource = GetComponentInChildren<AudioSource>();
         }
         public void OnDestroy() {
             // Assets
-            Addressables2.Release( dialog );
-            Addressables2.Release( infoDialog );
-            Addressables2.Release( warningDialog );
-            Addressables2.Release( errorDialog );
-            Addressables2.Release( focus );
-            Addressables2.Release( click );
-            Addressables2.Release( selectClick );
-            Addressables2.Release( submitClick );
-            Addressables2.Release( cancelClick );
-            Addressables2.Release( invalidClick );
-            Addressables2.Release( tik );
+            //Addressables2.Release( dialog );
+            //Addressables2.Release( infoDialog );
+            //Addressables2.Release( warningDialog );
+            //Addressables2.Release( errorDialog );
+            //Addressables2.Release( focus );
+            //Addressables2.Release( click );
+            //Addressables2.Release( selectClick );
+            //Addressables2.Release( submitClick );
+            //Addressables2.Release( cancelClick );
+            //Addressables2.Release( invalidClick );
+            //Addressables2.Release( tik );
         }
 
         // VisualElement
