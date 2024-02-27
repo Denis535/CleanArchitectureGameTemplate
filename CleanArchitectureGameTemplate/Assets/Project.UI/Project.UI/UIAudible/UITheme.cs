@@ -19,7 +19,6 @@ namespace Project.UI {
         private static readonly string[] GameThemes = GetShuffled( new[] {
             R.Project.UI.GameScreen.Music.Theme_1,
             R.Project.UI.GameScreen.Music.Theme_2,
-            R.Project.UI.GameScreen.Music.Theme_3,
         } );
 
         // Globals
@@ -70,15 +69,15 @@ namespace Project.UI {
         }
 
         // Play
-        private async void Play(string theme) {
+        private async void Play(string key) {
             Stop();
-            var clip = await Addressables2.LoadAssetAsync<AudioClip>( theme ).GetResultAsync( destroyCancellationToken, null, Addressables2.Release );
-            clip.name = theme;
+            var clip = await Addressables2.LoadAssetAsync<AudioClip>( key ).GetResultAsync( destroyCancellationToken, null, Addressables2.Release );
+            clip.name = key;
             Play( clip );
             Volume = 1;
         }
-        private void PlayNext(string[] themes) {
-            Play( GetNextValue( themes, Clip?.name ) );
+        private void PlayNext(string[] keys) {
+            Play( GetNextValue( keys, Clip?.name ) );
         }
         private new void Stop() {
             if (AudioSource.clip != null) {

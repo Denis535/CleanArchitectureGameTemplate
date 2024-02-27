@@ -19,14 +19,13 @@ namespace UnityEngine.AddressableAssets {
                         public const string @Background__Background = "Project.UI.MainScreen/Images/Background.png[Background]";
                     }
                     public static class @Music {
-                        public const string @Theme = "Project.UI.MainScreen/Music/Theme #Black Paper - Pulse.flac";
+                        public const string @Theme = "Project.UI.MainScreen/Music/Theme #Slowly Building Motif.wav";
                     }
                 }
                 public static class @GameScreen {
                     public static class @Music {
-                        public const string @Theme_1 = "Project.UI.GameScreen/Music/Theme 1 #Black Paper - Inside My Head.flac";
-                        public const string @Theme_2 = "Project.UI.GameScreen/Music/Theme 2 #Black Paper - I'm with You.flac";
-                        public const string @Theme_3 = "Project.UI.GameScreen/Music/Theme 3 #Black Paper - Bottom Line.flac";
+                        public const string @Theme_1 = "Project.UI.GameScreen/Music/Theme_1 #Long Calm Ambience.wav";
+                        public const string @Theme_2 = "Project.UI.GameScreen/Music/Theme_2 #Warm Guitar Swells.wav";
                     }
                 }
                 public static class @Sounds {

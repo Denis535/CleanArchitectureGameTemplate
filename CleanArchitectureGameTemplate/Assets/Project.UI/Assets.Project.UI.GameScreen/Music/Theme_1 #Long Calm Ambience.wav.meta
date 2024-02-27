@@ -1,17 +1,24 @@
 fileFormatVersion: 2
-guid: 568097c5abea85e478133ee9a64558f1
+guid: 7c8f71b2e812047448d3a686de1fca5b
+AssetOrigin:
+  serializedVersion: 1
+  productId: 182311
+  packageName: 'FC Game Audio Pack 1 [Lite]'
+  packageVersion: 1.0
+  assetPath: Assets/FC Game Audio Pack 1 [Lite]/Ambiences/Long Calm Ambience.wav
+  uploadId: 611538
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
   defaultSettings:
     serializedVersion: 2
-    loadType: 1
+    loadType: 0
     sampleRateSetting: 1
     sampleRateOverride: 44100
     compressionFormat: 1
     quality: 1
     conversionMode: 0
-    preloadAudioData: 0
+    preloadAudioData: 1
   platformSettingOverrides: {}
   forceToMono: 0
   normalize: 1
