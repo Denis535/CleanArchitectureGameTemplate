@@ -1,19 +1,12 @@
 fileFormatVersion: 2
 guid: 506e0e43fb24a474c897a72fed0f644d
-AssetOrigin:
-  serializedVersion: 1
-  productId: 182311
-  packageName: 'FC Game Audio Pack 1 [Lite]'
-  packageVersion: 1.0
-  assetPath: Assets/FC Game Audio Pack 1 [Lite]/Music/Slowly Building Motif.wav
-  uploadId: 611538
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
   defaultSettings:
     serializedVersion: 2
-    loadType: 1
-    sampleRateSetting: 1
+    loadType: 0
+    sampleRateSetting: 0
     sampleRateOverride: 44100
     compressionFormat: 1
     quality: 1
@@ -28,3 +21,10 @@ AudioImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 182311
+  packageName: 'FC Game Audio Pack 1 [Lite]'
+  packageVersion: 1.0
+  assetPath: Assets/FC Game Audio Pack 1 [Lite]/Music/Slowly Building Motif.wav
+  uploadId: 611538

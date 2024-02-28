@@ -103,6 +103,7 @@ namespace Project.UI {
             UnityEngine.Application.Quit();
 #endif
         }
+#if !UNITY_EDITOR
         private bool OnQuit() {
             if (!Application.IsQuited) {
                 OnQuitAsync();
@@ -110,6 +111,7 @@ namespace Project.UI {
             }
             return true;
         }
+#endif
         private async void OnQuitAsync() {
             using (@lock.Enter()) {
                 Application.SetState( AppState.Quitting );
@@ -125,10 +127,6 @@ namespace Project.UI {
                 // UnloadMainScene
                 if (Application.IsMainSceneLoaded) {
                     await UnloadMainSceneInternalAsync( default );
-                }
-                // UnloadProgram
-                {
-                    await UnloadProgramInternalAsync( default );
                 }
                 Application.SetState( AppState.Quited );
             }
