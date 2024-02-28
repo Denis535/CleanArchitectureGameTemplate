@@ -71,7 +71,7 @@ namespace Project.UI {
         // Play
         private async void Play(string key) {
             Stop();
-            var clip = await Addressables2.LoadAssetAsync<AudioClip>( key ).GetResultAsync( destroyCancellationToken, i => i.Result.name = key, (i, ex) => Addressables2.Release( i ) );
+            var clip = await Addressables2.LoadAssetAsync<AudioClip>( key ).GetResultAsync( default, i => i.Result.name = key, (i, ex) => Addressables2.Release( i ) );
             Play( clip );
             Volume = 1;
         }
@@ -94,7 +94,7 @@ namespace Project.UI {
             if (state is AppState.GameSceneLoaded) {
                 return UIThemeState.GameTheme;
             }
-            if (state is AppState.Quitting or AppState.Quited) {
+            if (state is AppState.Quited) {
                 return UIThemeState.None;
             }
             return UIThemeState.None;

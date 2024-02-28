@@ -98,7 +98,7 @@ namespace Project.UI.MainScreen {
                 {
                     var gameDesc = new GameDesc( gameName, gameMode, gameWorld );
                     var playerDesc = new PlayerDesc( playerName, playerRole );
-                    router.LoadGameSceneAsync( gameDesc, playerDesc, default ).Throw();
+                    router.LoadGameSceneAsync( gameDesc, playerDesc ).Throw();
                     widget.AttachChild( new LoadingWidget() );
                 }
             } );

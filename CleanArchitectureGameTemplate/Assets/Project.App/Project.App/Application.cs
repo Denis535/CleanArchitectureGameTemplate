@@ -22,7 +22,6 @@ namespace Project.App {
         public bool IsGameSceneUnloading => State == AppState.GameSceneUnloading;
         public bool IsGameSceneUnloaded => State == AppState.GameSceneUnloaded;
         // State/Quit
-        public bool IsQuitting => State == AppState.Quitting;
         public bool IsQuited => State == AppState.Quited;
         // Game
         public Game? Game { get; private set; }
@@ -75,13 +74,8 @@ namespace Project.App {
                     State = state;
                     break;
                 // Quit
-                case AppState.Quitting:
-                    Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.MainSceneLoaded or AppState.GameSceneLoaded );
-                    State = state;
-                    Game = null;
-                    break;
                 case AppState.Quited:
-                    Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.Quitting );
+                    Assert.Operation.Message( $"State {State} is invalid" ).Valid( State is AppState.MainSceneUnloaded or AppState.GameSceneUnloaded );
                     State = state;
                     break;
                 // Misc
@@ -105,7 +99,6 @@ namespace Project.App {
         GameSceneUnloading,
         GameSceneUnloaded,
         // Quit
-        Quitting,
         Quited,
     }
 }

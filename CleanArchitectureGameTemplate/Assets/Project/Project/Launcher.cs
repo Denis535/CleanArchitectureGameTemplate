@@ -17,7 +17,7 @@ namespace Project {
 
         // Start
         public void Start() {
-            UIRouter.LoadProgramAsync( default ).Throw();
+            UIRouter.LoadProgramAsync().Throw();
         }
         public void Update() {
         }

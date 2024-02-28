@@ -43,7 +43,7 @@ namespace Project.UI.GameScreen {
                 widget.AttachChild( new SettingsWidget() );
             } );
             view.Back.OnClick( evt => {
-                var dialog = new DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => router.LoadMainSceneAsync( default ).Throw() ).OnCancel( "No", null );
+                var dialog = new DialogWidget( "Confirmation", "Are you sure?" ).OnSubmit( "Yes", () => router.LoadMainSceneAsync().Throw() ).OnCancel( "No", null );
                 widget.AttachChild( dialog );
             } );
             return view;

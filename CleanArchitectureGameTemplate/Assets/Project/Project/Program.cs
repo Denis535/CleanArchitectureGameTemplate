@@ -68,7 +68,7 @@ namespace Project {
 
         // Start
         public async void Start() {
-            await Router.LoadMainSceneAsync( default );
+            await Router.LoadMainSceneAsync();
         }
         public void Update() {
         }

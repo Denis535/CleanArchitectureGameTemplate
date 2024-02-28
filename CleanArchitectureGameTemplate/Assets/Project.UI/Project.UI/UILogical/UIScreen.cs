@@ -79,7 +79,7 @@ namespace Project.UI {
             if (state is AppState.GameSceneLoaded) {
                 return UIScreenState.GameScreen;
             }
-            if (state is AppState.Quitting or AppState.Quited) {
+            if (state is AppState.Quited) {
                 return UIScreenState.None;
             }
             return UIScreenState.None;
