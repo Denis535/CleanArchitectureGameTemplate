@@ -7,11 +7,9 @@ namespace Project {
     using Project.App;
     using Project.UI;
     using UnityEngine;
-    using UnityEngine.EventSystems;
     using UnityEngine.Framework;
-    using UnityEngine.UIElements;
 
-    [DefaultExecutionOrder( ScriptExecutionOrders.Program + 10 )]
+    [DefaultExecutionOrder( ScriptExecutionOrders.Program )]
     public class DebugScreen : MonoBehaviour {
 
         // Globals
@@ -43,13 +41,13 @@ namespace Project {
         }
 
         // Heleprs
-        private static Focusable? GetFocusedElement() {
-            return EventSystem.current.currentSelectedGameObject?.GetComponent<PanelEventHandler>()?.panel.focusController.focusedElement;
-        }
-        private static string GetDisplayString(Focusable focusable) {
-            var element = (VisualElement) focusable;
-            return element.name.NullIfEmpty() ?? focusable.GetType().Name;
-        }
+        //private static Focusable? GetFocusedElement() {
+        //    return EventSystem.current.currentSelectedGameObject?.GetComponent<PanelEventHandler>()?.panel.focusController.focusedElement;
+        //}
+        //private static string GetDisplayString(Focusable focusable) {
+        //    var element = (VisualElement) focusable;
+        //    return element.name.NullIfEmpty() ?? focusable.GetType().Name;
+        //}
 
     }
 }

@@ -13,6 +13,7 @@ namespace Project {
     using UnityEngine;
     using UnityEngine.Framework;
 
+    [DefaultExecutionOrder( 1 )]
     public class DependencyContainer : MonoBehaviour, IDependencyContainer {
 
         [SerializeField] private UITheme uiTheme = default!;

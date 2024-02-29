@@ -180,7 +180,7 @@ namespace Project.UI {
             return world switch {
                 GameWorld.TestWorld1 => R.Project.TestWorldScene_1,
                 GameWorld.TestWorld2 => R.Project.TestWorldScene_2,
-                _ => throw Exceptions.Internal.NotSupported( $"World {world} not supported" ),
+                _ => throw Exceptions.Internal.NotSupported( $"World {world} is not supported" ),
             };
         }
 

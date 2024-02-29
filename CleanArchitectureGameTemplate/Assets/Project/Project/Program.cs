@@ -113,14 +113,14 @@ namespace Project {
                 GameMode._4x2 => "4 x 2",
                 GameMode._4x3 => "4 x 3",
                 GameMode._4x4 => "4 x 4",
-                _ => throw Exceptions.Internal.NotSupported( $"Value {value} not supported" ),
+                _ => throw Exceptions.Internal.NotSupported( $"Value {value} is not supported" ),
             };
         }
         private static string GetDisplayString(GameWorld value) {
             return value switch {
                 GameWorld.TestWorld1 => "Test World 1",
                 GameWorld.TestWorld2 => "Test World 2",
-                _ => throw Exceptions.Internal.NotSupported( $"Value {value} not supported" ),
+                _ => throw Exceptions.Internal.NotSupported( $"Value {value} is not supported" ),
             };
         }
         // Helpers/GetDisplayString/PlayerDesc
@@ -128,7 +128,7 @@ namespace Project {
             return value switch {
                 PlayerRole.Human => "Human",
                 PlayerRole.Monster => "Monster",
-                _ => throw Exceptions.Internal.NotSupported( $"Value {value} not supported" ),
+                _ => throw Exceptions.Internal.NotSupported( $"Value {value} is not supported" ),
             };
         }
         // Helpers/GetDisplayString/Misc
