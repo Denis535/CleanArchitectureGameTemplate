@@ -1,7 +1,7 @@
 {
   "name": "com.denis535.colorful-project-window",
   "displayName": "Colorful Project Window",
-  "version": "1.0.25",
+  "version": "1.0.27",
   "description": "This package makes the project window much more convenient.",
   "author": {
     "name": "Denis535",
@@ -23,5 +23,5 @@
   "publishConfig": {
     "registry": "https://package.openupm.com"
   },
-  "_fingerprint": "e58bd601b1957d86b328066cc904d55407455870"
+  "_fingerprint": "c1d9df208484a2005336206aa9b7673045ed44c4"
 }
