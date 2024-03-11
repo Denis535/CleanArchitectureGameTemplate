@@ -17,7 +17,7 @@ The project has the following dependencies:
 - UIToolkit Theme Style Sheet - the beautiful UIToolkit theme style sheets and some additions and tools.
 
 # Setup
-- Install "Embedded Dependencies" package.
+- Install "Embedded Dependencies" package (if needed).
 - Link project with Unity Gaming Services.
 
 # Build
