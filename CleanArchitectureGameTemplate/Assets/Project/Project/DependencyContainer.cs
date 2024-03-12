@@ -107,16 +107,6 @@ namespace Project {
             if (type == typeof( IQosService )) {
                 return QosService;
             }
-            // Game
-            if (type == typeof( Game )) {
-                Assert.Object.Message( $"Object {Application} must be awakened" ).Valid( Application.didAwake );
-                Assert.Object.Message( $"Object {Application} must be alive" ).Alive( Application );
-                if (Application.Game != null) {
-                    Assert.Object.Message( $"Object {Application.Game} must be awakened" ).Valid( Application.Game.didAwake );
-                    Assert.Object.Message( $"Object {Application.Game} must be alive" ).Alive( Application.Game );
-                    return Application.Game;
-                }
-            }
             return null;
         }
 

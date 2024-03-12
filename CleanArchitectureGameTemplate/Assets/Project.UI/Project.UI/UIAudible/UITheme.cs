@@ -22,16 +22,18 @@ namespace Project.UI {
         } );
 
         // Globals
+        private UIRouter Router { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
         // State
+        public UIThemeState State => GetState( Router.State );
         private ValueTracker2<UIThemeState, UITheme> StateTracker { get; } = new ValueTracker2<UIThemeState, UITheme>( i => i.State );
-        public UIThemeState State => GetState( Application.State );
         public bool IsMainTheme => State == UIThemeState.MainTheme;
         public bool IsGameTheme => State == UIThemeState.GameTheme;
 
         // Awake
         public new void Awake() {
             base.Awake();
+            Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
         }
         public new void OnDestroy() {
@@ -57,14 +59,14 @@ namespace Project.UI {
                 if (!AudioSource.isPlaying && IsPlaying && IsUnPaused) {
                     PlayNext( MainThemes );
                 }
-                if (Application.IsGameSceneLoading) {
+                if (Router.IsGameSceneLoading) {
                     Volume = Mathf.MoveTowards( Volume, 0, Volume * UnityEngine.Time.deltaTime * 0.5f );
                 }
             } else if (IsGameTheme) {
                 if (!AudioSource.isPlaying && IsPlaying && IsUnPaused) {
                     PlayNext( GameThemes );
                 }
-                SetPaused( Application.Game!.IsPaused );
+                SetPaused( Application.IsGamePaused );
             }
         }
 
@@ -87,11 +89,11 @@ namespace Project.UI {
         }
 
         // Helpers
-        private static UIThemeState GetState(AppState state) {
-            if (state is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.GameSceneLoading) {
+        private static UIThemeState GetState(UIState state) {
+            if (state is UIState.MainSceneLoading or UIState.MainSceneLoaded or UIState.GameSceneLoading) {
                 return UIThemeState.MainTheme;
             }
-            if (state is AppState.GameSceneLoaded) {
+            if (state is UIState.GameSceneLoaded) {
                 return UIThemeState.GameTheme;
             }
             return UIThemeState.None;

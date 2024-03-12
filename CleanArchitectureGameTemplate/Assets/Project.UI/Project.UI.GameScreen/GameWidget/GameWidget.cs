@@ -43,7 +43,7 @@ namespace Project.UI.GameScreen {
         public override void OnBeforeDescendantAttach(UIWidgetBase descendant) {
             base.OnBeforeDescendantAttach( descendant );
             if (descendant is GameMenuWidget) {
-                Application.Game!.Pause();
+                Application.Pause();
                 Actions.Disable();
             }
         }
@@ -56,7 +56,7 @@ namespace Project.UI.GameScreen {
         public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
             if (IsAttached && descendant is GameMenuWidget) {
                 Actions.Enable();
-                Application.Game!.UnPause();
+                Application.UnPause();
             }
             base.OnAfterDescendantDetach( descendant );
         }

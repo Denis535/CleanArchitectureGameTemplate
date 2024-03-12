@@ -4,7 +4,7 @@ namespace Project.UI.MainScreen {
     using System.Collections;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Project.Entities.GameScene;
+    using Project.App;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;

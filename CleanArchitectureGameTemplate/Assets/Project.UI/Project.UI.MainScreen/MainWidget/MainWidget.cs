@@ -38,8 +38,8 @@ namespace Project.UI.MainScreen {
         // OnAttach
         public override async void OnAttach(object? argument) {
             // await MainScene
-            if (!Application.IsMainSceneLoaded) {
-                while (!Application.IsMainSceneLoaded) {
+            if (!Router.IsMainSceneLoaded) {
+                while (!Router.IsMainSceneLoaded) {
                     await Task.Yield();
                 }
             }

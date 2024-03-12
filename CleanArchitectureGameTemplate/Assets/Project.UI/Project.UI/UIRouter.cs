@@ -5,7 +5,6 @@ namespace Project.UI {
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Project.App;
-    using Project.Entities.GameScene;
     using UnityEditor;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
@@ -23,9 +22,60 @@ namespace Project.UI {
         private AsyncOperationHandle<SceneInstance>? mainSceneHandle;
         private AsyncOperationHandle<SceneInstance>? gameSceneHandle;
         private AsyncOperationHandle<SceneInstance>? worldSceneHandle;
+        private UIState state;
 
         // Globals
         private Application2 Application { get; set; } = default!;
+
+        // State
+        public UIState State {
+            get {
+                return state;
+            }
+            private set {
+                switch (state) {
+                    // MainScene
+                    case UIState.MainSceneLoading:
+                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIState.None or UIState.GameSceneLoaded );
+                        state = value;
+                        break;
+                    case UIState.MainSceneLoaded:
+                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIState.MainSceneLoading );
+                        state = value;
+                        break;
+                    // GameScene
+                    case UIState.GameSceneLoading:
+                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIState.None or UIState.MainSceneLoaded );
+                        state = value;
+                        break;
+                    case UIState.GameSceneLoaded:
+                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIState.GameSceneLoading );
+                        state = value;
+                        break;
+                    // Quit
+                    case UIState.Quitting:
+                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIState.MainSceneLoaded or UIState.GameSceneLoaded );
+                        state = value;
+                        break;
+                    case UIState.Quited:
+                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIState.Quitting );
+                        state = value;
+                        break;
+                    // Misc
+                    default:
+                        throw Exceptions.Internal.NotSupported( $"State {state} is not supported" );
+                }
+            }
+        }
+        // State/MainScene
+        public bool IsMainSceneLoading => state == UIState.MainSceneLoading;
+        public bool IsMainSceneLoaded => state == UIState.MainSceneLoaded;
+        // State/GameScene
+        public bool IsGameSceneLoading => state == UIState.GameSceneLoading;
+        public bool IsGameSceneLoaded => state == UIState.GameSceneLoaded;
+        // State/Quit
+        public bool IsQuitting => state == UIState.Quitting;
+        public bool IsQuited => state == UIState.Quited;
 
         // Awake
         public new void Awake() {
@@ -48,10 +98,10 @@ namespace Project.UI {
         }
         public async Task LoadMainSceneAsync() {
             Release.LogFormat( "Load: MainScene" );
-            if (Application.Game != null) {
-                Application.Game.StopGame();
+            if (Application.IsGameRunning) {
+                Application.StopGame();
             }
-            Application.SetState( AppState.MainSceneLoading );
+            State = UIState.MainSceneLoading;
             using (@lock.Enter()) {
                 if (gameSceneHandle != null) {
                     // UnloadGameScene
@@ -63,11 +113,11 @@ namespace Project.UI {
                     await LoadMainSceneInternalAsync();
                 }
             }
-            Application.SetState( AppState.MainSceneLoaded );
+            State = UIState.MainSceneLoaded;
         }
         public async Task LoadGameSceneAsync(GameDesc gameDesc, PlayerDesc playerDesc) {
             Release.LogFormat( "Load: GameScene: {0}, {1}", gameDesc, playerDesc );
-            Application.SetState( AppState.GameSceneLoading );
+            State = UIState.GameSceneLoading;
             using (@lock.Enter()) {
                 if (mainSceneHandle != null) {
                     // UnloadMainScene
@@ -80,8 +130,8 @@ namespace Project.UI {
                     await LoadGameSceneInternalAsync();
                 }
             }
-            Application.SetState( AppState.GameSceneLoaded );
-            Application.Game!.StartGame( gameDesc, playerDesc );
+            State = UIState.GameSceneLoaded;
+            Application.StartGame( gameDesc, playerDesc );
         }
 
 #if UNITY_EDITOR
@@ -105,10 +155,10 @@ namespace Project.UI {
         }
 #endif
         private async void OnQuitAsync() {
-            if (Application.Game != null) {
-                Application.Game.StopGame();
+            if (Application.IsGameRunning) {
+                Application.StopGame();
             }
-            Application.SetState( AppState.Quitting );
+            State = UIState.Quitting;
             using (@lock.Enter()) {
                 if (mainSceneHandle != null) {
                     // UnloadMainScene
@@ -120,7 +170,7 @@ namespace Project.UI {
                     await UnloadWorldSceneInternalAsync();
                 }
             }
-            Application.SetState( AppState.Quited );
+            State = UIState.Quited;
 #if UNITY_EDITOR
             EditorApplication.ExitPlaymode();
 #else
@@ -180,5 +230,18 @@ namespace Project.UI {
             };
         }
 
+    }
+    // UIState
+    public enum UIState {
+        None,
+        // MainScene
+        MainSceneLoading,
+        MainSceneLoaded,
+        // GameScene
+        GameSceneLoading,
+        GameSceneLoaded,
+        // Quit
+        Quitting,
+        Quited,
     }
 }

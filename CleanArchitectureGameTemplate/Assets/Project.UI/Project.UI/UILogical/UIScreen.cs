@@ -14,16 +14,18 @@ namespace Project.UI {
     public class UIScreen : UIScreenBase {
 
         // Globals
+        private UIRouter Router { get; set; } = default!;
         private Application2 Application { get; set; } = default!;
         // State
+        public UIScreenState State => GetState( Router.State );
         private ValueTracker2<UIScreenState, UIScreen> StateTracker { get; } = new ValueTracker2<UIScreenState, UIScreen>( i => i.State );
-        public UIScreenState State => GetState( Application.State );
         public bool IsMainScreen => State == UIScreenState.MainScreen;
         public bool IsGameScreen => State == UIScreenState.GameScreen;
 
         // Awake
         public new void Awake() {
             base.Awake();
+            Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
             Application = this.GetDependencyContainer().Resolve<Application2>( null );
             this.AttachWidget( new RootWidget2() );
         }
@@ -72,11 +74,11 @@ namespace Project.UI {
         }
 
         // Helpers
-        private static UIScreenState GetState(AppState state) {
-            if (state is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.GameSceneLoading) {
+        private static UIScreenState GetState(UIState state) {
+            if (state is UIState.MainSceneLoading or UIState.MainSceneLoaded or UIState.GameSceneLoading) {
                 return UIScreenState.MainScreen;
             }
-            if (state is AppState.GameSceneLoaded) {
+            if (state is UIState.GameSceneLoaded) {
                 return UIScreenState.GameScreen;
             }
             return UIScreenState.None;
