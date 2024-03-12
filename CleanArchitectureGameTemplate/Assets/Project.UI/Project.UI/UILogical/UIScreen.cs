@@ -73,7 +73,7 @@ namespace Project.UI {
 
         // Helpers
         private static UIScreenState GetState(AppState state) {
-            if (state is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.MainSceneUnloaded or AppState.GameSceneLoading) {
+            if (state is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.GameSceneLoading) {
                 return UIScreenState.MainScreen;
             }
             if (state is AppState.GameSceneLoaded) {

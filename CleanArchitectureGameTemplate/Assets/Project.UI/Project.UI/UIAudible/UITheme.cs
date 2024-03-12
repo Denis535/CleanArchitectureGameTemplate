@@ -57,7 +57,7 @@ namespace Project.UI {
                 if (!AudioSource.isPlaying && IsPlaying && IsUnPaused) {
                     PlayNext( MainThemes );
                 }
-                if (Application.IsMainSceneUnloading || Application.IsGameSceneLoading) {
+                if (Application.IsGameSceneLoading) {
                     Volume = Mathf.MoveTowards( Volume, 0, Volume * UnityEngine.Time.deltaTime * 0.5f );
                 }
             } else if (IsGameTheme) {
@@ -88,7 +88,7 @@ namespace Project.UI {
 
         // Helpers
         private static UIThemeState GetState(AppState state) {
-            if (state is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.MainSceneUnloading or AppState.MainSceneUnloaded or AppState.GameSceneLoading) {
+            if (state is AppState.MainSceneLoading or AppState.MainSceneLoaded or AppState.GameSceneLoading) {
                 return UIThemeState.MainTheme;
             }
             if (state is AppState.GameSceneLoaded) {

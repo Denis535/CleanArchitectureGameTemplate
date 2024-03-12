@@ -3,7 +3,6 @@ namespace Project.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Threading;
     using System.Threading.Tasks;
     using Project.App;
     using Project.Entities.GameScene;
@@ -18,12 +17,12 @@ namespace Project.UI {
 
     public class UIRouter : UIRouterBase {
 
-        private static readonly Lock @lock = new Lock();
+        private readonly Lock @lock = new Lock();
 
-        private static AsyncOperationHandle<SceneInstance>? programOperationHandle;
-        private AsyncOperationHandle<SceneInstance>? mainSceneOperationHandle;
-        private AsyncOperationHandle<SceneInstance>? gameSceneOperationHandle;
-        private AsyncOperationHandle<SceneInstance>? worldSceneOperationHandle;
+        private static AsyncOperationHandle<SceneInstance>? programHandle;
+        private AsyncOperationHandle<SceneInstance>? mainSceneHandle;
+        private AsyncOperationHandle<SceneInstance>? gameSceneHandle;
+        private AsyncOperationHandle<SceneInstance>? worldSceneHandle;
 
         // Globals
         private Application2 Application { get; set; } = default!;
@@ -49,42 +48,40 @@ namespace Project.UI {
         }
         public async Task LoadMainSceneAsync() {
             Release.LogFormat( "Load: MainScene" );
+            if (Application.Game != null) {
+                Application.Game.StopGame();
+            }
+            Application.SetState( AppState.MainSceneLoading );
             using (@lock.Enter()) {
-                // UnloadGameScene
-                if (Application.IsGameSceneLoaded) {
-                    Application.Game!.StopGame();
-                    Application.SetState( AppState.GameSceneUnloading );
+                if (gameSceneHandle != null) {
+                    // UnloadGameScene
                     await UnloadGameSceneInternalAsync();
                     await UnloadWorldSceneInternalAsync();
-                    Application.SetState( AppState.GameSceneUnloaded );
                 }
-                // LoadMainScene
                 {
-                    Application.SetState( AppState.MainSceneLoading );
+                    // LoadMainScene
                     await LoadMainSceneInternalAsync();
-                    Application.SetState( AppState.MainSceneLoaded );
                 }
             }
+            Application.SetState( AppState.MainSceneLoaded );
         }
         public async Task LoadGameSceneAsync(GameDesc gameDesc, PlayerDesc playerDesc) {
             Release.LogFormat( "Load: GameScene: {0}, {1}", gameDesc, playerDesc );
+            Application.SetState( AppState.GameSceneLoading );
             using (@lock.Enter()) {
-                // UnloadMainScene
-                if (Application.IsMainSceneLoaded) {
-                    Application.SetState( AppState.MainSceneUnloading );
+                if (mainSceneHandle != null) {
+                    // UnloadMainScene
                     await UnloadMainSceneInternalAsync();
-                    Application.SetState( AppState.MainSceneUnloaded );
                 }
-                // LoadGameScene
                 {
-                    Application.SetState( AppState.GameSceneLoading );
+                    // LoadGameScene
                     await Task.Delay( 3_000 );
                     await LoadWorldSceneInternalAsync( GetWorldAddress( gameDesc.World ) );
                     await LoadGameSceneInternalAsync();
-                    Application.SetState( AppState.GameSceneLoaded );
-                    Application.Game!.StartGame( gameDesc, playerDesc );
                 }
             }
+            Application.SetState( AppState.GameSceneLoaded );
+            Application.Game!.StartGame( gameDesc, playerDesc );
         }
 
 #if UNITY_EDITOR
@@ -108,23 +105,22 @@ namespace Project.UI {
         }
 #endif
         private async void OnQuitAsync() {
+            if (Application.Game != null) {
+                Application.Game.StopGame();
+            }
+            Application.SetState( AppState.Quitting );
             using (@lock.Enter()) {
-                // UnloadMainScene
-                if (Application.IsMainSceneLoaded) {
-                    Application.SetState( AppState.MainSceneUnloading );
+                if (mainSceneHandle != null) {
+                    // UnloadMainScene
                     await UnloadMainSceneInternalAsync();
-                    Application.SetState( AppState.MainSceneUnloaded );
                 }
-                // UnloadGameScene
-                if (Application.IsGameSceneLoaded) {
-                    Application.Game!.StopGame();
-                    Application.SetState( AppState.GameSceneUnloading );
+                if (gameSceneHandle != null) {
+                    // UnloadGameScene
                     await UnloadGameSceneInternalAsync();
                     await UnloadWorldSceneInternalAsync();
-                    Application.SetState( AppState.GameSceneUnloaded );
                 }
-                Application.SetState( AppState.Quited );
             }
+            Application.SetState( AppState.Quited );
 #if UNITY_EDITOR
             EditorApplication.ExitPlaymode();
 #else
@@ -134,46 +130,46 @@ namespace Project.UI {
 
         // Helpers/LoadScene
         private static async Task LoadProgramInternalAsync() {
-            Assert.Operation.Message( $"ProgramOperationHandle {programOperationHandle} must be null" ).Valid( programOperationHandle == null );
-            programOperationHandle = Addressables2.LoadSceneAsync( R.Project.Program, LoadSceneMode.Single, true );
-            var program = await programOperationHandle.Value.GetResultAsync( default );
+            Assert.Operation.Message( $"ProgramOperationHandle {programHandle} must be null" ).Valid( programHandle == null );
+            programHandle = Addressables2.LoadSceneAsync( R.Project.Program, LoadSceneMode.Single, true );
+            var program = await programHandle.Value.GetResultAsync( default );
             SceneManager.SetActiveScene( program.Scene );
         }
         private async Task LoadMainSceneInternalAsync() {
-            Assert.Operation.Message( $"MainSceneOperationHandle {mainSceneOperationHandle} must be null" ).Valid( mainSceneOperationHandle == null );
-            mainSceneOperationHandle = Addressables2.LoadSceneAsync( R.Project.MainScene, LoadSceneMode.Additive, true );
-            var mainScene = await mainSceneOperationHandle.Value.GetResultAsync( default );
+            Assert.Operation.Message( $"MainSceneOperationHandle {mainSceneHandle} must be null" ).Valid( mainSceneHandle == null );
+            mainSceneHandle = Addressables2.LoadSceneAsync( R.Project.MainScene, LoadSceneMode.Additive, true );
+            var mainScene = await mainSceneHandle.Value.GetResultAsync( default );
             SceneManager.SetActiveScene( mainScene.Scene );
         }
         private async Task LoadGameSceneInternalAsync() {
-            Assert.Operation.Message( $"GameSceneOperationHandle {gameSceneOperationHandle} must be null" ).Valid( gameSceneOperationHandle == null );
-            gameSceneOperationHandle = Addressables2.LoadSceneAsync( R.Project.GameScene, LoadSceneMode.Additive, true );
-            var gameScene = await gameSceneOperationHandle.Value.GetResultAsync( default );
+            Assert.Operation.Message( $"GameSceneOperationHandle {gameSceneHandle} must be null" ).Valid( gameSceneHandle == null );
+            gameSceneHandle = Addressables2.LoadSceneAsync( R.Project.GameScene, LoadSceneMode.Additive, true );
+            var gameScene = await gameSceneHandle.Value.GetResultAsync( default );
             SceneManager.SetActiveScene( gameScene.Scene );
         }
         private async Task LoadWorldSceneInternalAsync(string key) {
-            Assert.Operation.Message( $"WorldSceneOperationHandle {worldSceneOperationHandle} must be null" ).Valid( worldSceneOperationHandle == null );
-            worldSceneOperationHandle = Addressables2.LoadSceneAsync( key, LoadSceneMode.Additive, true );
-            _ = await worldSceneOperationHandle.Value.GetResultAsync( default );
+            Assert.Operation.Message( $"WorldSceneOperationHandle {worldSceneHandle} must be null" ).Valid( worldSceneHandle == null );
+            worldSceneHandle = Addressables2.LoadSceneAsync( key, LoadSceneMode.Additive, true );
+            _ = await worldSceneHandle.Value.GetResultAsync( default );
         }
         // Helpers/UnloadScene
         private async Task UnloadMainSceneInternalAsync() {
-            Assert.Operation.Message( $"MainSceneOperationHandle {mainSceneOperationHandle} must be non-null" ).Valid( mainSceneOperationHandle != null );
-            Assert.Operation.Message( $"MainSceneOperationHandle {mainSceneOperationHandle} must be valid" ).Valid( mainSceneOperationHandle.Value.IsValid() );
-            await Addressables2.UnloadSceneAsync( mainSceneOperationHandle.Value ).WaitAsync( default );
-            mainSceneOperationHandle = null;
+            Assert.Operation.Message( $"MainSceneOperationHandle {mainSceneHandle} must be non-null" ).Valid( mainSceneHandle != null );
+            Assert.Operation.Message( $"MainSceneOperationHandle {mainSceneHandle} must be valid" ).Valid( mainSceneHandle.Value.IsValid() );
+            await Addressables2.UnloadSceneAsync( mainSceneHandle.Value ).WaitAsync( default );
+            mainSceneHandle = null;
         }
         private async Task UnloadGameSceneInternalAsync() {
-            Assert.Operation.Message( $"GameSceneOperationHandle {gameSceneOperationHandle} must be non-null" ).Valid( gameSceneOperationHandle != null );
-            Assert.Operation.Message( $"GameSceneOperationHandle {gameSceneOperationHandle} must be valid" ).Valid( gameSceneOperationHandle.Value.IsValid() );
-            await Addressables2.UnloadSceneAsync( gameSceneOperationHandle.Value ).WaitAsync( default );
-            gameSceneOperationHandle = null;
+            Assert.Operation.Message( $"GameSceneOperationHandle {gameSceneHandle} must be non-null" ).Valid( gameSceneHandle != null );
+            Assert.Operation.Message( $"GameSceneOperationHandle {gameSceneHandle} must be valid" ).Valid( gameSceneHandle.Value.IsValid() );
+            await Addressables2.UnloadSceneAsync( gameSceneHandle.Value ).WaitAsync( default );
+            gameSceneHandle = null;
         }
         private async Task UnloadWorldSceneInternalAsync() {
-            Assert.Operation.Message( $"WorldSceneOperationHandle {worldSceneOperationHandle} must be non-null" ).Valid( worldSceneOperationHandle != null );
-            Assert.Operation.Message( $"WorldSceneOperationHandle {worldSceneOperationHandle} must be valid" ).Valid( worldSceneOperationHandle.Value.IsValid() );
-            await Addressables2.UnloadSceneAsync( worldSceneOperationHandle.Value ).WaitAsync( default );
-            worldSceneOperationHandle = null;
+            Assert.Operation.Message( $"WorldSceneOperationHandle {worldSceneHandle} must be non-null" ).Valid( worldSceneHandle != null );
+            Assert.Operation.Message( $"WorldSceneOperationHandle {worldSceneHandle} must be valid" ).Valid( worldSceneHandle.Value.IsValid() );
+            await Addressables2.UnloadSceneAsync( worldSceneHandle.Value ).WaitAsync( default );
+            worldSceneHandle = null;
         }
         // Helpers/Misc
         private static string GetWorldAddress(GameWorld world) {
