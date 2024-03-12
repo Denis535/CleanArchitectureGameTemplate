@@ -147,7 +147,7 @@ namespace Project.UI {
             UnityEngine.Application.Quit();
         }
         private bool OnQuit() {
-            if (!Application.IsQuited) {
+            if (!IsQuited) {
                 OnQuitAsync();
                 return false;
             }
