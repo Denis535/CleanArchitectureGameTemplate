@@ -10,18 +10,10 @@ namespace Project.UI {
     using UnityEngine.AddressableAssets;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
-    using UnityEngine.ResourceManagement.AsyncOperations;
-    using UnityEngine.ResourceManagement.ResourceProviders;
-    using UnityEngine.SceneManagement;
 
     public class UIRouter : UIRouterBase {
 
         private readonly Lock @lock = new Lock();
-
-        private static AsyncOperationHandle<SceneInstance>? programHandle;
-        private AsyncOperationHandle<SceneInstance>? mainSceneHandle;
-        private AsyncOperationHandle<SceneInstance>? gameSceneHandle;
-        private AsyncOperationHandle<SceneInstance>? worldSceneHandle;
         private UIRouterState state;
 
         // Globals
@@ -63,7 +55,7 @@ namespace Project.UI {
                         break;
                     // Misc
                     default:
-                        throw Exceptions.Internal.NotSupported( $"State {value} is not supported" );
+                        throw Exceptions.Internal.NotSupported( $"Value {value} is not supported" );
                 }
             }
         }
@@ -93,7 +85,7 @@ namespace Project.UI {
         public static async Task LoadProgramAsync() {
             Release.LogFormat( "Load: Program" );
             {
-                await LoadProgramInternalAsync();
+                await UIRouterHelper.LoadProgramAsync();
             }
         }
         public async Task LoadMainSceneAsync() {
@@ -103,14 +95,14 @@ namespace Project.UI {
             }
             State = UIRouterState.MainSceneLoading;
             using (@lock.Enter()) {
-                if (gameSceneHandle != null) {
+                if (UIRouterHelper.IsGameSceneLoaded) {
                     // UnloadGameScene
-                    await UnloadGameSceneInternalAsync();
-                    await UnloadWorldSceneInternalAsync();
+                    await UIRouterHelper.UnloadGameSceneAsync();
+                    await UIRouterHelper.UnloadWorldSceneAsync();
                 }
                 {
                     // LoadMainScene
-                    await LoadMainSceneInternalAsync();
+                    await UIRouterHelper.LoadMainSceneAsync();
                 }
             }
             State = UIRouterState.MainSceneLoaded;
@@ -119,15 +111,15 @@ namespace Project.UI {
             Release.LogFormat( "Load: GameScene: {0}, {1}", gameDesc, playerDesc );
             State = UIRouterState.GameSceneLoading;
             using (@lock.Enter()) {
-                if (mainSceneHandle != null) {
+                if (UIRouterHelper.IsMainSceneLoaded) {
                     // UnloadMainScene
-                    await UnloadMainSceneInternalAsync();
+                    await UIRouterHelper.UnloadMainSceneAsync();
                 }
                 {
                     // LoadGameScene
                     await Task.Delay( 3_000 );
-                    await LoadWorldSceneInternalAsync( GetWorldAddress( gameDesc.World ) );
-                    await LoadGameSceneInternalAsync();
+                    await UIRouterHelper.LoadWorldSceneAsync( GetWorldAddress( gameDesc.World ) );
+                    await UIRouterHelper.LoadGameSceneAsync();
                 }
             }
             State = UIRouterState.GameSceneLoaded;
@@ -160,14 +152,14 @@ namespace Project.UI {
             }
             State = UIRouterState.Quitting;
             using (@lock.Enter()) {
-                if (mainSceneHandle != null) {
+                if (UIRouterHelper.IsMainSceneLoaded) {
                     // UnloadMainScene
-                    await UnloadMainSceneInternalAsync();
+                    await UIRouterHelper.UnloadMainSceneAsync();
                 }
-                if (gameSceneHandle != null) {
+                if (UIRouterHelper.IsGameSceneLoaded) {
                     // UnloadGameScene
-                    await UnloadGameSceneInternalAsync();
-                    await UnloadWorldSceneInternalAsync();
+                    await UIRouterHelper.UnloadGameSceneAsync();
+                    await UIRouterHelper.UnloadWorldSceneAsync();
                 }
             }
             State = UIRouterState.Quited;
@@ -178,50 +170,7 @@ namespace Project.UI {
 #endif
         }
 
-        // Helpers/LoadScene
-        private static async Task LoadProgramInternalAsync() {
-            Assert.Operation.Message( $"ProgramOperationHandle {programHandle} must be null" ).Valid( programHandle == null );
-            programHandle = Addressables2.LoadSceneAsync( R.Project.Program, LoadSceneMode.Single, true );
-            var program = await programHandle.Value.GetResultAsync( default );
-            SceneManager.SetActiveScene( program.Scene );
-        }
-        private async Task LoadMainSceneInternalAsync() {
-            Assert.Operation.Message( $"MainSceneOperationHandle {mainSceneHandle} must be null" ).Valid( mainSceneHandle == null );
-            mainSceneHandle = Addressables2.LoadSceneAsync( R.Project.MainScene, LoadSceneMode.Additive, true );
-            var mainScene = await mainSceneHandle.Value.GetResultAsync( default );
-            SceneManager.SetActiveScene( mainScene.Scene );
-        }
-        private async Task LoadGameSceneInternalAsync() {
-            Assert.Operation.Message( $"GameSceneOperationHandle {gameSceneHandle} must be null" ).Valid( gameSceneHandle == null );
-            gameSceneHandle = Addressables2.LoadSceneAsync( R.Project.GameScene, LoadSceneMode.Additive, true );
-            var gameScene = await gameSceneHandle.Value.GetResultAsync( default );
-            SceneManager.SetActiveScene( gameScene.Scene );
-        }
-        private async Task LoadWorldSceneInternalAsync(string key) {
-            Assert.Operation.Message( $"WorldSceneOperationHandle {worldSceneHandle} must be null" ).Valid( worldSceneHandle == null );
-            worldSceneHandle = Addressables2.LoadSceneAsync( key, LoadSceneMode.Additive, true );
-            _ = await worldSceneHandle.Value.GetResultAsync( default );
-        }
-        // Helpers/UnloadScene
-        private async Task UnloadMainSceneInternalAsync() {
-            Assert.Operation.Message( $"MainSceneOperationHandle {mainSceneHandle} must be non-null" ).Valid( mainSceneHandle != null );
-            Assert.Operation.Message( $"MainSceneOperationHandle {mainSceneHandle} must be valid" ).Valid( mainSceneHandle.Value.IsValid() );
-            await Addressables2.UnloadSceneAsync( mainSceneHandle.Value ).WaitAsync( default );
-            mainSceneHandle = null;
-        }
-        private async Task UnloadGameSceneInternalAsync() {
-            Assert.Operation.Message( $"GameSceneOperationHandle {gameSceneHandle} must be non-null" ).Valid( gameSceneHandle != null );
-            Assert.Operation.Message( $"GameSceneOperationHandle {gameSceneHandle} must be valid" ).Valid( gameSceneHandle.Value.IsValid() );
-            await Addressables2.UnloadSceneAsync( gameSceneHandle.Value ).WaitAsync( default );
-            gameSceneHandle = null;
-        }
-        private async Task UnloadWorldSceneInternalAsync() {
-            Assert.Operation.Message( $"WorldSceneOperationHandle {worldSceneHandle} must be non-null" ).Valid( worldSceneHandle != null );
-            Assert.Operation.Message( $"WorldSceneOperationHandle {worldSceneHandle} must be valid" ).Valid( worldSceneHandle.Value.IsValid() );
-            await Addressables2.UnloadSceneAsync( worldSceneHandle.Value ).WaitAsync( default );
-            worldSceneHandle = null;
-        }
-        // Helpers/Misc
+        // Helpers
         private static string GetWorldAddress(GameWorld world) {
             return world switch {
                 GameWorld.TestWorld1 => R.Project.TestWorldScene_1,

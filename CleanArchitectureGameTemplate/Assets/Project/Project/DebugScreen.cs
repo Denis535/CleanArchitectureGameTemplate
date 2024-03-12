@@ -37,8 +37,9 @@ namespace Project {
                 GUILayout.Label( "Theme: " + Theme.State );
                 GUILayout.Label( "Screen: " + Screen.State );
                 GUILayout.Label( "Router: " + Router.State );
-                GUILayout.Label( "IsPlaying: " + Game?.IsPlaying );
-                GUILayout.Label( "IsPaused: " + Game?.IsPaused );
+                GUILayout.Label( "IsGameRunning: " + Application.IsGameRunning );
+                GUILayout.Label( "IsGamePlaying: " + Application.IsGamePlaying );
+                GUILayout.Label( "IsGamePaused: " + Application.IsGamePaused );
                 //GUILayout.Space( 2 );
                 //GUILayout.Label( "IsFocused: " + UnityEngine.Application.isFocused );
                 //GUILayout.Label( "Focused Element: " + GetFocusedElement()?.Convert( GetDisplayString ) );
