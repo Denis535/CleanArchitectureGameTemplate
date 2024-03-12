@@ -86,7 +86,7 @@ namespace Project.UI {
                         VisualElementScope.Add( title = factory.Label( "Settings" ).Name( "title" ) );
                     }
                     using (factory.Content().AsScope()) {
-                        using (factory.TabView().Classes( "medium", "grow-1" ).AsScope()) {
+                        using (factory.TabView().Classes( "gray", "medium", "grow-1" ).AsScope()) {
                             VisualElementScope.Add( accountSettingsSlot = factory.Tab( "Account Settings" ).Name( "account-settings" ) );
                             VisualElementScope.Add( videoSettingsSlot = factory.Tab( "Video Settings" ).Name( "video-settings" ) );
                             VisualElementScope.Add( audioSettingsSlot = factory.Tab( "Audio Settings" ).Name( "audio-settings" ) );
@@ -101,13 +101,13 @@ namespace Project.UI {
             return widget;
         }
         public static ColumnScope AccountSettingsWidget(this UIFactory factory, out ColumnScope scope, out TextField name) {
-            using (factory.ColumnScope().Classes( "gray", "grow-1" ).AsScope( out scope )) {
+            using (factory.ColumnScope().Classes( "grow-1" ).AsScope( out scope )) {
                 VisualElementScope.Add( name = factory.TextField( "Name", null, 16 ).Name( "name" ).Classes( "label-width-25pc" ) );
             }
             return scope;
         }
         public static ColumnScope VideoSettingsWidget(this UIFactory factory, out ColumnScope scope, out Toggle isFullScreen, out PopupField<object?> screenResolution, out Toggle isVSync) {
-            using (factory.ColumnScope().Classes( "gray", "grow-1" ).AsScope( out scope )) {
+            using (factory.ColumnScope().Classes( "grow-1" ).AsScope( out scope )) {
                 VisualElementScope.Add( isFullScreen = factory.ToggleField( "Full Screen", false ).Name( "is-full-screen" ).Classes( "label-width-25pc" ) );
                 VisualElementScope.Add( screenResolution = factory.PopupField( "Screen Resolution", null ).Name( "screen-resolution" ).Classes( "label-width-25pc" ) );
                 VisualElementScope.Add( isVSync = factory.ToggleField( "V-Sync", false ).Name( "is-v-sync" ).Classes( "label-width-25pc" ) );
@@ -115,7 +115,7 @@ namespace Project.UI {
             return scope;
         }
         public static ColumnScope AudioSettingsWidget(this UIFactory factory, out ColumnScope scope, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume) {
-            using (factory.ColumnScope().Classes( "gray", "grow-1" ).AsScope( out scope )) {
+            using (factory.ColumnScope().Classes( "grow-1" ).AsScope( out scope )) {
                 VisualElementScope.Add( masterVolume = factory.SliderField( "Master Volume", 0, 0, 1 ).Name( "master-volume" ).Classes( "label-width-25pc" ) );
                 VisualElementScope.Add( musicVolume = factory.SliderField( "Music Volume", 0, 0, 1 ).Name( "music-volume" ).Classes( "label-width-25pc" ) );
                 VisualElementScope.Add( sfxVolume = factory.SliderField( "Sfx Volume", 0, 0, 1 ).Name( "sfx-volume" ).Classes( "label-width-25pc" ) );
