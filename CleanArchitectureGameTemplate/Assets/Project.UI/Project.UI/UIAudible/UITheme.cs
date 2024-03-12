@@ -89,11 +89,11 @@ namespace Project.UI {
         }
 
         // Helpers
-        private static UIThemeState GetState(UIState state) {
-            if (state is UIState.MainSceneLoading or UIState.MainSceneLoaded or UIState.GameSceneLoading) {
+        private static UIThemeState GetState(UIRouterState state) {
+            if (state is UIRouterState.MainSceneLoading or UIRouterState.MainSceneLoaded or UIRouterState.GameSceneLoading) {
                 return UIThemeState.MainTheme;
             }
-            if (state is UIState.GameSceneLoaded) {
+            if (state is UIRouterState.GameSceneLoaded) {
                 return UIThemeState.GameTheme;
             }
             return UIThemeState.None;

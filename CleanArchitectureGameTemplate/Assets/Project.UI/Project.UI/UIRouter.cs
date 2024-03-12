@@ -22,60 +22,60 @@ namespace Project.UI {
         private AsyncOperationHandle<SceneInstance>? mainSceneHandle;
         private AsyncOperationHandle<SceneInstance>? gameSceneHandle;
         private AsyncOperationHandle<SceneInstance>? worldSceneHandle;
-        private UIState state;
+        private UIRouterState state;
 
         // Globals
         private Application2 Application { get; set; } = default!;
 
         // State
-        public UIState State {
+        public UIRouterState State {
             get {
                 return state;
             }
             private set {
-                switch (state) {
+                switch (value) {
                     // MainScene
-                    case UIState.MainSceneLoading:
-                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIState.None or UIState.GameSceneLoaded );
+                    case UIRouterState.MainSceneLoading:
+                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIRouterState.None or UIRouterState.GameSceneLoaded );
                         state = value;
                         break;
-                    case UIState.MainSceneLoaded:
-                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIState.MainSceneLoading );
+                    case UIRouterState.MainSceneLoaded:
+                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIRouterState.MainSceneLoading );
                         state = value;
                         break;
                     // GameScene
-                    case UIState.GameSceneLoading:
-                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIState.None or UIState.MainSceneLoaded );
+                    case UIRouterState.GameSceneLoading:
+                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIRouterState.None or UIRouterState.MainSceneLoaded );
                         state = value;
                         break;
-                    case UIState.GameSceneLoaded:
-                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIState.GameSceneLoading );
+                    case UIRouterState.GameSceneLoaded:
+                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIRouterState.GameSceneLoading );
                         state = value;
                         break;
                     // Quit
-                    case UIState.Quitting:
-                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIState.MainSceneLoaded or UIState.GameSceneLoaded );
+                    case UIRouterState.Quitting:
+                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIRouterState.MainSceneLoaded or UIRouterState.GameSceneLoaded );
                         state = value;
                         break;
-                    case UIState.Quited:
-                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIState.Quitting );
+                    case UIRouterState.Quited:
+                        Assert.Operation.Message( $"State {state} is invalid" ).Valid( state is UIRouterState.Quitting );
                         state = value;
                         break;
                     // Misc
                     default:
-                        throw Exceptions.Internal.NotSupported( $"State {state} is not supported" );
+                        throw Exceptions.Internal.NotSupported( $"State {value} is not supported" );
                 }
             }
         }
         // State/MainScene
-        public bool IsMainSceneLoading => state == UIState.MainSceneLoading;
-        public bool IsMainSceneLoaded => state == UIState.MainSceneLoaded;
+        public bool IsMainSceneLoading => state == UIRouterState.MainSceneLoading;
+        public bool IsMainSceneLoaded => state == UIRouterState.MainSceneLoaded;
         // State/GameScene
-        public bool IsGameSceneLoading => state == UIState.GameSceneLoading;
-        public bool IsGameSceneLoaded => state == UIState.GameSceneLoaded;
+        public bool IsGameSceneLoading => state == UIRouterState.GameSceneLoading;
+        public bool IsGameSceneLoaded => state == UIRouterState.GameSceneLoaded;
         // State/Quit
-        public bool IsQuitting => state == UIState.Quitting;
-        public bool IsQuited => state == UIState.Quited;
+        public bool IsQuitting => state == UIRouterState.Quitting;
+        public bool IsQuited => state == UIRouterState.Quited;
 
         // Awake
         public new void Awake() {
@@ -101,7 +101,7 @@ namespace Project.UI {
             if (Application.IsGameRunning) {
                 Application.StopGame();
             }
-            State = UIState.MainSceneLoading;
+            State = UIRouterState.MainSceneLoading;
             using (@lock.Enter()) {
                 if (gameSceneHandle != null) {
                     // UnloadGameScene
@@ -113,11 +113,11 @@ namespace Project.UI {
                     await LoadMainSceneInternalAsync();
                 }
             }
-            State = UIState.MainSceneLoaded;
+            State = UIRouterState.MainSceneLoaded;
         }
         public async Task LoadGameSceneAsync(GameDesc gameDesc, PlayerDesc playerDesc) {
             Release.LogFormat( "Load: GameScene: {0}, {1}", gameDesc, playerDesc );
-            State = UIState.GameSceneLoading;
+            State = UIRouterState.GameSceneLoading;
             using (@lock.Enter()) {
                 if (mainSceneHandle != null) {
                     // UnloadMainScene
@@ -130,7 +130,7 @@ namespace Project.UI {
                     await LoadGameSceneInternalAsync();
                 }
             }
-            State = UIState.GameSceneLoaded;
+            State = UIRouterState.GameSceneLoaded;
             Application.StartGame( gameDesc, playerDesc );
         }
 
@@ -158,7 +158,7 @@ namespace Project.UI {
             if (Application.IsGameRunning) {
                 Application.StopGame();
             }
-            State = UIState.Quitting;
+            State = UIRouterState.Quitting;
             using (@lock.Enter()) {
                 if (mainSceneHandle != null) {
                     // UnloadMainScene
@@ -170,7 +170,7 @@ namespace Project.UI {
                     await UnloadWorldSceneInternalAsync();
                 }
             }
-            State = UIState.Quited;
+            State = UIRouterState.Quited;
 #if UNITY_EDITOR
             EditorApplication.ExitPlaymode();
 #else
@@ -231,8 +231,8 @@ namespace Project.UI {
         }
 
     }
-    // UIState
-    public enum UIState {
+    // UIRouterState
+    public enum UIRouterState {
         None,
         // MainScene
         MainSceneLoading,

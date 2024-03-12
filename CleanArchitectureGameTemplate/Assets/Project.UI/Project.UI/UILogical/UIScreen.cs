@@ -74,11 +74,11 @@ namespace Project.UI {
         }
 
         // Helpers
-        private static UIScreenState GetState(UIState state) {
-            if (state is UIState.MainSceneLoading or UIState.MainSceneLoaded or UIState.GameSceneLoading) {
+        private static UIScreenState GetState(UIRouterState state) {
+            if (state is UIRouterState.MainSceneLoading or UIRouterState.MainSceneLoaded or UIRouterState.GameSceneLoading) {
                 return UIScreenState.MainScreen;
             }
-            if (state is UIState.GameSceneLoaded) {
+            if (state is UIRouterState.GameSceneLoaded) {
                 return UIScreenState.GameScreen;
             }
             return UIScreenState.None;
