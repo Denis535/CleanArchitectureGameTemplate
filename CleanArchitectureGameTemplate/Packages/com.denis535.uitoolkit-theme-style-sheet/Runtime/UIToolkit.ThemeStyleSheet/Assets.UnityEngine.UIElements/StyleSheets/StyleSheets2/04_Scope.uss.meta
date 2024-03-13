@@ -9,3 +9,10 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 12385, guid: 0000000000000000e000000000000000, type: 0}
   disableValidation: 0
+AssetOrigin:
+  serializedVersion: 1
+  productId: 273463
+  packageName: UIToolkit Theme Style Sheet
+  packageVersion: 1.0
+  assetPath: Packages/com.denis535.uitoolkit-theme-style-sheet/Runtime/UIToolkit.ThemeStyleSheet/Assets.UnityEngine.UIElements/StyleSheets/StyleSheets2/04_Scope.uss
+  uploadId: 650161

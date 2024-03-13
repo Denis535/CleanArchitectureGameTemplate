@@ -9,3 +9,10 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 273463
+  packageName: UIToolkit Theme Style Sheet
+  packageVersion: 1.0
+  assetPath: Packages/com.denis535.uitoolkit-theme-style-sheet/Samples/UIToolkit.ThemeStyleSheet.Samples/UnityEngine.UIElements/VisualElementExtensions.Hierarchy.cs
+  uploadId: 650161

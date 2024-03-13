@@ -61,20 +61,19 @@ namespace Project.Toolbar {
             EditorUtility.RevealInFinder( path );
         }
 
-        // EmbedPackage
-        [MenuItem( "Project/Embed Packages", priority = 300 )]
-        public static async void EmbedPackages() {
-            var request = UnityEditor.PackageManager.Client.Embed( "com.denis535.clean-architecture-game-framework" );
-            while (!request.IsCompleted) await Task.Yield();
+        // EmbedDependencies
+        [MenuItem( "Project/Embed Dependencies", priority = 300 )]
+        public static void EmbedDependencies() {
+            //var request = UnityEditor.PackageManager.Client.Embed( "com.denis535.clean-architecture-game-framework" );
+            //while (!request.IsCompleted) await Task.Yield();
 
-            request = UnityEditor.PackageManager.Client.Embed( "com.denis535.addressables-source-generator" );
-            while (!request.IsCompleted) await Task.Yield();
+            //request = UnityEditor.PackageManager.Client.Embed( "com.denis535.addressables-source-generator" );
+            //while (!request.IsCompleted) await Task.Yield();
 
-            request = UnityEditor.PackageManager.Client.Embed( "com.denis535.colorful-project-window" );
-            while (!request.IsCompleted) await Task.Yield();
+            //request = UnityEditor.PackageManager.Client.Embed( "com.denis535.colorful-project-window" );
+            //while (!request.IsCompleted) await Task.Yield();
 
-            request = UnityEditor.PackageManager.Client.Embed( "com.denis535.uitoolkit-theme-style-sheet" );
-            while (!request.IsCompleted) await Task.Yield();
+            UnityEditor.PackageManager.Client.Embed( "com.denis535.uitoolkit-theme-style-sheet" );
         }
 
     }

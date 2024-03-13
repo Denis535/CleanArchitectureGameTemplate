@@ -1,2 +1,9 @@
 fileFormatVersion: 2
 guid: 7199a5e003d11e345be8a4e8420e6d15
+AssetOrigin:
+  serializedVersion: 1
+  productId: 273463
+  packageName: UIToolkit Theme Style Sheet
+  packageVersion: 1.0
+  assetPath: Packages/com.denis535.uitoolkit-theme-style-sheet/Runtime/UIToolkit.ThemeStyleSheet/UnityEngine.UIElements/Widget.cs
+  uploadId: 650161

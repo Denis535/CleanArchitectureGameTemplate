@@ -357,13 +357,6 @@ namespace UIToolkit.ThemeStyleSheet.Samples {
                     using (factory.Content().AsScope()) {
                         VisualElementScope.Add(
                             factory.RowScope().Children(
-                                factory.ColumnGroup().Classes( "light2", "width-200px", "height-200px" ),
-                                factory.ColumnGroup().Classes( "light", "width-200px", "height-200px" ),
-                                factory.ColumnGroup().Classes( "gray", "width-200px", "height-200px" ),
-                                factory.ColumnGroup().Classes( "dark", "width-200px", "height-200px" ),
-                                factory.ColumnGroup().Classes( "dark2", "width-200px", "height-200px" )
-                            ),
-                            factory.RowScope().Children(
                                 factory.ColumnGroup().Classes( "dark2", "width-200px", "height-200px" ),
                                 factory.ColumnGroup().Classes( "dark", "width-200px", "height-200px" ),
                                 factory.ColumnGroup().Classes( "gray", "width-200px", "height-200px" ),
@@ -371,7 +364,11 @@ namespace UIToolkit.ThemeStyleSheet.Samples {
                                 factory.ColumnGroup().Classes( "light2", "width-200px", "height-200px" )
                             ),
                             factory.RowScope().Children(
-                                factory.ColumnGroup().Classes( null, "width-200px", "height-200px" )
+                                factory.ColumnGroup().Classes( "light2", "width-200px", "height-200px" ),
+                                factory.ColumnGroup().Classes( "light", "width-200px", "height-200px" ),
+                                factory.ColumnGroup().Classes( "gray", "width-200px", "height-200px" ),
+                                factory.ColumnGroup().Classes( "dark", "width-200px", "height-200px" ),
+                                factory.ColumnGroup().Classes( "dark2", "width-200px", "height-200px" )
                             )
                         );
                     }
@@ -391,13 +388,6 @@ namespace UIToolkit.ThemeStyleSheet.Samples {
                     using (factory.Content().AsScope()) {
                         VisualElementScope.Add(
                             factory.RowScope().Children(
-                                factory.Box().Classes( "light2", "width-200px", "height-200px" ),
-                                factory.Box().Classes( "light", "width-200px", "height-200px" ),
-                                factory.Box().Classes( "gray", "width-200px", "height-200px" ),
-                                factory.Box().Classes( "dark", "width-200px", "height-200px" ),
-                                factory.Box().Classes( "dark2", "width-200px", "height-200px" )
-                            ),
-                            factory.RowScope().Children(
                                 factory.Box().Classes( "dark2", "width-200px", "height-200px" ),
                                 factory.Box().Classes( "dark", "width-200px", "height-200px" ),
                                 factory.Box().Classes( "gray", "width-200px", "height-200px" ),
@@ -405,7 +395,11 @@ namespace UIToolkit.ThemeStyleSheet.Samples {
                                 factory.Box().Classes( "light2", "width-200px", "height-200px" )
                             ),
                             factory.RowScope().Children(
-                                factory.Box().Classes( null, "width-200px", "height-200px" )
+                                factory.Box().Classes( "light2", "width-200px", "height-200px" ),
+                                factory.Box().Classes( "light", "width-200px", "height-200px" ),
+                                factory.Box().Classes( "gray", "width-200px", "height-200px" ),
+                                factory.Box().Classes( "dark", "width-200px", "height-200px" ),
+                                factory.Box().Classes( "dark2", "width-200px", "height-200px" )
                             )
                         );
                     }

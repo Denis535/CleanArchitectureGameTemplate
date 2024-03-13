@@ -1,5 +1,5 @@
 # Overview
-This project is well designed game template allowing you to quickly and efficiently start developing your project with the best practices (like Clean Architecture and Uber Ribs).
+This project is well designed game template allowing you to quickly and efficiently start developing your project with the best practices (like Domain Driven Design, Clean Architecture and Uber Ribs).
 
 # Reference
 The project has the following modules:
@@ -9,15 +9,9 @@ The project has the following modules:
 - Project.Entities - responsible for domain logic and assets.
 - Project.Common - responsible for any common logic and assets.
 
-# Dependencies
-The project has the following dependencies:
-- Clean Architecture Game Framework - the architecture game framework that helping you to develop your project following the best practices (like Clean Architecture and Uber Ribs).
-- Addressables Source Generator - the addition to Addressables giving you the ability to reference assets in a very convenient way.
-- Colorful Project Window - the much more convenient project window.
-- UIToolkit Theme Style Sheet - the beautiful UIToolkit theme style sheets and some additions and tools.
-
 # Setup
-- Install "Embedded Dependencies" package (if needed).
+- Install The "UIToolkit Theme Style Sheet" (https://assetstore.unity.com/packages/tools/gui/uitoolkit-theme-style-sheet-273463s). Or install "Embedded Dependencies" pacakge.
+- Press "Toolbar/Project/Embed Dependencies" if needed (The "UIToolkit Theme Style Sheet" package must be embedded).
 - Link project with Unity Gaming Services.
 
 # Build

@@ -1,32 +1,31 @@
 {
-  "name": "com.denis535.uitoolkit-theme-style-sheet",
-  "displayName": "UIToolkit Theme Style Sheet",
-  "version": "1.0.0",
-  "description": "This package provides you with the beautiful UIToolkit theme style sheets and some additions and tools.",
-  "author": {
-    "name": "Denis535",
-    "url": "https://denis535.github.io"
-  },
-  "unity": "2023.2",
-  "dependencies": {
-    "com.unity.modules.ui": "1.0.0",
-    "com.unity.modules.uielements": "1.0.0"
-  },
-  "keywords": [
-    "UI",
-    "GUI",
-    "Fx",
-    "Sfx",
-    "UIElements",
-    "UIToolkit",
-    "Style Sheet",
-    "Theme Style Sheet",
-    "USS",
-    "CSS",
-    "Less",
-    "Sass",
-    "Stylus",
-    "Pug"
-  ],
-  "_fingerprint": "cea8a6e3abc2a3a21d9eada38f9b0033e0ff9dca"
+    "name": "com.denis535.uitoolkit-theme-style-sheet",
+    "displayName": "UIToolkit Theme Style Sheet",
+    "version": "1.0.0",
+    "description": "This package provides you with the beautiful UIToolkit theme style sheets and some additions and tools.",
+    "author": {
+        "name": "Denis535",
+        "url": "https://denis535.github.io"
+    },
+    "unity": "2023.2",
+    "dependencies": {
+        "com.unity.modules.ui": "1.0.0",
+        "com.unity.modules.uielements": "1.0.0"
+    },
+    "keywords": [
+        "UI",
+        "GUI",
+        "Fx",
+        "Sfx",
+        "UIElements",
+        "UIToolkit",
+        "Style Sheet",
+        "Theme Style Sheet",
+        "USS",
+        "CSS",
+        "Less",
+        "Sass",
+        "Stylus",
+        "Pug"
+    ]
 }
