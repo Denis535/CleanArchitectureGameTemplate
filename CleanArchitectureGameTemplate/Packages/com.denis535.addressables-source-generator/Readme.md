@@ -1,5 +1,5 @@
 # Overview
-This package is addition to Addressables giving you the ability to reference assets in a very convenient way. For example: 'R.MyProject.Scenes.GameScene' or 'L.Scene'.
+This package is addition to Addressables giving you the ability to reference assets in a very convenient way with compile-time checking. For example: 'R.MyProject.Scenes.GameScene' or 'L.Scene'.
 
 # How it works
 This takes a list of all addressable assets and generates the source code with all asset addresses and labels constants.
@@ -9,13 +9,14 @@ namespace UnityEngine.AddressableAssets {
     public static class @R {
         public static class @MyProject {
             public static class @Scenes {
-                public const string @Scene = "MyProject/Scenes/GameScene.unity";
+                public const string @MainScene = "MyProject/Scenes/MainScene.unity";
+                public const string @GameScene = "MyProject/Scenes/GameScene.unity";
             }
         }
     }
     public static class @L {
         public const string @default = "default";
-        public const string Scenes = "scene";
+        public const string @Scene = "scene";
     }
 }
 ```
@@ -47,6 +48,10 @@ new LabelsSourceGenerator().Generate( settings, "Assets/UnityEngine.AddressableA
 
 # Links
 - https://denis535.github.io
-- https://openupm.com/packages/?sort=downloads&q=denis535
 - https://assetstore.unity.com/publishers/90787
-- https://github.com/Denis535/CleanArchitectureGameFramework/tree/master/Packages/com.denis535.addressables-source-generator
+- https://denis535.itch.io/
+- https://openupm.com/packages/?sort=downloads&q=denis535
+- https://www.youtube.com/channel/UCLFdZl0pFkCkHpDWmodBUFg
+
+# If you want to support me
+If you want to support me, please rate my packages, subscribe to my YouTube channel and like my videos.

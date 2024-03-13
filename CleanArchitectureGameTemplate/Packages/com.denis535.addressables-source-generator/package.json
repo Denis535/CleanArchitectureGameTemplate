@@ -1,7 +1,7 @@
 {
   "name": "com.denis535.addressables-source-generator",
   "displayName": "Addressables Source Generator",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "This package is addition to Addressables giving you the ability to reference assets in a very convenient way",
   "author": {
     "name": "Denis535",
@@ -23,5 +23,5 @@
   "publishConfig": {
     "registry": "https://package.openupm.com"
   },
-  "_fingerprint": "e2a625d9d00eb9536b0bc0e26d4ec0a8b6e79e00"
+  "_fingerprint": "6f331171a2b24f9f2ddc863cc70091b4b481c3d2"
 }
