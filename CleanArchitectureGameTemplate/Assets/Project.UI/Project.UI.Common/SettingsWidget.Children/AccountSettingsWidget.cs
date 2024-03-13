@@ -41,7 +41,7 @@ namespace Project.UI.Common {
         // Helpers
         private static AccountSettingsWidgetView CreateView(AccountSettingsWidget widget, UIFactory factory, Globals.AccountSettings accountSettings) {
             var view = new AccountSettingsWidgetView( factory );
-            view.Scope.OnAttachToPanel( evt => {
+            view.Group.OnAttachToPanel( evt => {
                 view.Name.Value = accountSettings.PlayerName;
                 view.Name.IsValid = accountSettings.IsNameValid( view.Name.Value );
             } );

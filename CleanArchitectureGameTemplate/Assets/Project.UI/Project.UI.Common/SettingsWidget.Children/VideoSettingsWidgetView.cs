@@ -11,15 +11,15 @@ namespace Project.UI.Common {
 
         // VisualElement
         protected override VisualElement VisualElement { get; }
-        public ElementWrapper Scope { get; }
+        public ElementWrapper Group { get; }
         public ToggleFieldWrapper<bool> IsFullScreen { get; }
         public PopupFieldWrapper<object> ScreenResolution { get; }
         public ToggleFieldWrapper<bool> IsVSync { get; }
 
         // Constructor
         public VideoSettingsWidgetView(UIFactory factory) {
-            VisualElement = factory.VideoSettingsWidget( out var scope, out var isFullScreen, out var screenResolution, out var isVSync );
-            Scope = scope.Wrap();
+            VisualElement = factory.VideoSettingsWidget( out var group, out var isFullScreen, out var screenResolution, out var isVSync );
+            Group = group.Wrap();
             IsFullScreen = isFullScreen.Wrap();
             ScreenResolution = screenResolution.Wrap();
             IsVSync = isVSync.Wrap();

@@ -11,7 +11,7 @@ namespace Project.UI.Common {
 
         // VisualElement
         protected override VisualElement VisualElement { get; }
-        public ElementWrapper Scope { get; }
+        public ElementWrapper Group { get; }
         public SliderFieldWrapper<float> MasterVolume { get; }
         public SliderFieldWrapper<float> MusicVolume { get; }
         public SliderFieldWrapper<float> SfxVolume { get; }
@@ -19,8 +19,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public AudioSettingsWidgetView(UIFactory factory) {
-            VisualElement = factory.AudioSettingsWidget( out var scope, out var masterVolume, out var musicVolume, out var sfxVolume, out var gameVolume );
-            Scope = scope.Wrap();
+            VisualElement = factory.AudioSettingsWidget( out var group, out var masterVolume, out var musicVolume, out var sfxVolume, out var gameVolume );
+            Group = group.Wrap();
             MasterVolume = masterVolume.Wrap();
             MusicVolume = musicVolume.Wrap();
             SfxVolume = sfxVolume.Wrap();

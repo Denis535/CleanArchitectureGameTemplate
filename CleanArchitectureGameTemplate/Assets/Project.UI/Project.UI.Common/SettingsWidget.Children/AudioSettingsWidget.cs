@@ -44,7 +44,7 @@ namespace Project.UI.Common {
         // Helpers
         private static AudioSettingsWidgetView CreateView(AudioSettingsWidget widget, UIFactory factory, Globals.AudioSettings audioSettings) {
             var view = new AudioSettingsWidgetView( factory );
-            view.Scope.OnAttachToPanel( evt => {
+            view.Group.OnAttachToPanel( evt => {
                 view.MasterVolume.ValueMinMax = (audioSettings.MasterVolume, 0, 1);
                 view.MusicVolume.ValueMinMax = (audioSettings.MusicVolume, 0, 1);
                 view.SfxVolume.ValueMinMax = (audioSettings.SfxVolume, 0, 1);
