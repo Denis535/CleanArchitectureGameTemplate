@@ -10,7 +10,8 @@ The project has the following modules:
 - Project.Common - responsible for any common logic and assets.
 
 # Setup
-- Install The "UIToolkit Theme Style Sheet" (https://assetstore.unity.com/packages/tools/gui/uitoolkit-theme-style-sheet-273463s). Or install "Embedded Dependencies" pacakge.
+- Install The "UIToolkit Theme Style Sheet" (https://assetstore.unity.com/packages/tools/gui/uitoolkit-theme-style-sheet-273463s).
+- Or install "Embedded Dependencies" pacakge.
 - Press "Toolbar/Project/Embed Dependencies" if needed (The "UIToolkit Theme Style Sheet" package must be embedded).
 - Link project with Unity Gaming Services.
 
