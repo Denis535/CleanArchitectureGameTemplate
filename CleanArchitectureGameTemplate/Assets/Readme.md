@@ -18,6 +18,14 @@ The project has the following modules:
 - Prepare your project for build (Toolbar / Project / Pre Build).
 - Build your project (Toolbar / Project / Build).
 
+# FAQ
+- Why I can not compile stylus styles?
+    - You need to install node.js and stylus.
+- Why is the ThemeStyleSheet.styl compiled with errors?
+    - The "UIToolkit Theme Style Sheet" package must be embedded.
+- Why is the UI layout broken?
+    - Sometimes you need to reimport "UIToolkit Theme Style Sheet" package.
+
 # Links
 - https://denis535.github.io
 - https://assetstore.unity.com/publishers/90787
