@@ -20,12 +20,12 @@ The project has the following modules:
 - Build your project (Toolbar / Project / Build).
 
 # FAQ
-- Why I can not compile stylus styles?
-    - You need to install node.js and stylus.
-- Why is the ThemeStyleSheet.styl compiled with errors?
+- Why can not I compile the stylus files?
+    - You need to install the node.js and stylus.
+- Why is the "ThemeStyleSheet.styl" compiled with errors?
     - The "UIToolkit Theme Style Sheet" package must be embedded.
-- Why is the UI layout broken?
-    - Sometimes you need to reimport "UIToolkit Theme Style Sheet" package.
+- Why is the UI broken?
+    - Sometimes you need to reimport the "UIToolkit Theme Style Sheet" package.
 
 # Links
 - https://denis535.github.io
