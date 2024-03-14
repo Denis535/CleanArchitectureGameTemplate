@@ -1,13 +1,15 @@
 # Overview
-This project is well designed game template allowing you to quickly and efficiently start developing your project with the best practices (like Domain Driven Design, Clean Architecture and Uber Ribs).
+This well designed project shows an example of good structure and architecture of the unity game project.
+This allowing you to quickly and efficiently start developing your own project with the best practices (like Domain Driven Design, Clean Architecture and Uber Ribs).
 
 # Reference
-The project has the following modules:
-- Project - responsible for startup and global logic and assets.
-- Project.UI - responsible for presentation logic and assets.
-- Project.App - responsible for application logic and assets.
-- Project.Entities - responsible for domain logic and assets.
-- Project.Common - responsible for any common logic and assets.
+The project consists of the following modules:
+- Project - The entry point and any global logic.
+- Project.UI - The presentation (user interface) logic.
+- Project.App - The application logic.
+- Project.Entities - The domain (entities) logic.
+- Project.Common - Everything common.
+Each module has its own clear responsibilities, which simplifies project development and improves project quality.
 
 # Setup
 - Install the "UIToolkit Theme Style Sheet" package (https://assetstore.unity.com/packages/tools/gui/uitoolkit-theme-style-sheet-273463s).
