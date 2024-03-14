@@ -4,12 +4,26 @@ This allowing you to quickly and efficiently start developing your own project w
 
 # Reference
 The project consists of the following modules:
-- Project - The entry point and any global logic.
-- Project.UI - The presentation (user interface) logic.
-- Project.App - The application logic.
-- Project.Entities - The domain (entities) logic.
-- Project.Common - Everything common.
-Each module has its own clear responsibilities, which simplifies project development and improves project quality.
+
+## Assemblies
+### Project
+The root of project.
+This contains the entry point and scenes.
+
+### Project.UI
+The presentation (user interface) logic.
+This contains ui-level logic: the audio theme, screens, widgets and views.
+
+### Project.App
+The application logic.
+This contains application-level logic: game start/stop, pasue/unpause, save/load, environment variables.
+
+### Project.Entities
+The domain (entities) logic.
+This contains game-level logic: game, players, entities.
+
+### Project.Common
+Everything common.
 
 # Setup
 - Install the "UIToolkit Theme Style Sheet" package (https://assetstore.unity.com/packages/tools/gui/uitoolkit-theme-style-sheet-273463s).
