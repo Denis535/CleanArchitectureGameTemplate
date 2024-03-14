@@ -1,6 +1,6 @@
 # Overview
 This well designed project shows an example of good structure and architecture of the unity game project.
-This allowing you to quickly and efficiently start developing your own project with the best practices (like Domain Driven Design, Clean Architecture and Uber Ribs).
+This allows you to quickly and efficiently start developing your own project with the best practices (like Domain Driven Design, Clean Architecture and Uber Ribs).
 
 # Reference
 ## Assemblies
@@ -92,6 +92,9 @@ This namespace represents the domain (entities) module of your project.
     - The "UIToolkit Theme Style Sheet" package must be embedded.
 - Why is the UI broken?
     - Sometimes you need to reimport the "UIToolkit Theme Style Sheet" package.
+
+# Example
+- https://drive.google.com/file/d/1NT22bUv8hOdmNAC4mfqGBTfosCLRbrKh/view?usp=drive_link
 
 # Links
 - https://denis535.github.io
