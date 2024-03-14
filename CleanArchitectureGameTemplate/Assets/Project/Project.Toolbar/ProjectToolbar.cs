@@ -5,8 +5,6 @@ namespace Project.Toolbar {
     using System.Collections;
     using System.Collections.Generic;
     using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
     using UnityEditor;
     using UnityEditor.SceneManagement;
     using UnityEngine;
@@ -61,18 +59,9 @@ namespace Project.Toolbar {
             EditorUtility.RevealInFinder( path );
         }
 
-        // EmbedDependencies
-        [MenuItem( "Project/Embed Dependencies", priority = 300 )]
-        public static void EmbedDependencies() {
-            //var request = UnityEditor.PackageManager.Client.Embed( "com.denis535.clean-architecture-game-framework" );
-            //while (!request.IsCompleted) await Task.Yield();
-
-            //request = UnityEditor.PackageManager.Client.Embed( "com.denis535.addressables-source-generator" );
-            //while (!request.IsCompleted) await Task.Yield();
-
-            //request = UnityEditor.PackageManager.Client.Embed( "com.denis535.colorful-project-window" );
-            //while (!request.IsCompleted) await Task.Yield();
-
+        // EmbedPackage
+        [MenuItem( "Project/Embed Package (com.denis535.uitoolkit-theme-style-sheet)", priority = 300 )]
+        public static void EmbedPackage_UIToolkitThemeStyleSheet() {
             UnityEditor.PackageManager.Client.Embed( "com.denis535.uitoolkit-theme-style-sheet" );
         }
 
