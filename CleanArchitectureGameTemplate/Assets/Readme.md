@@ -78,7 +78,8 @@ This namespace represents the domain (entities) module of your project.
 - EntityBody - This class is responsible for the entity's physical aspects.
 
 # Setup
-- Install the "UIToolkit Theme Style Sheet" package (https://assetstore.unity.com/packages/tools/gui/uitoolkit-theme-style-sheet-273463s).
+- Install the "UIToolkit Theme Style Sheet" package (https://denis535.github.io/#uitoolkit-theme-style-sheet).
+- Embed "UIToolkit Theme Style Sheet" package (press Tools/UIToolkit Theme Style Sheet/Embed Package).
 - Link project with Unity Gaming Services.
 
 # Build

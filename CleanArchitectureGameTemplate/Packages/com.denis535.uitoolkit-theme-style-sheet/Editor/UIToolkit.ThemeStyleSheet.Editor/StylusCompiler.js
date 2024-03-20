@@ -16,7 +16,7 @@ const dist = Process.argv[3];
 if (src == null) throw new TypeError("Source path is required");
 if (dist == null) throw new TypeError("Distribution path is required");
 
-Stylus(readContent(src))
+Stylus(readStylus(src))
     .set('filename', Path.basename(src))
     .set('paths', [Path.dirname(src)])
     .define('eval', evalEx, false)
@@ -35,6 +35,7 @@ function onComplete(error, result) {
         console.error(error);
         FS.writeFile(dist, '', onError);
     } else {
+        result = result.replaceAll('.%', '');
         FS.writeFile(dist, result, onError);
     }
 }
@@ -45,8 +46,17 @@ function onError(error) {
 }
 
 // helpers
-function readContent(path) {
+function readStylus(path) {
     return FS.readFileSync(path, 'utf8')
+        // /// ***
+        // .replaceAll(/(?<!\/\/.*)(\/\/\/\s*)(.*)/gm, function (match, comment, content) {
+        //     content = content
+        //         .trim()
+        //         .replaceAll(/(\s+)/g, ' ') // collapse whitespace
+        //         .replaceAll(/(__+)/g, '__') // collapse __
+        //         .replaceAll(/(--+)/g, '--'); // collapse --
+        //     return '    ' + content;
+        // })
         // // string: ***
         .replaceAll(/(?<!\/\/.*)(\/\/\s*string:s*)(.*)/gm, function (match, comment, content) {
             content = content
@@ -66,12 +76,12 @@ function readContent(path) {
             return '\r\n' + content.split(/(?<=\))\./g).filter(Boolean).map(i => '    ' + i).join('\r\n');
         })
         // .selector--***
-        .replaceAll(/(?<!\/\/.*)(?:\.)(selector--[\w-]+)/gm, function (match, identifier) {
-            identifier = identifier
+        .replaceAll(/(?<!\/\/.*)(?:\.selector--)([\w-.#:]+)/gm, function (match, content) {
+            content = content
                 .trim()
                 .replaceAll(/(__+)/g, '__') // collapse __
                 .replaceAll(/(--+)/g, '--'); // collapse --
-            return '{get-selector(' + ('\'' + identifier + '\'') + ')}';
+            return '{get-selector(' + ('\'' + content + '\'') + ')}';
         });
 }
 
@@ -170,5 +180,5 @@ function getDefinitionsEx(global) {
         }
         return result;
     }
-    console.error('Not implemented');
+    throw new Error("Argument 'global' must be defined");
 }

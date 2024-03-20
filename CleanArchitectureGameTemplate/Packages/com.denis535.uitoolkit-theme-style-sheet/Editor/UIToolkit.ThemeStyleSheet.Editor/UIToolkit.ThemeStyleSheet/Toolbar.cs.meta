@@ -1,9 +1,2 @@
 fileFormatVersion: 2
 guid: 0ec2b58ccb30cce4baf6aefef17a8f99
-AssetOrigin:
-  serializedVersion: 1
-  productId: 273463
-  packageName: UIToolkit Theme Style Sheet
-  packageVersion: 1.0
-  assetPath: Packages/com.denis535.uitoolkit-theme-style-sheet/Editor/UIToolkit.ThemeStyleSheet.Editor/UIToolkit.ThemeStyleSheet/Toolbar.cs
-  uploadId: 650161

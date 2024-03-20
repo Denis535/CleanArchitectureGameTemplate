@@ -34,7 +34,7 @@ namespace Project.UI {
         }
 
         // CreateGameWidget
-        public static Widget CreateGameWidget(this UIFactory factory, out Widget widget, out Label title, out Slot gameDescSlot, out Slot playerDescSlot, out Slot roomSlot, out Slot chatSlot, out Button okey, out Button back) {
+        public static Widget CreateGameWidget(this UIFactory factory, out Widget widget, out Label title, out ColumnScope gameDescSlot, out ColumnScope playerDescSlot, out ColumnScope roomSlot, out ColumnScope chatSlot, out Button okey, out Button back) {
             using (factory.LargeWidget( "create-game-widget" ).AsScope( out widget )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
@@ -42,12 +42,12 @@ namespace Project.UI {
                     }
                     using (factory.Content().AsScope()) {
                         using (factory.RowScope().Classes( "grow-0", "basis-40pc" ).AsScope()) {
-                            VisualElementScope.Add( gameDescSlot = factory.Slot().Name( "game-desc-slot" ).Classes( "grow-1", "basis-0pc" ) );
-                            VisualElementScope.Add( playerDescSlot = factory.Slot().Name( "player-desc-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( gameDescSlot = factory.ColumnScope().Name( "game-desc-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( playerDescSlot = factory.ColumnScope().Name( "player-desc-slot" ).Classes( "grow-1", "basis-0pc" ) );
                         }
                         using (factory.RowScope().Classes( "grow-1", "basis-auto" ).AsScope()) {
-                            VisualElementScope.Add( roomSlot = factory.Slot().Name( "room-slot" ).Classes( "grow-1", "basis-0pc" ) );
-                            VisualElementScope.Add( chatSlot = factory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( roomSlot = factory.ColumnScope().Name( "room-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( chatSlot = factory.ColumnScope().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" ) );
                         }
                     }
                     using (factory.Footer().AsScope()) {
@@ -133,7 +133,7 @@ namespace Project.UI {
         }
 
         // JoinGameWidget
-        public static Widget JoinGameWidget(this UIFactory factory, out Widget widget, out Label title, out Slot gameDescSlot, out Slot playerDescSlot, out Slot roomSlot, out Slot chatSlot, out Button okey, out Button back) {
+        public static Widget JoinGameWidget(this UIFactory factory, out Widget widget, out Label title, out ColumnScope gameDescSlot, out ColumnScope playerDescSlot, out ColumnScope roomSlot, out ColumnScope chatSlot, out Button okey, out Button back) {
             using (factory.LargeWidget( "join-game-widget" ).AsScope( out widget )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
@@ -141,12 +141,12 @@ namespace Project.UI {
                     }
                     using (factory.Content().AsScope()) {
                         using (factory.RowScope().Classes( "grow-0", "basis-40pc" ).AsScope()) {
-                            VisualElementScope.Add( gameDescSlot = factory.Slot().Name( "game-desc-slot" ).Classes( "grow-1", "basis-0pc" ) );
-                            VisualElementScope.Add( playerDescSlot = factory.Slot().Name( "player-desc-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( gameDescSlot = factory.ColumnScope().Name( "game-desc-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( playerDescSlot = factory.ColumnScope().Name( "player-desc-slot" ).Classes( "grow-1", "basis-0pc" ) );
                         }
                         using (factory.RowScope().Classes( "grow-1", "basis-auto" ).AsScope()) {
-                            VisualElementScope.Add( roomSlot = factory.Slot().Name( "room-slot" ).Classes( "grow-1", "basis-0pc" ) );
-                            VisualElementScope.Add( chatSlot = factory.Slot().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( roomSlot = factory.ColumnScope().Name( "room-slot" ).Classes( "grow-1", "basis-0pc" ) );
+                            VisualElementScope.Add( chatSlot = factory.ColumnScope().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" ) );
                         }
                     }
                     using (factory.Footer().AsScope()) {

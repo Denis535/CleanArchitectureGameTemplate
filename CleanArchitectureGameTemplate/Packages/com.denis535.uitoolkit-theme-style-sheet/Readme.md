@@ -32,8 +32,7 @@ This package contains styles for the following elements:
     - TabView    - classes: light2/light/gray/dark/dark2, small/medium/large
     - ScrollView - classes: light2/light/gray/dark/dark2, small/medium/large, reverse
 - Scopes
-    - Slot
-    - Scope - classes:                               small/medium/large, column/row
+    - Scope - classes: light2/light/gray/dark/dark2  small/medium/large, column/row
     - Group - classes: light2/light/gray/dark/dark2, small/medium/large, column/row
     - Box   - classes: light2/light/gray/dark/dark2, small/medium/large
 - Elements
@@ -56,6 +55,7 @@ This package contains styles for the following elements:
 - https://denis535.itch.io/
 - https://openupm.com/packages/?sort=downloads&q=denis535
 - https://www.youtube.com/channel/UCLFdZl0pFkCkHpDWmodBUFg
+- https://github.com/Denis535/UIToolkitThemeStyleSheet
 
 # If you want to support me
 If you want to support me, please rate my packages, subscribe to my YouTube channel and like my videos.

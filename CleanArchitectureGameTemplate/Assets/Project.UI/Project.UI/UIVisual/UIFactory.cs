@@ -174,12 +174,6 @@ namespace Project.UI {
             return result;
         }
 
-        // Slot
-        public Slot Slot() {
-            var result = Create<Slot>( "slot" );
-            return result;
-        }
-
         // Scope
         public ColumnScope ColumnScope() {
             var result = Create<ColumnScope>( "scope" );

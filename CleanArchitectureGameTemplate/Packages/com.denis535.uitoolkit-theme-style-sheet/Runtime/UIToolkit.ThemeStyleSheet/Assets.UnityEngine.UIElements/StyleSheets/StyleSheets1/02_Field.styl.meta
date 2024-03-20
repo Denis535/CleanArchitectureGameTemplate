@@ -8,10 +8,3 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 0d45d9cace72dbb4eb52ed5527815b79, type: 3}
-AssetOrigin:
-  serializedVersion: 1
-  productId: 273463
-  packageName: UIToolkit Theme Style Sheet
-  packageVersion: 1.0
-  assetPath: Packages/com.denis535.uitoolkit-theme-style-sheet/Runtime/UIToolkit.ThemeStyleSheet/Assets.UnityEngine.UIElements/StyleSheets/StyleSheets1/02_Field.styl
-  uploadId: 650161

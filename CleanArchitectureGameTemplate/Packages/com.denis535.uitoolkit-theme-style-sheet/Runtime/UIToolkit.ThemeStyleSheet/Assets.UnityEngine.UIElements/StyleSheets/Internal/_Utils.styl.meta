@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cc49053c281ad4148bb2933c79e7a785
+guid: 8c6463c5d8d75584ca5fdcc01b6496de
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -8,10 +8,3 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 0d45d9cace72dbb4eb52ed5527815b79, type: 3}
-AssetOrigin:
-  serializedVersion: 1
-  productId: 273463
-  packageName: UIToolkit Theme Style Sheet
-  packageVersion: 1.0
-  assetPath: Packages/com.denis535.uitoolkit-theme-style-sheet/Runtime/UIToolkit.ThemeStyleSheet/Assets.UnityEngine.UIElements/StyleSheets/Internal/_Utils.styl
-  uploadId: 650161
