@@ -7,8 +7,6 @@ namespace Project {
     using Project.App;
     using Project.UI;
     using Unity.Services.Authentication;
-    using Unity.Services.Lobbies;
-    using Unity.Services.Qos;
     using UnityEngine;
     using UnityEngine.Framework;
 
@@ -33,8 +31,8 @@ namespace Project {
         private Globals.AudioSettings AudioSettings { get; set; } = default!;
         private Globals.Preferences Preferences { get; set; } = default!;
         private IAuthenticationService AuthenticationService => Unity.Services.Authentication.AuthenticationService.Instance;
-        private ILobbyService LobbyService => Unity.Services.Lobbies.LobbyService.Instance;
-        private IQosService QosService => Unity.Services.Qos.QosService.Instance;
+        //private ILobbyService LobbyService => Unity.Services.Lobbies.LobbyService.Instance;
+        //private IQosService QosService => Unity.Services.Qos.QosService.Instance;
 
         // Awake
         public void Awake() {
@@ -100,12 +98,12 @@ namespace Project {
             if (type == typeof( IAuthenticationService )) {
                 return AuthenticationService;
             }
-            if (type == typeof( ILobbyService )) {
-                return LobbyService;
-            }
-            if (type == typeof( IQosService )) {
-                return QosService;
-            }
+            //if (type == typeof( ILobbyService )) {
+            //    return LobbyService;
+            //}
+            //if (type == typeof( IQosService )) {
+            //    return QosService;
+            //}
             return null;
         }
 
