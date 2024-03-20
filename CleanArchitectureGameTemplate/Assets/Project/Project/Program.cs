@@ -4,7 +4,6 @@ namespace Project {
     using System.Collections;
     using System.Collections.Generic;
     using Project.App;
-    using Project.Entities.GameScene;
     using Project.UI;
     using UnityEditor;
     using UnityEngine;
