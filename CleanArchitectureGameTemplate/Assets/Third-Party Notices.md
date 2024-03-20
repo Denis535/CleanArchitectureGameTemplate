@@ -1,4 +1,4 @@
-# Third-party notices
+# Third-party Notices
 This package contains the third-party packages under their own respective licenses.
 
 ## Clean Architecture Game Framework
@@ -24,7 +24,7 @@ The beautiful UIToolkit theme style sheets and some additions and tools.
 - This package is developed by Denis535.
 - It's licensed under the Standard Unity Asset Store EULA.
 - https://denis535.github.io/#uitoolkit-theme-style-sheet
-- https://assetstore.unity.com/packages/tools/gui/uitoolkit-theme-style-sheet-273463s
+- https://assetstore.unity.com/packages/tools/gui/uitoolkit-theme-style-sheet-273463
 
 ## FC Game Audio Pack 1 [Lite]
 - This package is developed by fcaudio.

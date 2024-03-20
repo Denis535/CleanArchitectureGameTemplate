@@ -1,9 +1,7 @@
 # Overview
-This well designed project shows an example of good structure and architecture of the unity game project.
-This allows you to quickly and efficiently start developing your own project with the best practices (like Domain Driven Design, Clean Architecture and Uber Ribs).
+This project is well designed game template allowing you to quickly and efficiently start developing your project with the best practices (like Domain Driven Design, Clean Architecture and Uber Ribs).
 
 # Reference
-
 ## Assemblies
 The project consists of the following modules:
 ### Project
