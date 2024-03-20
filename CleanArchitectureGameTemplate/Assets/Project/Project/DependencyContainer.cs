@@ -28,7 +28,7 @@ namespace Project {
         private UIRouter UIRouter => uiRouter;
         private Application2 Application => application;
         private Globals Globals { get; set; } = default!;
-        private Globals.AccountSettings AccountSettings { get; set; } = default!;
+        private Globals.ProfileSettings ProfileSettings { get; set; } = default!;
         private Globals.VideoSettings VideoSettings { get; set; } = default!;
         private Globals.AudioSettings AudioSettings { get; set; } = default!;
         private Globals.Preferences Preferences { get; set; } = default!;
@@ -39,7 +39,7 @@ namespace Project {
         // Awake
         public void Awake() {
             Globals = new Globals();
-            AccountSettings = new Globals.AccountSettings();
+            ProfileSettings = new Globals.ProfileSettings();
             VideoSettings = new Globals.VideoSettings();
             AudioSettings = new Globals.AudioSettings();
             Preferences = new Globals.Preferences();
@@ -85,8 +85,8 @@ namespace Project {
             if (type == typeof( Globals )) {
                 return Globals;
             }
-            if (type == typeof( Globals.AccountSettings )) {
-                return AccountSettings;
+            if (type == typeof( Globals.ProfileSettings )) {
+                return ProfileSettings;
             }
             if (type == typeof( Globals.VideoSettings )) {
                 return VideoSettings;

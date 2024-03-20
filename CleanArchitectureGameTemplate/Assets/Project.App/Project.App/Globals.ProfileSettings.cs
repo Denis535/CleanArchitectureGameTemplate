@@ -8,31 +8,31 @@ namespace Project.App {
     using UnityEngine.Framework.App;
 
     public partial class Globals {
-        public class AccountSettings : GlobalsBase {
+        public class ProfileSettings : GlobalsBase {
 
             // Fields
-            private string playerName = default!;
+            private string name = default!;
 
             // Props
-            public string PlayerName {
-                get => playerName;
+            public string Name {
+                get => name;
                 set {
                     Assert.Argument.Message( $"Argument 'value' ({value}) is invalid" ).Valid( IsNameValid( value ) );
-                    playerName = value;
+                    name = value;
                 }
             }
 
             // Constructor
-            public AccountSettings() {
+            public ProfileSettings() {
                 Load();
             }
 
             // Save
             public void Save() {
-                Save( "AccountSettings.PlayerName", PlayerName );
+                Save( "ProfileSettings.Name", Name );
             }
             public void Load() {
-                PlayerName = Load( "AccountSettings.PlayerName", "Anonymous" );
+                Name = Load( "ProfileSettings.Name", "Anonymous" );
             }
 
             // Utils

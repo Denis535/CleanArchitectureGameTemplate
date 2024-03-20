@@ -79,7 +79,7 @@ namespace Project.UI {
         }
 
         // SettingsWidget
-        public static Widget SettingsWidget(this UIFactory factory, out Widget widget, out Label title, out Tab accountSettingsSlot, out Tab videoSettingsSlot, out Tab audioSettingsSlot, out Button okey, out Button back) {
+        public static Widget SettingsWidget(this UIFactory factory, out Widget widget, out Label title, out Tab profileSettingsSlot, out Tab videoSettingsSlot, out Tab audioSettingsSlot, out Button okey, out Button back) {
             using (factory.MediumWidget( "settings-widget" ).AsScope( out widget )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
@@ -87,7 +87,7 @@ namespace Project.UI {
                     }
                     using (factory.Content().AsScope()) {
                         using (factory.TabView().Classes( "gray", "medium", "grow-1" ).AsScope()) {
-                            VisualElementScope.Add( accountSettingsSlot = factory.Tab( "Account Settings" ).Name( "account-settings" ) );
+                            VisualElementScope.Add( profileSettingsSlot = factory.Tab( "Profile Settings" ).Name( "profile-settings" ) );
                             VisualElementScope.Add( videoSettingsSlot = factory.Tab( "Video Settings" ).Name( "video-settings" ) );
                             VisualElementScope.Add( audioSettingsSlot = factory.Tab( "Audio Settings" ).Name( "audio-settings" ) );
                         }
@@ -100,7 +100,7 @@ namespace Project.UI {
             }
             return widget;
         }
-        public static ColumnGroup AccountSettingsWidget(this UIFactory factory, out ColumnGroup group, out TextField name) {
+        public static ColumnGroup ProfileSettingsWidget(this UIFactory factory, out ColumnGroup group, out TextField name) {
             using (factory.ColumnGroup().Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 VisualElementScope.Add( name = factory.TextField( "Name", null, 16 ).Name( "name" ).Classes( "label-width-25pc" ) );
             }

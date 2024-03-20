@@ -20,7 +20,7 @@ namespace Project.UI.Common {
         public SettingsWidget() {
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             View = CreateView( this, Factory );
-            this.AttachChild( new AccountSettingsWidget() );
+            this.AttachChild( new ProfileSettingsWidget() );
             this.AttachChild( new VideoSettingsWidget() );
             this.AttachChild( new AudioSettingsWidget() );
         }
@@ -36,8 +36,8 @@ namespace Project.UI.Common {
 
         // ShowWidget
         protected override void ShowWidget(UIWidgetBase widget) {
-            if (widget is AccountSettingsWidget) {
-                View.AccountSettingsSlot.Add( widget.GetVisualElement()! );
+            if (widget is ProfileSettingsWidget) {
+                View.ProfileSettingsSlot.Add( widget.GetVisualElement()! );
                 return;
             }
             if (widget is VideoSettingsWidget) {
@@ -51,8 +51,8 @@ namespace Project.UI.Common {
             base.ShowWidget( widget );
         }
         protected override void HideWidget(UIWidgetBase widget) {
-            if (widget is AccountSettingsWidget) {
-                View.AccountSettingsSlot.Remove( widget.GetVisualElement()! );
+            if (widget is ProfileSettingsWidget) {
+                View.ProfileSettingsSlot.Remove( widget.GetVisualElement()! );
                 return;
             }
             if (widget is VideoSettingsWidget) {
@@ -71,7 +71,7 @@ namespace Project.UI.Common {
             var view = new SettingsWidgetView( factory );
             view.Widget.OnChangeAny( evt => {
                 view.Okey.IsValid =
-                    view.AccountSettingsSlot.GetVisualElement().GetDescendants().All( i => i.IsValid() ) &&
+                    view.ProfileSettingsSlot.GetVisualElement().GetDescendants().All( i => i.IsValid() ) &&
                     view.VideoSettingsSlot.GetVisualElement().GetDescendants().All( i => i.IsValid() ) &&
                     view.AudioSettingsSlot.GetVisualElement().GetDescendants().All( i => i.IsValid() );
             } );

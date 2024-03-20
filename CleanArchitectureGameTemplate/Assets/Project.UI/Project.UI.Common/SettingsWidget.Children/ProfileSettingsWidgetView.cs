@@ -7,7 +7,7 @@ namespace Project.UI.Common {
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
-    public class AccountSettingsWidgetView : UIViewBase {
+    public class ProfileSettingsWidgetView : UIViewBase {
 
         // VisualElement
         protected override VisualElement VisualElement { get; }
@@ -15,8 +15,8 @@ namespace Project.UI.Common {
         public TextFieldWrapper<string> Name { get; }
 
         // Constructor
-        public AccountSettingsWidgetView(UIFactory factory) {
-            VisualElement = factory.AccountSettingsWidget( out var group, out var name );
+        public ProfileSettingsWidgetView(UIFactory factory) {
+            VisualElement = factory.ProfileSettingsWidget( out var group, out var name );
             Group = group.Wrap();
             Name = name.Wrap();
         }
