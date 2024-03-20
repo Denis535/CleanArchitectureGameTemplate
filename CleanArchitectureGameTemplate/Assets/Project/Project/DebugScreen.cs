@@ -34,16 +34,18 @@ namespace Project {
         public void OnGUI() {
             using (new GUILayout.VerticalScope( GUI.skin.box )) {
                 GUILayout.Label( "Fps: " + (1f / Time.smoothDeltaTime).ToString( "000." ) );
-                GUILayout.Label( "Theme: " + Theme.State );
-                GUILayout.Label( "Screen: " + Screen.State );
-                GUILayout.Label( "Router: " + Router.State );
-                GUILayout.Label( "IsGameRunning: " + Application.IsGameRunning );
+                GUILayout.Space( 2 );
+                GUILayout.Label( "Theme State: " + Theme.State );
+                GUILayout.Label( "Screen State: " + Screen.State );
+                GUILayout.Label( "Router State: " + Router.State );
+                GUILayout.Space( 2 );
                 if (Application.IsGameRunning) {
-                    GUILayout.Label( "IsGamePlaying: " + Application.IsGamePlaying );
-                    GUILayout.Label( "IsGamePaused: " + Application.IsGamePaused );
+                    GUILayout.Label( "Is Game Running: " + Application.IsGameRunning );
+                    GUILayout.Label( "Is Game Playing: " + Application.IsGamePlaying );
+                    GUILayout.Label( "Is Game Paused: " + Application.IsGamePaused );
                 }
                 //GUILayout.Space( 2 );
-                //GUILayout.Label( "IsFocused: " + UnityEngine.Application.isFocused );
+                //GUILayout.Label( "Is Focused: " + UnityEngine.Application.isFocused );
                 //GUILayout.Label( "Focused Element: " + GetFocusedElement()?.Convert( GetDisplayString ) );
             }
         }

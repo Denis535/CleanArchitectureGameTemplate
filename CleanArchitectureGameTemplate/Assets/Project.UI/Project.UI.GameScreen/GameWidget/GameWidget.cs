@@ -66,6 +66,15 @@ namespace Project.UI.GameScreen {
             if (Actions.UI.Cancel.WasPressedThisFrame()) {
                 this.AttachChild( new GameMenuWidget() );
             }
+            //if (Actions.Game.Move.WasPerformedThisFrame()) {
+            //    Debug.Log( "Move: " + Actions.Game.Move.ReadValue<Vector2>() );
+            //}
+            //if (Actions.Game.Look.WasPerformedThisFrame()) {
+            //    Debug.Log( "Look: " + Actions.Game.Move.ReadValue<Vector2>() );
+            //}
+            //if (Actions.Game.Fire.WasPerformedThisFrame()) {
+            //    Debug.Log( "Fire" );
+            //}
         }
 
         // Helpers
