@@ -86,14 +86,14 @@ namespace Project.UI {
             return group;
         }
         public static ColumnGroup RoomWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView players) {
-            using (factory.ColumnGroup().Name( "room" ).Classes( "dark", "medium", "grow-1" ).AsScope( out group )) {
+            using (factory.ColumnGroup().Name( "room" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 VisualElementScope.Add( title = factory.Label( "Room" ).Name( "title" ).Classes( "medium", "shrink-0" ) );
                 VisualElementScope.Add( players = factory.ScrollView().Name( "players" ).Classes( "dark2", "medium", "reverse", "grow-1" ) );
             }
             return group;
         }
         public static ColumnGroup ChatWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView messages, out TextField text, out Button send) {
-            using (factory.ColumnGroup().Name( "chat" ).Classes( "dark2", "medium", "grow-1" ).AsScope( out group )) {
+            using (factory.ColumnGroup().Name( "chat" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 VisualElementScope.Add( title = factory.Label( "Chat" ).Name( "title" ).Classes( "medium", "shrink-0" ) );
                 VisualElementScope.Add( messages = factory.ScrollView().Name( "messages" ).Classes( "dark2", "medium", "reverse", "grow-1" ) );
                 using (factory.RowScope().Classes( "shrink-0" ).AsScope()) {
