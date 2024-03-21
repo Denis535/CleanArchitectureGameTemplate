@@ -4,113 +4,54 @@ This project is well designed game template allowing you to quickly and efficien
 # Reference
 ## Assemblies
 The project consists of the following modules:
-### Project
-The root of project (entry point, global logic, scenes).
-### Project.UI
-The presentation-level objects (audio theme, screens, widgets and views).
-### Project.App
-The application-level objects (application, global variables).
-### Project.Entities
-The domain-level objects (game, players, characters, entities).
-### Project.Common
-Everything common.
+- Project - root of project (entry point, global logic, scenes).
+- Project.UI - presentation-level (audio theme, screens, widgets and views).
+- Project.App - application-level (application, global variables).
+- Project.Entities - domain-level (game, players, characters, entities).
+- Project.Common - everything common.
 
 ## Namespaces
 The project consists of the following namespaces:
-### Project
-The root of project.
-### Project.UI
-The presentation-level objects.
-### Project.UI.MainScreen
-The presentation-level objects.
-### Project.UI.GameScreen
-The presentation-level objects.
-### Project.UI.Common
-The presentation-level objects.
-### Project.App
-The application-level objects.
-### Project.Entities.MainScene
-The domain-level objects.
-### Project.Entities.GameScene
-The domain-level objects.
-### Project.Entities.WorldScene
-The domain-level objects.
-### Project.Entities.Common
-The domain-level objects.
+- Project
+- Project.UI
+- Project.UI.MainScreen
+- Project.UI.GameScreen
+- Project.UI.Common
+- Project.App
+- Project.Entities.MainScene
+- Project.Entities.GameScene
+- Project.Entities.WorldScene
+- Project.Entities.Common
 
 # Clean Architecture Game Framework
 This package contains classes that define the entire architecture of your game project and some other utilities.
 
 ## Assemblies
-### CleanArchitectureGameFramework
-This module contains additional classes.
-### CleanArchitectureGameFramework.Core
-This module contains main classes.
-### CleanArchitectureGameFramework.Internal
-This module contains utilities and helpers.
+- CleanArchitectureGameFramework - additions.
+- CleanArchitectureGameFramework.Core - main.
+- CleanArchitectureGameFramework.Internal - utilities and helpers.
 
 ## Namespaces
-### Framework
-This namespace represents the root module.
-
-**IDependencyContainer** -
-This interface allows you to resolve your dependencies.
-
-**Program** -
-This class is responsible for the startup and global logic.
-
-### Framework.UI
-This namespace represents the presentation (user interface) module.
-
-**UIAudioTheme** -
-This class is responsible for the audio theme.
-
-**UIScreen** -
-This class is responsible for the user interface.
-The user interface consists of the hierarchy of logical (business) units and the hierarchy of visual units.
-
-**UIWidget** -
-This class is responsible for the business logic of ui unit. This may contain (or not contain) the view.
-
-**UIView** -
-This class is responsible for the visual (view) logic of ui unit.
-This just contains the VisualElement, so it's essentially a wrapper for VisualElement.
-
-**UIRouter** -
-This class is responsible for the application state.
-
-### Framework.App
-This namespace represents the application module.
-
-**Application** -
-This class is responsible for the application logic.
-
-**Globals** -
-This class provides you with the global values.
-
-### Framework.Entities
-This namespace represents the domain (entities) module.
-
-**Game** -
-This class is responsible for the game rules and states.
-
-**Player** -
-This class is responsible for the player rules and states.
-
-**World** -
-This class is responsible for the world.
-
-**WorldView** -
-This class is responsible for the world's visual and audible aspects.
-
-**Entity** -
-This class is responsible for the scene's entity (player's avatar, AI agent or any other object).
-
-**EntityView** -
-This class is responsible for the entity's visual and audible aspects.
-
-**EntityBody** -
-This class is responsible for the entity's physical aspects.
+- Framework - This namespace represents the root module.
+  - IDependencyContainer - This interface allows you to resolve your dependencies.
+  - Program - this class is responsible for the startup and global logic.
+- Framework.UI - this namespace represents the presentation (user interface) module.
+  - UIAudioTheme - this class is responsible for the audio theme.
+  - UIScreen - this class is responsible for the user interface. The user interface consists of the hierarchy of logical (business) units and the hierarchy of visual units.
+  - UIWidget - this class is responsible for the business logic of ui unit. This may contain (or not contain) the view.
+  - UIView - this class is responsible for the visual (view) logic of ui unit. This just contains the VisualElement, so it's essentially a wrapper for VisualElement.
+  - UIRouter - This class is responsible for the application state.
+- Framework.App - this namespace represents the application module.
+  - Application - this class is responsible for the application logic.
+  - Globals - this class provides you with the global values.
+- Framework.Entities - this namespace represents the domain (entities) module.
+  - Game - this class is responsible for the game rules and states.
+  - Player - this class is responsible for the player rules and states.
+  - World - This class is responsible for the world.
+  - WorldView - this class is responsible for the world's visual and audible aspects.
+  - Entity - this class is responsible for the scene's entity (player's avatar, AI agent or any other object).
+  - EntityView - this class is responsible for the entity's visual and audible aspects.
+  - EntityBody - this class is responsible for the entity's physical aspects.
 
 # Setup
 - Install the "UIToolkit Theme Style Sheet" package (https://denis535.github.io/#uitoolkit-theme-style-sheet).
@@ -131,6 +72,7 @@ This class is responsible for the entity's physical aspects.
 
 # Media
 - https://youtu.be/SJ8aB4fxgUo?feature=shared
+- https://youtu.be/JQobAqfakJQ?feature=shared
 - ![CleanArchitectureGameTemplate-638466226109772156](https://github.com/Denis535/CleanArchitectureGameTemplate/assets/7755015/5c045c2b-657c-4952-a2a1-765ad2dc8a9f)
 - ![CleanArchitectureGameTemplate-638466226606827588](https://github.com/Denis535/CleanArchitectureGameTemplate/assets/7755015/fe6e5179-1325-42c2-bb40-9b7200bab31e)
 - ![CleanArchitectureGameTemplate-638466226681423464](https://github.com/Denis535/CleanArchitectureGameTemplate/assets/7755015/50d92312-4007-43d6-87ec-efb67db10c48)
