@@ -16,7 +16,7 @@ namespace Project.UI {
                         VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
                     }
                     using (factory.Content().AsScope( out content )) {
-                        using (factory.ColumnGroup().Classes( "dark2", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                        using (factory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             VisualElementScope.Add( message = factory.Label( null ).Name( "message" ) );
                         }
                     }
@@ -33,7 +33,7 @@ namespace Project.UI {
                         VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
                     }
                     using (factory.Content().AsScope( out content )) {
-                        using (factory.ColumnGroup().Classes( "dark2", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                        using (factory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             VisualElementScope.Add( message = factory.Label( null ).Name( "message" ) );
                         }
                     }
@@ -50,7 +50,7 @@ namespace Project.UI {
                         VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
                     }
                     using (factory.Content().AsScope( out content )) {
-                        using (factory.ColumnGroup().Classes( "dark2", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                        using (factory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             VisualElementScope.Add( message = factory.Label( null ).Name( "message" ) );
                         }
                     }
@@ -67,7 +67,7 @@ namespace Project.UI {
                         VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
                     }
                     using (factory.Content().AsScope( out content )) {
-                        using (factory.ColumnGroup().Classes( "dark2", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                        using (factory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             VisualElementScope.Add( message = factory.Label( null ).Name( "message" ) );
                         }
                     }

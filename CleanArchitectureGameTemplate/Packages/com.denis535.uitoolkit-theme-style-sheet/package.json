@@ -1,7 +1,7 @@
 {
   "name": "com.denis535.uitoolkit-theme-style-sheet",
   "displayName": "UIToolkit Theme Style Sheet",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "This package provides you with the beautiful UIToolkit theme style sheets and some additions and tools.",
   "author": {
     "name": "Denis535",
@@ -27,5 +27,5 @@
     "Stylus",
     "Pug"
   ],
-  "_fingerprint": "5996933dca31dabc2bbe18be4e8bb5ddf968be29"
+  "_fingerprint": "c918ae7902beac7090b83f0f485b5e9264c18716"
 }
