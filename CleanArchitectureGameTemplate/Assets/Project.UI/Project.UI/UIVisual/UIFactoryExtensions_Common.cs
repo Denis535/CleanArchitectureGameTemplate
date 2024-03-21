@@ -16,7 +16,7 @@ namespace Project.UI {
                         VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
                     }
                     using (factory.Content().AsScope( out content )) {
-                        using (factory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                        using (factory.ColumnGroup().Classes( "dark2", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             VisualElementScope.Add( message = factory.Label( null ).Name( "message" ) );
                         }
                     }
@@ -33,7 +33,7 @@ namespace Project.UI {
                         VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
                     }
                     using (factory.Content().AsScope( out content )) {
-                        using (factory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                        using (factory.ColumnGroup().Classes( "dark2", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             VisualElementScope.Add( message = factory.Label( null ).Name( "message" ) );
                         }
                     }
@@ -50,7 +50,7 @@ namespace Project.UI {
                         VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
                     }
                     using (factory.Content().AsScope( out content )) {
-                        using (factory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                        using (factory.ColumnGroup().Classes( "dark2", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             VisualElementScope.Add( message = factory.Label( null ).Name( "message" ) );
                         }
                     }
@@ -67,7 +67,7 @@ namespace Project.UI {
                         VisualElementScope.Add( title = factory.Label( null ).Name( "title" ) );
                     }
                     using (factory.Content().AsScope( out content )) {
-                        using (factory.ColumnGroup().Classes( "gray", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
+                        using (factory.ColumnGroup().Classes( "dark2", "medium", "grow-1", "justify-content-center", "align-items-center" ).AsScope()) {
                             VisualElementScope.Add( message = factory.Label( null ).Name( "message" ) );
                         }
                     }
@@ -107,7 +107,7 @@ namespace Project.UI {
             return group;
         }
         public static ColumnGroup VideoSettingsWidget(this UIFactory factory, out ColumnGroup group, out Toggle isFullScreen, out PopupField<object?> screenResolution, out Toggle isVSync) {
-            using (factory.ColumnGroup().Classes( "gray", "medium", "margin-0px", "grow-1" ).AsScope( out group )) {
+            using (factory.ColumnGroup().Classes( "dark", "medium", "margin-0px", "grow-1" ).AsScope( out group )) {
                 VisualElementScope.Add( isFullScreen = factory.ToggleField( "Full Screen", false ).Name( "is-full-screen" ).Classes( "label-width-25pc" ) );
                 VisualElementScope.Add( screenResolution = factory.PopupField( "Screen Resolution", null ).Name( "screen-resolution" ).Classes( "label-width-25pc" ) );
                 VisualElementScope.Add( isVSync = factory.ToggleField( "V-Sync", false ).Name( "is-v-sync" ).Classes( "label-width-25pc" ) );
@@ -115,7 +115,7 @@ namespace Project.UI {
             return group;
         }
         public static ColumnGroup AudioSettingsWidget(this UIFactory factory, out ColumnGroup group, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume) {
-            using (factory.ColumnGroup().Classes( "gray", "medium", "margin-0px", "grow-1" ).AsScope( out group )) {
+            using (factory.ColumnGroup().Classes( "dark2", "medium", "margin-0px", "grow-1" ).AsScope( out group )) {
                 VisualElementScope.Add( masterVolume = factory.SliderField( "Master Volume", 0, 0, 1 ).Name( "master-volume" ).Classes( "label-width-25pc" ) );
                 VisualElementScope.Add( musicVolume = factory.SliderField( "Music Volume", 0, 0, 1 ).Name( "music-volume" ).Classes( "label-width-25pc" ) );
                 VisualElementScope.Add( sfxVolume = factory.SliderField( "Sfx Volume", 0, 0, 1 ).Name( "sfx-volume" ).Classes( "label-width-25pc" ) );

@@ -73,7 +73,7 @@ namespace Project.UI {
             return group;
         }
         public static ColumnGroup PlayerDescWidget(this UIFactory factory, out ColumnGroup group, out Label title, out TextField name, out PopupField<object?> role, out Toggle isReady) {
-            using (factory.ColumnGroup().Name( "player-desc" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
+            using (factory.ColumnGroup().Name( "player-desc" ).Classes( "dark", "medium", "grow-1" ).AsScope( out group )) {
                 VisualElementScope.Add( title = factory.Label( "Player" ).Name( "title" ).Classes( "medium" ) );
                 using (factory.RowScope().AsScope()) {
                     VisualElementScope.Add( name = factory.TextField( null, null, 64 ).Name( "player-name" ).Classes( "label-width-150px", "grow-1" ) );
@@ -86,16 +86,16 @@ namespace Project.UI {
             return group;
         }
         public static ColumnGroup RoomWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView players) {
-            using (factory.ColumnGroup().Name( "room" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
+            using (factory.ColumnGroup().Name( "room" ).Classes( "dark2", "medium", "grow-1" ).AsScope( out group )) {
                 VisualElementScope.Add( title = factory.Label( "Room" ).Name( "title" ).Classes( "medium", "shrink-0" ) );
-                VisualElementScope.Add( players = factory.ScrollView().Name( "players" ).Classes( "dark", "medium", "reverse", "grow-1" ) );
+                VisualElementScope.Add( players = factory.ScrollView().Name( "players" ).Classes( "dark2", "medium", "reverse", "grow-1" ) );
             }
             return group;
         }
         public static ColumnGroup ChatWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView messages, out TextField text, out Button send) {
-            using (factory.ColumnGroup().Name( "chat" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
+            using (factory.ColumnGroup().Name( "chat" ).Classes( "dark2", "medium", "grow-1" ).AsScope( out group )) {
                 VisualElementScope.Add( title = factory.Label( "Chat" ).Name( "title" ).Classes( "medium", "shrink-0" ) );
-                VisualElementScope.Add( messages = factory.ScrollView().Name( "messages" ).Classes( "dark", "medium", "reverse", "grow-1" ) );
+                VisualElementScope.Add( messages = factory.ScrollView().Name( "messages" ).Classes( "dark2", "medium", "reverse", "grow-1" ) );
                 using (factory.RowScope().Classes( "shrink-0" ).AsScope()) {
                     VisualElementScope.Add( text = factory.TextField( null, null, 128 ).Name( "text" ).Classes( "grow-1" ) );
                     VisualElementScope.Add( send = factory.Button( "Send" ).Name( "send" ) );
