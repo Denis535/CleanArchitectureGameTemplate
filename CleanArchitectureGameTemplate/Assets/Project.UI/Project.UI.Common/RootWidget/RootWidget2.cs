@@ -49,8 +49,8 @@ namespace Project.UI.Common {
                     var covered = (UIWidgetBase?) Widgets.Concat( ModalWidgets ).SkipLast( 1 ).LastOrDefault();
                     if (covered != null) SaveFocus( covered.GetVisualElement()! );
                     RecalcVisibility();
-                    var newWidget = (UIWidgetBase?) Widgets.Concat( ModalWidgets ).LastOrDefault();
-                    if (newWidget != null) Focus( newWidget.GetVisualElement()! );
+                    var last = (UIWidgetBase?) Widgets.Concat( ModalWidgets ).LastOrDefault();
+                    if (last != null) Focus( last.GetVisualElement()! );
                 }
             }
         }
@@ -110,7 +110,7 @@ namespace Project.UI.Common {
                     }
                     evt.StopPropagation();
                 }
-            }, TrickleDown.NoTrickleDown );
+            }, TrickleDown.TrickleDown );
             view.Widget.OnEvent<NavigationCancelEvent>( evt => {
                 var widget = ((VisualElement) evt.target).GetAncestorsAndSelf().OfType<Widget>().FirstOrDefault();
                 var button = widget?.Query<Button>().Where( i => i.name is "resume" or "cancel" or "cancellation" or "back" or "no" or "quit" ).First();
@@ -121,7 +121,7 @@ namespace Project.UI.Common {
                     }
                     evt.StopPropagation();
                 }
-            }, TrickleDown.NoTrickleDown );
+            }, TrickleDown.TrickleDown );
             return view;
         }
 
