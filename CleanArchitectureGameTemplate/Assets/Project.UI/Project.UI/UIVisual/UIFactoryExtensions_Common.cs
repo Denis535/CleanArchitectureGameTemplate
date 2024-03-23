@@ -101,7 +101,7 @@ namespace Project.UI {
             return widget;
         }
         public static ColumnGroup ProfileSettingsWidget(this UIFactory factory, out ColumnGroup group, out TextField name) {
-            using (factory.ColumnGroup().Classes( "light", "medium", "margin-0px", "grow-1" ).AsScope( out group )) {
+            using (factory.ColumnGroup().Classes( "gray", "medium", "margin-0px", "grow-1" ).AsScope( out group )) {
                 factory.TextField( "Name", null, 16 ).Name( "name" ).Classes( "label-width-25pc" ).AddToScope( out name );
             }
             return group;
@@ -115,7 +115,7 @@ namespace Project.UI {
             return group;
         }
         public static ColumnGroup AudioSettingsWidget(this UIFactory factory, out ColumnGroup group, out Slider masterVolume, out Slider musicVolume, out Slider sfxVolume, out Slider gameVolume) {
-            using (factory.ColumnGroup().Classes( "dark", "medium", "margin-0px", "grow-1" ).AsScope( out group )) {
+            using (factory.ColumnGroup().Classes( "gray", "medium", "margin-0px", "grow-1" ).AsScope( out group )) {
                 factory.SliderField( "Master Volume", 0, 0, 1 ).Name( "master-volume" ).Classes( "label-width-25pc" ).AddToScope( out masterVolume );
                 factory.SliderField( "Music Volume", 0, 0, 1 ).Name( "music-volume" ).Classes( "label-width-25pc" ).AddToScope( out musicVolume );
                 factory.SliderField( "Sfx Volume", 0, 0, 1 ).Name( "sfx-volume" ).Classes( "label-width-25pc" ).AddToScope( out sfxVolume );

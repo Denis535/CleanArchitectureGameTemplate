@@ -88,14 +88,14 @@ namespace Project.UI {
         public static ColumnGroup RoomWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView players) {
             using (factory.ColumnGroup().Name( "room" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 factory.Label( "Room" ).Name( "title" ).Classes( "medium", "shrink-0" ).AddToScope( out title );
-                factory.ScrollView().Name( "players" ).Classes( "dark2", "medium", "reverse", "grow-1" ).AddToScope( out players );
+                factory.ScrollView().Name( "players" ).Classes( "dark5", "medium", "reverse", "grow-1" ).AddToScope( out players );
             }
             return group;
         }
         public static ColumnGroup ChatWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView messages, out TextField text, out Button send) {
             using (factory.ColumnGroup().Name( "chat" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 factory.Label( "Chat" ).Name( "title" ).Classes( "medium", "shrink-0" ).AddToScope( out title );
-                factory.ScrollView().Name( "messages" ).Classes( "dark2", "medium", "reverse", "grow-1" ).AddToScope( out messages );
+                factory.ScrollView().Name( "messages" ).Classes( "dark5", "medium", "reverse", "grow-1" ).AddToScope( out messages );
                 using (factory.RowScope().Classes( "shrink-0" ).AsScope()) {
                     factory.TextField( null, null, 128 ).Name( "text" ).Classes( "grow-1" ).AddToScope( out text );
                     factory.Button( "Send" ).Name( "send" ).AddToScope( out send );
@@ -104,12 +104,28 @@ namespace Project.UI {
             return group;
         }
         public static Box PlayerItem(this UIFactory factory, string text, int id) {
-            var style = (int) Mathf.PingPong( id, 4 ) switch {
-                0 => "light2",
-                1 => "light",
-                2 => "gray",
-                3 => "dark",
-                4 => "dark2",
+            var style = (int) Mathf.PingPong( id, 20 ) switch {
+                0 => "light10",
+                1 => "light9",
+                2 => "light8",
+                3 => "light7",
+                4 => "light6",
+                5 => "light5",
+                6 => "light4",
+                7 => "light3",
+                8 => "light2",
+                9 => "light",
+                10 => "gray",
+                11 => "dark",
+                12 => "dark2",
+                13 => "dark3",
+                14 => "dark4",
+                15 => "dark5",
+                16 => "dark6",
+                17 => "dark7",
+                18 => "dark8",
+                19 => "dark9",
+                20 => "dark10",
                 _ => throw Exceptions.Internal.Exception( null )
             };
             using (factory.Box().Name( "player" ).Classes( style, "medium", "shrink-0" ).AsScope( out var view )) {
@@ -118,12 +134,28 @@ namespace Project.UI {
             }
         }
         public static Box MessageItem(this UIFactory factory, string text, int id) {
-            var style = (int) Mathf.PingPong( id, 4 ) switch {
-                0 => "light2",
-                1 => "light",
-                2 => "gray",
-                3 => "dark",
-                4 => "dark2",
+            var style = (int) Mathf.PingPong( id, 20 ) switch {
+                0 => "light10",
+                1 => "light9",
+                2 => "light8",
+                3 => "light7",
+                4 => "light6",
+                5 => "light5",
+                6 => "light4",
+                7 => "light3",
+                8 => "light2",
+                9 => "light",
+                10 => "gray",
+                11 => "dark",
+                12 => "dark2",
+                13 => "dark3",
+                14 => "dark4",
+                15 => "dark5",
+                16 => "dark6",
+                17 => "dark7",
+                18 => "dark8",
+                19 => "dark9",
+                20 => "dark10",
                 _ => throw Exceptions.Internal.Exception( null )
             };
             using (factory.Box().Name( "message" ).Classes( style, "medium", "shrink-0" ).AsScope( out var view )) {
