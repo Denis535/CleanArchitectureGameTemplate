@@ -20,12 +20,12 @@ namespace Project.UI {
             using (factory.LeftWidget( "game-menu-widget" ).AsScope( out widget )) {
                 using (factory.Card().AsScope()) {
                     using (factory.Header().AsScope()) {
-                        VisualElementScope.Add( title = factory.Label( "Game Menu" ).Name( "title" ) );
+                        factory.Label( "Game Menu" ).Name( "title" ).AddToScope( out title );
                     }
                     using (factory.Content().AsScope()) {
-                        VisualElementScope.Add( resume = factory.Select( "Resume" ).Name( "resume" ) );
-                        VisualElementScope.Add( settings = factory.Select( "Settings" ).Name( "settings" ) );
-                        VisualElementScope.Add( back = factory.Select( "Back To Main Menu" ).Name( "back" ) );
+                        factory.Select( "Resume" ).Name( "resume" ).AddToScope( out resume );
+                        factory.Select( "Settings" ).Name( "settings" ).AddToScope( out settings );
+                        factory.Select( "Back To Main Menu" ).Name( "back" ).AddToScope( out back );
                     }
                 }
             }
