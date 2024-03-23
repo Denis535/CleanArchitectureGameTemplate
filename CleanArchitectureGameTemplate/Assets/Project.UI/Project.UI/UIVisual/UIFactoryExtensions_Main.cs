@@ -97,7 +97,7 @@ namespace Project.UI {
                 factory.Label( "Chat" ).Name( "title" ).Classes( "medium", "shrink-0" ).AddToScope( out title );
                 factory.ScrollView().Name( "messages" ).Classes( "dark5", "medium", "reverse", "grow-1" ).AddToScope( out messages );
                 using (factory.RowScope().Classes( "shrink-0" ).AsScope()) {
-                    factory.TextField( null, null, 128, true ).Name( "text" ).Classes( "grow-1" ).AddToScope( out text );
+                    factory.TextField( null, null, 128, true ).Name( "text" ).Classes( "max-height-100px", "grow-1" ).AddToScope( out text );
                     factory.Button( "Send" ).Name( "send" ).AddToScope( out send );
                 }
             }
