@@ -47,38 +47,38 @@ namespace Project.UI.MainScreen {
         // ShowWidget
         protected override void ShowWidget(UIWidgetBase widget) {
             if (widget is GameDescWidget) {
-                View.GameDescSlot.Add( widget.GetVisualElement()! );
+                View.GameDescSlot.Add( widget );
                 return;
             }
             if (widget is PlayerDescWidget) {
-                View.PlayerDescSlot.Add( widget.GetVisualElement()! );
+                View.PlayerDescSlot.Add( widget );
                 return;
             }
             if (widget is RoomWidget) {
-                View.RoomSlot.Add( widget.GetVisualElement()! );
+                View.RoomSlot.Add( widget );
                 return;
             }
             if (widget is ChatWidget) {
-                View.ChatSlot.Add( widget.GetVisualElement()! );
+                View.ChatSlot.Add( widget );
                 return;
             }
             base.ShowWidget( widget );
         }
         protected override void HideWidget(UIWidgetBase widget) {
             if (widget is GameDescWidget) {
-                View.GameDescSlot.Remove( widget.GetVisualElement()! );
+                View.GameDescSlot.Remove( widget );
                 return;
             }
             if (widget is PlayerDescWidget) {
-                View.PlayerDescSlot.Remove( widget.GetVisualElement()! );
+                View.PlayerDescSlot.Remove( widget );
                 return;
             }
             if (widget is RoomWidget) {
-                View.RoomSlot.Remove( widget.GetVisualElement()! );
+                View.RoomSlot.Remove( widget );
                 return;
             }
             if (widget is ChatWidget) {
-                View.ChatSlot.Remove( widget.GetVisualElement()! );
+                View.ChatSlot.Remove( widget );
                 return;
             }
             base.HideWidget( widget );
