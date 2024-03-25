@@ -40,9 +40,9 @@ namespace UnityEngine.AddressableAssets {
                 public const string @Program = "Project.Scenes/Program.unity";
                 public const string @MainScene = "Project.Scenes/MainScene.unity";
                 public const string @GameScene = "Project.Scenes/GameScene.unity";
-                public static class @World {
-                    public const string @World_1 = "Project.Scenes.World/World_1.unity";
-                    public const string @World_2 = "Project.Scenes.World/World_2.unity";
+                public static class @Worlds {
+                    public const string @World_01 = "Project.Scenes.Worlds/World_01.unity";
+                    public const string @World_02 = "Project.Scenes.Worlds/World_02.unity";
                 }
             }
         }

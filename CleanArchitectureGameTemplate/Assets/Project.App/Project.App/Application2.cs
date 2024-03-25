@@ -43,7 +43,7 @@ namespace Project.App {
         }
 
         // StartGame
-        public void StartGame(GameDesc gameDesc, PlayerDesc playerDesc) {
+        public void StartGame(GameDesc gameDesc, WorldDesc worldDesc, PlayerDesc playerDesc) {
             Assert.Operation.Message( $"Game must be null" ).Valid( Game == null );
             Game = GameObject2.RequireAnyObjectByType<Game>( FindObjectsInactive.Exclude );
             Game.StartGame();
@@ -74,16 +74,14 @@ namespace Project.App {
 
         public string Name { get; set; }
         public GameMode Mode { get; set; }
-        public GameWorld World { get; set; }
 
-        public GameDesc(string name, GameMode mode, GameWorld world) {
+        public GameDesc(string name, GameMode mode) {
             Name = name;
             Mode = mode;
-            World = world;
         }
 
         public override string ToString() {
-            return "GameDesc: Name={0}, Mode={1}, World={2}".Format( Name, Mode, World );
+            return "GameDesc: Name={0}, Mode={1}".Format( Name, Mode );
         }
 
     }
@@ -108,6 +106,20 @@ namespace Project.App {
         _4x2,
         _4x3,
         _4x4,
+    }
+    // WorldDesc
+    public class WorldDesc {
+
+        public GameWorld World { get; set; }
+
+        public WorldDesc(GameWorld world) {
+            World = world;
+        }
+
+        public override string ToString() {
+            return "WorldDesc: World={0}".Format( World );
+        }
+
     }
     public enum GameWorld {
         World1,

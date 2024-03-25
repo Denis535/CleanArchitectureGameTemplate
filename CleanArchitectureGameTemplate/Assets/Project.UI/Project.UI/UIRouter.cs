@@ -107,8 +107,8 @@ namespace Project.UI {
             }
             State = UIRouterState.MainSceneLoaded;
         }
-        public async Task LoadGameSceneAsync(GameDesc gameDesc, PlayerDesc playerDesc) {
-            Release.LogFormat( "Load: GameScene: {0}, {1}", gameDesc, playerDesc );
+        public async Task LoadGameSceneAsync(GameDesc gameDesc, WorldDesc worldDesc, PlayerDesc playerDesc) {
+            Release.LogFormat( "Load: GameScene: {0}, {1}, {2}", gameDesc, worldDesc, playerDesc );
             State = UIRouterState.GameSceneLoading;
             using (@lock.Enter()) {
                 if (UIRouterHelper.IsMainSceneLoaded) {
@@ -118,12 +118,12 @@ namespace Project.UI {
                 {
                     // LoadGameScene
                     await Task.Delay( 3_000 );
-                    await UIRouterHelper.LoadWorldSceneAsync( GetWorldAddress( gameDesc.World ) );
+                    await UIRouterHelper.LoadWorldSceneAsync( GetWorldAddress( worldDesc.World ) );
                     await UIRouterHelper.LoadGameSceneAsync();
                 }
             }
             State = UIRouterState.GameSceneLoaded;
-            Application.StartGame( gameDesc, playerDesc );
+            Application.StartGame( gameDesc, worldDesc, playerDesc );
         }
 
 #if UNITY_EDITOR
@@ -173,8 +173,8 @@ namespace Project.UI {
         // Helpers
         private static string GetWorldAddress(GameWorld world) {
             return world switch {
-                GameWorld.World1 => R.Project.Scenes.World.World_1,
-                GameWorld.World2 => R.Project.Scenes.World.World_2,
+                GameWorld.World1 => R.Project.Scenes.Worlds.World_01,
+                GameWorld.World2 => R.Project.Scenes.Worlds.World_02,
                 _ => throw Exceptions.Internal.NotSupported( $"World {world} is not supported" ),
             };
         }

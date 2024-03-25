@@ -96,9 +96,10 @@ namespace Project.UI.MainScreen {
                 var playerRole = widget.PlayerDescWidget.Role;
                 var isPlayerReady = widget.PlayerDescWidget.IsReady;
                 {
-                    var gameDesc = new GameDesc( gameName, gameMode, gameWorld );
+                    var gameDesc = new GameDesc( gameName, gameMode );
+                    var worldDesc = new WorldDesc( gameWorld );
                     var playerDesc = new PlayerDesc( playerName, playerRole );
-                    router.LoadGameSceneAsync( gameDesc, playerDesc ).Throw();
+                    router.LoadGameSceneAsync( gameDesc, worldDesc, playerDesc ).Throw();
                     widget.AttachChild( new LoadingWidget() );
                 }
             } );
