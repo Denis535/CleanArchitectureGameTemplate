@@ -110,8 +110,8 @@ namespace Project.App {
         _4x4,
     }
     public enum GameWorld {
-        TestWorld1,
-        TestWorld2,
+        World1,
+        World2,
     }
     // PlayerDesc
     public class PlayerDesc {

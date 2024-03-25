@@ -36,11 +36,15 @@ namespace UnityEngine.AddressableAssets {
                 }
                 public const string @PanelSettings = "Project.UI/PanelSettings.asset";
             }
-            public const string @Program = "Project/Program.unity";
-            public const string @MainScene = "Project/MainScene.unity";
-            public const string @GameScene = "Project/GameScene.unity";
-            public const string @TestWorldScene_1 = "Project/TestWorldScene_1.unity";
-            public const string @TestWorldScene_2 = "Project/TestWorldScene_2.unity";
+            public static class @Scenes {
+                public const string @Program = "Project.Scenes/Program.unity";
+                public const string @MainScene = "Project.Scenes/MainScene.unity";
+                public const string @GameScene = "Project.Scenes/GameScene.unity";
+                public static class @World {
+                    public const string @World_1 = "Project.Scenes.World/World_1.unity";
+                    public const string @World_2 = "Project.Scenes.World/World_2.unity";
+                }
+            }
         }
     }
 }
