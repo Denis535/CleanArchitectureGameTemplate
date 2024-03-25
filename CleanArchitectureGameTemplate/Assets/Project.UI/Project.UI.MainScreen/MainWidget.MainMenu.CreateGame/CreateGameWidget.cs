@@ -44,8 +44,8 @@ namespace Project.UI.MainScreen {
         public override void OnDetach(object? argument) {
         }
 
-        // ShowWidget
-        protected override void ShowWidget(UIWidgetBase widget) {
+        // ShowDescendantWidget
+        protected override void ShowDescendantWidget(UIWidgetBase widget) {
             if (widget is GameDescWidget gameDescWidget) {
                 View.GameDescSlot.Add( gameDescWidget );
                 return;
@@ -62,9 +62,9 @@ namespace Project.UI.MainScreen {
                 View.ChatSlot.Add( chatWidget );
                 return;
             }
-            base.ShowWidget( widget );
+            base.ShowDescendantWidget( widget );
         }
-        protected override void HideWidget(UIWidgetBase widget) {
+        protected override void HideDescendantWidget(UIWidgetBase widget) {
             if (widget is GameDescWidget gameDescWidget) {
                 View.GameDescSlot.Remove( gameDescWidget );
                 return;
@@ -81,7 +81,7 @@ namespace Project.UI.MainScreen {
                 View.ChatSlot.Remove( chatWidget );
                 return;
             }
-            base.HideWidget( widget );
+            base.HideDescendantWidget( widget );
         }
 
         // Helpers

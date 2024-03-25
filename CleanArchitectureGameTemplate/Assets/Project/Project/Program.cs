@@ -117,8 +117,8 @@ namespace Project {
         }
         private static string GetDisplayString(GameWorld value) {
             return value switch {
-                GameWorld.World1 => "Test World 1",
-                GameWorld.World2 => "Test World 2",
+                GameWorld.World1 => "World 1",
+                GameWorld.World2 => "World 2",
                 _ => throw Exceptions.Internal.NotSupported( $"Value {value} is not supported" ),
             };
         }
