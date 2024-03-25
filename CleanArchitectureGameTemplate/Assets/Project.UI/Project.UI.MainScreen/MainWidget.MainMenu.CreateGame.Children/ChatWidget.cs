@@ -3,6 +3,7 @@ namespace Project.UI.MainScreen {
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
@@ -34,12 +35,12 @@ namespace Project.UI.MainScreen {
             var view = new ChatWidgetView( factory );
             view.Group.OnAttachToPanel( evt => {
                 for (var i = 1; i <= 32; i++) {
-                    view.Messages.Add( factory.MessageItem( $"Message: {view.Messages.Children.Count + 1}", view.Messages.Children.Count ) );
+                    view.Messages.Add( factory.MessageItem( $"Message: {view.Messages.Children.Count() + 1}", view.Messages.Children.Count() ) );
                 }
             } );
             view.Send.OnClick( evt => {
                 if (!string.IsNullOrWhiteSpace( view.Text.Value )) {
-                    view.Messages.Add( factory.MessageItem( view.Text.Value, view.Messages.Children.Count ) );
+                    view.Messages.Add( factory.MessageItem( view.Text.Value, view.Messages.Children.Count() ) );
                     view.Text.Value = null;
                 }
             } );

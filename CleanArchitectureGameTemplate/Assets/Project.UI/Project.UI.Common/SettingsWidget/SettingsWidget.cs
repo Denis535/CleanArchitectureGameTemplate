@@ -70,9 +70,7 @@ namespace Project.UI.Common {
         private static SettingsWidgetView CreateView(SettingsWidget widget, UIFactory factory) {
             var view = new SettingsWidgetView( factory );
             view.Widget.OnChangeAny( evt => {
-                view.Okey.SetValid( view.ProfileSettingsTab.__GetVisualElement__().GetDescendants().All( i => i.IsValid() ) &&
-                    view.VideoSettingsTab.__GetVisualElement__().GetDescendants().All( i => i.IsValid() ) &&
-                    view.AudioSettingsTab.__GetVisualElement__().GetDescendants().All( i => i.IsValid() ) );
+                view.Okey.SetValid( view.TabView.__GetVisualElement__().GetDescendants().All( i => i.IsValid() ) );
             } );
             view.Okey.OnClick( evt => {
                 if (view.Okey.IsValid()) {
