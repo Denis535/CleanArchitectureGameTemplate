@@ -117,10 +117,10 @@ namespace Project.UI {
         }
 
         // RoomWidget
-        public static ColumnGroup RoomWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView players) {
+        public static ColumnGroup RoomWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView playerList) {
             using (factory.ColumnGroup().Name( "room" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 factory.Label( "Room" ).Name( "title" ).Classes( "medium", "shrink-0" ).AddToScope( out title );
-                factory.ScrollView().Name( "players" ).Classes( "dark5", "medium", "reverse", "grow-1" ).AddToScope( out players );
+                factory.ScrollView().Name( "players" ).Classes( "dark5", "medium", "reverse", "grow-1" ).AddToScope( out playerList );
             }
             return group;
         }
@@ -156,10 +156,10 @@ namespace Project.UI {
         }
 
         // ChatWidget
-        public static ColumnGroup ChatWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView messages, out TextField text, out Button send) {
+        public static ColumnGroup ChatWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView messageList, out TextField text, out Button send) {
             using (factory.ColumnGroup().Name( "chat" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 factory.Label( "Chat" ).Name( "title" ).Classes( "medium", "shrink-0" ).AddToScope( out title );
-                factory.ScrollView().Name( "messages" ).Classes( "dark5", "medium", "reverse", "grow-1" ).AddToScope( out messages );
+                factory.ScrollView().Name( "messages" ).Classes( "dark5", "medium", "reverse", "grow-1" ).AddToScope( out messageList );
                 using (factory.RowScope().Classes( "shrink-0" ).AsScope()) {
                     factory.TextField( null, null, 128, true ).Name( "text" ).Classes( "max-height-100px", "grow-1" ).AddToScope( out text );
                     factory.Button( "Send" ).Name( "send" ).AddToScope( out send );

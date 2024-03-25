@@ -14,9 +14,9 @@ namespace Project.UI.Common {
         public ElementWrapper Widget { get; }
         public LabelWrapper Title { get; }
         public ElementWrapper TabView { get; }
-        public SlotWrapper<ProfileSettingsWidgetView> ProfileSettingsTab { get; }
-        public SlotWrapper<VideoSettingsWidgetView> VideoSettingsTab { get; }
-        public SlotWrapper<AudioSettingsWidgetView> AudioSettingsTab { get; }
+        public WidgetSlotWrapper<ProfileSettingsWidget> ProfileSettingsTab { get; }
+        public WidgetSlotWrapper<VideoSettingsWidget> VideoSettingsTab { get; }
+        public WidgetSlotWrapper<AudioSettingsWidget> AudioSettingsTab { get; }
         public ButtonWrapper Okey { get; }
         public ButtonWrapper Back { get; }
 
@@ -26,9 +26,9 @@ namespace Project.UI.Common {
             Widget = widget.Wrap();
             Title = title.Wrap();
             TabView = tabView.Wrap();
-            ProfileSettingsTab = profileSettingsTab.AsSlot<ProfileSettingsWidgetView>();
-            VideoSettingsTab = videoSettingsTab.AsSlot<VideoSettingsWidgetView>();
-            AudioSettingsTab = audioSettingsTab.AsSlot<AudioSettingsWidgetView>();
+            ProfileSettingsTab = profileSettingsTab.AsWidgetSlot<ProfileSettingsWidget>();
+            VideoSettingsTab = videoSettingsTab.AsWidgetSlot<VideoSettingsWidget>();
+            AudioSettingsTab = audioSettingsTab.AsWidgetSlot<AudioSettingsWidget>();
             Okey = okey.Wrap();
             Back = back.Wrap();
         }

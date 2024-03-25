@@ -34,8 +34,8 @@ namespace Project.UI.MainScreen {
             var view = new RoomWidgetView( factory );
             view.Group.OnAttachToPanel( evt => {
                 for (var i = 0; i <= 60; i++) {
-                    var player = new RoomWidgetView_PlayerView( factory, $"Player: {view.Players.Views.Count}", view.Players.Views.Count );
-                    view.Players.Add( player );
+                    var player = new RoomWidgetView_PlayerView( factory, $"Player: {view.PlayerList.Views.Count}", view.PlayerList.Views.Count );
+                    view.PlayerList.Add( player );
                 }
             } );
             return view;

@@ -14,25 +14,23 @@ namespace Project.UI.MainScreen {
         // Globals
         private UIFactory Factory { get; }
         private UIRouter Router { get; }
-        //private ILobbyService LobbyService { get; }
         // View
         protected override CreateGameWidgetView View { get; }
         // Children
-        private GameDescWidget GameDescWidget { get; }
-        private PlayerDescWidget PlayerDescWidget { get; }
-        private RoomWidget RoomWidget { get; }
-        private ChatWidget ChatWidget { get; }
+        private GameDescWidget GameDescWidget => View.GameDescSlot.Widget!;
+        private PlayerDescWidget PlayerDescWidget => View.PlayerDescSlot.Widget!;
+        private RoomWidget RoomWidget => View.RoomSlot.Widget!;
+        private ChatWidget ChatWidget => View.ChatSlot.Widget!;
 
         // Constructor
         public CreateGameWidget() {
             Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
             Router = this.GetDependencyContainer().Resolve<UIRouter>( null );
-            //LobbyService = this.GetDependencyContainer().Resolve<ILobbyService>( null );
             View = CreateView( this, Factory, Router );
-            this.AttachChild( GameDescWidget = new GameDescWidget() );
-            this.AttachChild( PlayerDescWidget = new PlayerDescWidget() );
-            this.AttachChild( RoomWidget = new RoomWidget() );
-            this.AttachChild( ChatWidget = new ChatWidget() );
+            this.AttachChild( new GameDescWidget() );
+            this.AttachChild( new PlayerDescWidget() );
+            this.AttachChild( new RoomWidget() );
+            this.AttachChild( new ChatWidget() );
         }
         public override void Dispose() {
             base.Dispose();
@@ -47,38 +45,38 @@ namespace Project.UI.MainScreen {
         // ShowDescendantWidget
         protected override void ShowDescendantWidget(UIWidgetBase widget) {
             if (widget is GameDescWidget gameDescWidget) {
-                View.GameDescSlot.Add( gameDescWidget );
+                View.GameDescSlot.Set( gameDescWidget );
                 return;
             }
             if (widget is PlayerDescWidget playerDescWidget) {
-                View.PlayerDescSlot.Add( playerDescWidget );
+                View.PlayerDescSlot.Set( playerDescWidget );
                 return;
             }
             if (widget is RoomWidget roomWidget) {
-                View.RoomSlot.Add( roomWidget );
+                View.RoomSlot.Set( roomWidget );
                 return;
             }
             if (widget is ChatWidget chatWidget) {
-                View.ChatSlot.Add( chatWidget );
+                View.ChatSlot.Set( chatWidget );
                 return;
             }
             base.ShowDescendantWidget( widget );
         }
         protected override void HideDescendantWidget(UIWidgetBase widget) {
             if (widget is GameDescWidget gameDescWidget) {
-                View.GameDescSlot.Remove( gameDescWidget );
+                View.GameDescSlot.Clear();
                 return;
             }
             if (widget is PlayerDescWidget playerDescWidget) {
-                View.PlayerDescSlot.Remove( playerDescWidget );
+                View.PlayerDescSlot.Clear();
                 return;
             }
             if (widget is RoomWidget roomWidget) {
-                View.RoomSlot.Remove( roomWidget );
+                View.RoomSlot.Clear();
                 return;
             }
             if (widget is ChatWidget chatWidget) {
-                View.ChatSlot.Remove( chatWidget );
+                View.ChatSlot.Clear();
                 return;
             }
             base.HideDescendantWidget( widget );

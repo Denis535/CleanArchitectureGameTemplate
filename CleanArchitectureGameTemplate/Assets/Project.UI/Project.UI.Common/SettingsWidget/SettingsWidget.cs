@@ -15,6 +15,10 @@ namespace Project.UI.Common {
         private UIFactory Factory { get; }
         // View
         protected override SettingsWidgetView View { get; }
+        // Children
+        private ProfileSettingsWidget ProfileSettingsWidget => View.ProfileSettingsTab.Widget!;
+        private VideoSettingsWidget VideoSettingsWidget => View.VideoSettingsTab.Widget!;
+        private AudioSettingsWidget AudioSettingsWidget => View.AudioSettingsTab.Widget!;
 
         // Constructor
         public SettingsWidget() {
@@ -37,30 +41,30 @@ namespace Project.UI.Common {
         // ShowDescendantWidget
         protected override void ShowDescendantWidget(UIWidgetBase widget) {
             if (widget is ProfileSettingsWidget profileSettingsWidget) {
-                View.ProfileSettingsTab.Add( profileSettingsWidget );
+                View.ProfileSettingsTab.Set( profileSettingsWidget );
                 return;
             }
             if (widget is VideoSettingsWidget videoSettingsWidget) {
-                View.VideoSettingsTab.Add( videoSettingsWidget );
+                View.VideoSettingsTab.Set( videoSettingsWidget );
                 return;
             }
             if (widget is AudioSettingsWidget audioSettingsWidget) {
-                View.AudioSettingsTab.Add( audioSettingsWidget );
+                View.AudioSettingsTab.Set( audioSettingsWidget );
                 return;
             }
             base.ShowDescendantWidget( widget );
         }
         protected override void HideDescendantWidget(UIWidgetBase widget) {
             if (widget is ProfileSettingsWidget profileSettingsWidget) {
-                View.ProfileSettingsTab.Remove( profileSettingsWidget );
+                View.ProfileSettingsTab.Clear();
                 return;
             }
             if (widget is VideoSettingsWidget videoSettingsWidget) {
-                View.VideoSettingsTab.Remove( videoSettingsWidget );
+                View.VideoSettingsTab.Clear();
                 return;
             }
             if (widget is AudioSettingsWidget audioSettingsWidget) {
-                View.AudioSettingsTab.Remove( audioSettingsWidget );
+                View.AudioSettingsTab.Clear();
                 return;
             }
             base.HideDescendantWidget( widget );

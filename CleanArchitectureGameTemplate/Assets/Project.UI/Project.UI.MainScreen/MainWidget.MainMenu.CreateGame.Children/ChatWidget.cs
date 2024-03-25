@@ -34,14 +34,14 @@ namespace Project.UI.MainScreen {
             var view = new ChatWidgetView( factory );
             view.Group.OnAttachToPanel( evt => {
                 for (var i = 0; i <= 60; i++) {
-                    var message = new ChatWidgetView_MessageView( factory, $"Message: {view.Messages.Views.Count}", view.Messages.Views.Count );
-                    view.Messages.Add( message );
+                    var message = new ChatWidgetView_MessageView( factory, $"Message: {view.MessageList.Views.Count}", view.MessageList.Views.Count );
+                    view.MessageList.Add( message );
                 }
             } );
             view.Send.OnClick( evt => {
                 if (!string.IsNullOrWhiteSpace( view.Text.Value )) {
-                    var message = new ChatWidgetView_MessageView( factory, view.Text.Value, view.Messages.Views.Count );
-                    view.Messages.Add( message );
+                    var message = new ChatWidgetView_MessageView( factory, view.Text.Value, view.MessageList.Views.Count );
+                    view.MessageList.Add( message );
                     view.Text.Value = null;
                 }
             } );

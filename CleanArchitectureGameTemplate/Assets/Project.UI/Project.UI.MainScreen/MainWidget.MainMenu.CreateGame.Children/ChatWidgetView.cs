@@ -13,16 +13,16 @@ namespace Project.UI.MainScreen {
         protected override VisualElement VisualElement { get; }
         public ElementWrapper Group { get; }
         public LabelWrapper Title { get; }
-        public SlotWrapper<UIViewBase> Messages { get; }
+        public ViewListSlotWrapper<UIViewBase> MessageList { get; }
         public TextFieldWrapper<string> Text { get; }
         public ButtonWrapper Send { get; }
 
         // Constructor
         public ChatWidgetView(UIFactory factory) {
-            VisualElement = factory.ChatWidget( out var group, out var title, out var messages, out var text, out var send );
+            VisualElement = factory.ChatWidget( out var group, out var title, out var messageList, out var text, out var send );
             Group = group.Wrap();
             Title = title.Wrap();
-            Messages = messages.AsSlot<UIViewBase>();
+            MessageList = messageList.AsViewListSlot<UIViewBase>();
             Text = text.Wrap();
             Send = send.Wrap();
         }

@@ -3,7 +3,6 @@ namespace Project.UI.Common {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using Project.UI.GameScreen;
     using Project.UI.MainScreen;
     using UnityEngine;
@@ -40,7 +39,7 @@ namespace Project.UI.Common {
                 }
             } else {
                 // show new widget or unhide uncovered widget
-                widget.SetEnabled( !ModalWidgets.Any() );
+                widget.SetEnabled( !View.ModalWidgetSlot.Any() );
                 widget.SetDisplayed( true );
             }
         }
