@@ -46,39 +46,39 @@ namespace Project.UI.MainScreen {
 
         // ShowWidget
         protected override void ShowWidget(UIWidgetBase widget) {
-            if (widget is GameDescWidget) {
-                View.GameDescSlot.Add( widget );
+            if (widget is GameDescWidget gameDescWidget) {
+                View.GameDescSlot.Add( gameDescWidget );
                 return;
             }
-            if (widget is PlayerDescWidget) {
-                View.PlayerDescSlot.Add( widget );
+            if (widget is PlayerDescWidget playerDescWidget) {
+                View.PlayerDescSlot.Add( playerDescWidget );
                 return;
             }
-            if (widget is RoomWidget) {
-                View.RoomSlot.Add( widget );
+            if (widget is RoomWidget roomWidget) {
+                View.RoomSlot.Add( roomWidget );
                 return;
             }
-            if (widget is ChatWidget) {
-                View.ChatSlot.Add( widget );
+            if (widget is ChatWidget chatWidget) {
+                View.ChatSlot.Add( chatWidget );
                 return;
             }
             base.ShowWidget( widget );
         }
         protected override void HideWidget(UIWidgetBase widget) {
-            if (widget is GameDescWidget) {
-                View.GameDescSlot.Remove( widget );
+            if (widget is GameDescWidget gameDescWidget) {
+                View.GameDescSlot.Remove( gameDescWidget );
                 return;
             }
-            if (widget is PlayerDescWidget) {
-                View.PlayerDescSlot.Remove( widget );
+            if (widget is PlayerDescWidget playerDescWidget) {
+                View.PlayerDescSlot.Remove( playerDescWidget );
                 return;
             }
-            if (widget is RoomWidget) {
-                View.RoomSlot.Remove( widget );
+            if (widget is RoomWidget roomWidget) {
+                View.RoomSlot.Remove( roomWidget );
                 return;
             }
-            if (widget is ChatWidget) {
-                View.ChatSlot.Remove( widget );
+            if (widget is ChatWidget chatWidget) {
+                View.ChatSlot.Remove( chatWidget );
                 return;
             }
             base.HideWidget( widget );

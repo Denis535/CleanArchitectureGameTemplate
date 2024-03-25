@@ -58,6 +58,34 @@ namespace Project.UI {
             }
             return widget;
         }
+
+        // JoinGameWidget
+        public static Widget JoinGameWidget(this UIFactory factory, out Widget widget, out Label title, out ColumnScope gameDescSlot, out ColumnScope playerDescSlot, out ColumnScope roomSlot, out ColumnScope chatSlot, out Button okey, out Button back) {
+            using (factory.LargeWidget( "join-game-widget" ).AsScope( out widget )) {
+                using (factory.Card().AsScope()) {
+                    using (factory.Header().AsScope()) {
+                        factory.Label( "Join Game" ).Name( "title" ).AddToScope( out title );
+                    }
+                    using (factory.Content().AsScope()) {
+                        using (factory.RowScope().Classes( "grow-0", "basis-40pc" ).AsScope()) {
+                            factory.ColumnScope().Name( "game-desc-slot" ).Classes( "grow-1", "basis-0pc" ).AddToScope( out gameDescSlot );
+                            factory.ColumnScope().Name( "player-desc-slot" ).Classes( "grow-1", "basis-0pc" ).AddToScope( out playerDescSlot );
+                        }
+                        using (factory.RowScope().Classes( "grow-1", "basis-auto" ).AsScope()) {
+                            factory.ColumnScope().Name( "room-slot" ).Classes( "grow-1", "basis-0pc" ).AddToScope( out roomSlot );
+                            factory.ColumnScope().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" ).AddToScope( out chatSlot );
+                        }
+                    }
+                    using (factory.Footer().AsScope()) {
+                        factory.Submit( "Ok" ).Name( "okey" ).AddToScope( out okey );
+                        factory.Cancel( "Back" ).Name( "back" ).AddToScope( out back );
+                    }
+                }
+            }
+            return widget;
+        }
+
+        // GameDescWidget
         public static ColumnGroup GameDescWidget(this UIFactory factory, out ColumnGroup group, out Label title, out TextField name, out PopupField<object?> mode, out PopupField<object?> world, out Toggle isPrivate) {
             using (factory.ColumnGroup().Name( "game-desc" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 factory.Label( "Game" ).Name( "title" ).Classes( "medium" ).AddToScope( out title );
@@ -72,6 +100,8 @@ namespace Project.UI {
             }
             return group;
         }
+
+        // PlayerDescWidget
         public static ColumnGroup PlayerDescWidget(this UIFactory factory, out ColumnGroup group, out Label title, out TextField name, out PopupField<object?> role, out Toggle isReady) {
             using (factory.ColumnGroup().Name( "player-desc" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 factory.Label( "Player" ).Name( "title" ).Classes( "medium" ).AddToScope( out title );
@@ -85,6 +115,8 @@ namespace Project.UI {
             }
             return group;
         }
+
+        // RoomWidget
         public static ColumnGroup RoomWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView players) {
             using (factory.ColumnGroup().Name( "room" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 factory.Label( "Room" ).Name( "title" ).Classes( "medium", "shrink-0" ).AddToScope( out title );
@@ -92,18 +124,7 @@ namespace Project.UI {
             }
             return group;
         }
-        public static ColumnGroup ChatWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView messages, out TextField text, out Button send) {
-            using (factory.ColumnGroup().Name( "chat" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
-                factory.Label( "Chat" ).Name( "title" ).Classes( "medium", "shrink-0" ).AddToScope( out title );
-                factory.ScrollView().Name( "messages" ).Classes( "dark5", "medium", "reverse", "grow-1" ).AddToScope( out messages );
-                using (factory.RowScope().Classes( "shrink-0" ).AsScope()) {
-                    factory.TextField( null, null, 128, true ).Name( "text" ).Classes( "max-height-100px", "grow-1" ).AddToScope( out text );
-                    factory.Button( "Send" ).Name( "send" ).AddToScope( out send );
-                }
-            }
-            return group;
-        }
-        public static Box PlayerItem(this UIFactory factory, string text, int id) {
+        public static Box RoomWidget_PlayerItem(this UIFactory factory, string text, int id) {
             var style = (int) Mathf.PingPong( id, 20 ) switch {
                 0 => "light10",
                 1 => "light9",
@@ -133,7 +154,20 @@ namespace Project.UI {
                 return view;
             }
         }
-        public static Box MessageItem(this UIFactory factory, string text, int id) {
+
+        // ChatWidget
+        public static ColumnGroup ChatWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView messages, out TextField text, out Button send) {
+            using (factory.ColumnGroup().Name( "chat" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
+                factory.Label( "Chat" ).Name( "title" ).Classes( "medium", "shrink-0" ).AddToScope( out title );
+                factory.ScrollView().Name( "messages" ).Classes( "dark5", "medium", "reverse", "grow-1" ).AddToScope( out messages );
+                using (factory.RowScope().Classes( "shrink-0" ).AsScope()) {
+                    factory.TextField( null, null, 128, true ).Name( "text" ).Classes( "max-height-100px", "grow-1" ).AddToScope( out text );
+                    factory.Button( "Send" ).Name( "send" ).AddToScope( out send );
+                }
+            }
+            return group;
+        }
+        public static Box ChatWidget_MessageItem(this UIFactory factory, string text, int id) {
             var style = (int) Mathf.PingPong( id, 20 ) switch {
                 0 => "light10",
                 1 => "light9",
@@ -162,32 +196,6 @@ namespace Project.UI {
                 factory.Label( text ).AddToScope();
                 return view;
             }
-        }
-
-        // JoinGameWidget
-        public static Widget JoinGameWidget(this UIFactory factory, out Widget widget, out Label title, out ColumnScope gameDescSlot, out ColumnScope playerDescSlot, out ColumnScope roomSlot, out ColumnScope chatSlot, out Button okey, out Button back) {
-            using (factory.LargeWidget( "join-game-widget" ).AsScope( out widget )) {
-                using (factory.Card().AsScope()) {
-                    using (factory.Header().AsScope()) {
-                        factory.Label( "Join Game" ).Name( "title" ).AddToScope( out title );
-                    }
-                    using (factory.Content().AsScope()) {
-                        using (factory.RowScope().Classes( "grow-0", "basis-40pc" ).AsScope()) {
-                            factory.ColumnScope().Name( "game-desc-slot" ).Classes( "grow-1", "basis-0pc" ).AddToScope( out gameDescSlot );
-                            factory.ColumnScope().Name( "player-desc-slot" ).Classes( "grow-1", "basis-0pc" ).AddToScope( out playerDescSlot );
-                        }
-                        using (factory.RowScope().Classes( "grow-1", "basis-auto" ).AsScope()) {
-                            factory.ColumnScope().Name( "room-slot" ).Classes( "grow-1", "basis-0pc" ).AddToScope( out roomSlot );
-                            factory.ColumnScope().Name( "chat-slot" ).Classes( "grow-1", "basis-0pc" ).AddToScope( out chatSlot );
-                        }
-                    }
-                    using (factory.Footer().AsScope()) {
-                        factory.Submit( "Ok" ).Name( "okey" ).AddToScope( out okey );
-                        factory.Cancel( "Back" ).Name( "back" ).AddToScope( out back );
-                    }
-                }
-            }
-            return widget;
         }
 
         // LoadingWidget

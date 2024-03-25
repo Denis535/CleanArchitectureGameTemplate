@@ -13,7 +13,7 @@ namespace Project.UI.MainScreen {
         protected override VisualElement VisualElement { get; }
         public ElementWrapper Group { get; }
         public LabelWrapper Title { get; }
-        public SlotWrapper Messages { get; }
+        public SlotWrapper<UIViewBase> Messages { get; }
         public TextFieldWrapper<string> Text { get; }
         public ButtonWrapper Send { get; }
 
@@ -22,21 +22,23 @@ namespace Project.UI.MainScreen {
             VisualElement = factory.ChatWidget( out var group, out var title, out var messages, out var text, out var send );
             Group = group.Wrap();
             Title = title.Wrap();
-            Messages = messages.AsSlot();
-            //Messages.OnAdded( message => { // dirty hack
-            //    var view = (ScrollView) Messages.GetVisualElement();
-            //    using var evt = GeometryChangedEvent.GetPooled( Rect.zero, view.contentContainer.layout );
-            //    evt.target = view.contentContainer;
-            //    view.contentContainer.SendEvent( evt );
-            //} );
-            //Messages.OnRemoved( message => { // dirty hack
-            //    var view = (ScrollView) Messages.GetVisualElement();
-            //    using var evt = GeometryChangedEvent.GetPooled( Rect.zero, view.contentContainer.layout );
-            //    evt.target = view.contentContainer;
-            //    view.contentContainer.SendEvent( evt );
-            //} );
+            Messages = messages.AsSlot<UIViewBase>();
             Text = text.Wrap();
             Send = send.Wrap();
+        }
+        public override void Dispose() {
+            base.Dispose();
+        }
+
+    }
+    public class ChatWidgetView_MessageView : UIViewBase {
+
+        // VisualElement
+        protected override VisualElement VisualElement { get; }
+
+        // Constructor
+        public ChatWidgetView_MessageView(UIFactory factory, string text, int id) {
+            VisualElement = factory.ChatWidget_MessageItem( text, id );
         }
         public override void Dispose() {
             base.Dispose();

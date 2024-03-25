@@ -3,7 +3,6 @@ namespace Project.UI.MainScreen {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using UnityEngine;
     using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
@@ -34,8 +33,9 @@ namespace Project.UI.MainScreen {
         private static RoomWidgetView CreateView(RoomWidget widget, UIFactory factory) {
             var view = new RoomWidgetView( factory );
             view.Group.OnAttachToPanel( evt => {
-                for (var i = 1; i <= 32; i++) {
-                    view.Players.Add( factory.PlayerItem( $"Player: {view.Players.Children.Count() + 1}", view.Players.Children.Count() ) );
+                for (var i = 0; i <= 60; i++) {
+                    var player = new RoomWidgetView_PlayerView( factory, $"Player: {view.Players.Views.Count}", view.Players.Views.Count );
+                    view.Players.Add( player );
                 }
             } );
             return view;

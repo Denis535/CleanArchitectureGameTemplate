@@ -13,11 +13,11 @@ namespace Project.UI.MainScreen {
         protected override VisualElement VisualElement { get; }
         public ElementWrapper Widget { get; }
         public LabelWrapper Title { get; }
-        public SlotWrapper GameDescSlot { get; }
-        public SlotWrapper PlayerDescSlot { get; }
+        public SlotWrapper<GameDescWidgetView> GameDescSlot { get; }
+        public SlotWrapper<PlayerDescWidgetView> PlayerDescSlot { get; }
         //public SlotWrapper LobbySlot { get; }
-        public SlotWrapper RoomSlot { get; }
-        public SlotWrapper ChatSlot { get; }
+        public SlotWrapper<RoomWidgetView> RoomSlot { get; }
+        public SlotWrapper<ChatWidgetView> ChatSlot { get; }
         public ButtonWrapper Okey { get; }
         public ButtonWrapper Back { get; }
 
@@ -26,10 +26,10 @@ namespace Project.UI.MainScreen {
             VisualElement = factory.CreateGameWidget( out var widget, out var title, out var gameDescSlot, out var playerDescSlot, out var roomSlot, out var chatSlot, out var okey, out var back );
             Widget = widget.Wrap();
             Title = title.Wrap();
-            GameDescSlot = gameDescSlot.AsSlot();
-            PlayerDescSlot = playerDescSlot.AsSlot();
-            RoomSlot = roomSlot.AsSlot();
-            ChatSlot = chatSlot.AsSlot();
+            GameDescSlot = gameDescSlot.AsSlot<GameDescWidgetView>();
+            PlayerDescSlot = playerDescSlot.AsSlot<PlayerDescWidgetView>();
+            RoomSlot = roomSlot.AsSlot<RoomWidgetView>();
+            ChatSlot = chatSlot.AsSlot<ChatWidgetView>();
             Okey = okey.Wrap();
             Back = back.Wrap();
         }
