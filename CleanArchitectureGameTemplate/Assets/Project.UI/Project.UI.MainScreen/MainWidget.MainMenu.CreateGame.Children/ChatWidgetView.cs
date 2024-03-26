@@ -13,16 +13,16 @@ namespace Project.UI.MainScreen {
         protected override VisualElement VisualElement { get; }
         public ElementWrapper Group { get; }
         public LabelWrapper Title { get; }
-        public ViewListSlotWrapper<UIViewBase> MessageList { get; }
+        public ViewListSlotWrapper<UIViewBase> MessageSlot { get; }
         public TextFieldWrapper<string> Text { get; }
         public ButtonWrapper Send { get; }
 
         // Constructor
         public ChatWidgetView(UIFactory factory) {
-            VisualElement = factory.ChatWidget( out var group, out var title, out var messageList, out var text, out var send );
+            VisualElement = factory.ChatWidget( out var group, out var title, out var messageSlot, out var text, out var send );
             Group = group.Wrap();
             Title = title.Wrap();
-            MessageList = messageList.AsViewListSlot<UIViewBase>();
+            MessageSlot = messageSlot.AsViewListSlot<UIViewBase>();
             Text = text.Wrap();
             Send = send.Wrap();
         }
@@ -38,7 +38,7 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public ChatWidgetView_MessageView(UIFactory factory, string text, int id) {
-            VisualElement = factory.ChatWidget_MessageItem( text, id );
+            VisualElement = factory.ChatWidget_Message( text, id );
         }
         public override void Dispose() {
             base.Dispose();

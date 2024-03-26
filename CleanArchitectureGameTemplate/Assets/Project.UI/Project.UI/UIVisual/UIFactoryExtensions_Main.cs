@@ -117,14 +117,14 @@ namespace Project.UI {
         }
 
         // RoomWidget
-        public static ColumnGroup RoomWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView playerList) {
+        public static ColumnGroup RoomWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView playerSlot) {
             using (factory.ColumnGroup().Name( "room" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 factory.Label( "Room" ).Name( "title" ).Classes( "medium", "shrink-0" ).AddToScope( out title );
-                factory.ScrollView().Name( "players" ).Classes( "dark5", "medium", "reverse", "grow-1" ).AddToScope( out playerList );
+                factory.ScrollView().Name( "players" ).Classes( "dark5", "medium", "reverse", "grow-1" ).AddToScope( out playerSlot );
             }
             return group;
         }
-        public static Box RoomWidget_PlayerItem(this UIFactory factory, string text, int id) {
+        public static Box RoomWidget_Player(this UIFactory factory, string text, int id) {
             var style = (int) Mathf.PingPong( id, 20 ) switch {
                 0 => "light10",
                 1 => "light9",
@@ -156,10 +156,10 @@ namespace Project.UI {
         }
 
         // ChatWidget
-        public static ColumnGroup ChatWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView messageList, out TextField text, out Button send) {
+        public static ColumnGroup ChatWidget(this UIFactory factory, out ColumnGroup group, out Label title, out ScrollView messageSlot, out TextField text, out Button send) {
             using (factory.ColumnGroup().Name( "chat" ).Classes( "gray", "medium", "grow-1" ).AsScope( out group )) {
                 factory.Label( "Chat" ).Name( "title" ).Classes( "medium", "shrink-0" ).AddToScope( out title );
-                factory.ScrollView().Name( "messages" ).Classes( "dark5", "medium", "reverse", "grow-1" ).AddToScope( out messageList );
+                factory.ScrollView().Name( "messages" ).Classes( "dark5", "medium", "reverse", "grow-1" ).AddToScope( out messageSlot );
                 using (factory.RowScope().Classes( "shrink-0" ).AsScope()) {
                     factory.TextField( null, null, 128, true ).Name( "text" ).Classes( "max-height-100px", "grow-1" ).AddToScope( out text );
                     factory.Button( "Send" ).Name( "send" ).AddToScope( out send );
@@ -167,7 +167,7 @@ namespace Project.UI {
             }
             return group;
         }
-        public static Box ChatWidget_MessageItem(this UIFactory factory, string text, int id) {
+        public static Box ChatWidget_Message(this UIFactory factory, string text, int id) {
             var style = (int) Mathf.PingPong( id, 20 ) switch {
                 0 => "light10",
                 1 => "light9",

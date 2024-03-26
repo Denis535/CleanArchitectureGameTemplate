@@ -17,10 +17,10 @@ namespace Project.UI.MainScreen {
         // View
         protected override CreateGameWidgetView View { get; }
         // Children
-        private GameDescWidget GameDescWidget => View.GameDescSlot.Widget!;
-        private PlayerDescWidget PlayerDescWidget => View.PlayerDescSlot.Widget!;
-        private RoomWidget RoomWidget => View.RoomSlot.Widget!;
-        private ChatWidget ChatWidget => View.ChatSlot.Widget!;
+        private GameDescWidget GameDesc => View.GameDescSlot.Widget!;
+        private PlayerDescWidget PlayerDesc => View.PlayerDescSlot.Widget!;
+        private RoomWidget Room => View.RoomSlot.Widget!;
+        private ChatWidget Chat => View.ChatSlot.Widget!;
 
         // Constructor
         public CreateGameWidget() {
@@ -86,13 +86,13 @@ namespace Project.UI.MainScreen {
         private static CreateGameWidgetView CreateView(CreateGameWidget widget, UIFactory factory, UIRouter router) {
             var view = new CreateGameWidgetView( factory );
             view.Okey.OnClick( evt => {
-                var gameName = widget.GameDescWidget.Name;
-                var gameMode = widget.GameDescWidget.Mode;
-                var gameWorld = widget.GameDescWidget.World;
-                var isGamePrivate = widget.GameDescWidget.IsPrivate;
-                var playerName = widget.PlayerDescWidget.Name;
-                var playerRole = widget.PlayerDescWidget.Role;
-                var isPlayerReady = widget.PlayerDescWidget.IsReady;
+                var gameName = widget.GameDesc.Name;
+                var gameMode = widget.GameDesc.Mode;
+                var gameWorld = widget.GameDesc.World;
+                var isGamePrivate = widget.GameDesc.IsPrivate;
+                var playerName = widget.PlayerDesc.Name;
+                var playerRole = widget.PlayerDesc.Role;
+                var isPlayerReady = widget.PlayerDesc.IsReady;
                 {
                     var gameDesc = new GameDesc( gameName, gameMode );
                     var worldDesc = new WorldDesc( gameWorld );

@@ -16,9 +16,9 @@ namespace Project.UI.Common {
         // View
         protected override SettingsWidgetView View { get; }
         // Children
-        private ProfileSettingsWidget ProfileSettingsWidget => View.ProfileSettingsTab.Widget!;
-        private VideoSettingsWidget VideoSettingsWidget => View.VideoSettingsTab.Widget!;
-        private AudioSettingsWidget AudioSettingsWidget => View.AudioSettingsTab.Widget!;
+        private ProfileSettingsWidget ProfileSettingsWidget => View.ProfileSettingsSlot.Widget!;
+        private VideoSettingsWidget VideoSettingsWidget => View.VideoSettingsSlot.Widget!;
+        private AudioSettingsWidget AudioSettingsWidget => View.AudioSettingsSlot.Widget!;
 
         // Constructor
         public SettingsWidget() {
@@ -41,30 +41,30 @@ namespace Project.UI.Common {
         // ShowDescendantWidget
         protected override void ShowDescendantWidget(UIWidgetBase widget) {
             if (widget is ProfileSettingsWidget profileSettingsWidget) {
-                View.ProfileSettingsTab.Set( profileSettingsWidget );
+                View.ProfileSettingsSlot.Set( profileSettingsWidget );
                 return;
             }
             if (widget is VideoSettingsWidget videoSettingsWidget) {
-                View.VideoSettingsTab.Set( videoSettingsWidget );
+                View.VideoSettingsSlot.Set( videoSettingsWidget );
                 return;
             }
             if (widget is AudioSettingsWidget audioSettingsWidget) {
-                View.AudioSettingsTab.Set( audioSettingsWidget );
+                View.AudioSettingsSlot.Set( audioSettingsWidget );
                 return;
             }
             base.ShowDescendantWidget( widget );
         }
         protected override void HideDescendantWidget(UIWidgetBase widget) {
             if (widget is ProfileSettingsWidget profileSettingsWidget) {
-                View.ProfileSettingsTab.Clear();
+                View.ProfileSettingsSlot.Clear();
                 return;
             }
             if (widget is VideoSettingsWidget videoSettingsWidget) {
-                View.VideoSettingsTab.Clear();
+                View.VideoSettingsSlot.Clear();
                 return;
             }
             if (widget is AudioSettingsWidget audioSettingsWidget) {
-                View.AudioSettingsTab.Clear();
+                View.AudioSettingsSlot.Clear();
                 return;
             }
             base.HideDescendantWidget( widget );

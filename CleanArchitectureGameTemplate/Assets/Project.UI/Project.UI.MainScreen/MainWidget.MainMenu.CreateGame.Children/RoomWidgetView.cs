@@ -13,14 +13,14 @@ namespace Project.UI.MainScreen {
         protected override VisualElement VisualElement { get; }
         public ElementWrapper Group { get; }
         public LabelWrapper Title { get; }
-        public ViewListSlotWrapper<UIViewBase> PlayerList { get; }
+        public ViewListSlotWrapper<UIViewBase> PlayerSlot { get; }
 
         // Constructor
         public RoomWidgetView(UIFactory factory) {
-            VisualElement = factory.RoomWidget( out var group, out var title, out var playerList );
+            VisualElement = factory.RoomWidget( out var group, out var title, out var playerSlot );
             Group = group.Wrap();
             Title = title.Wrap();
-            PlayerList = playerList.AsViewListSlot<UIViewBase>();
+            PlayerSlot = playerSlot.AsViewListSlot<UIViewBase>();
         }
         public override void Dispose() {
             base.Dispose();
@@ -34,7 +34,7 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public RoomWidgetView_PlayerView(UIFactory factory, string text, int id) {
-            VisualElement = factory.RoomWidget_PlayerItem( text, id );
+            VisualElement = factory.RoomWidget_Player( text, id );
         }
         public override void Dispose() {
             base.Dispose();
