@@ -61,11 +61,11 @@ namespace Project.Toolbar {
             EditorUtility.RevealInFinder( path );
         }
 
-        // EmbedPackage
-        [MenuItem( "Project/Embed Package (com.denis535.uitoolkit-theme-style-sheet)", priority = 300 )]
-        public static void EmbedPackage_UIToolkitThemeStyleSheet() {
-            UnityEditor.PackageManager.Client.Embed( "com.denis535.uitoolkit-theme-style-sheet" );
-        }
+        //// EmbedPackage
+        //[MenuItem( "Project/Embed Package (com.denis535.uitoolkit-theme-style-sheet)", priority = 300 )]
+        //public static void EmbedPackage_UIToolkitThemeStyleSheet() {
+        //    UnityEditor.PackageManager.Client.Embed( "com.denis535.uitoolkit-theme-style-sheet" );
+        //}
 
     }
 }

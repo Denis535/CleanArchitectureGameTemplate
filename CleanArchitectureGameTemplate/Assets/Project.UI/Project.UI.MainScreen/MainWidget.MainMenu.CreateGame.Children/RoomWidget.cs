@@ -13,6 +13,7 @@ namespace Project.UI.MainScreen {
         private UIFactory Factory { get; }
         // View
         protected override RoomWidgetView View { get; }
+        private IReadOnlyList<RoomWidgetView_PlayerView> Players => View.PlayersSlot.Views;
 
         // Constructor
         public RoomWidget() {
@@ -34,8 +35,8 @@ namespace Project.UI.MainScreen {
             var view = new RoomWidgetView( factory );
             view.Group.OnAttachToPanel( evt => {
                 for (var i = 0; i <= 60; i++) {
-                    var player = new RoomWidgetView_PlayerView( factory, $"Player: {view.PlayerSlot.Views.Count}", view.PlayerSlot.Views.Count );
-                    view.PlayerSlot.Add( player );
+                    var player = new RoomWidgetView_PlayerView( factory, $"Player: {view.PlayersSlot.Views.Count}", view.PlayersSlot.Views.Count );
+                    view.PlayersSlot.Add( player );
                 }
             } );
             return view;

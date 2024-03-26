@@ -13,6 +13,7 @@ namespace Project.UI.MainScreen {
         private UIFactory Factory { get; }
         // View
         protected override ChatWidgetView View { get; }
+        private IReadOnlyList<ChatWidgetView_MessageView> Messages => View.MessagesSlot.Views;
 
         // Constructor
         public ChatWidget() {
@@ -34,14 +35,14 @@ namespace Project.UI.MainScreen {
             var view = new ChatWidgetView( factory );
             view.Group.OnAttachToPanel( evt => {
                 for (var i = 0; i <= 60; i++) {
-                    var message = new ChatWidgetView_MessageView( factory, $"Message: {view.MessageSlot.Views.Count}", view.MessageSlot.Views.Count );
-                    view.MessageSlot.Add( message );
+                    var message = new ChatWidgetView_MessageView( factory, $"Message: {view.MessagesSlot.Views.Count}", view.MessagesSlot.Views.Count );
+                    view.MessagesSlot.Add( message );
                 }
             } );
             view.Send.OnClick( evt => {
                 if (!string.IsNullOrWhiteSpace( view.Text.Value )) {
-                    var message = new ChatWidgetView_MessageView( factory, view.Text.Value, view.MessageSlot.Views.Count );
-                    view.MessageSlot.Add( message );
+                    var message = new ChatWidgetView_MessageView( factory, view.Text.Value, view.MessagesSlot.Views.Count );
+                    view.MessagesSlot.Add( message );
                     view.Text.Value = null;
                 }
             } );
