@@ -5,12 +5,10 @@ namespace Project.UI.MainScreen {
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.UIElements;
 
     public class GameDescWidgetView : UIViewBase {
 
-        // VisualElement
-        protected override VisualElement VisualElement { get; }
+        // View
         public ElementWrapper Group { get; }
         public LabelWrapper Title { get; }
         public TextFieldWrapper<string> Name { get; }

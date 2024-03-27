@@ -5,12 +5,10 @@ namespace Project.UI.MainScreen {
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.UIElements;
 
     public class JoinGameWidgetView : UIViewBase {
 
-        // VisualElement
-        protected override VisualElement VisualElement { get; }
+        // View
         public ElementWrapper Widget { get; }
         public LabelWrapper Title { get; }
         public WidgetSlotWrapper<GameDescWidget> GameDescSlot { get; }

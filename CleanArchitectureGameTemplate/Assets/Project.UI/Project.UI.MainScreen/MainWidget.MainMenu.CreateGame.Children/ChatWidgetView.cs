@@ -5,12 +5,10 @@ namespace Project.UI.MainScreen {
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.UIElements;
 
     public class ChatWidgetView : UIViewBase {
 
-        // VisualElement
-        protected override VisualElement VisualElement { get; }
+        // View
         public ElementWrapper Group { get; }
         public LabelWrapper Title { get; }
         public ElementWrapper MessagesView { get; }
@@ -34,9 +32,6 @@ namespace Project.UI.MainScreen {
 
     }
     public class ChatWidgetView_MessageView : UIViewBase {
-
-        // VisualElement
-        protected override VisualElement VisualElement { get; }
 
         // Constructor
         public ChatWidgetView_MessageView(UIFactory factory, string text, int id) {

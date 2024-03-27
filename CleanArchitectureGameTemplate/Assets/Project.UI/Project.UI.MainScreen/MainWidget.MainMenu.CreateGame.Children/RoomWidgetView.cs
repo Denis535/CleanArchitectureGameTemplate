@@ -5,12 +5,10 @@ namespace Project.UI.MainScreen {
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.UIElements;
 
     public class RoomWidgetView : UIViewBase {
 
-        // VisualElement
-        protected override VisualElement VisualElement { get; }
+        // View
         public ElementWrapper Group { get; }
         public LabelWrapper Title { get; }
         public ElementWrapper PlayersView { get; }
@@ -30,9 +28,6 @@ namespace Project.UI.MainScreen {
 
     }
     public class RoomWidgetView_PlayerView : UIViewBase {
-
-        // VisualElement
-        protected override VisualElement VisualElement { get; }
 
         // Constructor
         public RoomWidgetView_PlayerView(UIFactory factory, string text, int id) {
