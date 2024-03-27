@@ -14,8 +14,6 @@ namespace Project.UI.MainScreen {
         // Globals
         private UIFactory Factory { get; }
         private UIRouter Router { get; }
-        // View
-        protected override CreateGameWidgetView View { get; }
         // Children
         private GameDescWidget GameDesc => View.GameDescSlot.Widget!;
         private PlayerDescWidget PlayerDesc => View.PlayerDescSlot.Widget!;

@@ -12,7 +12,6 @@ namespace Project.UI.MainScreen {
         // Globals
         private UIFactory Factory { get; }
         // View
-        protected override RoomWidgetView View { get; }
         private IReadOnlyList<RoomWidgetView_PlayerView> Players => View.PlayersSlot.Views;
 
         // Constructor

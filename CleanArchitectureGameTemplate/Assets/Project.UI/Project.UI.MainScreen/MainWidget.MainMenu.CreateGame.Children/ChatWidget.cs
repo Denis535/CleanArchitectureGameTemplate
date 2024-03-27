@@ -12,7 +12,6 @@ namespace Project.UI.MainScreen {
         // Globals
         private UIFactory Factory { get; }
         // View
-        protected override ChatWidgetView View { get; }
         private IReadOnlyList<ChatWidgetView_MessageView> Messages => View.MessagesSlot.Views;
 
         // Constructor

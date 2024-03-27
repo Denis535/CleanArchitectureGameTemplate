@@ -15,7 +15,6 @@ namespace Project.UI.MainScreen {
         private UIFactory Factory { get; }
         private Globals.ProfileSettings ProfileSettings { get; }
         // View
-        protected override PlayerDescWidgetView View { get; }
         public string Name => View.Name.Value!;
         public PlayerRole Role => (PlayerRole) View.Role.Value!;
         public bool IsReady => View.IsReady.Value;
