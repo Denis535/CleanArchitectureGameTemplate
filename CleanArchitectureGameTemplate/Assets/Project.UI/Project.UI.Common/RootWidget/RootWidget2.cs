@@ -8,7 +8,6 @@ namespace Project.UI.Common {
     using Project.UI.MainScreen;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.UIElements;
 
     public class RootWidget2 : RootWidget {
 
@@ -51,44 +50,23 @@ namespace Project.UI.Common {
 
         // ShowDescendantWidget
         protected override void ShowDescendantWidget(UIWidgetBase widget) {
-            if (widget.IsViewable) {
-                var covered = (UIWidgetBase?) View.WidgetSlot.Widgets.Concat( View.ModalWidgetSlot.Widgets ).LastOrDefault();
-                if (covered != null) covered.__GetView__()!.__GetVisualElement__().SaveFocus();
-
-                if (widget.IsModal()) {
-                    Add( View.ModalWidgetSlot, widget );
-                } else {
-                    Add( View.WidgetSlot, widget );
-                }
-
-                var @new = (UIWidgetBase?) View.WidgetSlot.Widgets.Concat( View.ModalWidgetSlot.Widgets ).LastOrDefault();
-                if (@new != null) @new.__GetView__()!.__GetVisualElement__().Focus2();
-            }
+            base.ShowDescendantWidget( widget );
         }
         protected override void HideDescendantWidget(UIWidgetBase widget) {
-            if (widget.IsViewable) {
-                if (widget.IsModal()) {
-                    Remove( View.ModalWidgetSlot, widget );
-                } else {
-                    Remove( View.WidgetSlot, widget );
-                }
-
-                var uncovered = (UIWidgetBase?) View.WidgetSlot.Widgets.Concat( View.ModalWidgetSlot.Widgets ).LastOrDefault();
-                if (uncovered != null) uncovered.__GetView__()!.__GetVisualElement__().LoadFocus();
-            }
+            base.HideDescendantWidget( widget );
         }
 
-        // Helpers
-        private static void Add(WidgetListSlotWrapper<UIWidgetBase> slot, UIWidgetBase widget) {
-            var last = slot.Widgets.LastOrDefault();
-            if (last != null && last is not MainWidget and not GameWidget) slot.__GetVisualElement__().Remove( last.__GetView__()!.__GetVisualElement__() );
+        // ShowDescendantWidget
+        protected override void ShowDescendantWidget(WidgetListSlotWrapper<UIWidgetBase> slot, UIWidgetBase widget) {
+            var covered = slot.Widgets.LastOrDefault();
+            if (covered != null && covered is not MainWidget and not GameWidget) slot.__GetVisualElement__().Remove( covered.__GetView__()!.__GetVisualElement__() );
             slot.Add( widget );
         }
-        private static void Remove(WidgetListSlotWrapper<UIWidgetBase> slot, UIWidgetBase widget) {
+        protected override void HideDescendantWidget(WidgetListSlotWrapper<UIWidgetBase> slot, UIWidgetBase widget) {
             Assert.Operation.Message( $"Widget {widget} must be last" ).Valid( widget == slot.Widgets.LastOrDefault() );
             slot.Remove( widget );
-            var last = slot.Widgets.LastOrDefault();
-            if (last != null && last is not MainWidget and not GameWidget) slot.__GetVisualElement__().Add( last.__GetView__()!.__GetVisualElement__() );
+            var uncovered = slot.Widgets.LastOrDefault();
+            if (uncovered != null && uncovered is not MainWidget and not GameWidget) slot.__GetVisualElement__().Add( uncovered.__GetView__()!.__GetVisualElement__() );
         }
 
     }
