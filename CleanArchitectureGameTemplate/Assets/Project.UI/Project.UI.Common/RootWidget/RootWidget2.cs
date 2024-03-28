@@ -8,14 +8,11 @@ namespace Project.UI.Common {
     using Project.UI.MainScreen;
     using UnityEngine;
     using UnityEngine.Framework.UI;
-    using UnityEngine.UIElements;
 
     public class RootWidget2 : RootWidget {
 
         // Constructor
         public RootWidget2() {
-            //View.Widget.OnEvent<ViewAttachEvent>( evt => Debug.Log( evt.View ), TrickleDown.TrickleDown );
-            //View.Widget.OnEvent<ViewDetachEvent>( evt => Debug.Log( evt.View ), TrickleDown.TrickleDown );
         }
         public override void Dispose() {
             base.Dispose();
