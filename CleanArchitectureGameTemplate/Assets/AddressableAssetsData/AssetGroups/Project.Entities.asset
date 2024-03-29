@@ -17,13 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 101c0b2af6eb6dc4eace6d50f3b58777
   m_SerializeEntries:
-  - m_GUID: 79ed1955852343040adc955447974c28
-    m_Address: Project.Entities.MainScene
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: daca19f51cddab347abb34e99946c80f
-    m_Address: Project.Entities.GameScene
+    m_Address: Project.Entities
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
