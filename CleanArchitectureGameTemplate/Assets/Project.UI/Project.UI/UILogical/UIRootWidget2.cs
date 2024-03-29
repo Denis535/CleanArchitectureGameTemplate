@@ -1,5 +1,5 @@
 #nullable enable
-namespace Project.UI.Common {
+namespace Project.UI {
     using System;
     using System.Collections;
     using System.Collections.Generic;
@@ -9,10 +9,10 @@ namespace Project.UI.Common {
     using UnityEngine;
     using UnityEngine.Framework.UI;
 
-    public class RootWidget2 : RootWidget {
+    public class UIRootWidget2 : UIRootWidget {
 
         // Constructor
-        public RootWidget2() {
+        public UIRootWidget2() {
         }
         public override void Dispose() {
             base.Dispose();
