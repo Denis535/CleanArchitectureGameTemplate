@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Project.Entities.Common
+  m_Name: Project.Entities.World
   m_EditorClassIdentifier: 
-  m_GroupName: Project.Entities.Common
+  m_GroupName: Project.Entities.World
   m_Data:
     m_SerializedData: []
-  m_GUID: 58b3a6db067ddc740aa6614fd2ea5a1f
+  m_GUID: 831488f813f9adc4ca8f7064be376bc4
   m_SerializeEntries:
-  - m_GUID: c0e9054c239152c44a3085c14fc749c5
-    m_Address: Project.Entities.Common
+  - m_GUID: fb6617524fb5d614a83686774212cf9c
+    m_Address: Project.Entities.World
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -26,5 +26,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 8c8417ae2abb549498500522f9dbf026, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 8f74f980a4e71a4428eb612976877e59, type: 2}
-    - {fileID: 11400000, guid: 4aafdff37704614479ade007e3a508e8, type: 2}
+    - {fileID: 11400000, guid: a0d1370929f0db544b926be7277849cb, type: 2}
+    - {fileID: 11400000, guid: 4d03ed45d70e89642b12caf2fad43b16, type: 2}
