@@ -173,8 +173,8 @@ namespace Project.UI {
         // Helpers
         private static string GetWorldAddress(GameWorld world) {
             return world switch {
-                GameWorld.World1 => R.Project.Scenes.Worlds.World_01,
-                GameWorld.World2 => R.Project.Scenes.Worlds.World_02,
+                GameWorld.World1 => R.Project.Entities.Worlds.World_01,
+                GameWorld.World2 => R.Project.Entities.Worlds.World_02,
                 _ => throw Exceptions.Internal.NotSupported( $"World {world} is not supported" ),
             };
         }
