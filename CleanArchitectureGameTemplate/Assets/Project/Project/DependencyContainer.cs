@@ -42,9 +42,9 @@ namespace Project {
         public void OnDestroy() {
         }
 
-        // GetDependency
-        public object? GetDependency(Type type, object? argument) {
-            this.Validate();
+        // GetObject
+        object? IDependencyContainer.GetObject(Type type, object? argument) {
+            this.Check();
             // UI
             if (type == typeof( UITheme )) {
                 return UITheme;
