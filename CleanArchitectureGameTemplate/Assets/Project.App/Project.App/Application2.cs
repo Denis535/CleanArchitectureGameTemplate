@@ -45,7 +45,7 @@ namespace Project.App {
         // StartGame
         public void StartGame(GameDesc gameDesc, WorldDesc worldDesc, PlayerDesc playerDesc) {
             Assert.Operation.Message( $"Game must be null" ).Valid( Game == null );
-            Game = GameObject2.RequireAnyObjectByType<Game>( FindObjectsInactive.Exclude );
+            Game = Object2.RequireAnyObjectByType<Game>( FindObjectsInactive.Exclude );
             Game.StartGame();
             Cursor.lockState = CursorLockMode.Locked;
         }
