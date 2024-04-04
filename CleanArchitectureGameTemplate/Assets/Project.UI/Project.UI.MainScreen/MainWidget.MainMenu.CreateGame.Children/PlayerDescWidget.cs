@@ -21,8 +21,8 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public PlayerDescWidget() {
-            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
-            ProfileSettings = this.GetDependencyContainer().Resolve<Globals.ProfileSettings>( null );
+            Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
+            ProfileSettings = this.GetDependencyContainer().RequireDependency<Globals.ProfileSettings>( null );
             View = CreateView( Factory, ProfileSettings );
         }
         public override void Dispose() {

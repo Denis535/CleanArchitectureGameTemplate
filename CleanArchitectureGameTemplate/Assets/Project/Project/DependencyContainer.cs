@@ -35,12 +35,12 @@ namespace Project {
 
         // Awake
         public void Awake() {
+            IDependencyContainer.Instance = this;
             Globals = new Globals();
             ProfileSettings = new Globals.ProfileSettings();
             VideoSettings = new Globals.VideoSettings();
             AudioSettings = new Globals.AudioSettings();
             Preferences = new Globals.Preferences();
-            IDependencyContainer.Instance = this;
         }
         public void OnDestroy() {
         }

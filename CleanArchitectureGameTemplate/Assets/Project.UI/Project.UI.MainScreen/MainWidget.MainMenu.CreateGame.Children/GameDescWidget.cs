@@ -21,7 +21,7 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public GameDescWidget() {
-            Factory = this.GetDependencyContainer().Resolve<UIFactory>( null );
+            Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
             View = CreateView( Factory );
         }
         public override void Dispose() {
