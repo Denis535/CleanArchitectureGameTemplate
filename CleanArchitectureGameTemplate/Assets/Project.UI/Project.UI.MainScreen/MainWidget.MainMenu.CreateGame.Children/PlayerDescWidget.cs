@@ -13,7 +13,7 @@ namespace Project.UI.MainScreen {
 
         // Globals
         private UIFactory Factory { get; }
-        private Globals.ProfileSettings ProfileSettings { get; }
+        private Storage.ProfileSettings ProfileSettings { get; }
         // View
         public string Name => View.Name.Value!;
         public PlayerRole Role => (PlayerRole) View.Role.Value!;
@@ -22,7 +22,7 @@ namespace Project.UI.MainScreen {
         // Constructor
         public PlayerDescWidget() {
             Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
-            ProfileSettings = this.GetDependencyContainer().RequireDependency<Globals.ProfileSettings>( null );
+            ProfileSettings = this.GetDependencyContainer().RequireDependency<Storage.ProfileSettings>( null );
             View = CreateView( Factory, ProfileSettings );
         }
         public override void Dispose() {
@@ -36,7 +36,7 @@ namespace Project.UI.MainScreen {
         }
 
         // Helpers
-        private static PlayerDescWidgetView CreateView(UIFactory factory, Globals.ProfileSettings profileSettings) {
+        private static PlayerDescWidgetView CreateView(UIFactory factory, Storage.ProfileSettings profileSettings) {
             var view = new PlayerDescWidgetView( factory );
             view.Group.OnAttachToPanel( evt => {
                 view.Name.Value = profileSettings.Name;

@@ -9,12 +9,13 @@ namespace Project.App {
     // https://docs.unity3d.com/Manual/CommandLineArguments.html
     // https://docs.unity3d.com/Manual/EditorCommandLineArguments.html
     // https://docs.unity3d.com/Manual/PlayerCommandLineArguments.html
-    public partial class Globals : GlobalsBase {
+    public partial class Storage : StorageBase {
 
+        // Profile
         public string? Profile { get; }
 
         // Constructor
-        public Globals() {
+        public Storage() {
             //var args = Environment.GetCommandLineArgs();
             //Debug.Log( "Arguments: " + args.Join( ", " ) );
             Profile = GetCommandLineArgument( "--profile" );

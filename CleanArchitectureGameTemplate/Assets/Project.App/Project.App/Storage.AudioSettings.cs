@@ -4,53 +4,52 @@ namespace Project.App {
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-    using UnityEngine.AddressableAssets;
     using UnityEngine.Audio;
     using UnityEngine.Framework.App;
-    using UnityEngine.ResourceManagement.AsyncOperations;
 
-    public partial class Globals {
-        public class AudioSettings : GlobalsBase {
+    public partial class Storage {
+        public class AudioSettings : StorageBase {
 
-            // Fields
-            private readonly AudioMixer mixer = Addressables2.LoadAssetAsync<AudioMixer>( R.UnityEngine.Audio.AudioMixer_Value ).GetResult()!;
             private float masterVolume;
             private float musicVolume;
             private float sfxVolume;
             private float gameVolume;
 
-            // Props
+            // AudioMixer
+            private AudioMixer AudioMixer { get; }
+            // Volume
             public float MasterVolume {
                 get => masterVolume;
                 set {
                     masterVolume = value;
-                    SetVolume( mixer, "MasterVolume", value );
+                    SetVolume( AudioMixer, "MasterVolume", value );
                 }
             }
             public float MusicVolume {
                 get => musicVolume;
                 set {
                     musicVolume = value;
-                    SetVolume( mixer, "MusicVolume", value );
+                    SetVolume( AudioMixer, "MusicVolume", value );
                 }
             }
             public float SfxVolume {
                 get => sfxVolume;
                 set {
                     sfxVolume = value;
-                    SetVolume( mixer, "SfxVolume", value );
+                    SetVolume( AudioMixer, "SfxVolume", value );
                 }
             }
             public float GameVolume {
                 get => gameVolume;
                 set {
                     gameVolume = value;
-                    SetVolume( mixer, "GameVolume", value );
+                    SetVolume( AudioMixer, "GameVolume", value );
                 }
             }
 
             // Constructor
-            public AudioSettings() {
+            public AudioSettings(AudioMixer audioMixer) {
+                AudioMixer = audioMixer;
                 Load();
             }
 

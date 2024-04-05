@@ -7,13 +7,12 @@ namespace Project.App {
     using UnityEngine;
     using UnityEngine.Framework.App;
 
-    public partial class Globals {
-        public class ProfileSettings : GlobalsBase {
+    public partial class Storage {
+        public class ProfileSettings : StorageBase {
 
-            // Fields
             private string name = default!;
 
-            // Props
+            // Name
             public string Name {
                 get => name;
                 set {

@@ -6,8 +6,8 @@ namespace Project.App {
     using UnityEngine;
     using UnityEngine.Framework.App;
 
-    public partial class Globals {
-        public class Preferences : GlobalsBase {
+    public partial class Storage {
+        public class Preferences : StorageBase {
 
             // Constructor
             public Preferences() {

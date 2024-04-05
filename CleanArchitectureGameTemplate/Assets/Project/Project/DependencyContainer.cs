@@ -7,6 +7,7 @@ namespace Project {
     using Project.UI;
     using Unity.Services.Authentication;
     using UnityEngine;
+    using UnityEngine.Audio;
     using UnityEngine.Framework;
 
     public class DependencyContainer : MonoBehaviour, IDependencyContainer {
@@ -16,28 +17,31 @@ namespace Project {
         [SerializeField] private UIFactory uiFactory = default!;
         [SerializeField] private UIRouter uiRouter = default!;
         [SerializeField] private Application2 application = default!;
+        [SerializeField] private AudioMixer audioMixer = default!;
 
-        // Globals
+        // Values
         private UITheme UITheme => uiTheme;
         private UIScreen UIScreen => uiScreen;
         private UIFactory UIFactory => uiFactory;
         private UIRouter UIRouter => uiRouter;
         private Application2 Application => application;
-        private Globals Globals { get; set; } = default!;
-        private Globals.ProfileSettings ProfileSettings { get; set; } = default!;
-        private Globals.VideoSettings VideoSettings { get; set; } = default!;
-        private Globals.AudioSettings AudioSettings { get; set; } = default!;
-        private Globals.Preferences Preferences { get; set; } = default!;
+        private AudioMixer AudioMixer => audioMixer;
+        // Values
+        private Storage Globals { get; set; } = default!;
+        private Storage.ProfileSettings ProfileSettings { get; set; } = default!;
+        private Storage.VideoSettings VideoSettings { get; set; } = default!;
+        private Storage.AudioSettings AudioSettings { get; set; } = default!;
+        private Storage.Preferences Preferences { get; set; } = default!;
         private IAuthenticationService AuthenticationService => Unity.Services.Authentication.AuthenticationService.Instance;
 
         // Awake
         public void Awake() {
             IDependencyContainer.Instance = this;
-            Globals = new Globals();
-            ProfileSettings = new Globals.ProfileSettings();
-            VideoSettings = new Globals.VideoSettings();
-            AudioSettings = new Globals.AudioSettings();
-            Preferences = new Globals.Preferences();
+            Globals = new Storage();
+            ProfileSettings = new Storage.ProfileSettings();
+            VideoSettings = new Storage.VideoSettings();
+            AudioSettings = new Storage.AudioSettings( AudioMixer );
+            Preferences = new Storage.Preferences();
         }
         public void OnDestroy() {
         }
@@ -65,19 +69,19 @@ namespace Project {
             if (type == typeof( Camera )) {
                 return Camera.main;
             }
-            if (type == typeof( Globals )) {
+            if (type == typeof( Storage )) {
                 return Globals;
             }
-            if (type == typeof( Globals.ProfileSettings )) {
+            if (type == typeof( Storage.ProfileSettings )) {
                 return ProfileSettings;
             }
-            if (type == typeof( Globals.VideoSettings )) {
+            if (type == typeof( Storage.VideoSettings )) {
                 return VideoSettings;
             }
-            if (type == typeof( Globals.AudioSettings )) {
+            if (type == typeof( Storage.AudioSettings )) {
                 return AudioSettings;
             }
-            if (type == typeof( Globals.Preferences )) {
+            if (type == typeof( Storage.Preferences )) {
                 return Preferences;
             }
             if (type == typeof( IAuthenticationService )) {
