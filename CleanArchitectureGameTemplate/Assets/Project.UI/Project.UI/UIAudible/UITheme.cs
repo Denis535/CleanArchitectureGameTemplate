@@ -96,7 +96,7 @@ namespace Project.UI {
         }
         private static void Play(AudioSource source, string key) {
             Assert.Operation.Message( $"You are trying to play clip {key} but first you must release old clip" );
-            source.clip = Addressables2.LoadAssetAsync<AudioClip>( key ).GetResult( null, null );
+            source.clip = Addressables2.LoadAssetAsync<AudioClip>( key ).GetResult();
             source.clip.name = key;
             source.volume = 1;
             source.Play();

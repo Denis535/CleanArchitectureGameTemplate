@@ -27,7 +27,7 @@ namespace Project {
         private Application2 Application => application;
         private AudioMixer AudioMixer => audioMixer;
         // Values
-        private Storage Globals { get; set; } = default!;
+        private Storage Storage { get; set; } = default!;
         private Storage.ProfileSettings ProfileSettings { get; set; } = default!;
         private Storage.VideoSettings VideoSettings { get; set; } = default!;
         private Storage.AudioSettings AudioSettings { get; set; } = default!;
@@ -37,7 +37,7 @@ namespace Project {
         // Awake
         public void Awake() {
             IDependencyContainer.Instance = this;
-            Globals = new Storage();
+            Storage = new Storage();
             ProfileSettings = new Storage.ProfileSettings();
             VideoSettings = new Storage.VideoSettings();
             AudioSettings = new Storage.AudioSettings( AudioMixer );
@@ -70,7 +70,7 @@ namespace Project {
                 return Camera.main;
             }
             if (type == typeof( Storage )) {
-                return Globals;
+                return Storage;
             }
             if (type == typeof( Storage.ProfileSettings )) {
                 return ProfileSettings;

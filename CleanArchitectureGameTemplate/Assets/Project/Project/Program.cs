@@ -48,10 +48,6 @@ namespace Project {
         [RuntimeInitializeOnLoadMethod( RuntimeInitializeLoadType.BeforeSplashScreen )]
         internal static void OnLoad2() {
             UnityEngine.Application.logMessageReceived += OnLog;
-            //if (Debug.isDebugBuild) {
-            //    Screen.fullScreen = false;
-            //    Screen.SetResolution( 1280, 720, false );
-            //}
             UIFactory.StringSelector = GetDisplayString;
         }
 
