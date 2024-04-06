@@ -96,8 +96,8 @@ namespace Project.UI {
         }
         private static void Play(AudioSource source, string key) {
             Assert.Operation.Message( $"You are trying to play clip {key} but first you must release old clip" );
-            source.clip = Addressables2.LoadAssetAsync<AudioClip>( key ).GetResult();
-            source.clip.name = key;
+            source.clip = Addressables.LoadAssetAsync<AudioClip>( key ).GetResult();
+            source.clip!.name = key;
             source.volume = 1;
             source.Play();
         }
@@ -109,7 +109,7 @@ namespace Project.UI {
                 var clip = source.clip;
                 source.Stop();
                 source.clip = null;
-                Addressables2.Release( clip );
+                Addressables.Release( clip );
             }
         }
 

@@ -25,27 +25,27 @@ namespace Project.UI {
         // LoadScene
         public static async Task LoadProgramAsync() {
             Assert.Operation.Message( $"ProgramHandle {programHandle} must be null" ).Valid( programHandle == null );
-            programHandle = Addressables2.LoadSceneAsync( R.Project.Scenes.Program_Value, LoadSceneMode.Single, true );
+            programHandle = Addressables.LoadSceneAsync( R.Project.Scenes.Program_Value, LoadSceneMode.Single, true );
             var program = await programHandle.Value.GetResultAsync( default );
             SceneManager.SetActiveScene( program.Scene );
         }
         public static async Task LoadMainSceneAsync() {
             Assert.Operation.Message( $"MainSceneHandle {mainSceneHandle} must be null" ).Valid( mainSceneHandle == null );
-            mainSceneHandle = Addressables2.LoadSceneAsync( R.Project.Scenes.MainScene_Value, LoadSceneMode.Additive, false );
+            mainSceneHandle = Addressables.LoadSceneAsync( R.Project.Scenes.MainScene_Value, LoadSceneMode.Additive, false );
             var mainScene = await mainSceneHandle.Value.GetResultAsync( default );
             await mainScene.ActivateAsync();
             SceneManager.SetActiveScene( mainScene.Scene );
         }
         public static async Task LoadGameSceneAsync() {
             Assert.Operation.Message( $"GameSceneHandle {gameSceneHandle} must be null" ).Valid( gameSceneHandle == null );
-            gameSceneHandle = Addressables2.LoadSceneAsync( R.Project.Scenes.GameScene_Value, LoadSceneMode.Additive, false );
+            gameSceneHandle = Addressables.LoadSceneAsync( R.Project.Scenes.GameScene_Value, LoadSceneMode.Additive, false );
             var gameScene = await gameSceneHandle.Value.GetResultAsync( default );
             await gameScene.ActivateAsync();
             SceneManager.SetActiveScene( gameScene.Scene );
         }
         public static async Task LoadWorldSceneAsync(string key) {
             Assert.Operation.Message( $"WorldSceneHandle {worldSceneHandle} must be null" ).Valid( worldSceneHandle == null );
-            worldSceneHandle = Addressables2.LoadSceneAsync( key, LoadSceneMode.Additive, false );
+            worldSceneHandle = Addressables.LoadSceneAsync( key, LoadSceneMode.Additive, false );
             var worldScene = await worldSceneHandle.Value.GetResultAsync( default );
             await worldScene.ActivateAsync();
             SceneManager.SetActiveScene( worldScene.Scene );
@@ -55,19 +55,19 @@ namespace Project.UI {
         public static async Task UnloadMainSceneAsync() {
             Assert.Operation.Message( $"MainSceneHandle {mainSceneHandle} must be non-null" ).Valid( mainSceneHandle != null );
             Assert.Operation.Message( $"MainSceneHandle {mainSceneHandle} must be valid" ).Valid( mainSceneHandle.Value.IsValid() );
-            await Addressables2.UnloadSceneAsync( mainSceneHandle.Value ).WaitAsync( default );
+            await Addressables.UnloadSceneAsync( mainSceneHandle.Value ).WaitAsync( default );
             mainSceneHandle = null;
         }
         public static async Task UnloadGameSceneAsync() {
             Assert.Operation.Message( $"GameSceneHandle {gameSceneHandle} must be non-null" ).Valid( gameSceneHandle != null );
             Assert.Operation.Message( $"GameSceneHandle {gameSceneHandle} must be valid" ).Valid( gameSceneHandle.Value.IsValid() );
-            await Addressables2.UnloadSceneAsync( gameSceneHandle.Value ).WaitAsync( default );
+            await Addressables.UnloadSceneAsync( gameSceneHandle.Value ).WaitAsync( default );
             gameSceneHandle = null;
         }
         public static async Task UnloadWorldSceneAsync() {
             Assert.Operation.Message( $"WorldSceneHandle {worldSceneHandle} must be non-null" ).Valid( worldSceneHandle != null );
             Assert.Operation.Message( $"WorldSceneHandle {worldSceneHandle} must be valid" ).Valid( worldSceneHandle.Value.IsValid() );
-            await Addressables2.UnloadSceneAsync( worldSceneHandle.Value ).WaitAsync( default );
+            await Addressables.UnloadSceneAsync( worldSceneHandle.Value ).WaitAsync( default );
             worldSceneHandle = null;
         }
 
