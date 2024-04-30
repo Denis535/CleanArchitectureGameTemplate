@@ -4,7 +4,6 @@ namespace Project.UI.MainScreen {
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
     public class RoomWidget : UIWidgetBase<RoomWidgetView> {
@@ -12,11 +11,11 @@ namespace Project.UI.MainScreen {
         // Globals
         private UIFactory Factory { get; }
         // View
-        private IReadOnlyList<RoomWidgetView_PlayerView> Players => View.PlayersSlot.Views;
+        private IReadOnlyList<RoomWidgetView_PlayerView> Players => View.PlayersSlot.Children;
 
         // Constructor
         public RoomWidget() {
-            Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
+            Factory = Utils.Container.RequireDependency<UIFactory>( null );
             View = CreateView( this, Factory );
         }
         public override void Dispose() {
@@ -34,7 +33,7 @@ namespace Project.UI.MainScreen {
             var view = new RoomWidgetView( factory );
             view.Group.OnAttachToPanel( evt => {
                 for (var i = 0; i <= 60; i++) {
-                    var player = new RoomWidgetView_PlayerView( factory, $"Player: {view.PlayersSlot.Views.Count}", view.PlayersSlot.Views.Count );
+                    var player = new RoomWidgetView_PlayerView( factory, $"Player: {view.PlayersSlot.Children.Count}", view.PlayersSlot.Children.Count );
                     view.PlayersSlot.Add( player );
                 }
             } );

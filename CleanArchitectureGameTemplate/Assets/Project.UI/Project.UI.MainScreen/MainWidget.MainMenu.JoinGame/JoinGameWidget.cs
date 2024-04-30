@@ -6,7 +6,6 @@ namespace Project.UI.MainScreen {
     using System.Threading.Tasks;
     using Project.App;
     using UnityEngine;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
     public class JoinGameWidget : UIWidgetBase<JoinGameWidgetView> {
@@ -15,15 +14,15 @@ namespace Project.UI.MainScreen {
         private UIFactory Factory { get; }
         private UIRouter Router { get; }
         // Children
-        private GameDescWidget GameDesc => View.GameDescSlot.Widget!;
-        private PlayerDescWidget PlayerDesc => View.PlayerDescSlot.Widget!;
-        private RoomWidget Room => View.RoomSlot.Widget!;
-        private ChatWidget Chat => View.ChatSlot.Widget!;
+        private GameDescWidget GameDesc => View.GameDescSlot.Child!;
+        private PlayerDescWidget PlayerDesc => View.PlayerDescSlot.Child!;
+        private RoomWidget Room => View.RoomSlot.Child!;
+        private ChatWidget Chat => View.ChatSlot.Child!;
 
         // Constructor
         public JoinGameWidget() {
-            Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
-            Router = this.GetDependencyContainer().RequireDependency<UIRouter>( null );
+            Factory = Utils.Container.RequireDependency<UIFactory>( null );
+            Router = Utils.Container.RequireDependency<UIRouter>( null );
             View = CreateView( this, Factory, Router );
             this.AttachChild( new GameDescWidget() );
             this.AttachChild( new PlayerDescWidget() );
@@ -40,8 +39,8 @@ namespace Project.UI.MainScreen {
         public override void OnDetach(object? argument) {
         }
 
-        // ShowDescendantWidget
-        protected override void ShowDescendantWidget(UIWidgetBase widget) {
+        // ShowWidget
+        public override void ShowWidget(UIWidgetBase widget) {
             if (widget is GameDescWidget gameDescWidget) {
                 View.GameDescSlot.Set( gameDescWidget );
                 return;
@@ -58,9 +57,9 @@ namespace Project.UI.MainScreen {
                 View.ChatSlot.Set( chatWidget );
                 return;
             }
-            base.ShowDescendantWidget( widget );
+            base.ShowWidget( widget );
         }
-        protected override void HideDescendantWidget(UIWidgetBase widget) {
+        public override void HideWidget(UIWidgetBase widget) {
             if (widget is GameDescWidget gameDescWidget) {
                 View.GameDescSlot.Clear( gameDescWidget );
                 return;
@@ -77,7 +76,7 @@ namespace Project.UI.MainScreen {
                 View.ChatSlot.Clear( chatWidget );
                 return;
             }
-            base.HideDescendantWidget( widget );
+            base.HideWidget( widget );
         }
 
         // Helpers

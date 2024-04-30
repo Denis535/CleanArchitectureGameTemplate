@@ -7,7 +7,10 @@ namespace UnityEngine {
     using System.Threading.Tasks;
     using UnityEngine;
 
-    public static class UnityUtils {
+    public static class Utils {
+
+        // Container
+        public static IDependencyContainer Container { get; set; } = default!;
 
         // PlayAnimation
         public static async void PlayAnimation<T>(T @object, float from, float to, float duration, Action<T, float> onUpdate, Action<T>? onComplete, Action<T>? onCancel, CancellationToken cancellationToken) {

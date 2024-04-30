@@ -5,7 +5,6 @@ namespace Project.UI.Common {
     using System.Collections.Generic;
     using Project.App;
     using UnityEngine;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
     public class AudioSettingsWidget : UIWidgetBase<AudioSettingsWidgetView> {
@@ -16,8 +15,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public AudioSettingsWidget() {
-            Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
-            AudioSettings = this.GetDependencyContainer().RequireDependency<Storage.AudioSettings>( null );
+            Factory = Utils.Container.RequireDependency<UIFactory>( null );
+            AudioSettings = Utils.Container.RequireDependency<Storage.AudioSettings>( null );
             View = CreateView( this, Factory, AudioSettings );
         }
         public override void Dispose() {

@@ -8,7 +8,6 @@ namespace Project {
     using Unity.Services.Authentication;
     using UnityEngine;
     using UnityEngine.Audio;
-    using UnityEngine.Framework;
 
     public class DependencyContainer : MonoBehaviour, IDependencyContainer {
 
@@ -25,6 +24,7 @@ namespace Project {
         private UIFactory UIFactory => uiFactory;
         private UIRouter UIRouter => uiRouter;
         private Application2 Application => application;
+        // Values
         private AudioMixer AudioMixer => audioMixer;
         // Values
         private Storage Storage { get; set; } = default!;
@@ -36,7 +36,7 @@ namespace Project {
 
         // Awake
         public void Awake() {
-            IDependencyContainer.Instance = this;
+            Utils.Container = this;
             Storage = new Storage();
             ProfileSettings = new Storage.ProfileSettings();
             VideoSettings = new Storage.VideoSettings();
@@ -47,47 +47,47 @@ namespace Project {
         }
 
         // GetObject
-        object? IDependencyContainer.GetObject(Type type, object? argument) {
-            this.Check();
+        Option<object?> IDependencyContainer.GetValue(Type type, object? argument) {
+            this.Assert_IsValid();
             // UI
             if (type == typeof( UITheme )) {
-                return UITheme;
+                return (Option<object?>) UITheme;
             }
             if (type == typeof( UIScreen )) {
-                return UIScreen;
+                return (Option<object?>) UIScreen;
             }
             if (type == typeof( UIFactory )) {
-                return UIFactory;
+                return (Option<object?>) UIFactory;
             }
             if (type == typeof( UIRouter )) {
-                return UIRouter;
+                return (Option<object?>) UIRouter;
             }
             // App
             if (type == typeof( Application2 )) {
-                return Application;
+                return (Option<object?>) Application;
             }
             if (type == typeof( Camera )) {
-                return Camera.main;
+                return (Option<object?>) Camera.main;
             }
             if (type == typeof( Storage )) {
-                return Storage;
+                return (Option<object?>) Storage;
             }
             if (type == typeof( Storage.ProfileSettings )) {
-                return ProfileSettings;
+                return (Option<object?>) ProfileSettings;
             }
             if (type == typeof( Storage.VideoSettings )) {
-                return VideoSettings;
+                return (Option<object?>) VideoSettings;
             }
             if (type == typeof( Storage.AudioSettings )) {
-                return AudioSettings;
+                return (Option<object?>) AudioSettings;
             }
             if (type == typeof( Storage.Preferences )) {
-                return Preferences;
+                return (Option<object?>) Preferences;
             }
             if (type == typeof( IAuthenticationService )) {
-                return AuthenticationService;
+                return new Option<object?>( AuthenticationService );
             }
-            return null;
+            return default;
         }
 
     }

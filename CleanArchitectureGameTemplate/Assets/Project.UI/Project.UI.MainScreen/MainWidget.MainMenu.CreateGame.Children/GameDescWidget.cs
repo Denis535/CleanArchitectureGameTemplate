@@ -6,7 +6,6 @@ namespace Project.UI.MainScreen {
     using System.Linq;
     using Project.App;
     using UnityEngine;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
     public class GameDescWidget : UIWidgetBase<GameDescWidgetView> {
@@ -21,7 +20,7 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public GameDescWidget() {
-            Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
+            Factory = Utils.Container.RequireDependency<UIFactory>( null );
             View = CreateView( Factory );
         }
         public override void Dispose() {

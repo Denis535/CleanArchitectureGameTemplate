@@ -4,11 +4,9 @@ namespace Project.UI {
     using System.Collections;
     using System.Collections.Generic;
     using Project.App;
-    using Project.UI.Common;
     using Project.UI.GameScreen;
     using Project.UI.MainScreen;
     using UnityEngine;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
     public class UIScreen : UIScreenBase {
@@ -20,16 +18,16 @@ namespace Project.UI {
         public new UIRootWidget2? Widget => (UIRootWidget2?) base.Widget;
         // State
         public UIScreenState State => GetState( Router.State );
-        private ValueTracker2<UIScreenState, UIScreen> StateTracker { get; } = new ValueTracker2<UIScreenState, UIScreen>( i => i.State );
+        private ValueTracker<UIScreenState, UIScreen> StateTracker { get; } = new ValueTracker<UIScreenState, UIScreen>( i => i.State );
         public bool IsMainScreen => State == UIScreenState.MainScreen;
         public bool IsGameScreen => State == UIScreenState.GameScreen;
 
         // Awake
         public new void Awake() {
             base.Awake();
-            Router = this.GetDependencyContainer().RequireDependency<UIRouter>( null );
-            Application = this.GetDependencyContainer().RequireDependency<Application2>( null );
-            this.AttachWidget( new UIRootWidget2() );
+            Router = Utils.Container.RequireDependency<UIRouter>( null );
+            Application = Utils.Container.RequireDependency<Application2>( null );
+            AttachWidget( new UIRootWidget2() );
         }
         public new void OnDestroy() {
             Widget!.DetachSelf();
@@ -55,18 +53,18 @@ namespace Project.UI {
         }
 
         // AttachWidget
-        protected override void __AttachWidget__(UIWidgetBase widget, object? argument) {
-            base.__AttachWidget__( widget, argument );
-            AddVisualElement( Document, widget.__GetView__()!.__GetVisualElement__() );
+        public override void AttachWidget(UIWidgetBase widget, object? argument = null) {
+            base.AttachWidget( widget, argument );
+            AddView( Document, widget.View! );
         }
-        protected override void __DetachWidget__(UIWidgetBase widget, object? argument) {
+        public override void DetachWidget(UIWidgetBase widget, object? argument = null) {
             if (Document && Document.rootVisualElement != null) {
-                RemoveVisualElement( Document, widget.__GetView__()!.__GetVisualElement__()! );
+                RemoveView( Document, widget.View! );
             } else {
                 if (!Document) Debug.LogWarning( $"You are trying to detach '{widget}' widget but UIDocument is destroyed" );
                 if (Document.rootVisualElement == null) Debug.LogWarning( $"You are trying to detach '{widget}' widget but UIDocument's rootVisualElement is null" );
             }
-            base.__DetachWidget__( widget, argument );
+            base.DetachWidget( widget, argument );
         }
 
         // Helpers

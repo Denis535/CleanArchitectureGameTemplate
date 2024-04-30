@@ -4,7 +4,6 @@ namespace Project.UI.Common {
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
     public abstract class DialogWidgetBase<TView> : UIWidgetBase<TView>, IModalWidget where TView : DialogWidgetViewBase {
@@ -29,7 +28,7 @@ namespace Project.UI.Common {
 
         // Constructor
         public DialogWidgetBase(string? title, string? message) {
-            Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
+            Factory = Utils.Container.RequireDependency<UIFactory>( null );
             if (this is DialogWidget) {
                 View = (TView) (object) new DialogWidgetView( Factory );
             } else if (this is InfoDialogWidget) {

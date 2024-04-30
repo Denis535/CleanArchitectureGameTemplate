@@ -68,7 +68,7 @@ namespace Project.UI.Common {
         public void OnSubmit(UIFactory factory, string text, Action? callback) {
             var button = factory.Submit( text ).Name( "submit" );
             button.OnClick( evt => {
-                if (button.IsValid()) {
+                if (button.IsValidSelf()) {
                     callback?.Invoke();
                 }
             } );
@@ -77,7 +77,7 @@ namespace Project.UI.Common {
         public void OnCancel(UIFactory factory, string text, Action? callback) {
             var button = factory.Cancel( text ).Name( "cancel" );
             button.OnClick( evt => {
-                if (button.IsValid()) {
+                if (button.IsValidSelf()) {
                     callback?.Invoke();
                 }
             } );

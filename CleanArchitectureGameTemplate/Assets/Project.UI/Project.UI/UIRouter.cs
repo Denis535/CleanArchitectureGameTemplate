@@ -8,7 +8,6 @@ namespace Project.UI {
     using UnityEditor;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
     public class UIRouter : UIRouterBase {
@@ -72,7 +71,7 @@ namespace Project.UI {
         // Awake
         public new void Awake() {
             base.Awake();
-            Application = this.GetDependencyContainer().RequireDependency<Application2>( null );
+            Application = Utils.Container.RequireDependency<Application2>( null );
 #if !UNITY_EDITOR
             UnityEngine.Application.wantsToQuit += OnQuit;
 #endif

@@ -5,8 +5,6 @@ namespace Project.UI {
     using System.Collections.Generic;
     using System.Linq;
     using UnityEngine;
-    using UnityEngine.AddressableAssets;
-    using UnityEngine.ResourceManagement.AsyncOperations;
     using UnityEngine.UIElements;
     using UnityEngine.UIElements.Experimental;
 
@@ -312,23 +310,23 @@ namespace Project.UI {
         // Helpers
         private void PlayClick(MouseDownEvent evt) {
             var target = (VisualElement) evt.target;
-            PlaySound( target.IsValid() ? click : invalidClick, true );
+            PlaySound( target.IsValidSelf() ? click : invalidClick, true );
         }
         private void PlayClick(ClickEvent evt) {
             var target = (VisualElement) evt.target;
-            PlaySound( target.IsValid() ? click : invalidClick, true );
+            PlaySound( target.IsValidSelf() ? click : invalidClick, true );
         }
         private void PlaySelect(ClickEvent evt) {
             var target = (VisualElement) evt.target;
-            PlaySound( target.IsValid() ? selectClick : invalidClick, true );
+            PlaySound( target.IsValidSelf() ? selectClick : invalidClick, true );
         }
         private void PlaySubmit(ClickEvent evt) {
             var target = (VisualElement) evt.target;
-            PlaySound( target.IsValid() ? submitClick : invalidClick, true );
+            PlaySound( target.IsValidSelf() ? submitClick : invalidClick, true );
         }
         private void PlayCancel(ClickEvent evt) {
             var target = (VisualElement) evt.target;
-            PlaySound( target.IsValid() ? cancelClick : invalidClick, true );
+            PlaySound( target.IsValidSelf() ? cancelClick : invalidClick, true );
         }
         private void PlayChange(ChangeEvent<object?> evt) {
             if (evt.newValue != evt.previousValue) {

@@ -6,7 +6,6 @@ namespace Project.UI.MainScreen {
     using System.Linq;
     using Project.App;
     using UnityEngine;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
     public class PlayerDescWidget : UIWidgetBase<PlayerDescWidgetView> {
@@ -21,8 +20,8 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public PlayerDescWidget() {
-            Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
-            ProfileSettings = this.GetDependencyContainer().RequireDependency<Storage.ProfileSettings>( null );
+            Factory = Utils.Container.RequireDependency<UIFactory>( null );
+            ProfileSettings = Utils.Container.RequireDependency<Storage.ProfileSettings>( null );
             View = CreateView( Factory, ProfileSettings );
         }
         public override void Dispose() {

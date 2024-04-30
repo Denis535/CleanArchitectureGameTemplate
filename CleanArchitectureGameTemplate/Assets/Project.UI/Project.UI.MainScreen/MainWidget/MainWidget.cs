@@ -23,10 +23,10 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public MainWidget() {
-            Router = this.GetDependencyContainer().RequireDependency<UIRouter>( null );
-            Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
-            Application = this.GetDependencyContainer().RequireDependency<Application2>( null );
-            Globals = this.GetDependencyContainer().RequireDependency<Storage>( null );
+            Router = Utils.Container.RequireDependency<UIRouter>( null );
+            Factory = Utils.Container.RequireDependency<UIFactory>( null );
+            Application = Utils.Container.RequireDependency<Application2>( null );
+            Globals = Utils.Container.RequireDependency<Storage>( null );
             View = CreateView( this, Factory );
         }
         public override void Dispose() {
@@ -71,14 +71,14 @@ namespace Project.UI.MainScreen {
         public override void OnDetach(object? argument) {
         }
 
-        // ShowDescendantWidget
-        protected override void ShowDescendantWidget(UIWidgetBase widget) {
-            base.ShowDescendantWidget( widget );
-            View.SetEffect( ((UIRootWidget2) Parent!).Widgets.Count - 2 );
+        // ShowWidget
+        public override void ShowWidget(UIWidgetBase widget) {
+            base.ShowWidget( widget );
+            View.SetEffect( ((UIRootWidget2) Parent!).View.WidgetSlot.Children.Count - 2 );
         }
-        protected override void HideDescendantWidget(UIWidgetBase widget) {
-            base.HideDescendantWidget( widget );
-            View.SetEffect( ((UIRootWidget2) Parent!).Widgets.Count - 2 );
+        public override void HideWidget(UIWidgetBase widget) {
+            base.HideWidget( widget );
+            View.SetEffect( ((UIRootWidget2) Parent!).View.WidgetSlot.Children.Count - 2 );
         }
 
         // Update

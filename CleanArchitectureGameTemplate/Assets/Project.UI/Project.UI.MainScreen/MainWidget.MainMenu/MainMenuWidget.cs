@@ -5,7 +5,6 @@ namespace Project.UI.MainScreen {
     using System.Collections.Generic;
     using Project.UI.Common;
     using UnityEngine;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
     public class MainMenuWidget : UIWidgetBase<MainMenuWidgetView> {
@@ -16,8 +15,8 @@ namespace Project.UI.MainScreen {
 
         // Constructor
         public MainMenuWidget() {
-            Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
-            Router = this.GetDependencyContainer().RequireDependency<UIRouter>( null );
+            Factory = Utils.Container.RequireDependency<UIFactory>( null );
+            Router = Utils.Container.RequireDependency<UIRouter>( null );
             View = CreateView( this, Factory, Router );
         }
         public override void Dispose() {

@@ -3,9 +3,7 @@ namespace Project.UI.Common {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
     using UnityEngine;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
     using UnityEngine.UIElements;
 
@@ -14,13 +12,13 @@ namespace Project.UI.Common {
         // Globals
         private UIFactory Factory { get; }
         // Children
-        private ProfileSettingsWidget ProfileSettingsWidget => View.ProfileSettingsSlot.Widget!;
-        private VideoSettingsWidget VideoSettingsWidget => View.VideoSettingsSlot.Widget!;
-        private AudioSettingsWidget AudioSettingsWidget => View.AudioSettingsSlot.Widget!;
+        private ProfileSettingsWidget ProfileSettingsWidget => View.ProfileSettingsSlot.Child!;
+        private VideoSettingsWidget VideoSettingsWidget => View.VideoSettingsSlot.Child!;
+        private AudioSettingsWidget AudioSettingsWidget => View.AudioSettingsSlot.Child!;
 
         // Constructor
         public SettingsWidget() {
-            Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
+            Factory = Utils.Container.RequireDependency<UIFactory>( null );
             View = CreateView( this, Factory );
             this.AttachChild( new ProfileSettingsWidget() );
             this.AttachChild( new VideoSettingsWidget() );
@@ -36,8 +34,8 @@ namespace Project.UI.Common {
         public override void OnDetach(object? argument) {
         }
 
-        // ShowDescendantWidget
-        protected override void ShowDescendantWidget(UIWidgetBase widget) {
+        // ShowWidget
+        public override void ShowWidget(UIWidgetBase widget) {
             if (widget is ProfileSettingsWidget profileSettingsWidget) {
                 View.ProfileSettingsSlot.Set( profileSettingsWidget );
                 return;
@@ -50,9 +48,9 @@ namespace Project.UI.Common {
                 View.AudioSettingsSlot.Set( audioSettingsWidget );
                 return;
             }
-            base.ShowDescendantWidget( widget );
+            base.ShowWidget( widget );
         }
-        protected override void HideDescendantWidget(UIWidgetBase widget) {
+        public override void HideWidget(UIWidgetBase widget) {
             if (widget is ProfileSettingsWidget profileSettingsWidget) {
                 View.ProfileSettingsSlot.Clear( profileSettingsWidget );
                 return;
@@ -65,14 +63,14 @@ namespace Project.UI.Common {
                 View.AudioSettingsSlot.Clear( audioSettingsWidget );
                 return;
             }
-            base.HideDescendantWidget( widget );
+            base.HideWidget( widget );
         }
 
         // Helpers
         private static SettingsWidgetView CreateView(SettingsWidget widget, UIFactory factory) {
             var view = new SettingsWidgetView( factory );
             view.Widget.OnChangeAny( evt => {
-                view.Okey.SetValid( view.TabView.__GetVisualElement__().GetDescendants().All( i => i.IsValid() ) );
+                view.Okey.SetValid( view.TabView.__GetVisualElement__().IsContentValid() );
             } );
             view.Okey.OnClick( evt => {
                 if (view.Okey.IsValid()) {

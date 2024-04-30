@@ -7,9 +7,7 @@ namespace Project.UI {
     using Project.App;
     using UnityEngine;
     using UnityEngine.AddressableAssets;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
-    using UnityEngine.ResourceManagement.AsyncOperations;
 
     public class UITheme : UIAudioThemeBase {
 
@@ -27,15 +25,15 @@ namespace Project.UI {
         private AudioSource AudioSource { get; set; } = default!;
         // State
         public UIThemeState State => GetState( Router.State );
-        private ValueTracker2<UIThemeState, UITheme> StateTracker { get; } = new ValueTracker2<UIThemeState, UITheme>( i => i.State );
+        private ValueTracker<UIThemeState, UITheme> StateTracker { get; } = new ValueTracker<UIThemeState, UITheme>( i => i.State );
         public bool IsMainTheme => State == UIThemeState.MainTheme;
         public bool IsGameTheme => State == UIThemeState.GameTheme;
 
         // Awake
         public new void Awake() {
             base.Awake();
-            Router = this.GetDependencyContainer().RequireDependency<UIRouter>( null );
-            Application = this.GetDependencyContainer().RequireDependency<Application2>( null );
+            Router = Utils.Container.RequireDependency<UIRouter>( null );
+            Application = Utils.Container.RequireDependency<Application2>( null );
             AudioSource = gameObject.RequireComponentInChildren<AudioSource>();
         }
         public new void OnDestroy() {

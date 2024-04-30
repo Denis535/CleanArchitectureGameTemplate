@@ -5,7 +5,6 @@ namespace Project.UI.Common {
     using System.Collections.Generic;
     using Project.App;
     using UnityEngine;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
 
     public class ProfileSettingsWidget : UIWidgetBase<ProfileSettingsWidgetView> {
@@ -16,8 +15,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public ProfileSettingsWidget() {
-            Factory = Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
-            ProfileSettings = this.GetDependencyContainer().RequireDependency<Storage.ProfileSettings>( null );
+            Factory = Factory = Utils.Container.RequireDependency<UIFactory>( null );
+            ProfileSettings = Utils.Container.RequireDependency<Storage.ProfileSettings>( null );
             View = CreateView( this, Factory, ProfileSettings );
         }
         public override void Dispose() {

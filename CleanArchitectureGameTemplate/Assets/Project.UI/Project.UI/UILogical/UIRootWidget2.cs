@@ -27,49 +27,46 @@ namespace Project.UI {
         }
 
         // OnBeforeDescendantAttach
-        public override void OnBeforeDescendantAttach(UIWidgetBase descendant) {
-            base.OnBeforeDescendantAttach( descendant );
+        public override void OnBeforeDescendantAttach(UIWidgetBase descendant, object? argument) {
+            base.OnBeforeDescendantAttach( descendant, argument );
         }
-        public override void OnAfterDescendantAttach(UIWidgetBase descendant) {
-            base.OnAfterDescendantAttach( descendant );
+        public override void OnAfterDescendantAttach(UIWidgetBase descendant, object? argument) {
+            base.OnAfterDescendantAttach( descendant, argument );
         }
-        public override void OnBeforeDescendantDetach(UIWidgetBase descendant) {
-            base.OnBeforeDescendantDetach( descendant );
+        public override void OnBeforeDescendantDetach(UIWidgetBase descendant, object? argument) {
+            base.OnBeforeDescendantDetach( descendant, argument );
         }
-        public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
-            base.OnAfterDescendantDetach( descendant );
+        public override void OnAfterDescendantDetach(UIWidgetBase descendant, object? argument) {
+            base.OnAfterDescendantDetach( descendant, argument );
         }
 
         // AttachChild
-        protected override void __AttachChild__(UIWidgetBase child, object? argument) {
-            base.__AttachChild__( child, argument );
+        public override void AttachChild(UIWidgetBase child, object? argument = null) {
+            base.AttachChild( child, argument );
         }
-        protected override void __DetachChild__(UIWidgetBase child, object? argument) {
-            base.__DetachChild__( child, argument );
-        }
-
-        // ShowDescendantWidget
-        protected override void ShowDescendantWidget(UIWidgetBase widget) {
-            base.ShowDescendantWidget( widget );
-        }
-        protected override void HideDescendantWidget(UIWidgetBase widget) {
-            base.HideDescendantWidget( widget );
+        public override void DetachChild(UIWidgetBase child, object? argument = null) {
+            base.DetachChild( child, argument );
         }
 
-        // ShowDescendantWidget
-        protected override void ShowDescendantWidget(WidgetListSlotWrapper<UIWidgetBase> slot, UIWidgetBase widget) {
-            var covered = slot.Widgets.LastOrDefault();
-            if (covered != null && covered is not MainWidget and not GameWidget) {
-                slot.__GetVisualElement__().Remove( covered.__GetView__()!.__GetVisualElement__() );
+        // ShowWidget
+        public override void ShowWidget(UIWidgetBase widget) {
+            if (widget.IsViewable) {
+                if (widget.IsModal()) {
+                    View.WidgetSlot.SetEnabled( false );
+                    Push( View.ModalWidgetSlot, widget, i => i is not MainWidget and not GameWidget );
+                } else {
+                    Push( View.WidgetSlot, widget, i => true );
+                }
             }
-            slot.Add( widget );
         }
-        protected override void HideDescendantWidget(WidgetListSlotWrapper<UIWidgetBase> slot, UIWidgetBase widget) {
-            Assert.Operation.Message( $"Widget {widget} must be last" ).Valid( widget == slot.Widgets.LastOrDefault() );
-            slot.Remove( widget );
-            var uncovered = slot.Widgets.LastOrDefault();
-            if (uncovered != null && uncovered is not MainWidget and not GameWidget) {
-                slot.__GetVisualElement__().Add( uncovered.__GetView__()!.__GetVisualElement__() );
+        public override void HideWidget(UIWidgetBase widget) {
+            if (widget.IsViewable) {
+                if (widget.IsModal()) {
+                    Pop( View.ModalWidgetSlot, widget, i => i is not MainWidget and not GameWidget );
+                    View.WidgetSlot.SetEnabled( !View.ModalWidgetSlot.Children.Any() );
+                } else {
+                    Pop( View.WidgetSlot, widget, i => true );
+                }
             }
         }
 

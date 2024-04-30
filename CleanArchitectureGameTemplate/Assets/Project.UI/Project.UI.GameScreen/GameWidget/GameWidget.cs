@@ -5,7 +5,6 @@ namespace Project.UI.GameScreen {
     using System.Collections.Generic;
     using Project.App;
     using UnityEngine;
-    using UnityEngine.Framework;
     using UnityEngine.Framework.UI;
     using UnityEngine.InputSystem;
 
@@ -19,8 +18,8 @@ namespace Project.UI.GameScreen {
 
         // Constructor
         public GameWidget() {
-            Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
-            Application = this.GetDependencyContainer().RequireDependency<Application2>( null );
+            Factory = Utils.Container.RequireDependency<UIFactory>( null );
+            Application = Utils.Container.RequireDependency<Application2>( null );
             View = CreateView( this, Factory );
             Actions = new InputActions();
         }
@@ -38,41 +37,32 @@ namespace Project.UI.GameScreen {
         }
 
         // OnDescendantWidgetAttach
-        public override void OnBeforeDescendantAttach(UIWidgetBase descendant) {
-            base.OnBeforeDescendantAttach( descendant );
+        public override void OnBeforeDescendantAttach(UIWidgetBase descendant, object? argument) {
+            base.OnBeforeDescendantAttach( descendant, argument );
             if (descendant is GameMenuWidget) {
                 Application.Pause();
                 Actions.Disable();
             }
         }
-        public override void OnAfterDescendantAttach(UIWidgetBase descendant) {
-            base.OnAfterDescendantAttach( descendant );
+        public override void OnAfterDescendantAttach(UIWidgetBase descendant, object? argument) {
+            base.OnAfterDescendantAttach( descendant, argument );
         }
-        public override void OnBeforeDescendantDetach(UIWidgetBase descendant) {
-            base.OnBeforeDescendantDetach( descendant );
+        public override void OnBeforeDescendantDetach(UIWidgetBase descendant, object? argument) {
+            base.OnBeforeDescendantDetach( descendant, argument );
         }
-        public override void OnAfterDescendantDetach(UIWidgetBase descendant) {
+        public override void OnAfterDescendantDetach(UIWidgetBase descendant, object? argument) {
             if (IsAttached && descendant is GameMenuWidget) {
                 Actions.Enable();
                 Application.UnPause();
             }
-            base.OnAfterDescendantDetach( descendant );
+            base.OnAfterDescendantDetach( descendant, argument );
         }
 
         // Update
         public void Update() {
             if (Actions.UI.Cancel.WasPressedThisFrame()) {
-                this.AttachChild( new GameMenuWidget() );
+                AttachChild( new GameMenuWidget() );
             }
-            //if (Actions.Game.Move.WasPerformedThisFrame()) {
-            //    Debug.Log( "Move: " + Actions.Game.Move.ReadValue<Vector2>() );
-            //}
-            //if (Actions.Game.Look.WasPerformedThisFrame()) {
-            //    Debug.Log( "Look: " + Actions.Game.Move.ReadValue<Vector2>() );
-            //}
-            //if (Actions.Game.Fire.WasPerformedThisFrame()) {
-            //    Debug.Log( "Fire" );
-            //}
         }
 
         // Helpers

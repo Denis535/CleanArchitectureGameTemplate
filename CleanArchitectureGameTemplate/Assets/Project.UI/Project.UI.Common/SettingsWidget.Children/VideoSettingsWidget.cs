@@ -17,8 +17,8 @@ namespace Project.UI.Common {
 
         // Constructor
         public VideoSettingsWidget() {
-            Factory = this.GetDependencyContainer().RequireDependency<UIFactory>( null );
-            VideoSettings = this.GetDependencyContainer().RequireDependency<Storage.VideoSettings>( null );
+            Factory = Utils.Container.RequireDependency<UIFactory>( null );
+            VideoSettings = Utils.Container.RequireDependency<Storage.VideoSettings>( null );
             View = CreateView( this, Factory, VideoSettings );
         }
         public override void Dispose() {
